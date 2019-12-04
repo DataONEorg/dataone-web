@@ -1,3 +1,6 @@
+# Ignore the website build directory
+docs/
+
 # History files
 .Rhistory
 .Rapp.history
