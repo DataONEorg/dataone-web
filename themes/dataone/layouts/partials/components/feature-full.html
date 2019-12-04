@@ -1,0 +1,23 @@
+<div class="feature-full">
+  <div class="description">
+    <h3>{{ .headline }}</h3>
+    <p>{{ .text }}</p>
+    {{- with .details -}}
+    <div class="details">
+      {{- range . -}}
+        {{- if and .name .text -}}
+          <div>{{ .icon }}</div>
+          <div>
+            <p><em>{{ .name }} - </em>{{ .text }}</p>
+          </div>
+        {{- end -}}
+      {{- end -}}
+    </div>
+    {{- end -}}
+    {{- with .cta -}}
+      {{- partial "components/cta-button" . -}}
+    {{- end -}}
+  </div>
+  <figure>
+  </figure>
+</div>

@@ -1,0 +1,17 @@
+{{ $currentPage := . }}
+<header class="global-header">
+  <nav class="toplevel-nav">
+    <ul>
+      <li class="logo">
+        <a href="https://www.dataone.org/">
+          {{- partial "components/logo" . -}}
+        </a>
+      </li>
+      {{ range .Site.Menus.toplevel }}
+      <li>
+        <a class="{{if or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

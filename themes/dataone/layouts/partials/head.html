@@ -1,0 +1,8 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <base href="{{ .Site.BaseURL }}">
+    <title> {{ .Title }} | DataONE </title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="stylesheet" href="{{ `css/styles.css` | relURL }}" type="text/css" />
+</head>

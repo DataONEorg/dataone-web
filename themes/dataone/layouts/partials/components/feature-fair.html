@@ -1,0 +1,7 @@
+<section class="fair">
+  <h2>{{- .title -}}</h2>
+  <p>{{- .intro -}}</p>
+  {{- with .cta -}}
+    {{- partial "components/cta-button" . -}}
+  {{- end -}}
+</section>

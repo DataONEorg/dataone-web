@@ -1,0 +1,18 @@
+{{ $currentPage := . }}
+<footer class="global-footer">
+  <section class="site-map">
+    <ul>
+      {{ range .Site.Menus.footer }}
+      <li>
+        <a class="{{if or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  <section class="contact">
+    <h5>Get in touch</h5>
+    <a class="contact-link" href="{{ $.Site.Params.contactLink }}">Send a message</a>
+    
+  </section>
+  <p class="footer-fine-print">{{ $.Site.Params.footerText }}</p>
+</footer>
