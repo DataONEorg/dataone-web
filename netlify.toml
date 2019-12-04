@@ -1,4 +1,5 @@
 # Netlify configuration for web deployment
 
-HUGO_VERSION = "0.60.1"
+[build.environment]
+    HUGO_VERSION = "0.60.1"
 
