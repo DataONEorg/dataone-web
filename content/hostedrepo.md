@@ -19,7 +19,7 @@ ctacontact:
 # -- The three cards at the top of the page --
 topFeatures:
   - headline: Private and public access
-    text: Control access to your datasets prior to publication with private groups or just yourself
+    text: Control access to your datasets prior to publication with collaborative groups or just keep it private
     icon: ""
   - headline: Usage metrics
     text: Understand how your data are being used over time with view, download, and citation metrics
@@ -34,8 +34,8 @@ infrastructure:
   title: Focus on your research, leave your data infrastructure to us
   intro: Let the experts behind DataONE manage and preserve your data software and derived products with our robust software and hardware.
   features:
-    - headline: Open source software
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    - headline: Open source repository platform
+      text: DataONE hosted repositories represent stand-alone deployments of the open source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management web client. These repository platforms are trusted by many repositories, including the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org), among many others.
       figure:
       details:
       cta:
@@ -58,11 +58,11 @@ infrastructure:
       figure:
       details:
         - icon:
-          name: Detail1
-          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+          name: Preservation
+          text: All data and metadata are replicated to two geographically independent data centers in California and Tennessee.
         - icon:
-          name: Detail2
-          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+          name: High availability
+          text: Data replicas ensure that your data remain accessible through the DataONE network even through local catastropic events such as fires or floods.
       cta:
     - headline: Customization
       text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
