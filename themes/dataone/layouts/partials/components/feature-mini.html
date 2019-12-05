@@ -3,9 +3,9 @@
     {{ .icon }}
   </figure>
   <h3>
-    {{ .headline }}
+    {{ .headline | markdownify }}
   </h3>
   <p>
-    {{ .text }}
+    {{ .text | markdownify }}
   </p>
 </div>

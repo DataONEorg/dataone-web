@@ -1,8 +1,8 @@
 {{- define "main" -}}
   <header>
     <span class="pill">Coming 2020</span>
-    <h1 class="sectionTitle">{{ .Params.pageTitle }}</h1>
-    <p>{{ .Params.introText }}</p>
+    <h1 class="sectionTitle">{{ .Params.pageTitle | markdownify }}</h1>
+    <p>{{ .Params.introText | markdownify }}</p>
     <div class="cta-contianer">
       {{- with .Params.ctajoin -}}
         {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.RelPermalink "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
@@ -17,8 +17,8 @@
   {{- with .Params.portals -}}
   <section class="portals">
     <div>{{ .icon }}</div>
-    <h2>{{ .title }}</h2>
-    <p>{{ .intro }}</p>
+    <h2>{{ .title | markdownify }}</h2>
+    <p>{{ .intro | markdownify }}</p>
     <figure>{{ .figure }}</figure>
     {{- with .features }}
     <div class="features-minis-list">
@@ -41,8 +41,8 @@
   {{- with .Params.accessExperts -}}
   <section class="access-experts">
     <div>{{- .icon -}}</div>
-    <h2>{{- .title -}}</h2>
-    <p>{{- .intro -}}</p>
+    <h2>{{- .title | markdownify -}}</h2>
+    <p>{{- .intro | markdownify -}}</p>
     {{- with .features -}}
     <section class="feature-minis">
       {{- range . -}}
@@ -59,8 +59,8 @@
   {{- with .Params.hostedRepo -}}
   <section class="hosted-repo">
     <figure>{{- .figure -}}</figure>
-    <h2><span>{{- .titletop -}}</span> <em>{{- .titlebottom -}}</em></h2>
-    <p>{{- .intro -}}</p>
+    <h2><span>{{- .titletop | markdownify -}}</span> <em>{{- .titlebottom | markdownify -}}</em></h2>
+    <p>{{- .intro | markdownify -}}</p>
     {{- with .cta -}}
       {{- partial "components/cta-button" . -}}
     {{- end -}}

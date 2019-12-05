@@ -1,14 +1,14 @@
 <div class="feature-full">
   <div class="description">
-    <h3>{{ .headline }}</h3>
-    <p>{{ .text }}</p>
+    <h3>{{ .headline | markdownify }}</h3>
+    <p>{{ .text | markdownify }}</p>
     {{- with .details -}}
     <div class="details">
       {{- range . -}}
         {{- if and .name .text -}}
           <div>{{ .icon }}</div>
           <div>
-            <p><em>{{ .name }} - </em>{{ .text }}</p>
+            <p><em>{{ .name | markdownify }} - </em>{{ .text | markdownify }}</p>
           </div>
         {{- end -}}
       {{- end -}}

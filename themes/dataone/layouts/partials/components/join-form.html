@@ -1,6 +1,6 @@
 <section id = "{{ .id }}">
-  <h5>{{- .title -}}</h5>
-  <p>{{- .text -}}</p>
+  <h5>{{- .title | markdownify -}}</h5>
+  <p>{{- .text | markdownify -}}</p>
 
   <!--
     === Hosted repository waitlist & notification sign up form ===
