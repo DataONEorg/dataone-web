@@ -5,7 +5,7 @@
     <p>{{ .Params.introText }}</p>
     <div class="cta-contianer">
       {{- with .Params.ctajoin -}}
-        {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.URL "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
+        {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.RelPermalink "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
       {{- end -}}
       {{- with .Params.ctacontact -}}
         {{- partial "components/cta-button" (dict "level" "primary" "ctalink" $.Site.Params.contactLink "ctatext" .ctatext) -}}
@@ -69,7 +69,7 @@
 
   <!-- JOIN form -->
   {{- with .Params.joinForm -}}
-    {{- partial "components/join-form" (dict "id" $.Site.Params.joinFormId "title" .title "text" .text) -}}
+    {{- partial "components/join-form" (dict "id" $.Site.Params.joinFormId "title" .title "text" .text "pageType" $.Page.Type) -}}
   {{- end -}}
 
 {{- end -}}
