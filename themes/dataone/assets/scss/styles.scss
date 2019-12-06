@@ -1,39 +1,125 @@
-/* make HTML5 semantic elements behave like <div> elements in legacy browsers. */
-section, article, aside, footer, header, nav {
-  display: block;
-}
 
-figure {
-  margin: 0;
-}
+// CSS TODO:
+// 1) fixes for old IE & css-grid
+// 2) make HTML5 semantic elements behave like <div> elements in legacy browsers. */
+// section, article, aside, footer, header, nav {
+//   display: block;
+// }
+// 3) css optimizer
 
+// ==== the one global reset === /
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
+// ==== vars ====
 
+// max width of desktop content
 $content-width: 1040px;
 
+// gap between grid cells
 $grid-gap: 26px;
 
-$section-spacing: 60px;
+// spacing between blocks
+$inter-section-spacing: 60px;
 
+// spacing between blocks
+$intra-section-spacing: 30px;
+
+// padding on left and right for smaller screens
+$mobile-lr-padding: 15px;
+
+// screen width at which to switch from mobile view to desktop view
+$breakpoint: 640px;
+
+// font vars
 $h1fontsize: 42px;
 
-$breakpoint: 640px;
+
+
+
+// ==== mixins ====
+
+// rules for larger (desktop) screens
 @mixin desktop {
-  @media (min-width: $breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
     @content;
   }
 }
 
+// rules for users who prefer prefers-reduced-motion
+@mixin low-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
+
+// make element centered and no larger than the max width for desktop content
 @mixin limit-width {
   max-width: $content-width;
   margin-left: auto;
   margin-right: auto;
+}
+
+// add padding on the left and right for full width elements on smaller screens
+@mixin mobile-lr-padding {
+  padding-left: $mobile-lr-padding;
+  padding-right: $mobile-lr-padding;
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// add padding to the left and right when screen is smaller than the max content width
+@mixin medium-lr-padding {
+  padding-left: $mobile-lr-padding;
+  padding-right: $mobile-lr-padding;
+  @media only screen and (min-width: calc($content-width - (2 * $mobile-lr-padding))) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// center an svg
+@mixin center-svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+// ==== PAGE ====
+
+.page {
+  margin: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3;
+  @include low-motion;
+}
+
+// ==== ARTICLE ====
+
+.article{
+  display: grid;
+}
+
+// ==== ICONS ====
+
+.icon {
+  margin: 0;
+  svg{
+    display: block;
+  }
 }
 
 .icon--sm {
@@ -49,17 +135,21 @@ $breakpoint: 640px;
   height: 45px;
 }
 
+// ==== HEADER ====
+
 .header {
   
-  margin-bottom: $section-spacing;
+  margin-top: $inter-section-spacing;
+  margin-bottom: $inter-section-spacing;
   
   &__content {
-    
+
     @include limit-width;
-    display: grid;
-    grid-template-rows: .45fr .55fr;
+    display: flex;
+    flex-direction: column;
     
     @include desktop {
+      display: grid;
       grid-template-columns: .45fr .55fr;
       grid-template-rows: auto;
       grid-gap: 0 $grid-gap;
@@ -68,7 +158,13 @@ $breakpoint: 640px;
   }
   
   &__text {
-    
+    text-align: center;
+    min-height: fit-content;
+    padding-bottom: $inter-section-spacing;
+    @include medium-lr-padding;
+    @include desktop{
+      text-align: left;
+    }
   }
   
   &__title {
@@ -81,41 +177,68 @@ $breakpoint: 640px;
   
   &__figure {
     
+    margin:0;
+    width: 100%;
+    
     svg {
-      max-width: 570px;
+      width: 100%;
+      @include center-svg;
     }
     
   }
   
 }
 
-.article{
-  display: grid;
+// ==== BACKGROUNDS ====
+// backgrounds behind some sections
+
+.background {
+  padding: 90px 0 30px 0;
+  margin-bottom: $inter-section-spacing;
 }
+
+.background--metrics {
+  background-color: #dbdbdb;
+}
+
+// ==== SECTION ====
 
 .section{
 
   display: grid;
   justify-self: center;
   @include limit-width;
-  margin-bottom: $section-spacing;
+  margin-bottom: $inter-section-spacing;
+  padding-top: $intra-section-spacing;
   
-  .icon--lg{
+  &__icon{
     justify-self: center;
   }
   
   &__title{
     width: 100%;
     text-align: center;
+    @include medium-lr-padding;
   }
   
   &__intro{
     text-align: center;
+    @include medium-lr-padding;
+    padding-bottom: $intra-section-spacing;
+  }
+  
+  &__button{
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
 
+// ==== FEATURE LIST  ====
+// image on left, list of features on right
+
 .feature-list {
+  
   display: grid;
   @include desktop {
     grid-template-columns: .45fr .55fr;
@@ -125,6 +248,8 @@ $breakpoint: 640px;
   
   &__figure{
     display: grid;
+    background-color: yellow;
+    margin: 0;
     svg {
       max-width: 300px;
       height: auto;
@@ -142,16 +267,62 @@ $breakpoint: 640px;
       }
     }
   }
-    
+  
+  &__list{
+    @include mobile-lr-padding;
+  }
 }
 
-.mini-features {
+// === FULL FEATURE === //
+// a sub-section with details about some feature, including a figure,
+// CTA buttons, figures, detail lists, etc.
+.full-feature {
   
+  padding-top: $intra-section-spacing;
+  display: block;
+  flex-direction: column;
+  
+  @include medium-lr-padding;
+  
+  @include desktop {
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0 $grid-gap;
+  }
+
+  
+  &__figure {
+    
+    svg{
+      @include center-svg;
+      height: 100%;
+      max-height: 250px;
+    }
+  }
+  
+  &__description{
+    
+    padding-top: 0;
+    padding-bottom: $intra-section-spacing;
+    @include mobile-lr-padding;
+    
+  }
+  
+  
+  
+}
+
+
+// === MINI FEATURES CONTAINER === //
+// Three sections, each with quick details of some feature
+
+.mini-features {
   display: grid;
   grid-template-rows: repeat(3,auto);
   grid-gap: $grid-gap 0;
   @include limit-width;
-  
+  @include medium-lr-padding;
   @include desktop {
     grid-gap: 0 $grid-gap;
     grid-template-columns: repeat(3,1fr);
@@ -159,6 +330,9 @@ $breakpoint: 640px;
 	}
   
 }
+
+// === MINI FEATURE === //
+// Brief description of a feature with a medium icon and title
 
 .mini-feature {
 
@@ -176,12 +350,29 @@ $breakpoint: 640px;
   }
   
 }
+
+// === DETAIL === //
+// Less than a mini feature - just a small icon and some text, no title
+
+.detail {
   
-.background--metrics{
-  background-color: #dbdbdb;
-  padding: 90px 0 30px 0;
-  margin-bottom: $section-spacing;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  
+  &__icon{
+    
+  }
+  
+  &__paragraph {
+    
+  }
+  
 }
+
+
+// ==== TEMP ====
+
 
 // temporary background fills to view layout better
 .global-footer,
@@ -190,4 +381,13 @@ $breakpoint: 640px;
   background-color: #ececeb;
   padding: 1rem;
   margin: 0;
+}
+
+.button{
+  background-color: #9b9b9b;
+  color: white;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 1px;
+  display: block;
 }

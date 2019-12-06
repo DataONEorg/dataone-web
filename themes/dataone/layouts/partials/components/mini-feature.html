@@ -1,5 +1,5 @@
-<div class="mini-feature{{- with .type}}--{{ . }}{{- end -}}">
-  <figure class="icon--med">
+<div class="mini-feature{{ with .type }} mini-feature--{{ . }}{{- end -}}">
+  <figure class="mini-feature__icon icon icon--med">
     {{- with .icon -}}{{- partial . -}}{{- end -}}
   </figure>
   <div>

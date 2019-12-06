@@ -1,0 +1,24 @@
+<div class="full-feature">
+  <div class="full-feature__description">
+    <h3 class="full-feature__title">{{ .headline | markdownify }}</h3>
+    <p class="full-feature__intro">{{ .text | markdownify }}</p>
+    {{- with .details -}}
+    <div class="full-feature__details">
+      {{- range . -}}
+        {{- if and .name .text -}}
+        <div class="detail">
+          <figure class="detail__icon icon icon--sm">{{- with .icon -}}{{- partial . -}}{{- end -}}</figure>
+          <p class="detail__paragraph"><em class="detail__emphasis">{{ .name | markdownify }} - </em>{{ .text | markdownify }}</p>
+        </div>
+        {{- end -}}
+      {{- end -}}
+    </div>
+    {{- end -}}
+    {{- with .cta -}}
+      {{- partial "components/cta-button" . -}}
+    {{- end -}}
+  </div>
+  <figure class="full-feature__figure">
+    {{- with .figure }}{{- partial . -}}{{- end -}}
+  </figure>
+</div>

@@ -16,13 +16,13 @@
   <!-- infrastructure section -->
   {{- with .Params.infrastructure -}}
   <section class="section">
-    <div class="icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
     <h2 class="section__title">{{- .title | markdownify  -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
     {{- range . -}}
       {{- if and .headline .text -}}
-        {{- partial "components/feature-full" . -}}
+        {{- partial "components/full-feature" . -}}
       {{- end -}}
     {{- end -}}
     {{- end -}}
@@ -31,19 +31,19 @@
   
   <!-- FAIR section -->
   {{- with .Params.fair -}}
-    {{- partial "components/feature-fair" . -}}
+    {{- partial "components/fair-section" . -}}
   {{- end -}}
 
   <!-- Users & Developers section -->
   {{- with .Params.usersDevs -}}
   <section class="section users-devs">
-    <div class="icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
     <h2 class="section__title">{{- .title | markdownify -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
       {{- range . -}}
         {{- if and .headline .text -}}
-          {{- partial "components/feature-full" . -}}
+          {{- partial "components/full-feature" . -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

@@ -1,1 +1,1 @@
-<a class="cta-button {{ .level }}" href="{{ .ctalink }}">{{ .ctatext }}</a>
+<a class="button button--{{ .level }}{{ with .class }} {{ . }}{{ end }}" href="{{ .ctalink }}">{{ .ctatext }}</a>
