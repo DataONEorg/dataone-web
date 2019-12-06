@@ -1,0 +1,13 @@
+<div class="mini-feature{{- with .type}}--{{ . }}{{- end -}}">
+  <figure class="icon--med">
+    {{- with .icon -}}{{- partial . -}}{{- end -}}
+  </figure>
+  <div>
+    <h3 class="mini-feature__title">
+      {{ .headline | markdownify }}
+    </h3>
+    <p class="mini-feature__paragraph">
+      {{ .text | markdownify }}
+    </p>
+  </div>
+</div>

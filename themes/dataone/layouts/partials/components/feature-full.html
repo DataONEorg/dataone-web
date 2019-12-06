@@ -6,7 +6,7 @@
     <div class="details">
       {{- range . -}}
         {{- if and .name .text -}}
-          <div>{{ .icon }}</div>
+          <figure class="icon--sm">{{- with .icon -}}{{- partial . -}}{{- end -}}</figure>
           <div>
             <p><em>{{ .name | markdownify }} - </em>{{ .text | markdownify }}</p>
           </div>

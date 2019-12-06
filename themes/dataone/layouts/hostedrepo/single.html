@@ -1,24 +1,13 @@
 {{- define "main" -}}
-  <header>
-    <span class="pill">Coming 2020</span>
-    <h1 class="sectionTitle">{{ .Params.pageTitle | markdownify }}</h1>
-    <p>{{ .Params.introText | markdownify }}</p>
-    <div class="cta-contianer">
-      {{- with .Params.ctajoin -}}
-        {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.RelPermalink "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
-      {{end}}
-      {{- with .Params.ctacontact -}}
-        {{- partial "components/cta-button" (dict "level" "primary" "ctalink" $.Site.Params.contactLink "ctatext" .ctatext) -}}
-      {{end}}
-    </div>
-  </header>
+
+  {{- partial "components/page-header" . -}}
 
   <!-- 3 features at top of page -->
   {{- with .Params.topFeatures -}}
-  <section class="feature-minis">
+  <section class="section mini-features">
     {{- range . -}}
       {{- if and .headline .text -}}
-        {{- partial "components/feature-mini" . -}}
+        {{- partial "components/mini-feature" . -}}
       {{- end -}}
     {{- end -}}
   </section>
@@ -26,10 +15,10 @@
   
   <!-- infrastructure section -->
   {{- with .Params.infrastructure -}}
-  <section class="infrastructure">
-    <div>{{- .icon -}}</div>
-    <h2>{{- .title | markdownify  -}}</h2>
-    <p>{{- .intro | markdownify -}}</p>
+  <section class="section">
+    <div class="icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <h2 class="section__title">{{- .title | markdownify  -}}</h2>
+    <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
     {{- range . -}}
       {{- if and .headline .text -}}
@@ -47,10 +36,10 @@
 
   <!-- Users & Developers section -->
   {{- with .Params.usersDevs -}}
-  <section class="users-devs">
-    <div>{{- .icon -}}</div>
-    <h2>{{- .title | markdownify -}}</h2>
-    <p>{{- .intro | markdownify -}}</p>
+  <section class="section users-devs">
+    <div class="icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <h2 class="section__title">{{- .title | markdownify -}}</h2>
+    <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
       {{- range . -}}
         {{- if and .headline .text -}}
@@ -59,10 +48,10 @@
       {{- end -}}
     {{- end -}}
     {{- with .morefeatures -}}
-    <section class="feature-minis">
+    <section class="mini-features">
       {{- range . -}}
         {{- if and .headline .text -}}
-          {{- partial "components/feature-mini" . -}}
+          {{- partial "components/mini-feature" . -}}
         {{- end -}}
       {{- end -}}
     </section>
@@ -72,8 +61,8 @@
   
   <!-- DataONE Plus section -->
   {{- with .Params.dataonePlus -}}
-  <section class="dataone-plus">
-    <h2>{{- .title | markdownify -}}</h2>
+  <section class="section dataone-plus">
+    <h2 class="section__title">{{- .title | markdownify -}}</h2>
     {{- with .features -}}
     <ul class="features-list">
       {{- range . -}}

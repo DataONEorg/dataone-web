@@ -4,5 +4,7 @@
     <base href="{{ .Site.BaseURL }}">
     <title> {{ .Title }} | DataONE </title>
     <link rel="canonical" href="{{ .Permalink }}">
-    <link rel="stylesheet" href="{{ `css/styles.css` | relURL }}" type="text/css" />
+    {{ $scss := resources.Get "scss/styles.scss" }}
+    {{ $style := $scss | resources.ToCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
 </head>
