@@ -1,15 +1,15 @@
 {{ $currentPage := . }}
 <header class="global-header">
-  <nav class="toplevel-nav">
-    <ul>
-      <li class="logo">
-        <a href="https://www.dataone.org/">
+  <nav>
+    <ul class="toplevel-nav">
+      <li class="toplevel-nav__logo">
+        <a class="logo" href="https://www.dataone.org/">
           {{- partial "components/logo" . -}}
         </a>
       </li>
       {{ range .Site.Menus.toplevel }}
-      <li>
-        <a class="{{if or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+      <li class="toplevel-nav__item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__item--active{{end}}">
+        <a class="toplevel-nav__link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
       </li>
       {{ end }}
     </ul>

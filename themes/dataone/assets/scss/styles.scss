@@ -7,7 +7,7 @@
 // }
 // 3) css optimizer
 
-// ==== the one global reset === /
+// ==== just one global reset === /
 * {
   box-sizing: border-box;
 }
@@ -18,24 +18,22 @@
 $content-width: 1040px;
 
 // gap between grid cells
-$grid-gap: 26px;
+$grid-gap: 1.8rem;
 
 // spacing between blocks
-$inter-section-spacing: 60px;
+$intra-section-spacing: 1.8rem;
 
 // spacing between blocks
-$intra-section-spacing: 30px;
+$inter-section-spacing: 3rem;
 
 // padding on left and right for smaller screens
-$mobile-lr-padding: 15px;
+$mobile-lr-padding: 0.8rem;
 
 // screen width at which to switch from mobile view to desktop view
 $breakpoint: 640px;
 
 // font vars
 $h1fontsize: 42px;
-
-
 
 
 // ==== mixins ====
@@ -47,7 +45,7 @@ $h1fontsize: 42px;
   }
 }
 
-// rules for users who prefer prefers-reduced-motion
+// rules for users who prefer less animation
 @mixin low-motion {
   @media (prefers-reduced-motion: reduce) {
     animation-duration: 0.01ms;
@@ -92,7 +90,121 @@ $h1fontsize: 42px;
 }
 
 
+// ==== NAVIGATION BAR === 
 
+.global-header {
+  background-color: #ececeb;
+  width: 100%;
+  padding: 1rem;
+  margin: 0;
+}
+
+.toplevel-nav {
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 15px 15px;
+  grid-template-areas: "logo logo" ". .";
+  @include limit-width;
+  
+  @include desktop {
+    grid-template-columns: minmax(143px, 2.5fr) minmax(130px, 1fr) minmax(130px, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "logo . .";
+  }
+  
+  &__logo{
+    grid-area: logo;
+    justify-self: center;
+    
+    @include desktop {
+      justify-self: left;
+    }
+  }
+  
+  &__item{
+    justify-self: center;
+    align-self: center;
+    padding: 5px;
+  }
+  
+  &__link{
+    color: black;
+    white-space: nowrap;
+  }
+  
+  &__item--active{
+    font-weight: bold;
+  }
+}
+
+.logo{
+  svg{
+    display: block;
+  }
+}
+
+// ==== FOOTER === 
+
+.global-footer {
+  
+  background-color: #ececeb;
+  padding: 1rem;
+  margin: 0;
+                        
+  &__content{
+    @include limit-width;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 0.1fr 0.1fr;
+    grid-gap: 15px 0;
+    grid-template-areas:  "sitemap"
+                          "contact"
+                          "logo"
+                          "fineprint";
+                          
+    @include desktop{
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 0.1fr 0.1fr 0.4fr 0.4fr;
+      grid-gap: 15px 15px;
+      grid-template-areas:  "sitemap logo"
+                            "sitemap ."
+                            "contact contact"
+                            "fineprint fineprint";
+    }
+  }
+                        
+  &__logo{
+    grid-area: logo;
+    justify-self: center;
+  }
+  
+  &__site-map{
+    list-style-type: none;
+    grid-area: sitemap;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &__site-map-item{
+    
+  }
+  
+  &__site-map-link{
+    color: black;
+  }
+  
+  &__contact{
+    grid-area: contact;
+  }
+  
+  &__fine-print{
+    grid-area: fineprint;
+  }
+}
 
 // ==== PAGE ====
 
@@ -205,11 +317,13 @@ $h1fontsize: 42px;
 
 .section{
 
+  width: 100%;
   display: grid;
   justify-self: center;
   @include limit-width;
   margin-bottom: $inter-section-spacing;
   padding-top: $intra-section-spacing;
+  padding-bottom: $intra-section-spacing;
   
   &__icon{
     justify-self: center;
@@ -248,7 +362,6 @@ $h1fontsize: 42px;
   
   &__figure{
     display: grid;
-    background-color: yellow;
     margin: 0;
     svg {
       max-width: 300px;
@@ -279,7 +392,8 @@ $h1fontsize: 42px;
 .full-feature {
   
   padding-top: $intra-section-spacing;
-  display: block;
+  padding-bottom: $intra-section-spacing;
+  display: flex;
   flex-direction: column;
   
   @include medium-lr-padding;
@@ -290,29 +404,67 @@ $h1fontsize: 42px;
     grid-template-rows: 1fr;
     grid-gap: 0 $grid-gap;
   }
-
   
   &__figure {
+    
+    margin: 0;
+    display: flex;
     
     svg{
       @include center-svg;
       height: 100%;
+      min-height: 200px;
       max-height: 250px;
+      margin-top: auto;
+      margin-bottom: auto;
     }
   }
   
   &__description{
-    
+
     padding-top: 0;
     padding-bottom: $intra-section-spacing;
-    @include mobile-lr-padding;
     
   }
   
+  &--figleft{
+    
+    @include desktop {
+      .full-feature__figure {
+        order: 1;
+      }
+      .full-feature__description{
+        order: 2;  
+      }
+    }
+  }
   
-  
+  &--figtop{
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+    }
+    .full-feature__figure {
+      order: 1;
+    }
+    .full-feature__description{
+      order: 2;  
+    }
+
+  }
+
 }
 
+// Container for two full features
+.two-full-features {
+  @include desktop {
+    @include limit-width;
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0 $grid-gap;
+  }
+}
 
 // === MINI FEATURES CONTAINER === //
 // Three sections, each with quick details of some feature
@@ -370,18 +522,73 @@ $h1fontsize: 42px;
   
 }
 
+// CHECKLIST
+// A simple checklist
+.checklist{
+  
+  padding: $intra-section-spacing $mobile-lr-padding $intra-section-spacing $mobile-lr-padding;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-gap: 1rem;
+  
+  &__item{
+    display: block;
+  }
+  
+  &__checkmark{
+    margin-right: 10px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+  }
+  
+}
+
+// MAILER LITE SIGN UP FORM
+// Use the built in classes in case we need to change this form in the full-feature
+.section--waitlist-signup{
+}
+
+// the outer div containing the form
+.ml-subscribe-form{
+  @include medium-lr-padding;
+}
+
+// the email field
+.form-control{
+  background-color: #ececeb;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 1px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+// the button
+.ml-subscribe-form .primary{
+  border: none;
+  background-color: red;
+  padding: 10px;
+  border-radius: 1px;
+  background-color: #9b9b9b;
+  color: white;
+}
+
+// the group of checkboxes
+.ml-block-groups {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label-description {
+  display: inline-block;
+}
+
 
 // ==== TEMP ====
-
-
-// temporary background fills to view layout better
-.global-footer,
-.global-header,
-{
-  background-color: #ececeb;
-  padding: 1rem;
-  margin: 0;
-}
 
 .button{
   background-color: #9b9b9b;

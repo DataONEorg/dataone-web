@@ -20,11 +20,21 @@
     <h2 class="section__title">{{- .title | markdownify  -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
-    {{- range . -}}
-      {{- if and .headline .text -}}
-        {{- partial "components/full-feature" . -}}
+      
+      {{- range $index, $element := . -}}
+        {{- if and .headline .text -}}
+        
+          <!-- put the figure on the left for every other feature -->
+          {{if not (modBool $index 2) }}
+            {{ $new_class := dict "class" "figleft" }}
+            {{ $new_params := merge . $new_class }}
+            {{- partial "components/full-feature" $new_params -}}
+          {{ else }}
+            {{- partial "components/full-feature" . -}}
+          {{end}}
+
+        {{- end -}}
       {{- end -}}
-    {{- end -}}
     {{- end -}}
   </section>
   {{- end -}}
@@ -40,13 +50,18 @@
     <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
     <h2 class="section__title">{{- .title | markdownify -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
-    {{- with .features -}}
-      {{- range . -}}
-        {{- if and .headline .text -}}
-          {{- partial "components/full-feature" . -}}
+    <div class="two-full-features">
+      {{- with .features -}}
+        {{- range $index, $element := . -}}
+          {{- if and .headline .text -}}
+            {{ $new_class := dict "class" "figtop" }}
+            {{ $new_params := merge . $new_class }}
+            {{- partial "components/full-feature" $new_params -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
-    {{- end -}}
+    </div>
+    
     {{- with .morefeatures -}}
     <section class="mini-features">
       {{- range . -}}
@@ -64,14 +79,14 @@
   <section class="section dataone-plus">
     <h2 class="section__title">{{- .title | markdownify -}}</h2>
     {{- with .features -}}
-    <ul class="features-list">
+    <ul class="checklist">
       {{- range . -}}
-      <li>{{ . }}</li>
+      <li class="checklist__item"><div class="checklist__checkmark">{{- partial "components/checkmark" -}}</div>{{ . }}</li>
       {{- end -}}
     </ul>
     {{- end -}}
     {{- with .cta -}}
-      {{- partial "components/cta-button" . -}}
+      {{- partial "components/cta-button" (dict "ctalink" .ctalink "level" .level "ctatext" .ctatext "class" "section__button") -}}
     {{- end -}}
   </section>
   {{- end -}}

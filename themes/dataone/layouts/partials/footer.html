@@ -1,18 +1,20 @@
 {{ $currentPage := . }}
 <footer class="global-footer">
-  <section class="site-map">
-    <ul>
+  <div class="global-footer__content">
+    <a class="global-footer__logo logo" href="https://www.dataone.org/">
+      {{- partial "components/logo" . -}}
+    </a>
+    <ul class="global-footer__site-map">
       {{ range .Site.Menus.footer }}
-      <li>
-        <a class="{{if or ($currentPage.IsMenuCurrent `main` .) ($currentPage.HasMenuCurrent `main` .) }}active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
-      </li>
+        <li class="global-footer__site-map-item">
+          <a class="global-footer__site-map-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+        </li>
       {{ end }}
     </ul>
-  </section>
-  <section class="contact">
-    <h5>Get in touch</h5>
-    <a class="contact-link" href="{{ $.Site.Params.contactLink }}">Send a message</a>
-    
-  </section>
-  <p class="footer-fine-print">{{ $.Site.Params.footerText }}</p>
+    <section class="global-footer__contact">
+      <h4>Get in touch</h4>
+      <a href="{{ $.Site.Params.contactLink }}">Send a message</a>
+    </section>
+    <p class="global-footer__fine-print">{{ $.Site.Params.footerText }}</p>
+  </div>
 </footer>
