@@ -1,99 +1,135 @@
-
-// CSS TODO:
-// 1) fixes for old IE & css-grid
-// 2) make HTML5 semantic elements behave like <div> elements in legacy browsers. */
-// section, article, aside, footer, header, nav {
-//   display: block;
-// }
-// 3) css optimizer
+@import "definitions.scss";
 
 // ==== just one global reset === /
 * {
   box-sizing: border-box;
 }
 
-// ==== vars ====
+// ==============================
+//    SMALL COMPONENTS
+// ==============================
 
-// max width of desktop content
-$content-width: 1040px;
+// ==== ICONS ====
 
-// gap between grid cells
-$grid-gap: 1.8rem;
-
-// spacing between blocks
-$intra-section-spacing: 1.8rem;
-
-// spacing between blocks
-$inter-section-spacing: 3rem;
-
-// padding on left and right for smaller screens
-$mobile-lr-padding: 0.8rem;
-
-// screen width at which to switch from mobile view to desktop view
-$breakpoint: 640px;
-
-// font vars
-$h1fontsize: 42px;
-
-
-// ==== mixins ====
-
-// rules for larger (desktop) screens
-@mixin desktop {
-  @media only screen and (min-width: $breakpoint) {
-    @content;
+.icon {
+  margin: 0;
+  svg{
+    display: block;
   }
 }
 
-// rules for users who prefer less animation
-@mixin low-motion {
-  @media (prefers-reduced-motion: reduce) {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    transition-duration: 0.01ms;
-    scroll-behavior: auto;
+.icon--sm {
+  width: 20px;
+  height: 20px;
+}
+.icon--med {
+  width: 30px;
+  height: 30px;
+}
+.icon--lg {
+  width: 45px;
+  height: 45px;
+}
+
+// ==== PILL ====
+
+.pill {
+  @include f-common;
+  font-size: 11px;
+  line-height: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 60px;
+  background: $c-foreground;
+  color: $c-background;
+  
+  &--secondary{
+    background: $c-secondary-accent;
   }
 }
 
-// make element centered and no larger than the max width for desktop content
-@mixin limit-width {
-  max-width: $content-width;
-  margin-left: auto;
-  margin-right: auto;
-}
+// ==== BUTTON ====
 
-// add padding on the left and right for full width elements on smaller screens
-@mixin mobile-lr-padding {
-  padding-left: $mobile-lr-padding;
-  padding-right: $mobile-lr-padding;
-  @include desktop {
-    padding-left: 0;
-    padding-right: 0;
+.button{
+  white-space: nowrap;
+  @include f-common;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  font-size: $fs-button;
+  background-color: $c-foreground;
+  color: $c-background;
+  display: table; // a version of width: fit-content supported on more browsers. 
+  padding: 0px 1.25em;
+  border-radius: 1px;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  box-shadow: 0 3px 5px rgba(50,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+  cursor: pointer;
+  
+  &:hover{
+    background-color: lighten($c-foreground, 1%);
+    transform: translateY(-0.5px);
+    box-shadow: 0 6px 13px rgba(50,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
   }
 }
 
-// add padding to the left and right when screen is smaller than the max content width
-@mixin medium-lr-padding {
-  padding-left: $mobile-lr-padding;
-  padding-right: $mobile-lr-padding;
-  @media only screen and (min-width: calc($content-width - (2 * $mobile-lr-padding))) {
-    padding-left: 0;
-    padding-right: 0;
+.button--primary {
+  background-color: $c-primary-accent;
+  
+  &:hover{
+    background-color: lighten($c-primary-accent, 1%);
   }
 }
 
-// center an svg
-@mixin center-svg {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.button--secondary {
+  background-color: $c-foreground;
+  color: $c-background;
+  
+  &:hover{
+    background-color: lighten($c-foreground, 1%);
+  }
 }
 
+.button--tertiary {
+  background-color: $c-background;
+  color: $c-primary-accent;
+  box-shadow: 0 1px 5px rgba(50,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
+  
+  &:hover{
+    background-color: $c-background;
+    color: lighten($c-primary-accent, 2%);
+    box-shadow: 0 3px 10px rgba(50,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
+  }
+}
+
+// === LOGO === //
+
+.logo{
+  svg{
+    display: block;
+    fill: $c-foreground;
+  }
+  
+  &--subtle{
+    svg{
+      fill: $c-foreground-subtle;
+    }
+  }
+}
+
+// ==============================
+//   BLOCKS
+// ==============================
 
 // ==== NAVIGATION BAR === 
 
 .global-header {
-  background-color: #ececeb;
+  background-color: $c-background-emphasis;
   width: 100%;
   padding: 1rem;
   margin: 0;
@@ -129,21 +165,26 @@ $h1fontsize: 42px;
     justify-self: center;
     align-self: center;
     padding: 5px;
+    @include f-common;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: bolder;
+    font-size: $fs-smaller;
+    
   }
   
   &__link{
-    color: black;
+    color: $c-foreground-subtle;
     white-space: nowrap;
+    text-decoration: none;
   }
   
   &__item--active{
-    font-weight: bold;
-  }
-}
-
-.logo{
-  svg{
-    display: block;
+    
+    .toplevel-nav__link{
+      color: $c-foreground-emphasis;
+    }
+    
   }
 }
 
@@ -151,12 +192,14 @@ $h1fontsize: 42px;
 
 .global-footer {
   
-  background-color: #ececeb;
-  padding: 1rem;
+  background-color: $c-background-emphasis;
+  padding: $intra-section-spacing 0;
   margin: 0;
+  @include f-common;
                         
   &__content{
     @include limit-width;
+    @include medium-lr-padding;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 0.4fr 0.1fr 0.1fr;
@@ -180,6 +223,7 @@ $h1fontsize: 42px;
   &__logo{
     grid-area: logo;
     justify-self: center;
+    
   }
   
   &__site-map{
@@ -187,36 +231,51 @@ $h1fontsize: 42px;
     grid-area: sitemap;
     margin: 0;
     padding: 0;
+    text-align: center;
+    
+    @include desktop{
+      text-align: left;
+    }
   }
   
   &__site-map-item{
-    
   }
   
   &__site-map-link{
     color: black;
+    text-decoration: none;
+    color: $c-foreground-subtle;
   }
   
   &__contact{
     grid-area: contact;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-gap: .5em;
+    grid-auto-flow: row;
+    margin-bottom: $inter-item-spacing;
   }
   
   &__fine-print{
+    margin-top: $intra-section-spacing;
+    font-size: $fs-smaller;
     grid-area: fineprint;
+    line-height: 1.1;
+    color: $c-foreground-subtle;
   }
 }
 
 // ==== PAGE ====
 
 .page {
+  background-color: $c-background;
   margin: 0;
   min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.3;
   @include low-motion;
+  overflow-y: scroll;
+  max-width: 100vw;
 }
 
 // ==== ARTICLE ====
@@ -225,34 +284,12 @@ $h1fontsize: 42px;
   display: grid;
 }
 
-// ==== ICONS ====
-
-.icon {
-  margin: 0;
-  svg{
-    display: block;
-  }
-}
-
-.icon--sm {
-  width: 20px;
-  height: 20px;
-}
-.icon--med {
-  width: 30px;
-  height: 30px;
-}
-.icon--lg {
-  width: 45px;
-  height: 45px;
-}
-
 // ==== HEADER ====
 
 .header {
   
-  margin-top: $inter-section-spacing;
-  margin-bottom: $inter-section-spacing;
+  padding-top: calc( 1.5 * #{$intra-section-spacing} );
+  padding-bottom: $inter-section-spacing;
   
   &__content {
 
@@ -262,8 +299,7 @@ $h1fontsize: 42px;
     
     @include desktop {
       display: grid;
-      grid-template-columns: .45fr .55fr;
-      grid-template-rows: auto;
+      grid-template-columns: 0.7fr 1fr;
       grid-gap: 0 $grid-gap;
     }
     
@@ -280,20 +316,48 @@ $h1fontsize: 42px;
   }
   
   &__title {
-    font-size: $h1fontsize;
+    margin-top: #{$intra-section-spacing * 2};
+    margin-bottom: $intra-section-spacing;
+    @include f-common;
+    font-size: $fs-page-title;
+    line-height: 1;
+    color: $c-foreground-emphasis;
+    font-weight: bold;
+  }
+  
+  &__intro {
+    margin-bottom: #{$intra-section-spacing * 1.5};
+    @include f-common;
+    font-size: $fs-page-intro;
+    line-height: 1.4;
+    font-weight: 300;
   }
   
   &__ctas {
+    display: grid;
+    justify-items: left;
+    grid-gap: 0.5em;
+    grid-auto-flow: column dense;
+    justify-content: center;
+    
+    @include desktop {
+      justify-content: left;
+    }
     
   }
   
   &__figure {
     
     margin:0;
-    width: 100%;
+    overflow-x: hidden;
+    display: flex;
     
     svg {
       width: 100%;
+      max-width: 500px;
+      min-width: 300px;
+      margin-top: auto;
+      margin-bottom: auto;
       @include center-svg;
     }
     
@@ -310,7 +374,7 @@ $h1fontsize: 42px;
 }
 
 .background--metrics {
-  background-color: #dbdbdb;
+  background-color: $c-background-emphasis;
 }
 
 // ==== SECTION ====
@@ -333,12 +397,20 @@ $h1fontsize: 42px;
     width: 100%;
     text-align: center;
     @include medium-lr-padding;
+    @include f-common;
+    font-size: $fs-h2;
+    color: $c-foreground-emphasis;
+    font-weight: 400;
   }
   
   &__intro{
     text-align: center;
     @include medium-lr-padding;
     padding-bottom: $intra-section-spacing;
+    @include f-common;
+    font-size: $fs-section-intro;
+    line-height: 1.4;
+    font-weight: 300;
   }
   
   &__button{
@@ -395,7 +467,6 @@ $h1fontsize: 42px;
   padding-bottom: $intra-section-spacing;
   display: flex;
   flex-direction: column;
-  
   @include medium-lr-padding;
   
   @include desktop {
@@ -425,6 +496,26 @@ $h1fontsize: 42px;
     padding-top: 0;
     padding-bottom: $intra-section-spacing;
     
+  }
+  
+  &__intro{
+    @include f-common;
+    font-size: $fs-larger;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: calc(2*#{$inter-item-spacing});
+    
+    @include text-link;
+  }
+  
+  &__title{
+    @include f-common;
+    font-size: $fs-h3;
+    margin-top: calc(2*#{$inter-item-spacing});
+    margin-bottom: $inter-item-spacing;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $c-foreground-emphasis;
   }
   
   &--figleft{
@@ -489,9 +580,23 @@ $h1fontsize: 42px;
 .mini-feature {
 
   &__title {
+    @include f-common;
+    @font-size: $fs-h3;
+    color: $c-foreground-emphasis;
+    margin-bottom: 0;
+    margin-top: calc(2 * #{$inter-item-spacing});
+    margin-bottom: calc(0.6 * #{$inter-item-spacing});
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
   
   &__paragraph {
+    @include f-common;
+    font-size: $fs-body;
+    line-height: 1.4;
+    margin-top: $inter-item-spacing;
+    margin-bottom: $inter-item-spacing;
+    margin-top: 0em;
   }
   
   &--icon-left{
@@ -517,35 +622,47 @@ $h1fontsize: 42px;
   }
   
   &__paragraph {
-    
+    margin-top: $inter-item-spacing;
+    @include f-common;
+    font-size: $fs-body;
+    line-height: 1.25;
+  }
+  
+  &__emphasis{
+    font-style: normal;
+    font-weight: bolder;
   }
   
 }
 
-// CHECKLIST
+// === CHECKLIST ===
 // A simple checklist
 .checklist{
   
   padding: $intra-section-spacing $mobile-lr-padding $intra-section-spacing $mobile-lr-padding;
-  margin: 0;
+  margin: 0 0 $inter-item-spacing 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1em;
   
   &__item{
     display: block;
+    @include f-common;
+    font-size: $fs-larger;
+    white-space: nowrap;
   }
   
   &__checkmark{
     margin-right: 10px;
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
+    fill: $c-primary-accent;
   }
   
 }
 
-// MAILER LITE SIGN UP FORM
+// === MAILER LITE SIGN UP FORM ===
 // Use the built in classes in case we need to change this form in the full-feature
 .section--waitlist-signup{
 }
@@ -557,23 +674,22 @@ $h1fontsize: 42px;
 
 // the email field
 .form-control{
-  background-color: #ececeb;
+  background-color: $c-form-fields;
   border: none;
   outline: none;
   width: 100%;
   border-radius: 1px;
   padding: 15px;
   margin-bottom: 20px;
+  @include f-common;
+  font-size: $fs-smaller;
 }
 
 // the button
 .ml-subscribe-form .primary{
   border: none;
-  background-color: red;
-  padding: 10px;
-  border-radius: 1px;
-  background-color: #9b9b9b;
-  color: white;
+  @extend .button;
+  @extend .button--primary;
 }
 
 // the group of checkboxes
@@ -583,18 +699,9 @@ $h1fontsize: 42px;
   margin-bottom: 20px;
 }
 
+
 .label-description {
   display: inline-block;
-}
-
-
-// ==== TEMP ====
-
-.button{
-  background-color: #9b9b9b;
-  color: white;
-  width: fit-content;
-  padding: 10px;
-  border-radius: 1px;
-  display: block;
+  @include f-common;
+  padding-top: 0.5em;
 }

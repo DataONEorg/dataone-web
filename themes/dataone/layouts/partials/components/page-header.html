@@ -1,15 +1,15 @@
 <header class="header">
   <div class="header__content">
     <div class="header__text">
-      <span class="pill">Coming 2020</span>
+      <span class="pill pill--secondary">Coming 2020</span>
       <h1 class="header__title">{{ .Params.pageTitle | markdownify }}</h1>
-      <p>{{ .Params.introText | markdownify }}</p>
+      <p class="header__intro">{{ .Params.introText | markdownify }}</p>
       <div class="header__ctas">
         {{- with .Params.ctajoin -}}
           {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.RelPermalink "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
         {{end}}
         {{- with .Params.ctacontact -}}
-          {{- partial "components/cta-button" (dict "level" "primary" "ctalink" $.Site.Params.contactLink "ctatext" .ctatext) -}}
+          {{- partial "components/cta-button" (dict "level" "secondary" "ctalink" $.Site.Params.contactLink "ctatext" .ctatext) -}}
         {{end}}
       </div>
     </div>

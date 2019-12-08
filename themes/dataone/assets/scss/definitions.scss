@@ -1,0 +1,179 @@
+
+// ==== FONTS ====
+
+// /* lato-300 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: //local('Lato Light'), local('Lato-Light'),
+       url('../fonts/lato-v16-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v16-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('../fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+// fs- = font size
+$fs-page-title: 2.7em;
+$fs-page-intro: 1.5em;
+$fs-h2: 2.4em;
+$fs-section-intro: 1.6em;
+$fs-h3: 1.25em;
+
+$fs-larger: 1.15em;
+$fs-body: 1em;
+$fs-smaller: 0.95em;
+
+$fs-nav-item: 1em;
+$fs-button: 0.9em;
+
+// Use on all font elements
+@mixin f-common {
+  font-family: 'Lato';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $c-foreground;
+}
+
+
+// ==== SPACING VARIABLES ====
+
+// -- Color names (-cn)
+// Define here but do not apply these colors directly to elements.
+// Instead use them to define their function, below.
+$cn-neutral-darker: #2c2f48;
+$cn-neutral-dark: #474d69;
+$cn-neutral: #9698A6;
+$cn-neutral-light: #D1D3DC;
+$cn-neutral-lighter: #e9ecef;
+$cn-neutral-lightest: white;
+
+$cn-green: #00ce9e;//#23ba82;
+$cn-vibrant-blue: #2f52bb;
+$cn-light-blue: #80c3ff;
+
+// -- Color names (-c)
+// Use the variables defined below directly on elements.
+
+// Foreground elements, e.g. "color" property of font
+// everything that would normally be black in a black and white book with line drawings.
+$c-foreground-emphasis: $cn-neutral-darker;
+$c-foreground: $cn-neutral-dark;
+$c-foreground-subtle: $cn-neutral;
+
+// everything that would normally be white in a black and white book with line drawings.
+$c-background: $cn-neutral-lightest;
+$c-background-emphasis: $cn-neutral-lighter; // default background color for sections with bkg fill
+
+// the primary accent color
+$c-primary-accent: $cn-green;
+$c-secondary-accent: $cn-vibrant-blue;
+
+// default background color for sections with bkg fill
+
+// for field colours
+$c-form-fields: $cn-neutral-lighter;
+
+
+// ==== SPACING VARIABLES ====
+
+// max width of desktop content
+$content-width: 1040px;
+
+// screen width at which to switch from mobile view to desktop view
+$breakpoint: 640px;
+
+// gap between grid cells
+$grid-gap: 1.8rem;
+
+// spacing between blocks
+$inter-section-spacing: 6rem;
+
+// spacing between blocks
+$intra-section-spacing: 2rem;
+
+// spaces between small items, pargraphs, etc.
+$inter-item-spacing: 1rem;
+
+// padding on left and right for smaller screens
+$mobile-lr-padding: 0.8rem;
+
+
+// rules for larger (desktop) screens
+@mixin desktop {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// make element centered and no larger than the max width for desktop content
+@mixin limit-width {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// add padding on the left and right for full width elements on smaller screens
+@mixin mobile-lr-padding {
+  padding-left: $mobile-lr-padding;
+  padding-right: $mobile-lr-padding;
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// add padding to the left and right when screen is smaller than the max content width
+@mixin medium-lr-padding {
+  padding-left: $mobile-lr-padding;
+  padding-right: $mobile-lr-padding;
+  @media only screen and (min-width: calc($content-width - (2 * $mobile-lr-padding))) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+// rules for users who prefer less animation
+@mixin low-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
+
+// center an svg
+@mixin center-svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// anything with an un-classed link in it...
+@mixin text-link {
+  a {
+    color: $c-secondary-accent;
+    text-decoration: none;
+  }
+  a:visited{
+    color: $c-secondary-accent;
+  }
+  a:hover{
+    color: $c-foreground;
+  }
+  a:active{
+    color: $c-foreground;
+  }
+  
+  
+}

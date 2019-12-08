@@ -8,4 +8,8 @@
     {{ $scss := resources.Get "scss/styles.scss" }}
     {{ $style := $scss | resources.ToCSS | resources.Minify }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff` | relURL}}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff2` | relURL}}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-regular.woff` | relURL}}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-regular.woff2` | relURL}}" crossorigin>
 </head>
