@@ -1,0 +1,20 @@
+<header class="header header--png-right">
+  <div class="header__content">
+    <div class="header__text">
+      <span class="pill pill--secondary">Coming 2020</span>
+      <h1 class="header__title">{{ .Params.pageTitle | markdownify }}</h1>
+      <p class="header__intro">{{ .Params.introText | markdownify }}</p>
+      <div class="header__ctas">
+        {{- with .Params.ctajoin -}}
+          {{- partial "components/cta-button" (dict "level" "primary" "ctalink" (print $.RelPermalink "#" $.Site.Params.joinFormId) "ctatext" .ctatext) -}}
+        {{end}}
+        {{- with .Params.ctacontact -}}
+          {{- partial "components/cta-button" (dict "level" "secondary" "ctalink" $.Site.Params.contactLink "ctatext" .ctatext) -}}
+        {{end}}
+      </div>
+    </div>
+    <figure class="header__figure">
+      <img src="{{- with .Params.headerFigure }}{{ . | relURL}}{{- end -}}" alt="Data in good hands"></img>
+    </figure>
+  </div>
+</header>

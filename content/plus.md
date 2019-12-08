@@ -10,7 +10,7 @@ menu:
 # -- Page header content --
 pageTitle: "ONE solution for all your data needs"
 introText: "Everything you need to support your research with enhanced services from DataONE."
-headerFigure: portal-data-page
+headerFigure: svg/portal-data-page
 ctajoin:
   ctatext: "Join the waitlist"
 ctacontact:

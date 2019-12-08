@@ -10,7 +10,7 @@ menu:
 # -- Page header content --
 pageTitle: "Your data in good hands"
 introText: "A dedicated repository for your team’s data, managed by DataONE. Bring the products of your research together in one centralized location for efficient sharing, access, and reuse."
-headerFigure: tempfig
+headerFigure: images/data-in-good-hands.png
 ctajoin:
   ctatext: "Join the waitlist"
 ctacontact:
