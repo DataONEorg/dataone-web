@@ -36,7 +36,7 @@ infrastructure:
   features:
     - headline: Open source repository platform
       text: DataONE hosted repositories represent stand-alone deployments of the open source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management web client. These repository platforms are trusted by many repositories, including the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org), among many others.
-      figure: tempfig
+      figure: svg/metacat-on-github.svg
       details:
       cta:
         ctatext: DataONE on Github
@@ -55,7 +55,7 @@ infrastructure:
       cta:
     - headline: Geographic replicas
       text: Your data are replicated to distinct geographic regions for high availability and preservation.
-      figure: tempfig
+      figure: svg/geographic-replicas.svg
       details:
         - icon: tempicon
           name: Preservation
@@ -66,7 +66,7 @@ infrastructure:
       cta:
     - headline: Customization
       text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      figure: tempfig
+      figure: svg/custom-domain-and-doi.svg
       details:
         - icon: tempicon
           name: Custom DOI prefix
@@ -94,7 +94,7 @@ usersDevs:
   features:
     - headline: Easy data upload user interface
       text: The user friendly data submission tool helps your researchers effortlessly upload data and create metadata to enhance interoperability, reusability, and value of data.
-      figure: tempfig
+      figure: svg/metadata-editor.svg
       details:
       cta:
         ctatext: See a demo
@@ -103,7 +103,7 @@ usersDevs:
     - figure:
       headline: Advanced API access
       text: Programmatically work with your repository through the DataONE tools in R, Python, Matlab, and Java.
-      figure: tempfig
+      figure: svg/dataone-r-api.svg
       details:
       cta:
         ctatext: Read the docs

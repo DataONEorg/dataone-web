@@ -368,7 +368,7 @@
       border-radius: 8px;
       overflow: hidden;
       transform: rotate3d(.4,1,0.2,10deg);
-      box-shadow: 35px 62.5px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
+      box-shadow: 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
       
     }
     &:hover{
@@ -527,7 +527,7 @@
   
   @include desktop {
     display: grid;
-    grid-template-columns: .5fr .5fr;
+    grid-template-columns: .8fr .5fr;
     grid-template-rows: 1fr;
     grid-gap: 0 $grid-gap;
   }
@@ -536,14 +536,20 @@
     
     margin: 0;
     display: flex;
+    width: 100%;
     
     svg{
       @include center-svg;
       height: 100%;
-      min-height: 200px;
-      max-height: 250px;
+      max-height: 350px;
+      min-height: 270px;
       margin-top: auto;
       margin-bottom: auto;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
+      -webkit-transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
+      transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
     }
   }
   
@@ -584,6 +590,15 @@
         order: 2;  
       }
     }
+    
+    .full-feature__figure{
+      svg{
+        -webkit-transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(1deg) rotate(1deg);
+        transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(-1deg) rotate(-1deg);
+        box-shadow: -10px 25px 125px -23px rgba(30,47,93,.4), -22px 35px 75px -40px rgba(0,0,0,.6);
+      }
+    }
+    
   }
   
   &--figtop{
@@ -596,6 +611,24 @@
     }
     .full-feature__description{
       order: 2;  
+    }
+    
+    .full-feature__figure{
+      svg{
+        -webkit-transform: none;
+        transform: none;
+        box-shadow: 0 40px 100px -20px rgba(50,50,93,.25), 0 25px 85px -30px rgba(0,0,0,.4);
+        height: auto;
+        width: 100%;
+        max-width: 400px;
+        min-width: 250px;
+        max-height: none;
+        min-height: none;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        border-radius: 4px;
+        overflow: hidden;
+      }
     }
 
   }
