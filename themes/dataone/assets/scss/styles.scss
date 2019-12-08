@@ -130,7 +130,6 @@
 
 .global-header {
   background-color: $c-background-emphasis;
-  width: 100%;
   padding: 1rem;
   margin: 0;
 }
@@ -316,21 +315,26 @@
   }
   
   &__title {
-    margin-top: #{$intra-section-spacing * 2};
+    margin-top: $intra-section-spacing;
     margin-bottom: $intra-section-spacing;
     @include f-common;
     font-size: $fs-page-title;
-    line-height: 1;
+    line-height: 1.1;
     color: $c-foreground-emphasis;
     font-weight: bold;
+    
+    @include desktop{
+      font-size: $fs-page-title-desktop;
+      margin-top: calc(1.8 * #{$intra-section-spacing})
+    }
   }
   
   &__intro {
     margin-bottom: #{$intra-section-spacing * 1.5};
     @include f-common;
     font-size: $fs-page-intro;
-    line-height: 1.4;
-    font-weight: 300;
+    line-height: 1.6;
+    font-weight: 400;
   }
   
   &__ctas {
@@ -349,8 +353,7 @@
   &__figure {
     
     margin:0;
-    overflow-x: hidden;
-    display: flex;
+    display: block;
     
     svg {
       width: 100%;
@@ -359,6 +362,20 @@
       margin-top: auto;
       margin-bottom: auto;
       @include center-svg;
+      position: relative;
+      
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      transform: rotate3d(.4,1,0.2,10deg);
+      box-shadow: 35px 62.5px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
+      
+    }
+    &:hover{
+      svg{
+        // fill: red;
+        transform: rotate3d(.4,1,0.15,11deg);
+      }
     }
     
   }
