@@ -1,3 +1,2 @@
-{{- define "main" -}}
-Under construction
-{{- end -}}
+<!-- Just render the DataONE Plus page as the home page for now -->
+{{ with .GetPage "/plus" }}{{.Render}}{{end}}

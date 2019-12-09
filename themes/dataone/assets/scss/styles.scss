@@ -835,6 +835,37 @@
 // the outer div containing the form
 .ml-subscribe-form{
   @include medium-lr-padding;
+  @include f-common;
+  color: $c-background;
+  
+  .ml-form-successContent{
+    background-color: saturate(lighten($c-secondary-accent, 15%), 80%);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $inter-item-spacing calc( 2 * #{$inter-item-spacing}) calc(1.5 * #{$inter-item-spacing}) calc( 2 * #{$inter-item-spacing});
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+    
+    @include desktop{
+      width: 70%;
+    }
+  }
+  
+  .response-title{
+    text-align: center;
+    @extend .mini-feature__title;
+    color: $c-background;
+    // color: saturate(lighten($c-secondary-accent, 25%), 100%);
+  }
+  
+  .response-text{
+    text-align: center;
+    font-size: $fs-section-intro;
+    // color: saturate(lighten($c-secondary-accent, 25%), 100%);
+  }
+
+
 }
 
 // the email field
@@ -846,7 +877,6 @@
   border-radius: 1px;
   padding: 15px;
   margin-bottom: 20px;
-  @include f-common;
   font-size: $fs-larger;
   color: $c-foreground;
 }
