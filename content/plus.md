@@ -10,7 +10,7 @@ menu:
 # -- Page header content --
 pageTitle: "ONE solution for all your data needs"
 introText: "Everything you need to support your research with enhanced services from DataONE."
-headerFigure: svg/portal-data-page
+headerFigure: images/data-one-plus.png #svg/portal-data-page
 ctajoin:
   ctatext: "Join the waitlist"
 ctacontact:
@@ -21,7 +21,7 @@ portals:
   icon: tempicon
   title: Showcase your team’s goals and results with branded portals
   intro: Create a custom search portal for your research topic or lab group that spans repositories in the DataONE network. Branded portals provide a convenient, readily customized way to communicate your science, your team, your data, and related data from the DataONE network.
-  figure: tempfig
+  figure: svg/portal-data-page.svg
   features:
     - icon: tempicon
       headline: All of your data in one place
