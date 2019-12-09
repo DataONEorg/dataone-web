@@ -559,7 +559,7 @@
       height: auto;
       margin-left: auto;
       margin-right: auto;
-      box-shadow: 0 40px 100px -10px rgba(30,50,93,.2), 0 20px 80px -20px rgba(0,0,0,.4);
+      box-shadow: 0 34px 67px -27px rgba(30,50,93,.2), 0 20px 51px -31px rgba(0,0,0,.35);
       border-radius: 4px;
     }
     @include desktop {
@@ -847,7 +847,15 @@
   padding: 15px;
   margin-bottom: 20px;
   @include f-common;
-  font-size: $fs-smaller;
+  font-size: $fs-larger;
+  color: $c-foreground;
+}
+
+.form-control:focus{
+  transform: translateY(-0.4px);
+  box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+  background-color: lighten($c-form-fields, 5%);
+  color: $c-secondary-accent;
 }
 
 // the button
@@ -861,12 +869,67 @@
 .ml-block-groups {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
-
 
 .label-description {
   display: inline-block;
   @include f-common;
-  padding-top: 0.5em;
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+
+.ml-form-interestGroupsRowCheckbox{
+  padding-top: $inter-item-spacing;
+}
+
+// custom check boxes
+input[type="checkbox"] {
+  position: absolute;
+}
+input[type="checkbox"] + .label-description {
+    display: block;
+    position: relative;
+    padding: 0 1.5rem;
+}
+input[type="checkbox"] + .label-description::before {
+  content: '';
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  background: $c-form-fields;
+}
+input[type="checkbox"]:checked + .label-description::before {
+  background: $c-primary-accent;
+}
+input[type="checkbox"]:checked + .label-description::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 26px;
+  border-left: 4px solid $c-background;
+  border-bottom: 4px solid $c-background;
+  height: 6px;
+  width: 12px;
+  transform: rotate(-45deg);
+}
+input[type="checkbox"]:focus + .label-description::before {
+  outline: #5d9dd5 solid 1px;
+  box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+}
+input[type="checkbox"] {
+  position: absolute;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+input[type="checkbox"]:disabled + .label-description {
+  color: #575757;
+}
+input[type="checkbox"]:disabled + .label-description::before {
+  background: #ddd;
 }

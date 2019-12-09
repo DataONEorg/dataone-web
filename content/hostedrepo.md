@@ -98,7 +98,7 @@ usersDevs:
       details:
       cta:
         ctatext: See a demo
-        ctalink: "#"
+        ctalink: "https://test.arcticdata.io/submit"
         level: tertiary
     - figure:
       headline: Advanced API access
@@ -107,15 +107,15 @@ usersDevs:
       details:
       cta:
         ctatext: Read the docs
-        ctalink: "#"
+        ctalink: "https://releases.dataone.org/online/api-documentation-v2.0.1/apis/index.html"
         level: tertiary
   # Quick mention of three more features
   morefeatures:
     - headline: Comprehensive search
-      text: Quickly find data with detailed search filters, or by navigating the interactive map.
+      text: "Quickly find data with detailed search filters, or by navigating the interactive map"
       icon: icons/advanced-search.svg
     - headline: Any file format
-      text: Understand how your data are being used over time with view, download, and citation metrics
+      text: "Use the scientific file formats for your community: image, tabular, text, audio, video, and others"
       icon: icons/any-file-format.svg
     - headline: Link data and software
       text: Easily show how your files relate to each other by providing well-described provenance workflows
