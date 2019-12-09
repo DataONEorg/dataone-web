@@ -20,7 +20,7 @@ ctacontact:
 portals:
 #  icon: tempicon
   title: Showcase your team’s goals and results with branded portals
-  intro: Create a custom search portal for your research topic or lab group that spans repositories in the DataONE network. Branded portals provide a convenient, readily customized way to communicate your science, your team, your data, and related data from the DataONE network.
+  intro: Create a custom search portal for your research topic or lab group that spans repositories in the DataONE network. Branded portals provide a convenient, readily customized way to communicate your science, your team, your data, and related data from within the DataONE network.
   figure: svg/portal-data-page.svg
   features:
     - icon: icons/checkmark.svg
@@ -31,7 +31,7 @@ portals:
       text: Configure search fields specific to your science topics
     - icon: icons/checkmark.svg
       headline: Aggregated metrics
-      text: Usage and citation metrics aggregated for your data
+      text: Usage and citation metrics aggregated for your data collection
     - icon: icons/checkmark.svg
       headline: FAIR Assessments
       text: Aggregated FAIR reports for your data
@@ -48,7 +48,7 @@ portals:
 # -- FAIR section --
 fair:
   title: Make your data FAIR
-  intro: Help your community improve data discovery, accessibility, interoperability, and reuse with quantitative metadata quality assessment using the FAIR principles. Get reports for individual datasets, portal collections, or an entire repository.
+  intro: Help your community improve data discovery, accessibility, interoperability, and reusability with quantitative metadata quality assessment using the FAIR principles. Get reports for individual datasets, portal collections, or an entire repository.
   cta:
     ctatext: Learn more about FAIR
     ctalink: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
@@ -57,7 +57,7 @@ fair:
 # -- Access experts section --
 accessExperts:
 #  icon: tempicon
-  title: Access to DataONE experts
+  title: Access to DataONE expertise
   # Three quick features
   features:
     - headline: One-on-one support
@@ -74,7 +74,7 @@ accessExperts:
 hostedRepo:
   titletop: Need more?
   titlebottom: Add a dedicated hosted repository
-  intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  intro: Do you need data preservation services in addition to a data portal? DataONE hosted repositories represent stand-alone deployments of open source Metacat repository server and MetacatUI search and metadata management web clients. Trusted by many repositories within the DataONE network, we can deploy this respository infrastructure to meet your communities' needs.
   figure:
   cta:
     ctatext: More about hosted repositories
