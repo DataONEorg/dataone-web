@@ -2,4 +2,4 @@
 
 
 #### Resources:
-- The static image `data-in-good-hands.png` uses imagery by [Vectorpocket / Freepik](https://www.freepik.com/vectorpocket)
+- Some static images use modified components from [Vectorpocket / Freepik](https://www.freepik.com)

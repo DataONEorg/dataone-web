@@ -16,7 +16,7 @@
   <!-- infrastructure section -->
   {{- with .Params.infrastructure -}}
   <section class="section">
-    <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <!-- <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div> -->
     <h2 class="section__title">{{- .title | markdownify  -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .features -}}
@@ -47,7 +47,7 @@
   <!-- Users & Developers section -->
   {{- with .Params.usersDevs -}}
   <section class="section users-devs">
-    <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div>
+    <!-- <div class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</div> -->
     <h2 class="section__title">{{- .title | markdownify -}}</h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     <div class="two-full-features">
@@ -81,7 +81,7 @@
     {{- with .features -}}
     <ul class="checklist">
       {{- range . -}}
-      <li class="checklist__item"><div class="checklist__checkmark">{{- partial "components/checkmark" -}}</div>{{ . }}</li>
+      <li class="checklist__item"><div class="checklist__checkmark">{{- partial "icons/checkmark.svg" -}}</div>{{ . }}</li>
       {{- end -}}
     </ul>
     {{- end -}}

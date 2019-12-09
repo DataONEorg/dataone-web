@@ -20,17 +20,17 @@ ctacontact:
 topFeatures:
   - headline: Private and public access
     text: Control access to your datasets prior to publication with collaborative groups or just keep it private
-    icon: tempicon
+    icon: icons/private-public-access.svg
   - headline: Usage metrics
     text: Understand how your data are being used over time with view, download, and citation metrics
-    icon: tempicon
+    icon: icons/metrics.svg
   - headline: Scalable storage
     text: Grow your 1 TB repository capacity based on your storage needs in 1 TB increments
-    icon: tempicon
+    icon: icons/scalable-storage.svg
     
 # -- Infrastructure section --
 infrastructure:
-  icon: tempicon
+#  icon:
   title: Focus on your research, leave your data infrastructure to us
   intro: Let the experts behind DataONE manage and preserve your data software and derived products with our robust software and hardware.
   features:
@@ -42,25 +42,25 @@ infrastructure:
         ctatext: DataONE on Github
         ctalink: https://github.com/DataONEorg
         level: tertiary
-    - headline: Robust hardware
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      figure: tempfig
-      details:
-        - icon: tempicon
-          name: Detail1
-          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-        - icon: tempicon
-          name: Detail2
-          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-      cta:
+#    - headline: Robust hardware
+#      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#      figure: tempfig
+#      details:
+#        - icon: tempicon
+#          name: Detail1
+#          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+#        - icon: tempicon
+#          name: Detail2
+#          text: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+#      cta:
     - headline: Geographic replicas
       text: Your data are replicated to distinct geographic regions for high availability and preservation.
       figure: svg/geographic-replicas.svg
       details:
-        - icon: tempicon
+        - icon: icons/checkmark.svg
           name: Preservation
           text: All data and metadata are replicated to two geographically independent data centers in California and Tennessee.
-        - icon: tempicon
+        - icon: icons/checkmark.svg
           name: High availability
           text: Data replicas ensure that your data remain accessible through the DataONE network even through local catastropic events such as fires or floods.
       cta:
@@ -68,10 +68,10 @@ infrastructure:
       text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       figure: svg/custom-domain-and-doi.svg
       details:
-        - icon: tempicon
+        - icon: icons/checkmark.svg
           name: Custom DOI prefix
           text: A DOI prefix is configured exclusively for your datasets, products, and code
-        - icon: tempicon
+        - icon: icons/checkmark.svg
           name: Custom domain name
           text: Your repository is available at a domain of your choice, but hosted by DataONE
       cta:
@@ -87,7 +87,7 @@ fair:
     
 # -- Users & developers section --
 usersDevs:
-  icon: tempicon
+  #icon:
   title: For users & developers
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   # Details on two features
@@ -113,13 +113,13 @@ usersDevs:
   morefeatures:
     - headline: Comprehensive search
       text: Quickly find data with detailed search filters, or by navigating the interactive map.
-      icon: tempicon
+      icon: icons/advanced-search.svg
     - headline: Any file format
       text: Understand how your data are being used over time with view, download, and citation metrics
-      icon: tempicon
+      icon: icons/any-file-format.svg
     - headline: Link data and software
       text: Easily show how your files relate to each other by providing well-described provenance workflows
-      icon: tempicon
+      icon: icons/provenance.svg
 
 # -- DataONE Plus section --
 dataonePlus:

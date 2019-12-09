@@ -18,27 +18,27 @@ ctacontact:
   
 # -- Portals section --
 portals:
-  icon: tempicon
+#  icon: tempicon
   title: Showcase your team’s goals and results with branded portals
   intro: Create a custom search portal for your research topic or lab group that spans repositories in the DataONE network. Branded portals provide a convenient, readily customized way to communicate your science, your team, your data, and related data from the DataONE network.
   figure: svg/portal-data-page.svg
   features:
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: All of your data in one place
       text: Create a catalog of your team's data
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: Customized search filters
       text: Configure search fields specific to your science topics
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: Aggregated metrics
       text: Usage and citation metrics aggregated for your data
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: FAIR Assessments
       text: Aggregated FAIR reports for your data
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: Branded to match your project
       text: Add colours, logos, and custom content
-    - icon: tempicon
+    - icon: icons/checkmark.svg
       headline: Online portal editor
       text: Setup in minutes with the easy user interface
   # cta:
@@ -56,19 +56,19 @@ fair:
 
 # -- Access experts section --
 accessExperts:
-  icon: tempicon
+#  icon: tempicon
   title: Access to DataONE experts
   # Three quick features
   features:
     - headline: One-on-one support
       text: Institutional subscriptions include direct contact with our staff to resolve issues in a timely manner
-      icon: tempicon
+      icon: icons/direct-support.svg
     - headline: Consulting services
       text: Custom design, data curation, and management consulting are available at hourly rates
-      icon: tempicon
+      icon: icons/consulting.svg
     - headline: Discounted training
       text: Take advantage of discounted pricing for data science and data management training courses
-      icon: tempicon
+      icon: icons/discount-training.svg
     
 # -- Hosted repos section --
 hostedRepo:

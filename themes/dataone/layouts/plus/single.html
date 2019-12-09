@@ -33,7 +33,7 @@
   <section class="section section--access-experts">
     <figure class="section__icon icon icon--lg">{{- with .icon -}}{{- partial . -}}{{- end -}}</figure>
     <h2 class="section__title">{{- .title | markdownify -}}</h2>
-    <p class="section__intro">{{- .intro | markdownify -}}</p>
+    {{- with .intro -}}<p class="section__intro">{{- . | markdownify -}}</p>{{- end -}}
     {{- with .features -}}
     <section class="mini-features">
       {{- range . -}}
@@ -50,7 +50,7 @@
   {{- with .Params.hostedRepo -}}
   <section class="section hosted-repo">
     <figure class="section__figure">{{- .figure -}}</figure>
-    <h2 class="section__title"><span>{{- .titletop | markdownify -}}</span> <em>{{- .titlebottom | markdownify -}}</em></h2>
+    <h2 class="section__title"><span>{{- .titletop | markdownify -}}</span> <span class="section__title--emphasis">{{- .titlebottom | markdownify -}}</span></h2>
     <p class="section__intro">{{- .intro | markdownify -}}</p>
     {{- with .cta -}}
       {{- partial "components/cta-button" (dict "ctalink" .ctalink "level" .level "ctatext" .ctatext "class" "section__button") -}}

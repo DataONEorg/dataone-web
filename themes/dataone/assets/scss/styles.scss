@@ -23,12 +23,30 @@
   height: 20px;
 }
 .icon--med {
-  width: 30px;
-  height: 30px;
-}
-.icon--lg {
   width: 45px;
   height: 45px;
+}
+.icon--lg {
+  width: 65px;
+  height: 65px;
+}
+
+.icon--c-primary{
+  svg{
+    fill: $c-primary-accent;
+  }
+}
+
+.icon--c-secondary{
+  svg{
+    fill: $c-secondary-accent;
+  }
+}
+
+.icon--c-secondary-subtle{
+  svg{
+    fill: desaturate(lighten($c-secondary-accent, 25%), 10%);
+  }
 }
 
 // ==== PILL ====
@@ -191,8 +209,8 @@
 
 .global-footer {
   
-  background-color: $c-background-emphasis;
-  padding: $intra-section-spacing 0;
+  background-color: $c-foreground-emphasis;
+  padding: $inter-section-spacing 0 $inter-item-spacing 0;
   margin: 0;
   @include f-common;
                         
@@ -243,7 +261,8 @@
   &__site-map-link{
     color: black;
     text-decoration: none;
-    color: $c-foreground-subtle;
+    color: $c-foreground;
+    font-size: 1.2rem;
   }
   
   &__contact{
@@ -261,7 +280,7 @@
     font-size: $fs-smaller;
     grid-area: fineprint;
     line-height: 1.1;
-    color: $c-foreground-subtle;
+    color: $c-foreground;
   }
 }
 
@@ -394,17 +413,19 @@
   
   .header__figure{
     
-    min-height: 200px;
+    min-height: 165px;
     img{
       max-width: 750px;
       position: absolute;
       top: auto;
       right: 0;
       width: 100vw;
+      margin-top: 10px;
     }
     
     @media only screen and (min-width: 400px) and (max-width: calc(#{$breakpoint} - 1px)){
-      min-height: 450px;
+      min-height: 360px;
+      
     }
     
     @media only screen and (min-width: $breakpoint) and (max-width: 1130px){
@@ -439,11 +460,14 @@
 
 .background {
   padding: 90px 0 30px 0;
-  margin-bottom: $inter-section-spacing;
 }
 
 .background--metrics {
   background-color: $c-background-emphasis;
+}
+
+.background--join-form{
+  background-color: $c-secondary-accent;
 }
 
 // ==== SECTION ====
@@ -454,9 +478,8 @@
   display: grid;
   justify-self: center;
   @include limit-width;
-  margin-bottom: $inter-section-spacing;
-  padding-top: $intra-section-spacing;
-  padding-bottom: $intra-section-spacing;
+  padding-top: calc(0.75 * #{$inter-section-spacing});
+  padding-bottom: calc(1.25 * #{$inter-section-spacing});
   
   &__icon{
     justify-self: center;
@@ -470,7 +493,14 @@
     font-size: $fs-h2;
     color: $c-foreground-emphasis;
     font-weight: 400;
+    
+    &--emphasis{
+      font-weight: 600;
+      display: block;
+    }
   }
+  
+  
   
   &__intro{
     text-align: center;
@@ -489,6 +519,24 @@
 
 }
 
+.section--waitlist-signup{
+  color: white;
+  
+  .section__title{
+    color: $c-background;
+    font-weight: 600;
+  }
+  
+  .section__intro{
+    color: $c-background;
+    font-weight: 400;
+  }
+  
+  .label-description{
+    color: $c-background;
+  }
+}
+
 // ==== FEATURE LIST  ====
 // image on left, list of features on right
 
@@ -505,7 +553,9 @@
     display: grid;
     margin: 0;
     svg {
-      max-width: 300px;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      max-width: 400px;
       height: auto;
       margin-left: auto;
       margin-right: auto;
@@ -516,9 +566,7 @@
       align-self: stretch;
       svg {
         max-width: none;
-        // max-height: 550px;
-        // height: 100%;
-        width: 160%;
+        width: 155%;
         justify-self: flex-end;
         margin-left: inherit;
         margin-right: inherit;
@@ -669,6 +717,7 @@
 // Three sections, each with quick details of some feature
 
 .mini-features {
+  margin-top: $inter-section-spacing;
   display: grid;
   grid-template-rows: repeat(3,auto);
   grid-gap: $grid-gap 0;
@@ -711,7 +760,13 @@
     display: grid;
     grid-template-columns: 0.06fr 0.94fr;
     align-items: center;
-    grid-gap: 0 15px;
+    grid-gap: 0 7px;
+    // TODO:
+    .mini-feature__icon{
+      @extend .icon--c-secondary-subtle;
+      @extend .icon--sm;
+    }
+    
   }
   
 }
@@ -721,17 +776,21 @@
 
 .detail {
   
+  @include f-common;
   display: grid;
   grid-template-columns: 30px 1fr;
-  align-items: center;
+  // align-items: center;
   
   &__icon{
-    
+    svg{
+      fill: $c-secondary-accent;
+      margin-top: calc(#{$inter-item-spacing} + 4px);
+      margin-right: 2px;
+    }
   }
   
   &__paragraph {
     margin-top: $inter-item-spacing;
-    @include f-common;
     font-size: $fs-body;
     line-height: 1.25;
   }
@@ -772,8 +831,6 @@
 
 // === MAILER LITE SIGN UP FORM ===
 // Use the built in classes in case we need to change this form in the full-feature
-.section--waitlist-signup{
-}
 
 // the outer div containing the form
 .ml-subscribe-form{
