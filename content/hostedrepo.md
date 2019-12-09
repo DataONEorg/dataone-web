@@ -32,7 +32,7 @@ topFeatures:
 infrastructure:
 #  icon:
   title: Focus on your research, leave your data infrastructure to us
-  intro: Let the experts behind DataONE manage and preserve your data software and derived products with our robust software and hardware.
+  intro: Let the experts behind DataONE manage and preserve your data, software, and derived products with our robust software and hardware.
   features:
     - headline: Open source repository platform
       text: DataONE hosted repositories represent stand-alone deployments of the open source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management web client. These repository platforms are trusted by many repositories, including the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org), among many others.
@@ -59,13 +59,13 @@ infrastructure:
       details:
         - icon: icons/checkmark.svg
           name: Preservation
-          text: All data and metadata are replicated to two geographically independent data centers in California and Tennessee.
+          text: All data and metadata are replicated to two geographically independent data centers in California and Tennessee
         - icon: icons/checkmark.svg
           name: High availability
-          text: Data replicas ensure that your data remain accessible through the DataONE network even through local catastropic events such as fires or floods.
+          text: Data replicas ensure that your data remain accessible through the DataONE network even through local catastropic events such as fires or floods
       cta:
     - headline: Customization
-      text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      text: Brand your data repository with customized features allowing you to connect directly with your community.
       figure: svg/custom-domain-and-doi.svg
       details:
         - icon: icons/checkmark.svg
@@ -89,7 +89,7 @@ fair:
 usersDevs:
   #icon:
   title: For users & developers
-  intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  intro: Open source, user friendly tools for working with DataONE across multiple levels of expertise. DataONE tools and services undergo extensive usability testing to ensure they meet community needs.
   # Details on two features
   features:
     - headline: Easy data upload user interface
