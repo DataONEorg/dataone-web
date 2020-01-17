@@ -1,0 +1,9 @@
+.markdown{
+  @include f-common;
+  @include mobile-lr-padding;
+  @include desktop {
+    @include limit-width;
+    @include medium-lr-padding;
+	}
+  // TODO - style all possible markdown elements!
+}

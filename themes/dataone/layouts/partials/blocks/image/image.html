@@ -1,0 +1,3 @@
+<figure class="figure{{ if and (isset .Block `type`) (ne .Block.type `default`) }} figure--{{ .Block.type }}{{ end }}">
+  <img class="figure__image" src="{{ .Block.src | relURL}}" alt="{{ .Block.alttext }}" title="{{ .Block.title }}"></img>
+</figure>

@@ -1,0 +1,47 @@
+{{ $currentPage := . }}
+
+<header class="global-header{{ if eq .Kind `home` }} global-header--homepage{{end}}" id="global-header">
+  <nav class="toplevel-nav">
+    
+      <!-- LOGO & HOME LINK -->
+      <a class="toplevel-nav__button toplevel-nav__button--logo" href="{{ .Site.BaseURL }}" >
+        <span class="toplevel-nav__button-icon {{ if eq .Kind `home` }}toplevel-nav__button-icon--active{{end}}">
+          {{ $logoType := dict (slice "Block" "type") "global-nav" }}
+          {{- partial "blocks/logo/logo" $logoType -}}
+        </span>
+        <span class="toplevel-nav__button-text {{ if eq .Kind `home` }}toplevel-nav__button-text--active{{end}}">Home</span>
+      </a>
+      
+      
+        <!-- MENU BUTTON -->
+        <button class="toplevel-nav__button toplevel-nav__button--menu-toggle"
+          id="primary-menu-toggle"
+          aria-label="Open primary menu"
+          aria-expanded="false"
+          aria-controls="primary-menu">
+          <span class="toplevel-nav__button-icon">
+            {{- partial "icons/menu.svg" . -}}
+          </span>
+          <span class="toplevel-nav__button-text">Menu</span>
+        </button>
+        
+        <!-- PAGES MENU -->
+        <ul class="toplevel-nav__menu" id="primary-menu" aria-hidden="true">
+          {{ range .Site.Menus.toplevel }}
+          <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+            <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      
+      <!-- SEARCH BUTTON-->
+      <button class="toplevel-nav__button toplevel-nav__button--search" href="">
+        <span class="toplevel-nav__button-icon">
+          {{- partial "icons/search.svg" . -}}
+        </span>
+        <span class="toplevel-nav__button-text">Find Data</span>
+      </button>
+      
+    
+  </nav>
+</header>

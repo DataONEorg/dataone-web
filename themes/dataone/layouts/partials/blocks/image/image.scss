@@ -1,0 +1,17 @@
+.figure {
+  margin: 0;
+
+  &__image {
+    max-width: 100%;
+  }
+}
+
+
+.figure--drop-shadow{
+  
+  .figure__image{
+    box-shadow: 0 34px 67px -27px rgba(30,50,93,.2), 0 20px 51px -31px rgba(0,0,0,.35);
+    border-radius: 2px;
+  }
+
+}

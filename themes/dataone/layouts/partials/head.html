@@ -14,9 +14,9 @@
     <title> {{ .Title }} | DataONE </title>
     {{- partial "favicon.html" . -}}
     <link rel="canonical" href="{{ .Permalink }}">
-    {{ $scss := resources.Get "scss/styles.scss" }}
-    {{ $style := $scss | resources.ToCSS | resources.Minify }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
+    {{ $style := resources.Get "scss/styles.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $options | minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
     <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff` | relURL}}" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff2` | relURL}}" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-regular.woff` | relURL}}" crossorigin>

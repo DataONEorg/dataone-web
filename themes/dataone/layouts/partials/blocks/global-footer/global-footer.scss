@@ -1,0 +1,76 @@
+.global-footer {
+  
+  background-color: $c-foreground-emphasis;
+  padding: $inter-section-spacing 0 $inter-item-spacing 0;
+  margin: 0;
+  @include f-common;
+                        
+  &__content{
+    @include limit-width;
+    @include medium-lr-padding;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 0.1fr 0.1fr;
+    grid-gap: 15px 0;
+    grid-template-areas:  "sitemap"
+                          "contact"
+                          "logo"
+                          "fineprint";
+                          
+    @include desktop{
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 0.1fr 0.1fr 0.4fr 0.4fr;
+      grid-gap: 15px 15px;
+      grid-template-areas:  "sitemap logo"
+                            "sitemap ."
+                            "contact contact"
+                            "fineprint fineprint";
+    }
+  }
+                        
+  &__logo{
+    grid-area: logo;
+    justify-self: center;
+    
+  }
+  
+  &__site-map{
+    list-style-type: none;
+    grid-area: sitemap;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
+    @include desktop{
+      text-align: left;
+    }
+  }
+  
+  &__site-map-item{
+  }
+  
+  &__site-map-link{
+    color: black;
+    text-decoration: none;
+    color: $c-foreground;
+    font-size: 1.2rem;
+  }
+  
+  &__contact{
+    grid-area: contact;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-gap: .5em;
+    grid-auto-flow: row;
+    margin-bottom: $inter-item-spacing;
+  }
+  
+  &__fine-print{
+    margin-top: $intra-section-spacing;
+    font-size: $fs-smaller;
+    grid-area: fineprint;
+    line-height: 1.1;
+    color: $c-foreground;
+  }
+}

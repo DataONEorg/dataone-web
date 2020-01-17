@@ -2,10 +2,19 @@
 <html>
     {{- partial "head.html" . -}}
     <body class="page">
-        {{- partial "header.html" . -}}
+        <!-- define gradients for SVG fills at start of body -->
+        {{- partial "gradients.html" . -}}
+        <!-- navigation -->
+        {{- block "nav" . }}
+          {{- partial "blocks/global-header/global-header.html" . -}}
+        {{- end -}}
+        <!-- main content -->
         <article class="article">
         {{- block "main" . }}{{- end }}
         </article>
-        {{- partial "footer.html" . -}}
+        {{- partial "blocks/global-footer/global-footer.html" . -}}
+        <!-- Get the bundled javascript resources -->
+        {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "js.main.js" . }}
+        <script src="{{ $js.Permalink }}"></script>
     </body>
 </html>

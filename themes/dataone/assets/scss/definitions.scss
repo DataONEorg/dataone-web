@@ -35,17 +35,15 @@ $fs-smaller: 0.85em;
 $fs-nav-item: 1em;
 $fs-button: 0.9em;
 
-// Use on all font elements
+// Font (-f)
 @mixin f-common {
   font-family: 'Lato';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $c-foreground;
 }
 
-
-// ==== SPACING VARIABLES ====
+// ==== COLOURS ====
 
 // -- Color names (-cn)
 // Define here but do not apply these colors directly to elements.
@@ -61,11 +59,11 @@ $cn-green: #00ce9e;//#23ba82;
 $cn-vibrant-blue: #2f52bb;
 $cn-light-blue: #80c3ff;
 
-// -- Color names (-c)
+// -- Color variables (-c)
 // Use the variables defined below directly on elements.
 
 // Foreground elements, e.g. "color" property of font
-// everything that would normally be black in a black and white book with line drawings.
+// Everything that would normally be black in a black and white book with line drawings.
 $c-foreground-emphasis: $cn-neutral-darker;
 $c-foreground: $cn-neutral-dark;
 $c-foreground-subtle: $cn-neutral;
@@ -74,11 +72,9 @@ $c-foreground-subtle: $cn-neutral;
 $c-background: $cn-neutral-lightest;
 $c-background-emphasis: $cn-neutral-lighter; // default background color for sections with bkg fill
 
-// the primary accent color
+// accent colours
 $c-primary-accent: $cn-green;
 $c-secondary-accent: $cn-vibrant-blue;
-
-// default background color for sections with bkg fill
 
 // for field colours
 $c-form-fields: $cn-neutral-lighter;
@@ -142,7 +138,6 @@ $mobile-lr-padding: 0.8rem;
   }
 }
 
-
 // rules for users who prefer less animation
 @mixin low-motion {
   @media (prefers-reduced-motion: reduce) {
@@ -160,6 +155,22 @@ $mobile-lr-padding: 0.8rem;
   margin-right: auto;
 }
 
+@mixin button-reset{
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &:focus{
+    outline: none;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
 // anything with an un-classed link in it...
 @mixin text-link {
   a {
@@ -175,6 +186,5 @@ $mobile-lr-padding: 0.8rem;
   a:active{
     color: $c-foreground;
   }
-  
   
 }

@@ -1,0 +1,25 @@
+.checklist{
+  
+  padding: $intra-section-spacing $mobile-lr-padding $intra-section-spacing $mobile-lr-padding;
+  margin: 0 0 $inter-item-spacing 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1em;
+  
+  &__item{
+    display: block;
+    @include f-common;
+    color: var(--col-font);
+    font-size: $fs-larger;
+    white-space: nowrap;
+  }
+  
+  &__checkmark{
+    margin-right: 10px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    fill: $c-primary-accent;
+  }
+  
+}

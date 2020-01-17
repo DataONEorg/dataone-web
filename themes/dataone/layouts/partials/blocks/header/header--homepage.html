@@ -1,0 +1,14 @@
+<header class="header header--homepage">
+  <div class="header__content">
+    <div class="header__logo">
+      {{ $logoType := dict (slice "Block" "type") "homepage" }}
+      {{- partial "blocks/logo/logo" $logoType -}}
+    </div>
+    <div class="header__search">
+      {{- partial "blocks/d1search/d1search" . -}}
+    </div>
+    <a class="header__advanced-search" href="https://search.dataone.org/data">
+      Advanced search
+    </a>
+  </div>
+</header>

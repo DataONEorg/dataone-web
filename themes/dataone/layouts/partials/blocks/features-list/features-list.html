@@ -1,0 +1,7 @@
+
+<div class="features-list">
+  {{- range .Block.features -}}
+    {{ $features := merge . (dict "type" "icon-left") }}
+    {{- partial "blocks/feature-simple/feature-simple" (dict "Block" $features "Page" $) -}}
+  {{- end -}}
+</div>

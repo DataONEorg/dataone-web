@@ -1,0 +1,59 @@
+// ==== BUTTON ====
+
+.button{
+  white-space: nowrap;
+  @include f-common;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  font-size: $fs-button;
+  background-color: $c-foreground;
+  color: $c-background;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+  padding: 0px 1.25em;
+  border-radius: 1px;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  box-shadow: 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+  cursor: pointer;
+  
+  &:hover{
+    background-color: lighten($c-foreground, 1%);
+    transform: translateY(-0.5px);
+    box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+  }
+}
+
+.button--primary {
+  background-color: $c-primary-accent;
+  
+  &:hover{
+    background-color: lighten($c-primary-accent, 1%);
+  }
+}
+
+.button--secondary {
+  background-color: $c-foreground;
+  color: $c-background;
+  
+  &:hover{
+    background-color: lighten($c-foreground, 1%);
+  }
+}
+
+.button--tertiary {
+  background-color: $c-background;
+  color: $c-secondary-accent;
+  box-shadow: 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
+  
+  &:hover{
+    background-color: $c-background;
+    color: lighten($c-secondary-accent, 2%);
+    box-shadow: 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
+  }
+}

@@ -1,0 +1,31 @@
+.feature-simple {
+
+  @include f-common;
+  
+  &__title {
+    color: var(--col-title);
+    @font-size: $fs-h3;
+    margin-bottom: 0;
+    margin-top: calc(2 * #{$inter-item-spacing});
+    margin-bottom: calc(0.6 * #{$inter-item-spacing});
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  &__paragraph {
+    font-size: $fs-body;
+    line-height: 1.4;
+    margin-top: $inter-item-spacing;
+    margin-bottom: $inter-item-spacing;
+    margin-top: 0em;
+  }
+  
+  &--icon-left{
+    display: grid;
+    grid-template-columns: 0.06fr 0.94fr;
+    align-items: center;
+    grid-gap: 0 7px;
+    
+  }
+  
+}

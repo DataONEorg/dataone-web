@@ -1,0 +1,17 @@
+.pill {
+  @include f-common;
+  font-size: 11px;
+  line-height: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 60px;
+  background: $c-foreground;
+  color: $c-background;
+  
+  &--secondary{
+    background: $c-secondary-accent;
+  }
+}

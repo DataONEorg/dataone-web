@@ -1,0 +1,81 @@
+.section{
+
+  @include f-common;
+  background-color: var(--col-background);
+  color: var(--col-font);
+
+  &__inner{
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    @include limit-width;
+    @include medium-lr-padding;
+    @include mobile-lr-padding;
+    
+    padding-top: calc(0.75 * #{$inter-section-spacing});
+    padding-bottom: calc(1.25 * #{$inter-section-spacing});
+  }
+  
+  &__icon{
+    justify-self: center;
+  }
+  
+  &__title{
+    width: 100%;
+    text-align: center;
+    @include medium-lr-padding;
+    font-size: $fs-h2;
+    font-weight: 400;
+    color: var(--col-title);
+    
+    &--emphasis{
+      font-weight: 600;
+      display: block;
+    }
+  }
+  
+  &__intro{
+    text-align: center;
+    @include medium-lr-padding;
+    padding-bottom: $intra-section-spacing;
+    font-size: $fs-section-intro;
+    line-height: 1.4;
+    font-weight: 300;
+    color: var(--font-col);
+  }
+  
+  &__button{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &--bold{
+    
+    // sections with a background colour look better with some extra padding.
+    padding-top: 40px;
+    
+    --col-title: #{$cn-neutral-lighter};
+    --col-font: #{$c-background};
+    --col-background: #{$c-secondary-accent};
+    
+    .section__title{
+      font-weight: 600;
+    }
+    
+    .section__intro{
+      font-weight: 400;
+    }
+    
+    .section__blocks{
+    }
+    
+  }
+
+}
+
+.section--subtle-emphasis{
+  
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  --col-background: #{$c-background-emphasis};
+}

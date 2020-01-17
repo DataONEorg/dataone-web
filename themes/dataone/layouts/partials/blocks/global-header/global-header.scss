@@ -1,0 +1,212 @@
+
+.global-header {
+  background-color: $c-background-emphasis;
+  padding: 0;
+  margin: 0;
+  
+  @include f-common;
+  
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  border-radius: 5px 5px 0 0;
+  transition: all 0.2s 0s ease-in-out;
+  
+  @include desktop{
+    position: relative;
+    top: 0; 
+  }
+}
+
+.toplevel-nav {
+  
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 63px 1fr;
+  grid-template-areas: "logo menu-toggle search" "menu menu menu";
+  
+  @include limit-width;
+  
+  @include desktop{
+    grid-template-columns: min-content auto min-content;
+    grid-template-rows: auto;
+    grid-template-areas: "logo menu search";
+    align-items: center;
+  }
+  
+  
+  &__button {
+    
+    @include button-reset;
+    
+    display: inline-block;
+    text-align: center;
+    
+    color: $c-foreground;
+    height: 100%;
+    padding: 8px 8px 15px;
+    
+    &:focus{
+      
+      .toplevel-nav__button-icon {
+        fill: $c-foreground;
+      }
+      .toplevel-nav__button-text {
+        color: $c-foreground;
+      }
+      
+    }
+    
+    @include desktop{
+      width: fit-content;
+      height: fit-content;
+      padding: 0;
+    }
+    
+  }
+  
+  &__button-icon {
+    width: 24px;
+    height: 24px;
+    fill: $c-foreground-subtle;
+    &--active{
+      fill: $c-foreground;
+    }
+  }
+  
+  &__button-text{
+    @include f-common;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    display: block;
+    margin-top: 2px;
+    color: $c-foreground-subtle;
+    &--active{
+      color: $c-foreground;
+    }
+    @include desktop{
+      display: none;
+    }
+  }
+  
+  &__button--logo{
+    grid-area: logo;
+    @include desktop {
+      padding-left: 5px;
+    }
+  }
+  
+  &__button--menu-toggle{
+    grid-area: menu-toggle;
+    @include desktop{
+      display: none;
+    }
+  }
+  
+  &__button--search{
+    grid-area: search;
+    @include desktop{
+      justify-self: end;
+      padding: 0 5px;
+    }
+  }
+  
+  // MENU & MENU ITEMS
+
+  &__menu{
+    grid-area: menu;
+    margin: 20px 0 20px 0;
+    padding-inline-start: 0;
+    margin-block-end: 0;
+    text-decoration: none;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
+    margin-bottom: -100%;
+    
+    @include desktop{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      margin: 0 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-self: end;
+    }
+    
+    &[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      margin-bottom: 20px;
+    }
+    
+  }
+
+  &__menu-item{
+    
+    text-align: center;
+    height: 56px;
+    display: block;
+    
+    @include desktop{
+      margin: 5px 2px;
+      height: auto;
+    }
+    
+    &--active{
+      
+    }
+  }
+  
+  &__menu-link{
+    text-decoration: none;
+    color: $c-foreground-subtle;
+    white-space: nowrap;
+    
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 56px;
+    &--active{
+      color: $c-foreground;
+      font-weight: 600;
+    }
+    
+    @include desktop{
+      line-height: 1;
+      padding: 22px 10px;
+      
+      &:hover{
+        color: $c-foreground-emphasis;
+        transition: color 0.1s 0s ease-in-out;
+      }
+    }
+  }
+  
+}
+
+.global-header--homepage{
+  
+  @include desktop{
+    .toplevel-nav{
+      display: flex;
+      justify-content: center;
+    }
+    .toplevel-nav__button--logo{
+      display: none;
+    }
+    .toplevel-nav__button--search{
+      display: none;
+    }
+  }
+  
+}

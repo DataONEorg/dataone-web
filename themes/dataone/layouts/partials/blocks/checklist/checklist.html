@@ -1,0 +1,7 @@
+{{- with .Block.items -}}
+  <ul class="checklist">
+    {{- range . -}}
+    <li class="checklist__item"><div class="checklist__checkmark">{{- partial "icons/checkmark.svg" -}}</div>{{ . }}</li>
+    {{- end -}}
+  </ul>
+{{- end -}}

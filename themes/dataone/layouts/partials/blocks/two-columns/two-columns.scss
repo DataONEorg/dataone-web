@@ -1,0 +1,17 @@
+.two-columns{
+  width: 100%;
+  @include desktop {
+    @include limit-width;
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0 $grid-gap;
+  }
+  
+  &__column{
+    @include mobile-lr-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

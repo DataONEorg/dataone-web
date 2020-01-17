@@ -1,0 +1,20 @@
+{{ $currentPage := . }}
+<footer class="global-footer">
+  <div class="global-footer__content">
+    <a class="global-footer__logo" href="https://www.dataone.org/">
+      {{- partial "blocks/logo/logo.html" -}}
+    </a>
+    <ul class="global-footer__site-map">
+      {{ range .Site.Menus.footer }}
+        <li class="global-footer__site-map-item">
+          <a class="global-footer__site-map-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+        </li>
+      {{ end }}
+    </ul>
+    <section class="global-footer__contact">
+      <h4 class = "global-footer__contact-title">Get in touch</h4>
+      <a class="button button--secondary" href="{{ $.Site.Params.contactLink }}">Send a message</a>
+    </section>
+    <small class="global-footer__fine-print">{{ $.Site.Params.footerText }}</small>
+  </div>
+</footer>

@@ -1,0 +1,16 @@
+{{ $link := .Block.link }}
+<!-- The extra .Page parameters below allows for button partials nested at multiple levels -->
+{{ if (eq .Block.link "ContactUsLink") }}
+	{{ $link = .Page.Page.Page.Page.Page.Site.Params.contactLink }}
+{{ end }}
+{{ if (eq .Block.link "JoinFormLink") }}
+	{{ $link = print .Page.Page.Page.Page.Page.RelPermalink "#" .Page.Page.Page.Page.Page.Site.Params.joinFormId }}
+{{ end }}
+<a
+  class="button
+         button--{{ with .Block.type }}{{- . -}}{{ else }}secondary{{ end }}
+         {{ with .Block.class }} {{- . -}}{{ end }}"
+  href="{{- $link -}}"
+>
+  {{ .Block.text }}
+</a>

@@ -1,0 +1,35 @@
+<section class="section{{ if and (isset .Block `type`) (ne .Block.type `default`) }} section--{{ .Block.type }}{{ end }}">
+  <div class = "section__inner">
+    {{ if  partial "functions/hasValues" .Block.icon }}
+    {{- with .Block.icon -}}
+    <div class="section__icon">
+      {{- partial "blocks/icon/icon" (dict "Block" . "Page" $) -}}
+    </div>
+    {{- end -}}
+    {{ end }}
+    {{- with .Block.title -}}
+    <h2 class="section__title">
+      {{- . | markdownify  -}}
+    </h2>
+    {{- end -}}
+    {{- with .Block.intro -}}
+    <p class="section__intro">
+      {{- . | markdownify -}}
+    </p>
+    {{- end -}}
+    {{ if  partial "functions/hasValues" .Block.blocks }}
+    <div class="section__blocks">
+    {{- range .Block.blocks -}}
+      {{ if .template }}
+        {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
+      {{ end }}
+    {{- end -}}
+    </div>
+    {{ end }}
+    {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
+    <div class="section__button">
+      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $) -}}
+    </div>
+    {{ end }}
+  </div>
+</section>

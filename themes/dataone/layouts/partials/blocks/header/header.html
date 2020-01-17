@@ -1,0 +1,23 @@
+<header class="header header--{{ .Block.type }}">
+  <div class="header__content">
+    <div class="header__text">
+      {{- with .Block.pill -}}
+        {{- partial "blocks/pill/pill" (dict "Block" . "Page" $) -}}
+      {{- end -}}
+      <h1 class="header__title">{{ .Block.title | markdownify }}</h1>
+      <p class="header__intro">{{ .Block.intro | markdownify }}</p>
+      {{- if .Block.buttons -}}
+      <div class="header__ctas">
+        {{- range first 2 .Block.buttons -}}
+          {{- partial "blocks/button/button" (dict "Block" . "Page" $) -}}
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </div>
+    {{- if and (isset .Block "headerimage") (ne .Block.type `text-only`) }}
+      <div class="header__figure">
+        {{- partial "blocks/image/image" (dict "Block" .Block.headerimage "Page" $) -}}
+      </div>
+    {{- end -}}
+  </div>
+</header>

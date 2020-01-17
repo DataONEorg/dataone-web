@@ -1,0 +1,7 @@
+<div class="icon{{ if .Block.size }} icon--sz-{{ .Block.size }}{{ end }}{{ if and (isset .Block `style`) (ne .Block.style `default`) }} icon--c-{{.Block.style}}{{ end }}">
+  {{ if .Block.name }}
+    {{ $iconpath := path.Join "icons" .Block.name }}
+    {{ $iconpath := printf "%s.svg" $iconpath }}
+    {{ partial $iconpath . }}
+  {{ end }}
+</div>

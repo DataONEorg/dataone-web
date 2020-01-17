@@ -1,0 +1,11 @@
+
+<form class="d1search" role="search" onsubmit="searchD1()">
+  <input class="d1search__input" type="text" id="search-term" placeholder="What environmental data are you looking for?"/>
+  <label class="d1search__label" for="search-term">
+    What environmental data are you looking for?
+  </label>
+  <button type="submit" class="d1search__button button button--primary button--search">
+    <span class="d1search__button-text">Search</span>
+    <span class="d1search__button-icon">{{- partial "icons/search.svg" . -}}</span>
+  </button>
+</form>

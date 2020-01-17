@@ -1,0 +1,7 @@
+<section class="three-columns">
+  {{- range first 3 .Block.columns -}}
+    <div class="three-columns__column">
+      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
+    </div>
+  {{- end -}}
+</section>

@@ -1,0 +1,15 @@
+<div class="feature-simple{{ with .Block.type }} feature-simple--{{ . }}{{ end }}">
+  {{- with .Block.icon -}}
+  <div class="feature-simple__icon">
+    {{- partial "blocks/icon/icon" (dict "Block" . "Page" $) -}}
+  </div>
+  {{- end -}}
+  <div>
+    <h3 class="feature-simple__title">
+      {{ .Block.headline | markdownify }}
+    </h3>
+    <p class="feature-simple__paragraph">
+      {{ .Block.text | markdownify }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+
+.icon {
+  margin: 0;
+  svg{
+    display: block;
+  }
+}
+
+.icon--sz-small {
+  width: 20px;
+  height: 20px;
+}
+.icon--sz-medium {
+  width: 45px;
+  height: 45px;
+}
+.icon--sz-large {
+  width: 65px;
+  height: 65px;
+}
+
+.icon--c-primary{
+  svg{
+    fill: $c-primary-accent;
+  }
+}
+
+.icon--c-secondary{
+  svg{
+    fill: $c-secondary-accent;
+  }
+}
+
+.icon--c-secondary-subtle{
+  svg{
+    fill: desaturate(lighten($c-secondary-accent, 25%), 10%);
+  }
+}

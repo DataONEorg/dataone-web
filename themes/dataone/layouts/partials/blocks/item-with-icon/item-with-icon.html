@@ -1,0 +1,10 @@
+<div class="item-with-icon">
+  {{- with .Block.icon -}}
+    <div class="item-with-icon__icon">
+      {{- partial "blocks/icon/icon" (dict "Block" . "Page" $) -}}
+    </div>
+  {{- end -}}
+  <p class="item-with-icon__paragraph">
+    {{ if .Block.name }}<em class="item-with-icon__emphasis">{{ .Block.name }} - </em>{{ end }}{{ .Block.text | markdownify }}
+  </p>
+</div>
