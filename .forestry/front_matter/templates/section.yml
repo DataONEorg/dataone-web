@@ -1,0 +1,75 @@
+---
+label: Section block
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: section
+- type: select
+  label: Section style
+  name: type
+  description: The style to use for the section
+  config:
+    source:
+      type: simple
+    options:
+    - bold
+    - subtle-emphasis
+    - default
+  default: default
+- type: field_group
+  template: icon
+  label: Icon
+  name: icon
+  description: An optional icon to display at the top of the section
+  fields:
+  - type: include
+    template: icon
+    name: icon
+    label: Section Icon
+    description: Optional Icon that appears at the top of the section
+- type: textarea
+  label: Title
+  name: title
+  description: A title or headline for the section
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
+  label: Introduction
+  name: intro
+  description: A few sentences introducing the section
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: blocks
+  name: blocks
+  label: Sub-section blocks
+  template_types:
+  - feature-detailed
+  - feature-simple
+  - join-form
+  - markdown
+  - three-columns
+  - two-columns
+  - checklist
+  - features-list
+  - join-form
+  description: The blocks to include in the section
+  config:
+    min: ''
+- type: field_group
+  name: button
+  label: Button
+  description: Optional button to include at the bottom of the section which leads
+    the user to an action or information related to the section
+  fields:
+  - type: include
+    template: button
+    name: button
+    label: Button

@@ -1,0 +1,39 @@
+---
+label: Icon
+hide_body: true
+display_field: name
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: icon
+- type: text
+  name: name
+  label: Icon name
+  description: The name of the icon to use
+- type: select
+  label: Icon Size
+  name: size
+  description: The size of icon to display
+  default: large
+  config:
+    source:
+      type: simple
+    options:
+    - small
+    - medium
+    - large
+- type: select
+  label: Icon Style
+  name: style
+  description: The fill colour to use for the icon
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - primary
+    - secondary
+    - secondary-subtle

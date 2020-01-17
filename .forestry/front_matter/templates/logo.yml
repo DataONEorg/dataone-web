@@ -1,0 +1,21 @@
+---
+label: Logo
+hide_body: true
+display_field: type
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: logo
+- type: select
+  label: Logo style
+  name: type
+  description: The style of logo to use
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - globe-only

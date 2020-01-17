@@ -1,0 +1,62 @@
+---
+label: Detailed Feature
+hide_body: true
+display_field: headline
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: feature-detailed
+- type: text
+  label: Headline
+  name: headline
+  description: The name of the feature or a headline that introduces it
+- type: textarea
+  label: Text
+  name: text
+  description: A paragraph that describes the feature in detail
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: text
+  label: Figure
+  name: figure
+  description: The name of the svg to use for the figure
+- type: select
+  label: Figure position
+  name: type
+  description: Where the figure should be positioned relative the other layout components
+  default: right
+  config:
+    source:
+      type: simple
+    options:
+    - left
+    - right
+    - top
+- type: field_group_list
+  label: Details
+  name: details
+  description: An optional list of brief details about the feature
+  config:
+    display: name
+    validation:
+      minimum: 1
+      maximum: 5
+  fields:
+  - type: include
+    template: item-with-icon
+    name: detail
+    label: Detail
+    description: A detail about the feature
+- type: field_group
+  name: button
+  label: Button
+  description: Optional button that leads to more information about the feature
+  fields:
+  - type: include
+    template: button
+    name: button
+    label: Button

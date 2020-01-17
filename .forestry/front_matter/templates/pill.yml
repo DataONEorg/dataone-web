@@ -1,0 +1,26 @@
+---
+label: Pill
+hide_body: true
+display_field: text
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: pill
+- type: select
+  label: Style
+  name: type
+  description: The type of pill; determines how the pill is styled
+  default: secondary
+  config:
+    source:
+      type: simple
+    options:
+    - primary
+    - secondary
+    - tertiary
+- name: text
+  type: text
+  label: Pill text
+  description: The text to show in the pill

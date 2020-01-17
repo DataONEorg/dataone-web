@@ -1,0 +1,18 @@
+---
+label: Markdown
+hide_body: true
+display_field: content
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: markdown
+- type: textarea
+  label: Markdown content
+  name: content
+  description: Any content you'd like. Styling with markdown is supported.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown

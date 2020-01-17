@@ -1,0 +1,71 @@
+---
+label: Header
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: header
+- type: select
+  label: Type of header
+  name: type
+  description: The layout of header to use
+  config:
+    source:
+      type: simple
+    options:
+    - left-aligned
+    - center-aligned
+    - text-only
+  default: left-aligned
+- name: pill
+  type: field_group
+  config: {}
+  fields:
+  - name: pill
+    type: include
+    config: {}
+    template: pill
+    label: Pill
+  label: Header Pill
+  description: An optional pill that will appear above the page title
+- type: textarea
+  label: Page headline
+  name: title
+  description: The title or headline to display at the top of the page in large text
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
+  label: Page introduction
+  name: intro
+  description: Brief text that introduces the page
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- name: buttons
+  type: blocks
+  label: Call-to-action buttons
+  template_types:
+  - button-contact
+  - button-join-form
+  - button
+  config:
+    min: '0'
+    max: '2'
+  description: One or two buttons that lead the viewer to some action. Optional.
+- name: headerimage
+  type: field_group
+  config: {}
+  fields:
+  - name: image
+    type: include
+    config: {}
+    template: image
+    label: Header Image
+  label: Header Image
+  description: An image shown in the header

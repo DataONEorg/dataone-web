@@ -1,0 +1,38 @@
+---
+label: Join the Waitlist Button
+hide_body: true
+display_field: text
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: button
+- type: select
+  label: Button Type
+  name: type
+  description: The type of button; determines how the button is styled
+  default: primary
+  config:
+    source:
+      type: simple
+    options:
+    - primary
+    - secondary
+    - tertiary
+- type: text
+  label: Button Class
+  name: class
+  description: An optional additional CSS class to add to the button
+  hidden: true
+- type: text
+  label: Button Link
+  default: JoinFormLink
+  name: link
+  description: The link to which the button should navigate
+  hidden: true
+- type: text
+  label: Button text
+  name: text
+  description: The text inside the button
+  default: Join the waitlist

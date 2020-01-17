@@ -1,0 +1,33 @@
+---
+label: Item with Icon
+hide_body: true
+display_field: name
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: item-with-icon
+- type: text
+  label: Name
+  name: name
+  description: The item's name. Will be displayed in bold/emphasis.
+- type: textarea
+  label: Text
+  name: text
+  description: A brief sentence that summarizes the item.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- name: icon
+  type: field_group
+  config: {}
+  fields:
+  - name: icon
+    type: include
+    config: {}
+    template: icon
+    label: icon
+  label: Icon
+  description: An icon to display beside the item

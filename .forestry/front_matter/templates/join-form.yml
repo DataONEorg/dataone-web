@@ -1,0 +1,25 @@
+---
+label: Subscribe form
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: join-form
+- name: precheck_hostedrepo
+  type: boolean
+  label: Pre-check Hosted Repository box
+  description: Set to true to have a checkmark already placed in the "hosted repository"
+    checkbox
+  default: false
+- name: precheck_plus
+  type: boolean
+  label: Pre-check DataONE Plus box
+  description: Set to true to have a checkmark already placed in the "dataONE plus"
+    checkbox
+- name: precheck_newsletter
+  type: boolean
+  label: Pre-check Newsletter subscription box
+  description: Set to true to have a checkmark already placed in the newsletter subscription
+    checkbox

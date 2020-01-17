@@ -1,0 +1,20 @@
+---
+label: Three columns
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: three-columns
+- type: blocks
+  name: columns
+  label: Columns
+  template_types:
+  - feature-simple
+  - markdown
+  - features-list
+  description: The items to include in each column
+  config:
+    min: '3'
+    max: '3'

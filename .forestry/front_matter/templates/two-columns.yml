@@ -1,0 +1,22 @@
+---
+label: Two columns
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: two-columns
+- type: blocks
+  name: columns
+  label: Columns
+  template_types:
+  - feature-simple
+  - markdown
+  - features-list
+  - feature-detailed
+  - image
+  description: The items to include in each column
+  config:
+    min: '2'
+    max: '2'

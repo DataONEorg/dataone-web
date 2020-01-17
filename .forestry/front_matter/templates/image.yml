@@ -1,0 +1,40 @@
+---
+label: Image
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: image
+- name: src
+  type: file
+  config:
+    maxSize: 250
+  label: Image File
+  description: The image file to use
+- name: alttext
+  type: text
+  config:
+    required: false
+  label: Alternative Text
+  description: The alternative text to use in place of the image if it's not viewable
+- name: title
+  type: text
+  config:
+    required: false
+  label: Image Title
+  description: A title that describes the image. Will be shown when the user hovers
+    over the image.
+- type: select
+  label: Image Style
+  name: type
+  description: How to style the image
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - drop-shadow
