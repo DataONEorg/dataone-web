@@ -176,11 +176,11 @@
     align-items: center;
     justify-content: center;
     padding-top: 25px;
-    padding-bottom: 35px;
+    // padding-bottom: 0px;
     
     @include desktop{
       padding-top: 45px;
-      padding-bottom: 50px;
+      // padding-bottom: 0px;
     }
     
   }
@@ -190,9 +190,9 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
-    @include desktop{
-      padding-bottom: 50px;
-    }
+    // @include desktop{
+    //   padding-bottom: 50px;
+    // }
   }
   
   .header__advanced-search {
