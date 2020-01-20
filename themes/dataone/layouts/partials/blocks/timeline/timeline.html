@@ -1,16 +1,48 @@
+
+
+<div class="timeline">
 {{- range .Block.event -}}
-  <h2>{{ .title }}</h2>
-  <time datetime="{{.date}}">{{ dateFormat "02 Jan 2006"  .date }}</time>
-  <p>{{ .description }}</p>
-  {{ if and (partial "functions/hasValues" .image) (ne .image.src "") (ne .image.src " ") }}
-    {{- partial "blocks/image/image" (dict "Block" .image "Page" $) -}}
-  {{ end }}
-  {{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
-  <div class="section__button">
-    {{- partial "blocks/button/button" (dict "Block" .button "Page" $) -}}
+
+<!-- Make a variable that indicates whether there's an image  -->
+{{ $hasImage := false }}
+{{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
+  {{ $hasImage = true }}
+{{ end }}
+
+<div class="timeline__event{{if $hasImage}} timeline__event--image-header{{ end }}">
+  <div class="timeline__point"></div>
+  <div class="timeline__content">
+    
+    <!-- Image (optional) -->
+    {{ if $hasImage }}
+    <div class="timeline__image">
+      {{ $imageType := (dict "type" "cover") }}
+      {{ $imageParams :=  merge .image $imageType }}
+      {{- partial "blocks/image/image" (dict "Block" $imageParams) -}}
+    </div>
+    <div class="timeline__image-gradient">
+      <h3 class="timeline__title">{{ .title }}</h3>
+    </div>
+    {{ else }}
+      <h3 class="timeline__title">{{ .title }}</h3>
+    {{ end }}
+    
+    <time class="timeline__date" datetime="{{.date}}">{{ dateFormat "02 Jan 2006"  .date }}</time>
+    <p class="timeline__description">{{ .description }}</p>
+    
+    
+    
+    <!-- Button (optional) -->
+    {{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
+    <div class="timeline__button">
+      {{- partial "blocks/button/button" (dict "Block" .button "Page" $) -}}
+    </div>
+    {{ end }}
+    
   </div>
-  {{ end }}
+</div>
 {{- end -}}
+</div>
 
 <!-- - event-title: DataONE starts as a DataNet program
   description: Supported by funding from the US National Science Foundation as

@@ -10,7 +10,6 @@
   background-color: $c-foreground;
   color: $c-background;
   display: inline-block;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0px 1.25em;
@@ -56,5 +55,23 @@
     background-color: $c-background;
     color: lighten($c-secondary-accent, 2%);
     box-shadow: 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
+  }
+}
+
+.button--quaternary {
+  white-space: normal;
+  font-size: $fs-button;
+  background-color: transparent;
+  color: $c-secondary-accent;
+  display: inline-block;
+  padding: 0;
+  width: auto;
+  height: auto;
+  line-height: 1.05;
+  box-shadow: none;
+  &:hover{
+    background-color: transparent;
+    color: lighten($c-secondary-accent, 5%);
+    box-shadow: none;
   }
 }

@@ -109,8 +109,8 @@ input[type="checkbox"]:checked + .label-description::after {
   left: 26px;
   border-left: 4px solid $c-background;
   border-bottom: 4px solid $c-background;
-  height: 6px;
-  width: 12px;
+  height: 10px;
+  width: 16px;
   transform: rotate(-45deg);
 }
 input[type="checkbox"]:focus + .label-description::before {

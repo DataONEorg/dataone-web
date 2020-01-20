@@ -20,6 +20,7 @@ fields:
     - primary
     - secondary
     - tertiary
+    - quaternary
 - type: text
   label: Button Class
   name: class

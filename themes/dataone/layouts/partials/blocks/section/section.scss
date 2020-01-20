@@ -49,6 +49,10 @@
     margin-right: auto;
   }
   
+  &__blocks{
+    padding-top: $intra-section-spacing;
+  }
+  
   &--bold{
     
     // sections with a background colour look better with some extra padding.
@@ -67,6 +71,7 @@
     }
     
     .section__blocks{
+      
     }
     
   }

@@ -25,7 +25,7 @@
   &__text {
     text-align: center;
     min-height: fit-content;
-    padding-bottom: $inter-section-spacing;
+    padding-bottom: $intra-section-spacing;
     @include medium-lr-padding;
     @include desktop{
       text-align: left;
@@ -170,7 +170,7 @@
   
   .header__text {
     text-align: center;
-    padding-bottom: $inter-section-spacing;
+    padding-bottom: 0;
     @include desktop{
       text-align: center;
     }

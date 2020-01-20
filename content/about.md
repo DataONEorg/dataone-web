@@ -27,7 +27,7 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: default
+  type: subtle-emphasis
   title: Over a decade of data science and education
   blocks:
   - template: timeline
@@ -38,7 +38,7 @@ page_sections:
       date: '2009-01-01'
       button:
         template: button
-        type: tertiary
+        type: quaternary
         class: ''
         link: https://smartech.gatech.edu/handle/1853/28513
         text: More about DataNet
