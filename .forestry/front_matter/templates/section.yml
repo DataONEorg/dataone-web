@@ -60,6 +60,7 @@ fields:
   - checklist
   - features-list
   - join-form
+  - timeline
   description: The blocks to include in the section
   config:
     min: ''

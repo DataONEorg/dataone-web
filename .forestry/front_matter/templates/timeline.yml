@@ -1,0 +1,74 @@
+---
+label: Timeline
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: timeline
+- name: event
+  type: field_group_list
+  fields:
+  - name: date
+    type: datetime
+    label: Date
+    description: The date of the event
+    config:
+      required: true
+      date_format: YYYY-MM-DD
+      time_format: 
+      display_utc: false
+      export_format: YYYY-MM-DD
+  - name: title
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Event Title
+    description: A brief title that specifies the event that happened
+  - name: description
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Description
+    description: Any relevant details about the event
+  - name: button
+    type: field_group
+    config: {}
+    fields:
+    - name: button
+      type: include
+      config: {}
+      template: button
+      label: Button
+      description: An optional button that leads to more information about a topic
+        related to the event
+    label: Button
+    description: An optional button that leads to more information about a topic related
+      to the event
+  - name: image
+    type: field_group
+    config: {}
+    fields:
+    - name: image
+      type: include
+      config: {}
+      template: image
+      label: Image
+      description: An optional image to include with the event
+    label: Image
+    description: An optional image to display with the event
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Event
+  description: A single event in a timeline

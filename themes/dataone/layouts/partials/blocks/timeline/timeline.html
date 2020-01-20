@@ -1,0 +1,30 @@
+{{- range .Block.event -}}
+  <h2>{{ .title }}</h2>
+  <time datetime="{{.date}}">{{ dateFormat "02 Jan 2006"  .date }}</time>
+  <p>{{ .description }}</p>
+  {{ if and (partial "functions/hasValues" .image) (ne .image.src "") (ne .image.src " ") }}
+    {{- partial "blocks/image/image" (dict "Block" .image "Page" $) -}}
+  {{ end }}
+  {{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
+  <div class="section__button">
+    {{- partial "blocks/button/button" (dict "Block" .button "Page" $) -}}
+  </div>
+  {{ end }}
+{{- end -}}
+
+<!-- - event-title: DataONE starts as a DataNet program
+  description: Supported by funding from the US National Science Foundation as
+    one of the initial DataNet programs in 2009
+  date: '2009-01-01'
+  button:
+    template: button
+    type: tertiary
+    class: ''
+    link: https://smartech.gatech.edu/handle/1853/28513
+    text: More about DataNet
+  image:
+    template: image
+    src: "/images/800px-Robinson-projection.jpg"
+    alttext: World map shown with Robinson projection
+    title: DataONE created global data research infrastructure
+    type: default -->

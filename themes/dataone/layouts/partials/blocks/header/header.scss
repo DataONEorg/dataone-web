@@ -159,9 +159,24 @@
   // TODO
 }
 
+
 .header--text-only{
-  // TODO
+  background-color: $c-background-emphasis;
+  padding-bottom: 0;
+  
+  .header__content{
+    display: block;
+  }
+  
+  .header__text {
+    text-align: center;
+    padding-bottom: $inter-section-spacing;
+    @include desktop{
+      text-align: center;
+    }
+  }
 }
+
 
 .header--homepage{
   
@@ -172,7 +187,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: .5fr .5fr;
     grid-gap: 1.8rem 0;
-    @include desktop{}
   }
   
   .header__logo{

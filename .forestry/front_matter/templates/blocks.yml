@@ -45,5 +45,6 @@ fields:
   config:
     labelField: title
 pages:
+- content/about.md
 - content/hostedrepo.md
 - content/plus.md
