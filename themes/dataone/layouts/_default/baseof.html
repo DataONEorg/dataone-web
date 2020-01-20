@@ -2,19 +2,43 @@
 <html>
     {{- partial "head.html" . -}}
     <body class="page">
+      
         <!-- define gradients for SVG fills at start of body -->
         {{- partial "gradients.html" . -}}
-        <!-- navigation -->
+        
+        <!-- header/navigation -->
         {{- block "nav" . }}
           {{- partial "blocks/global-header/global-header.html" . -}}
         {{- end -}}
+        
         <!-- main content -->
         <article class="article">
-        {{- block "main" . }}{{- end }}
+          {{- block "main" . }}{{- end }}
         </article>
+        
+        <!-- footer -->
         {{- partial "blocks/global-footer/global-footer.html" . -}}
+        
         <!-- Get the bundled javascript resources -->
         {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "js.main.js" . }}
         <script src="{{ $js.Permalink }}"></script>
+        
+        <!-- For debugging CSS: -->
+        <!-- find elements that expand past screen width (esp. on mobile) -->
+        
+        <!-- <script>
+        var docWidth = document.documentElement.offsetWidth;
+
+        [].forEach.call(
+          document.querySelectorAll('*'),
+          function(el) {
+            if (el.offsetWidth > docWidth) {
+              console.log(el);
+              // console.log(el.offsetWidth);
+            }
+          }
+        );
+        </script> -->
+        
     </body>
 </html>

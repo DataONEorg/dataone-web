@@ -55,14 +55,19 @@
   }
   
   &__ctas {
-    display: grid;
+    display: flex;
     justify-items: left;
-    grid-gap: 0.5em;
-    grid-auto-flow: column dense;
+    grid-auto-flow: column;
     justify-content: center;
+    flex-wrap: wrap;
     
     @include desktop {
       justify-content: left;
+    }
+    
+    .button {
+      margin-right: 0.5em;
+      margin-top: 0.5em;
     }
     
   }
@@ -121,7 +126,6 @@
     
     @media only screen and (min-width: 400px) and (max-width: calc(#{$breakpoint} - 1px)){
       min-height: 360px;
-      
     }
     
     @media only screen and (min-width: $breakpoint) and (max-width: 1130px){
@@ -176,11 +180,9 @@
     align-items: center;
     justify-content: center;
     padding-top: 25px;
-    // padding-bottom: 0px;
     
     @include desktop{
       padding-top: 45px;
-      // padding-bottom: 0px;
     }
     
   }
@@ -190,9 +192,6 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 3px;
-    // @include desktop{
-    //   padding-bottom: 50px;
-    // }
   }
   
   .header__advanced-search {
