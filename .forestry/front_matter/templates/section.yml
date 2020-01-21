@@ -61,6 +61,7 @@ fields:
   - features-list
   - join-form
   - timeline
+  - team
   description: The blocks to include in the section
   config:
     min: ''

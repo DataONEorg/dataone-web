@@ -29,6 +29,7 @@ page_sections:
 - template: section
   type: subtle-emphasis
   title: Over a decade of data science and education
+  intro: ''
   blocks:
   - template: timeline
     event:
@@ -86,7 +87,24 @@ page_sections:
     name: ''
     size: ''
     style: ''
+  button:
+    template: ''
+    type: ''
+    class: ''
+    link: ''
+    text: ''
+- template: section
+  type: default
+  title: The people behind the data
   intro: ''
+  blocks:    
+  - template: team
+    show_avatars: true
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
   button:
     template: ''
     type: ''

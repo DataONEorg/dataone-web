@@ -155,6 +155,7 @@ $mobile-lr-padding: 0.8rem;
   margin-right: auto;
 }
 
+// removes default browser styles for button elements
 @mixin button-reset{
   border: none;
   margin: 0;
@@ -187,4 +188,14 @@ $mobile-lr-padding: 0.8rem;
     color: $c-foreground;
   }
   
+}
+
+// material-design-like card style
+@mixin card {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: $c-background;
+  box-shadow: 3px 4px 25px -12px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+  width: auto;
 }

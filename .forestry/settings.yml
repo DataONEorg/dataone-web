@@ -12,6 +12,9 @@ sections:
   templates:
   - markdown
   - blocks
+- type: document
+  path: data/teammembers.yaml
+  label: Team Members
 upload_dir: themes/dataone/static/images
 public_path: "/images"
 front_matter_path: ''

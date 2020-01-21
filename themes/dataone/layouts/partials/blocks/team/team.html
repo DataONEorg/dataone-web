@@ -1,0 +1,19 @@
+<div class="team">
+  {{ $show_avatars := .Block.show_avatars }}
+  <!-- The many .Page parameters allow for this block to be nested at multiple levels -->
+  {{- range .Page.Page.Page.Page.Site.Data.teammembers.team -}}
+  <div class="team__member">
+    {{ if and ($show_avatars) (ne .avatar "") (ne .avatar " ") }}
+      <img class="team__avatar" src = "{{ .avatar }}" alt="{{ .fullname }}" title="{{ .fullname }}">
+    {{ end }}
+    <h3 class="team__fullname">{{ .fullname }}</h3>
+    <h4 class="team__title">{{ .title }}</h4>
+    <p class="team__shortbio">{{ .shortbio }}</p>
+    {{ with .email }}
+    <address>
+      <a class="team__email" href="{{ . }}">{{ . }}</a>
+    </address>
+    {{ end }}
+  </div>
+  {{- end -}}
+</div>

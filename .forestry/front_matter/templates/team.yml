@@ -1,0 +1,14 @@
+---
+label: Team
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: team
+- name: show_avatars
+  type: boolean
+  label: Show avatars
+  description: Choose whether or not to show a picture with each team member
+  default: true
