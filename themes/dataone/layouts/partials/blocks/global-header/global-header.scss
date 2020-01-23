@@ -19,6 +19,7 @@
   }
 }
 
+
 .toplevel-nav {
   
   width: 100%;
@@ -27,15 +28,15 @@
   
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 63px 1fr;
-  grid-template-areas: "logo menu-toggle search" "menu menu menu";
+  grid-template-rows: 63px auto 1fr;
+  grid-template-areas: "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   
   @include limit-width;
   
   @include desktop{
-    grid-template-columns: min-content auto min-content;
+    grid-template-columns: min-content auto min-content min-content;
     grid-template-rows: auto;
-    grid-template-areas: "logo menu search";
+    grid-template-areas: "logo menu search d1search";
     align-items: center;
   }
   
@@ -113,12 +114,83 @@
     }
   }
   
+  // SEARCH
+  
   &__button--search{
     grid-area: search;
     @include desktop{
       justify-self: end;
       padding: 0 5px;
     }
+  }
+  
+  &__d1search{
+    grid-area: d1search;
+    opacity: 0;
+    visibility: hidden;
+    transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
+    margin-bottom: -100%;
+    margin-top: 0;
+    @include desktop{
+      display: block;
+      margin-bottom: 0;
+      width: 0px;
+      margin-left: -400px;
+      transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out,
+                  width 0.18s 0s ease-in-out;
+    }
+    label{
+      display: none;
+    }
+    
+    &[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      margin-bottom: 20px;
+      margin-top: 10px;
+      label{
+        display: block;
+      }
+      
+      // The menu search button when the search is expanded on desktop
+      & ~ .toplevel-nav__button--search {
+        .toplevel-nav__button-icon {
+          display: none;
+        }
+        .toplevel-nav__button-text {
+          margin-top: -4px;
+        }
+        // A close button (X)
+        &:before{
+          display: inline-block;
+          content: "\00d7"; 
+          font-size: 40px;
+          font-size: 45px;
+          margin-top: -19px;
+          color: $c-foreground-subtle;
+          @include desktop{
+            margin-top: 5px;
+          }
+        }
+      }
+      
+      @include desktop{
+        margin: 0 36px 0 0;
+        transform: none;
+        width: 400px;
+        // The menu when the search is expanded on desktop
+        & ~ .toplevel-nav__menu{
+            width: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.18s 0s ease-in-out;
+        }
+      }
+      
+    }
+    
+    
   }
   
   // MENU & MENU ITEMS
@@ -151,6 +223,7 @@
       visibility: visible;
       transform: translateY(0);
       margin-bottom: 20px;
+      
     }
     
   }

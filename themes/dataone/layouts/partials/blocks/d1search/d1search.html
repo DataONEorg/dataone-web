@@ -1,5 +1,5 @@
 
-<form class="d1search" role="search" onsubmit="searchD1()">
+<form class="d1search{{if isset .Block `type` }} d1search--{{ .Block.type }}{{end}}" role="search" onsubmit="searchD1()">
   <input class="d1search__input" type="text" id="search-term" placeholder="What environmental data are you looking for?"/>
   <label class="d1search__label" for="search-term">
     What environmental data are you looking for?

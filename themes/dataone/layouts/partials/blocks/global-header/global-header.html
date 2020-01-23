@@ -12,6 +12,16 @@
         <span class="toplevel-nav__button-text {{ if eq .Kind `home` }}toplevel-nav__button-text--active{{end}}">Home</span>
       </a>
       
+          <!-- SEARCH FORM -->
+          <!-- must be placed before the pages menu -->
+          {{ if ne .Kind `home` }}
+          <div class="toplevel-nav__d1search"
+              id="nav-search-bar"
+              aria-hidden="true">
+          {{ $searchType := (dict "type" "nav") }}
+          {{- partial "blocks/d1search/d1search.html" (dict "Block" $searchType) -}}
+          </div>
+          {{ end }}
       
         <!-- MENU BUTTON -->
         <button class="toplevel-nav__button toplevel-nav__button--menu-toggle"
@@ -35,12 +45,20 @@
         </ul>
       
       <!-- SEARCH BUTTON-->
-      <button class="toplevel-nav__button toplevel-nav__button--search" href="">
+      <button class="toplevel-nav__button toplevel-nav__button--search"
+              id="search-toggle"
+              aria-label="Show data search bar"
+              {{ if ne .Kind `home` }}
+              aria-expanded="false"
+              aria-controls="nav-search-bar"
+              {{ end }}
+              >
         <span class="toplevel-nav__button-icon">
           {{- partial "icons/search.svg" . -}}
         </span>
         <span class="toplevel-nav__button-text">Find Data</span>
       </button>
+      
       
     
   </nav>
