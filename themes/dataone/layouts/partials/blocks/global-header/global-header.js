@@ -48,7 +48,7 @@ var toggleSearch = function(open){
 // Show/hide the menu when the menu-toggle button is clicked
 if(menuExists){
   menuButton.addEventListener("click", function () {
-    const open = JSON.parse(menuButton.getAttribute("aria-expanded"));
+    var open = JSON.parse(menuButton.getAttribute("aria-expanded"));
     toggleMenu(open);
     // Menu and search shouldn't be open at the same time.
     toggleSearch(true);
@@ -61,7 +61,7 @@ if(searchButton){
   // homepage, scroll to the search at the top of the page and put it in focus.
   searchButton.addEventListener("click", function () {
     if(searchExists){
-      const open = JSON.parse(searchButton.getAttribute("aria-expanded"));
+      var open = JSON.parse(searchButton.getAttribute("aria-expanded"));
       toggleSearch(open);
       if(!open && searchInput){
         searchInput.focus();
@@ -85,17 +85,20 @@ if(searchButton){
       // event.relatedTarget gets the object that triggered the focusout event,
       // and if it's the submit submit button, ignore the focusout event.
       // Otherwise the sucmit function does not work.
-      if(event.relatedTarget && event.relatedTarget.getAttribute('type') == "submit"){
+      // Also ignore the event if it's the toggle button, since this already
+      // has an open/close function attached to it.
+      if(event.relatedTarget && (
+          event.relatedTarget.getAttribute('type') == "submit" ||
+          event.relatedTarget == searchButton
+        )
+      ){
         event.preventDefault();
       } else {
         toggleSearch(true);
       }
     });
   }
-  
 }
-
-
 
 // Hide the entire header on scroll down, show on scroll up. (on mobile)
 var prevScrollpos = window.pageYOffset;
