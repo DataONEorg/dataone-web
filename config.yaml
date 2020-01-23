@@ -21,6 +21,6 @@ params:
 
 menu:
   footer:
-    - name: DataONE
+    - name: Archived DataONE Content
       title: Old DataONE website
       url: https://www.dataone.org/

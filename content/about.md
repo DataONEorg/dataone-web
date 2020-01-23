@@ -113,9 +113,9 @@ page_sections:
     text: ''
 menu:
   footer:
-    weight: 4
+    weight: 5
   toplevel:
-    weight: 4
+    weight: 5
 draft: true
 
 ---

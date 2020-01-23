@@ -1,5 +1,5 @@
 ---
-label: Blocks
+label: Homepage
 hide_body: true
 display_field: title
 fields:
@@ -7,7 +7,7 @@ fields:
   name: layout
   label: Layout
   hidden: true
-  default: blocks
+  default: index
 - type: datetime
   name: date
   label: Date
@@ -22,16 +22,6 @@ fields:
   label: Description
   name: description
   description: A description of the page. This description will appear in search results.
-- name: header
-  type: field_group
-  config: {}
-  fields:
-  - name: header
-    type: include
-    config: {}
-    template: header
-    label: header
-  label: Page header
 - type: field_group_list
   name: page_sections
   label: Page sections
@@ -45,7 +35,4 @@ fields:
   config:
     labelField: title
 pages:
-- content/about.md
-- content/hostedrepo.md
-- content/network.md
-- content/plus.md
+- content/_index.md

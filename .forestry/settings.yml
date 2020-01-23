@@ -4,6 +4,9 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: document
+  path: data/membernodes.yaml
+  label: Member Nodes
 - type: directory
   path: content
   label: Pages
@@ -15,8 +18,8 @@ sections:
 - type: document
   path: data/teammembers.yaml
   label: Team Members
-upload_dir: themes/dataone/static/images
-public_path: "/images"
+upload_dir: content/uploads
+public_path: "/uploads"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"

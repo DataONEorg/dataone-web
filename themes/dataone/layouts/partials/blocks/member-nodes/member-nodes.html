@@ -1,0 +1,60 @@
+<!-- This block could be nested at multiple levels, get site data like so : -->
+{{ $Site := .Page.Page.Page.Page.Site }}
+
+<div class="member-nodes">
+  <section class="member-node__category">
+    {{- range $Site.Data.membernodes.categories -}}
+    {{ with .category }}<h3 class="member-nodes__category-title">{{ . }}</h3>{{ end }}
+    {{ with .description }}<p class="member-nodes__category-description">{{ . }}</p>{{ end }}
+    <div class="member-nodes__category-members">
+    {{ $category := .category }}
+      {{- range $Site.Data.membernodes.nodes -}}
+          {{ if eq $category .category }}
+          <div class="member-nodes__member">
+            <!-- Status -->
+            {{ with .status }}
+              {{ $pillType := "primary" }}
+              {{ if eq . "normal" }}
+                {{ $pillType = "success" }}
+              {{ else if eq . "down" }}
+                {{ $pillType = "warning" }}
+              {{ else if eq . "upcoming" }}
+                {{$pillType = "info" }}
+              {{ end }}
+              
+              {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "type" $pillType) "Page" $) -}}
+            {{ end }}
+            
+            <!-- Logo -->
+            {{ if .logo }}
+                {{ $imageResource := ($Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .logo ) }}
+                {{ $resized := $imageResource.Resize "300x" }}
+                <figure class="member-nodes__logo">
+                  <img class="member-nodes__logo-image" src="{{ $resized.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
+                </figure>
+            {{ end }}
+            
+            <!-- Node name -->
+            <h4 class="member-nodes__name">{{ .name }}</h4>
+            
+            <!-- Links -->
+            <div class="member-nodes__links">  
+              {{ with .profile }}
+                <a class="member-nodes__link" href="{{ . }}" title="Member node statistics">
+                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
+                </a>
+                {{ end }}
+              {{ with .homepage }}
+                <a class="member-nodes__link" href="{{ . }}" title="Member node homepage">
+                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "home")) -}}
+                </a>
+              {{ end }}
+            </div>
+            
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
+    </section>
+</div>

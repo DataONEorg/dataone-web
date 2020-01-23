@@ -1,14 +1,17 @@
 ---
-draft: true
 layout: index
-date: 2019-12-04T16:59:31-05:00
+date: 2019-12-04T21:59:31.000+00:00
 title: Data Observation Network for Earth
-description: Data Observation Network for Earth (DataONE) is the foundation of new innovative environmental science through a distributed framework and sustainable cyberinfrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
+description: Data Observation Network for Earth (DataONE) is the foundation of new
+  innovative environmental science through a distributed framework and sustainable
+  cyberinfrastructure that meets the needs of science and society for open, persistent,
+  robust, and secure access to well-described and easily discovered Earth observational
+  data.
 page_sections:
 - template: section
   type: default
-  title: ""
-  intro: ""
+  title: ''
+  intro: ''
   blocks:
   - template: two-columns
     columns:
@@ -28,7 +31,9 @@ page_sections:
         style: default
         name: temp-icon
       headline: Lorem ipsum
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
+        used to demonstrate the visual form of a document or a typeface without relying
+        on meaningful content.
     - template: feature-simple
       icon:
         template: icon
@@ -36,7 +41,9 @@ page_sections:
         style: default
         name: temp-icon
       headline: Lorem ipsum
-      text: 'In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.'
+      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
+        used to demonstrate the visual form of a document or a typeface without relying
+        on meaningful content.
     - template: feature-simple
       icon:
         template: icon
@@ -44,11 +51,25 @@ page_sections:
         style: default
         name: temp-icon
       headline: Lorem ipsum
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
+        used to demonstrate the visual form of a document or a typeface without relying
+        on meaningful content.
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  button:
+    template: ''
+    type: ''
+    class: ''
+    link: ''
+    text: ''
 - template: section
   type: subtle-emphasis
-  title: "Build your knowledge"
-  intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet."
+  title: Build your knowledge
+  intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
   blocks:
   - template: two-columns
     columns:
@@ -59,7 +80,9 @@ page_sections:
         style: default
         name: temp-icon
       headline: Upcoming webinar
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
+        used to demonstrate the visual form of a document or a typeface without relying
+        on meaningful content.
     - template: feature-simple
       icon:
         template: icon
@@ -67,9 +90,20 @@ page_sections:
         style: default
         name: temp-icon
       headline: Featured skill
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
-
-
+      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
+        used to demonstrate the visual form of a document or a typeface without relying
+        on meaningful content.
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  button:
+    template: ''
+    type: ''
+    class: ''
+    link: ''
+    text: ''
 - template: section
   type: default
   blocks:
@@ -90,17 +124,33 @@ page_sections:
       template: button
       text: DataONE on Github
       type: tertiary
+    details: []
   - template: feature-detailed
     headline: Universal access to data
     figure: temp-image
-    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
+    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
     type: left
     button:
       class: ''
-      link: '/about/'
+      link: "/about/"
       template: button
-      text: 'More about DataONE'
+      text: More about DataONE
       type: tertiary
+    details: []
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    class: ''
+    link: ''
+    text: ''
 - template: section
   type: bold
   title: Interested in services by DataONE?
@@ -112,5 +162,17 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: true
     precheck_newsletter: true
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  button:
+    template: ''
+    type: ''
+    class: ''
+    link: ''
+    text: ''
 draft: true
+
 ---

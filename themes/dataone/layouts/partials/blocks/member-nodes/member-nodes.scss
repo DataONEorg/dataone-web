@@ -1,0 +1,89 @@
+.member-nodes{
+  
+  &__category-title{
+    margin-top: 3rem;
+    // TODO
+  }
+  
+  &__category-description{
+    // TODO
+  }
+  
+  &__category-members {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1em;
+    @include mobile-lr-padding;
+    @include medium-lr-padding;
+  }
+  
+  &__member{
+    @include card;
+    @include f-common;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    &:hover{
+      .member-nodes__logo-image{
+        -webkit-filter: none; /* Safari 6.0 - 9.0 */
+        filter: none;
+      }
+    }
+  }
+  
+  &__logo{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 0 0;
+  }
+  
+  &__logo-image{
+    max-width: 150px;
+    max-height: 80px;
+    margin: 0;
+    display: block;
+    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+  }
+  
+  &__name{
+    margin: auto 0;
+    padding-top: 10px;
+    text-align: center;
+    color: $c-foreground-emphasis;
+  }
+  
+  &__links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+    padding-top: 20px;
+    margin-top: auto; // align to bottom of card
+    margin-bottom: 10px;
+  }
+  
+  &__link{
+    text-decoration: none;
+    font-style: normal;
+    text-align: center;
+    display: block;
+    background: $c-background-emphasis;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+      background-color: lighten($c-background-emphasis, 0.5%);
+      transform: translateY(-0.1px);
+      box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(0,0,0,.15);
+    }
+  }
+
+}

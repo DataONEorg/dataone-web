@@ -1,0 +1,329 @@
+---
+categories:
+- category: Upcoming member nodes
+  description: Enter a description here
+- category: Current member nodes
+  description: Enter a description here
+- category: Replication nodes
+  description: Enter a description here
+- category: Contributing repositories
+  description: Enter a description here
+nodes:
+- name: CyVerse
+  logo: "/uploads/member_node_logos/cyverse.png"
+  homepage: http://www.cyverse.org/
+  status: upcoming
+  category: Upcoming member nodes
+  profile: ''
+- name: Global Biodiversity Information Facility
+  logo: "/uploads/member_node_logos/gbif.png"
+  homepage: https://gbif.org/
+  status: upcoming
+  category: Upcoming member nodes
+  profile: ''
+- name: Global Lake Ecological Observatory Network (GLEON)
+  logo: "/uploads/member_node_logos/gleon.png"
+  homepage: http://gleon.org/
+  status: ''
+  category: Contributing repositories
+  profile: ''
+- name: ORNL DAAC
+  logo: "/uploads/member_node_logos/ornldaac.png"
+  homepage: http://daac.ornl.gov/
+  status: ''
+  category: Contributing repositories
+  profile: ''
+- name: University of Kansas - Biodiversity Institute
+  logo: "/uploads/member_node_logos/kubi.png"
+  homepage: http://biodiversity.ku.edu/
+  status: ''
+  category: Contributing repositories
+  profile: ''
+- name: USA National Phenology Network
+  logo: "/uploads/member_node_logos/usanpn.png"
+  homepage: https://www.usanpn.org
+  status: ''
+  category: Contributing repositories
+  profile: ''
+- name: DataONE ORC Dedicated Replica Server
+  logo: ''
+  homepage: ''
+  status: normal
+  category: Replication nodes
+  profile: https://www.dataone.org/dataone-orc-dedicated-replica-server
+- name: DataONE UCSB Dedicated Replica Server
+  logo: ''
+  homepage: ''
+  status: normal
+  category: Replication nodes
+  profile: https://www.dataone.org/dataone-ucsb-dedicated-replica-server
+- name: DataONE UNM Dedicated Replica Server
+  logo: ''
+  homepage: ''
+  status: normal
+  category: Replication nodes
+  profile: https://www.dataone.org/dataone-unm-dedicated-replica-server
+- name: Arctic Data Center
+  logo: "/uploads/member_node_logos/arctic.png"
+  homepage: 'https://arcticdata.io/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/ARCTIC
+- name: ARM - Atmospheric Radiation Measurement Research Facility
+  logo: "/uploads/member_node_logos/arm.png"
+  homepage: 'https://www.archive.arm.gov/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/ARM
+- name: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+  logo: "/uploads/member_node_logos/bcodmo.png"
+  homepage: 'http://www.bco-dmo.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/BCODMO
+- name: Cary Institute of Ecosystem Studies (powered by Figshare)
+  logo: "/uploads/member_node_logos/cary_institute.png"
+  homepage: 'https://www.caryinstitute.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/FIGSHARE_CARY
+- name: Chinese Ecosystem Research Network (CERN)
+  logo: "/uploads/member_node_logos/cern_logo.png"
+  homepage: 'http://www.cern.ac.cn '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/CAS_CERN
+- name: Cornell Lab of Ornithology eBird
+  logo: "/uploads/member_node_logos/cloebird.png"
+  homepage: 'http://ebird.org/content/ebird/ '
+  status: down
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/CLOEBIRD
+- name: Dryad Digital Repository
+  logo: "/uploads/member_node_logos/dryad.png"
+  homepage: 'http://datadryad.org/ '
+  status: down
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/DRYAD
+- name: Earth Data Analysis Center (EDAC)
+  logo: "/uploads/member_node_logos/edacgstore.png"
+  homepage: 'http://edac.unm.edu/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/EDACGSTORE
+- name: Environmental Data Initiative
+  logo: "/uploads/member_node_logos/edi.png"
+  homepage: 'http://environmentaldatainitiative.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/EDI
+- name: ESA Data Registry
+  logo: "/uploads/member_node_logos/esa.png"
+  homepage: 'http://www.esa.org '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/ESA
+- name: 'ESS-DIVE: Deep Insight for Earth Science Data'
+  logo: "/uploads/member_node_logos/ess_dive1.png"
+  homepage: 'https://ess-dive.lbl.gov '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/ESS_DIVE
+- name: Europe Long-Term Ecosystem Research Network (LTER Europe)
+  logo: "/uploads/member_node_logos/lter_europe.png"
+  homepage: 'http://www.lter-europe.net/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/LTER_EUROPE
+- name: Forest Ecosystem Monitoring Cooperative
+  logo: "/uploads/member_node_logos/femc_logo_fulltitle_right1.png"
+  homepage: 'https://www.uvm.edu/femc '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/FEMC
+- name: 'GRIL: metaGRIL'
+  logo: "/uploads/member_node_logos/metagril.png"
+  homepage: 'https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw030 '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/METAGRIL
+- name: Gulf of Alaska Data Portal
+  logo: "/uploads/member_node_logos/goa.png"
+  homepage: 'http://portal.aoos.org/gulf-of-alaska.php '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/GOA
+- name: Gulf of Mexico Research Initiative
+  logo: "/uploads/member_node_logos/griidc.png"
+  homepage: 'https://data.gulfresearchinitiative.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/GRIIDC
+- name: Idaho Northwest Knowledge Network
+  logo: "/uploads/member_node_logos/nkn.png"
+  homepage: 'https://www.northwestknowledge.net/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/NKN
+- name: 'IEDA: EarthChem Library'
+  logo: "/uploads/member_node_logos/ieda_earthchem.png"
+  homepage: 'http://www.earthchem.org/library '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/IEDA_EARTHCHEM
+- name: 'IEDA: Marine-Geo Digital Library'
+  logo: "/uploads/member_node_logos/ieda_mgdl.png"
+  homepage: 'http://www.marine-geo.org/library/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/IEDA_MGDL
+- name: 'IEDA: US Antarctic Program Data Center'
+  logo: "/uploads/member_node_logos/ieda_usap.png"
+  homepage: 'http://www.usap-dc.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/IEDA_USAP
+- name: International Arctic Research Center (IARC) Data Archive
+  logo: "/uploads/member_node_logos/iarc.png"
+  homepage: 'http://www.iarc.uaf.edu/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/IARC
+- name: Knowledge Network for Biocomplexity
+  logo: "/uploads/member_node_logos/knb.png"
+  homepage: 'https://knb.ecoinformatics.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/KNB
+- name: LTER Network Member Node
+  logo: "/uploads/member_node_logos/lter.png"
+  homepage: 'http://www.lternet.edu/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/LTER
+- name: Merritt Repository
+  logo: "/uploads/member_node_logos/cdl.png"
+  homepage: 'https://merritt.cdlib.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/CDL
+- name: Minnesota Population Center (MPC)
+  logo: "/uploads/member_node_logos/us_mpc.png"
+  homepage: 'https://www.pop.umn.edu/index.php '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/US_MPC
+- name: Montana IoE Data Repository
+  logo: "/uploads/member_node_logos/ioe.png"
+  homepage: 'http://montanaioe.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/IOE
+- name: National Ecological Observatory Network
+  logo: "/uploads/member_node_logos/neon.png"
+  homepage: 'http://www.neoninc.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/NEON
+- name: Nevada Research Data Center
+  logo: "/uploads/member_node_logos/nrdc.png"
+  homepage: 'http://www.sensor.nevada.edu/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/NRDC
+- name: NM EPSCoR
+  logo: "/uploads/member_node_logos/nmepscor.png"
+  homepage: 'http://www.nmepscor.org '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/NMEPSCOR
+- name: NOAA NCEI Environmental Data Archive
+  logo: "/uploads/member_node_logos/ncei.png"
+  homepage: 'https://www.ncei.noaa.gov '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/NCEI
+- name: ONEShare Repository
+  logo: "/uploads/member_node_logos/oneshare.png"
+  homepage: 'http://oneshare.cdlib.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/ONEShare
+- name: Organization for Tropical Studies
+  logo: "/uploads/member_node_logos/ots_ndc.png"
+  homepage: 'http://www.ots.ac.cr/ '
+  status: down
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/OTS_NDC
+- name: PANGAEA Data Publisher for Earth and Environmental Science
+  logo: "/uploads/member_node_logos/pangaea.png"
+  homepage: 'https://www.pangaea.de/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/PANGAEA
+- name: PISCO MN
+  logo: "/uploads/member_node_logos/pisco.png"
+  homepage: 'http://www.piscoweb.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/PISCO
+- name: Programa de Pesquisa em Biodiversidade (PPBio)
+  logo: "/uploads/member_node_logos/ppbio.png"
+  homepage: 'https://ppbio.inpa.gov.br/en/repository '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/PPBIO
+- name: Research Workspace
+  logo: "/uploads/member_node_logos/rw.png"
+  homepage: 'https://researchworkspace.com '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/RW
+- name: Rolling Deck to Repository (R2R)
+  logo: "/uploads/member_node_logos/rd2r.png"
+  homepage: 'http://www.rvdata.us/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/R2R
+- name: SANParks Data Repository
+  logo: "/uploads/member_node_logos/sanparks.png"
+  homepage: 'http://sanparks.org.za/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/SANPARKS
+- name: SEAD Virtual Archive
+  logo: "/uploads/member_node_logos/sead.png"
+  homepage: 'http://sead-data.net/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/SEAD
+- name: Taiwan Forestry Research Institute
+  logo: "/uploads/member_node_logos/tfri.png"
+  homepage: 'http://www.tfri.gov.tw/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/TFRI
+- name: TERN Australia
+  logo: "/uploads/member_node_logos/tern.png"
+  homepage: 'http://www.tern.org.au/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/TERN
+- name: the Digital Archaeological Record
+  logo: "/uploads/member_node_logos/tdar.png"
+  homepage: 'https://www.tdar.org/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/TDAR
+- name: University Library at the University of Illinois at Chicago
+  logo: "/uploads/member_node_logos/uic.png"
+  homepage: 'https://library.uic.edu/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/UIC
+- name: USGS Science Data Catalog
+  logo: "/uploads/member_node_logos/usgs_sdc.png"
+  homepage: 'http://data.usgs.gov/datacatalog/ '
+  status: normal
+  category: Current member nodes
+  profile: https://search.dataone.org/#profile/USGS_SDC

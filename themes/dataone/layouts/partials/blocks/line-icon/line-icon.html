@@ -1,0 +1,8 @@
+<!-- line icons use the svg sprite in the static folder called icon-sprite.svg -->
+<!-- these icons can be previewed here: https://feathericons.com/?query=home -->
+<!-- read more about them on github: https://github.com/feathericons/feather -->
+
+<svg class="feather-icon{{ with .Block.size}} feather-icon--sz-{{ . }}{{ end }}{{ with .Block.color }} feather-icon--col-{{ . }}{{ end }}">
+  <title>{{ .Block.icon }} icon</title>
+  <use xlink:href="icon-sprite.svg#{{ .Block.icon }}"/>
+</svg>

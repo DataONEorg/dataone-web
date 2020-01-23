@@ -1,0 +1,74 @@
+---
+label: Member Nodes Data
+hide_body: true
+fields:
+- type: field_group_list
+  name: categories
+  label: Categories
+  fields:
+  - type: text
+    name: category
+    label: Category
+  - type: text
+    name: description
+    label: Description
+  config:
+    labelField: category
+- type: field_group_list
+  name: nodes
+  label: Nodes
+  fields:
+  - name: category
+    type: select
+    default: ''
+    config:
+      required: false
+      options:
+      - Upcoming member nodes
+      - Current member nodes
+      - Replication nodes
+      - Contributing repositories
+      source:
+        type: simple
+        section: team-members
+        file: data/teammembers.yaml
+        path: 
+    label: Category
+    description: The member organization's role
+  - type: text
+    name: name
+    label: Name
+    description: The full name of the organization
+  - type: file
+    name: logo
+    label: Logo
+    description: The organization's logo. Image size will automatically be reduced
+      if too large.
+  - type: text
+    name: homepage
+    label: Homepage
+    description: The website address for the organization.
+  - type: text
+    name: profile
+    label: Profile
+    description: The DataONE profile page for the organization
+  - name: status
+    type: select
+    default: ''
+    config:
+      required: false
+      options:
+      - down
+      - ok
+      - upcoming
+      source:
+        type: simple
+        section: member-nodes
+        file: data/membernodes.yaml
+        path: 
+    label: Status
+    description: The current status of the node
+  config:
+    labelField: name
+pages:
+- data/membernodes.yaml

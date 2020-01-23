@@ -11,7 +11,32 @@
   background: $c-foreground;
   color: $c-background;
   
+  &__icon{
+    padding-right: 3px;
+  }
+  
   &--secondary{
     background: $c-secondary-accent;
   }
+  
+  &--primary{
+    background: $c-primary-accent;
+  }
+  
+  &--tertiary{
+    background: $c-tertiary-accent;
+  }
+  
+  &--info{
+    background: $c-info;
+  }
+  
+  &--warning{
+    background: $c-warning;
+  }
+  
+  &--success{
+    background: $c-success;
+  }
+  
 }

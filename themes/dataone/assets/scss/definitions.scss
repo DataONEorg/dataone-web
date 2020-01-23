@@ -55,9 +55,12 @@ $cn-neutral-light: #D1D3DC;
 $cn-neutral-lighter: #f2f6f9;
 $cn-neutral-lightest: white;
 
-$cn-green: #00ce9e;//#23ba82;
+$cn-turquoise: #00ce9e;//#23ba82;
+$cn-green: #2cc394;
 $cn-vibrant-blue: #2f52bb;
 $cn-light-blue: #80c3ff;
+$cn-mustard-yellow: #f7bd1b;
+$cn-blue: #35bdf2;
 
 // -- Color variables (-c)
 // Use the variables defined below directly on elements.
@@ -73,11 +76,16 @@ $c-background: $cn-neutral-lightest;
 $c-background-emphasis: $cn-neutral-lighter; // default background color for sections with bkg fill
 
 // accent colours
-$c-primary-accent: $cn-green;
+$c-primary-accent: $cn-turquoise;
 $c-secondary-accent: $cn-vibrant-blue;
+$c-tertiary-accent: $cn-light-blue;
 
 // for field colours
 $c-form-fields: $cn-neutral-lighter;
+
+$c-info: $cn-blue;
+$c-warning: $cn-mustard-yellow;
+$c-success: $cn-green;
 
 
 // ==== SPACING VARIABLES ====
