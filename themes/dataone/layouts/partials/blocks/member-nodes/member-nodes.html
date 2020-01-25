@@ -1,14 +1,15 @@
 <!-- This block could be nested at multiple levels, get site data like so : -->
 {{ $Site := .Page.Page.Page.Page.Site }}
-
 <div class="member-nodes">
   <section class="member-node__category">
     {{- range $Site.Data.membernodes.categories -}}
-    {{ with .category }}<h3 class="member-nodes__category-title">{{ . }}</h3>{{ end }}
-    {{ with .description }}<p class="member-nodes__category-description">{{ . }}</p>{{ end }}
-    <div class="member-nodes__category-members">
-    {{ $category := .category }}
-      {{- range $Site.Data.membernodes.nodes -}}
+      {{ $category := .category }}
+      {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
+      {{ with .category }}<h3 class="member-nodes__category-title">{{ . }}{{ end }}{{- partial "blocks/pill/pill" (dict "Block" (dict "text" $nodeCount "type" "secondary") "Page" $) -}}</h3>
+      
+      {{ with .description }}<p class="member-nodes__category-description">{{ . }}</p>{{ end }}
+      <div class="member-nodes__category-members">
+        {{- range $Site.Data.membernodes.nodes -}}
           {{ if eq $category .category }}
           <div class="member-nodes__member">
             <!-- Status -->
@@ -27,10 +28,15 @@
             
             <!-- Logo -->
             {{ if .logo }}
-                {{ $imageResource := ($Site.GetPage "section" "uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .logo ) }}
-                {{ $resized := $imageResource.Resize "300x" }}
+                {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $) }}
+                {{ if gt $imageResource.Width 300 }}
+                  {{ $imageResource = $imageResource.Resize "300x" }}
+                {{ end }}
+                {{ if gt $imageResource.Height 400 }}
+                  {{ $imageResource = $imageResource.Resize "400x" }}
+                {{ end }}
                 <figure class="member-nodes__logo">
-                  <img class="member-nodes__logo-image" src="{{ $resized.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
+                  <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
                 </figure>
             {{ end }}
             

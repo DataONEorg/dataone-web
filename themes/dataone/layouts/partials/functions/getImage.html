@@ -1,0 +1,6 @@
+{{ $imageResource := false }}
+{{ with . }}
+  {{ $Site := .Page.Page.Page.Page.Site }}
+  {{ $imageResource = ($Site.GetPage "/uploads").Resources.GetMatch (strings.TrimPrefix "/uploads/" .image ) }}
+  {{ return $imageResource }}
+{{ end }}

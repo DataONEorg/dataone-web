@@ -28,15 +28,21 @@
   }
   
   &--info{
-    background: $c-info;
+    background: $c-info-background;
+    color: $c-info-foreground;
+    stroke: $c-info-foreground; // for icons
   }
   
   &--warning{
-    background: $c-warning;
+    background: $c-warning-background;
+    color: $c-warning-foreground;
+    stroke: $c-warning-foreground; // for icons
   }
   
   &--success{
-    background: $c-success;
+    background: $c-success-background;
+    color: $c-success-foreground;
+    stroke: $c-success-foreground; // for icons
   }
   
 }

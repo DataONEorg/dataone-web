@@ -56,11 +56,18 @@ $cn-neutral-lighter: #f2f6f9;
 $cn-neutral-lightest: white;
 
 $cn-turquoise: #00ce9e;//#23ba82;
-$cn-green: #2cc394;
+
 $cn-vibrant-blue: #2f52bb;
-$cn-light-blue: #80c3ff;
-$cn-mustard-yellow: #f7bd1b;
-$cn-blue: #35bdf2;
+
+$cn-dark-yellow: #D69E2E;
+$cn-yellow: #f7bd1b;
+$cn-light-yellow: #FEFCBF;
+
+$cn-green: #38a169;
+$cn-light-green: #c6f6d5;
+
+$cn-blue: #3182CE;
+$cn-light-blue: #BEE3F8;
 
 // -- Color variables (-c)
 // Use the variables defined below directly on elements.
@@ -83,9 +90,19 @@ $c-tertiary-accent: $cn-light-blue;
 // for field colours
 $c-form-fields: $cn-neutral-lighter;
 
-$c-info: $cn-blue;
-$c-warning: $cn-mustard-yellow;
-$c-success: $cn-green;
+// info
+$c-info-foreground: $cn-blue;
+$c-info-background: $cn-light-blue;
+
+// warning
+$c-warning-foreground: $cn-dark-yellow;
+$c-warning-background: $cn-light-yellow;
+
+// success
+$c-success-background: $cn-light-green;
+$c-success-foreground: $cn-green;
+
+//error
 
 
 // ==== SPACING VARIABLES ====
