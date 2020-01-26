@@ -4,41 +4,33 @@ var tocButton    = document.getElementById("toc-toggle"),
     tocExists    = tocButton !==null && tocMenu !== null,
     sectionItems = document.querySelectorAll('.member-nodes__toc-item'),
     sectionLinks = document.querySelectorAll('.member-nodes__toc-item'),
-    navEl = document.querySelector(".member-nodes__nav");
+    navEl        = document.querySelector(".member-nodes__nav");
 
 /**
- * toggleMenu - Sets or unsets the aria-expanded and aria-hidden attributes on
- * the TOCmenu and tocMenu button.
- * @param {boolean} open - indicates whether the menu should be closed (true) or
- * open (false).
- */
-var toggleTOC = function(open){
-  try{
-    if(tocExists){
-      tocButton.setAttribute("aria-expanded", !open);
-      tocMenu.setAttribute("aria-hidden", open);
-    }
-  } catch(e) {
-    console.log("Error toggling the TOC");
-    console.log(e);
-  }
-};
+ * var updateTOC - function that opens or closes the menu when a button is clicked
+ * (on mobile), and adds "active" class to relevant TOC section on scroll. 
+ * based on: http://fofwebdesign.co.uk/template/_testing/scroll-in-view/add-class-to-element-when-in-view.htm
+ */ 
 
-if(tocExists){
-  // Show/hide the search when the search-toggle button is clicked, or if on the
-  // homepage, scroll to the search at the top of the page and put it in focus.
-  tocButton.addEventListener("click", function () {
-    if(tocExists){
-      var open = JSON.parse(tocButton.getAttribute("aria-expanded"));
-      toggleTOC(open);
-    }
-    // Menu and search shouldn't be open at the same time.
-    toggleMenu(true);
-  });
-}
-
-// from: http://fofwebdesign.co.uk/template/_testing/scroll-in-view/add-class-to-element-when-in-view.htm
 var updateTOC = function(){
+  
+  /**
+   * toggleMenu - Sets or unsets the aria-expanded and aria-hidden attributes on
+   * the TOCmenu and tocMenu button.
+   * @param {boolean} open - indicates whether the menu should be closed (true) or
+   * open (false).
+   */
+  var toggleTOC = function(open){
+    try{
+      if(tocExists){
+        tocButton.setAttribute("aria-expanded", !open);
+        tocMenu.setAttribute("aria-hidden", open);
+      }
+    } catch(e) {
+      console.log("Error toggling the TOC");
+      console.log(e);
+    }
+  };
 
 	/**  
 	 * hasClass - Checks if an element contains a class name
@@ -183,6 +175,8 @@ var updateTOC = function(){
 
   };
 
+  
+  // Add event listeners 
 	window.addEventListener("scroll", throttle(classChangeEvents, 20), false);
   window.addEventListener("resize", throttle(classChangeEvents, 20), false);
 
@@ -199,12 +193,29 @@ var updateTOC = function(){
     });
   });
   
+  // Show/hide the search when the search-toggle button is clicked, or if on the
+  // homepage, scroll to the search at the top of the page and put it in focus.
+  tocButton.addEventListener("click", function () {
+    if(tocExists){
+      var open = JSON.parse(tocButton.getAttribute("aria-expanded"));
+      toggleTOC(open);
+    }
+    // Menu and search shouldn't be open at the same time.
+    toggleMenu(true);
+  });
+  
 };
 
 try {
-  updateTOC();
+  if(tocExists){
+    updateTOC();
+  }
 } catch (e) {
   console.log("error updating to TOC, error message: " (e));
   // by default have the menu open, if possible.
-  toggleTOC(false);
+  try {
+    toggleTOC(false);
+  } catch (e) {
+    console.log("error displaying the TOC, error message: " (e));
+  }
 }
