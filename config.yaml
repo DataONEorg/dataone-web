@@ -18,6 +18,7 @@ params:
   contactLink: "https://www.dataone.org/contact"
   joinFormId: "join-form"
   blockDir: "themes/dataone/layouts/partials/blocks/"
+  mobileDesktopBreakpoint: 640
 
 menu:
   footer:

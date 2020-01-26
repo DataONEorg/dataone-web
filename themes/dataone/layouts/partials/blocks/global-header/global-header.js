@@ -102,7 +102,7 @@ if(searchButton){
 
 // Hide the entire header on scroll down, show on scroll up. (on mobile)
 var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
+var toggleHeader = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     header.style.bottom = "0";
@@ -114,3 +114,4 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+window.addEventListener("scroll", throttle(toggleHeader, 20), false);

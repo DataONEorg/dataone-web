@@ -1,66 +1,102 @@
 <!-- This block could be nested at multiple levels, get site data like so : -->
 {{ $Site := .Page.Page.Page.Page.Site }}
+{{ $Page := .Page.Page.Page.Page }}
 <div class="member-nodes">
-  <section class="member-node__category">
+  
+  <div class="member-nodes__nav-container">
+    <nav class="member-nodes__nav">
+      
+      <ol class="member-nodes__toc" id="member-nodes-toc" aria-hidden="false">
+      {{- range $Site.Data.membernodes.categories -}}
+        {{ $category := .category }}
+        {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
+        <li class="member-nodes__toc-item" aria-controls="section__{{urlize $category}}" id="item__{{urlize $category}}">
+          {{ if .category }}
+            <a class="member-nodes__toc-link" href="{{$Page.RelPermalink}}#section__{{urlize $category}}">
+              {{ .category }}<span class="member-nodes__count">{{ $nodeCount }}</span>
+            </a>
+            {{ end }}
+        </li>
+      {{ end }}
+      </ol>
+      
+      <button class="member-nodes__toc-button"
+        id="toc-toggle"
+        aria-label="Show table of contents"
+        aria-expanded="true"
+        aria-controls="member-nodes-toc">
+        <span class="member-nodes__button-icon">
+          {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "list" "color" "inherit")) -}}
+        </span>
+      </button>
+      
+    </nav>
+  </div>
+  
+  <section class="member-nodes__categories">
     {{- range $Site.Data.membernodes.categories -}}
       {{ $category := .category }}
-      {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
-      {{ with .category }}<h3 class="member-nodes__category-title">{{ . }}{{ end }}{{- partial "blocks/pill/pill" (dict "Block" (dict "text" $nodeCount "type" "secondary") "Page" $) -}}</h3>
-      
-      {{ with .description }}<p class="member-nodes__category-description">{{ . }}</p>{{ end }}
-      <div class="member-nodes__category-members">
-        {{- range $Site.Data.membernodes.nodes -}}
-          {{ if eq $category .category }}
-          <div class="member-nodes__member">
-            <!-- Status -->
-            {{ with .status }}
-              {{ $pillType := "primary" }}
-              {{ if eq . "normal" }}
-                {{ $pillType = "success" }}
-              {{ else if eq . "down" }}
-                {{ $pillType = "warning" }}
-              {{ else if eq . "upcoming" }}
-                {{$pillType = "info" }}
+      {{ $categoryMembers := where $Site.Data.membernodes.nodes "category" "==" $category }}
+      <div class="member-nodes__category" id="section__{{urlize $category}}">
+        <h3 class="member-nodes__category-title">{{ .category }}</h3>
+        {{ with .description }}
+          <p class="member-nodes__category-description" aria-hidden="true">
+            {{ . }}
+          </p>
+        {{ end }}
+        <div class="member-nodes__category-members">
+          
+          {{- range $categoryMembers -}}
+            <div class="member-nodes__member">
+              <!-- Status -->
+              {{ with .status }}
+                {{ $pillType := "primary" }}
+                {{ if eq . "normal" }}
+                  {{ $pillType = "success" }}
+                {{ else if eq . "down" }}
+                  {{ $pillType = "warning" }}
+                {{ else if eq . "upcoming" }}
+                  {{$pillType = "info" }}
+                {{ end }}
+                
+                {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "type" $pillType) "Page" $) -}}
               {{ end }}
               
-              {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "type" $pillType) "Page" $) -}}
-            {{ end }}
-            
-            <!-- Logo -->
-            {{ if .logo }}
-                {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $) }}
-                {{ if gt $imageResource.Width 300 }}
-                  {{ $imageResource = $imageResource.Resize "300x" }}
-                {{ end }}
-                {{ if gt $imageResource.Height 400 }}
-                  {{ $imageResource = $imageResource.Resize "400x" }}
-                {{ end }}
-                <figure class="member-nodes__logo">
-                  <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
-                </figure>
-            {{ end }}
-            
-            <!-- Node name -->
-            <h4 class="member-nodes__name">{{ .name }}</h4>
-            
-            <!-- Links -->
-            <div class="member-nodes__links">  
-              {{ with .profile }}
-                <a class="member-nodes__link" href="{{ . }}" title="Member node statistics">
-                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
-                </a>
-                {{ end }}
-              {{ with .homepage }}
-                <a class="member-nodes__link" href="{{ . }}" title="Member node homepage">
-                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "home")) -}}
-                </a>
+              <!-- Logo -->
+              {{ if .logo }}
+                  {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $) }}
+                  {{ if gt $imageResource.Width 300 }}
+                    {{ $imageResource = $imageResource.Resize "300x" }}
+                  {{ end }}
+                  {{ if gt $imageResource.Height 400 }}
+                    {{ $imageResource = $imageResource.Resize "400x" }}
+                  {{ end }}
+                  <figure class="member-nodes__logo">
+                    <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
+                  </figure>
               {{ end }}
+              
+              <!-- Node name -->
+              <h4 class="member-nodes__name">{{ .name }}</h4>
+              
+              <!-- Links -->
+              <div class="member-nodes__links">  
+                {{ with .profile }}
+                  <a class="member-nodes__link" href="{{ . }}" title="Member node statistics">
+                    {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
+                  </a>
+                  {{ end }}
+                {{ with .homepage }}
+                  <a class="member-nodes__link" href="{{ . }}" title="Member node homepage">
+                    {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "home")) -}}
+                  </a>
+                {{ end }}
+              </div>
+              
             </div>
-            
-          </div>
           {{ end }}
-        {{ end }}
+        </div>
       </div>
       {{ end }}
-    </section>
+  </section>
 </div>
