@@ -1,5 +1,5 @@
 ---
-title: About
+title: About DataONE
 date: 2020-01-15T15:53:34.000+00:00
 description: About dataone
 layout: blocks
@@ -97,7 +97,7 @@ page_sections:
   type: default
   title: The people behind the data
   intro: ''
-  blocks:    
+  blocks:
   - template: team
     show_avatars: true
   icon:
@@ -112,10 +112,12 @@ page_sections:
     link: ''
     text: ''
 menu:
-  footer:
-    weight: 5
   toplevel:
-    weight: 5
+    parent: About
+    weight: 1
+  footer:
+    parent: About
+    weight: 2
 draft: true
 
 ---

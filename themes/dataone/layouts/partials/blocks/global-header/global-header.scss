@@ -217,23 +217,133 @@
       flex-wrap: nowrap;
       justify-self: end;
     }
+    &[aria-hidden="true"] {
+      @include desktop{
+        // menu on desktop when ARIA label set to hidden (for testing)
+      }
+    }
     
     &[aria-hidden="false"] {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
       margin-bottom: 20px;
+      @include desktop{
+        margin-bottom: 0;
+        transform: none;
+      }
       
     }
     
+  }
+  
+  &__sub-menu{
+    @include desktop{
+      position: absolute;
+      background-color: $c-background;
+      display: block;
+      border-radius: 4px;
+      box-shadow: -1px 1px 7px -1px rgba(82,95,127,.11);
+      // center the menu
+      transform: translate(-50%, 0);
+      left: 50%;
+      padding: 1rem 1.75rem;
+    }
+    padding-inline-start: 0;
+    transition: max-height 0.25s 0s ease-in-out, opacity 0.15s 0s ease-in-out;
+    // closed
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    // open
+    &[aria-hidden="false"] {
+      height: auto;
+      max-height: 500px;
+      opacity: 1;
+      visibility: visible;
+      
+      // submenu arrow when menu is open
+      & ~ .toplevel-nav__sub-menu-arrow {
+        @include desktop{
+          bottom: -5px;
+          transform: translate(-50%, 0);
+          left: 50%;
+          position: absolute;
+          margin: 0 0 0 -6px;
+          width: 12px;
+          height: 12px;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          border-radius: 4px 0 0 0;
+          background: $c-background;
+          box-shadow: -3px -3px 5px rgba(82,95,127,.05);
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  &__sub-menu-arrow{
+    opacity: 0;
+    transition: opacity 0.2s 0s ease-in-out;
+  }
+  
+  &__sub-menu-link {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .03em;
+    display: block;
+    text-decoration: none;
+    color: $c-foreground-subtle;
+    white-space: nowrap;
+    padding: 0.5rem 0;
+    
+    &--active{
+      color: $c-foreground;
+      font-weight: 600;
+    }
+    
+    @include desktop{
+      &:hover{
+        color: $c-foreground-emphasis;
+        transition: color 0.1s 0s ease-in-out;
+      }
+    }
+  }
+  
+  &__sub-menu-item{
+    
+    text-align: center;
+    height: auto;
+    display: block;
+    position: relative;
+    @include desktop{
+      margin: 5px 2px;
+      height: auto;
+    }
+    
+    &--active{
+    
+    }
+  }
+  
+  &__sub-menu-icon{
+    margin-top: -2px;
+    stroke: $c-foreground-subtle;
+    position: relative;
+    top: -1px;
   }
 
   &__menu-item{
     
     text-align: center;
-    height: 56px;
+    height: auto;
     display: block;
-    
+    position: relative;
     @include desktop{
       margin: 5px 2px;
       height: auto;
@@ -245,10 +355,11 @@
   }
   
   &__menu-link{
+    @include button-reset;
     text-decoration: none;
     color: $c-foreground-subtle;
     white-space: nowrap;
-    
+    width: 100%;
     display: block;
     font-size: 1rem;
     font-weight: 400;

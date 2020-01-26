@@ -1,15 +1,8 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+title: Training
+date: 2020-01-26T16:39:58.000+00:00
 description: 
-draft: true
 layout: blocks
-menu:
-  footer:
-    weight: 
-  toplevel:
-    weight: 
-draft: true
 header:
   template: header
   type: text-only
@@ -43,4 +36,13 @@ page_sections:
     class: ''
     link: ''
     text: ''
+menu:
+  toplevel:
+    parent: Resources
+    weight: 5
+  footer:
+    parent: Resources
+    weight: 7
+draft: true
+
 ---

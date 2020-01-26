@@ -1,20 +1,13 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-description: 
-draft: true
+title: Network
+date: 2020-01-23
+description: DataONE member nodes
 layout: blocks
-menu:
-  footer:
-    weight: 
-  toplevel:
-    weight: 
-draft: true
 header:
   template: header
   type: text-only
-  title: 
-  intro: 
+  title: Network
+  intro: Member nodes
   pill:
     template: ''
     type: ''
@@ -28,10 +21,11 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: default
-  title: 
+  type: subtle-emphasis
+  title: Our network
   intro: ''
-  blocks: []
+  blocks:
+  - template: member-nodes
   icon:
     template: ''
     name: ''
@@ -43,4 +37,13 @@ page_sections:
     class: ''
     link: ''
     text: ''
+menu:
+  toplevel:
+    parent: About
+    weight: 2
+  footer:
+    parent: About
+    weight: 4
+draft: true
+
 ---

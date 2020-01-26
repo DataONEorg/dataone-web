@@ -7,11 +7,6 @@ description: A dedicated repository solution for your group or institution's dat
   together in a centralized location for efficient sharing, access, and reuse. Accelerate
   research activity, foster new collaborations, and build community with a repository
   that meets your needs and reflects your brand.
-menu:
-  toplevel:
-    weight: 2
-  footer:
-    weight: 2
 header:
   intro: A dedicated repository for your team’s data, managed by DataONE. Bring the
     products of your research together in one centralized location for efficient sharing,
@@ -27,7 +22,7 @@ header:
     type: default
   pill:
     template: pill
-    text: 'Coming 2020'
+    text: Coming 2020
     type: secondary
   buttons:
   - class: ''
@@ -57,8 +52,8 @@ page_sections:
     style: ''
     template: ''
   blocks:
-  - intro: Let the experts behind DataONE manage and preserve your data, software, and
-      derived products with our robust software and hardware.
+  - intro: Let the experts behind DataONE manage and preserve your data, software,
+      and derived products with our robust software and hardware.
     template: section
     title: Focus on your research, leave your data infrastructure to us
     type: default
@@ -116,8 +111,8 @@ page_sections:
           template: icon
       - name: Customization
         template: item-with-icon
-        text: Brand your data repository with customized features allowing you to connect
-          directly with your community.
+        text: Brand your data repository with customized features allowing you to
+          connect directly with your community.
         icon:
           name: checkmark
           size: small
@@ -126,8 +121,8 @@ page_sections:
     - details:
       - template: item-with-icon
         name: Custom DOI prefix
-        text: A DOI prefix is configured exclusively for your datasets, products, and
-          code
+        text: A DOI prefix is configured exclusively for your datasets, products,
+          and code
         icon:
           template: icon
           name: checkmark
@@ -135,8 +130,8 @@ page_sections:
           style: secondary
       - template: item-with-icon
         name: Custom domain name
-        text: Your repository is available at a domain of your choice, but hosted by
-          DataONE
+        text: Your repository is available at a domain of your choice, but hosted
+          by DataONE
         icon:
           template: icon
           name: checkmark
@@ -246,7 +241,8 @@ page_sections:
         style: default
         name: advanced-search
       headline: Comprehensive search
-      text: Quickly find data with detailed search filters, or by navigating the interactive map
+      text: Quickly find data with detailed search filters, or by navigating the interactive
+        map
     - template: feature-simple
       icon:
         template: icon
@@ -254,7 +250,8 @@ page_sections:
         style: default
         name: any-file-format
       headline: Any file format
-      text: 'Use the scientific file formats for your community: image, tabular, text, audio, video, and others'
+      text: 'Use the scientific file formats for your community: image, tabular, text,
+        audio, video, and others'
     - template: feature-simple
       icon:
         template: icon
@@ -262,7 +259,8 @@ page_sections:
         style: default
         name: provenance
       headline: Link data and software
-      text: Easily show how your files relate to each other by providing well-described provenance workflows
+      text: Easily show how your files relate to each other by providing well-described
+        provenance workflows
   icon:
     template: ''
     name: ''
@@ -323,6 +321,11 @@ page_sections:
     class: ''
     link: ''
     text: ''
+menu:
+  footer:
+    weight: 9
+  toplevel:
+    weight: 2
 draft: true
 
 ---

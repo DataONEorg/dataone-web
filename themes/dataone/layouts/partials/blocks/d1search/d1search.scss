@@ -24,9 +24,11 @@
     max-height: 100%;
     white-space: nowrap;
     overflow: hidden;
+    max-width: 90%;
     @include desktop{
       padding-top: 0;
       padding-left: 20px;
+      max-width: none;
     }
     
     
@@ -37,6 +39,7 @@
     
     cursor: text;
     top: 33px;
+    font-size: 0.9rem;
     @include desktop{
       font-size: 1.3rem;
     }

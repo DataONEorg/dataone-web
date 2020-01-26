@@ -4,17 +4,51 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Pages
 - type: document
-  path: data/membernodes.yaml
-  label: Member Nodes
+  path: content/_index.md
+  label: Homepage
 - type: directory
   path: content
-  label: Pages
+  label: Services
   create: all
   match: "*"
+  exclude: _index.md
   templates:
   - markdown
   - blocks
+- type: directory
+  path: content/resources
+  label: Resources
+  create: all
+  match: "*"
+  templates:
+  - blocks
+  - markdown
+- type: directory
+  path: content/about
+  label: About
+  create: all
+  match: "*"
+  templates:
+  - blocks
+  - markdown
+- type: directory
+  path: content/news
+  label: News
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/jobs
+  label: Jobs
+  create: all
+  match: "**/*"
+- type: heading
+  label: Data
+- type: document
+  path: data/membernodes.yaml
+  label: Member Nodes
 - type: document
   path: data/teammembers.yaml
   label: Team Members

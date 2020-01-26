@@ -1,13 +1,13 @@
 ---
-title: Network
-date: 2020-01-23
-description: DataONE member nodes
+title: Webinars
+date: 2020-01-26T16:39:31.000+00:00
+description: 
 layout: blocks
 header:
   template: header
   type: text-only
-  title: Network
-  intro: Member nodes
+  title: 
+  intro: 
   pill:
     template: ''
     type: ''
@@ -21,11 +21,10 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: subtle-emphasis
-  title: Our network
+  type: default
+  title: 
   intro: ''
-  blocks:
-  - template: member-nodes
+  blocks: []
   icon:
     template: ''
     name: ''
@@ -39,9 +38,11 @@ page_sections:
     text: ''
 menu:
   toplevel:
-    weight: 4
+    parent: Resources
+    weight: 1
   footer:
-    weight: 4
+    parent: Resources
+    weight: 1
 draft: true
 
 ---

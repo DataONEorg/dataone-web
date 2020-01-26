@@ -38,9 +38,54 @@
         <!-- PAGES MENU -->
         <ul class="toplevel-nav__menu" id="primary-menu" aria-hidden="true">
           {{ range .Site.Menus.toplevel }}
-          <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-            <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
-          </li>
+            {{ if .HasChildren }}
+            
+            <!-- make a menu button if there are 2+ child pages -->
+              {{ if gt (len .Children)  1 }}
+                <li class="toplevel-nav__menu-item toplevel-nav__menu-item--hasSubmenu {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+                  
+                  <!-- button to open submenu -->
+                  <button class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}"
+                          aria-haspopup="true" 
+                          aria-expanded="false"
+                          aria-controls="#{{urlize .Name }}"
+                  >
+                          {{ .Name }}
+                    <span class="toplevel-nav__sub-menu-icon">
+                      {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "chevron-down" "size" "tiny" "color" "inherit")) -}}
+                    </span>
+                  </button>
+                  
+                  <!-- submenu -->
+                  <ul class="toplevel-nav__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
+                    {{ range .Children }}
+                    <li class = "toplevel-nav__sub-menu-item">
+                      <a class="toplevel-nav__sub-menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                  </ul>
+                  
+                  <!-- submenu arrow at top on desktop -->
+                  <div class="toplevel-nav__sub-menu-arrow"></div>
+                  
+                  
+                </li>
+                
+              <!-- just make a link to the first child page if there's only one -->
+              {{ else }}
+                {{ range first 1 .Children }}
+                <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+                  <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+              {{ end }}
+              
+            <!-- when there are no child pages, make a regular link -->
+            {{ else }}
+              <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+                <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+              </li>
+              {{ end }}
           {{ end }}
         </ul>
       

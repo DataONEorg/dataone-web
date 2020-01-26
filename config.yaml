@@ -1,27 +1,41 @@
+---
 theme: dataone
-baseURL: 'https://products.dataone.org/'
+baseURL: https://products.dataone.org/
 title: DataONE
 languageCode: en-us
 metaDataFormat: yaml
-
 pygmentsCodeFences: true
 enableRobotsTXT: true
 publishDir: docs
-
 permalinks:
-  posts: '/:filename/'
-  pages: '/:filename/'
-
+  posts: "/:filename/"
+  pages: "/:filename/"
 params:
-  description: "DataONE's products and services."
-  footerText: "DataONE is a collaboration among many partner organizations, and is funded by the US National Science Foundation (NSF) under a Cooperative Agreement. Acknowledgement: This material is based upon work supported by the National Science Foundation under Grant Numbers 0830944 and 1430508. Disclaimer: Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation."
-  contactLink: "https://www.dataone.org/contact"
-  joinFormId: "join-form"
-  blockDir: "themes/dataone/layouts/partials/blocks/"
+  description: DataONE's products and services.
+  footerText: 'DataONE is a collaboration among many partner organizations, and is
+    funded by the US National Science Foundation (NSF) under a Cooperative Agreement.
+    Acknowledgement: This material is based upon work supported by the National Science
+    Foundation under Grant Numbers 0830944 and 1430508. Disclaimer: Any opinions,
+    findings, and conclusions or recommendations expressed in this material are those
+    of the author(s) and do not necessarily reflect the views of the National Science
+    Foundation.'
+  contactLink: https://www.dataone.org/contact
+  joinFormId: join-form
+  blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640
-
 menu:
   footer:
-    - name: Archived DataONE Content
-      title: Old DataONE website
-      url: https://www.dataone.org/
+  - url: https://www.dataone.org/
+    name: Archived content
+    title: Old DataONE website
+    weight: 12
+  toplevel:
+  - url: https://dataoneorg.github.io/Education/
+    name: Skillbuilding Hub
+    title: Skillbuilding Hub
+    parent: Resources
+    weight: 3
+  - name: About
+    weight: 4
+  - name: Resources
+    weight: 3

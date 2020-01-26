@@ -1,15 +1,6 @@
 ---
 layout: blocks
 date: 2020-01-14T19:04:29.000+00:00
-title: DataONE Plus
-description: Enhanced DataONE products and services in support of your research, including
-  branded portals, customized search, quality assessment metrics (including the FAIR
-  suite), and much more.
-menu:
-  toplevel:
-    weight: 1
-  footer:
-    weight: 1
 header:
   template: header
   type: left-aligned
@@ -37,6 +28,10 @@ header:
     link: ContactUsLink
     text: Contact us
     class: ''
+title: DataONE Plus
+description: Enhanced DataONE products and services in support of your research, including
+  branded portals, customized search, quality assessment metrics (including the FAIR
+  suite), and much more.
 page_sections:
 - template: section
   type: default
@@ -219,6 +214,11 @@ page_sections:
     class: ''
     link: ''
     text: ''
+menu:
+  footer:
+    weight: 6
+  toplevel:
+    weight: 1
 draft: true
 
 ---
