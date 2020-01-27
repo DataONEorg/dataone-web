@@ -1,0 +1,30 @@
+
+<!-- button include -->
+<!-- logo selection -->
+<div class="logos-bar">
+  <div class="logos-bar__hover-area">
+    
+    <div class="logos-bar__button-container">
+      {{- with .Block.button -}}
+        {{- partial "blocks/button/button" (dict "Block" . "Page" $) -}}
+      {{ end }}
+    </div>
+    <!-- logos list -->
+    <ul class="logos-bar__logos">
+      {{- range .Block.logos -}}
+        {{ if .logo }}
+          <li class="logos-bar__logo">
+            {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $) }}
+            {{ if gt $imageResource.Width 400 }}
+              {{ $imageResource = $imageResource.Resize "400x" }}
+            {{ end }}
+            {{ if gt $imageResource.Height 200 }}
+              {{ $imageResource = $imageResource.Resize "200x" }}
+            {{ end }}
+            <img class="logos-bar__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }}alt="{{ .}} logo" title="{{ .}}"{{ end }} />
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+</div>

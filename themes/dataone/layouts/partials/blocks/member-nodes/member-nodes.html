@@ -72,7 +72,7 @@
                     {{ $imageResource = $imageResource.Resize "400x" }}
                   {{ end }}
                   <figure class="member-nodes__logo">
-                    <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" alt="{{ .name }} logo" title="{{ .name }}" />
+                    <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }}alt="{{ .}} logo" title="{{ .}}"{{ end }} />
                   </figure>
               {{ end }}
               

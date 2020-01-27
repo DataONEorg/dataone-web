@@ -13,6 +13,24 @@ page_sections:
   title: ''
   intro: ''
   blocks:
+  - template: logos-bar
+    button:
+      class: ''
+      link: 'network...'
+      template: button
+      text: Join our network of members
+      type: quaternary
+    logos:
+    - name: CyVerse
+      logo: "/uploads/member_node_logos/cyverse.png"
+    - name: Global Biodiversity Information Facility
+      logo: "/uploads/member_node_logos/gbif.png"
+    - name: Global Lake Ecological Observatory Network (GLEON)
+      logo: "/uploads/member_node_logos/gleon.png"
+    - name: ORNL DAAC
+      logo: "/uploads/member_node_logos/ornldaac.png"
+    - name: University of Kansas - Biodiversity Institute
+      logo: "/uploads/member_node_logos/kubi.png"
   - template: two-columns
     columns:
     - template: image

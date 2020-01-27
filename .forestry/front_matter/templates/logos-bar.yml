@@ -1,0 +1,33 @@
+---
+label: Logos bar
+hide_body: true
+fields:
+- type: field_group
+  name: button
+  label: Button
+  description: Optional button that leads to more information about the organizations
+    shown in the bar of logos
+  fields:
+  - type: include
+    template: button
+    name: button
+    label: Button
+- name: logos
+  type: field_group_list
+  label: Logos
+  description: The logo images to display. Around 4-6 logos is ideal, but any number
+    is possible.
+  fields:
+  - name: logo
+    type: file
+    config:
+      maxSize: 250
+    label: Image File
+    description: The image file to use
+  - name: name
+    type: text
+    default: ''
+    label: Name of the organization
+    description: This name will be used as the image's alternative text and title
+  config:
+    labelField: name
