@@ -121,6 +121,7 @@ page_sections:
     link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
     text: Learn more about FAIR
     class: ''
+    external_website: true
   icon:
     template: ''
     name: ''
@@ -183,9 +184,11 @@ page_sections:
   button:
     template: button
     type: tertiary
-    link: "/hostedrepo/"
+    link: ''
     text: More about hosted repositories
     class: ''
+    external_website: false
+    website_link: 'hostedrepo.md'
   icon:
     template: ''
     name: ''

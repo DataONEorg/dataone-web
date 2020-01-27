@@ -22,14 +22,38 @@ fields:
     - tertiary
     - quaternary
 - type: text
-  label: Button Class
-  name: class
-  description: An optional additional CSS class to add to the button
-- type: text
-  label: Button Link
-  name: link
-  description: The link to which the button should navigate
-- type: text
   label: Button text
   name: text
   description: The text inside the button
+- name: external_website
+  type: boolean
+  label: Link to an external website?
+  description: If set to true, the button will lead to an external website. If false,
+    button leads to another page on the website.
+- type: text
+  label: External link
+  name: link
+  description: A link outside the website to which the button should navigate. Must
+    start with http:// or https://
+  showOnly:
+    field: external_website
+    value: true
+- name: website_link
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: ''
+      file: 
+      path: 
+  label: Page to navigate to
+  description: The page that the button should navigate to when clicked
+  showOnly:
+    field: external_website
+- type: text
+  label: Button Class
+  name: class
+  description: An optional additional CSS class to add to the button

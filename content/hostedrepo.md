@@ -87,6 +87,7 @@ page_sections:
         template: button
         text: DataONE on Github
         type: tertiary
+        external_website: true
     - figure: geographic-replicas
       headline: Geographic replicas
       template: feature-detailed
@@ -186,6 +187,7 @@ page_sections:
     Findable, Accessible, Interoperable, and Reusable.
   button:
     template: button
+    external_website: true
     type: tertiary
     link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
     text: Learn more about FAIR
@@ -208,6 +210,7 @@ page_sections:
     - template: feature-detailed
       type: top
       button:
+        external_website: true
         template: button
         type: tertiary
         link: https://test.arcticdata.io/submit
@@ -227,6 +230,7 @@ page_sections:
         class: ''
         link: https://releases.dataone.org/online/api-documentation-v2.0.1/apis/index.html
         text: Read the docs
+        external_website: true
       headline: Advanced API access
       text: Programmatically work with your repository through the DataONE tools in
         R, Python, Matlab, and Java.
@@ -290,9 +294,11 @@ page_sections:
   button:
     template: button
     type: tertiary
-    link: "/plus/"
+    link: ''
     text: Learn more about DataONE Plus
     class: ''
+    external_website: false
+    website_link: "plus.md"
   icon:
     template: ''
     name: ''

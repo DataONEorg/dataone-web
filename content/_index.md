@@ -16,10 +16,12 @@ page_sections:
   - template: logos-bar
     button:
       class: ''
-      link: 'network...'
+      link: ''
       template: button
       text: Join our network of members
       type: quaternary
+      external_website: false
+      website_link: about/network.md
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
@@ -83,6 +85,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 - template: section
   type: subtle-emphasis
   title: Build your knowledge
@@ -122,6 +126,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 - template: section
   type: default
   blocks:
@@ -142,6 +148,8 @@ page_sections:
       template: button
       text: DataONE on Github
       type: tertiary
+      external_website: true
+      website_link: ''
     details: []
   - template: feature-detailed
     headline: Universal access to data
@@ -151,10 +159,12 @@ page_sections:
     type: left
     button:
       class: ''
-      link: "/about/"
+      link: ""
       template: button
       text: More about DataONE
       type: tertiary
+      external_website: false
+      website_link: 'about/about.md'
     details: []
   icon:
     template: ''
@@ -169,6 +179,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 - template: section
   type: bold
   title: Interested in services by DataONE?
@@ -191,6 +203,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 draft: true
 
 ---

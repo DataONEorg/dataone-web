@@ -43,6 +43,7 @@ page_sections:
         class: ''
         link: https://smartech.gatech.edu/handle/1853/28513
         text: More about DataNet
+        external_website: true
       image:
         template: image
         src: "/images/800px-Robinson-projection.jpg"
