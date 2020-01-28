@@ -1,1 +1,5 @@
-{{ partial "blocks/button/button" (dict "Block" .Params "Page" $.Page.Params) }}
+{{ $params :=  (dict "Page" $.Page.Params) }}
+{{ if .Params }}
+{{ $params = merge $params (dict "Block" .Params) }}
+{{ end }}
+{{ partial "blocks/button/button" $params }}

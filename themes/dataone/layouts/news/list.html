@@ -1,5 +1,12 @@
 {{- define "main" -}}
 
   <h1>!!NEWS LIST!!</h1>
+  {{ range .Pages }}
+  {{ .Date }}
+  {{ .Title }}
+        <li>
+            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+        </li>
+  {{ end }}
   
 {{- end -}}

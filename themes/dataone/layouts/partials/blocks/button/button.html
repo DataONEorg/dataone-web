@@ -1,14 +1,17 @@
 {{ $link := .Block.link }}
 <!-- The extra .Page parameters below allows for button partials nested at multiple levels -->
+{{- if not .Block.external_website -}}
+	{{ if .Block.website_link }}
+		{{ $link = ref .Page.Page.Page.Page.Page .Block.website_link }}
+	{{ end }}
+{{- end -}}
 {{ if (eq .Block.link "ContactUsLink") }}
 	{{ $link = .Page.Page.Page.Page.Page.Site.Params.contactLink }}
 {{ end }}
 {{ if (eq .Block.link "JoinFormLink") }}
 	{{ $link = print .Page.Page.Page.Page.Page.RelPermalink "#" .Page.Page.Page.Page.Page.Site.Params.joinFormId }}
 {{ end }}
-{{- if not .Block.external_website  -}}
-	{{ $link = ref .Page.Page.Page.Page.Page .Block.website_link }}
-{{- end -}}
+
 <a
   class="button
          button--{{ with .Block.type }}{{- . -}}{{ else }}secondary{{ end }}

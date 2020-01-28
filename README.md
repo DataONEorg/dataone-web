@@ -110,12 +110,18 @@ If the block is a simple one that requires few variables, and if content editors
 
 - The associated `.html` shortcode file is stored in `themes/dataone/partials/shortcodes/newBlockName.html`.
 
-- The shortcode template only needs one line of a code: It should render the partial template created in step 1, and pass on the shortcode parameters as well as the page parameters using "Block" and "Page", respectively:
+- The shortcode template only needs a few line of a code: It should render the partial template created in step 1, and pass on the shortcode parameters (if there are any), as well as the page parameters using "Block" and "Page", respectively:
   
   ```go
-  {{ partial "blocks/newBlockName/newBlockName" (dict "Block" .Params "Page" $.Page.Params) }}
+  {{ $params :=  (dict "Page" $.Page.Params) }}
+  {{ if .Params }}
+  {{ $params = merge $params (dict "Block" .Params) }}
+  {{ end }}
+  {{ partial "blocks/newBlockName/newBlockName" $params }}
   ```
   *Note that the `.html` extension is excluded in the path to the partial template*
+
+You may also create a [snippet](https://forestry.io/docs/settings/snippets/) for the shortcode, which is basically an example of how the shortcode should be formatted. Forestry makes these snippets available to content editors to insert into the markdown editor. Snippets are stored in the `.forestry/snippets/` directory.
 
 ## Misc. Resources
 

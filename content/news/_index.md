@@ -10,5 +10,4 @@ menu:
     parent: About
     weight: 10
 draft: true
-
 ---

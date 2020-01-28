@@ -1,3 +1,7 @@
 <div class="markdown">
+  {{ if isset .Block "content "}}
   {{- .Block.content | markdownify -}}
+  {{ else }}
+    {{.Page.Content }}
+  {{ end }}
 </div>

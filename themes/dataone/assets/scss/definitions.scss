@@ -90,6 +90,9 @@ $c-tertiary-accent: $cn-light-blue;
 // for field colours
 $c-form-fields: $cn-neutral-lighter;
 
+// borders (e.g. in tables)
+$c-border: $cn-neutral-light;
+
 // info
 $c-info-foreground: $cn-blue;
 $c-info-background: $cn-light-blue;
@@ -194,7 +197,7 @@ $mobile-lr-padding: 0.8rem;
   }
 }
 
-// anything with an un-classed link in it...
+// anything with an un-classed link in it (e.g. markdown)
 @mixin text-link {
   a {
     color: $c-secondary-accent;

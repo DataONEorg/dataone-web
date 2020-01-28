@@ -5,6 +5,13 @@ title: DataONE
 languageCode: en-us
 metaDataFormat: yaml
 pygmentsCodeFences: true
+markup:
+  highlight:
+    codeFences: true
+    style: monokailight
+    lineNos: true
+    lineNumbersInTable: false
+enableEmoji: true
 enableRobotsTXT: true
 publishDir: docs
 permalinks:
