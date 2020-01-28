@@ -1,7 +1,6 @@
 # Netlify configuration for web deployment
-
 [build.environment]
     HUGO_VERSION = "0.60.1"
 
 [context.feature-forestry]
-  command = "hugo"
+  command = "hugo -D"
