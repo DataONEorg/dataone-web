@@ -6,8 +6,8 @@ layout: blocks
 header:
   template: header
   type: text-only
-  title: 
-  intro: 
+  title: In-Person Training
+  intro: Learn directly from DataONE experts
   pill:
     template: ''
     type: ''

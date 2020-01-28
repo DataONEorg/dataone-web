@@ -1,12 +1,35 @@
 {{- define "main" -}}
 
-  <h1>!!NEWS LIST!!</h1>
-  {{ range .Pages }}
-  {{ .Date }}
-  {{ .Title }}
-        <li>
-            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-        </li>
-  {{ end }}
-  
+  <div class = "news-list">
+    <h1 class="news-list__title">
+      {{if .Params.headline }}
+        {{ .Params.headline }}
+      {{ else }}
+      DataONE News
+      {{ end }}
+      </h1>
+        <p class="news-list__intro">
+          {{- if .Summary -}}
+            {{ .Summary }}
+          {{- else -}}
+          Introduction for the news page
+          {{- end -}}
+        </p>
+        {{- if not .Params.hideSignup -}}
+        <div class="newletter-signup">
+          <p>Want to hear it first? Subscribe to our newsletter to get DataONE news directly to your inbox.</p>
+        </div>
+        {{- end -}}
+    <section class="news-list__list">
+      {{- range where .Paginator.Pages "Params.featured" "eq" true -}}
+        {{ .Render "summary" }}
+      {{- end -}}
+      {{- range where .Paginator.Pages "Params.featured" "ne" true -}}
+        {{ .Render "summary" }}
+      {{- end -}}
+      {{- partial "blocks/paginator/paginator" . -}}
+    </section>
+  </div>
+
+
 {{- end -}}

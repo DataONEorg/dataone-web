@@ -1,13 +1,13 @@
 ---
-label: Homepage
-hide_body: true
+label: 📄News Page
+hide_body: false
 display_field: title
 fields:
 - type: text
   name: layout
   label: Layout
   hidden: true
-  default: index
+  default: markdown
 - type: datetime
   name: date
   label: Date
@@ -22,17 +22,9 @@ fields:
   label: Description
   name: description
   description: A description of the page. This description will appear in search results.
-- type: field_group_list
-  name: page_sections
-  label: Page sections
-  fields:
-  - type: include
-    template: section
-    name: section-block
-    label: Section block
-    description: Modular sections to organize content
-  description: The different building blocks that make up the page sections
-  config:
-    labelField: title
+- name: featured
+  type: boolean
+  label: Featured
+  description: If set to true, the news item will appear at the top of the list of news items.
 pages:
-- content/_index.md
+- content/news/markdown-test.md

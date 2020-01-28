@@ -21,6 +21,7 @@
   text-decoration: none;
   box-shadow: 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
   cursor: pointer;
+  text-align: center;
   
   &:hover{
     background-color: lighten($c-foreground, 1%);

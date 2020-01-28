@@ -1,5 +1,29 @@
 {{- define "main" -}}
 
-  <h1>JOB LIST</h1>
+    <div class = "job-list">
+      <h1 class="job-list__title">
+        {{if .Params.headline }}
+          {{ .Params.headline }}
+        {{ else }}
+        Work with us
+        {{ end }}
+        </h1>
+          <p class="jobs-list__intro">
+            {{- if .Summary -}}
+              {{ .Summary }}
+            {{- else -}}
+            Open positions.
+            {{- end -}}
+          </p>
+          
+      <section class="jobs-list__list">
+        {{- range .Paginator.Pages -}}
+          
+          {{ .Render "summary" }}
+        {{- end -}}
+        
+        {{- partial "blocks/paginator/paginator" . -}}
+      </section>
+    </div>
   
 {{- end -}}

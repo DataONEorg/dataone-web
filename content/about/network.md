@@ -39,10 +39,8 @@ page_sections:
     text: ''
 menu:
   toplevel:
-    parent: About
     weight: 2
   footer:
-    parent: About
     weight: 4
 draft: true
 

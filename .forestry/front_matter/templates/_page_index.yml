@@ -1,0 +1,38 @@
+---
+label: 📄Homepage
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: layout
+  label: Layout
+  hidden: true
+  default: index
+- type: datetime
+  name: date
+  label: Date
+  description: The date the page was created
+  default: now
+- type: text
+  label: Title
+  name: title
+  description: The title will display in search results, the browser tab, and bookmarked
+    page
+- type: text
+  label: Description
+  name: description
+  description: A description of the page. This description will appear in search results.
+- type: field_group_list
+  name: page_sections
+  label: Page sections
+  fields:
+  - type: include
+    template: section
+    name: section-block
+    label: Section block
+    description: Modular sections to organize content
+  description: The different building blocks that make up the page sections
+  config:
+    labelField: title
+pages:
+- content/_index.md

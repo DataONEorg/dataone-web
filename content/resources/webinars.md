@@ -6,8 +6,8 @@ layout: blocks
 header:
   template: header
   type: text-only
-  title: 
-  intro: 
+  title: Webinars
+  intro: Cutting edge earch and environmental science topics
   pill:
     template: ''
     type: ''

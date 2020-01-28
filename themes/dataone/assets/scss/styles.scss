@@ -12,6 +12,47 @@ html {
   box-sizing: inherit;
 }
 
+// === NEWS & JOBS ==== //
+// styles placed here temporarily
+.news-list{
+  @include f-common;
+  @include text-link;
+  @include mobile-lr-padding;
+  @include limit-width;
+  
+  .newletter-signup{
+    background-color: $c-background-emphasis;
+    padding: 2rem;
+    margin-bottom: 5rem;
+  }
+  
+  &__title{
+    margin-top: $intra-section-spacing;
+    margin-bottom: $intra-section-spacing;
+    font-size: $fs-page-title;
+    line-height: 1.1;
+    color: var(--col-title);
+    font-weight: bold;
+  }
+}
+// styles placed here temporarily
+.job-list{
+  @include f-common;
+  @include text-link;
+  @include mobile-lr-padding;
+  @include limit-width;
+  width: 100%;
+  
+  &__title{
+    margin-top: $intra-section-spacing;
+    margin-bottom: $intra-section-spacing;
+    font-size: $fs-page-title;
+    line-height: 1.1;
+    color: var(--col-title);
+    font-weight: bold;
+  }
+}
+
 // ==== BODY ====
 
 .page {

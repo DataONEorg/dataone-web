@@ -122,15 +122,16 @@ $TOCwidth: 250px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    color: $c-foreground-subtle;
     
     &:visited{
       color: $c-foreground-subtle;
     }
     &:hover{
-      color: $c-foreground-subtle;
+      color: $c-foreground;
     }
     &:active{
-      color: $c-foreground-subtle;
+      color: $c-foreground;
     }
   }
   

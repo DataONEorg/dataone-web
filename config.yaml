@@ -5,6 +5,7 @@ title: DataONE
 languageCode: en-us
 metaDataFormat: yaml
 pygmentsCodeFences: true
+paginate: 9
 markup:
   highlight:
     codeFences: true
@@ -30,6 +31,7 @@ params:
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640
+  dateformat: "January 2, 2006"
 menu:
   footer:
   - url: https://www.dataone.org/

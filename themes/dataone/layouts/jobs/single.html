@@ -1,5 +1,5 @@
 {{- define "main" -}}
 
-  <h1>A SINGLE JOB</h1>
+  {{- partial "blocks/markdown/markdown" (dict "Block" . "Page" $) -}}
   
 {{- end -}}

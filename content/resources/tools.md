@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: text-only
-  title: 
+  title: Open source tools from DataONE
   intro: 
   pill:
     template: ''

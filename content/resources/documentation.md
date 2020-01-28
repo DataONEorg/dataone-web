@@ -6,8 +6,8 @@ layout: blocks
 header:
   template: header
   type: text-only
-  title: 
-  intro: 
+  title: Documentation
+  intro: Detailed how-tos for all DataONE products
   pill:
     template: ''
     type: ''
