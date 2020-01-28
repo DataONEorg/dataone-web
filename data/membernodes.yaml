@@ -1,12 +1,12 @@
 ---
 categories:
-- category: Upcoming member nodes
-  description: Enter a description here
 - category: Current member nodes
   description: Enter a description here
 - category: Replication nodes
   description: Enter a description here
 - category: Contributing repositories
+  description: Enter a description here
+- category: Upcoming member nodes
   description: Enter a description here
 nodes:
 - name: CyVerse
