@@ -2,5 +2,6 @@
 [build.environment]
     HUGO_VERSION = "0.60.1"
 
-[context.feature-forestry]
+# Set up a development preview version of the site
+[context.preview]
   command = "hugo -D --baseUrl=\"/\""
