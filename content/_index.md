@@ -1,7 +1,7 @@
 ---
 layout: index
 date: 2019-12-04T21:59:31.000+00:00
-title: Data Observation Network for Earth
+title: 'Data Observation Network for Earth '
 description: Data Observation Network for Earth (DataONE) is the foundation of new
   innovative environmental science through a distributed framework and sustainable
   cyberinfrastructure that meets the needs of science and society for open, persistent,
@@ -159,12 +159,12 @@ page_sections:
     type: left
     button:
       class: ''
-      link: ""
+      link: ''
       template: button
       text: More about DataONE
       type: tertiary
       external_website: false
-      website_link: 'about/about.md'
+      website_link: about/about.md
     details: []
   icon:
     template: ''
