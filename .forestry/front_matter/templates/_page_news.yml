@@ -1,5 +1,5 @@
 ---
-label: 📄News Page
+label: "\U0001F4C4News Page"
 hide_body: false
 display_field: title
 fields:
@@ -25,6 +25,7 @@ fields:
 - name: featured
   type: boolean
   label: Featured
-  description: If set to true, the news item will appear at the top of the list of news items.
+  description: If set to true, the news item will appear at the top of the list of
+    news items.
 pages:
 - content/news/markdown-test.md
