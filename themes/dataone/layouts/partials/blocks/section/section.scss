@@ -25,8 +25,9 @@
     text-align: center;
     @include medium-lr-padding;
     font-size: $fs-h2;
-    font-weight: 400;
     color: var(--col-title);
+    font-family: 'Martel', serif;
+    font-weight: 900;
     
     &--emphasis{
       font-weight: 600;

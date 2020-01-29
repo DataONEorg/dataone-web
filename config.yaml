@@ -1,6 +1,5 @@
 ---
 theme: dataone
-baseURL: https://products.dataone.org/
 title: DataONE
 languageCode: en-us
 metaDataFormat: yaml

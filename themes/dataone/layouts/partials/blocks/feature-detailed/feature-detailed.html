@@ -1,3 +1,6 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 <!-- Don't add a class for the default type -->
 <div class="feature-detailed{{ if (ne .Block.type `right`) }} feature-detailed--fig{{ .Block.type }}{{ end }}">
   <div class="feature-detailed__description">
@@ -7,13 +10,13 @@
     <div class="feature-detailed__details">
       {{- range . -}}
         {{- if and .name .text -}}
-          {{- partial "blocks/item-with-icon/item-with-icon" (dict "Block" . "Page" $) -}}
+          {{- partial "blocks/item-with-icon/item-with-icon" (dict "Block" . "Page" $page) -}}
         {{- end -}}
       {{- end -}}
     </div>
     {{- end -}}
     {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
-      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $) -}}
+      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
     {{- end -}}
   </div>
   <figure class="feature-detailed__figure">

@@ -1,7 +1,10 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 <div class="feature-simple{{ with .Block.type }} feature-simple--{{ . }}{{ end }}">
   {{- with .Block.icon -}}
   <div class="feature-simple__icon">
-    {{- partial "blocks/icon/icon" (dict "Block" . "Page" $) -}}
+    {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
   </div>
   {{- end -}}
   <div>

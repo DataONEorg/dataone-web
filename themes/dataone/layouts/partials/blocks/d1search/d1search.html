@@ -1,3 +1,6 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 
 <form class="d1search{{if isset .Block `type` }} d1search--{{ .Block.type }}{{end}}" role="search" onsubmit="searchD1()">
   <input class="d1search__input" type="text" id="search-term" placeholder="What environmental data are you looking for?"/>

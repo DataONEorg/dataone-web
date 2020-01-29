@@ -1,7 +1,10 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 
 <div class="features-list">
   {{- range .Block.features -}}
     {{ $features := merge . (dict "type" "icon-left") }}
-    {{- partial "blocks/feature-simple/feature-simple" (dict "Block" $features "Page" $) -}}
+    {{- partial "blocks/feature-simple/feature-simple" (dict "Block" $features "Page" $page) -}}
   {{- end -}}
 </div>

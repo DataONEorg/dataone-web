@@ -1,4 +1,5 @@
-
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
 
 <div class="timeline">
 {{- range .Block.event -}}
@@ -35,7 +36,7 @@
     <!-- Button (optional) -->
     {{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
     <div class="timeline__button">
-      {{- partial "blocks/button/button" (dict "Block" .button "Page" $) -}}
+      {{- partial "blocks/button/button" (dict "Block" .button "Page" $page) -}}
     </div>
     {{ end }}
     

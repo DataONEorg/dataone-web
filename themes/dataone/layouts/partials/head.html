@@ -1,5 +1,6 @@
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <base href="http://192.168.0.163:1313"/> -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15017327-6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,15 +11,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
-    <base href="{{ .Site.BaseURL }}">
     <title> {{ .Title }} | DataONE </title>
     {{- partial "favicon.html" . -}}
     <link rel="canonical" href="{{ .Permalink }}">
+    
+    
+    <!-- TODO: preload fonts like so: -->
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff` | relURL}}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff2` | relURL}}" crossorigin>
+    
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL}}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL}}" crossorigin>
+    
+    
     {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
     {{ $style := resources.Get "scss/styles.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $options | minify }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff` | relURL}}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-300.woff2` | relURL}}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-regular.woff` | relURL}}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/lato-v16-latin-regular.woff2` | relURL}}" crossorigin>
 </head>

@@ -1,7 +1,9 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 <div class="team">
   {{ $show_avatars := .Block.show_avatars }}
-  <!-- The many .Page parameters allow for this block to be nested at multiple levels -->
-  {{- range .Page.Page.Page.Page.Site.Data.teammembers.team -}}
+  {{- range .Page.Site.Data.teammembers.team -}}
   <div class="team__member">
     {{ if and ($show_avatars) (ne .avatar "") (ne .avatar " ") }}
       <img class="team__avatar" src = "{{ .avatar }}" alt="{{ .fullname }}" title="{{ .fullname }}">

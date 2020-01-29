@@ -13,13 +13,7 @@ header:
     access, and reuse.
   template: header
   title: Your data in good hands
-  type: left-aligned
-  headerimage:
-    alttext: Data in good hands
-    src: "/images/data-in-good-hands.png"
-    template: image
-    title: Data in good hands
-    type: default
+  type: wave
   pill:
     template: pill
     text: Coming 2020

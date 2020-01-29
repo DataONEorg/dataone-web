@@ -1,3 +1,6 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 {{ if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") }}
 <span class="pill{{ if .Block.type }} pill--{{ .Block.type }}{{ end }}">
   

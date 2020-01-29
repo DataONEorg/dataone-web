@@ -38,7 +38,8 @@
     font-size: $fs-page-title;
     line-height: 1.1;
     color: var(--col-title);
-    font-weight: bold;
+    font-family: 'Martel';
+    font-weight: 900;
     
     @include desktop{
       font-size: $fs-page-title-desktop;
@@ -220,5 +221,28 @@
     }
     
     
+  }
+}
+
+.header--wave{
+  .header__content{
+    z-index: 2;
+    margin: 0 auto;
+  }
+  .header__svg-background{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    svg{
+      flex: 0 0 auto;
+      height: 800px;
+      width: auto;
+    }
   }
 }

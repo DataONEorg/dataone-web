@@ -1,3 +1,6 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 
 <!-- button include -->
 <!-- logo selection -->
@@ -6,7 +9,7 @@
     
     <div class="logos-bar__button-container">
       {{- with .Block.button -}}
-        {{- partial "blocks/button/button" (dict "Block" . "Page" $) -}}
+        {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
       {{ end }}
     </div>
     <!-- logos list -->
@@ -14,7 +17,7 @@
       {{- range .Block.logos -}}
         {{ if .logo }}
           <li class="logos-bar__logo">
-            {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $) }}
+            {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
             {{ if gt $imageResource.Width 400 }}
               {{ $imageResource = $imageResource.Resize "400x" }}
             {{ end }}

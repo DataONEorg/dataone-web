@@ -1,15 +1,17 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 {{ $link := .Block.link }}
-<!-- The extra .Page parameters below allows for button partials nested at multiple levels -->
 {{- if not .Block.external_website -}}
 	{{ if .Block.website_link }}
-		{{ $link = ref .Page.Page.Page.Page.Page .Block.website_link }}
+		{{ $link = ref .Page .Block.website_link }}
 	{{ end }}
 {{- end -}}
 {{ if (eq .Block.link "ContactUsLink") }}
-	{{ $link = .Page.Page.Page.Page.Page.Site.Params.contactLink }}
+	{{ $link = .Page.Site.Params.contactLink }}
 {{ end }}
 {{ if (eq .Block.link "JoinFormLink") }}
-	{{ $link = print .Page.Page.Page.Page.Page.RelPermalink "#" .Page.Page.Page.Page.Page.Site.Params.joinFormId }}
+	{{ $link = print .Page.RelPermalink "#" .Page.Site.Params.joinFormId }}
 {{ end }}
 
 <a

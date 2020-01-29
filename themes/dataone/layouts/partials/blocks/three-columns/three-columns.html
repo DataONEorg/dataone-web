@@ -1,7 +1,10 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 <section class="three-columns">
   {{- range first 3 .Block.columns -}}
     <div class="three-columns__column">
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
+      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     </div>
   {{- end -}}
 </section>

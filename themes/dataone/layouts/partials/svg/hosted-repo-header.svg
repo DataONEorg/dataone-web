@@ -1,0 +1,10 @@
+
+<svg width="4745px" height="800px" viewBox="0 0 4745 800">
+  <defs>
+    <linearGradient x1="47.0469559%" y1="3.73568516%" x2="37.4917525%" y2="80.4359942%" id="linearGradient-1">
+        <stop stop-color="#CDF5FA" offset="0%"></stop>
+        <stop stop-color="#E6FDFD" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+    <ellipse id="Oval" fill="url(#linearGradient-1)" cx="2373" cy="393" rx="204" ry="215"></ellipse>
+</svg>

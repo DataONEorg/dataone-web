@@ -1,3 +1,6 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
 <div class="markdown">
   {{ if isset .Block "content "}}
   {{- .Block.content | markdownify -}}

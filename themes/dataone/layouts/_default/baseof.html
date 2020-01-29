@@ -3,8 +3,8 @@
     {{- partial "head.html" . -}}
     <body class="page">
       
-        <!-- define gradients for SVG fills at start of body -->
-        {{- partial "gradients.html" . -}}
+        <!-- define SVG gradients and the icon sprite at start of body -->
+        {{- partialCached "svg-defs.html" . -}}
         
         <!-- header/navigation -->
         {{- block "nav" . }}
@@ -18,7 +18,7 @@
         </article>
         
         <!-- footer -->
-        {{- partial "blocks/global-footer/global-footer.html" . -}}
+        {{- partialCached "blocks/global-footer/global-footer.html" . -}}
         
         <!-- Get the bundled javascript resources -->
         {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "js.main.js" . }}

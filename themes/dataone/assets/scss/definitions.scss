@@ -1,23 +1,155 @@
 
 // ==== FONTS ====
 
-// /* lato-300 - latin */
+
+
+// FONTS - TODO - decide which of these we will actually use, remove the rest,
+// including the .woff files. Then add preloader to head.html.
+/* work-sans-100 - latin */
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Work Sans Thin'), local('WorkSans-Thin'),
+       url('../fonts/work-sans-v5-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-200 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Work Sans ExtraLight'), local('WorkSans-ExtraLight'),
+       url('../fonts/work-sans-v5-latin-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-300 - latin */
+@font-face {
+  font-family: 'Work Sans';
   font-style: normal;
   font-weight: 300;
-  src: //local('Lato Light'), local('Lato-Light'),
-       url('../fonts/lato-v16-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/lato-v16-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Work Sans Light'), local('WorkSans-Light'),
+       url('../fonts/work-sans-v5-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* lato-regular - latin */
+/* work-sans-regular - latin */
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'),
-       url('../fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/lato-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Work Sans'), local('WorkSans-Regular'),
+       url('../fonts/work-sans-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-500 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Work Sans Medium'), local('WorkSans-Medium'),
+       url('../fonts/work-sans-v5-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-600 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Work Sans SemiBold'), local('WorkSans-SemiBold'),
+       url('../fonts/work-sans-v5-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-700 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Work Sans Bold'), local('WorkSans-Bold'),
+       url('../fonts/work-sans-v5-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-800 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Work Sans ExtraBold'), local('WorkSans-ExtraBold'),
+       url('../fonts/work-sans-v5-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* work-sans-900 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Work Sans Black'), local('WorkSans-Black'),
+       url('../fonts/work-sans-v5-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/work-sans-v5-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* martel-200 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Martel UltraLight'), local('Martel-UltraLight'),
+       url('../fonts/martel-v4-latin-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-300 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Martel Light'), local('Martel-Light'),
+       url('../fonts/martel-v4-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-regular - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Martel'), local('Martel-Regular'),
+       url('../fonts/martel-v4-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-600 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Martel DemiBold'), local('Martel-DemiBold'),
+       url('../fonts/martel-v4-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-700 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Martel Bold'), local('Martel-Bold'),
+       url('../fonts/martel-v4-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-800 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Martel ExtraBold'), local('Martel-ExtraBold'),
+       url('../fonts/martel-v4-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* martel-900 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Martel Heavy'), local('Martel-Heavy'),
+       url('../fonts/martel-v4-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/martel-v4-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 // fs- = font size
@@ -37,11 +169,13 @@ $fs-button: 0.9em;
 
 // Font (-f)
 @mixin f-common {
-  font-family: 'Lato';
+  font-family: 'Work Sans', serif;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 // ==== COLOURS ====
 
@@ -69,6 +203,34 @@ $cn-light-green: #c6f6d5;
 $cn-blue: #3182CE;
 $cn-light-blue: #BEE3F8;
 
+
+// New colours:
+
+// Brand teal
+$cn-teal-100: #E8F7F8;
+$cn-teal-200: #C4EAEE;
+$cn-teal-300: #A1DDE3;
+$cn-teal-400: #5BC4CF;
+$cn-teal-500: #14ABBA; // brand colour
+$cn-teal-600: #129AA7;
+$cn-teal-700: #0C6770;
+$cn-teal-800: #094D54;
+$cn-teal-900: #063338;
+
+// Yellow
+$cn-yellow-100: #FDFBF0;
+$cn-yellow-200: #FBF4D9;
+$cn-yellow-300: #F8EDC3;
+$cn-yellow-400: #F3E095;
+$cn-yellow-500: #EED268;
+$cn-yellow-600: #D6BD5E;
+$cn-yellow-700: #8F7E3E;
+$cn-yellow-800: #6B5F2F;
+$cn-yellow-900: #473F1F;
+
+
+$cn-midnight-blue: #0C3247;
+
 // -- Color variables (-c)
 // Use the variables defined below directly on elements.
 
@@ -83,8 +245,8 @@ $c-background: $cn-neutral-lightest;
 $c-background-emphasis: $cn-neutral-lighter; // default background color for sections with bkg fill
 
 // accent colours
-$c-primary-accent: $cn-turquoise;
-$c-secondary-accent: $cn-vibrant-blue;
+$c-primary-accent: $cn-yellow-500;
+$c-secondary-accent: $cn-teal-500;
 $c-tertiary-accent: $cn-light-blue;
 
 // for field colours

@@ -1,23 +1,38 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
 <header class="header header--{{ .Block.type }}">
   <div class="header__content">
     <div class="header__text">
       {{- with .Block.pill -}}
-        {{- partial "blocks/pill/pill" (dict "Block" . "Page" $) -}}
+        {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
       {{- end -}}
       <h1 class="header__title">{{ .Block.title | markdownify }}</h1>
       <p class="header__intro">{{ .Block.intro | markdownify }}</p>
       {{- if .Block.buttons -}}
+      
       <div class="header__ctas">
+        
         {{- range first 2 .Block.buttons -}}
-          {{- partial "blocks/button/button" (dict "Block" . "Page" $) -}}
+        {{ .Page }}
+          {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}
         {{- end -}}
       </div>
       {{- end -}}
     </div>
-    {{- if and (isset .Block "headerimage") (ne .Block.type `text-only`) }}
+    {{- if ne .Block.type `text-only` }}
+      {{ with .Block.headerimage }}
       <div class="header__figure">
-        {{- partial "blocks/image/image" (dict "Block" .Block.headerimage "Page" $) -}}
+        {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
       </div>
+      {{ end }}
     {{- end -}}
   </div>
+  {{ if eq .Block.type "wave"}}
+  <div class="header__svg-background">
+    {{- partial "svg/hosted-repo-header.svg" -}}
+  </div>
+  {{ end }}
 </header>
