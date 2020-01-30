@@ -55,9 +55,10 @@ page_sections:
 *blocks.html:*
 
 ```go=
+{{ $page := .Page }}
 {{- define "main" -}}
   {{- range .Params.page_sections -}}
-    {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Section" . "Page" $) }}
+    {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Section" . "Page" $page ) }}
   {{- end -}}
 {{- end -}}
 ```
@@ -115,7 +116,7 @@ If the block is a simple one that requires few variables, and if content editors
   ```go
   {{ $params :=  (dict "Page" $.Page.Params) }}
   {{ if .Params }}
-  {{ $params = merge $params (dict "Block" .Params) }}
+    {{ $params = merge $params (dict "Block" .Params) }}
   {{ end }}
   {{ partial "blocks/newBlockName/newBlockName" $params }}
   ```
@@ -126,3 +127,10 @@ You may also create a [snippet](https://forestry.io/docs/settings/snippets/) for
 ## Misc. Resources
 
 - Some static images use modified components from [Vectorpocket / Freepik](https://www.freepik.com)
+
+## Inline SVG tips & tricks
+We use inline SVG for some imagery on the website, like the header image on the hosted repository page.
+- For complicated SVGs, exporting from Adobe XD results in nicer SVG code that renders better inline than Sketch or Illustrator.
+- Run SVGs through [SVG-OMG](https://jakearchibald.github.io/svgomg/) to clean up and shrink SVG code.
+- Adding a `<base href="...">` tag to the head of a page might break SVGs in Safari if any part of the svg uses `url()`, e.g. `fill="url(#linearGradient`)`.
+- In some cases (e.g. for our logo gradient), it's better to include definitions at the start of the html body, outside of the svg that uses it. If needed, add these definitions to `layouts/partials/svg-defs.html`.

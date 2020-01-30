@@ -225,9 +225,42 @@
 }
 
 .header--wave{
-  .header__content{
+  padding-bottom: 400px;
+  @include desktop{
+    margin-top: 80px;
+    padding-bottom: 0;
+    min-height: 720px;
+    height: auto;
+    max-height: 720px;
+  }
+  
+  .header__text{
     z-index: 2;
+    position: relative; //
+  }
+  .header__title{
+    font-size: 1.75rem;
+    letter-spacing: -.006em;
+    line-height: 1.45;
+    @include desktop{
+      font-size: 2.1rem;
+    }
+    
+  }
+  .header__intro{
+    font-size: 1rem;
+    letter-spacing: -0.003em;
+    line-height: 1.5;
+    font-weight: 300;
+    @include desktop{
+      font-size: 1.25rem;
+    }
+  }
+  .header__content{
     margin: 0 auto;
+    @include desktop{
+      grid-template-columns: 1fr 1fr;
+    }
   }
   .header__svg-background{
     align-items: center;
@@ -238,11 +271,30 @@
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 1; // so that content is above svg background
     svg{
       flex: 0 0 auto;
-      height: 800px;
+      // height: 800px; // desktop
       width: auto;
+      
+      // top: 53px;
+      // height: 306px;
+      // margin-top: -53px;
+      // margin-left: -212px;
+      // 
+      // margin-top: 416px;
+      height: 800px;
+      margin-left: -234px;
+      margin-top: 0;
+      margin-bottom: 800px;
+      @include desktop{
+        margin-left: 0px;
+        margin-top: -950px;
+        height: 1750px;
+        margin-bottom: 0px;
+      }
     }
   }
+  
+  
 }

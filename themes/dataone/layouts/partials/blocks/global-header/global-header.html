@@ -1,9 +1,14 @@
 <!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+{{ $page := .Page }}
+{{ $type := "default" }}
+{{ if eq .Params.header.type "wave" }}
+  {{ $type = "wave" }}
+{{ end }}
+{{ if eq .Kind "home" }}
+  {{ $type = "homepage" }}
+{{ end }}
 
-{{ $currentPage := . }}
-
-<header class="global-header{{ if eq .Kind `home` }} global-header--homepage{{end}}" id="global-header">
+<header class="global-header{{ if ne $type `default` }} global-header--{{ $type }}{{end}}" id="global-header">
   <nav class="toplevel-nav">
     
       <!-- LOGO & HOME LINK -->
@@ -45,10 +50,10 @@
           
           <!-- make a menu button if there are 2+ child pages -->
             {{ if gt (len .Children)  1 }}
-              <li class="toplevel-nav__menu-item toplevel-nav__menu-item--hasSubmenu {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+              <li class="toplevel-nav__menu-item toplevel-nav__menu-item--hasSubmenu {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
                 
                 <!-- button to open submenu -->
-                <button class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}"
+                <button class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}"
                         aria-haspopup="true" 
                         aria-expanded="false"
                         aria-controls="#{{urlize .Name }}"
@@ -63,7 +68,7 @@
                 <ul class="toplevel-nav__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
                   {{ range .Children }}
                   <li class = "toplevel-nav__sub-menu-item">
-                    <a class="toplevel-nav__sub-menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                    <a class="toplevel-nav__sub-menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
                   </li>
                   {{ end }}
                 </ul>
@@ -77,16 +82,16 @@
             <!-- just make a link to the first child page if there's only one -->
             {{ else }}
               {{ range first 1 .Children }}
-              <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-                <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+              <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+                <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
               </li>
               {{ end }}
             {{ end }}
             
           <!-- when there are no child pages, make a regular link -->
           {{ else }}
-            <li class="toplevel-nav__menu-item {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-              <a class="toplevel-nav__menu-link {{if or ($currentPage.IsMenuCurrent `toplevel` .) ($currentPage.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+            <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
+              <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
             </li>
             {{ end }}
         {{ end }}

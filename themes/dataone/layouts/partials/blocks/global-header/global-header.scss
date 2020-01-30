@@ -17,6 +17,7 @@
     position: relative;
     top: 0; 
   }
+  
 }
 
 
@@ -98,12 +99,18 @@
   
   &__button--logo{
     grid-area: logo;
+    height: auto;
+    .logo{
+      fill:url("#theme-gradient");
+      transform: translate(0,0) scale(1);
+      transition: .2s;
+    }
     @include desktop {
       padding-left: 5px;
     }
     &:hover .logo{
-      fill:url("#theme-gradient");
-      transition: fill .4s ease;
+      transform: translate(0px,-1px) scale(1.01);
+      
     }
   }
   
@@ -395,6 +402,18 @@
     .toplevel-nav__button--search{
       display: none;
     }
+  }
+  
+}
+
+// to work with .header--wave
+.global-header--wave {
+  @include desktop{
+    height: auto;
+    max-height: 60px;
+    background-color: transparent;
+    position: absolute;
+    
   }
   
 }

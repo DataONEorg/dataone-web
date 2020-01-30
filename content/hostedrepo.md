@@ -8,11 +8,9 @@ description: A dedicated repository solution for your group or institution's dat
   research activity, foster new collaborations, and build community with a repository
   that meets your needs and reflects your brand.
 header:
-  intro: A dedicated repository for your team’s data, managed by DataONE. Bring the
-    products of your research together in one centralized location for efficient sharing,
-    access, and reuse.
+  intro: Bring the products of your research together in one centralized location for efficient sharing, access, and reuse.
   template: header
-  title: Your data in good hands
+  title: Your dedicated repository managed by DataONE
   type: wave
   pill:
     template: pill
