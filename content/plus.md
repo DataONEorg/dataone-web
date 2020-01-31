@@ -1,19 +1,17 @@
 ---
 layout: blocks
+title: DataONE Plus
+description: Enhanced DataONE products and services in support of your research, including
+  branded portals, customized search, quality assessment metrics (including the FAIR
+  suite), and much more.
 date: 2020-01-14T19:04:29.000+00:00
 header:
   template: header
-  type: left-aligned
+  type: d1-plus-header
   pill:
     template: pill
     type: secondary
     text: Coming 2020
-  headerimage:
-    template: image
-    src: "/images/data-one-plus.png"
-    alttext: DataONE Plys
-    title: DataONE Plus has all the services and tools required to support your research
-    type: default
   title: ONE solution for all your data needs
   intro: Everything you need to support your research with enhanced services from
     DataONE.
@@ -28,10 +26,6 @@ header:
     link: ContactUsLink
     text: Contact us
     class: ''
-title: DataONE Plus
-description: Enhanced DataONE products and services in support of your research, including
-  branded portals, customized search, quality assessment metrics (including the FAIR
-  suite), and much more.
 page_sections:
 - template: section
   type: default

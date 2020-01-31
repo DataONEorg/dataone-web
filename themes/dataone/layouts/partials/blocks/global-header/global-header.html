@@ -1,14 +1,20 @@
 <!-- in order to pass on page parameters from within loops  -->
 {{ $page := .Page }}
 {{ $type := "default" }}
-{{ if eq .Params.header.type "wave" }}
+{{ $extraClass := "none" }} 
+
+{{ if or (eq .Params.header.type "hosted-repo-header") (eq .Params.header.type "brand-gradient-header") }}
   {{ $type = "wave" }}
 {{ end }}
 {{ if eq .Kind "home" }}
-  {{ $type = "homepage" }}
+  {{ $type = "homepage" }}<!-- TODO -->
+  {{ $extraClass = "wave" }} 
+{{ end }}
+{{ if or (eq .Params.header.type "brand-gradient-header") }}
+  {{ $extraClass = "dark-bkg" }}
 {{ end }}
 
-<header class="global-header{{ if ne $type `default` }} global-header--{{ $type }}{{end}}" id="global-header">
+<header class="global-header{{ if ne $type `default` }} global-header--{{ $type }}{{end}}{{ if ne $extraClass `none` }} global-header--{{$extraClass}}{{ end }}" id="global-header">
   <nav class="toplevel-nav">
     
       <!-- LOGO & HOME LINK -->

@@ -1,8 +1,9 @@
 // ==== BUTTON ====
 
 .button{
-  white-space: nowrap;
+  @include button-reset;
   @include f-common;
+  white-space: nowrap;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .025em;
@@ -31,30 +32,31 @@
 }
 
 .button--primary {
-  background-color: $c-primary-accent;
+  background-color: col($c-primary, 5);
+  color: col($c-primary, 8);
   
   &:hover{
-    background-color: lighten($c-primary-accent, 1%);
+    background-color: lighten($c-primary, 1%);
   }
 }
 
 .button--secondary {
-  background-color: $c-foreground;
+  background-color: $c-brand;
   color: $c-background;
   
   &:hover{
-    background-color: lighten($c-foreground, 1%);
+    background-color: lighten($c-brand, 1%);
   }
 }
 
 .button--tertiary {
   background-color: $c-background;
-  color: $c-secondary-accent;
+  color: $c-secondary;
   box-shadow: 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
   
   &:hover{
     background-color: $c-background;
-    color: lighten($c-secondary-accent, 2%);
+    color: lighten($c-secondary, 2%);
     box-shadow: 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
   }
 }
@@ -63,7 +65,7 @@
   white-space: normal;
   font-size: $fs-button;
   background-color: transparent;
-  color: $c-secondary-accent;
+  color: $c-secondary;
   display: inline-block;
   padding: 0;
   width: auto;
@@ -72,7 +74,47 @@
   box-shadow: none;
   &:hover{
     background-color: transparent;
-    color: lighten($c-secondary-accent, 5%);
+    color: lighten($c-secondary, 5%);
     box-shadow: none;
   }
+}
+
+// SEARCH BUTTON
+// ToDo: move these styles to button.scss and make a search button modifier
+.button--search {
+  
+  margin: 20px auto 0 auto;
+  display: flex;
+  align-content: center;
+  padding-top: 6px;
+  fill: $c-background;
+  padding: 10px 12px 35px;
+  
+  @include desktop{
+    padding: 21px 22px 44px;
+    position: absolute;
+    top: -5px;
+    right: -20px;
+    display: inline-block;
+  }
+  
+  .button__text{
+    padding-right: 10px;
+    margin-top: -7px;
+    display: block;
+    
+    // visually hidden on desktop
+    @include desktop {
+      margin: 0;
+      padding: 0;
+      position: absolute !important;
+      height: 1px; 
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+  }
+  
 }

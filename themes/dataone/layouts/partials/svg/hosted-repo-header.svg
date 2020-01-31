@@ -340,7 +340,7 @@
           </g>
         </g>
       </g>
-      <path id="Connection_path" data-name="Connection path" d="M0,257V0H212V72.063" transform="translate(148 78)" fill="none" stroke="#00bfc0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" stroke-dasharray="1 7"/>
+      <path class="animated-line" id="Connection_path" data-name="Connection path" d="M0,257V0H212V72.063" transform="translate(148 78)" fill="none" stroke="#00bfc0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-dasharray="6"/>
     </g>
     <rect id="Rectangle-11" data-name="Rectangle" width="4745" height="955" fill="#e4fefd"/>
   </g>

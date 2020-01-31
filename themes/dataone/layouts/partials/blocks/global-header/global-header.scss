@@ -1,6 +1,6 @@
 
 .global-header {
-  background-color: $c-background-emphasis;
+  background-color: $c-background;
   padding: 0;
   margin: 0;
   
@@ -20,7 +20,6 @@
   
 }
 
-
 .toplevel-nav {
   
   width: 100%;
@@ -33,6 +32,7 @@
   grid-template-areas: "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   
   @include limit-width;
+  @include medium-lr-padding;
   
   @include desktop{
     grid-template-columns: min-content auto min-content min-content;
@@ -389,6 +389,9 @@
   
 }
 
+// ========================================================
+// === HOMEPAGE ===
+// 
 .global-header--homepage{
   
   @include desktop{
@@ -415,5 +418,21 @@
     position: absolute;
     
   }
-  
+}
+
+.global-header--dark-bkg{
+  @include desktop{
+    .toplevel-nav__menu-link{
+      color: col($c-neutral, 3);
+    }
+    .toplevel-nav__menu-link:hover{
+      color: col($c-neutral, 1);
+    }
+    .toplevel-nav__button--logo .logo, .toplevel-nav__button-icon{
+      fill: col($c-neutral, 3);
+    }
+    .toplevel-nav__sub-menu-icon {
+      stroke: col($c-neutral, 3);
+    }
+  }
 }

@@ -1,48 +1,50 @@
 .pill {
   @include f-common;
-  font-size: 11px;
-  line-height: 10px;
+  font-size: $fs-pill;
+  line-height: 1em;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .03em;
   display: inline-block;
-  padding: 4px 9px;
-  border-radius: 60px;
+  padding: 0.7em 1.1em;
+  border-radius: 6em;
   background: $c-foreground;
   color: $c-background;
+  transform: translateY(-0.18em);
   
   &__icon{
-    padding-right: 3px;
+    padding-right: .03em;
   }
   
   &--secondary{
-    background: $c-secondary-accent;
+    background: saturate(col($c-secondary, 3),10%);
+    color: col($c-secondary, 7);
   }
   
   &--primary{
-    background: $c-primary-accent;
+    background: $c-primary;
   }
   
   &--tertiary{
-    background: $c-tertiary-accent;
+    background: $c-tertiary;
   }
   
   &--info{
-    background: $c-info-background;
-    color: $c-info-foreground;
-    stroke: $c-info-foreground; // for icons
+    background: col($c-info, 2);
+    color: col($c-info, 7);
+    stroke: col($c-info, 7); // for icons
   }
   
   &--warning{
-    background: $c-warning-background;
-    color: $c-warning-foreground;
-    stroke: $c-warning-foreground; // for icons
+    background: col($c-warning, 3);
+    color: col($c-warning, 7);
+    stroke: col($c-warning, 7); // for icons
   }
   
   &--success{
-    background: $c-success-background;
-    color: $c-success-foreground;
-    stroke: $c-success-foreground; // for icons
+    background: col($c-success, 2);
+    color: col($c-success, 6);
+    stroke: col($c-success, 6); // for icons
   }
   
 }

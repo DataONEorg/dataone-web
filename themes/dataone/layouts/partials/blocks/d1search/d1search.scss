@@ -51,7 +51,7 @@
     top: -10px;
     display: block;
     transition: 0.2s;
-    color: $c-primary-accent;
+    color: $c-primary;
     font-weight:600;
     font-size: 0.9rem;
     @include desktop{
@@ -95,51 +95,10 @@
       padding-left: 25px;
       font-weight: 700;
       border-width: 3px;
-      // border-image: linear-gradient(to right, $c-secondary-accent,$c-primary-accent);
+      // border-image: linear-gradient(to right, $c-secondary,$c-primary);
       // border-image-slice: 1;
       
     }  
-  }
-
-  // SEARCH BUTTON
-  // ToDo: move these styles to button.scss and make a search button modifier
-  &__button {
-    @include button-reset;
-    background-color: $c-primary-accent;
-    fill: white;
-    
-    margin: 20px auto 0 auto;
-    
-    display: flex;
-    align-content: center;
-    padding-top: 6px;
-    
-    @include desktop{
-      padding: 21px 22px 44px;
-      position: absolute;
-      top: -5px;
-      right: -20px;
-      display: inline-block;
-    }
-    
-  }
-  
-  &__button-text{
-    padding-right: 10px;
-    margin-top: -5px;
-    display: block;
-    // visually hidden on desktop
-    @include desktop {
-      margin: 0;
-      padding: 0;
-      position: absolute !important;
-      height: 1px; 
-      width: 1px;
-      overflow: hidden;
-      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-      clip: rect(1px, 1px, 1px, 1px);
-      white-space: nowrap;
-    }
   }
     
 }
@@ -150,21 +109,16 @@
     margin: 0;
     padding-right: 20px;
     width: 100%;
-    
+    position: relative;
+
     .d1search__input{
       height: 34px;
-    }
-    
-    .d1search__button{
-      padding: 10px 12px 35px;
-      
     }
     
     .d1search__input:focus {
       padding-bottom: 23px;
     }
   
-    
     .d1search__input:placeholder-shown~.d1search__label{
       top: 27px;
       font-size: 1rem;
@@ -173,6 +127,10 @@
     .d1search__input:focus~.d1search__label{
       font-size: 0.8rem;
       top: -2px;
+    }
+    
+    .button{
+      padding: 10px 12px 35px;
     }
   }
   

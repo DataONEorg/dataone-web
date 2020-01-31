@@ -11,7 +11,7 @@ header:
   intro: Bring the products of your research together in one centralized location for efficient sharing, access, and reuse.
   template: header
   title: Your dedicated repository managed by DataONE
-  type: wave
+  type: hosted-repo-header
   pill:
     template: pill
     text: Coming 2020

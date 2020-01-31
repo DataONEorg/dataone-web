@@ -153,19 +153,20 @@
 }
 
 // fs- = font size
-$fs-page-title: 2.1em;
-$fs-page-title-desktop: 2.7em;
-$fs-page-intro: 1.25em;
-$fs-h2: 2.0em;
-$fs-section-intro: 1.25em;
-$fs-h3: 1.2em;
+$fs-page-title: 2.1rem;
+$fs-page-title-desktop: 2.7rem;
+$fs-page-intro: 1.25rem;
+$fs-h2: 2.0rem;
+$fs-section-intro: 1.25rem;
+$fs-h3: 1.2rem;
 
-$fs-larger: 1.15em;
-$fs-body: 1em;
-$fs-smaller: 0.85em;
+$fs-larger: 1.15rem;
+$fs-body: 1rem;
+$fs-smaller: 0.85rem;
 
-$fs-nav-item: 1em;
-$fs-button: 0.9em;
+$fs-nav-item: 1rem;
+$fs-button: 0.9rem;
+$fs-pill: 0.7rem;
 
 // Font (-f)
 @mixin f-common {
@@ -175,100 +176,6 @@ $fs-button: 0.9em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
-// ==== COLOURS ====
-
-// -- Color names (-cn)
-// Define here but do not apply these colors directly to elements.
-// Instead use them to define their function, below.
-$cn-neutral-darker: #2c2f48;
-$cn-neutral-dark: #474d69;
-$cn-neutral: #9698A6;
-$cn-neutral-light: #D1D3DC;
-$cn-neutral-lighter: #f2f6f9;
-$cn-neutral-lightest: white;
-
-$cn-turquoise: #00ce9e;//#23ba82;
-
-$cn-vibrant-blue: #2f52bb;
-
-$cn-dark-yellow: #D69E2E;
-$cn-yellow: #f7bd1b;
-$cn-light-yellow: #FEFCBF;
-
-$cn-green: #38a169;
-$cn-light-green: #c6f6d5;
-
-$cn-blue: #3182CE;
-$cn-light-blue: #BEE3F8;
-
-
-// New colours:
-
-// Brand teal
-$cn-teal-100: #E8F7F8;
-$cn-teal-200: #C4EAEE;
-$cn-teal-300: #A1DDE3;
-$cn-teal-400: #5BC4CF;
-$cn-teal-500: #14ABBA; // brand colour
-$cn-teal-600: #129AA7;
-$cn-teal-700: #0C6770;
-$cn-teal-800: #094D54;
-$cn-teal-900: #063338;
-
-// Yellow
-$cn-yellow-100: #FDFBF0;
-$cn-yellow-200: #FBF4D9;
-$cn-yellow-300: #F8EDC3;
-$cn-yellow-400: #F3E095;
-$cn-yellow-500: #EED268;
-$cn-yellow-600: #D6BD5E;
-$cn-yellow-700: #8F7E3E;
-$cn-yellow-800: #6B5F2F;
-$cn-yellow-900: #473F1F;
-
-
-$cn-midnight-blue: #0C3247;
-
-// -- Color variables (-c)
-// Use the variables defined below directly on elements.
-
-// Foreground elements, e.g. "color" property of font
-// Everything that would normally be black in a black and white book with line drawings.
-$c-foreground-emphasis: $cn-neutral-darker;
-$c-foreground: $cn-neutral-dark;
-$c-foreground-subtle: $cn-neutral;
-
-// everything that would normally be white in a black and white book with line drawings.
-$c-background: $cn-neutral-lightest;
-$c-background-emphasis: $cn-neutral-lighter; // default background color for sections with bkg fill
-
-// accent colours
-$c-primary-accent: $cn-yellow-500;
-$c-secondary-accent: $cn-teal-500;
-$c-tertiary-accent: $cn-light-blue;
-
-// for field colours
-$c-form-fields: $cn-neutral-lighter;
-
-// borders (e.g. in tables)
-$c-border: $cn-neutral-light;
-
-// info
-$c-info-foreground: $cn-blue;
-$c-info-background: $cn-light-blue;
-
-// warning
-$c-warning-foreground: $cn-dark-yellow;
-$c-warning-background: $cn-light-yellow;
-
-// success
-$c-success-background: $cn-light-green;
-$c-success-foreground: $cn-green;
-
-//error
-
 
 // ==== SPACING VARIABLES ====
 
@@ -362,11 +269,11 @@ $mobile-lr-padding: 0.8rem;
 // anything with an un-classed link in it (e.g. markdown)
 @mixin text-link {
   a {
-    color: $c-secondary-accent;
+    color: $c-secondary;
     text-decoration: none;
   }
   a:visited{
-    color: $c-secondary-accent;
+    color: $c-secondary;
   }
   a:hover{
     color: $c-foreground;

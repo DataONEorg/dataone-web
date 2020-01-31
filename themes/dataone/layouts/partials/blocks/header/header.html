@@ -2,14 +2,31 @@
 {{ $page := .Page }} 
 
 <!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
-<header class="header header--{{ .Block.type }}">
+{{ $headerClass := .Block.type }} 
+{{ $extraClass := "none" }} 
+
+{{ if eq .Block.type "hosted-repo-header" }}
+  {{ $headerClass = "svg-background" }}
+{{ end }}
+{{ if eq .Block.type "d1-plus-header" }}
+  {{ $headerClass = "svg-image" }}
+{{ end }}
+{{ if eq .Block.type "brand-gradient-header" }}
+  {{ $headerClass = "simple-svg-background" }}
+  {{ $extraClass = "dark-bkg" }}
+{{ end }}
+
+
+<header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}">
   <div class="header__content">
     <div class="header__text">
+      
+      {{- with $page.Params.title -}}<span class="header__title">{{.}}</span>{{- end -}}
+      
       {{- with .Block.pill -}}
         {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
       {{- end -}}
-      <h1 class="header__title">{{ .Block.title | markdownify }}</h1>
+      <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
       <p class="header__intro">{{ .Block.intro | markdownify }}</p>
       {{- if .Block.buttons -}}
       
@@ -22,17 +39,29 @@
       </div>
       {{- end -}}
     </div>
-    {{- if ne .Block.type `text-only` }}
+    {{- if and (ne .Block.type `text-only`) (ne $headerClass `svg-image`) (ne $headerClass `svg-background`) }}
       {{ with .Block.headerimage }}
       <div class="header__figure">
         {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
       </div>
       {{ end }}
     {{- end -}}
+    
+    {{ if eq $headerClass "svg-image"}}
+    <div class="header__svg-figure">
+      {{- partial (print "svg/" .Block.type ".svg" ) -}}
+    </div>
+    {{ end }}
+    
   </div>
-  {{ if eq .Block.type "wave"}}
+  {{ if eq .Block.type "hosted-repo-header"}}
   <div class="header__svg-background">
-    {{- partial "svg/hosted-repo-header.svg" -}}
+    {{- partial (print "svg/" .Block.type ".svg" ) -}}
+  </div>
+  {{ end }}
+  {{ if or (eq $headerClass "svg-background") (eq $headerClass "simple-svg-background")}}
+  <div class="header__svg-background">
+    {{- partial (print "svg/" .Block.type ".svg" ) -}}
   </div>
   {{ end }}
 </header>

@@ -21,18 +21,18 @@
 
 .icon--c-primary{
   svg{
-    fill: $c-primary-accent;
+    fill: $c-primary;
   }
 }
 
 .icon--c-secondary{
   svg{
-    fill: $c-secondary-accent;
+    fill: $c-secondary;
   }
 }
 
 .icon--c-secondary-subtle{
   svg{
-    fill: desaturate(lighten($c-secondary-accent, 25%), 10%);
+    fill: desaturate(lighten($c-secondary, 25%), 10%);
   }
 }

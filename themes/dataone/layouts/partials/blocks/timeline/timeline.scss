@@ -15,7 +15,7 @@
   // the line for the time line
 	&::before {
 		content: '';
-		background: $c-primary-accent;
+		background: $c-primary;
     opacity: 0.5;
 		width: 5px;
 		height: 95%;
@@ -98,7 +98,7 @@
   }
   
   &__date {
-    background: $c-secondary-accent;
+    background: $c-secondary;
   	display: inline-block;
   	color: white;
   	padding: 10px;
@@ -111,7 +111,7 @@
   &__point {
     width: 30px;
     height: 30px;
-    background: $c-primary-accent;
+    background: $c-primary;
     border-radius: 50%;
     position: absolute;
     left: 50px;

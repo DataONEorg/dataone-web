@@ -5,7 +5,7 @@ description: About dataone
 layout: blocks
 header:
   template: header
-  type: text-only
+  type: brand-gradient-header
   title: Enabling new science and knowledge creation through universal access to data
     about life on earth and the environment that sustains it
   intro: DataONE is a community driven project providing access to data across multiple

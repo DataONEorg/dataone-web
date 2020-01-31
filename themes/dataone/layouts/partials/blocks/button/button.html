@@ -14,11 +14,22 @@
 	{{ $link = print .Page.RelPermalink "#" .Page.Site.Params.joinFormId }}
 {{ end }}
 
-<a
-  class="button
+{{- $htmlTag := "a" -}}
+{{ if .Block.htmlTag }}
+	{{ $htmlTag = .Block.htmlTag }}
+{{ end }}
+
+{{ printf "<%s" $htmlTag  | safeHTML }} class="button
          button--{{ with .Block.type }}{{- . -}}{{ else }}secondary{{ end }}
-         {{ with .Block.class }} {{- . -}}{{ end }}"
-  href="{{- $link -}}"
+         {{ with .Block.class }} button--{{- . -}}{{ end }}"
+	{{ with .Block.id }}id="{{ . }}"{{ end }}
+	{{ with $link }}href="{{- . -}}"{{ end }}
+	{{ with .Block.buttontype }}type="{{ . }}"{{ end }}
+  
 >
-  {{ .Block.text }}
-</a>
+	{{- with .Block.text -}}<span class="button__text">{{ . }}</span>{{- end -}}
+	{{ with .Block.icon }}
+	<!-- TODO -->
+	<span class="button__icon">{{- partial "icons/search.svg" $page -}}</span>
+	{{ end }}
+{{ printf "</%s>" $htmlTag  | safeHTML }}

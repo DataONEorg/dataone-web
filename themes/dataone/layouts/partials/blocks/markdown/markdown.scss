@@ -11,11 +11,11 @@
 	}
   
   a:not(.button) {
-    color: $c-secondary-accent;
+    color: $c-secondary;
     text-decoration: none;
   }
   a:not(.button):visited{
-    color: $c-secondary-accent;
+    color: $c-secondary;
   }
   a:not(.button):hover{
     color: $c-foreground;

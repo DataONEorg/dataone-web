@@ -19,6 +19,9 @@ fields:
     - left-aligned
     - center-aligned
     - text-only
+    - d1-plus-header
+    - hosted-repo-header
+    - brand-gradient-header
   default: left-aligned
 - name: pill
   type: field_group

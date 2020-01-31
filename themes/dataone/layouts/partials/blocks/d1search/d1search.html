@@ -7,8 +7,6 @@
   <label class="d1search__label" for="search-term">
     What environmental data are you looking for?
   </label>
-  <button type="submit" class="d1search__button button button--primary button--search">
-    <span class="d1search__button-text">Search</span>
-    <span class="d1search__button-icon">{{- partial "icons/search.svg" . -}}</span>
-  </button>
+  {{ $buttonParams := dict "text" "search" "icon" "search" "type" "secondary" "class" "search" "htmlTag" "button" "buttontype" "submit"}}
+  {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page)}}
 </form>

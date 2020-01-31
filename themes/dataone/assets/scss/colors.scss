@@ -1,0 +1,151 @@
+// ==== COLORS ====
+
+
+// Functions
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+// 
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+// 
+@function shade($color, $percentage) {
+  // @return mix(black, $color, $percentage);
+   @return mix(black, $color, (100-$percentage));
+}
+
+/// Return a standardized shade/tint of a given colour
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $level - A number between 1 and 9 that represents the desired shade
+/// @return {Color}
+//
+@function col($color, $level) {
+  @if($level == 1){
+    $mod1: tint($color,       91);
+    $mod2: saturate($mod1,    20);
+    $mod3: mix($mod2, green, 99);
+    @return $mod3;
+  }
+  @if($level == 2){
+    $mod1: tint($color,     78);
+    $mod2: saturate($mod1,  15);
+    $mod3: mix($mod2, green, 99);
+    @return $mod3;
+  }
+  @if($level == 3){
+    $mod1: tint($color,     57);
+    $mod2: saturate($mod1,  12);
+    $mod3: mix($mod2, green, 100);
+    @return $mod3;
+  }
+  @if($level == 4){
+    $mod1: tint($color,      27);
+    $mod2: saturate($mod1,   07);
+    $mod3: mix($mod2, green, 100);
+    @return $mod3;
+  }
+  @if($level == 5){
+    @return $color;
+  }
+  @if($level == 6){
+    $mod1: shade($color,   77);
+    $mod2: saturate($mod1, 15);
+    $mod3: mix($mod2, red, 100);
+    @return $mod3;
+  }
+  @if($level == 7){
+    $mod1: shade($color,   57);
+    $mod2: saturate($mod1, 16);
+    $mod3: mix($mod2, red, 99);
+    @return $mod3;
+  }
+  @if($level == 8){
+    @return(saturate(shade($color, 40),15));
+    $mod1: shade($color,   50);
+    $mod2: saturate($mod1, 17);
+    $mod3: mix($mod2, red, 97);
+    @return $mod3;
+  }
+  @if($level == 9){
+    $mod1: shade($color,   25);
+    $mod2: saturate($mod1, 18);
+    $mod3: mix($mod2, red, 95);
+    @return $mod3;
+  }
+}
+
+
+// -- Color names (-cn)
+// Define here but do not apply these colors directly to elements.
+// Instead use them to define them by their function on the website, below.
+
+// To replace:
+$cn-neutral-darker: #2c2f48;
+$cn-neutral-dark: #474d69;
+$cn-neutral: #9698A6;
+$cn-neutral-light: #D1D3DC;
+$cn-neutral-lighter: #f2f6f9;
+$cn-neutral-lightest: white;
+$cn-turquoise: #00ce9e;
+$cn-vibrant-blue: #2f52bb;
+
+
+// New colours:
+$cn-teal: #14ABBA;
+$cn-yellow: #EED268;
+$cn-midnight-blue: #0C3247;
+$cn-blue-grey: #659196;
+$cn-green: #1AD8AF;
+$cn-blue: #3182CE;
+$cn-red: #F57065;
+
+// -- Color variables (-c)
+// Use the variables defined below directly on elements.
+
+$c-brand: $cn-teal;
+// accent colours
+$c-primary: $cn-yellow;
+$c-secondary: $cn-teal;
+$c-tertiary: $cn-blue;
+// neutral colour
+$c-neutral: $cn-blue-grey;
+// info, warning, success, error colors
+$c-info: $cn-blue;
+$c-warning: $cn-yellow;
+$c-success: $cn-green;
+$c-error: $cn-red;
+
+// Foreground elements, e.g. "color" property of font
+// Everything that would normally be black in a black and white book with line drawings.
+$c-foreground-emphasis: col($c-neutral, 8);
+$c-foreground: col($c-neutral, 7);
+$c-foreground-subtle: col($c-neutral, 6);
+
+// Default background elements, e.g. "background-colour" of div
+// everything that would normally be white in a black and white book with line drawings.
+$c-background: white;
+$c-background-emphasis: col($c-neutral, 1); // default background color for sections with bkg fill
+
+// for field colours
+$c-form-fields: $cn-neutral-lighter;
+
+// borders (e.g. in tables)
+$c-border: $cn-neutral-light;
+
+.page{
+  @for $i from 1 through 9 {
+    $z: col($c-neutral, $i);
+    --z#{$i}: #{$z};
+  }
+}

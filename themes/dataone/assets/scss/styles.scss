@@ -1,6 +1,6 @@
 // screen width at which to switch from mobile view to desktop view
 $breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px;
-
+@import "colors.scss";
 @import "definitions.scss";
 
 // ==== GLOBAL RESET === /
@@ -81,7 +81,6 @@ html {
   display: grid;
   
 }
-
 
 // ==== IMPORT ALL BLOCK SCSS ====
 // Import all .scss files contained one subdirectory below the "blocks" directory

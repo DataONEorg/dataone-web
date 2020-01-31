@@ -1,0 +1,13 @@
+<svg  viewBox="0 0 4745 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="50.7039189%" cy="0%" fx="50.7039189%" fy="0%" r="96.4171326%" gradientTransform="translate(0.507039,0.000000),scale(0.163401,1.000000),rotate(90.345318),scale(1.000000,2.646260),translate(-0.507039,-0.000000)" id="header-brand-gradient-1">
+            <stop stop-color="#14A2A7" offset="0%"></stop>
+            <stop stop-color="#14A2A7" offset="19.423909%"></stop>
+            <stop stop-color="#23678F" offset="67.4936655%"></stop>
+            <stop stop-color="#1B435D" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="brand-gradient" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1513.44531,769.637852 C1751.92188,752.534789 1980.74219,710.980836 2430.59375,731.757812 C2880.44531,752.534789 3000.70313,769.637852 3227.20313,769.637852 C3378.20313,769.637852 3884.13542,763.936831 4745,752.534789 L4745,0 L0,0 L0,752.534789 C849.979167,775.338873 1354.46094,781.039894 1513.44531,769.637852 Z" id="Path-5" fill="url(#header-brand-gradient-1)"></path>
+    </g>
+</svg>
