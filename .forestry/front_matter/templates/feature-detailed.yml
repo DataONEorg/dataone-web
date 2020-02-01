@@ -20,7 +20,6 @@ fields:
     wysiwyg: true
     schema:
       format: markdown
-    
 - name: image
   type: field_group
   config: {}

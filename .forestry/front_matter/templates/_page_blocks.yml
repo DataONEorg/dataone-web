@@ -16,7 +16,8 @@ fields:
 - type: text
   label: Title
   name: title
-  description: The title will display at the top of the page, in the navigation (if a name is not set in the menu), in search results, the browser tab, and bookmarked
+  description: The title will display at the top of the page, in the navigation (if
+    a name is not set in the menu), in search results, the browser tab, and bookmarked
     page
 - type: text
   label: Description
@@ -46,6 +47,11 @@ fields:
     labelField: title
 pages:
 - content/about/about.md
+- content/about/contact.md
 - content/about/network.md
 - content/hostedrepo.md
 - content/plus.md
+- content/resources/documentation.md
+- content/resources/tools.md
+- content/resources/training.md
+- content/resources/webinars.md

@@ -1,5 +1,5 @@
 ---
-label: Section block
+label: Section
 hide_body: true
 display_field: title
 fields:
@@ -21,6 +21,7 @@ fields:
     - default
     - primary-light
     - secondary-light
+    - secondary-medium
   default: default
 - type: field_group
   template: icon

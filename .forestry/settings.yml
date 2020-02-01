@@ -17,14 +17,14 @@ sections:
   exclude: _index.md
   templates:
   - markdown
-  - blocks
+  - _page_blocks
 - type: directory
   path: content/resources
   label: Resources
   create: all
   match: "*"
   templates:
-  - blocks
+  - _page_blocks
   - markdown
 - type: directory
   path: content/about
@@ -32,7 +32,7 @@ sections:
   create: all
   match: "*"
   templates:
-  - blocks
+  - _page_blocks
   - markdown
 - type: directory
   path: content/news
@@ -44,6 +44,8 @@ sections:
   label: Jobs
   create: all
   match: "**/*"
+  templates:
+  - _page_news
 - type: heading
   label: Data
 - type: document

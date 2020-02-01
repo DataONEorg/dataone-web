@@ -22,6 +22,7 @@ fields:
     - d1-plus-header
     - hosted-repo-header
     - brand-gradient-header
+    - network-image
   default: left-aligned
 - name: pill
   type: field_group

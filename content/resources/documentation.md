@@ -1,7 +1,7 @@
 ---
 title: Documentation
 date: 2020-01-26T16:39:42.000+00:00
-description: 
+description: ''
 layout: blocks
 header:
   template: header
@@ -22,7 +22,7 @@ header:
 page_sections:
 - template: section
   type: default
-  title: 
+  title: ''
   intro: ''
   blocks: []
   icon:
@@ -36,6 +36,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 menu:
   toplevel:
     parent: Resources

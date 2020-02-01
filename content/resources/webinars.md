@@ -1,13 +1,13 @@
 ---
 title: Webinars
 date: 2020-01-26T16:39:31.000+00:00
-description: 
+description: ''
 layout: blocks
 header:
   template: header
   type: text-only
   title: Webinars
-  intro: Cutting edge earch and environmental science topics
+  intro: Cutting edge earth and environmental science topics
   pill:
     template: ''
     type: ''
@@ -22,7 +22,7 @@ header:
 page_sections:
 - template: section
   type: default
-  title: 
+  title: ''
   intro: ''
   blocks: []
   icon:
@@ -36,6 +36,8 @@ page_sections:
     class: ''
     link: ''
     text: ''
+    external_website: false
+    website_link: ''
 menu:
   toplevel:
     parent: Resources
