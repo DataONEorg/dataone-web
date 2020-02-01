@@ -1,20 +1,23 @@
-<svg viewBox="0 0 455 450" xmlns="http://www.w3.org/2000/svg">
-  <g fill-rule="nonzero" fill="none">
+<svg viewBox="0 0 455 450">
+  <defs>
+    <path id="reuse-0" fill="#03BF96" d="M165 108.73C73.87 108.73 0 84.23 0 54v80.49h.3C5.35 163.2 77.15 186 165 186c87.86 0 159.67-22.79 164.7-51.51h.3V54c0 30.22-73.87 54.73-165 54.73z"/>
+  </defs>
+  <g fill="none" fill-rule="nonzero">
     <g transform="translate(0 250)">
-      <ellipse fill="#8EA7FD" cx="166" cy="54.5" rx="165" ry="54.5"/>
-      <path d="M165 108.7C73.9 108.7 0 84.2 0 54v80.5h.3C5.3 163.2 77.1 186 165 186c87.9 0 159.7-22.8 164.7-51.5h.3V54c0 30.2-73.9 54.7-165 54.7z" fill="#CCD8FE"/>
+      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+      <use xlink:href="#reuse-0"/>
     </g>
     <g transform="translate(0 127)">
-      <ellipse fill="#8EA7FD" cx="166" cy="54.5" rx="165" ry="54.5"/>
-      <path d="M165 108.7C73.9 108.7 0 84.2 0 54v80.5h.3C5.3 163.2 77.1 186 165 186c87.9 0 159.7-22.8 164.7-51.5h.3V54c0 30.2-73.9 54.7-165 54.7z" fill="#CCD8FE"/>
+      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+      <use xlink:href="#reuse-0"/>
     </g>
     <g>
-      <ellipse fill="#8EA7FD" cx="166" cy="54.5" rx="165" ry="54.5"/>
-      <path d="M165 108.7C73.9 108.7 0 84.2 0 54v80.5h.3C5.3 163.2 77.1 186 165 186c87.9 0 159.7-22.8 164.7-51.5h.3V54c0 30.2-73.9 54.7-165 54.7z" fill="#CCD8FE"/>
+      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+      <use xlink:href="#reuse-0"/>
     </g>
     <g transform="translate(225 220)">
-      <circle fill="#6E8CE0" cx="114.8" cy="114.8" r="114.8"/>
-      <path d="M167.7 97.1h-35.3V61.8a17.7 17.7 0 00-35.3 0V97H61.8a17.7 17.7 0 100 35.3H97v35.3a17.7 17.7 0 0035.3 0v-35.3h35.3a17.7 17.7 0 000-35.3z" fill="#FFF"/>
+      <circle cx="114.76" cy="114.76" r="114.76" fill="#0C3247"/>
+      <path fill="#FFF" d="M167.72 97.1h-35.3V61.8a17.66 17.66 0 00-35.32 0v35.3H61.8a17.66 17.66 0 100 35.31h35.3v35.31a17.66 17.66 0 0035.31 0v-35.3h35.31a17.66 17.66 0 000-35.32z"/>
     </g>
   </g>
 </svg>

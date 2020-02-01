@@ -62,7 +62,12 @@ page_sections:
       template: ''
     blocks:
     - details: []
-      figure: metacat-on-github
+      image:
+        template: image
+        src: "uploads/metacat-on-github.png"
+        alttext: Metacat on Github
+        title: Open source tools by DataONE
+        type: default
       headline: Open source repository platform
       template: feature-detailed
       text: DataONE hosted repositories represent stand-alone deployments of the open
@@ -80,7 +85,12 @@ page_sections:
         text: DataONE on Github
         type: tertiary
         external_website: true
-    - figure: geographic-replicas
+    - image:
+        template: image
+        src: "uploads/geographic-replicas.png"
+        alttext: Geographic replicas
+        title: Replication makes your repository reliable
+        type: default
       headline: Geographic replicas
       template: feature-detailed
       text: Your data are replicated to distinct geographic regions for high availability
@@ -130,7 +140,12 @@ page_sections:
           name: checkmark
           size: small
           style: secondary
-      figure: custom-domain-and-doi
+      image:
+        template: image
+        src: "uploads/custom-domain-and-doi.png"
+        alttext: Custom Domain and DOI
+        title: Brand your data repository
+        type: default
       headline: Customization
       template: feature-detailed
       text: Brand your data repository with customized features allowing you to connect
@@ -212,7 +227,12 @@ page_sections:
       text: The user friendly data submission tool helps your researchers effortlessly
         upload data and create metadata to enhance interoperability, reusability,
         and value of data.
-      figure: metadata-editor
+      image:
+          template: image
+          src: "uploads/metadata-editor.png"
+          alttext: Metadata Editor
+          title: Uploading data is easy with the Metadata Editor
+          type: default
       details: []
     - template: feature-detailed
       type: top
@@ -226,7 +246,12 @@ page_sections:
       headline: Advanced API access
       text: Programmatically work with your repository through the DataONE tools in
         R, Python, Matlab, and Java.
-      figure: dataone-r-api
+      image:
+          template: image
+          src: "uploads/dataone-r-api.png"
+          alttext: DataONE R API
+          title: Use the DataONE API to work with your repository
+          type: default
       details: []
   - template: three-columns
     columns:

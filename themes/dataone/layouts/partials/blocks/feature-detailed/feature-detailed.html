@@ -19,11 +19,15 @@
       {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
     {{- end -}}
   </div>
-  <figure class="feature-detailed__figure">
+  <div class="feature-detailed__figure">
     {{- with .Block.figure }}
       {{ $svgpath := path.Join "svg" . }}
       {{ $svgpath := printf "%s.svg" $svgpath }}
       {{- partial $svgpath -}}
     {{- end -}}
-  </figure>
+    {{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
+      {{- partial "blocks/image/image" (dict "Block" .Block.image "Page" $page) -}}
+    {{- end -}}
+  </div>
+  
 </div>

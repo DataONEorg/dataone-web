@@ -1,27 +1,27 @@
 ---
 team:
-- avatar: "/images/Matt-Jones.png"
+- avatar: "/uploads/team_member_photos/Matt-Jones.png"
   fullname: Matthew Jones
   firstname: Matthew
   title: Director
   shortbio: Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
     laying out print, graphic or web designs.
   email: ''
-- avatar: "/images/Amber-Budden.jpg"
+- avatar: "/uploads/team_member_photos/Amber-Budden.jpg"
   fullname: Amber Budden
   firstname: Amber
   title: Director, Education and Engagement
   shortbio: Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
     laying out print, graphic or web designs.
   email: ''
-- avatar: "/images/Dave-Vieglais.jpg"
+- avatar: "/uploads/team_member_photos/Dave-Vieglais.jpg"
   fullname: Dave Vieglais
   firstname: Dave
   title: Director, Technology
   shortbio: Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
     laying out print, graphic or web designs.
   email: ''
-- avatar: "/images/Suzie-Allard.jpg"
+- avatar: "/uploads/team_member_photos/Suzie-Allard.jpg"
   fullname: Suzie Allard
   firstname: Suzie
   title: Director, Usability and Assessment

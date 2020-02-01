@@ -1,3 +1,4 @@
+
 .feature-detailed {
   
   @include f-common;
@@ -20,20 +21,19 @@
     margin: 0;
     display: flex;
     width: 90%;
+    align-items: center;
+    justify-content: center;
     
-    svg{
-      @include center-svg;
-      height: 100%;
-      max-width: 100%;
-      max-height: 350px;
-      min-height: 270px;
-      margin-top: auto;
-      margin-bottom: auto;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
+    // TODO - make these image modifiers in the image block instead
+    .figure__image {
+      box-shadow: 35px 65px 125px -23px rgba(0,44,56,.2), 22.3px 35px 70px -40px rgba(0,44,56,.3);
       -webkit-transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
       transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
+      border-radius: 4px;
+      max-height: 350px;
+      margin: auto auto;
+      border-radius: 4px;
+      overflow: hidden;
     }
   }
   
@@ -76,10 +76,10 @@
     }
     
     .feature-detailed__figure{
-      svg{
+      .figure__image{
         -webkit-transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(1deg) rotate(1deg);
         transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(-1deg) rotate(-1deg);
-        box-shadow: -10px 25px 125px -23px rgba(30,47,93,.4), -22px 35px 75px -40px rgba(0,0,0,.6);
+        box-shadow: -10px 25px 125px -23px rgba(0,44,56,.2), -22px 35px 75px -40px rgba(0,44,56,.3);
       }
     }
     
@@ -98,10 +98,10 @@
     }
     
     .feature-detailed__figure{
-      svg{
+      .figure__image{
         -webkit-transform: none;
         transform: none;
-        box-shadow: 0 40px 100px -20px rgba(30,50,93,.25), 0 25px 85px -30px rgba(0,0,0,.4);
+        box-shadow: 0 40px 100px -20px rgba(0,44,56,.2), 0 25px 85px -30px rgba(0,44,56,.3);
         height: auto;
         width: 100%;
         max-width: 400px;

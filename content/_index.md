@@ -36,9 +36,9 @@ page_sections:
   - template: two-columns
     columns:
     - template: image
-      alttext: Enhanced services from DataONE
-      src: "/images/temp-image.png"
-      title: Enhanced services from DataONE
+      alttext: ""
+      src: "/uploads/temp-image.png"
+      title: ""
       type: default
     - template: markdown
       content: "## Enhance your research with **services from DataONE**"
@@ -133,7 +133,12 @@ page_sections:
   blocks:
   - template: feature-detailed
     headline: Open Source
-    figure: temp-image
+    image:
+        template: image
+        src: "uploads/temp-image.png"
+        alttext: ""
+        title: ""
+        type: default
     text: DataONE hosted repositories represent stand-alone deployments of the open
       source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
       and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
@@ -153,7 +158,12 @@ page_sections:
     details: []
   - template: feature-detailed
     headline: Universal access to data
-    figure: temp-image
+    image:
+        template: image
+        src: "uploads/temp-image.png"
+        alttext: ""
+        title: ""
+        type: default
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
     type: left

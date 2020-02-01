@@ -38,7 +38,7 @@ page_sections:
   - template: two-columns
     columns:
     - template: image
-      src: "/images/portal-data-page.png"
+      src: "/uploads/portal-data-page.png"
       alttext: Portals from DataONE Plus
       title: DataONE Plus portals page
       type: drop-shadow
