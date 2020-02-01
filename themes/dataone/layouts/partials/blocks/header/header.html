@@ -34,10 +34,9 @@
       
       <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
       <p class="header__intro">{{ .Block.intro | markdownify }}</p>
-      {{- if .Block.buttons -}}
       
+      {{- if .Block.buttons -}}
       <div class="header__ctas">
-        
         {{- range first 2 .Block.buttons -}}
         {{ .Page }}
           {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}

@@ -2,9 +2,9 @@
 {{ $page := .Page }} 
 
 <div class="feature-simple{{ with .Block.type }} feature-simple--{{ . }}{{ end }}">
-  {{- with .Block.icon -}}
+  {{ if and (partial "functions/hasValues" .Block.icon) (ne .Block.icon.name "") (ne .Block.icon.name " ") }}
   <div class="feature-simple__icon">
-    {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
+    {{- partial "blocks/icon/icon" (dict "Block" .Block.icon "Page" $page) -}}
   </div>
   {{- end -}}
   <div>
