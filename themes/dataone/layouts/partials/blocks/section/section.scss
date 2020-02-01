@@ -4,6 +4,11 @@
     padding-top: 0;
   }
 }
+.section:last-of-type {
+  .section__inner{
+    padding-bottom: 15rem;
+  }
+}
 
 .section{
 
@@ -90,6 +95,7 @@
 
 $primary-light: col($c-primary, 4);
 $secondary-light: col($c-secondary, 1);
+$secondary-medium: col($c-secondary, 2);
 
 .section--subtle-emphasis{
   // sections with a background colour look better with some extra padding.
@@ -104,6 +110,12 @@ $secondary-light: col($c-secondary, 1);
   --col-background: #{$primary-light};
 }
 
+.section--secondary-medium{
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  background-color: $secondary-medium;
+  --col-background: #{$secondary-medium};
+}
 
 .section--secondary-light{
   // sections with a background colour look better with some extra padding.

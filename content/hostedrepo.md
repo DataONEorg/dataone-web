@@ -267,7 +267,7 @@ page_sections:
       text: Easily show how your files relate to each other by providing well-described
         provenance workflows
 - template: section
-  type: secondary-light
+  type: secondary-medium
   title: Includes all the DataONE Plus features
   blocks:
   - template: checklist
@@ -319,9 +319,10 @@ page_sections:
     text: ''
 menu:
   footer:
-    weight: 9
+    weight: 2
   toplevel:
     weight: 2
-draft: true
+    name: Hosted Repo
+draft: false
 
 ---

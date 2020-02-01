@@ -9,9 +9,11 @@
     </div>
     <ul class="global-footer__site-map">
       {{ range .Site.Menus.footer }}
+        {{ if .URL }}
         <li class="global-footer__site-map-item">
           <a class="global-footer__site-map-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
         </li>
+        {{ end }}
       {{ end }}
     </ul>
     <section class="global-footer__contact">

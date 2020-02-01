@@ -44,7 +44,7 @@
     font-size: $fs-h3;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: col($c-neutral, 5);
+    color: col($c-neutral, 6);
     margin: 3rem 0.5em 1rem 0;
   }
   
@@ -321,13 +321,7 @@
 // === HOMEPAGE ===
 // 
 .header--homepage{
-  @extend .header--svg-background;
-  min-height: 400px;
-  height: auto;
-  max-height: 500px;
-  @include desktop {
-    max-height: 600px;
-  }
+
   .header__logo{
     display: flex;
     align-items: center;
@@ -374,21 +368,21 @@
     }
   }
   
-  .header__svg-background{
-    z-index: 1;
-    svg{
-      height: 500px;
-      margin-left: 0px;
-      margin-top: 0;
-      margin-bottom: 0px;
-      @include desktop{
-        margin-top: 4rem;
-        margin-left: 0px;
-        height: 625px;
-        margin-bottom: 0px;
-      }
-    }
-  }
+  // .header__svg-background{
+  //   z-index: 1;
+  //   svg{
+  //     height: 500px;
+  //     margin-left: 0px;
+  //     margin-top: 0;
+  //     margin-bottom: 0px;
+  //     @include desktop{
+  //       margin-top: 4rem;
+  //       margin-left: 0px;
+  //       height: 625px;
+  //       margin-bottom: 0px;
+  //     }
+  //   }
+  // }
 }
 
 .header--simple-svg-background{
@@ -434,11 +428,25 @@
   }
 }
 
+.header--hero{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 500px;
+  .header__title{
+    margin-top: 5rem;
+  }
+}
+
+.header--network-image{
+  @extend .header--text-only;
+  background-image:url('/uploads/duotone-network.jpg');
+}
+
 
 // TODO
-.no-leaves .svg__leaf {
-  display: none;
-}
+
 .animated-line {
   animation: dash 200s linear alternate infinite;
   @include low-motion;

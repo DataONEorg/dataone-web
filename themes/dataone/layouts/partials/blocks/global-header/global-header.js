@@ -168,6 +168,9 @@ var searchButtonClick = function () {
     if(searchInput){
       searchInput.scrollIntoView({ behavior: "smooth", block:'center' });
       searchInput.focus();
+      if(isMobile()){
+        toggleElement(menuButton, menu, true);
+      }
     }
   }
   

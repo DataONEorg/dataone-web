@@ -1,7 +1,6 @@
 <!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
-
-<header class="header header--svg-background header--homepage no-leaves">
+{{ $page := .Page }}
+<header class="header header--homepage header--hero" style="background-image:url('/uploads/duotone-forest.jpg');">
   <div class="header__content">
     <div class="header__logo">
       {{ $logoType := dict (slice "Block" "type") "homepage" }}
@@ -13,8 +12,5 @@
     <a class="header__advanced-search" href="https://search.dataone.org/data">
       Advanced search
     </a>
-  </div>
-  <div class="header__svg-background">
-    {{- partial "svg/blobs-and-leaves.svg" -}}
   </div>
 </header>

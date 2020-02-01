@@ -95,7 +95,7 @@ page_sections:
     link: ''
     text: ''
 - template: section
-  type: default
+  type: secondary-medium
   title: The people behind the data
   intro: ''
   blocks:
@@ -114,11 +114,11 @@ page_sections:
     text: ''
 menu:
   toplevel:
-    parent: About
+    parent: Organization
     weight: 1
+    name: About
   footer:
-    parent: About
-    weight: 2
-draft: true
+    weight: 10
+draft: false
 
 ---

@@ -5,7 +5,7 @@ description: DataONE member nodes
 layout: blocks
 header:
   template: header
-  type: text-only
+  type: network-image
   title: Network
   intro: Member nodes
   pill:
@@ -21,7 +21,7 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: secondary-light
+  type: secondary-medium
   title: Our network
   intro: ''
   blocks:
@@ -42,6 +42,6 @@ menu:
     weight: 2
   footer:
     weight: 4
-draft: true
+draft: false
 
 ---

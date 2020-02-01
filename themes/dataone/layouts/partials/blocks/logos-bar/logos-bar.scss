@@ -1,4 +1,7 @@
 .logos-bar {
+  // TODO:
+  margin-bottom: -80px;
+  margin-top: -50px;
   
   &__logos{
     list-style: none;
@@ -11,7 +14,6 @@
     will-change: transform;
     filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
     filter: blur(0);
-    
   }
   
   &__logo {

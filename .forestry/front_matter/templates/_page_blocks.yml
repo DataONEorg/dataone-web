@@ -16,7 +16,7 @@ fields:
 - type: text
   label: Title
   name: title
-  description: The title will display in search results, the browser tab, and bookmarked
+  description: The title will display at the top of the page, in the navigation (if a name is not set in the menu), in search results, the browser tab, and bookmarked
     page
 - type: text
   label: Description

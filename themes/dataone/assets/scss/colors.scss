@@ -34,25 +34,25 @@
   @if($level == 1){
     $mod1: tint($color,       91);
     $mod2: saturate($mod1,    20);
-    $mod3: mix($mod2, green, 99);
+    $mod3: mix($mod2, blue, 98);
     @return $mod3;
   }
   @if($level == 2){
     $mod1: tint($color,     78);
     $mod2: saturate($mod1,  15);
-    $mod3: mix($mod2, green, 99);
+    $mod3: mix($mod2, blue, 99);
     @return $mod3;
   }
   @if($level == 3){
     $mod1: tint($color,     57);
     $mod2: saturate($mod1,  12);
-    $mod3: mix($mod2, green, 100);
+    $mod3: mix($mod2, blue, 99);
     @return $mod3;
   }
   @if($level == 4){
     $mod1: tint($color,      27);
     $mod2: saturate($mod1,   07);
-    $mod3: mix($mod2, green, 100);
+    $mod3: mix($mod2, blue, 100);
     @return $mod3;
   }
   @if($level == 5){

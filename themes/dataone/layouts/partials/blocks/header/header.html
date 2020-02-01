@@ -15,7 +15,10 @@
   {{ $headerClass = "simple-svg-background" }}
   {{ $extraClass = "dark-bkg" }}
 {{ end }}
-
+{{ if eq .Block.type "network-image" }}
+  {{ $headerClass = "hero" }}
+  {{ $extraClass = "network-image" }}
+{{ end }}
 
 <header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}">
   <div class="header__content">

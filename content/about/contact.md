@@ -38,10 +38,10 @@ page_sections:
     text: ''
 menu:
   toplevel:
-    parent: About
+    parent: Organization
     weight: 5
   footer:
-    parent: About
+    parent: Organization
     weight: 8
 draft: true
 

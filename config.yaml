@@ -33,6 +33,10 @@ params:
   dateformat: "January 2, 2006"
 menu:
   footer:
+  - url: https://dataoneorg.github.io/Education/
+    name: Skillbuilding Hub
+    title: Skillbuilding Hub
+    weight: 7
   - url: https://www.dataone.org/
     name: Archived content
     title: Old DataONE website
@@ -42,8 +46,9 @@ menu:
     name: Skillbuilding Hub
     title: Skillbuilding Hub
     parent: Resources
+    name: Skillbuilding
     weight: 3
-  - name: About
+  - name: Organization
     weight: 4
   - name: Resources
     weight: 3

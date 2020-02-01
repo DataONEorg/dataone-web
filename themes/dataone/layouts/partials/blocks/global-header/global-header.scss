@@ -1,21 +1,22 @@
 
 .global-header {
-  background-color: $c-background;
-  padding: 0;
-  margin: 0;
-  
   @include f-common;
-  
   bottom: 0px;
   position: fixed;
   width: 100%;
   z-index: 10;
   border-radius: 5px 5px 0 0;
   transition: all 0.2s 0s ease-in-out;
-  
+  padding-top: 7px 0;
+  background-color: col($c-secondary, 2);
+  box-shadow: 22px 1px 11px rgba(0,20,30,0.15);
   @include desktop{
+    padding: 0;
     position: relative;
-    top: 0; 
+    top: 0;
+    background-color: unset;
+    box-shadow: none;
+    background-color: $c-background;
   }
   
 }
@@ -433,6 +434,9 @@
     }
     .toplevel-nav__sub-menu-icon {
       stroke: col($c-neutral, 3);
+    }
+    .d1search__input:focus~.d1search__label{
+      color: col($c-primary, 5);
     }
   }
 }

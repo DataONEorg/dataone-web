@@ -3,7 +3,7 @@
 {{ $type := "default" }}
 {{ $extraClass := "none" }} 
 
-{{ if or (eq .Params.header.type "hosted-repo-header") (eq .Params.header.type "brand-gradient-header") }}
+{{ if or (eq .Params.header.type "hosted-repo-header") (eq .Params.header.type "brand-gradient-header") (eq .Params.header.type "network-image") }}
   {{ $type = "wave" }}
 {{ end }}
 {{ if eq .Kind "home" }}
@@ -74,7 +74,9 @@
                 <ul class="toplevel-nav__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
                   {{ range .Children }}
                   <li class = "toplevel-nav__sub-menu-item">
-                    <a class="toplevel-nav__sub-menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                    <a class="toplevel-nav__sub-menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
+                      {{ .Name }}
+                    </a>
                   </li>
                   {{ end }}
                 </ul>
@@ -89,7 +91,9 @@
             {{ else }}
               {{ range first 1 .Children }}
               <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-                <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
+                  {{ .Name }}
+                </a>
               </li>
               {{ end }}
             {{ end }}
@@ -97,7 +101,9 @@
           <!-- when there are no child pages, make a regular link -->
           {{ else }}
             <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-              <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+              <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
+                {{ .Name }}
+              </a>
             </li>
             {{ end }}
         {{ end }}

@@ -168,7 +168,7 @@ page_sections:
     link: ''
     text: ''
 - template: section
-  type: secondary-light
+  type: secondary-medium
   title: Need more? Add a dedicated hosted repository
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository
@@ -213,9 +213,9 @@ page_sections:
     text: ''
 menu:
   footer:
-    weight: 6
+    weight: 1
   toplevel:
     weight: 1
-draft: true
+draft: false
 
 ---
