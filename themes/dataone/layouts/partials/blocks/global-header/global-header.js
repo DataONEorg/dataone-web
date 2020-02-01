@@ -58,9 +58,12 @@ var toggleElement = function(button, element, open){
  * var closeAllDropdowns - Closes all the submenus
  */ 
 var closeAllDropdowns = function(){
-  dropdownEls.forEach( els  => {
-    toggleElement(els.button, els.submenu, true);
-  });
+  if(dropdownEls){
+    dropdownEls.forEach( els  => {
+      toggleElement(els.button, els.submenu, true);
+    });
+  }
+  
 };
 
 /**  
@@ -155,9 +158,10 @@ var searchButtonClick = function () {
   if(searchExists){
     var open = JSON.parse(searchButton.getAttribute("aria-expanded"));
     toggleElement(searchButton, search, open);
-    if(!open && searchInput){
-      searchInput.focus();
-    };
+    // TODO: this only works on chrome. On safari/firefox, causes menu to stay open
+    // if((!open) && searchInput){
+    //   searchInput.focus();
+    // };
     if(isMobile()){
       toggleElement(menuButton, menu, true);
     }

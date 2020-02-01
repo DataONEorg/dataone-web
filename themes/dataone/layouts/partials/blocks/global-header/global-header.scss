@@ -192,6 +192,7 @@
             width: 0;
             opacity: 0;
             overflow: hidden;
+            margin-left: -100%;
             transition: all 0.18s 0s ease-in-out;
         }
       }
@@ -215,11 +216,14 @@
     transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
     margin-bottom: -100%;
     
+    
     @include desktop{
+      margin: 0 5px;
+      
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-      margin: 0 5px;
+      
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;

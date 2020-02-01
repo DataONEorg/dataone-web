@@ -23,8 +23,8 @@
   &__logo-image {
     height: 40px;
     vertical-align: middle;
-    -webkit-filter:  invert(28%)  sepia(100%) hue-rotate(160deg) saturate(10) blur(0.3px) contrast(0.045) brightness(1.55);
-    filter:          invert(28%)  sepia(100%) hue-rotate(160deg) saturate(10) blur(0.3px) contrast(0.045) brightness(1.55);
+    -webkit-filter:  invert(28%)  sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(1.55);
+    filter:          invert(28%)  sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(1.55);
   }
   
   &__button-container{

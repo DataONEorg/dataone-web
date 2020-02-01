@@ -15,7 +15,7 @@ var tocButton    = document.getElementById("toc-toggle"),
 var updateTOC = function(){
   
   /**
-   * toggleMenu - Sets or unsets the aria-expanded and aria-hidden attributes on
+   * toggleTOC - Sets or unsets the aria-expanded and aria-hidden attributes on
    * the TOCmenu and tocMenu button.
    * @param {boolean} open - indicates whether the menu should be closed (true) or
    * open (false).
@@ -200,8 +200,6 @@ var updateTOC = function(){
       var open = JSON.parse(tocButton.getAttribute("aria-expanded"));
       toggleTOC(open);
     }
-    // Menu and search shouldn't be open at the same time.
-    toggleMenu(true);
   });
   
 };

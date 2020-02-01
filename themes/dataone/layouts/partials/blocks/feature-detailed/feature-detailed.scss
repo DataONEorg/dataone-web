@@ -27,8 +27,8 @@
     // TODO - make these image modifiers in the image block instead
     .figure__image {
       box-shadow: 35px 65px 125px -23px rgba(0,44,56,.2), 22.3px 35px 70px -40px rgba(0,44,56,.3);
-      -webkit-transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
-      transform: scale(1) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg);
+      -webkit-transform: scale(1.2) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg) translateZ(-100px);
+      transform: scale(1.2) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg) translateZ(-100px); // translatez to fix safari bug
       border-radius: 4px;
       max-height: 350px;
       margin: auto auto;
@@ -83,8 +83,8 @@
     
     .feature-detailed__figure{
       .figure__image{
-        -webkit-transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(1deg) rotate(1deg);
-        transform: scale(1) perspective($breakpoint) rotateY(12deg) rotateX(-1deg) rotate(-1deg);
+        -webkit-transform: scale(1.2) perspective($breakpoint) rotateY(12deg) rotateX(1deg) rotate(1deg) translateZ(-100px); // translatez to fix safari bug;
+        transform: scale(1.2) perspective($breakpoint) rotateY(12deg) rotateX(-1deg) rotate(-1deg) translateZ(-100px); // translatez to fix safari bug;
         box-shadow: -10px 25px 125px -23px rgba(0,44,56,.2), -22px 35px 75px -40px rgba(0,44,56,.3);
       }
     }

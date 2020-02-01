@@ -44,7 +44,7 @@
       </div>
       {{- end -}}
     </div>
-    {{- if and (ne .Block.type `text-only`) (ne $headerClass `svg-image`) (ne $headerClass `svg-background`) }}
+    {{- if or (eq .Block.type `left-aligned`) -}}
       {{ with .Block.headerimage }}
       <div class="header__figure">
         {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
