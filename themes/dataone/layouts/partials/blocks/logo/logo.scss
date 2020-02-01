@@ -11,6 +11,9 @@
 .logo--subtle {
   fill: $c-foreground-subtle;
 }
+.logo--subtle-light {
+  fill: col($c-neutral, 4);
+}
 
 .logo--globe-only{
   

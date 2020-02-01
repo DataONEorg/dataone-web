@@ -21,14 +21,13 @@ $TOCwidth: 250px;
   }
   
   &__nav{
-    
-    @include medium-lr-padding;
     @include desktop{
       width: $TOCwidth;
       margin-top: 5.3rem;
     }
     
     &--mobile-affixed{
+      z-index: 3;
       position: fixed;
       top: 0;
       left:0;
@@ -59,7 +58,6 @@ $TOCwidth: 250px;
         display: block;
         left: auto;
         padding-top: 0;
-        @include medium-lr-padding;
         box-shadow: none;
         
         .member-nodes__toc-button{
@@ -73,6 +71,7 @@ $TOCwidth: 250px;
       @include desktop{
         position: fixed;
         top: 0;
+        z-index: 3;
         width: $TOCwidth;
       }
     }
@@ -191,8 +190,6 @@ $TOCwidth: 250px;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     grid-gap: 1em;
-    @include mobile-lr-padding;
-    @include medium-lr-padding;
   }
   
   &__member{

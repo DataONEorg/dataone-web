@@ -88,7 +88,7 @@ page_sections:
     external_website: false
     website_link: ''
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Build your knowledge
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.

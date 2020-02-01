@@ -1,3 +1,10 @@
+
+.section:first-of-type {
+  .section__inner{
+    padding-top: 0;
+  }
+}
+
 .section{
 
   @include f-common;
@@ -9,9 +16,8 @@
     display: grid;
     justify-self: center;
     @include limit-width;
-    @include medium-lr-padding;
-    @include mobile-lr-padding;
-    
+    padding-left: $mobile-lr-padding;
+    padding-right: $mobile-lr-padding;
     padding-top: calc(0.75 * #{$inter-section-spacing});
     padding-bottom: calc(1.25 * #{$inter-section-spacing});
   }
@@ -27,7 +33,7 @@
     font-size: $fs-h2;
     color: var(--col-title);
     font-family: 'Martel', serif;
-    font-weight: 900;
+    font-weight: 700;
     
     &--emphasis{
       font-weight: 600;
@@ -51,7 +57,10 @@
   }
   
   &__blocks{
-    padding-top: $intra-section-spacing;
+    padding-top: calc(2*#{$intra-section-spacing});
+    display: grid;
+    grid-gap: calc(4*#{$intra-section-spacing});
+    grid-auto-rows: min-content;
   }
   
   &--bold{
@@ -79,9 +88,26 @@
 
 }
 
+$primary-light: col($c-primary, 4);
+$secondary-light: col($c-secondary, 1);
+
 .section--subtle-emphasis{
-  
   // sections with a background colour look better with some extra padding.
   padding-top: 40px;
   --col-background: #{$c-background-emphasis};
+}
+
+.section--primary-light{
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  background-color: $primary-light;
+  --col-background: #{$primary-light};
+}
+
+
+.section--secondary-light{
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  background-color: $secondary-light;
+  --col-background: #{$secondary-light};
 }

@@ -1,6 +1,6 @@
 .checklist{
   
-  padding: $intra-section-spacing $mobile-lr-padding $intra-section-spacing $mobile-lr-padding;
+  padding: $intra-section-spacing $mobile-lr-padding;
   margin: 0 0 $inter-item-spacing 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -19,7 +19,7 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    fill: $c-primary;
+    fill: col($c-tertiary, 5);
   }
   
 }

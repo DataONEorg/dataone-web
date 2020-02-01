@@ -28,9 +28,10 @@ header:
     text: Contact us
     type: secondary
 page_sections:
-- intro: ''
+- intro: Let the experts behind DataONE manage and preserve your data, software,
+      and derived products with our robust software and hardware.
   template: section
-  title: ''
+  title: Focus on your research, leave your data infrastructure to us
   type: default
   button:
     class: ''
@@ -44,119 +45,102 @@ page_sections:
     style: ''
     template: ''
   blocks:
-  - intro: Let the experts behind DataONE manage and preserve your data, software,
-      and derived products with our robust software and hardware.
-    template: section
-    title: Focus on your research, leave your data infrastructure to us
-    type: default
+  - details: []
+    image:
+      template: image
+      src: "uploads/metacat-on-github.png"
+      alttext: Metacat on Github
+      title: Open source tools by DataONE
+      type: default
+    headline: Open source repository platform
+    template: feature-detailed
+    text: DataONE hosted repositories represent stand-alone deployments of the open
+      source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
+      and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
+      web client. These repository platforms are trusted by many repositories, including
+      the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
+      [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
+      among many others.
+    type: right
+    button:
+      class: ''
+      link: https://github.com/DataONEorg
+      template: button
+      text: DataONE on Github
+      type: tertiary
+      external_website: true
+  - image:
+      template: image
+      src: "uploads/geographic-replicas.png"
+      alttext: Geographic replicas
+      title: Replication makes your repository reliable
+      type: default
+    headline: Geographic replicas
+    template: feature-detailed
+    text: Your data are replicated to distinct geographic regions for high availability
+      and preservation.
+    type: left
     button:
       class: ''
       link: ''
-      template: ''
+      template: button
       text: ''
-      type: ''
-    icon:
-      name: ''
-      size: ''
-      style: ''
-      template: ''
-    blocks:
-    - details: []
-      image:
-        template: image
-        src: "uploads/metacat-on-github.png"
-        alttext: Metacat on Github
-        title: Open source tools by DataONE
-        type: default
-      headline: Open source repository platform
-      template: feature-detailed
-      text: DataONE hosted repositories represent stand-alone deployments of the open
-        source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
-        and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
-        web client. These repository platforms are trusted by many repositories, including
-        the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
-        [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
-        among many others.
-      type: right
-      button:
-        class: ''
-        link: https://github.com/DataONEorg
-        template: button
-        text: DataONE on Github
-        type: tertiary
-        external_website: true
-    - image:
-        template: image
-        src: "uploads/geographic-replicas.png"
-        alttext: Geographic replicas
-        title: Replication makes your repository reliable
-        type: default
-      headline: Geographic replicas
-      template: feature-detailed
-      text: Your data are replicated to distinct geographic regions for high availability
-        and preservation.
-      type: left
-      button:
-        class: ''
-        link: ''
-        template: button
-        text: ''
-        type: secondary
-      details:
-      - name: Preservation
-        template: item-with-icon
-        text: All data and metadata are replicated to two geographically independent
-          data centers in California and Tennessee
-        icon:
-          name: checkmark
-          size: small
-          style: secondary
-          template: icon
-      - name: Customization
-        template: item-with-icon
-        text: Brand your data repository with customized features allowing you to
-          connect directly with your community.
-        icon:
-          name: checkmark
-          size: small
-          style: secondary
-          template: icon
-    - details:
-      - template: item-with-icon
-        name: Custom DOI prefix
-        text: A DOI prefix is configured exclusively for your datasets, products,
-          and code
-        icon:
-          template: icon
-          name: checkmark
-          size: small
-          style: secondary
-      - template: item-with-icon
-        name: Custom domain name
-        text: Your repository is available at a domain of your choice, but hosted
-          by DataONE
-        icon:
-          template: icon
-          name: checkmark
-          size: small
-          style: secondary
-      image:
-        template: image
-        src: "uploads/custom-domain-and-doi.png"
-        alttext: Custom Domain and DOI
-        title: Brand your data repository
-        type: default
-      headline: Customization
-      template: feature-detailed
-      text: Brand your data repository with customized features allowing you to connect
-        directly with your community.
-      type: right
-      button:
-        class: ''
-        link: ''
-        template: button
-        text: ''
-        type: secondary
+      type: secondary
+    details:
+    - name: Preservation
+      template: item-with-icon
+      text: All data and metadata are replicated to two geographically independent
+        data centers in California and Tennessee
+      icon:
+        name: checkmark
+        size: small
+        style: secondary
+        template: icon
+    - name: Customization
+      template: item-with-icon
+      text: Brand your data repository with customized features allowing you to
+        connect directly with your community.
+      icon:
+        name: checkmark
+        size: small
+        style: secondary
+        template: icon
+  - details:
+    - template: item-with-icon
+      name: Custom DOI prefix
+      text: A DOI prefix is configured exclusively for your datasets, products,
+        and code
+      icon:
+        template: icon
+        name: checkmark
+        size: small
+        style: secondary
+    - template: item-with-icon
+      name: Custom domain name
+      text: Your repository is available at a domain of your choice, but hosted
+        by DataONE
+      icon:
+        template: icon
+        name: checkmark
+        size: small
+        style: secondary
+    image:
+      template: image
+      src: "uploads/custom-domain-and-doi.png"
+      alttext: Custom Domain and DOI
+      title: Brand your data repository
+      type: default
+    headline: Customization
+    template: feature-detailed
+    text: Brand your data repository with customized features allowing you to connect
+      directly with your community.
+    type: right
+    button:
+      class: ''
+      link: ''
+      template: button
+      text: ''
+      type: secondary
   - template: three-columns
     columns:
     - headline: Private and public access
@@ -187,7 +171,7 @@ page_sections:
         style: default
         template: icon
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Make your data FAIR
   intro: Evaluate your metadata with community established FAIR principles. Scores
     are refreshed with updates to your metadata, helping make your data even more
@@ -282,19 +266,8 @@ page_sections:
       headline: Link data and software
       text: Easily show how your files relate to each other by providing well-described
         provenance workflows
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 - template: section
-  type: default
+  type: secondary-light
   title: Includes all the DataONE Plus features
   blocks:
   - template: checklist

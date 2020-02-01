@@ -16,7 +16,9 @@
     </div>
     {{- end -}}
     {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
+      <div class="feature-detailed__button">
       {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
+      </div>
     {{- end -}}
   </div>
   <div class="feature-detailed__figure">

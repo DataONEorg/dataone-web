@@ -1,5 +1,5 @@
 <!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+{{ $page := .Page }}
 
 <section class="section{{ if and (isset .Block `type`) (ne .Block.type `default`) }} section--{{ .Block.type }}{{ end }}">
   <div class = "section__inner">

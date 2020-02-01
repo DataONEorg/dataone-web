@@ -3,11 +3,11 @@
   
   @include f-common;
   
-  padding-top: $intra-section-spacing;
-  padding-bottom: calc(2 * #{$intra-section-spacing});
   display: flex;
   flex-direction: column;
-  @include medium-lr-padding;
+  display: grid;
+  grid-gap: $intra-section-spacing;
+  grid-auto-rows: min-content;
   
   @include desktop {
     display: grid;
@@ -40,8 +40,15 @@
   &__description{
 
     padding-top: 0;
-    padding-bottom: $intra-section-spacing;
+    display: grid;
+    grid-gap: calc(0.5*#{$intra-section-spacing});
+    grid-auto-rows: auto;
+    height: 100%;
     
+  }
+  
+  &__button{
+    align-self: end;
   }
   
   &__intro{
@@ -49,19 +56,18 @@
     font-size: $fs-larger;
     line-height: 1.5;
     font-weight: 300;
-    margin-bottom: calc(2*#{$inter-item-spacing});
-    
+    margin: 0;
     @include text-link;
   }
   
   &__title{
     
     font-size: $fs-h3;
-    margin-top: calc(2 * #{$intra-section-spacing});
-    margin-bottom: $inter-item-spacing;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--col-title);
+    font-weight: 500;
+    margin: 0;
   }
   
   &--figleft{
@@ -95,9 +101,11 @@
     }
     .feature-detailed__description{
       order: 2;  
+      
     }
     
     .feature-detailed__figure{
+      margin-bottom: calc(1.5*#{$intra-section-spacing});
       .figure__image{
         -webkit-transform: none;
         transform: none;

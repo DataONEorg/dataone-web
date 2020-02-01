@@ -4,9 +4,9 @@
 {{ $currentPage := . }}
 <footer class="global-footer">
   <div class="global-footer__content">
-    <a class="global-footer__logo" href="https://www.dataone.org/">
-      {{- partial "blocks/logo/logo.html" -}}
-    </a>
+    <div class="global-footer__logo">
+      {{- partial "blocks/logo/logo.html" (dict "Block" (dict "type" "subtle-light")) -}}
+    </div>
     <ul class="global-footer__site-map">
       {{ range .Site.Menus.footer }}
         <li class="global-footer__site-map-item">
@@ -19,5 +19,8 @@
       <a class="button button--secondary" href="{{ $.Site.Params.contactLink }}">Send a message</a>
     </section>
     <small class="global-footer__fine-print">{{ $.Site.Params.footerText }}</small>
+  </div>
+  <div class="global-footer__svg-background">
+    {{- partial "svg/footer-brand-gradient.svg" -}}
   </div>
 </footer>

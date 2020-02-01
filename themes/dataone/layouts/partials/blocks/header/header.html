@@ -21,11 +21,14 @@
   <div class="header__content">
     <div class="header__text">
       
-      {{- with $page.Params.title -}}<span class="header__title">{{.}}</span>{{- end -}}
+      <div class="header__title-and-pill">
+        {{- with $page.Params.title -}}<span class="header__title">{{.}}</span>{{- end -}}
+        
+        {{- with .Block.pill -}}
+          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
+        {{- end -}}
+      </div>
       
-      {{- with .Block.pill -}}
-        {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
-      {{- end -}}
       <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
       <p class="header__intro">{{ .Block.intro | markdownify }}</p>
       {{- if .Block.buttons -}}

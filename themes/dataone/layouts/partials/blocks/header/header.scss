@@ -27,24 +27,30 @@
     text-align: center;
     min-height: fit-content;
     padding-bottom: $intra-section-spacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
     @include desktop{
       text-align: left;
     }
   }
   
+  &__title-and-pill{
+  }
+  
   &__title {
+    display: inline-block;
     font-size: $fs-h3;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-right: 0.5em;
     color: col($c-neutral, 5);
-    
+    margin: 3rem 0.5em 1rem 0;
   }
   
   &__headline {
-    margin-top: $intra-section-spacing;
-    margin-bottom: $intra-section-spacing;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
     font-size: $fs-page-title;
     line-height: 1.1;
     color: var(--col-title);
@@ -58,7 +64,7 @@
   }
   
   &__intro {
-    margin-bottom: #{$intra-section-spacing * 1.5};
+    margin-bottom: 5rem;
     font-size: $fs-page-intro;
     line-height: 1.6;
     font-weight: 400;
@@ -262,6 +268,10 @@
 // === SVG IMAGE ===
 // 
 .header--svg-image{
+  @include desktop{
+    padding-top: 0;
+  }
+  
   
   .header__headline{
     font-size: 1.75rem;
@@ -283,7 +293,14 @@
   }
   
   overflow: hidden;
+  .header__svg-figure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .header__svg-figure svg{
+    
     margin-top: $intra-section-spacing;
     margin-left: -15%;
     width: 130%;
@@ -305,7 +322,12 @@
 // 
 .header--homepage{
   @extend .header--svg-background;
-  
+  min-height: 400px;
+  height: auto;
+  max-height: 500px;
+  @include desktop {
+    max-height: 600px;
+  }
   .header__logo{
     display: flex;
     align-items: center;
@@ -372,10 +394,12 @@
 .header--simple-svg-background{
   @extend .header--svg-background;
   @extend .header--text-only;
+  min-height: 700px;
+  max-height: 750px;
   @include desktop{
-    margin-top: 120px;
-    min-height: 650px;
-    max-height: 650px;
+    margin-top: 70px;
+    min-height: 700px;
+    max-height: 750px;
   }
   padding-bottom: 0px;
   
@@ -383,7 +407,7 @@
     svg{
       height: 800px;
       margin-left: 0px;
-      margin-top: 0;
+      margin-top: -50px;
       margin-bottom: 0px;
       @include desktop{
         margin-top: 0;
@@ -413,7 +437,7 @@
 
 // TODO
 .no-leaves .svg__leaf {
-  // display: none;
+  display: none;
 }
 .animated-line {
   animation: dash 200s linear alternate infinite;

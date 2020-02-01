@@ -15,12 +15,12 @@
   &__paragraph {
     margin-top: $inter-item-spacing;
     font-size: $fs-body;
-    line-height: 1.25;
+    line-height: 1.35;
   }
   
   &__emphasis{
     font-style: normal;
-    font-weight: bolder;
+    font-weight: 600;
   }
   
 }

@@ -27,7 +27,7 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Over a decade of data science and education
   intro: ''
   blocks:
@@ -46,7 +46,7 @@ page_sections:
         external_website: true
       image:
         template: image
-        src: "/images/800px-Robinson-projection.jpg"
+        src: "/uploads/800px-Robinson-projection.jpg"
         alttext: World map shown with Robinson projection
         title: DataONE created global data research infrastructure
         type: default

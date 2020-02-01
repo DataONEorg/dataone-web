@@ -1,9 +1,10 @@
 .global-footer {
   
-  background-color: $c-foreground-emphasis;
+  // background-color: $c-foreground-emphasis;
   padding: $inter-section-spacing 0 $inter-item-spacing 0;
   margin: 0;
   @include f-common;
+  position: relative;
                         
   &__content{
     @include limit-width;
@@ -29,12 +30,14 @@
   }
                         
   &__logo{
+    z-index: 1;
     grid-area: logo;
     justify-self: center;
     
   }
   
   &__site-map{
+    z-index: 1;
     list-style-type: none;
     grid-area: sitemap;
     margin: 0;
@@ -50,13 +53,14 @@
   }
   
   &__site-map-link{
-    color: black;
+    color: col($c-neutral,3);;
     text-decoration: none;
-    color: $c-foreground;
+    color: col($c-neutral,3);;
     font-size: 1.2rem;
   }
   
   &__contact{
+    z-index: 1;
     grid-area: contact;
     display: grid;
     justify-content: center;
@@ -64,13 +68,36 @@
     grid-gap: .5em;
     grid-auto-flow: row;
     margin-bottom: $inter-item-spacing;
+    color: col($c-neutral,4);
   }
   
   &__fine-print{
+    z-index: 1;
     margin-top: $intra-section-spacing;
     font-size: $fs-smaller;
     grid-area: fineprint;
     line-height: 1.1;
-    color: $c-foreground;
+    color: col($c-neutral,4);
+  }
+  
+  &__svg-background{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    z-index: 0; // so that content is above svg background
+    svg{
+      flex: 0 0 auto;
+      width: auto;
+      height: 700px;
+      @include desktop{
+        margin-left: 0px;
+        height: 500px;
+      }
+    }
   }
 }

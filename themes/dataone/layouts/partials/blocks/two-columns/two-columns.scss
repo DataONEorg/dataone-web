@@ -1,7 +1,6 @@
 .two-columns{
   width: 100%;
   @include desktop {
-    @include limit-width;
     display: grid;
     grid-template-columns: .5fr .5fr;
     grid-template-rows: 1fr;
@@ -9,7 +8,6 @@
   }
   
   &__column{
-    @include mobile-lr-padding;
     display: flex;
     justify-content: center;
   }

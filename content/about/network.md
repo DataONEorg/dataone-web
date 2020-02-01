@@ -21,7 +21,7 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Our network
   intro: ''
   blocks:

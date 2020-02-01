@@ -19,6 +19,8 @@ fields:
     - bold
     - subtle-emphasis
     - default
+    - primary-light
+    - secondary-light
   default: default
 - type: field_group
   template: icon

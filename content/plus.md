@@ -104,7 +104,7 @@ page_sections:
     link: ''
     text: ''
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Make your data FAIR
   intro: Help your community improve data discovery, accessibility, interoperability,
     and reusability with quantitative metadata quality assessment using the FAIR principles.
@@ -168,7 +168,7 @@ page_sections:
     link: ''
     text: ''
 - template: section
-  type: subtle-emphasis
+  type: secondary-light
   title: Need more? Add a dedicated hosted repository
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository

@@ -4,11 +4,6 @@
 
 .markdown{
   @include f-common;
-  @include mobile-lr-padding;
-  @include desktop {
-    @include limit-width;
-    @include medium-lr-padding;
-	}
   
   a:not(.button) {
     color: $c-secondary;

@@ -3,7 +3,6 @@
 
 // the outer div containing the form
 .ml-subscribe-form{
-  @include medium-lr-padding;
   @include f-common;
   
   .ml-form-successContent{
@@ -107,8 +106,8 @@ input[type="checkbox"]:checked + .label-description::after {
   position: absolute;
   top: 3px;
   left: 26px;
-  border-left: 4px solid $c-background;
-  border-bottom: 4px solid $c-background;
+  border-left: 4px solid col($c-primary, 7 );
+  border-bottom: 4px solid col($c-primary, 7);
   height: 10px;
   width: 16px;
   transform: rotate(-45deg);

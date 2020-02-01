@@ -1,23 +1,23 @@
-<svg viewBox="0 0 455 450">
+<svg viewBox="0 0 494 489">
   <defs>
-    <path id="reuse-0" fill="#03BF96" d="M165 108.73C73.87 108.73 0 84.23 0 54v80.49h.3C5.35 163.2 77.15 186 165 186c87.86 0 159.67-22.79 164.7-51.51h.3V54c0 30.22-73.87 54.73-165 54.73z"/>
+    <path id="reuse-0" fill="#34CAD9" d="M179.5 118.7C80.36 118.7 0 91.98 0 59v87.8h.34C5.8 178.14 83.92 203 179.5 203s173.7-24.86 179.16-56.2h.34V59c0 32.97-80.36 59.7-179.5 59.7z"/>
   </defs>
   <g fill="none" fill-rule="nonzero">
-    <g transform="translate(0 250)">
-      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+    <g transform="translate(0 272)">
+      <ellipse cx="180.5" cy="59.5" fill="#14ABBA" rx="179.5" ry="59.5"/>
       <use xlink:href="#reuse-0"/>
     </g>
-    <g transform="translate(0 127)">
-      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+    <g transform="translate(0 138)">
+      <ellipse cx="180.5" cy="59.5" fill="#14ABBA" rx="179.5" ry="59.5"/>
       <use xlink:href="#reuse-0"/>
     </g>
     <g>
-      <ellipse cx="166" cy="54.5" fill="#1AD8AF" rx="165" ry="54.5"/>
+      <ellipse cx="180.5" cy="59.5" fill="#14ABBA" rx="179.5" ry="59.5"/>
       <use xlink:href="#reuse-0"/>
     </g>
-    <g transform="translate(225 220)">
-      <circle cx="114.76" cy="114.76" r="114.76" fill="#0C3247"/>
-      <path fill="#FFF" d="M167.72 97.1h-35.3V61.8a17.66 17.66 0 00-35.32 0v35.3H61.8a17.66 17.66 0 100 35.31h35.3v35.31a17.66 17.66 0 0035.31 0v-35.3h35.31a17.66 17.66 0 000-35.32z"/>
+    <g transform="translate(245 240)">
+      <circle cx="124.5" cy="124.5" r="124.5" fill="#EED268"/>
+      <path fill="#CFB44F" d="M182.75 105.75h-38.5v-38.5a19.25 19.25 0 00-38.5 0v38.5h-38.5a19.25 19.25 0 000 38.5h38.5v38.5a19.25 19.25 0 0038.5 0v-38.5h38.5a19.25 19.25 0 000-38.5z"/>
     </g>
   </g>
 </svg>
