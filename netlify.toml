@@ -3,4 +3,4 @@
     HUGO_VERSION = "0.60.1"
 
 [context.preview]
-  command = "hugo -D --baseUrl=\"/\""
+  command = "hugo --baseUrl=\"/\""
