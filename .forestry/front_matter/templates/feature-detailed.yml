@@ -53,6 +53,7 @@ fields:
     validation:
       minimum: 1
       maximum: 5
+    labelField: name
   fields:
   - type: include
     template: item-with-icon
