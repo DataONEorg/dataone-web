@@ -22,6 +22,8 @@ fields:
     - primary-light
     - secondary-light
     - secondary-medium
+    - tertiary-light
+    - quaternary-light
   default: default
 - type: field_group
   template: icon

@@ -112,6 +112,17 @@ page_sections:
     class: ''
     link: ''
     text: ''
+- template: section
+  type: bold
+  title: Contribute
+  intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
+  button:
+    template: button
+    external_website: true
+    type: primary
+    link: https://giving.ucsb.edu/Funds/Give?id=353
+    text: Donate
+    class: ''
 menu:
   toplevel:
     parent: Organization

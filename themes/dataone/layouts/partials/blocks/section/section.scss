@@ -96,6 +96,8 @@
 $primary-light: col($c-primary, 4);
 $secondary-light: col($c-secondary, 1);
 $secondary-medium: col($c-secondary, 2);
+$tertiary-light: col($c-tertiary, 2);
+$quaternary-light: col($c-quaternary, 3);
 
 .section--subtle-emphasis{
   // sections with a background colour look better with some extra padding.
@@ -122,4 +124,18 @@ $secondary-medium: col($c-secondary, 2);
   padding-top: 40px;
   background-color: $secondary-light;
   --col-background: #{$secondary-light};
+}
+
+.section--tertiary-light{
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  background-color: $tertiary-light;
+  --col-background: #{$tertiary-light};
+}
+
+.section--quaternary-light{
+  // sections with a background colour look better with some extra padding.
+  padding-top: 40px;
+  background-color: $quaternary-light;
+  --col-background: #{$quaternary-light};
 }

@@ -179,11 +179,6 @@ page_sections:
       external_website: false
       website_link: about/about.md
     details: []
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   title: ''
   intro: ''
   button:
@@ -194,6 +189,17 @@ page_sections:
     text: ''
     external_website: false
     website_link: ''
+- template: section
+  type: quaternary-light
+  title: Contribute
+  intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
+  button:
+    template: button
+    external_website: true
+    type: tertiary
+    link: https://giving.ucsb.edu/Funds/Give?id=353
+    text: Donate
+    class: ''
 - template: section
   type: bold
   title: Interested in services by DataONE?

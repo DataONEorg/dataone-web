@@ -104,7 +104,7 @@ page_sections:
     link: ''
     text: ''
 - template: section
-  type: secondary-light
+  type: quaternary-light
   title: Make your data FAIR
   intro: Help your community improve data discovery, accessibility, interoperability,
     and reusability with quantitative metadata quality assessment using the FAIR principles.
@@ -216,6 +216,7 @@ menu:
     weight: 1
   toplevel:
     weight: 1
+    name: Plus
 draft: false
 
 ---
