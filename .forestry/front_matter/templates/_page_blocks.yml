@@ -48,7 +48,6 @@ fields:
 pages:
 - content/about/about.md
 - content/about/contact.md
-- content/about/network.md
 - content/hostedrepo.md
 - content/plus.md
 - content/resources/documentation.md

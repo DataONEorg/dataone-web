@@ -19,6 +19,13 @@ sections:
   - markdown
   - _page_blocks
 - type: directory
+  path: content/network
+  label: Network
+  create: all
+  match: "**/*"
+  templates:
+  - _page_blocks
+- type: directory
   path: content/resources
   label: Resources
   create: all
