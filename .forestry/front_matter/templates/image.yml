@@ -37,4 +37,6 @@ fields:
       type: simple
     options:
     - default
-    - drop-shadow
+    - float
+    - tilt-left
+    - tilt-right

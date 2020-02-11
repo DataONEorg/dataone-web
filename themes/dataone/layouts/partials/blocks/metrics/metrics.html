@@ -1,0 +1,57 @@
+{{ $page := .Page }}
+{{ $metrics := .Page.Site.Data.metrics }}
+
+<div class="metrics {{ if and (isset .Block `type`) (ne .Block.type `default`) }} metrics--{{ .Block.type }}{{ end }}">
+  
+  <!-- DOWNLOADS -->
+  
+  <div class="metrics__group metrics__downloads">
+    
+    <!-- <h3> DOWNLOADS</h3> -->
+    
+    <div class="metrics__metric metrics__downloads-data">
+      <div class="metrics__integer">
+        {{ partial "functions/roundMillsOrThous" $metrics.downloads.data }}
+      </div>
+      <div class="metrics__name">
+        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Data downloaded
+      </div>
+    </div>
+    
+    <div class="metrics__metric metrics__downloads-metadata">
+      <div class="metrics__integer">
+        {{ partial "functions/roundMillsOrThous" $metrics.downloads.metadata }}
+      </div>
+      <div class="metrics__name">
+        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata downloaded
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- UPLOADS -->
+  
+  <div class="metrics__group metrics__uploads">
+    <!-- <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud")) -}}</span> -->
+    
+    <div class="metrics__metric metrics__uploads-data">
+      <div class="metrics__integer">
+        {{ partial "functions/roundMillsOrThous" $metrics.uploads.data }}
+      </div>
+      <div class="metrics__name">
+        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Data uploaded
+      </div>
+    </div>
+    
+    <div class="metrics__metric metrics__uploads-metadata">
+      <div class="metrics__integer">
+        {{ partial "functions/roundMillsOrThous" $metrics.uploads.metadata }}
+      </div>
+      <div class="metrics__name">
+        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata uploaded
+      </div>
+    </div>
+  
+  </div>
+  
+</div>

@@ -41,7 +41,7 @@ page_sections:
       src: "/uploads/portal-data-page.png"
       alttext: Portals from DataONE Plus
       title: DataONE Plus portals page
-      type: drop-shadow
+      type: float
     - template: features-list
       features:
       - template: feature-simple

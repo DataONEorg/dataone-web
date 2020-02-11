@@ -52,3 +52,5 @@ menu:
     weight: 4
   - name: Resources
     weight: 3
+  - name: Network
+    weight: 2

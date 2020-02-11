@@ -268,17 +268,17 @@ $mobile-lr-padding: 0.8rem;
 
 // anything with an un-classed link in it (e.g. markdown)
 @mixin text-link {
-  a {
+  a:not(.button) {
     color: $c-secondary;
     text-decoration: none;
   }
-  a:visited{
+  a:not(.button):visited{
     color: $c-secondary;
   }
-  a:hover{
+  a:not(.button):hover{
     color: $c-foreground;
   }
-  a:active{
+  a:not(.button):active{
     color: $c-foreground;
   }
   

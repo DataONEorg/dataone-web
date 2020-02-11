@@ -33,17 +33,6 @@ page_sections:
   template: section
   title: Focus on your research, leave your data infrastructure to us
   type: default
-  button:
-    class: ''
-    link: ''
-    template: ''
-    text: ''
-    type: ''
-  icon:
-    name: ''
-    size: ''
-    style: ''
-    template: ''
   blocks:
   - details: []
     image:
@@ -51,7 +40,7 @@ page_sections:
       src: "uploads/metacat-on-github.png"
       alttext: Metacat on Github
       title: Open source tools by DataONE
-      type: default
+      type: tilt-left
     headline: Open source repository platform
     template: feature-detailed
     text: DataONE hosted repositories represent stand-alone deployments of the open
@@ -74,18 +63,12 @@ page_sections:
       src: "uploads/geographic-replicas.png"
       alttext: Geographic replicas
       title: Replication makes your repository reliable
-      type: default
+      type: tilt-right
     headline: Geographic replicas
     template: feature-detailed
     text: Your data are replicated to distinct geographic regions for high availability
       and preservation.
     type: left
-    button:
-      class: ''
-      link: ''
-      template: button
-      text: ''
-      type: secondary
     details:
     - name: Preservation
       template: item-with-icon
@@ -129,18 +112,12 @@ page_sections:
       src: "uploads/custom-domain-and-doi.png"
       alttext: Custom Domain and DOI
       title: Brand your data repository
-      type: default
+      type: tilt-left
     headline: Customization
     template: feature-detailed
     text: Brand your data repository with customized features allowing you to connect
       directly with your community.
     type: right
-    button:
-      class: ''
-      link: ''
-      template: button
-      text: ''
-      type: secondary
   - template: three-columns
     columns:
     - headline: Private and public access
@@ -183,11 +160,6 @@ page_sections:
     link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
     text: Learn more about FAIR
     class: ''
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   blocks: []
 - template: section
   type: default
@@ -216,7 +188,7 @@ page_sections:
           src: "uploads/metadata-editor.png"
           alttext: Metadata Editor
           title: Uploading data is easy with the Metadata Editor
-          type: default
+          type: float
       details: []
     - template: feature-detailed
       type: top
@@ -235,7 +207,7 @@ page_sections:
           src: "uploads/dataone-r-api.png"
           alttext: DataONE R API
           title: Use the DataONE API to work with your repository
-          type: default
+          type: float
       details: []
   - template: three-columns
     columns:

@@ -21,7 +21,7 @@ page_sections:
       text: Join our network of members
       type: quaternary
       external_website: false
-      website_link: about/network.md
+      website_link: network.md
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
@@ -141,7 +141,7 @@ page_sections:
       src: "/uploads/metacat-on-github.png"
       alttext: DataONE on GitHub
       title: DataONE on Github
-      type: default
+      type: tilt-left
     text: DataONE hosted repositories represent stand-alone deployments of the open
       source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
       and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
@@ -166,7 +166,7 @@ page_sections:
       src: "/uploads/data.png"
       alttext: 'Data'
       title: 'Data'
-      type: default
+      type: tilt-right
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
     type: left
@@ -177,18 +177,7 @@ page_sections:
       text: More about DataONE
       type: tertiary
       external_website: false
-      website_link: about/about.md
-    details: []
-  title: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
+      website_link: about.md
 - template: section
   type: quaternary-light
   title: Contribute

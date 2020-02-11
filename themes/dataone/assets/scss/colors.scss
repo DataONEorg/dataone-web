@@ -144,10 +144,3 @@ $c-form-fields: $cn-neutral-lighter;
 
 // borders (e.g. in tables)
 $c-border: $cn-neutral-light;
-
-.page{
-  @for $i from 1 through 9 {
-    $z: col($c-neutral, $i);
-    --z#{$i}: #{$z};
-  }
-}

@@ -11,7 +11,7 @@
   
   @include desktop {
     display: grid;
-    grid-template-columns: .8fr .5fr;
+    grid-template-columns: .52fr .48fr;
     grid-template-rows: 1fr;
     grid-gap: 0 $grid-gap;
   }
@@ -20,20 +20,14 @@
     
     margin: 0;
     display: flex;
-    width: 90%;
+    width: 80%;
     align-items: center;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     
-    // TODO - make these image modifiers in the image block instead
     .figure__image {
-      box-shadow: 35px 65px 125px -23px rgba(0,44,56,.2), 22.3px 35px 70px -40px rgba(0,44,56,.3);
-      -webkit-transform: scale(1.2) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg) translateZ(-100px);
-      transform: scale(1.2) perspective($breakpoint) rotateY(-12deg) rotateX(1deg) rotate(1deg) translateZ(-100px); // translatez to fix safari bug
-      border-radius: 4px;
-      max-height: 350px;
       margin: auto auto;
-      border-radius: 4px;
-      overflow: hidden;
     }
   }
   
@@ -45,6 +39,12 @@
     grid-auto-rows: auto;
     height: 100%;
     
+  }
+  
+  &__title-and-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   &__button{
@@ -67,7 +67,7 @@
     letter-spacing: 0.06em;
     color: var(--col-title);
     font-weight: 500;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
   }
   
   &--figleft{
@@ -80,15 +80,6 @@
         order: 2;
       }
     }
-    
-    .feature-detailed__figure{
-      .figure__image{
-        -webkit-transform: scale(1.2) perspective($breakpoint) rotateY(12deg) rotateX(1deg) rotate(1deg) translateZ(-100px); // translatez to fix safari bug;
-        transform: scale(1.2) perspective($breakpoint) rotateY(12deg) rotateX(-1deg) rotate(-1deg) translateZ(-100px); // translatez to fix safari bug;
-        box-shadow: -10px 25px 125px -23px rgba(0,44,56,.2), -22px 35px 75px -40px rgba(0,44,56,.3);
-      }
-    }
-    
   }
   
   &--figtop{
@@ -100,26 +91,12 @@
       order: 1;
     }
     .feature-detailed__description{
-      order: 2;  
-      
+      order: 2;
     }
     
     .feature-detailed__figure{
+      margin-top: 1rem;
       margin-bottom: calc(1.5*#{$intra-section-spacing});
-      .figure__image{
-        -webkit-transform: none;
-        transform: none;
-        box-shadow: 0 40px 100px -20px rgba(0,44,56,.2), 0 25px 85px -30px rgba(0,44,56,.3);
-        height: auto;
-        width: 100%;
-        max-width: 400px;
-        max-height: none;
-        min-height: none;
-        margin-top: 1rem;
-        margin-bottom: 0;
-        border-radius: 4px;
-        overflow: hidden;
-      }
     }
 
   }

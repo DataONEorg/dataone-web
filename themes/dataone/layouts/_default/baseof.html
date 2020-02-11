@@ -24,6 +24,11 @@
         {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "js.main.js" . }}
         <script src="{{ $js.Permalink }}"></script>
         
+        
+        
+
+
+        
         <!-- For debugging CSS: -->
         <!-- find elements that expand past screen width (esp. on mobile) -->
         

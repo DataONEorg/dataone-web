@@ -4,8 +4,10 @@
 <!-- Don't add a class for the default type -->
 <div class="feature-detailed{{ if (ne .Block.type `right`) }} feature-detailed--fig{{ .Block.type }}{{ end }}">
   <div class="feature-detailed__description">
-    <h3 class="feature-detailed__title">{{ .Block.headline }}</h3>
-    <p class="feature-detailed__intro">{{ .Block.text | markdownify }}</p>
+    <div class="feature-detailed__title-and-intro">
+      {{ with .Block.headline }}<h3 class="feature-detailed__title">{{ . }}</h3>{{ end }}
+      {{ with .Block.text }}<p class="feature-detailed__intro">{{ . | markdownify }}</p>{{ end }}
+    </div>
     {{- with .Block.details -}}
     <div class="feature-detailed__details">
       {{- range . -}}
@@ -15,7 +17,7 @@
       {{- end -}}
     </div>
     {{- end -}}
-    {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
+    {{ if and (partial "functions/hasValues" .Block.button) (.Block.button.text) }}
       <div class="feature-detailed__button">
       {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>

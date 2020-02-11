@@ -1,13 +1,21 @@
 ---
 categories:
 - category: Current member nodes
-  description: Enter a description here
+  description: |-
+    Member nodes (MNs) share data, infrastructure, and expertise with DataONE. MNs expose all or portions of its data
+    holdings, or host data from other nodes. Researchers wishing to share data via DataONE are encouraged to do so through MNs within their 
+    scientific domain, organizational affiliation, or geographic region.
 - category: Replication nodes
-  description: Enter a description here
+  description: |-
+    Replication nodes provide network-wide services to enhance interoperability of member nodes and
+    support indexing and replication services. These organizations provide a replicated catalog of member node
+    metadata holdings and make it easy for scientists to discover data wherever they reside, also 
+    enabling data repositories to make their data and services more broadly available to the 
+    international community.
 - category: Contributing repositories
-  description: Enter a description here
+  description: These organizations contribute to the network in other capacities.
 - category: Upcoming member nodes
-  description: Enter a description here
+  description: These organizations will be joining our network soon! Join our newsletter for updates.
 nodes:
 - name: CyVerse
   logo: "/uploads/member_node_logos/cyverse.png"

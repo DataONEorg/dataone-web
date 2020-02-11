@@ -67,6 +67,7 @@ fields:
   - join-form
   - timeline
   - team
+  - metrics
   description: The blocks to include in the section
   config:
     min: ''

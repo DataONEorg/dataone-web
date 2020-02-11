@@ -1,18 +1,19 @@
 
 .section:first-of-type {
   .section__inner{
-    padding-top: 0;
+    // padding-top: 0;
   }
 }
 .section:last-of-type {
   .section__inner{
-    padding-bottom: 15rem;
+    padding-bottom: 20rem;
   }
 }
 
 .section{
 
   @include f-common;
+  @include text-link;
   background-color: var(--col-background);
   color: var(--col-font);
 
@@ -23,8 +24,8 @@
     @include limit-width;
     padding-left: $mobile-lr-padding;
     padding-right: $mobile-lr-padding;
-    padding-top: calc(0.75 * #{$inter-section-spacing});
-    padding-bottom: calc(1.25 * #{$inter-section-spacing});
+    padding-top: calc(0.95 * #{$inter-section-spacing});
+    padding-bottom: calc(0.95 * #{$inter-section-spacing});
   }
   
   &__icon{
@@ -47,8 +48,8 @@
   }
   
   &__intro{
-    text-align: center;
-    @include medium-lr-padding;
+    // text-align: center;
+    // @include medium-lr-padding;
     padding-bottom: $intra-section-spacing;
     font-size: $fs-section-intro;
     line-height: 1.4;
@@ -57,8 +58,7 @@
   }
   
   &__button{
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3rem auto 0 auto;
   }
   
   &__blocks{
@@ -67,30 +67,39 @@
     grid-gap: calc(4*#{$intra-section-spacing});
     grid-auto-rows: min-content;
   }
-  
-  &--bold{
-    
-    // sections with a background colour look better with some extra padding.
-    padding-top: 40px;
-    
-    --col-title: #{$cn-neutral-lighter};
-    --col-font: #{$c-background};
-    --col-background: #{$c-secondary};
-    
-    .section__title{
-      font-weight: 600;
-    }
-    
-    .section__intro{
-      font-weight: 400;
-    }
-    
-    .section__blocks{
-      
-    }
-    
-  }
 
+}
+
+.section--bold{
+  
+  --col-title: #{$cn-neutral-lighter};
+  --col-font: #{$c-background};
+  --col-background: #{$c-secondary};
+  a:not(.button) {
+    color: col($c-primary, 5);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  a:not(.button):visited{
+    color: col($c-primary, 5);
+    font-weight: 700;
+  }
+  a:not(.button):hover{
+    color: col($c-primary, 4);
+  }
+  a:not(.button):active{
+    color: col($c-primary, 4);
+  }
+  
+  
+  .section__title{
+    font-weight: 800;
+  }
+  
+  .section__intro{
+    font-weight: 400;
+  }
+  
 }
 
 $primary-light: col($c-primary, 4);
@@ -100,42 +109,35 @@ $tertiary-light: col($c-tertiary, 2);
 $quaternary-light: col($c-quaternary, 3);
 
 .section--subtle-emphasis{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
+
   --col-background: #{$c-background-emphasis};
 }
 
 .section--primary-light{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
+
   background-color: $primary-light;
   --col-background: #{$primary-light};
 }
 
 .section--secondary-medium{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
+
   background-color: $secondary-medium;
   --col-background: #{$secondary-medium};
 }
 
 .section--secondary-light{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
+
   background-color: $secondary-light;
   --col-background: #{$secondary-light};
 }
 
 .section--tertiary-light{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
+
   background-color: $tertiary-light;
   --col-background: #{$tertiary-light};
 }
 
 .section--quaternary-light{
-  // sections with a background colour look better with some extra padding.
-  padding-top: 40px;
   background-color: $quaternary-light;
   --col-background: #{$quaternary-light};
 }

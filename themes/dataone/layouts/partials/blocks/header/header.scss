@@ -191,6 +191,10 @@
       text-align: center;
     }
   }
+  
+  .header__ctas{
+    justify-content: center;
+  }
 }
 
 // ========================================================
@@ -252,11 +256,11 @@
       height: 900px;
       margin-left: -234px;
       margin-top: 0;
-      padding-bottom: 100px;
+      padding-bottom: 0;
       @include desktop{
         margin-left: 0px;
         margin-bottom: 0px;
-        margin-top: -1030px;
+        margin-top: -980px;//-900px;
         height: 1800px;
       }
     }
@@ -267,10 +271,10 @@
 // === SVG IMAGE ===
 // 
 .header--svg-image{
+  padding-bottom: 0;
   @include desktop{
     padding-top: 0;
   }
-  
   
   .header__headline{
     font-size: 1.75rem;
@@ -426,6 +430,15 @@
 .header--network-image{
   @extend .header--text-only;
   background-image:url('/uploads/duotone-network.jpg');
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+
+  .header__title, .header__intro, .header__headline {
+    text-shadow: .01em .01em 1.5em rgba(255, 255, 255, 1);
+  }
+  .header__title{
+    font-weight: 500;
+  }
 }
 
 
