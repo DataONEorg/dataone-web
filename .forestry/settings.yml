@@ -4,6 +4,11 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: document
+  path: README_content-editors.md
+  label: "\U0001F914Help"
+  match: "**/*"
+  read_only: true
 - type: heading
   label: Pages
 - type: document
