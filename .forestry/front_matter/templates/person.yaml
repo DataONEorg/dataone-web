@@ -1,6 +1,7 @@
 ---
 label: People Information
 hide_body: true
+display_field: fullname
 fields:
 - type: file
   name: avatar
