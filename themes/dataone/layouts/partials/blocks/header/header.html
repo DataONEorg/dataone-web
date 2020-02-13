@@ -20,12 +20,21 @@
   {{ $extraClass = "network-image" }}
 {{ end }}
 
+{{ $mainTitle := $page.Params.title }}
+{{ if eq $page.Params.layout "webinar" }}
+  {{ $tstamp := $page.Params.webinar_datetime }}
+  {{ $t := time $tstamp }}
+  {{ $mainTitle = print "Webinar • <time datetime='" $tstamp "'>" (dateFormat "2 Jan 2006 • 15:04 MST" $t.UTC) "</time>" }}
+{{ end }}
+      
 <header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}">
   <div class="header__content">
     <div class="header__text">
       
       <div class="header__title-and-pill">
-        {{- with $page.Params.title -}}<span class="header__title">{{.}}</span>{{- end -}}
+        {{- with $mainTitle -}}<span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
+        
+        
         
         {{- with .Block.pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}

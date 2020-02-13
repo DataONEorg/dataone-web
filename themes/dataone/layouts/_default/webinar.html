@@ -1,0 +1,25 @@
+{{- define "main" -}}
+{{ $webinar := $.Page.Params }}
+{{ $t := time $webinar.webinar_datetime }}
+{{ $upcoming := $t.After now }}
+
+<!-- the webinar header block -->
+{{ partial "blocks/header/header.html" (dict "Block" (dict "title" $webinar.title "intro" $webinar.short_abstract "type" "text-only") "Page" $.Page) }}
+
+
+<!-- button in header to add to calendar -->
+
+<!-- all times zones, dropdown to allow switching -->
+
+<!-- js to get local timezone -->
+
+
+{{ $introBlock := dict "blocks" (slice (dict "template" "video" "ID" $webinar.vimeoID) (dict "template" "markdown" "content" $webinar.abstract) ) }}
+{{ partial "blocks/section/section.html" (dict "Block" $introBlock "Page" $.Page) }}
+
+{{ $peopleBlock := dict "template" "people" "people" $webinar.speakers "show_avatars" "true" "show_longbio" true }}
+{{ $speakersBlock := dict "title" "Speakers" "blocks" (slice $peopleBlock) }}
+{{ partial "blocks/section/section.html" (dict "Block" $speakersBlock "Page" $.Page) }}
+
+
+{{- end -}}

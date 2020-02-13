@@ -1,0 +1,42 @@
+---
+label: People
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: people
+- name: show_avatars
+  type: boolean
+  label: Show avatars
+  description: Choose whether or not to show a picture for each person
+  default: true
+- name: team_members
+  type: boolean
+  label: Show DataONE team members
+  description: Set to true to automatically select all the people whose organization is set to DataONE
+  default: false
+- type: field_group_list
+  name: people
+  label: People
+  showOnly:
+    field: team_members
+  fields:
+  - name: person
+    type: select
+    default: []
+    config:
+      required: false
+      options: []
+      source:
+        type: pages
+        section: ''
+        file: 
+        path: 
+    label: Person
+    description: Person to show in the block
+  description: The people to display in this block
+  config:
+    labelField: name
+  

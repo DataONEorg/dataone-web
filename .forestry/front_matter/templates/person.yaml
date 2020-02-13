@@ -1,0 +1,60 @@
+---
+label: People Information
+hide_body: true
+fields:
+- type: file
+  name: avatar
+  label: Avatar
+  description: An image to show with each person
+- type: text
+  name: fullname
+  label: Full Name
+  description: The full name of the person
+- type: text
+  name: firstname
+  label: First Name
+  description: The first name of the person
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: The person's role or title
+- name: organization
+  type: text
+  config:
+    required: false
+  label: Organization
+  description: The organization the person is associated with
+- name: shortbio
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Short Biography
+  description: A brief biography (1-3 sentences)
+- name: longbio
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Long Biography
+  description: A longer biography
+- type: text
+  name: email
+  label: Email address
+config:
+  labelField: fullname
+pages:
+- people/amber_budden.md
+- people/dave_vieglais.md
+- people/elaine_martin.md
+- people/matthew_jones.md
+- people/rong_tang.md
+- people/suzie_allard.md

@@ -99,8 +99,9 @@ page_sections:
   title: The people behind the data
   intro: ''
   blocks:
-  - template: team
+  - template: people
     show_avatars: true
+    team_members: true
   icon:
     template: ''
     name: ''

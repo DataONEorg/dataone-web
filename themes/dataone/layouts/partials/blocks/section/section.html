@@ -16,9 +16,9 @@
     </h2>
     {{- end -}}
     {{- with .Block.intro -}}
-    <p class="section__intro">
+    <div class="section__intro">
       {{- . | markdownify -}}
-    </p>
+    </div>
     {{- end -}}
     {{ if  partial "functions/hasValues" .Block.blocks }}
     <div class="section__blocks">
