@@ -55,12 +55,17 @@ sections:
   - _page_news
 - type: heading
   label: Data
+- type: directory
+  path: content/people
+  label: People
+  create: all
+  match: "**/*"
+  exclude: index.md
+  templates:
+  - person
 - type: document
   path: data/membernodes.yaml
   label: Member Nodes
-- type: document
-  path: data/teammembers.yaml
-  label: Team Members
 upload_dir: content/uploads
 public_path: "/uploads"
 front_matter_path: ''

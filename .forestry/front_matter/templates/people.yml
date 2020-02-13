@@ -15,7 +15,8 @@ fields:
 - name: team_members
   type: boolean
   label: Show DataONE team members
-  description: Set to true to automatically select all the people whose organization is set to DataONE
+  description: Set to true to automatically select all the people whose organization
+    is set to DataONE
   default: false
 - type: field_group_list
   name: people
@@ -39,4 +40,3 @@ fields:
   description: The people to display in this block
   config:
     labelField: name
-  

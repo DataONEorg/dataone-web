@@ -49,12 +49,3 @@ fields:
 - type: text
   name: email
   label: Email address
-config:
-  labelField: fullname
-pages:
-- people/amber_budden.md
-- people/dave_vieglais.md
-- people/elaine_martin.md
-- people/matthew_jones.md
-- people/rong_tang.md
-- people/suzie_allard.md
