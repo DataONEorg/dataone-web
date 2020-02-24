@@ -293,3 +293,12 @@ $mobile-lr-padding: 0.8rem;
   max-width: 100%;
   width: auto;
 }
+
+// general styles for text-input fields
+@mixin forms-text-input {
+  background-color: $c-form-fields;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: $c-foreground;
+}

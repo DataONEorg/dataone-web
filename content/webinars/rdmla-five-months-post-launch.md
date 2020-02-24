@@ -1,15 +1,15 @@
 ---
-layout: webinar
-date: 2020-02-10
+date: 2020-02-01
 title: RDMLA - Five Months Post Launch
-webinar_datetime: 2020-02-11T09:00:00.000-08:00
+webinar_datetime: 2020-02-11T12:00:00.000-08:00
+duration: 60
 tags: 
   - access
   - describe
   - discover
 vimeoID: 390929711
-slides: https://www.dataone.org/sites/default/files/sites/all/documents/rdmla_dataonewebinar_02112020.pdf
-zoomID: 
+meetingID: 408-224-154
+slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"
 short_abstract: Learn about the rapid growth and future plans of the Research Data Management Librarian Academy, a free online educational program exploring research data management best practices.
 abstract: |-
   RDMLA (Research Data Management Librarian Academy) was launched on October 7, 2019. Today, close to five months post the official launch, there are more than 2100 active students from 115 countries around the world. In this talk, we will describe the development process of RDMLA and discuss our future collaborations and partnerships.

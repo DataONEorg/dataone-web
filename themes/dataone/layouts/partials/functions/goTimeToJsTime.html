@@ -1,0 +1,48 @@
+<!--  convert a go time layout string to a javascript time format string -->
+{{ $convertedTime := "" }}
+{{ with . }}
+  {{ $convertedTime = . }}
+<!-- year -->
+  {{ $convertedTime = replace $convertedTime "2006" "YYYY" }}
+  {{ $convertedTime = replace $convertedTime "06" "YY" }}
+<!-- hour -->
+  {{ $convertedTime = replace $convertedTime "15" "HH" }}
+  {{ $convertedTime = replace $convertedTime "03" "hh" }}
+  {{ $convertedTime = replace $convertedTime "_3" "hh" }}
+  {{ $convertedTime = replace $convertedTime "3" "h" }}
+<!-- day of the week -->
+  {{ $convertedTime = replace $convertedTime "Monday" "dddd" }}
+  {{ $convertedTime = replace $convertedTime "Mon" "ddd" }}
+  {{ $convertedTime = replace $convertedTime "Mo" "dd" }}
+<!-- month -->
+  {{ $convertedTime = replace $convertedTime "January" "MMMM" }}
+  {{ $convertedTime = replace $convertedTime "Jan" "MMM" }}
+  {{ $convertedTime = replace $convertedTime "01" "MM" }}
+  {{ $convertedTime = replace $convertedTime "_1" "MM" }}
+  {{ $convertedTime = replace $convertedTime "1" "M" }}
+<!-- day -->
+  {{ $convertedTime = replace $convertedTime "02" "DD" }}
+  {{ $convertedTime = replace $convertedTime "_2" "DD" }}
+  {{ $convertedTime = replace $convertedTime "2" "D" }}
+
+<!-- minute -->
+  {{ $convertedTime = replace $convertedTime "04" "mm" }}
+  {{ $convertedTime = replace $convertedTime "4" "m" }}
+<!-- seconds -->
+  {{ $convertedTime = replace $convertedTime "05" "ss" }}
+  {{ $convertedTime = replace $convertedTime "5" "s" }}
+<!-- AM/PM -->
+  {{ $convertedTime = replace $convertedTime "PM" "A" }}
+  {{ $convertedTime = replace $convertedTime "pm" "a" }}
+<!-- timezone -->
+  {{ $convertedTime = replace $convertedTime "MST" "Z" }}
+<!-- UTC offset -->
+  {{ $convertedTime = replace $convertedTime "Z0700" "ZZ" }}
+  {{ $convertedTime = replace $convertedTime "Z07:00" "Z" }}
+  {{ $convertedTime = replace $convertedTime "Z07" "ZZ" }}
+  {{ $convertedTime = replace $convertedTime "-0700" "ZZ" }}
+  {{ $convertedTime = replace $convertedTime "-07:00" "Z" }}
+  {{ $convertedTime = replace $convertedTime "-07" "ZZ" }}
+  
+  {{ return $convertedTime }}
+{{ end }}

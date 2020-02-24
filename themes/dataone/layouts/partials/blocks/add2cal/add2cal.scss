@@ -1,0 +1,64 @@
+.add2cal {
+	width: 180px;
+	height: 40px;
+	margin: 20px auto;
+
+  &__label {
+  	width: 100%;
+  	height: 100%;
+  	display: block;
+  	background: red;
+  	color: white;
+  	line-height: 40px;
+  	text-align: center;
+  	cursor: pointer;
+  	position: relative;
+  	z-index: 1;
+  	user-select: none;
+  }
+
+  &__links {
+  	background: white;			
+  	transition: transform .5s, opacity .1s;
+  	border: 0 solid red;
+  	border-left-width: 1px;
+  	border-right-width: 1px;
+  	box-sizing: border-box;
+  	transform: translateY(-100%);
+  	width: 100%;
+  	opacity: 0;
+  }
+
+  &__link {	
+  	line-height: 40px;
+  	display: block;
+  	width: 100%;
+  	text-decoration: none;
+  	text-align: center;
+  	background: white;
+  	color: red;	
+  	pointer-events: none;
+  	border-bottom: 1px solid red;
+  	position: relative;	
+  	transition: background .5s, color .5s;
+  	
+  	&:hover {
+  		background: red;
+  		color: white;
+  	}
+  }
+
+  &__checkbox {
+  	display: none;
+  	
+  	&:checked + .add2cal__links {		
+  		transform: translateY(0);
+  		opacity: 1;
+  		transition: transform .5s, opacity .5s .2s;
+  		
+  			.add2cal__link {
+  				pointer-events: auto;
+  			}
+  	}
+  }
+}

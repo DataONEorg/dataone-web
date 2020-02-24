@@ -1,0 +1,94 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+<!-- BLOCK VARIABLES -->
+
+<!-- STRING: The event title -->
+{{ $title := .Block.title }}
+<!-- STRING: A description of the event -->
+{{ $description := .Block.description }}
+
+<!-- TIME.time: The start time of the event -->
+{{ $start := .Block.start }}
+
+<!-- TIME.time: The end time of the event -->
+{{ $end := .Block.end }}
+
+<!-- STRING: A URL to add to the calendar -->
+{{ $URL := .Block.URL }}
+
+<!-- duration for yahoo calendar -->
+{{ $duration := div (sub $end.Unix $start.Unix) 3600 }} <!-- in hours, rounded -->
+{{ $duration = math.Round $duration }}
+{{ $duration = printf "%02d00" (int $duration) }}
+<!-- dates in all other calendar formats -->
+{{ $start = dateFormat "20060102T150405Z" $start.UTC }}
+{{ $end = dateFormat "20060102T150405Z" $end.UTC }}
+<!-- add literal \n for newlines for ICS links -->
+{{ $descriptionICS := replaceRE "\\n" "\\n" $description }}
+
+<div class="add2cal">
+		<label for="add2cal__checkbox" class="add2cal__label">Add to calendar</label>
+		<input name="add2cal__checkbox" class="add2cal__checkbox" id="add2cal__checkbox" type="checkbox">
+		<ul class="add2cal__links">
+				<li>
+					<a
+							class="add2cal__link add2cal__link--google"
+							target="_blank"
+							href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text={{ $title }}&amp;dates={{ $start }}/{{ $end }}&amp;details={{ $description }}&amp;sprop=&amp;sprop=name:">
+								Google Calendar
+					</a>
+				</li>
+				<li>
+					<a
+						class="add2cal__link add2cal__link--yahoo"
+						target="_blank"
+						href="http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title={{ $title }}&amp;st={{ $start }}&amp;dur={{ $duration }}&amp;desc={{ $description }}&amp;">
+						Yahoo! Calendar
+					</a>
+				</li>
+<!-- WARNING: ICS files (iCal and Outlook) must use CRLF newlines or file may be invalid -  -->				
+        <li>
+					<a
+						class="add2cal__link add2cal__link--ical"
+						target="_blank"
+						href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DataONE//events//{{ $start }}
+TZ:+00
+BEGIN:VEVENT
+URL:{{ $URL }}
+DTSTAMP:{{dateFormat `20060102T150405Z` now.UTC}}
+DTSTART:{{ $start }}
+DTEND:{{ $end }}
+SUMMARY:{{ $title }}
+DESCRIPTION:{{ $descriptionICS }}
+UID:{{ $start }}@DataONE//events
+END:VEVENT
+END:VCALENDAR">i
+						Cal Calendar
+					</a>
+				</li>
+				<li>
+					<a
+						class="add2cal__link add2cal__link--outlook"
+						target="_blank"
+						href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DataONE//events//{{ $start }}
+TZ:+00
+BEGIN:VEVENT
+URL:{{ $URL }}
+DTSTAMP:{{dateFormat `20060102T150405Z` now.UTC}}
+DTSTART:{{ $start }}
+DTEND:{{ $end }}
+SUMMARY:{{ $title }}
+DESCRIPTION:{{ $descriptionICS }}
+UID:{{ $start }}@DataONE//events
+END:VEVENT
+END:VCALENDAR">
+					Outlook Calendar
+				</a>
+			</li>
+		</ul>
+</div>

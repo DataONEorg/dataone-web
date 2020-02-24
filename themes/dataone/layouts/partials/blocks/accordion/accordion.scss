@@ -1,0 +1,166 @@
+// https://github.com/scottaohara/a11y_accordions
+
+
+
+/**
+ * Accordion container element
+ */
+.accordion {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+
+.accordion > li {
+	margin: 0;
+}
+
+/**
+ * Add zero-width space. needed to ensure Safari + VO respect list semantics.
+ * Set the before content to position absolute to negate any visible space
+ * the before content could add to the document.
+ */
+.accordion > li:before {
+	content: "\200B";
+	position: absolute;
+}
+
+/**
+ * Accordion Heading
+ */
+.accordion__heading {
+	font-size: inherit;
+	margin: -1px 0 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url(#calendar);
+}
+
+.accordion__heading-content{
+	padding: 0 2em 0 0;
+}
+
+.accordion__trigger {
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	color: #4464c2;
+	cursor: pointer;
+	display: block;
+	font-size: inherit;
+	margin: 0;
+	padding: .5em 2em .5em 1em;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.accordion__trigger:after {
+  bottom: 0;
+  content: '';
+  margin: auto;
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  transition: transform .2s ease-in-out;
+  transform-origin: center center;
+	border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 10px;
+	height: 10px;
+  transform: rotate(45deg);
+}
+
+.accordion__trigger:hover:after,
+.accordion__trigger:focus:after,
+.accordion__trigger[aria-expanded="true"]:after {
+	// border-color: red;
+}
+
+.accordion__trigger[aria-expanded="true"]:after {
+	transform: rotate(225deg);
+}
+
+/**
+ * This is needed to allow a double tap iOS 11
+ * Safari + VO to function correctly, if there
+ * are multiple elements (wrapper spans) to layout
+ * text nodes within the accordion button.
+
+	-- This is not needed if a button only contains text
+	   and no other child nodes wrapping the text --
+ */
+
+.accordion__trigger > * {
+	pointer-events: none;
+}
+ 
+.accordion__trigger:hover,
+.accordion__trigger:focus {
+	background-color: none;
+	outline: none;
+}
+
+.accordion__trigger:focus {
+	// box-shadow: inset 0 0 0 1px #1e82d1;
+}
+
+.accordion__trigger[aria-disabled="true"]:hover {
+	// background-color: #1b75bc;
+	color: #fff;
+	cursor: not-allowed;
+}
+
+.accordion__trigger[aria-disabled="true"]:focus {
+	// background-color: #0a2a42;
+}
+
+.accordion__panel {
+	background-color: inherit;
+	max-height: 0vh;
+	overflow: hidden;
+	padding: 0.001em 1.5rem 0 0;
+	position: relative;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.accordion__panel--transition {
+	transition:
+		max-height .2s ease-in-out,
+		padding-top .2s ease-in-out,
+		padding-bottom .2s ease-in-out;
+}
+
+.accordion__panel > :last-child {
+	margin-bottom: 0;
+}
+
+.accordion__panel[aria-hidden="false"] {
+	max-height: 100vh;
+	overflow: auto;
+	padding: 0.001em 2.5rem 0 0;
+	visibility: visible;
+}
+
+.accordion__trigger[aria-expanded="true"] {
+	// background: #1b75bc;
+	background: transparent;
+	color: #fff;
+}
+
+
+.accordion--col-tertiary{
+	.accordion__trigger::after{
+    border-color: col($c-tertiary, 8);
+  }
+}

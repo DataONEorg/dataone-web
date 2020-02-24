@@ -1,0 +1,9 @@
+<!-- .date - a datetime stamp in hugo's `time.Time` structure  -->
+<!--.minutes - integer, number of minutes to add -->
+<!-- returns new datetime in `time.Time` structure and in UTC -->
+{{ $return := 0 }}
+{{ $dateUnix := .date.Unix }}
+{{ $seconds := mul .minutes 60 }}
+{{ $date_end := add $dateUnix $seconds }}
+{{ $return = (time $date_end).UTC }}
+{{ return $return }}

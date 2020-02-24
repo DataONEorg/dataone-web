@@ -1,0 +1,130 @@
+{{- define "main" -}}
+
+
+<!-- ==========================================
+      VARIABLES
+ ========================================== -->
+
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := $.Page }} 
+
+<!-- webinar parameters -->
+{{ $webinar := $.Page.Params }}
+
+<!-- the date and time of the webinar -->
+{{ $datetime := (time $webinar.webinar_datetime).UTC }}
+
+<!-- the duration of the webinar -->
+{{ $duration := $webinar.duration }}
+
+<!-- the date and time the webinar ends -->
+{{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
+
+<!-- whether the event is in the future at time of this page being generated -->
+{{ $upcoming := $datetime.After now }}
+
+<!-- All the speaker information -->
+{{ $speakers := slice }}
+
+<!-- Speaker full names in an array (for calendar) -->
+{{ $speakerNames := slice }}
+
+<!-- Speaker names and biographies as a single string (for calendar) -->
+{{ $speakerBiosString := "" }}
+
+<!-- Speaker full names in a comma delimited string -->
+{{ $speakerListString := ""}}
+
+<!-- fill in the speaker variables by ranging through the speaker resource pages  -->
+{{ range $webinar.speakers }}
+  {{ $speaker := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
+  {{ $speakers = $speakers | append $speaker.Params }}
+  {{ $speakerNames = $speakerNames | append $speaker.Params.fullname }}
+  <!-- prefer full bio for calendar description -->
+  {{ $bio := "" }}
+  {{ with $speaker.Params.shortbio }}{{$bio = . }}{{ end }}
+  {{ with $speaker.Params.longbio }}{{$bio = . }}{{ end }}
+  {{ with $bio }}
+    {{ $speakerBiosString = print "\n\n" $speakerBiosString $speaker.Params.fullname ": " "\n\n" . "\n\n" }}
+  {{ end }}
+{{ end }}
+{{ with $speakerNames }}
+  {{ $speakerListString = delimit . ", " " & " }}
+{{ end }}
+
+
+<!-- URL for this page (used in calendar) -->
+{{ $URL := $page.Permalink }}
+
+<!-- calendar event title -->
+{{ $calTitle := print "DataONE Webinar: " $webinar.title " - Speakers: " $speakerListString }}
+
+<!-- calendar description -->
+{{ $calDesc := print "To join the call, visit: " $URL "\n\n" $webinar.abstract $speakerBiosString }}
+
+<!-- A link to the slides -->
+{{ $slidesLink := ""}}
+{{ with $webinar.slides }}{{ $slidesLink = . }}{{ end }}
+
+<!-- Zoom meeting ID -->
+{{ $meetingID := ""}}
+{{ with $webinar.meetingID }}{{ $meetingID = . }}{{ end }}
+
+<!-- ==========================================
+      BLOCKS
+ ========================================== -->
+
+<div class="webinar">
+  <!--  HEADER
+  =============== -->
+  <div class="webinar__section-1">
+    <div class="webinar__section-1-inner">
+      {{ $intro := print $webinar.short_abstract " *Read more*" }}
+      {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration }}
+      {{ partial "blocks/header/header--webinar.html" (dict "Block" $headerBlock "Page" $.Page) }}
+    </div>
+  </div>
+  <div class="webinar__section-2">
+    <div class="webinar__section-2-inner">
+      
+      <div class="webinar__video">
+        
+        <!--  VIDEO ...
+        =============== -->
+        <!-- video icon here -->
+        {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
+        {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
+        {{ $videoBlock := dict "ID" $webinar.vimeoID }}
+        
+        <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span> Watch pre-recorded video</span>
+        {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
+
+        <!--  SLIDES
+        =============== -->
+        {{ if $slidesLink }}
+          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" }}
+          {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+        {{ end }}
+        
+      </div>
+
+      <!-- WIP: when status == "upcoming" // "happening-now" -->
+      {{ if false }}
+
+        <!--  ADD TO CALENDAR
+        =============== -->
+        {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
+        {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
+
+        <!--  ZOOM
+        =============== -->
+        {{ with $meetingID }}
+        <!-- AND IF no video / or status variable (upcoming, happening_now, finished) -->
+        {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{- end -}}

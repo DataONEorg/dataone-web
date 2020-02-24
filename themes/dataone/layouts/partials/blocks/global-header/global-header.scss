@@ -444,3 +444,32 @@
     }
   }
 }
+
+.global-header--webinar{
+  @include desktop{
+    background-color: mix(col($c-tertiary, 5), col($c-tertiary, 6), 50%);
+    .toplevel-nav__menu-link{
+      color: col($c-neutral, 2);
+    }
+    .toplevel-nav__menu-link:hover{
+      color: col($c-neutral, 1);
+    }
+    .toplevel-nav__button--logo .logo, .toplevel-nav__button-icon{
+      fill: col($c-neutral, 2);
+    }
+    .toplevel-nav__sub-menu-icon {
+      stroke: col($c-neutral, 2);
+    }
+    .d1search__input:focus~.d1search__label{
+      color: col($c-primary, 5);
+    }
+    .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before{
+      color: col($c-neutral, 3);
+    }
+    .toplevel-nav__button:focus .toplevel-nav__button-icon{
+      fill: col($c-neutral, 2);
+    }
+    
+  }
+  
+}

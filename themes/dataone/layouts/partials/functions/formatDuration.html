@@ -1,0 +1,48 @@
+{{ $d := . }}
+<!-- Time Constants -->
+<!-- https://golang.org/pkg/time/#Nanosecond
+    Nanosecond  Duration = 1
+    Microsecond          = 1000 * Nanosecond
+    Millisecond          = 1000 * Microsecond
+    Second               = 1000 * Millisecond
+    Minute               = 60 * Second
+    Hour                 = 60 * Minute -->
+{{ $time_nanosecond := 1 | time.Duration "nanosecond"  }}
+{{ $time_microsecond := mul 1000 $time_nanosecond | time.Duration "nanosecond" }}
+{{ $time_millisecond := mul 1000 $time_microsecond | time.Duration "nanosecond" }}
+{{ $time_second := mul 1000 $time_millisecond | time.Duration "nanosecond" }}
+{{ $time_minute := mul 60 $time_second | time.Duration "nanosecond" }}
+{{ $time_hour := mul 60 $time_minute | time.Duration "nanosecond" }}
+
+<!-- Exclude seconds -->
+{{ $d = $d.Round $time_minute }}
+
+<!-- Hours -->
+{{ $h := div $d $time_hour }}
+<!-- Minutes -->
+{{ $d = sub $d (mul $h $time_hour) }}
+{{ $m := div $d $time_minute }}
+
+<!-- Human Readable -->
+{{ $h_word := "hours" }}
+{{ if eq $h 1 }}
+  {{ $h_word = $h_word | singularize }}
+{{ end }}
+
+{{ $m_word := "minutes" }}
+{{ if eq $m 1 }}
+  {{ $m_word = $m_word | singularize }}
+{{ end }}
+
+{{ $dur_formatted := printf "%d %s %d %s" $h $h_word $m $m_word }}
+{{ if eq $h 0 }}
+  {{ $dur_formatted = printf "%d %s" $m $m_word }}
+{{ else if eq $m 0 }}
+  {{ $dur_formatted = printf "%d %s" $h $h_word }}
+{{ end }}
+
+<!-- Machine Readable -->
+{{ $dur_valid := printf "PT%dH%dM0S" $h $m }}
+
+{{ $return := (dict "machine" $dur_valid "human" $dur_formatted) }}
+{{ return $return }}

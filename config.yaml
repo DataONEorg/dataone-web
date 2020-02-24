@@ -17,6 +17,7 @@ publishDir: docs
 permalinks:
   posts: "/:filename/"
   pages: "/:filename/"
+DisqusShortname: "x"
 params:
   description: DataONE's products and services.
   footerText: 'DataONE is a collaboration among many partner organizations, and is
@@ -30,7 +31,20 @@ params:
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640
-  dateformat: "January 2, 2006"
+  dateFormat: "January 2, 2006"
+  dateFormat_short: "2 Jan 2006"
+  datetimeFormat: "January 2, 2006 15:04 MST"
+  datetimeFormat_short: "2 Jan 2006 15:04 MST"
+  zoom:
+    phone_numbers:
+      - city: "New York, USA"
+        number: "+1 646 558 8656"
+      - city: "San Jose, USA"
+        number: "+1 408 638 0968"
+    URL_local_number: "https://us04web.zoom.us/u/fcD9Evl80t"
+    
+        
+        
 menu:
   footer:
   - url: https://dataoneorg.github.io/Education/

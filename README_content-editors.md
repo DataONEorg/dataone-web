@@ -16,6 +16,12 @@ If you are not using forestry, and instead entering the date and time manually i
 
 ## FAQ & Troubleshooting
 
-### Q: The time that's displaying for a webinar is different from the time that I entered in Forestry!
+### Problem: The time that's displaying for a webinar is different from the time that I entered in Forestry!
 
-***A:*** Enter the time that the event occurs *in your current time zone*. See the section "Entering webinar time in forestry" section, above. If you're still getting the incorrect time and you're using a VPN, check whether entering the time in your VPN's location fixes it.
+**Solution:** Enter the time that the event occurs *in your current time zone*. See the section "Entering webinar time in forestry" section, above. If you're still getting the incorrect time and you're using a VPN, check whether entering the time in your VPN's location fixes it.
+
+### Problem: I created a new page and it's not showing up on the website
+
+**Solution:** 
+- Check that that page is not a draft
+- Check that the date of the page is not set to the future

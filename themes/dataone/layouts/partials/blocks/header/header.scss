@@ -373,6 +373,9 @@
 
 }
 
+// ========================================================
+// === SVG BACKGROUND ===
+// 
 .header--simple-svg-background{
   @extend .header--svg-background;
   @extend .header--text-only;
@@ -401,6 +404,9 @@
 }
 
 
+// ========================================================
+// === DARK BKG ===
+// 
 .header--dark-bkg{
   .header__headline{
     color: col($c-neutral, 1);
@@ -416,6 +422,9 @@
   }
 }
 
+// ========================================================
+// === HERO ===
+// 
 .header--hero{
   background-position: center;
   background-repeat: no-repeat;
@@ -427,6 +436,10 @@
   }
 }
 
+// ========================================================
+// === NETWORK ===
+// 
+// 
 .header--network-image{
   @extend .header--text-only;
   background-image:url('/uploads/duotone-network.jpg');
@@ -441,8 +454,58 @@
   }
 }
 
+// ========================================================
+// === WEBINAR ===
+// 
+.header--webinar{
+  
+  .header__content{
+    @include desktop{
+      display: flex;
+    }
+  }
+  .header__headline{
+    font-size: 2.2rem;
+    line-height: 1.15;
+    margin-top: 3rem;
+  }
+  .header__intro{
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+  .header__title{
+    margin-top: 0;
+  }
+  .header__abstract{
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .header__datetime-items{
+    margin: 1.5rem 0;
+    color: col($c-neutral, 2);
+    stroke: col($c-neutral, 3);
+    display: flex;
+    flex-direction: column;
+  }
+  .header__datetime-item{
+    margin-bottom: 0.6rem;
+    height: 20px;
+    max-height: 20px;
+  }
+  .header__datetime-icon{
+    margin-right: 6px;
+  }
+  
 
-// TODO
+  
+}
+
+
+// ========================================================
+// === ANIMATIONS - TODO ===
+// 
 
 .animated-line {
   animation: dash 200s linear alternate infinite;

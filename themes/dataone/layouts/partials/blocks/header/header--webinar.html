@@ -1,0 +1,84 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+{{ $headerClass := .Block.type }} 
+
+{{ $tstamp := $page.Params.webinar_datetime }}
+{{ $t := time $tstamp }}
+{{ $mainTitle := "Webinar" }}
+
+<!-- Icons -->
+{{ $dateIconBlock := dict "icon" "calendar" "size" "small" "color" "inherit" }}
+{{ $dateIcon := partial "blocks/line-icon/line-icon" (dict "Block" $dateIconBlock "Page" $page) }}
+
+{{ $timeIconBlock := dict "icon" "clock" "size" "small" "color" "inherit" }}
+{{ $timeIcon := partial "blocks/line-icon/line-icon" (dict "Block" $timeIconBlock "Page" $page) }}
+
+{{ $durationIconBlock := dict "icon" "watch" "size" "small" "color" "inherit" }}
+{{ $durationIcon := partial "blocks/line-icon/line-icon" (dict "Block" $durationIconBlock "Page" $page) }}
+
+<!-- Date/Time blocks -->
+{{ $dateBlock := dict "time" $t "change_timezone" false "format" "Mon 02 Jan 2006" }}
+{{ $date := partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page ) }}
+
+{{ $timeBlock := dict "time" $t "change_timezone" true "format" "03:04PM" }}
+{{ $time := partial "blocks/datetime/datetime" (dict "Block" $timeBlock "Page" $page) }}
+
+{{ $durationBlock := dict "duration" .Block.duration }}
+{{ $duration :=  partial "blocks/datetime/datetime" (dict "Block" $durationBlock "Page" $page) }}
+
+<header class="header header--dark-bkg header--webinar">
+  <!-- header--dark-bkg -->
+  <div class="header__content">
+
+    <div class="header__text">
+
+      <div class="header__title-and-pill">
+        {{- with $mainTitle -}}<span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
+
+        {{- with .Block.pill -}}
+          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
+        {{- end -}}
+      </div>
+      
+      <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
+      
+      <!-- date, time, duration -->
+      <div class="header__datetime-items">
+        <div class="header__datetime-item">
+          <span class="header__datetime-icon">{{ $dateIcon }}</span>
+          {{ $date }}
+        </div>
+        <div class="header__datetime-item">
+          <span class="header__datetime-icon">{{ $timeIcon }}</span>
+          {{ $time }}
+        </div>
+        <div class="header__datetime-item">
+          <span class="header__datetime-icon">{{ $durationIcon }}</span>
+          {{ $duration }}
+        </div>
+      </div>
+      
+      <!-- intro with expandable abstract -->
+      {{ $heading := .Block.intro | markdownify | safeHTML }}
+      {{ $content := printf `<div class="header__abstract">%s</div>` (.Block.abstract | markdownify)  | safeHTML }}
+      <div class="header__intro">
+        {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
+      </div>
+      <!-- expandable speakers -->
+      
+      
+      <div class="header__speakers">
+        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "tertiary"}}
+        {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
+      </div>
+      
+    </div>
+    
+    
+    
+  
+    
+  </div>
+
+</header>

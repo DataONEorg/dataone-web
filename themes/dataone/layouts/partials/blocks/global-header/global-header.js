@@ -33,26 +33,6 @@ var menuButton    = document.getElementById("primary-menu-toggle"),
 
 // =================== FUNCTIONS ==================== //
 
-/**
- * var toggleElement - Add or remove aria-expanded or aria-hidden on a button
- * and element (e.g. menu) respectivly.
- *  
- * @param  {HTMLElement} button  The button that toggles the element
- * @param  {HTMLElement} element The element to show/hide with aria attributes
- * @param {boolean} open - indicates whether the element should be closed (true)
- * or open (false)
- */ 
-var toggleElement = function(button, element, open){
-  try{
-    if(element !== null && button !== null){
-      button.setAttribute("aria-expanded", !open);
-      element.setAttribute("aria-hidden", open);
-    }
-  } catch(e) {
-    console.log("Error toggling the search");
-    console.log(e);
-  }
-};
 
 /**
  * var closeAllDropdowns - Closes all the submenus

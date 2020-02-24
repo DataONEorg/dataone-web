@@ -91,29 +91,36 @@
 }
 
 
-
 .people--long-bio {
 
-  grid-template-columns: 1fr;
+  // grid-template-columns: 1fr;
+  display: block;
   
   .person{
     display: grid;
-    grid-template-columns: 130px 1fr;
-    grid-template-rows: 1min-content 1min-content 1min-content;
-    grid-template-areas: "avatar info" "bio bio" "contact contact";
+    display: flex;
+    flex-direction: column;
     @include desktop{
       margin: 0 5rem 3rem;
       padding: 3rem;
     }
   }
+  
+  .person:not(:last-child){
+    margin-bottom: 1.5rem;
+  }
+  
+  .person__heading{
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: auto;
+  }
   .person__avatar {
     margin: auto 0.3rem;
-    grid-area: avatar;
     box-shadow: none;
   }
   
   .person__info {
-    grid-area: info;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,6 +151,99 @@
     font-size: 1rem;
   }
   
+}
 
+.people--simplified{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  
+  .person{
+    margin: 0 1.2rem 1.8rem 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .person__avatar{
+    width: 125px;
+    height: 125px;
+    margin: 0;
+    @include desktop{
+      width: 175px;
+      height: 175px;
+    }
+  }
+  
+  .person__info{
+    border-radius: 1rem;
+    height: 2rem;
+    background-color: col($c-tertiary, 5);
+    margin-top: 0.7rem;
+    width: fit-content;
+  }
+  
+  .person__fullname{
+    margin: 0;
+    line-height: 2rem;
+    padding: 0 0.9rem;
+    color: col($c-tertiary, 8);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
 
+.people--accordion{
+  @extend .people--long-bio;
+  .person{
+    margin: 0;
+    padding: 0.7rem 1rem;
+  }
+  .person__bio{
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .person__title{
+    font-size: 0.8rem;
+  }
+  
+  .person__organization{
+    font-size: 1rem;
+  }
+  
+}
+
+.people--col-tertiary{
+  
+  .person{
+    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
+  }
+  
+  .person__fullname{
+    color: col($c-neutral, 1);
+  }
+  
+  .person__title{
+    color: col($c-secondary, 3);
+  }
+  
+  .person__organization{
+    color:  col($c-secondary, 2);
+  }
+  
+  .person__bio{
+    color:  col($c-secondary, 1);
+  }
+
+}
+
+.people--accordion.people--col-tertiary{
+  .person:hover{
+    transition: background-color 0.2s linear;
+    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 59%);
+  }
 }

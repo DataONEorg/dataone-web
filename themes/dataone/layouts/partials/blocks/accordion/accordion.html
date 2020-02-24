@@ -1,0 +1,27 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+{{ $heading := "Heading" }}
+{{ with .Block.heading }}{{ $heading = . }}{{ end }}
+
+{{ $content := "content" }}
+{{ with .Block.content }}{{ $content = . }}{{ end }}
+
+{{ $classes := "" }}
+{{ with .Block.color }}
+  {{ $classes = print $classes "accordion--col-" . }}
+{{ end }}
+
+<div data-aria-accordion class="{{$classes}}">
+  <div class="accordion__heading-content">
+    {{ $heading }}
+  </div>
+  <div data-aria-accordion-heading>
+  </div>
+  <div data-aria-accordion-panel>
+    {{ $content }}
+  </div>
+  <!-- 
+    repeat for as many accordion panels needed
+  -->
+</div>

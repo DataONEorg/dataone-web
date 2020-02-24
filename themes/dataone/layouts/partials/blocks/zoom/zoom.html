@@ -1,0 +1,56 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+<!-- zoom meeting ID -->
+{{ $meetingID := "" }}
+{{ with .Block.meetingID }}{{ $meetingID = . }}{{ end }}
+<!-- remove dashes and spaces -->
+
+<!-- make sure there are only digits in the meeting ID -->
+{{ $meetingID_numeric := replaceRE "\\D" "" $meetingID  }}
+
+<!-- For consistency, add a space every three numbers for formatted version  -->
+{{ $meetingID_formatted := findRE "\\d{1,3}" $meetingID_numeric }}
+{{ $meetingID_formatted := delimit $meetingID_formatted " " }}
+
+{{ $meetingLink := print "https://us04web.zoom.us/j/" $meetingID_numeric }}
+
+<!-- Phone icon -->
+{{ $phoneIconBlock := dict "icon" "phone" "size" "small" }}
+{{ $phoneIcon := partial "blocks/line-icon/line-icon" (dict "Block" $phoneIconBlock "Page" $page) }}
+
+<!-- Number icon -->
+{{ $numberIconBlock := dict "icon" "hash" "size" "small" }}
+{{ $numberIcon := partial "blocks/line-icon/line-icon" (dict "Block" $numberIconBlock "Page" $page) }}
+
+
+<!-- Join now button -->
+{{ $buttonBlock := dict "type" "primary" "text" "Join now" "external_website" true "link" $meetingLink "class" "" }}
+{{ $button := partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+
+
+<div class="zoom">
+  <div class="zoom__button">{{ $button }}</div>
+  
+  <h4 class="zoom__phone-title">Or join by phone</h4>
+  <div class="zoom__phone-options">
+    
+    {{ range $page.Site.Params.zoom.phone_numbers }}
+      <div class="zoom__phone-option">
+        <span class="zoom__option-icon">{{ $phoneIcon }}</span>
+        <span class="zoom_phone-city">{{ .city }}: </span>
+        <a class="zoom_phone-option" href="tel:{{ .number}}">{{ .number }}</a>
+      </div>
+    {{ end }}
+    <div class="zoom__phone-option">
+      <span class="zoom__option-icon">{{ $phoneIcon }}</span>
+      <a class="zoom_phone-option" href="{{$page.Site.Params.zoom.URL_local_number}}">Find your local number</a>
+    </div>
+  </div>
+
+  <div class="zoom__meeting-ID">
+    <span class="zoom__option-icon">{{ $numberIcon }}</span>
+    <span class="zoom__meeting-ID-name">Meeting ID: </span>
+    <span class="zoom__meeting-ID-number">{{ $meetingID_formatted }}</span>
+  </div>
+</div>

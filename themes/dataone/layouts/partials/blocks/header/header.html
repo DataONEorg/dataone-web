@@ -2,6 +2,7 @@
 {{ $page := .Page }} 
 
 <!-- in order to pass on page parameters from within loops  -->
+{{ $mainTitle := $page.Params.title }}
 {{ $headerClass := .Block.type }} 
 {{ $extraClass := "none" }} 
 
@@ -20,13 +21,6 @@
   {{ $extraClass = "network-image" }}
 {{ end }}
 
-{{ $mainTitle := $page.Params.title }}
-{{ if eq $page.Params.layout "webinar" }}
-  {{ $tstamp := $page.Params.webinar_datetime }}
-  {{ $t := time $tstamp }}
-  {{ $mainTitle = print "Webinar • <time datetime='" $tstamp "'>" (dateFormat "2 Jan 2006 • 15:04 MST" $t.UTC) "</time>" }}
-{{ end }}
-      
 <header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}">
   <div class="header__content">
     <div class="header__text">
@@ -68,11 +62,7 @@
     {{ end }}
     
   </div>
-  {{ if eq .Block.type "hosted-repo-header"}}
-  <div class="header__svg-background">
-    {{- partial (print "svg/" .Block.type ".svg" ) -}}
-  </div>
-  {{ end }}
+
   {{ if or (eq $headerClass "svg-background") (eq $headerClass "simple-svg-background")}}
   <div class="header__svg-background">
     {{- partial (print "svg/" .Block.type ".svg" ) -}}

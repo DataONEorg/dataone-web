@@ -10,8 +10,11 @@
   {{ $type = "homepage" }}<!-- TODO -->
   {{ $extraClass = "wave" }} 
 {{ end }}
-{{ if or (eq .Params.header.type "brand-gradient-header") }}
+{{ if or (eq .Params.header.type "brand-gradient-header") (eq .Type "webinars") }}
   {{ $extraClass = "dark-bkg" }}
+{{ end }}
+{{ if eq .Type "webinars" }}
+  {{ $type = "webinar" }}<!-- TODO -->
 {{ end }}
 
 <header class="global-header{{ if ne $type `default` }} global-header--{{ $type }}{{end}}{{ if ne $extraClass `none` }} global-header--{{$extraClass}}{{ end }}" id="global-header">

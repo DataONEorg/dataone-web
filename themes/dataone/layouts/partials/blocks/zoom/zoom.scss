@@ -1,0 +1,32 @@
+.zoom{
+  @include f-common;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: .5fr .05fr 1fr;
+  grid-template-areas: "button button" "title title" "phone-options meeting-ID";
+  grid-gap: 1rem 1rem;
+  max-width: 500px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  &__button{
+    grid-area: button;
+    justify-self: center;
+    margin-bottom: 3rem;
+  }
+  &__phone-options{
+    grid-area: phone-options;
+  }
+  &__meeting-ID {
+    grid-area: meeting-ID;
+  }
+  
+  &__phone-title{
+    grid-area: title;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+  }
+}
