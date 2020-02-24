@@ -28,27 +28,33 @@
 {{ $descriptionICS := replaceRE "\\n" "\\n" $description }}
 
 <div class="add2cal">
-		<label for="add2cal__checkbox" class="add2cal__label">Add to calendar</label>
-		<input name="add2cal__checkbox" class="add2cal__checkbox" id="add2cal__checkbox" type="checkbox">
-		<ul class="add2cal__links">
-				<li>
+		<button
+			class="button button--primary add2cal__button"
+			id="calendar-toggle"
+			aria-label="Add the webinar to your calendar"
+			aria-expanded="false"
+			aria-controls="calendar-menu"
+			onclick="toggleCalendarMenu(this)">Add to calendar</button>
+		<div class="add2cal__menu-arrow"></div>
+		<ul class="add2cal__links" id="calendar-menu" aria-hidden="true">
+				<li class="add2cal__item">
 					<a
 							class="add2cal__link add2cal__link--google"
 							target="_blank"
 							href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text={{ $title }}&amp;dates={{ $start }}/{{ $end }}&amp;details={{ $description }}&amp;sprop=&amp;sprop=name:">
-								Google Calendar
+								Google
 					</a>
 				</li>
-				<li>
+				<li class="add2cal__item">
 					<a
 						class="add2cal__link add2cal__link--yahoo"
 						target="_blank"
 						href="http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title={{ $title }}&amp;st={{ $start }}&amp;dur={{ $duration }}&amp;desc={{ $description }}&amp;">
-						Yahoo! Calendar
+						Yahoo!
 					</a>
 				</li>
 <!-- WARNING: ICS files (iCal and Outlook) must use CRLF newlines or file may be invalid -  -->				
-        <li>
+        <li class="add2cal__item">
 					<a
 						class="add2cal__link add2cal__link--ical"
 						target="_blank"
@@ -65,11 +71,10 @@ SUMMARY:{{ $title }}
 DESCRIPTION:{{ $descriptionICS }}
 UID:{{ $start }}@DataONE//events
 END:VEVENT
-END:VCALENDAR">i
-						Cal Calendar
+END:VCALENDAR">iCal
 					</a>
 				</li>
-				<li>
+				<li class="add2cal__item">
 					<a
 						class="add2cal__link add2cal__link--outlook"
 						target="_blank"
@@ -87,7 +92,7 @@ DESCRIPTION:{{ $descriptionICS }}
 UID:{{ $start }}@DataONE//events
 END:VEVENT
 END:VCALENDAR">
-					Outlook Calendar
+					Outlook
 				</a>
 			</li>
 		</ul>

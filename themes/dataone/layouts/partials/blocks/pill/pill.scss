@@ -1,13 +1,13 @@
 .pill {
   @include f-common;
   font-size: $fs-pill;
-  line-height: 1em;
+  line-height: 1.1em;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .03em;
   display: inline-block;
   padding: 0.7em 1.1em;
-  border-radius: 6em;
+  border-radius: 7em;
   background: $c-foreground;
   color: $c-background;
   transform: translateY(-0.18em);
@@ -22,11 +22,25 @@
   }
   
   &--primary{
-    background: $c-primary;
+    background: col($c-primary, 5);
+    color: col($c-primary, 8);
   }
   
   &--tertiary{
-    background: $c-tertiary;
+    background: col($c-tertiary,5);
+  }
+  
+  &--quaternary{
+    background: col($c-quaternary,4);
+    color: col($c-quaternary,8);
+  }
+  
+  &--subtle{
+    background: none;
+    color: col($c-tertiary, 5);
+    padding: 0.2em;
+    line-height: 1em;
+    vertical-align: bottom;
   }
   
   &--info{

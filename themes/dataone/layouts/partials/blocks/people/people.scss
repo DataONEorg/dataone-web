@@ -220,7 +220,8 @@
 .people--col-tertiary{
   
   .person{
-    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
+    background-color: mix(col($c-tertiary, 8), col($c-tertiary, 7), 85%);
+    box-shadow: inset 2px 1px 16px 0 rgba(20,30,40,.2);
   }
   
   .person__fullname{
@@ -228,11 +229,11 @@
   }
   
   .person__title{
-    color: col($c-secondary, 3);
+    color: col($c-tertiary, 2);
   }
   
   .person__organization{
-    color:  col($c-secondary, 2);
+    color:  col($c-tertiary, 2);
   }
   
   .person__bio{
@@ -244,6 +245,8 @@
 .people--accordion.people--col-tertiary{
   .person:hover{
     transition: background-color 0.2s linear;
-    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 59%);
+    background-color: mix(col($c-tertiary, 8), col($c-tertiary, 7), 95%);
+    box-shadow: inset 3px 2px 17px 0 rgba(20,30,40,.3);
   }
+
 }

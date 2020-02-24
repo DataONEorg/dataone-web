@@ -11,6 +11,7 @@
   background-color: col($c-secondary, 2);
   box-shadow: 22px 1px 11px rgba(0,20,30,0.15);
   @include desktop{
+    border-radius: 0;
     padding: 0;
     position: relative;
     top: 0;
@@ -414,6 +415,9 @@
   
 }
 
+// ========================================================
+// === WAVE ===
+// 
 // to work with .header--wave
 .global-header--wave {
   @include desktop{
@@ -425,6 +429,9 @@
   }
 }
 
+// ========================================================
+// === DARK BKG ===
+// 
 .global-header--dark-bkg{
   @include desktop{
     .toplevel-nav__menu-link{
@@ -444,10 +451,13 @@
     }
   }
 }
-
+// ========================================================
+// === WEBINAR ===
+// 
 .global-header--webinar{
   @include desktop{
-    background-color: mix(col($c-tertiary, 5), col($c-tertiary, 6), 50%);
+    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
+    box-shadow: -1px 1px 24px 1px rgba(28,29,30,.3);
     .toplevel-nav__menu-link{
       color: col($c-neutral, 2);
     }

@@ -60,13 +60,12 @@
       </div>
       
       <!-- intro with expandable abstract -->
-      {{ $heading := .Block.intro | markdownify | safeHTML }}
-      {{ $content := printf `<div class="header__abstract">%s</div>` (.Block.abstract | markdownify)  | safeHTML }}
+      {{ $heading := .Block.intro }}
+      {{ $content := printf `<div class="header__abstract">%s</div>` .Block.abstract | safeHTML }}
       <div class="header__intro">
         {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
       </div>
       <!-- expandable speakers -->
-      
       
       <div class="header__speakers">
         {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "tertiary"}}

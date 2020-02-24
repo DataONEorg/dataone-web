@@ -56,76 +56,88 @@ html {
 // === WEBINARS === //
 // styles placed here temporarily
 
-$left-proportion: 0.4;
+$left-proportion: 0.5;
 $left-width: $content-width * $left-proportion;
 $right-width: $content-width * (1 - $left-proportion);
 $diff: abs($right-width - $left-width)/2;
-$padding: 30px;
+$padding: 40px;
 
-// section 1 is left on desktop, top on mobile.
-// section 2 is right on desktop, buttom on mobile.
+// section 1 is left on larger screens, top on smaller screens.
+// section 2 is right on larger screens, bottom on smaller screens.
 
-.webinar{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-}
-
-.webinar__section-1, .webinar__section-2{
-  width: 100%;
-  height: 100%;
-  padding-bottom: 10rem;
-}
-
-.webinar__section-1 {
-  background-color: col($c-tertiary, 6);
-  margin-left: -$diff;
+.webinar__section-2-inner{
+  @include medium-lr-padding;
 }
 
 .webinar__section-2{
-  margin-left: -$diff;
-  padding-top: 10rem;
-  display: grid;
-  grid-template-rows: min-content min-content;
-  grid-gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 15rem;
 }
 
-.webinar__section-1-inner, .webinar__section-2-inner{
-  width: 100%; 
-  height: 100%;
+.webinar{
+  background-image: linear-gradient(to top, col($c-neutral, 2), col($c-neutral, 1) 100%);
 }
 
-.webinar__section-2-inner{
-  float: left;
-  max-width: $right-width - $padding;
-  margin-left: $padding;
-}
-
-.webinar__section-1-inner{
-  float: right;
-  max-width: $left-width - $padding; 
-  margin-right: $padding;
+.webinar__section-1 {
+  background-color: col($c-tertiary, 7);
+  background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
 }
 
 .webinar__video{
-  
   display: grid;
   grid-auto-rows: auto;
   grid-gap: 2rem;
-    
 }
 
 .webinar__video-icon{
-  stroke: col($c-neutral, 4);
+  stroke: col($c-neutral, 5);
   margin-right: 7px;
 }
 
 .webinar__video-title{
   @include f-common;
-  color: col($c-neutral, 5);
+  color: col($c-neutral, 6);
 }
+
 .webinar__video .button{
+  margin-top: 2rem;
   justify-self: end;
+}
+
+@media only screen and (min-width: 1000px){
+  .webinar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .webinar__section-1, .webinar__section-2{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20rem;
+  }
+  .webinar__section-1 {
+    margin-left: -$diff;
+  }
+  .webinar__section-2{
+    margin-left: -$diff;
+    padding-top: 12rem;
+  }
+  .webinar__section-1-inner, .webinar__section-2-inner{
+    width: 100%; 
+    height: 100%;
+    padding: 0;
+  }
+  .webinar__section-2-inner{
+    float: left;
+    max-width: $right-width - $padding;
+    margin-left: $padding;
+  }
+
+  .webinar__section-1-inner{
+    float: right;
+    max-width: $left-width - $padding; 
+    margin-right: $padding;
+  }
 }
 
 // ==== BODY ====

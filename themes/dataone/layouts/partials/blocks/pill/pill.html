@@ -1,25 +1,20 @@
 <!-- in order to pass on page parameters from within loops  -->
 {{ $page := .Page }} 
-
-{{ if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") }}
+{{ $icon := "none" }}
+{{ if eq .Block.type "success" }}
+  {{ $icon = "check" }}
+{{ else if eq .Block.type "info" }}
+  {{ $icon = "info" }}
+{{ else if eq .Block.type "warning" }}
+  {{ $icon = "alert-triangle" }}
+{{ end }}
+{{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
 <span class="pill{{ if .Block.type }} pill--{{ .Block.type }}{{ end }}">
-  
-  {{ $icon := "none" }}
-  {{ if eq .Block.type "success" }}
-    {{ $icon = "check" }}
-  {{ else if eq .Block.type "info" }}
-    {{ $icon = "info" }}
-  {{ else if eq .Block.type "warning" }}
-    {{ $icon = "alert-triangle" }}
-  {{ end }}
-  {{ if ne $icon "none" }}
+  {{- if ne $icon "none" -}}
   <span class="pill__icon">
     {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
   </span>
-  {{ end }}
-  
-  {{ .Block.text }}
-  
-  
+  {{- end -}}
+  {{- .Block.text -}}
 </span>
-{{ end }}
+{{- end -}}

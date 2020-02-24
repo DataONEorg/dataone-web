@@ -1,10 +1,11 @@
 .datetime{
   @include f-common;
   &__displaydate{
-    font-weight: 500;
+    font-weight: 400;
   }
   &__timezone{
     font-size: 0.9rem;
+    font-weight: 300;
   }
 }
 
@@ -14,13 +15,15 @@
   opacity: 0;
   visibility: hidden;
   width: 0;
+  min-width: 0;
   max-width: 0;
-  transition: max-width 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
+  transition: max-width 0.1s 0s ease-in-out, opacity 0.02s 0.1s ease-in-out;
 }
 .datetime__tz-input[aria-hidden="false"],
 .datetime__tz-input[aria-hidden="false"] input,
 .datetime__button[aria-expanded="false"] {
   max-width: 500px;
+  min-width: 135px;
   width: auto;
   opacity: 1;
   visibility: visible;

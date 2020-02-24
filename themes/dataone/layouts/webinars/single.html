@@ -70,6 +70,41 @@
 {{ $meetingID := ""}}
 {{ with $webinar.meetingID }}{{ $meetingID = . }}{{ end }}
 
+<!-- Video ID -->
+{{ $video := "" }}
+{{ with $webinar.vimeoID }}{{ $video = . }}{{ end }}
+
+<!-- status defines whether this webinar is upcoming, happening now, or past -->
+<!-- TODO : add datetime vs now checks -->
+{{ $status := $webinar.status }}
+<!-- guess the status if not set -->
+{{ if or (not $status) (eq $status "auto") }}
+  {{ if $video }}
+    {{ $status = "past" }}
+  {{ else if $meetingID }}
+    {{ $status = "happening now"}}
+  {{ else }}
+    {{ $status = "upcoming" }}
+  {{ end }}
+{{ end }}
+
+<!-- FOR TESTING -->
+{{ $status = "upcoming"}}
+
+<!-- Set the pill text based on status -->
+{{ $pillText := "" }}
+{{ if eq $status "upcoming" }}
+  {{ $pillText = "Upcoming" }}
+{{ end }}
+{{ if eq $status "happening now" }}
+  {{ $pillText = "Join now!" }}
+{{ end }}
+{{ if eq $status "past" }}
+  {{ $pillText = "Watch on demand" }}
+{{ end }}
+
+
+
 <!-- ==========================================
       BLOCKS
  ========================================== -->
@@ -78,15 +113,20 @@
   <!--  HEADER
   =============== -->
   <div class="webinar__section-1">
+    
     <div class="webinar__section-1-inner">
-      {{ $intro := print $webinar.short_abstract " *Read more*" }}
-      {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration }}
+      
+      {{ $pillBlock := dict "text" $pillText "type" "quaternary" }}
+      {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
+      {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
+      {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
       {{ partial "blocks/header/header--webinar.html" (dict "Block" $headerBlock "Page" $.Page) }}
     </div>
   </div>
   <div class="webinar__section-2">
     <div class="webinar__section-2-inner">
       
+      {{ if eq $status "past" }}
       <div class="webinar__video">
         
         <!--  VIDEO ...
@@ -94,34 +134,43 @@
         <!-- video icon here -->
         {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
         {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
-        {{ $videoBlock := dict "ID" $webinar.vimeoID }}
+        {{ $videoBlock := dict "ID" $video }}
         
-        <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span> Watch pre-recorded video</span>
+        <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span> Watch previously recorded video</span>
         {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
 
         <!--  SLIDES
         =============== -->
         {{ if $slidesLink }}
-          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" }}
+          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
           {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
         {{ end }}
         
+        <!-- TODO, disqus here -->
+        
       </div>
-
-      <!-- WIP: when status == "upcoming" // "happening-now" -->
-      {{ if false }}
+      <!-- show add to calendar button when status is upcoming -->
+      {{ else if eq $status "upcoming" }}
 
         <!--  ADD TO CALENDAR
         =============== -->
         {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
         {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
 
-        <!--  ZOOM
-        =============== -->
+      
+      {{ else if eq $status "happening now" }}
         {{ with $meetingID }}
-        <!-- AND IF no video / or status variable (upcoming, happening_now, finished) -->
+        
         {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
         {{ end }}
+        
+        <!--  SLIDES
+        =============== -->
+        {{ if $slidesLink }}
+          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
+          {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+        {{ end }}
+        
       {{ end }}
     </div>
   </div>

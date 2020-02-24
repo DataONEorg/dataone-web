@@ -38,7 +38,6 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: url(#calendar);
 }
 
 .accordion__heading-content{
@@ -161,6 +160,12 @@
 
 .accordion--col-tertiary{
 	.accordion__trigger::after{
-    border-color: col($c-tertiary, 8);
+    border-color: col($c-tertiary, 4);
+  }
+}
+
+.accordion--col-tertiary:hover{
+	.accordion__trigger::after{
+    border-color: col($c-tertiary, 2);
   }
 }
