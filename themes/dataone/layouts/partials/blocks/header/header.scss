@@ -197,6 +197,8 @@
   }
 }
 
+
+
 // ========================================================
 // === SVG-BACKGROUND ===
 // 
@@ -519,11 +521,18 @@
     margin-right: 6px;
   }
   
-
   
 }
 
-
+// ========================================================
+// === HEADER COLOURS FOR TEXT-ONLY ===
+// 
+.header--col-tertiary{
+  background-color: col($c-tertiary, 5);
+  .header__title{
+    color: col($c-tertiary, 2);
+  }
+}
 // ========================================================
 // === ANIMATIONS - TODO ===
 // 

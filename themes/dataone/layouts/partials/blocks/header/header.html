@@ -3,9 +3,13 @@
 
 <!-- in order to pass on page parameters from within loops  -->
 {{ $mainTitle := $page.Params.title }}
-{{ $headerClass := .Block.type }} 
-{{ $extraClass := "none" }} 
 
+<!-- Classes -->
+{{ $headerClass := .Block.type }} 
+{{ $extraClass := "none" }}
+{{ $colorClass := "" }}
+
+<!-- TODO - combine in to a single "classess" variable -->
 {{ if eq .Block.type "hosted-repo-header" }}
   {{ $headerClass = "svg-background" }}
 {{ end }}
@@ -20,8 +24,13 @@
   {{ $headerClass = "hero" }}
   {{ $extraClass = "network-image" }}
 {{ end }}
+{{ with .Block.color }}
+  {{ $colorClass = print " header--col-" . }}
+  {{ $extraClass = "dark-bkg" }}
+{{ end }}
 
-<header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}">
+
+<header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}{{ $colorClass }}">
   <div class="header__content">
     <div class="header__text">
       

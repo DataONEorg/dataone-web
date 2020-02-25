@@ -1,0 +1,29 @@
+{{ $page := . }}
+{{ $webinar := .Params }}
+{{ $status := partial "functions/getWebinarStatus" $webinar }}
+{{ $pillBlock := partial "functions/getWebinarPill" $status }}
+{{ $datetime := (time $webinar.webinar_datetime).UTC }}
+
+
+<!-- add status as a modifier class -->
+{{ $classes := "" }}
+{{ with $status }}
+  {{ $classes = print $classes " webinar--st-" $status }}
+{{ end }}
+
+<article class="webinar-summary{{$classes}}">
+  {{ partial "blocks/datetime/datetime" (dict "Block" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "Page" $page)}}
+  <span class="webinar-summary__date"></span>
+  {{ partial "blocks/pill/pill" (dict "Block" $pillBlock "Page" $page) }}
+  <div class="webinar-summary__speakers">
+    {{ $peopleBlock := dict "people" $webinar.speakers "show_avatars" "true" "show_longbio" false "type" "simple" }}
+    {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $page) }}
+  </div>
+  <h2 class="webinar-summary__title">
+    <a class="webinar-summary__title-link" href="{{ .RelPermalink | relURL }}">{{ .Title }}</a>
+  </h2>
+  <p class="webinar-summary__intro">
+    {{ $webinar.short_abstract }}
+  </p>
+  
+</article>

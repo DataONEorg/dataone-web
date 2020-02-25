@@ -20,9 +20,6 @@
 <!-- the date and time the webinar ends -->
 {{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
 
-<!-- whether the event is in the future at time of this page being generated -->
-{{ $upcoming := $datetime.After now }}
-
 <!-- All the speaker information -->
 {{ $speakers := slice }}
 
@@ -75,38 +72,15 @@
 {{ with $webinar.vimeoID }}{{ $video = . }}{{ end }}
 
 <!-- status defines whether this webinar is upcoming, happening now, or past -->
-<!-- TODO : add datetime vs now checks -->
-{{ $status := $webinar.status }}
-<!-- guess the status if not set -->
-{{ if or (not $status) (eq $status "auto") }}
-  {{ if $video }}
-    {{ $status = "past" }}
-  {{ else if $meetingID }}
-    {{ $status = "happening-now"}}
-  {{ else }}
-    {{ $status = "upcoming" }}
-  {{ end }}
-{{ end }}
-
-
+{{ $status := partial "functions/getWebinarStatus" $webinar }}
 <!-- Set the pill text based on status -->
-{{ $pillText := "" }}
-{{ $pillType := "quaternary" }}
-{{ if eq $status "upcoming" }}
-  {{ $pillText = "Upcoming" }}
-{{ end }}
-{{ if eq $status "happening-now" }}
-  {{ $pillText = "Happening now!" }}
-  {{ $pillType = "on-air" }}
-{{ end }}
-{{ if eq $status "past" }}
-  {{ $pillText = "Watch on demand" }}
-{{ end }}
+{{ $pillBlock := partial "functions/getWebinarPill" $status }}
+
 
 <!-- add status as a modifier class -->
 {{ $classes := "" }}
 {{ with $status }}
-{{ $classes = print $classes " webinar--st-" $status }}
+  {{ $classes = print $classes " webinar--st-" $status }}
 {{ end }}
 
 
@@ -122,7 +96,6 @@
     
     <div class="webinar__section-1-inner">
       
-      {{ $pillBlock := dict "text" $pillText "type" $pillType }}
       {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
       {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
       {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
@@ -185,8 +158,7 @@
         
         {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
         {{ end }}
-        
-        <br><br><br>
+
         <!--  SLIDES
         =============== -->
         {{ if $slidesLink }}

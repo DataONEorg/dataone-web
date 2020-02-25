@@ -6,7 +6,8 @@ title: Webinars
 header:
   template: header
   type: text-only
-  title: Webinars
+  color: tertiary
+  title: Learn from experts
   intro: Cutting edge earth and environmental science topics
 menu:
   toplevel:

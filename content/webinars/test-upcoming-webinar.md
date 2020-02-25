@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
-title: An upcoming webinar
-webinar_datetime: 2020-02-11T12:00:00.000-08:00
+title: An upcoming webinar with 5 speakers
+webinar_datetime: 2020-03-02T12:00:00.000-08:00
 duration: 60
 status: auto
 tags: 
@@ -17,6 +17,9 @@ abstract: |-
   
   The RDMLA is a free online educational program exploring research data management best practices. Developed by a team of librarians and LIS faculty members who want to share their extensive knowledge/skills and promote research data services, the RDMLA consists of eight units that can be taken individually, or as a complete program. All units are available globally and can be accessed online via the Canvas learning management system. RDMLA is open to librarians, information professionals, and other professionals who work in a research-intensive environment throughout the world. On Feb 5, 2020, in partnership with Simmons School of Library and Information Science (SLIS), RDMLA launched a Continuing Education (CE) optional component, for a nominal fee.
 speakers:
+  - "/people/suzie_allard.md"
+  - "/people/amber_budden.md"
+  - "/people/matthew_jones.md"
+  - "/people/dave_vieglais.md"
   - "/people/elaine_martin.md"
-  - "/people/rong_tang.md"
 ---

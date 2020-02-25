@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: A test webinar happening now
-webinar_datetime: 2020-02-11T12:00:00.000-08:00
+webinar_datetime: 2020-02-25T10:00:00.000-08:00
 duration: 60
 status: auto
 tags: 

@@ -2,7 +2,7 @@
 {{ $page := .Page }} 
 
 <div class="two-columns">
-  {{- range first 2 .Block.columns -}}
+  {{- range .Block.columns -}}
     <div class="two-columns__column">
       {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     </div>

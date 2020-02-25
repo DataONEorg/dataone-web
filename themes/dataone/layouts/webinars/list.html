@@ -12,11 +12,11 @@
     {{ end }}
   {{- end -}}
   
-  <div style="margin-bottom:500px">
+  <section class="webinars" style="margin-bottom:500px">
     {{- range .Paginator.Pages -}}
-      <a href="{{ .RelPermalink | relURL }}">{{ .Params.title }}</a>
-      
+      {{ .Render "summary" }}
     {{- end -}}
-  </div>
+    {{- partial "blocks/paginator/paginator" . -}}
+  </section>
 
 {{- end -}}

@@ -1,0 +1,17 @@
+<!-- status defines whether this webinar is upcoming, happening now, or past -->
+<!-- TODO : add datetime vs now checks, eg `if datetime.After now` -->
+
+{{ $webinar := . }}
+<!-- allow users to select own status or "auto" -->
+{{ $status := $webinar.status }}
+<!-- guess the status if not set -->
+{{ if or (not $status) (eq $status "auto") }}
+  {{ if $webinar.vimeoid }}
+    {{ $status = "past" }}
+  {{ else if $webinar.meetingid }}
+    {{ $status = "happening-now"}}
+  {{ else }}
+    {{ $status = "upcoming" }}
+  {{ end }}
+{{ end }}
+{{ return $status }}

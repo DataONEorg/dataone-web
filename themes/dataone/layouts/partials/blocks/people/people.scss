@@ -153,47 +153,49 @@
   
 }
 
-.people--simplified{
+.people--simple{
   margin: 0;
   padding: 0;
   display: flex;
   flex-flow: row wrap;
   
   .person{
-    margin: 0 1.2rem 1.8rem 0;
+    margin: 0 0.5rem 1.2rem 0;
     padding: 0;
     background: transparent;
     box-shadow: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 83px;
   }
   
   .person__avatar{
-    width: 125px;
-    height: 125px;
+    box-shadow: none;
+    width: 83px;
+    height: 83px;
     margin: 0;
     @include desktop{
-      width: 175px;
-      height: 175px;
+      width: 83px;
+      height: 83px;
     }
   }
   
   .person__info{
     border-radius: 1rem;
     height: 2rem;
-    background-color: col($c-tertiary, 5);
-    margin-top: 0.7rem;
+    // background-color: col($c-tertiary, 1);
+    margin-top: 0.4rem;
     width: fit-content;
   }
   
   .person__fullname{
     margin: 0;
-    line-height: 2rem;
-    padding: 0 0.9rem;
-    color: col($c-tertiary, 8);
+    line-height: 1.1;
+    padding: 0;// 0 0.8rem;
+    color: col($c-secondary, 6);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 }
 
