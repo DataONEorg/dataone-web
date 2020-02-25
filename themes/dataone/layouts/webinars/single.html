@@ -82,25 +82,31 @@
   {{ if $video }}
     {{ $status = "past" }}
   {{ else if $meetingID }}
-    {{ $status = "happening now"}}
+    {{ $status = "happening-now"}}
   {{ else }}
     {{ $status = "upcoming" }}
   {{ end }}
 {{ end }}
 
-<!-- FOR TESTING -->
-{{ $status = "upcoming"}}
 
 <!-- Set the pill text based on status -->
 {{ $pillText := "" }}
+{{ $pillType := "quaternary" }}
 {{ if eq $status "upcoming" }}
   {{ $pillText = "Upcoming" }}
 {{ end }}
-{{ if eq $status "happening now" }}
-  {{ $pillText = "Join now!" }}
+{{ if eq $status "happening-now" }}
+  {{ $pillText = "Happening now!" }}
+  {{ $pillType = "on-air" }}
 {{ end }}
 {{ if eq $status "past" }}
   {{ $pillText = "Watch on demand" }}
+{{ end }}
+
+<!-- add status as a modifier class -->
+{{ $classes := "" }}
+{{ with $status }}
+{{ $classes = print $classes " webinar--st-" $status }}
 {{ end }}
 
 
@@ -109,14 +115,14 @@
       BLOCKS
  ========================================== -->
 
-<div class="webinar">
+<div class="webinar{{ $classes }}">
   <!--  HEADER
   =============== -->
   <div class="webinar__section-1">
     
     <div class="webinar__section-1-inner">
       
-      {{ $pillBlock := dict "text" $pillText "type" "quaternary" }}
+      {{ $pillBlock := dict "text" $pillText "type" $pillType }}
       {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
       {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
       {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
@@ -141,10 +147,12 @@
 
         <!--  SLIDES
         =============== -->
+        <div class="webinar__slides">
         {{ if $slidesLink }}
           {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
           {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
         {{ end }}
+        </div>
         
         <!-- TODO, disqus here -->
         
@@ -154,22 +162,40 @@
 
         <!--  ADD TO CALENDAR
         =============== -->
+        
+        <!-- TODO:  -->
+        <!-- Webinar starts in two days. -->
+        <!-- use datetime block with type = "countdown" -->
+        
+        <figure class="webinar__figure" title="Add to calendar">
+          {{ partial "svg/add2cal.svg" }}
+        </figure>
+        
         {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
         {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
 
       
-      {{ else if eq $status "happening now" }}
+      {{ else if eq $status "happening-now" }}
         {{ with $meetingID }}
+        
+        
+        <figure class="webinar__figure" title="Add to calendar">
+          {{ partial "svg/join-webinar.svg" }}
+        </figure>
         
         {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
         {{ end }}
         
+        <br><br><br>
         <!--  SLIDES
         =============== -->
         {{ if $slidesLink }}
+        <div class="webinar__slides">
           {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
           {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
         {{ end }}
+        </div>
+        
         
       {{ end }}
     </div>

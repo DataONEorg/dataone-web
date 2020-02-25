@@ -62,6 +62,14 @@ $right-width: $content-width * (1 - $left-proportion);
 $diff: abs($right-width - $left-width)/2;
 $padding: 40px;
 
+// layout breaks sooner for webinar layout
+@mixin desktop-webinar {
+  @media only screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+
 // section 1 is left on larger screens, top on smaller screens.
 // section 2 is right on larger screens, bottom on smaller screens.
 
@@ -71,7 +79,7 @@ $padding: 40px;
 
 .webinar__section-2{
   padding-top: 3rem;
-  padding-bottom: 15rem;
+  padding-bottom: 25rem;
 }
 
 .webinar{
@@ -99,12 +107,18 @@ $padding: 40px;
   color: col($c-neutral, 6);
 }
 
-.webinar__video .button{
-  margin-top: 2rem;
+.webinar__slides{
+  text-align: center;
+  margin-top: 1.6rem;
   justify-self: end;
 }
 
-@media only screen and (min-width: 1000px){
+.webinar__figure{
+  max-width: 350px;
+  margin: 2rem auto;
+}
+
+@include desktop-webinar{
   .webinar{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -137,6 +151,22 @@ $padding: 40px;
     float: right;
     max-width: $left-width - $padding; 
     margin-right: $padding;
+  }
+}
+
+.webinar--st-upcoming{
+  @include desktop-webinar{
+    .webinar__section-2{
+      padding-top: 8rem;
+    }
+  }
+}
+
+.webinar--st-happening-now{
+  @include desktop-webinar{
+    .webinar__section-2{
+      padding-top: 8rem;
+    }
   }
 }
 

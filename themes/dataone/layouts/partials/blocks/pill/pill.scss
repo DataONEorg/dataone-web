@@ -62,3 +62,35 @@
   }
   
 }
+
+.pill--on-air{
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  border-radius: 0;
+  transform: translateY(0);
+  background: none;
+  color: col($c-primary, 5);
+  &::before {
+      content: '';
+      display: inline-block;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: col($c-primary, 5);
+      width: 12px;
+      height: 12px;
+      animation: live 2.5s infinite;
+      margin-left: 1rem;
+      margin-right: 0.8rem;
+      @include low-motion;
+      
+    }
+    @keyframes live {
+      0%, 100% {
+       background: none;
+      }
+      40% {
+       background: col($c-primary, 5);
+      }
+    }
+}

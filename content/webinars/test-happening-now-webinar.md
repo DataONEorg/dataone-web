@@ -1,6 +1,6 @@
 ---
 date: 2020-02-01
-title: RDMLA - Five Months Post Launch
+title: A test webinar happening now
 webinar_datetime: 2020-02-11T12:00:00.000-08:00
 duration: 60
 status: auto
@@ -8,7 +8,6 @@ tags:
   - access
   - describe
   - discover
-vimeoID: 390929711
 meetingID: 408-224-154
 slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"
 short_abstract: Learn about the rapid growth and future plans of the Research Data Management Librarian Academy, a free online educational program exploring research data management best practices.

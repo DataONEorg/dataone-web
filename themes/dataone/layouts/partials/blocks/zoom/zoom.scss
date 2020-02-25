@@ -1,7 +1,7 @@
 .zoom{
   @include f-common;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: max-content auto;
   grid-template-rows: .5fr .05fr 1fr;
   grid-template-areas: "button button" "title title" "phone-options meeting-ID";
   grid-gap: 1rem 1rem;
@@ -9,16 +9,33 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  
   &__button{
     grid-area: button;
     justify-self: center;
     margin-bottom: 3rem;
   }
+  
   &__phone-options{
     grid-area: phone-options;
   }
   &__meeting-ID {
     grid-area: meeting-ID;
+  }
+  
+  &__option-icon{
+    stroke: col($c-neutral, 5);
+    margin-top: -2px;
+  }
+  
+  &__phone-option{
+    padding-bottom: 0.7rem;
+  }
+  &__phone-city{
+    color: col($c-neutral, 6);
+  }
+  &__meeting-ID-name{
+    color: col($c-neutral, 6);
   }
   
   &__phone-title{
@@ -27,6 +44,46 @@
     text-transform: uppercase;
     letter-spacing: .05em;
     margin: 0 0 1rem 0;
-    font-weight: 300;
+    font-weight: 400;
+    text-align: center;
+    color: col($c-neutral, 5);
+  }
+  
+  &__meeting-ID-name{
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+  }
+  
+  &__meeting-ID-number{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 1px 7px;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 1.5rem;
+    background: mix(col($c-neutral, 1), white, 30%);
+    border-radius: 4px;
+  }
+  
+  &__phone-link{
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+    font-size: 0.95rem;
+    color: col($c-tertiary, 7);
+    padding: 1px 3px;
+    transition: all 0.15s linear;
+    
+    &:hover{
+      background-color: col($c-tertiary, 1);
+      color: col($c-tertiary, 6);
+      border-radius: 4px;
+      
+    }
   }
 }
