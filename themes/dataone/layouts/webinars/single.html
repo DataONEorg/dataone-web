@@ -93,9 +93,7 @@
   <!--  HEADER
   =============== -->
   <div class="webinar__section-1">
-    
     <div class="webinar__section-1-inner">
-      
       {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
       {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
       {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
@@ -103,8 +101,7 @@
     </div>
   </div>
   <div class="webinar__section-2">
-    <div class="webinar__section-2-inner">
-      
+    <section class="webinar__section-2-inner">
       {{ if eq $status "past" }}
       <div class="webinar__video">
         
@@ -137,7 +134,7 @@
         =============== -->
         
         <!-- TODO:  -->
-        <!-- Webinar starts in two days. -->
+        <!-- 'Webinar starts in X days." -->
         <!-- use datetime block with type = "countdown" -->
         
         <figure class="webinar__figure" title="Add to calendar">
@@ -170,7 +167,7 @@
         
         
       {{ end }}
-    </div>
+    </section>
   </div>
 </div>
 

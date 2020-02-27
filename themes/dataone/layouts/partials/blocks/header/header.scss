@@ -428,9 +428,7 @@
 // === HERO ===
 // 
 .header--hero{
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include bkg-img;
   position: relative;
   min-height: 500px;
   .header__title{
@@ -533,6 +531,13 @@
     color: col($c-tertiary, 2);
   }
 }
+
+.header--col-secondary{
+  padding-top: 110px;
+  background-color: col($c-secondary, 8);
+  background-image: linear-gradient(12deg, col($c-secondary, 8) -10%, col($c-secondary, 7) 40%, col($c-secondary, 7) 50%, col($c-secondary, 7) 60%, col($c-secondary, 8) 100%);
+}
+
 // ========================================================
 // === ANIMATIONS - TODO ===
 // 

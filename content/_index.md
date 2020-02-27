@@ -21,7 +21,7 @@ page_sections:
       text: Join our network of members
       type: quaternary
       external_website: false
-      website_link: network.md
+      website_link: "/network/network.md"
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
@@ -177,7 +177,7 @@ page_sections:
       text: More about DataONE
       type: tertiary
       external_website: false
-      website_link: about.md
+      website_link: "/about/about.md"
 - template: section
   type: quaternary-light
   title: Contribute
@@ -213,6 +213,6 @@ page_sections:
     text: ''
     external_website: false
     website_link: ''
-draft: true
+draft: false
 
 ---

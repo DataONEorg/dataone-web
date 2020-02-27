@@ -1,0 +1,39 @@
+.contact-info {
+  
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap:3rem;
+  max-width: 290px;
+  
+  address{
+    font-style: normal;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 500;
+    text-shadow: 0.01em 0.01em 1em rgba(col($c-neutral, 9),.4);
+  }
+  
+  &__location{
+    display: grid;
+    grid-template-columns: 30px auto;
+    grid-gap: 1rem;
+  }
+  
+  &__socials{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+    width: 100%;
+  }
+  
+  &__social-link{
+    justify-self: center;
+    background-color: col($c-secondary, 7);
+    @include circle-link;
+    
+    &:hover{
+      background-color: lighten(col($c-secondary, 7), 0.9%);
+    }
+  }
+  
+}

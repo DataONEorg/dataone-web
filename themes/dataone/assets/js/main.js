@@ -57,10 +57,10 @@ var throttle = function (callback, limit) {
 {{ end }}
 
 // Combine all javascript from block subdirectories
-{{ $blockdir :=  .Site.Params.blockDir}}
-{{ range (readDir $blockdir) }}
+{{ $blockDir :=  .Site.Params.blockDir}}
+{{ range (readDir $blockDir) }}
   {{ $dirname := .Name }}
-  {{ $blocksubdir := path.Join $blockdir $dirname }}
+  {{ $blocksubdir := path.Join $blockDir $dirname }}
   {{ $stat := os.Stat $blocksubdir }}
   {{ if $stat.IsDir }}
     {{ range (readDir $blocksubdir) }}

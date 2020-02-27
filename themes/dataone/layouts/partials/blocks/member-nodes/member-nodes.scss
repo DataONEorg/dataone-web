@@ -230,21 +230,11 @@ $TOCwidth: 250px;
   }
   
   &__link{
-    text-decoration: none;
-    font-style: normal;
-    text-align: center;
-    display: block;
     background: $c-background-emphasis;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include circle-link;
     &:hover{
       background-color: lighten($c-background-emphasis, 0.5%);
-      transform: translateY(-0.1px);
-      box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(0,0,0,.15);
+      
     }
   }
 

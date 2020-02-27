@@ -3,14 +3,14 @@
 {{ $type := "default" }}
 {{ $extraClass := "none" }} 
 
-{{ if or (eq .Params.header.type "hosted-repo-header") (eq .Params.header.type "brand-gradient-header") (eq .Params.header.type "network-image") }}
+{{ if or (eq .Params.header.type "hosted-repo-header") (eq .Params.header.type "brand-gradient-header") (eq .Params.header.type "network-image") (eq .Params.header.color "secondary") }}
   {{ $type = "wave" }}
 {{ end }}
 {{ if eq .Kind "home" }}
   {{ $type = "homepage" }}<!-- TODO -->
   {{ $extraClass = "wave" }} 
 {{ end }}
-{{ if or (eq .Params.header.type "brand-gradient-header") (eq .Type "webinars") }}
+{{ if or (eq .Params.header.type "brand-gradient-header") (eq .Type "webinars") (eq .Params.header.color "secondary") }}
   {{ $extraClass = "dark-bkg" }}
 {{ end }}
 {{ if eq .Type "webinars" }}

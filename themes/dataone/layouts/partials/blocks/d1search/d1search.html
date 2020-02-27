@@ -1,12 +1,16 @@
 <!-- in order to pass on page parameters from within loops  -->
 {{ $page := .Page }} 
+{{ $buttonParams := dict "text" "search" "icon" "search" "type" "secondary" "class" "search" "htmlTag" "button" "buttontype" "submit"}}
 
+{{ $classes := "" }}
+{{ with .Block.type }}
+  {{ $classes = print $classes " d1search--" . }}
+{{end}}
 
-<form class="d1search{{if isset .Block `type` }} d1search--{{ .Block.type }}{{end}}" role="search" onsubmit="searchD1()">
+<form class="d1search{{ $classes }}" role="search" onsubmit="searchD1()">
   <input class="d1search__input" type="text" id="search-term" placeholder="What environmental data are you looking for?"/>
   <label class="d1search__label" for="search-term">
     What environmental data are you looking for?
   </label>
-  {{ $buttonParams := dict "text" "search" "icon" "search" "type" "secondary" "class" "search" "htmlTag" "button" "buttontype" "submit"}}
   {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page)}}
 </form>

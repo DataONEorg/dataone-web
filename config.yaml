@@ -27,14 +27,14 @@ params:
     findings, and conclusions or recommendations expressed in this material are those
     of the author(s) and do not necessarily reflect the views of the National Science
     Foundation.'
-  contactLink: https://www.dataone.org/contact
+  contactLink: /about/contact/
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640
   dateFormat: "January 2, 2006"
-  dateFormat_short: "2 Jan 2006"
+  dateFormatShort: "2 Jan 2006"
   datetimeFormat: "January 2, 2006 15:04 MST"
-  datetimeFormat_short: "2 Jan 2006 15:04 MST"
+  datetimeFormatShort: "2 Jan 2006 15:04 MST"
   zoom:
     phone_numbers:
       - city: "New York, USA"
@@ -42,9 +42,19 @@ params:
       - city: "San Jose, USA"
         number: "+1 408 638 0968"
     URL_local_number: "https://us04web.zoom.us/u/fcD9Evl80t"
-    
-        
-        
+  mailingAddress:
+    delivery_points:
+    - "735 State St #300"
+    city: "Santa Barbara"
+    administrative_area: "California"
+    postal_code: "93101"
+    country: "United States"
+    longitude: ""
+    latitude: ""
+  social:
+    vimeo: "https://vimeo.com/channels/dataone"
+    youtube: "https://www.youtube.com/user/DataONEorg"
+    twitter: "https://twitter.com/DataONEorg"
 menu:
   footer:
   - url: https://dataoneorg.github.io/Education/

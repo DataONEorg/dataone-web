@@ -4,7 +4,16 @@
 <!-- line icons use the svg sprite in the static folder called icon-sprite.svg -->
 <!-- these icons can be previewed here: https://feathericons.com/?query=home -->
 <!-- read more about them on github: https://github.com/feathericons/feather -->
-<svg class="feather-icon{{ with .Block.size}} feather-icon--sz-{{ . }}{{ end }}{{ with .Block.color }} feather-icon--col-{{ . }}{{ end }}">
-  <title>{{ .Block.icon }} icon</title>
+
+{{ $classes := "" }}
+{{ with .Block.size }}
+  {{ $classes = print $classes " feather-icon--sz-" . }}
+{{ end }}
+{{ with .Block.color }}
+  {{ $classes = print $classes " feather-icon--col-" . }}
+{{ end }}
+
+<svg class="feather-icon{{ $classes }}">
+  <title>{{ .Block.icon | humanize }} icon</title>
   <use xlink:href="#{{ .Block.icon }}"/>
 </svg>

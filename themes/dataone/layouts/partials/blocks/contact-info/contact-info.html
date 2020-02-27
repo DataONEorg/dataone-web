@@ -1,0 +1,21 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "contact-info" }}
+
+<div class="{{ $bn }}">
+  <div class="{{ $bn }}__location">
+    
+    {{ partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
+    <div>
+    {{ partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
+  </div>
+  </div>
+  <div class="{{ $bn }}__socials">
+    {{ range $name, $link := $page.Site.Params.social }}
+      <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">
+        {{ partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
+      </a>
+    {{ end }}
+  </div>
+</div>

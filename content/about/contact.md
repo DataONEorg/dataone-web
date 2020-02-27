@@ -6,8 +6,9 @@ layout: blocks
 header:
   template: header
   type: text-only
+  color: secondary
   title: Get in touch
-  intro: ''
+  intro: "We're here to help and answer any question you might have. We look forward to hearing from you!"
   pill:
     template: ''
     type: ''
@@ -21,23 +22,12 @@ header:
     type: ''
 page_sections:
 - template: section
-  type: default
-  title: ''
-  intro: ''
-  blocks: []
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
+  type: split
+  background: map
+  background2: neutral-light
+  blocks:
+  - template: contact-info
+  - template: contact-form
 menu:
   toplevel:
     parent: Organization

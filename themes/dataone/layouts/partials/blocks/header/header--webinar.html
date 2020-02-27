@@ -65,18 +65,14 @@
       <div class="header__intro">
         {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
       </div>
-      <!-- expandable speakers -->
       
+      <!-- expandable speakers -->
       <div class="header__speakers">
         {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "tertiary"}}
         {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
       </div>
       
     </div>
-    
-    
-    
-  
     
   </div>
 

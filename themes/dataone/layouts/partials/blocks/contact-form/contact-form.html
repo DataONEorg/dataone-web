@@ -1,0 +1,41 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "contact-form" }}
+
+<!-- TODO: -->
+<div class="{{ $bn }}">
+  <form name="contact" class="" action="/thank-you/" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="contact" />
+    <!-- Text input-->
+    <div class="">
+      <label class="" for="Name"></label>
+      <div class="">
+        <input id="contact-form-name" name="Name" type="text" placeholder="Name" class="form-control input-md" required="" autocomplete="off">
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="">
+      <label class="" for="Email"></label>
+      <div class="">
+        <input id="contact-form-email" name="Email" type="email" placeholder="Email Address" class="form-control input-md" required="" autocomplete="off">
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="">
+      <label class="" for="Subject"></label>
+      <div class="">
+        <input id="contact-form-subject" name="Subject" type="text" placeholder="Subject" class="form-control input-md" required="" autocomplete="off">
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="">
+      <label class="" for=""></label>
+      <textarea class="form-control" id="contact-form-message" name="Message" placeholder="How can we help?" rows="8"></textarea>
+    </div>
+    <!-- Button -->
+    <div class="">
+      <button class="button button--primary" type="submit" value="Submit" id="Form-submit">Submit</button>
+    </div>
+  </form>
+</div>

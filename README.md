@@ -134,3 +134,7 @@ We use inline SVG for some imagery on the website, like the header image on the 
 - Run SVGs through [SVG-OMG](https://jakearchibald.github.io/svgomg/) to clean up and shrink SVG code.
 - Adding a `<base href="...">` tag to the head of a page might break SVGs in Safari if any part of the svg uses `url()`, e.g. `fill="url(#linearGradient`)`.
 - In some cases (e.g. for our logo gradient), it's better to include definitions at the start of the html body, outside of the svg that uses it. If needed, add these definitions to `layouts/partials/svg-defs.html`.
+
+
+# Credits
+- Photo of the Santa Barbara, California, metropolitan area (santa_barbara__NASA.jpg): NASA

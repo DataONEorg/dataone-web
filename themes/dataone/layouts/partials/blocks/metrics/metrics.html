@@ -1,7 +1,14 @@
 {{ $page := .Page }}
 {{ $metrics := .Page.Site.Data.metrics }}
 
-<div class="metrics {{ if and (isset .Block `type`) (ne .Block.type `default`) }} metrics--{{ .Block.type }}{{ end }}">
+{{ $classes := "" }}
+{{ with .Block.type }}
+  {{ if ne . "default" }}
+    {{ $classes = print $classes " metrics--" . }}
+  {{ end }}
+{{ end }}
+
+<div class="metrics{{ $classes }}">
   
   <!-- DOWNLOADS -->
   

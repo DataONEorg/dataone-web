@@ -1,0 +1,84 @@
+<!-- in order to pass on page parameters from within loops  -->
+{{ $page := .Page }} 
+
+<!-- save block parameters as a variable so we can overwrite it -->
+{{ $addressParams := .Block }}
+
+<!-- classess to add to this block -->
+{{ $classes := "" }}
+
+<!-- multi-line or single-line? -->
+{{ $format := .Block.format | default "multi-line" }}
+{{ $classes = print $classes " address--" $format }}
+
+{{ if eq $addressParams.type "DataONE" }}
+  {{ $addressParams = merge $addressParams $page.Site.Params.mailingAddress }}
+  {{ $classes = print $classes " address--d1" }}
+{{ end }}
+
+<!-- Variables for custom addresses -->
+{{ $name                := $addressParams.name                 | default "" }}
+{{ $delivery_points     := $addressParams.delivery_points      | default slice }}
+{{ $city                := $addressParams.city                 | default "" }}
+{{ $administrative_area := $addressParams.administrative_area  | default "" }}
+{{ $country             := $addressParams.country              | default "" }}
+{{ $postal_code         := $addressParams.postal_code          | default "" }}
+
+<!-- Address part separators depend on which address parts are provided 
+    as well as whether it's a one-line or multi-line address format -->
+
+{{ $break         :=  "<br>" | safeHTML }}
+{{ $comma         :=  ", " }}
+{{ $defaultSep    :=  $break }}
+{{ if eq $format "single-line" }}
+  {{ $defaultSep = $comma }}
+{{ end }}
+
+<!-- line 1 : name -->
+{{ $nameEnd  := $defaultSep }}
+
+<!-- line 2 : delivery points -->
+{{ $deliveryPointEnd := "" }}
+
+{{ if or $city $administrative_area $country $postal_code (gt (len $deliveryPointEnd) 1) }}
+  {{ $deliveryPointEnd = $defaultSep }}
+{{ end }}
+
+<!-- line 3: city, province -->
+{{ $cityAdminSep  := "" }}
+{{ $cityAdminEnd  := "" }}
+
+{{ if and $city $administrative_area }}
+  {{ $cityAdminSep  = $comma }}
+{{ end }}
+
+{{ if and (or $city $administrative_area) (or $country $postal_code) }}
+  {{ $cityAdminEnd  = $defaultSep }}
+{{ end }}
+
+<!-- line 4: country, postal code -->
+{{ $countryPostalSep   := "" }}
+{{ if and $country $postal_code }}
+  {{ $countryPostalSep   = $comma }}
+{{ end }}
+
+<address class="address{{ $classes }}">
+  {{- with $name -}}
+    <span class="address__name">{{ . }}</span>{{ $nameEnd }}
+  {{- end -}}
+  {{ range $delivery_points }}
+    <span class="address__delivery-point">{{ . }}</span>{{ $deliveryPointEnd }}
+  {{ end }}
+  {{- with $city -}}
+    <span class="address__city">{{ . }}</span>{{ $cityAdminSep }}
+  {{- end -}}
+  {{- with $administrative_area -}}
+    <span class="address__administrative-area">{{ . }}</span>{{ $cityAdminEnd }}
+  {{- end -}} 
+  {{ with $country }}
+    <span class="address__country">{{ . }}</span>{{ $countryPostalSep }}
+  {{ end }}
+  {{ with $postal_code }}
+    <span class="address__postal-code">{{ . }}</span>
+  {{ end }}
+</address>

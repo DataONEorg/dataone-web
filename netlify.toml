@@ -1,6 +1,6 @@
 # Netlify configuration for web deployment
 [build.environment]
-    HUGO_VERSION = "0.60.1"
+    HUGO_VERSION = "0.65.3"
 
 [context.preview]
   command = "hugo --baseUrl=\"/\""

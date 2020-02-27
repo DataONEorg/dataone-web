@@ -1,7 +1,18 @@
 <!-- in order to pass on page parameters from within loops  -->
 {{ $page := .Page }} 
 
-<div class="icon{{ if .Block.size }} icon--sz-{{ .Block.size }}{{ end }}{{ if and (isset .Block `style`) (ne .Block.style `default`) }} icon--c-{{.Block.style}}{{ end }}">
+{{ $classes := "" }}
+
+{{ with .Block.size }}
+  {{ $classes = print $classes " icon--sz-" . }}
+{{ end }}
+{{ with .Block.style }}
+  {{ if ne . "default" }}
+    {{ $classes = print $classes " icon--c-" . }}
+  {{ end }}
+{{ end }}
+
+<div class="icon{{ $classes }}">
   {{ if .Block.name }}
     {{ $iconpath := path.Join "icons" .Block.name }}
     {{ $iconpath := printf "%s.svg" $iconpath }}

@@ -1,242 +1,26 @@
 // screen width at which to switch from mobile view to desktop view
 $breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px;
 @import "colors.scss";
-@import "definitions.scss";
-
-// ==== GLOBAL RESET === /
+@import "definitions.scss"; // ==== GLOBAL RESET === /
 
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:after,
+*:before {
   box-sizing: inherit;
 }
-
-// === NEWS & JOBS ==== //
-// styles placed here temporarily
-.news-list{
-  @include f-common;
-  @include text-link;
-  @include mobile-lr-padding;
-  @include limit-width;
-  
-  .newletter-signup{
-    background-color: $c-background-emphasis;
-    padding: 2rem;
-    margin-bottom: 5rem;
-  }
-  
-  &__title{
-    margin-top: $intra-section-spacing;
-    margin-bottom: $intra-section-spacing;
-    font-size: $fs-page-title;
-    line-height: 1.1;
-    color: var(--col-title);
-    font-weight: bold;
-  }
-}
-// styles placed here temporarily
-.job-list{
-  @include f-common;
-  @include text-link;
-  @include mobile-lr-padding;
-  @include limit-width;
-  width: 100%;
-  
-  &__title{
-    margin-top: $intra-section-spacing;
-    margin-bottom: $intra-section-spacing;
-    font-size: $fs-page-title;
-    line-height: 1.1;
-    color: var(--col-title);
-    font-weight: bold;
-  }
-}
-
-// === WEBINARS === //
-// styles placed here temporarily
-
-$left-proportion: 0.5;
-$left-width: $content-width * $left-proportion;
-$right-width: $content-width * (1 - $left-proportion);
-$diff: abs($right-width - $left-width)/2;
-$padding: 40px;
-
-// layout breaks sooner for webinar layout
-@mixin desktop-webinar {
-  @media only screen and (min-width: 1000px) {
-    @content;
-  }
-}
-
-// section 1 is left on larger screens, top on smaller screens.
-// section 2 is right on larger screens, bottom on smaller screens.
-
-.webinar__section-2-inner{
-  @include medium-lr-padding;
-}
-
-.webinar__section-2{
-  padding-top: 3rem;
-  padding-bottom: 25rem;
-}
-
-.webinar{
-  background-image: linear-gradient(to top, col($c-neutral, 2), col($c-neutral, 1) 100%);
-}
-
-.webinar__section-1 {
-  background-color: col($c-tertiary, 7);
-  background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
-}
-
-.webinar__video{
-  display: grid;
-  grid-auto-rows: auto;
-  grid-gap: 2rem;
-}
-
-.webinar__video-icon{
-  stroke: col($c-neutral, 5);
-  margin-right: 7px;
-}
-
-.webinar__video-title{
-  @include f-common;
-  color: col($c-neutral, 6);
-}
-
-.webinar__slides{
-  text-align: center;
-  margin-top: 1.6rem;
-  justify-self: end;
-}
-
-.webinar__figure{
-  max-width: 350px;
-  margin: 2rem auto;
-}
-
-@include desktop-webinar{
-  .webinar{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-  }
-  .webinar__section-1, .webinar__section-2{
-    width: 100%;
-    height: 100%;
-    padding-bottom: 20rem;
-  }
-  .webinar__section-1 {
-    margin-left: -$diff;
-  }
-  .webinar__section-2{
-    margin-left: -$diff;
-    padding-top: 12rem;
-  }
-  .webinar__section-1-inner, .webinar__section-2-inner{
-    width: 100%; 
-    height: 100%;
-    padding: 0;
-  }
-  .webinar__section-2-inner{
-    float: left;
-    max-width: $right-width - $padding;
-    margin-left: $padding;
-  }
-
-  .webinar__section-1-inner{
-    float: right;
-    max-width: $left-width - $padding; 
-    margin-right: $padding;
-  }
-}
-
-.webinar--st-upcoming{
-  @include desktop-webinar{
-    .webinar__section-2{
-      padding-top: 8rem;
-    }
-  }
-}
-
-.webinar--st-happening-now{
-  @include desktop-webinar{
-    .webinar__section-2{
-      padding-top: 8rem;
-    }
-  }
-}
-
-
-.webinars{
-  @include limit-width;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 1fr;
-  grid-gap: 1.5rem;
-  padding-top: 4rem;
-  
-  @include desktop{
-    grid-template-columns: 1fr 1fr;
-  }
-  
-}
-
-.webinar-summary{
-  @include card;
-  padding: 2.5rem 1.2rem 1rem 1.2rem ;
-  margin: 0;
-  
-  .datetime__displaydate{
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    color: col($c-neutral, 4);
-    margin-right: 0.3rem;
-    font-weight: 600;
-  }
-  
-  &__speakers{
-    background-color: col($c-secondary, 2);
-    padding-top: 2rem;
-    margin-top: 1rem;
-    border-radius: 4px;
-  }
-
-  &__title{
-    @include f-common;
-    margin: 2rem 0 1rem;
-    padding: 0;
-    font-size: 1.5rem;
-    line-height: 1.1;
-    font-family: martel;
-    font-weight: 700;
-    
-  }
-  &__title-link{
-    text-decoration: none;
-    color: col($c-tertiary, 6);
-  }
-  &__intro{
-    @include f-common;
-    font-size: 1.05rem;
-    margin: 1rem 0 2rem 0;
-  }
-}
-
 
 // ==== BODY ====
 
 .page {
-  
   // Use css variables for colours so that we can easily re-colour sub-block
   // elements within modified blocks.
   --col-title: #{$c-foreground-emphasis};
   --col-font: #{$c-foreground};
   --col-backgroud: #{$c-background};
-
   background: var(--col-backgroud);
   color: var(--col-font);
   margin: 0;
@@ -245,36 +29,253 @@ $padding: 40px;
   @include low-motion;
   overflow-y: scroll;
   max-width: 100vw;
-    
 }
 // ==== ARTICLE ====
 
 .article {
-  
   display: grid;
   height: 100%;
-  min-height: 500px;
-  
+  min-height: 100%;
 }
+
+
+// To convert to blocks:
+
+// === NEWS & JOBS ==== //
+// styles placed here temporarily
+
+.news-list {
+  @include f-common;
+  @include text-link;
+  @include mobile-lr-padding;
+  @include limit-width;
+
+  .newletter-signup {
+    background-color: $c-background-emphasis;
+    padding: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  &__title {
+    margin-top: $intra-section-spacing;
+    margin-bottom: $intra-section-spacing;
+    font-size: $fs-page-title;
+    line-height: 1.1;
+    color: var(--col-title);
+    font-weight: bold;
+  }
+}
+// styles placed here temporarily
+
+.job-list {
+  @include f-common;
+  @include text-link;
+  @include mobile-lr-padding;
+  @include limit-width;
+  width: 100%;
+
+  &__title {
+    margin-top: $intra-section-spacing;
+    margin-bottom: $intra-section-spacing;
+    font-size: $fs-page-title;
+    line-height: 1.1;
+    color: var(--col-title);
+    font-weight: bold;
+  }
+}
+// === WEBINARS === //
+// styles placed here temporarily
+$left-proportion: 0.5;
+$left-width: $content-width * $left-proportion;
+$right-width: $content-width * (1 - $left-proportion);
+$diff: abs($right-width - $left-width)/2;
+$padding: 40px; // layout breaks sooner for webinar layout
+@mixin desktop-webinar {
+  @media only screen and (min-width: 1000px) {
+    @content;
+  }
+}
+// section 1 is left on larger screens, top on smaller screens.
+// section 2 is right on larger screens, bottom on smaller screens.
+
+.webinar {
+  background-image: linear-gradient(to top, col($c-neutral, 2), col($c-neutral, 1) 100%);
+
+  &__section-2-inner {
+    @include medium-lr-padding;
+  }
+
+  &__section-2 {
+    padding-top: 3rem;
+    padding-bottom: 25rem;
+  }
+
+  &__section-1 {
+    background-color: col($c-tertiary, 7);
+    background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
+  }
+  
+  @include desktop-webinar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+
+    &__section-1,
+    &__section-2 {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 20rem;
+    }
+
+    &__section-1 {
+      margin-left: -$diff;
+    }
+
+    &__section-2 {
+      margin-left: -$diff;
+      padding-top: 12rem;
+    }
+
+    &__section-1-inner,
+    &__section-2-inner {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    &__section-2-inner {
+      float: left;
+      max-width: $right-width - $padding;
+      margin-left: $padding;
+    }
+
+    &__section-1-inner {
+      float: right;
+      max-width: $left-width - $padding;
+      margin-right: $padding;
+    }
+  }
+
+  &__video {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 2rem;
+  }
+
+  &__video-icon {
+    stroke: col($c-neutral, 5);
+    margin-right: 7px;
+  }
+
+  &__video-title {
+    @include f-common;
+    color: col($c-neutral, 6);
+  }
+
+  &__slides {
+    text-align: center;
+    margin-top: 1.6rem;
+    justify-self: end;
+  }
+
+  &__figure {
+    max-width: 350px;
+    margin: 2rem auto;
+  }
+
+  &--st-upcoming {
+    @include desktop-webinar {
+      .webinar__section-2 {
+        padding-top: 8rem;
+      }
+    }
+  }
+
+  &--st-happening-now {
+    @include desktop-webinar {
+      .webinar__section-2 {
+        padding-top: 8rem;
+      }
+    }
+  }
+}
+
+
+.webinars {
+  @include limit-width;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5rem;
+  padding-top: 4rem;
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.webinar-summary {
+  @include card;
+  padding: 2.5rem 1.2rem 1rem;
+  margin: 0;
+
+  .datetime__displaydate {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: col($c-neutral, 4);
+    margin-right: 0.3rem;
+    font-weight: 600;
+  }
+
+  &__speakers {
+    background-color: col($c-secondary, 2);
+    padding-top: 2rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+  }
+
+  &__title {
+    @include f-common;
+    margin: 2rem 0 1rem;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-family: martel;
+    font-weight: 700;
+  }
+
+  &__title-link {
+    text-decoration: none;
+    color: col($c-tertiary, 6);
+  }
+
+  &__intro {
+    @include f-common;
+    font-size: 1.05rem;
+    margin: 1rem 0 2rem;
+  }
+}
+
 
 // ==== IMPORT ALL BLOCK SCSS ====
 // Import all .scss files contained one subdirectory below the "blocks" directory
+{{$blockDir :=  .Site.Params.blockDir}}
+{{range (readDir $blockDir)}}
 
-{{ $blockdir :=  .Site.Params.blockDir}}
-
-{{ range (readDir $blockdir) }}
   // check that the name of the item in the blocks directory is another directory
-  {{ $dirname := .Name }}
-  {{ $blocksubdir := path.Join $blockdir $dirname }}
-  {{ $stat := os.Stat $blocksubdir }}
-  {{ if $stat.IsDir }}
+  {{$dirname := .Name}}
+  {{$blocksubdir := path.Join $blockDir $dirname}}
+  {{$stat := os.Stat $blocksubdir}}
+  {{if $stat.IsDir}}
+
     // read through the subdirectories of the block directory
-    {{ range (readDir $blocksubdir) }}
-    // If the file is an .scss file, import it
-      {{ if (strings.HasSuffix .Name "scss") }}
-        {{ $blockscss := path.Join $blocksubdir .Name }}
+    {{range (readDir $blocksubdir)}}
+
+      // If the file is an .scss file, import it
+      {{if (strings.HasSuffix .Name "scss")}}
+        {{$blockscss := path.Join $blocksubdir .Name}}
         @import "{{ $blockscss }}";
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+      {{end}}
+    {{end}}
+  {{end}}
+{{end}}

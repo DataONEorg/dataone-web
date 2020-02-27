@@ -3,6 +3,7 @@
   margin: 0;
   @include f-common;
   position: relative;
+  z-index: 1;
                         
   &__content{
     @include limit-width;
@@ -97,7 +98,7 @@
       height: 700px;
       @include desktop{
         margin-left: 0px;
-        height: 500px;
+        height: $footer-height;
       }
     }
   }

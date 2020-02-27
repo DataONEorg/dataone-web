@@ -1,10 +1,22 @@
 <!-- in order to pass on page parameters from within loops  -->
 {{ $page := .Page }} 
 
-<div class="markdown">
-  {{ if isset .Block "content" }}
-  {{- .Block.content | markdownify -}}
-  {{ else }}
-    {{.Page.Content }}
+<!-- the content is the markdown we will render -->
+{{ $content := "" }}
+
+<!-- If the page itself is passed in as the block, render the page content  -->
+<!-- This will automatically be markdownified -->
+{{ if eq .Block $page }}
+  {{ $content = $page.Content }}
+{{ else }}
+<!-- Otherwise look for the content parameter in the block -->
+<!-- We must add the markdownify function in this case -->
+  {{ with .Block.content }}
+    {{ $content = . | markdownify }}
   {{ end }}
+{{ end }}
+
+<!-- Show the rendered the markdown -->
+<div class="markdown">
+  {{ $content }}
 </div>
