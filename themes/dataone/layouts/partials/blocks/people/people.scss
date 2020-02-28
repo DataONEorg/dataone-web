@@ -1,254 +1,250 @@
-.people{
-  
-  display: grid;
-  justify-content: center;
+.people {
+  display              : grid;
+  justify-content      : center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1em;
-
+  grid-gap             : 1em;
 }
 
 .person {
-  
-  margin-top: 50px;
+  margin-top     : 50px;
   @include card;
   @include f-common;
-  padding-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
+  padding-bottom : 1.5rem;
+  display        : flex;
+  flex-direction : column;
   justify-content: space-between;
-  
-  &:hover{
-    .person__avatar{
-      -webkit-filter: none; /* Safari 6.0 - 9.0 */
+
+  &:hover {
+    .person__avatar {
+      -webkit-filter: none;
+      /* Safari 6.0 - 9.0 */
       filter: none;
     }
   }
-  
-  &__info{
-  }
-  
-  &__avatar{
-    margin: -50px auto 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100px;
-    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-    height: 100px;
+
+  &__info {}
+
+  &__avatar {
+    margin       : -50px auto 0;
+    padding      : 0;
+    overflow     : hidden;
+    width        : 100px;
+    box-shadow   : 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    height       : 100px;
     border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    object-fit   : cover;
+    display      : block;
+    -webkit-filter: grayscale(70%);
+    /* Safari 6.0 - 9.0 */
     filter: grayscale(70%);
   }
-  
-  &__fullname{
-    margin: 1.5rem 0 0.75rem 0;
+
+  &__fullname {
+    margin    : 1.5rem 0 .75rem;
     text-align: center;
-    color: $c-foreground-emphasis;
-  }
-  
-  &__title{
-    font-size: .88rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0.9rem 0 0.6rem 0;
-    text-align: center;
-    font-weight: 600;
-    color: col($c-tertiary, 6);
-    line-height: 1.3;
-  }
-  
-  &__organization{
-    font-size: 1.1rem;
-    // text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 ;
-    text-align: center;
-    font-weight: 300;
-    color: col($c-tertiary, 5);
-    line-height: 1.05;
-  }
-  
-  &__bio{
-    color: col($c-neutral, 6);
-    line-height: 1.35;
-    margin: 1rem 0;
-  }
-  
-  &__email{
-    color: col($c-secondary, 5);
-    text-decoration: none;
-    font-style: normal;
-    text-align: center;
-    display: block;
-    font-size: $fs-smaller;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color     : $c-foreground-emphasis;
   }
 
+  &__title {
+    font-size     : .88rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin        : .9rem 0 .6rem;
+    text-align    : center;
+    font-weight   : 600;
+    color         : col($c-tertiary, 6);
+    line-height   : 1.3;
+  }
+
+  &__organization {
+    font-size     : 1.1rem;
+    // text-transform: uppercase;
+    letter-spacing: .05em;
+    margin        : 0;
+    text-align    : center;
+    font-weight   : 300;
+    color         : col($c-tertiary, 5);
+    line-height   : 1.05;
+  }
+
+  &__bio {
+    color      : col($c-neutral, 6);
+    line-height: 1.35;
+    margin     : 1rem 0;
+  }
+
+  &__email {
+    color          : col($c-secondary, 5);
+    text-decoration: none;
+    font-style     : normal;
+    text-align     : center;
+    display        : block;
+    font-size      : $fs-smaller;
+    width          : 100%;
+    white-space    : nowrap;
+    overflow       : hidden;
+    text-overflow  : ellipsis;
+  }
 }
 
-
 .people--long-bio {
-
   // grid-template-columns: 1fr;
   display: block;
-  
-  .person{
-    display: grid;
-    display: flex;
+
+  .person {
+    display       : grid;
+    display       : flex;
     flex-direction: column;
-    @include desktop{
-      margin: 0 5rem 3rem;
+    @include desktop {
+      margin : 0 5rem 3rem;
       padding: 3rem;
     }
   }
-  
-  .person:not(:last-child){
+
+  .person:not(:last-child) {
     margin-bottom: 1.5rem;
   }
-  
-  .person__heading{
-    display: grid;
+
+  .person__heading {
+    display              : grid;
     grid-template-columns: 130px 1fr;
-    grid-template-rows: auto;
+    grid-template-rows   : auto;
   }
+
   .person__avatar {
-    margin: auto 0.3rem;
+    margin    : auto .3rem;
     box-shadow: none;
   }
-  
+
   .person__info {
-    display: flex;
-    flex-direction: column;
+    display        : flex;
+    flex-direction : column;
     justify-content: center;
   }
-  
+
   .person__contact {
     grid-area: contact;
   }
-  
-  .person__bio{
-    margin: 1.5rem 0;
-    grid-area: bio;
-    font-size: 1.1rem;
+
+  .person__bio {
+    margin     : 1.5rem 0;
+    grid-area  : bio;
+    font-size  : 1.1rem;
     line-height: 1.5;
     font-weight: 400;
-    color: col($c-neutral, 6);
+    color      : col($c-neutral, 6);
   }
-  
-  .person__fullname{
-    margin: 0.5rem 0 0 0;
+
+  .person__fullname {
+    margin: .5rem 0 0;
   }
-  
-  .person__title, .person__organization, .person__fullname{
+
+  .person__fullname,
+  .person__organization,
+  .person__title {
     text-align: left;
   }
-  
-  .person__email{
+
+  .person__email {
     font-size: 1rem;
   }
-  
 }
 
-.people--simple{
-  margin: 0;
-  padding: 0;
-  display: flex;
+.people--simple {
+  margin   : 0;
+  padding  : 0;
+  display  : flex;
   flex-flow: row wrap;
-  
-  .person{
-    margin: 0 0.5rem 1.2rem 0;
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-    display: flex;
+
+  .person {
+    margin        : 0 .5rem 1.2rem 0;
+    padding       : 0;
+    background    : transparent;
+    box-shadow    : none;
+    display       : flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 83px;
+    align-items   : center;
+    max-width     : 83px;
   }
-  
-  .person__avatar{
+
+  .person__avatar {
     box-shadow: none;
-    width: 83px;
-    height: 83px;
-    margin: 0;
-    @include desktop{
-      width: 83px;
+    width     : 83px;
+    height    : 83px;
+    margin    : 0;
+    @include desktop {
+      width : 83px;
       height: 83px;
     }
   }
-  
-  .person__info{
+
+  .person__info {
     border-radius: 1rem;
-    height: 2rem;
+    height       : 2rem;
     // background-color: col($c-tertiary, 1);
-    margin-top: 0.4rem;
-    width: fit-content;
+    margin-top   : .4rem;
+    width        : fit-content;
   }
-  
-  .person__fullname{
-    margin: 0;
+
+  .person__fullname {
+    margin     : 0;
     line-height: 1.1;
-    padding: 0;// 0 0.8rem;
-    color: col($c-secondary, 6);
+    padding    : 0; // 0 0.8rem;
+    color      : col($c-secondary, 6);
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size  : .85rem;
   }
 }
 
-.people--accordion{
+.people--accordion {
   @extend .people--long-bio;
-  .person{
-    margin: 0;
-    padding: 0.7rem 1rem;
+
+  .person {
+    margin : 0;
+    padding: 0;
   }
-  .person__bio{
-    font-size: 1rem;
+
+  .person__bio {
+    font-size  : 1rem;
     line-height: 1.4;
   }
-  .person__title{
-    font-size: 0.8rem;
+
+  .person__title {
+    font-size: .8rem;
   }
-  
-  .person__organization{
+
+  .person__organization {
     font-size: 1rem;
   }
-  
 }
 
-.people--col-tertiary{
-  
-  .person{
+.people--col-tertiary {
+  .person {
     background-color: mix(col($c-tertiary, 8), col($c-tertiary, 7), 85%);
-    box-shadow: inset 2px 1px 16px 0 rgba(20,30,40,.2);
+    box-shadow      : inset 2px 1px 16px 0 rgba(20,30,40,.2);
   }
-  
-  .person__fullname{
+
+  .person__fullname {
     color: col($c-neutral, 1);
   }
-  
-  .person__title{
+
+  .person__title {
     color: col($c-tertiary, 2);
   }
-  
-  .person__organization{
-    color:  col($c-tertiary, 2);
-  }
-  
-  .person__bio{
-    color:  col($c-secondary, 1);
+
+  .person__organization {
+    color: col($c-tertiary, 2);
   }
 
+  .person__bio {
+    color: col($c-secondary, 1);
+  }
 }
 
-.people--accordion.people--col-tertiary{
-  .person:hover{
-    transition: background-color 0.2s linear;
+.people--accordion.people--col-tertiary {
+  .person:hover {
+    transition      : background-color .2s linear;
     background-color: mix(col($c-tertiary, 8), col($c-tertiary, 7), 95%);
-    box-shadow: inset 3px 2px 17px 0 rgba(20,30,40,.3);
+    box-shadow      : inset 3px 2px 17px 0 rgba(20,30,40,.3);
   }
-
 }

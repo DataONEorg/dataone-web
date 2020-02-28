@@ -1,174 +1,163 @@
 {{- define "main" -}}
 
+  <!-- ========================================== VARIABLES ========================================== -->
 
-<!-- ==========================================
-      VARIABLES
- ========================================== -->
+  <!-- in order to pass on page parameters from within loops -->
+  {{ $page := $.Page }}
 
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := $.Page }} 
+  <!-- webinar parameters -->
+  {{ $webinar := $.Page.Params }}
 
-<!-- webinar parameters -->
-{{ $webinar := $.Page.Params }}
+  <!-- the date and time of the webinar -->
+  {{ $datetime := (time $webinar.webinar_datetime).UTC }}
 
-<!-- the date and time of the webinar -->
-{{ $datetime := (time $webinar.webinar_datetime).UTC }}
+  <!-- the duration of the webinar -->
+  {{ $duration := $webinar.duration }}
 
-<!-- the duration of the webinar -->
-{{ $duration := $webinar.duration }}
+  <!-- the date and time the webinar ends -->
+  {{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
 
-<!-- the date and time the webinar ends -->
-{{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
+  <!-- All the speaker information -->
+  {{ $speakers := slice }}
 
-<!-- All the speaker information -->
-{{ $speakers := slice }}
+  <!-- Speaker full names in an array (for calendar) -->
+  {{ $speakerNames := slice }}
 
-<!-- Speaker full names in an array (for calendar) -->
-{{ $speakerNames := slice }}
+  <!-- Speaker names and biographies as a single string (for calendar) -->
+  {{ $speakerBiosString := "" }}
 
-<!-- Speaker names and biographies as a single string (for calendar) -->
-{{ $speakerBiosString := "" }}
+  <!-- Speaker full names in a comma delimited string -->
+  {{ $speakerListString := ""}}
 
-<!-- Speaker full names in a comma delimited string -->
-{{ $speakerListString := ""}}
-
-<!-- fill in the speaker variables by ranging through the speaker resource pages  -->
-{{ range $webinar.speakers }}
-  {{ $speaker := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
-  {{ $speakers = $speakers | append $speaker.Params }}
-  {{ $speakerNames = $speakerNames | append $speaker.Params.fullname }}
-  <!-- prefer full bio for calendar description -->
-  {{ $bio := "" }}
-  {{ with $speaker.Params.shortbio }}{{$bio = . }}{{ end }}
-  {{ with $speaker.Params.longbio }}{{$bio = . }}{{ end }}
-  {{ with $bio }}
-    {{ $speakerBiosString = print "\n\n" $speakerBiosString $speaker.Params.fullname ": " "\n\n" . "\n\n" }}
+  <!-- fill in the speaker variables by ranging through the speaker resource pages -->
+  {{ range $webinar.speakers }}
+    {{ $speaker := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
+    {{ $speakers = $speakers | append $speaker.Params }}
+    {{ $speakerNames = $speakerNames | append $speaker.Params.fullname }}
+    <!-- prefer full bio for calendar description -->
+    {{ $bio := "" }}
+    {{ with $speaker.Params.shortbio }}{{$bio = . }}
+    {{ end }}
+    {{ with $speaker.Params.longbio }}{{$bio = . }}
+    {{ end }}
+    {{ with $bio }}
+      {{ $speakerBiosString = print "\n\n" $speakerBiosString $speaker.Params.fullname ": " "\n\n" . "\n\n" }}
+    {{ end }}
   {{ end }}
-{{ end }}
-{{ with $speakerNames }}
-  {{ $speakerListString = delimit . ", " " & " }}
-{{ end }}
+  {{ with $speakerNames }}
+    {{ $speakerListString = delimit . ", " " & " }}
+  {{ end }}
 
+  <!-- URL for this page (used in calendar) -->
+  {{ $URL := $page.Permalink }}
 
-<!-- URL for this page (used in calendar) -->
-{{ $URL := $page.Permalink }}
+  <!-- calendar event title -->
+  {{ $calTitle := print "DataONE Webinar: " $webinar.title " - Speakers: " $speakerListString }}
 
-<!-- calendar event title -->
-{{ $calTitle := print "DataONE Webinar: " $webinar.title " - Speakers: " $speakerListString }}
+  <!-- calendar description -->
+  {{ $calDesc := print "To join the call, visit: " $URL "\n\n" $webinar.abstract $speakerBiosString }}
 
-<!-- calendar description -->
-{{ $calDesc := print "To join the call, visit: " $URL "\n\n" $webinar.abstract $speakerBiosString }}
+  <!-- A link to the slides -->
+  {{ $slidesLink := ""}}
+  {{ with $webinar.slides }}{{ $slidesLink = . }}
+  {{ end }}
 
-<!-- A link to the slides -->
-{{ $slidesLink := ""}}
-{{ with $webinar.slides }}{{ $slidesLink = . }}{{ end }}
+  <!-- Zoom meeting ID -->
+  {{ $meetingID := ""}}
+  {{ with $webinar.meetingID }}{{ $meetingID = . }}
+  {{ end }}
 
-<!-- Zoom meeting ID -->
-{{ $meetingID := ""}}
-{{ with $webinar.meetingID }}{{ $meetingID = . }}{{ end }}
+  <!-- Video ID -->
+  {{ $video := "" }}
+  {{ with $webinar.vimeoID }}{{ $video = . }}
+  {{ end }}
 
-<!-- Video ID -->
-{{ $video := "" }}
-{{ with $webinar.vimeoID }}{{ $video = . }}{{ end }}
+  <!-- status defines whether this webinar is upcoming, happening now, or past -->
+  {{ $status := partial "functions/getWebinarStatus" $webinar }}
+  <!-- Set the pill text based on status -->
+  {{ $pillBlock := partial "functions/getWebinarPill" $status }}
 
-<!-- status defines whether this webinar is upcoming, happening now, or past -->
-{{ $status := partial "functions/getWebinarStatus" $webinar }}
-<!-- Set the pill text based on status -->
-{{ $pillBlock := partial "functions/getWebinarPill" $status }}
+  <!-- add status as a modifier class -->
+  {{ $classes := "" }}
+  {{ with $status }}
+    {{ $classes = print $classes " webinar--st-" $status }}
+  {{ end }}
 
+  <!-- ========================================== BLOCKS ========================================== -->
 
-<!-- add status as a modifier class -->
-{{ $classes := "" }}
-{{ with $status }}
-  {{ $classes = print $classes " webinar--st-" $status }}
-{{ end }}
+  <div class="webinar{{ $classes }}">
+    <!-- HEADER =============== -->
+    <div class="webinar__section-1">
+      <div class="webinar__section-1-inner">
+        {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
+        {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
+        {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
+        {{ partial "blocks/header/header--webinar.html" (dict "Block" $headerBlock "Page" $.Page) }}
+      </div>
+    </div>
+    <div class="webinar__section-2">
+      <section class="webinar__section-2-inner">
+        {{ if eq $status "past" }}
+          <div class="webinar__video">
 
+            <!-- VIDEO ... =============== -->
+            <!-- video icon here -->
+            {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
+            {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
+            {{ $videoBlock := dict "ID" $video }}
 
+            <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span>
+              Watch previously recorded video</span>
+            {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
 
-<!-- ==========================================
-      BLOCKS
- ========================================== -->
+            <!-- SLIDES =============== -->
+            <div class="webinar__slides">
+              {{ if $slidesLink }}
+                {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
+                {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+              {{ end }}
+            </div>
 
-<div class="webinar{{ $classes }}">
-  <!--  HEADER
-  =============== -->
-  <div class="webinar__section-1">
-    <div class="webinar__section-1-inner">
-      {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
-      {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
-      {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
-      {{ partial "blocks/header/header--webinar.html" (dict "Block" $headerBlock "Page" $.Page) }}
+            <!-- TODO, disqus here -->
+
+          </div>
+          <!-- show add to calendar button when status is upcoming -->
+        {{ else if eq $status "upcoming" }}
+
+          <!-- ADD TO CALENDAR =============== -->
+
+          <!-- TODO: -->
+          <!-- 'Webinar starts in X days." -->
+          <!-- use datetime block with type = "countdown" -->
+
+          <figure class="webinar__figure" title="Add to calendar">
+            {{ partial "svg/add2cal.svg" }}
+          </figure>
+
+          {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
+          {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
+
+        {{ else if eq $status "happening-now" }}
+          {{ with $meetingID }}
+
+            <figure class="webinar__figure" title="Add to calendar">
+              {{ partial "svg/join-webinar.svg" }}
+            </figure>
+
+            {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
+          {{ end }}
+
+          <!-- SLIDES =============== -->
+          {{ if $slidesLink }}
+            <div class="webinar__slides">
+              {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
+              {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+            {{ end }}
+          </div>
+
+        {{ end }}
+      </section>
     </div>
   </div>
-  <div class="webinar__section-2">
-    <section class="webinar__section-2-inner">
-      {{ if eq $status "past" }}
-      <div class="webinar__video">
-        
-        <!--  VIDEO ...
-        =============== -->
-        <!-- video icon here -->
-        {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
-        {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
-        {{ $videoBlock := dict "ID" $video }}
-        
-        <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span> Watch previously recorded video</span>
-        {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
-
-        <!--  SLIDES
-        =============== -->
-        <div class="webinar__slides">
-        {{ if $slidesLink }}
-          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
-          {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-        {{ end }}
-        </div>
-        
-        <!-- TODO, disqus here -->
-        
-      </div>
-      <!-- show add to calendar button when status is upcoming -->
-      {{ else if eq $status "upcoming" }}
-
-        <!--  ADD TO CALENDAR
-        =============== -->
-        
-        <!-- TODO:  -->
-        <!-- 'Webinar starts in X days." -->
-        <!-- use datetime block with type = "countdown" -->
-        
-        <figure class="webinar__figure" title="Add to calendar">
-          {{ partial "svg/add2cal.svg" }}
-        </figure>
-        
-        {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
-        {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
-
-      
-      {{ else if eq $status "happening-now" }}
-        {{ with $meetingID }}
-        
-        
-        <figure class="webinar__figure" title="Add to calendar">
-          {{ partial "svg/join-webinar.svg" }}
-        </figure>
-        
-        {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
-        {{ end }}
-
-        <!--  SLIDES
-        =============== -->
-        {{ if $slidesLink }}
-        <div class="webinar__slides">
-          {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
-          {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-        {{ end }}
-        </div>
-        
-        
-      {{ end }}
-    </section>
-  </div>
-</div>
 
 {{- end -}}

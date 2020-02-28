@@ -1,0 +1,34 @@
+---
+label: Accordion
+hide_body: true
+display_field: text
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: accordion
+- type: blocks
+  name: header
+  label: Header
+  template_types:
+  - feature-simple
+  - markdown
+  - features-list
+  - feature-detailed
+  - image
+  - button
+- type: blocks
+  name: content
+  label: Content
+  template_types:
+  - feature-simple
+  - markdown
+  - features-list
+  - feature-detailed
+  - image
+  - button
+  - checklist
+  - timeline
+  - columns
+  

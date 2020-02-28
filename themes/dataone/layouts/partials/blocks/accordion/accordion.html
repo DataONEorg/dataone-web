@@ -1,27 +1,48 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "accordion" }}
 
+<!-- heading: the part of the accordion that's always shown -->
 {{ $heading := "Heading" }}
-{{ with .Block.heading }}{{ $heading = . }}{{ end }}
+{{ with .Block.heading }}
+  <!-- if the heading is a block, render the block -->
+  {{ if reflect.IsMap . }}
+    {{ if .template }}
+      {{ $heading = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+    {{ end }}
+    <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
+  {{ else }}
+    {{ $heading = . }}
+  {{ end }}
+{{ end }}
 
+<!-- content: the part of the accordion that can be hidden or shown -->
 {{ $content := "content" }}
-{{ with .Block.content }}{{ $content = . }}{{ end }}
+{{ with .Block.content }}
+  <!-- if the content is a block, render the block -->
+  {{ if reflect.IsMap . }}
+    {{ if .template }}
+      {{ $content = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+    {{ end }}
+    <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
+  {{ else }}
+    {{ $content = . }}
+  {{ end }}
+{{ end }}
 
+<!-- classes: classes to conditionally add to the accordion -->
 {{ $classes := "" }}
 {{ with .Block.color }}
   {{ $classes = print $classes "accordion--col-" . }}
 {{ end }}
 
-<div data-aria-accordion class="{{$classes}}">
-  <div class="accordion__heading-content">
+<div data-aria-accordion="data-aria-accordion" class="{{$classes}}">
+  <div data-aria-accordion-heading="data-aria-accordion-heading">
     {{ $heading }}
   </div>
-  <div data-aria-accordion-heading>
-  </div>
-  <div data-aria-accordion-panel>
+  <div data-aria-accordion-panel="data-aria-accordion-panel">
     {{ $content }}
   </div>
-  <!-- 
-    repeat for as many accordion panels needed
-  -->
+  <!-- if needed, the pattern above could be repeated for to add multiple accordion panels -->
 </div>
