@@ -9,9 +9,56 @@ fields:
   hidden: true
   default: button
 - type: select
-  label: Button Type
+  name: html_tag
+  label: HTML Tag
+  description: For semantic HTML, whether teh button should be built using an anchor tag or a button tag
+  hidden: true
+  default: a
+  config:
+    source:
+      type: simple
+    options:
+    - 'a'
+    - 'button'
+- type: text
+  name: id
+  label: ID
+  hidden: true
+  default: ""
+  description: An optional identifier to add to the button
+  hidden: true
+- type: select
+  name: type_attr
+  label: Button Type Attribute
+  hidden: true
+  default: button
+  config:
+    source:
+      type: simple
+    options:
+    - submit
+    - button
+    - reset
+  description: For buttons with the button tag, which value to assign to the type attribute
+- type: select
+  label: Type
   name: type
-  description: The type of button; determines how the button is styled
+  description: The type of button. This changes what type of content the button will link to. For 'subscribe form', the page must include a 'subscribe form' block.
+  default: 'internal page'
+  config:
+    source:
+      type: simple
+    options:
+    - 'internal page'
+    - 'external website'
+    - 'add to calendar'
+    - 'subscribe form'
+    - 'contact'
+    - 'donate'
+- type: select
+  label: Color
+  name: color
+  description: The theme color of the button.
   default: secondary
   config:
     source:
@@ -25,20 +72,15 @@ fields:
   label: Button text
   name: text
   description: The text inside the button
-- name: external_website
-  type: boolean
-  label: Link to an external website?
-  description: If set to true, the button will lead to an external website. If false,
-    button leads to another page on the website.
 - type: text
   label: External link
-  name: link
+  name: external_link
   description: A link outside the website to which the button should navigate. Must
     start with http:// or https://
   showOnly:
-    field: external_website
-    value: true
-- name: website_link
+    field: type
+    value: 'external website'
+- name: internal_link
   type: select
   default: []
   config:
@@ -52,8 +94,48 @@ fields:
   label: Page to navigate to
   description: The page that the button should navigate to when clicked
   showOnly:
-    field: external_website
-- type: text
-  label: Button Class
-  name: class
-  description: An optional additional CSS class to add to the button
+    field: type
+    value: 'internal website'
+- name: icon
+  type: field_group
+  fields:
+  - name: icon
+    type: include
+    template: icon
+    label: Icon
+    description: An optional icon to display to the left of the button text
+  label: Button
+  description: An optional button that leads to more information about a topic related
+    to the event
+- name: event
+  type: field_group
+  label: Event details
+  description: Event information used to create an event in the user's calendar
+  showOnly:
+    field: type
+    value: 'add to calendar'
+  config: {}
+  fields:
+  - type: text
+    name: title
+    label: Event name
+    default: "DataONE Event"
+    description: The name of the event that will be displayed in the calendar.
+  - type: text
+    name: description
+    label: Description
+    default: ""
+    description: A description of the event.
+  - type: text
+    name: URL
+    label: URL
+    default: ""
+    description: "A link to more details about the event"
+  - type: datetime
+    name: start
+    label: Start time
+    description: The date and time the event begins. Use the time that the event happens in your current timezone.
+  - type: datetime
+    name: end
+    label: End time
+    description: The date and time the event is expected to end. Use the time that the event ends in your current timezone.

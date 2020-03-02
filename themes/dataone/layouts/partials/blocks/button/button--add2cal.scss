@@ -1,0 +1,77 @@
+.add2cal {
+  width   : 180px;
+  height  : 40px;
+  margin  : 0 auto;
+  position: relative;
+
+  &__item {
+    text-align: center;
+    height    : auto;
+    display   : block;
+    position  : relative;
+    margin    : 2px;
+    width     : calc(100% - 2px);
+  }
+
+  &__link {
+    @include f-common;
+    margin         : 0;
+    font-size      : .9rem;
+    line-height    : 1.5;
+    text-transform : uppercase;
+    font-weight    : 400;
+    letter-spacing : .03em;
+    display        : block;
+    text-decoration: none;
+    color          : $c-foreground-subtle;
+    white-space    : nowrap;
+    padding        : .5rem 0;
+
+    &:hover {
+      background: col($c-secondary, 1);
+    }
+  }
+
+  &__menu-arrow {
+    bottom           : -16px;
+    transform        : translate(-50%, 0);
+    left             : 50%;
+    position         : absolute;
+    margin           : 0 0 0 -6px;
+    width            : 12px;
+    height           : 12px;
+    -webkit-transform: rotate(45deg);
+    transform        : rotate(45deg);
+    border-radius    : 4px 0 0 0;
+    background       : $c-background;
+    box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
+    opacity          : 0;
+  }
+  // show menu arrow when menu is expanded
+  &__button[aria-expanded="true"] + .add2cal__menu-arrow {
+    opacity   : 1;
+    transition: opacity .2s 0s ease-in-out;
+  }
+
+  &__links {
+    z-index         : 0;
+    background      : white;
+    transition      : transform .5s, opacity .1s;
+    transform       : translateY(-5%);
+    width           : 100%;
+    opacity         : 0;
+    max-height      : 0;
+    background-color: #fff;
+    border-radius   : 4px;
+    box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
+    padding         : 1rem 0;
+    margin          : 8px 0 0;
+
+    &[aria-hidden="false"] {
+      max-height: 1000px;
+      transform : translateY(0);
+      opacity   : 1;
+      transition: max-height 1s, opacity .2s .05s;
+    }
+  }
+}

@@ -16,16 +16,14 @@ header:
   intro: Everything you need to support your research with enhanced services from
     DataONE.
   buttons:
-  - template: button-join-form
-    type: primary
-    link: JoinFormLink
+  - template: button
+    type: subscribe form
+    color: primary
     text: Join the waitlist
-    class: ''
-  - template: button-contact
-    type: secondary
-    link: ContactUsLink
+  - template: button
+    type: contact
+    color: secondary
     text: Contact us
-    class: ''
 page_sections:
 - template: section
   type: default
@@ -92,17 +90,6 @@ page_sections:
           name: checkmark
         text: Setup in minutes with the easy user interface
         headline: Online portal editor
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 - template: section
   type: quaternary-light
   title: Make your data FAIR
@@ -111,11 +98,10 @@ page_sections:
     Get reports for individual datasets, portal collections, or an entire repository.
   button:
     template: button
-    type: tertiary
-    link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
+    type: external website
+    color: tertiary
     text: Learn more about FAIR
-    class: ''
-    external_website: true
+    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
   icon:
     template: ''
     name: ''
@@ -161,12 +147,6 @@ page_sections:
     size: ''
     style: ''
   intro: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 - template: section
   type: secondary-medium
   title: Need more? Add a dedicated hosted repository
@@ -177,12 +157,10 @@ page_sections:
     to meet your communities’ needs.
   button:
     template: button
-    type: tertiary
-    link: ''
+    type: internal page
+    color: tertiary
     text: More about hosted repositories
-    class: ''
-    external_website: false
-    website_link: 'hostedrepo.md'
+    internal_link: 'hostedrepo.md'
   icon:
     template: ''
     name: ''
@@ -205,12 +183,6 @@ page_sections:
     precheck_hostedrepo: false
     precheck_plus: true
     precheck_newsletter: false
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 menu:
   footer:
     weight: 1
@@ -218,5 +190,4 @@ menu:
     weight: 1
     name: Plus
 draft: false
-
 ---

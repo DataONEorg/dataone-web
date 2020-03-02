@@ -27,11 +27,10 @@ page_sections:
     - Enhance collaboration
   button:
     template: button
-    type: secondary
+    color: secondary
     text: More about network membership
-    external_website: false
-    website_link: "joinus.md"
-    
+    type: internal page
+    internal_link: "joinus.md"
 - template: section
   type: secondary-medium
   title: Our current members

@@ -15,13 +15,12 @@ page_sections:
   blocks:
   - template: logos-bar
     button:
-      class: ''
-      link: ''
       template: button
+      type: internal page
+      color: quaternary
       text: Join our network of members
-      type: quaternary
-      external_website: false
-      website_link: "/network/network.md"
+      internal_link: "/network/network.md"
+      external_link:
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
@@ -82,14 +81,6 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
 - template: section
   type: secondary-light
   title: Build your knowledge
@@ -123,14 +114,6 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
 - template: section
   type: default
   blocks:
@@ -151,13 +134,12 @@ page_sections:
       among many others.
     type: right
     button:
-      class: ''
-      link: https://github.com/DataONEorg
       template: button
+      type: external website
+      color: tertiary
       text: DataONE on Github
-      type: tertiary
-      external_website: true
-      website_link: ''
+      internal_link: 
+      external_link: https://github.com/DataONEorg
     details: []
   - template: feature-detailed
     headline: Universal access to data
@@ -171,24 +153,21 @@ page_sections:
       tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
     type: left
     button:
-      class: ''
-      link: ''
       template: button
+      type: internal page
+      color: tertiary
       text: More about DataONE
-      type: tertiary
-      external_website: false
-      website_link: "/about/about.md"
+      internal_link: "/about/about.md"
+      external_link:
 - template: section
   type: quaternary-light
   title: Contribute
   intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
   button:
     template: button
-    external_website: true
-    type: tertiary
-    link: https://giving.ucsb.edu/Funds/Give?id=353
+    type: donate
+    color: tertiary
     text: Donate
-    class: ''
 - template: section
   type: bold
   title: Interested in services by DataONE?
@@ -205,14 +184,5 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
 draft: false
-
 ---

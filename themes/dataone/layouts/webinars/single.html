@@ -61,6 +61,12 @@
   {{ $slidesLink := ""}}
   {{ with $webinar.slides }}{{ $slidesLink = . }}
   {{ end }}
+  {{ $slidesHTML := "" }}
+  {{ if $slidesLink }}
+    {{ $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" }}
+    {{ $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+    {{ $slidesHTML = printf `<div class="webinar__slides">%s</div>` $slidesButton | safeHTML }}
+  {{ end }}
 
   <!-- Zoom meeting ID -->
   {{ $meetingID := ""}}
@@ -101,7 +107,6 @@
           <div class="webinar__video">
 
             <!-- VIDEO ... =============== -->
-            <!-- video icon here -->
             {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
             {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
             {{ $videoBlock := dict "ID" $video }}
@@ -111,12 +116,7 @@
             {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
 
             <!-- SLIDES =============== -->
-            <div class="webinar__slides">
-              {{ if $slidesLink }}
-                {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
-                {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-              {{ end }}
-            </div>
+            {{ $slidesHTML }}
 
             <!-- TODO, disqus here -->
 
@@ -134,8 +134,9 @@
             {{ partial "svg/add2cal.svg" }}
           </figure>
 
-          {{ $add2calBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
-          {{ partial "blocks/add2cal/add2cal.html" (dict "Block" $add2calBlock "Page" $page) }}
+          {{ $eventBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
+          {{ $add2calBlock := dict "type" "add to calendar" "color" "primary" "event" $eventBlock }}
+          {{ partial "blocks/button/button.html" (dict "Block" $add2calBlock "Page" $page) }}
 
         {{ else if eq $status "happening-now" }}
           {{ with $meetingID }}
@@ -145,15 +146,11 @@
             </figure>
 
             {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
+
           {{ end }}
 
           <!-- SLIDES =============== -->
-          {{ if $slidesLink }}
-            <div class="webinar__slides">
-              {{ $slidesButtonBlock := dict "link" $slidesLink "text" "View Webinar Slides" "type" "tertiary" }}
-              {{ partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-            {{ end }}
-          </div>
+          {{ $slidesHTML }}
 
         {{ end }}
       </section>

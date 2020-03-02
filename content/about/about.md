@@ -39,11 +39,10 @@ page_sections:
       date: '2009-01-01'
       button:
         template: button
-        type: quaternary
-        class: ''
-        link: https://smartech.gatech.edu/handle/1853/28513
+        type: external website
+        color: quaternary
         text: More about DataNet
-        external_website: true
+        external_link: https://smartech.gatech.edu/handle/1853/28513
       image:
         template: image
         src: "/uploads/800px-Robinson-projection.jpg"
@@ -54,12 +53,6 @@ page_sections:
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
-      button:
-        template: ''
-        type: ''
-        class: ''
-        link: ''
-        text: ''
       image:
         template: ''
         src: ''
@@ -68,12 +61,6 @@ page_sections:
         type: ''
     - date: '2019-01-15'
       title: New leadership transition
-      button:
-        template: ''
-        type: ''
-        class: ''
-        link: ''
-        text: ''
       image:
         template: ''
         src: ''
@@ -88,12 +75,6 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 - template: section
   type: secondary-medium
   title: The people behind the data
@@ -107,23 +88,15 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 - template: section
   type: bold
   title: Contribute
   intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
   button:
     template: button
-    external_website: true
-    type: primary
-    link: https://giving.ucsb.edu/Funds/Give?id=353
+    type: donate
+    color: primary
     text: Donate
-    class: ''
 menu:
   toplevel:
     parent: Organization
@@ -132,5 +105,4 @@ menu:
   footer:
     weight: 10
 draft: false
-
 ---

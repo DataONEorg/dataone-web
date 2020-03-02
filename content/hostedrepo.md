@@ -17,16 +17,14 @@ header:
     text: Coming 2020
     type: secondary
   buttons:
-  - class: ''
-    link: JoinFormLink
-    template: button-join-form
+  - template: button
+    type: subscribe form
+    color: primary
     text: Join the waitlist
-    type: primary
-  - class: ''
-    link: ContactUsLink
-    template: button-contact
+  - template: button
+    type: contact
+    color: secondary
     text: Contact us
-    type: secondary
 page_sections:
 - intro: Let the experts behind DataONE manage and preserve your data, software,
       and derived products with our robust software and hardware.
@@ -52,12 +50,11 @@ page_sections:
       among many others.
     type: right
     button:
-      class: ''
-      link: https://github.com/DataONEorg
+      external_link: https://github.com/DataONEorg
       template: button
       text: DataONE on Github
-      type: tertiary
-      external_website: true
+      color: tertiary
+      type: external website
   - image:
       template: image
       src: "uploads/geographic-replicas.png"
@@ -155,11 +152,10 @@ page_sections:
     Findable, Accessible, Interoperable, and Reusable.
   button:
     template: button
-    external_website: true
-    type: tertiary
-    link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
+    type: external website
+    color: tertiary
     text: Learn more about FAIR
-    class: ''
+    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
   blocks: []
 - template: section
   type: default
@@ -173,12 +169,11 @@ page_sections:
     - template: feature-detailed
       type: top
       button:
-        external_website: true
+        type: external website
         template: button
-        type: tertiary
-        link: https://test.arcticdata.io/submit
+        color: tertiary
+        external_link: https://test.arcticdata.io/submit
         text: See a demo
-        class: ''
       headline: Easy data upload user interface
       text: The user friendly data submission tool helps your researchers effortlessly
         upload data and create metadata to enhance interoperability, reusability,
@@ -194,11 +189,10 @@ page_sections:
       type: top
       button:
         template: button
-        type: tertiary
-        class: ''
-        link: https://releases.dataone.org/online/api-documentation-v2.0.1/apis/index.html
+        color: tertiary
+        external_link: https://releases.dataone.org/online/api-documentation-v2.0.1/apis/index.html
         text: Read the docs
-        external_website: true
+        type: external website
       headline: Advanced API access
       text: Programmatically work with your repository through the DataONE tools in
         R, Python, Matlab, and Java.
@@ -255,12 +249,10 @@ page_sections:
     - Individualized support
   button:
     template: button
-    type: tertiary
-    link: ''
+    color: tertiary
+    type: internal page
     text: Learn more about DataONE Plus
-    class: ''
-    external_website: false
-    website_link: "plus.md"
+    internal_link: "plus.md"
   icon:
     template: ''
     name: ''
@@ -283,12 +275,6 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
 menu:
   footer:
     weight: 2
@@ -296,5 +282,4 @@ menu:
     weight: 2
     name: Hosted Repo
 draft: false
-
 ---

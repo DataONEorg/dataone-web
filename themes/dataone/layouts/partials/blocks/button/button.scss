@@ -1,121 +1,135 @@
 // ==== BUTTON ====
 
-.button{
+.button {
   @include button-reset;
   @include f-common;
-  white-space: nowrap;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  font-size: $fs-button;
+  white-space     : nowrap;
+  font-weight     : 600;
+  text-transform  : uppercase;
+  letter-spacing  : .025em;
+  font-size       : $fs-button;
   background-color: $c-foreground;
-  color: $c-background;
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0px 1.25em;
-  width: fit-content;
-  max-width: calc(100vw - 2.5em);
-  border-radius: 1px;
-  height: 40px;
-  line-height: 40px;
-  text-decoration: none;
-  box-shadow: 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
-  cursor: pointer;
-  text-align: center;
-  
-  &:hover{
+  color           : $c-background;
+  display         : inline-block;
+  overflow        : hidden;
+  text-overflow   : ellipsis;
+  padding         : 0 1.25em;
+  width           : fit-content;
+  max-width       : calc(100vw - 2.5em);
+  border-radius   : 1px;
+  height          : 40px;
+  line-height     : 40px;
+  text-decoration : none;
+  box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+  cursor          : pointer;
+  text-align      : center;
+  display         : flex;
+
+  &:hover {
     background-color: lighten($c-foreground, 1%);
-    transform: translateY(-0.5px);
-    box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+    transform       : translateY(-0.5px);
+    box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+  }
+
+  &__icon {
+    padding: 6px 6px 0 0;
+
+    svg {
+      stroke: white;
+    }
   }
 }
 
-.button--primary {
+.button--col-primary {
   background-color: col($c-primary, 5);
-  color: col($c-primary, 8);
-  
-  &:hover{
+  color           : col($c-primary, 8);
+
+  .button__icon svg {
+    stroke: col($c-primary, 8);
+  }
+
+  &:hover {
     background-color: lighten($c-primary, 1%);
   }
 }
 
-.button--secondary {
+.button--col-secondary {
   background-color: $c-brand;
-  color: $c-background;
-  
-  &:hover{
+  color           : $c-background;
+
+  &:hover {
     background-color: lighten($c-brand, 1%);
   }
 }
 
-.button--tertiary {
+.button--col-tertiary {
   background-color: $c-background;
-  color: $c-secondary;
-  box-shadow: 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
-  
-  &:hover{
+  color           : $c-secondary;
+  box-shadow      : 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
+
+  .button__icon svg {
+    stroke: $c-secondary;
+  }
+
+  &:hover {
     background-color: $c-background;
-    color: lighten($c-secondary, 2%);
-    box-shadow: 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
+    color           : lighten($c-secondary, 2%);
+    box-shadow      : 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
   }
 }
 
-.button--quaternary {
-  white-space: normal;
-  font-size: $fs-button;
+.button--col-quaternary {
+  white-space     : normal;
+  font-size       : $fs-button;
   background-color: transparent;
-  color: $c-secondary;
-  display: inline-block;
-  padding: 0;
-  width: auto;
-  height: auto;
-  line-height: 1.05;
-  box-shadow: none;
-  &:hover{
+  color           : $c-secondary;
+  display         : inline-block;
+  padding         : 0;
+  width           : auto;
+  height          : auto;
+  line-height     : 1.05;
+  box-shadow      : none;
+
+  .button__icon svg {
+    stroke: $c-secondary;
+  }
+
+  &:hover {
     background-color: transparent;
-    color: lighten($c-secondary, 5%);
-    box-shadow: none;
+    color           : lighten($c-secondary, 5%);
+    box-shadow      : none;
   }
 }
-
 // SEARCH BUTTON
-// ToDo: move these styles to button.scss and make a search button modifier
+
 .button--search {
-  
-  margin: 20px auto 0 auto;
-  display: flex;
+  margin       : 20px auto 0;
+  display      : flex;
   align-content: center;
-  padding-top: 6px;
-  fill: $c-background;
-  padding: 10px 12px 35px;
-  
-  @include desktop{
-    padding: 21px 22px 44px;
+  fill         : $c-background;
+  @include desktop {
+    padding  : 21px 22px 44px;
     min-width: 68px;
-    position: absolute;
-    top: -5px;
-    right: -20px;
-    display: inline-block;
+    position : absolute;
+    top      : -5px;
+    right    : -20px;
+    display  : inline-block;
   }
-  
-  .button__text{
-    padding-right: 10px;
-    margin-top: -7px;
+
+  .button__text {
     display: block;
-    
     // visually hidden on desktop
     @include desktop {
-      margin: 0;
-      padding: 0;
-      position: absolute !important;
-      height: 1px; 
-      width: 1px;
-      overflow: hidden;
-      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-      clip: rect(1px, 1px, 1px, 1px);
+      margin     : 0;
+      padding    : 0;
+      position   : absolute !important;
+      height     : 1px;
+      width      : 1px;
+      overflow   : hidden;
+      clip       : rect(1px 1px 1px 1px);
+      /* IE6, IE7 */
+      clip       : rect(1px, 1px, 1px, 1px);
       white-space: nowrap;
     }
   }
-  
 }

@@ -9,8 +9,8 @@ fields:
   hidden: true
   default: accordion
 - type: blocks
-  name: header
-  label: Header
+  name: heading
+  label: Heading
   template_types:
   - feature-simple
   - markdown

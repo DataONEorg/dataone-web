@@ -1,6 +1,7 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
-{{ $buttonParams := dict "text" "search" "icon" "search" "type" "secondary" "class" "search" "htmlTag" "button" "buttontype" "submit"}}
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+{{ $iconBlock := dict "icon" "search" "color" "white" }}
+{{ $buttonParams := dict "type" "search" "text" "search" "icon" $iconBlock "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
 
 {{ $classes := "" }}
 {{ with .Block.type }}

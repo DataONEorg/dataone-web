@@ -30,14 +30,6 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  button:
-    template: ''
-    type: ''
-    class: ''
-    link: ''
-    text: ''
-    external_website: false
-    website_link: ''
 menu:
   toplevel:
     parent: Resources
@@ -46,5 +38,4 @@ menu:
     parent: Resources
     weight: 5
 draft: true
-
 ---

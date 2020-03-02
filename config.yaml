@@ -28,6 +28,7 @@ params:
     of the author(s) and do not necessarily reflect the views of the National Science
     Foundation.'
   contactLink: /about/contact/
+  donateLink: https://giving.ucsb.edu/Funds/Give?id=353
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640

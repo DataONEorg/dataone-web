@@ -6,69 +6,72 @@ draft: true
 layout: markdown
 ---
 
+# MARKDOWN TEST
 
-
-MARKDOWN TEST
-=============
-Snippets
----
+## Snippets
 
 Here are some logos: 
 
-{{< logo >}}
+{{&lt; logo >}}
 
-{{< logo type="globe-only">}}
+{{&lt; logo type="globe-only">}}
 
-{{< logo type ="homepage">}}
-
-Here is a button:
-
-{{< button text="Button text" type="primary" external_website="true" link="https://www.dataone.org" website_link="" class="">}}
-
-{{< button text="Contact us" type="secondary" link="ContactUsLink">}}
+{{&lt; logo type ="homepage">}}
 
 Here is a pill
 
-{{< pill text="Text here" type="primary" >}}
+{{&lt; pill text="Text here" type="primary" >}}
 
-#Just a tag
+\#Just a tag
 Also a # tag.
+
 # Alternate H1
+
 ## Alternate H2
+
 ### H3
+
 ###### H6
 
-* This is a list element
-+ This is also a list element
-- This is also a list element
-- This is a sublist element
-+ Also a sublist element
-    + Sublist level 2
-    1. Numbered sublist
-    2. Next item
-       3. Next indent level
+-   This is a list element
 
-1. Numbered sublist
-2. Next item
-    1. Next indent level
-       * Sublist non numbered
-3. Back
 
-Horizontal Lines:
-------------------------------------
-***********************************
-***
----
+-   This is also a list element
+
+
+-   This is also a list element
+-   This is a sublist element
+
+
+-   Also a sublist element
+    -   Sublist level 2
+    1.  Numbered sublist
+    2.  Next item
+        3.  Next indent level
+
+1.  Numbered sublist
+2.  Next item
+    1.  Next indent level
+        -   Sublist non numbered
+3.  Back
+
+## Horizontal Lines:
+
+* * *
+
+* * *
+
+* * *
 
 > Block Quote
 
-*Italics*
+_Italics_
 
 _Italics_
 
-__Bold__
+**Bold**
 
-___Bold+Italics___
+**_Bold+Italics_**
 
 this_is_not_emphasis
 
@@ -93,64 +96,60 @@ Sample inline code `a++` can be specified here.
 ![Alt Text](/path/to/image "Optional Tooltip")
 
 HTML Escaped characters:
-  
-Copyright: &copy;
 
-Registered: &reg;
+Copyright: ©
 
-Trademark: &trade;
+Registered: ®
+
+Trademark: ™
 
 Less Than: &lt;
 
-Greater Than: &gt;
+Greater Than: >
 
-Ampresand: &gt;
+Ampresand: >
 
-Smiley: &#x1F604;
+Smiley: 😄
 
-Embedded HTML: x<sup<>2</sup<>
-  
-  
-Floating image via HTML: <img< src="/image/logo.png"< style="float: right; padding: 0 0 0 10px"<> Follow up text after the image. This honors the floats and wraps around the image, automatically going into the next line.
+Embedded HTML: x&lt;sup&lt;>2&lt;/sup&lt;>
 
+Floating image via HTML: &lt;img&lt; src="/image/logo.png"&lt; style="float: right; padding: 0 0 0 10px"&lt;> Follow up text after the image. This honors the floats and wraps around the image, automatically going into the next line.
 
 Table:
- 
+
    Name | Job
---------|------
+\--------|------
    Alex | Web Developer
     Bob | Sys Admin
    Gabby| Technical Writer
- 
+
 Alternate Table:
- 
+
 |  Name | Mantra |
 |  ---  |   ---  |
 | Alex  | There must be a better way. |
 | Bob   | Play it safe. |
 | Gabby | Try everything, but do what you like. |
- 
+
 Acme Website task list
-- [x] Get the home page up
-- [x] Update Privacy Policy and Terms of Use
-- [ ] Add the about page
-- [ ] Start the blog
-- [ ] Enable contact us
- 
-```js
+\- [x] Get the home page up
+\- [x] Update Privacy Policy and Terms of Use
+\- [ ] Add the about page
+\- [ ] Start the blog
+\- [ ] Enable contact us
+
+`js
 var x= 10;
 x++;
-console.log(x);
-```
-
+console.log(x);`
 
 ## Direct Emojis
+
 Smile please :smile:
 
 I :heart: Hugo
 
 Wink :wink:
-
 
 ## Fractions
 
@@ -161,7 +160,6 @@ Wink :wink:
 Not a Number/5
 
 A link to [Fractions](#fractions)
-
 
 ## Definition Lists
 

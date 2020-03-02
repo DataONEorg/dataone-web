@@ -9,17 +9,15 @@ header:
   title: Become a network member
   intro: DataONE's flexible architecture and software products allow practically any organization wishing to join our network to do so. Get in touch to start the onboarding process, or to find out more.
   buttons:
-  - class: ''
-    link: ContactUsLink
-    template: button-contact
+  - type: contact
+    template: button
     text: Request membership
-    type: primary
-  - class: ''
-    external_website: false
-    website_link: "network.md#section__current-member-nodes"
+    color: primary
+  - type: internal webshite
+    internal_link: "network.md#section__current-member-nodes"
     template: button
     text: See current members
-    type: secondary
+    color: secondary
 page_sections:
 - template: section
   type: default
@@ -48,13 +46,6 @@ page_sections:
       title: Leverage existing cyberinfrastructure
       type: default
     type: left
-    button:
-      template: button
-      class: ''
-      link: 
-      text: 
-      type: tertiary
-      external_website: false
   - template: feature-detailed
     headline: Receive recognition and credit
     text: Your published data products are easily citable. With a broadened exposure, you increase the value of your organization's work by receiving credit through data citations in published literature.
@@ -93,11 +84,10 @@ page_sections:
   title: The onboarding process
   intro: "The path to becoming a network member is divided into four phases: **planning**, **development**, **testing**, and **operating**. We will walk you through each of these steps. If you're eager to read about the process in more detail, see [our member deployment documentation](http://jenkins-1.dataone.org/jenkins/job/DataONE-Operations-Manual/ws/operations/_build/html/member_node_deployment/mn_checklist.html). Otherwise, just send us a request to get started!" 
   button:
-    class: ''
-    link: ContactUsLink
+    type: contact
     template: button
     text: Request membership
-    type: primary
+    color: primary
 menu:
   toplevel:
     weight: 2

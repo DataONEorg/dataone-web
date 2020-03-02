@@ -1,4 +1,4 @@
-<!-- in order to pass on page parameters from within loops  -->
+<!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 
 <!-- If we're showing a duration instead, do this: -->
@@ -6,28 +6,30 @@
 
   {{ $dur := .Block.duration | time.Duration "minute" }}
   {{ $fmt_dur := partial "functions/formatDuration" $dur }}
-  <time  class="datetime datetime--duration" datetime="{{ $fmt_dur.machine }}">
+  <time class="datetime datetime--duration" datetime="{{ $fmt_dur.machine }}">
     <span class="datetime__displaydate">{{ $fmt_dur.human }}</span>
   </time>
-  
-<!-- Otherwise, format as a datetime -->
+
+  <!-- Otherwise, format as a datetime -->
 {{ else }}
 
   <!-- .Block.time - a timestamp in Hugo's TIME.time format -->
   {{ $time := .Block.time }}
 
   <!-- Allow user to select a different timezone -->
-  {{ $change_timezone := false }} <!-- set default -->
+  {{ $change_timezone := false }}
+  <!-- set default -->
   {{ with .Block.change_timezone }}
     {{ $change_timezone = . }}
   {{ end }}
-  
+
   <!-- Localize the time -->
-  {{ $localize := true }} <!-- set default -->
+  {{ $localize := true }}
+  <!-- set default -->
   {{ with .Block.localize }}
     {{ $localize = . }}
   {{ end }}
-  
+
   {{ $classes:= "" }}
   {{ if $change_timezone }}
     {{ $classes = print $classes " datetime--change-timezone" }}
@@ -35,20 +37,12 @@
   {{ if $localize }}
     {{ $classes = print $classes " datetime--localize" }}
   {{ end }}
-  
-  <!-- .Block.format OPTIONS:
-  Any format string, or:
-  Date Long
-    dateFormat: "January 2, 2006"
-  Date Short
-    dateFormatShort: "2 Jan 2006"
-  Date & Time Long
-    datetimeFormat: "January 2, 2006 15:04 MST"
-  Date & Time Short
-    datetimeFormatShort: "Mon 2 Jan 2006 15:04 MST"
-  -->
-  
-  {{ $format := $page.Site.Params.dateFormat }} <!-- set default -->
+
+  <!-- .Block.format OPTIONS: Any format string, or: Date Long dateFormat: "January 2, 2006" Date Short dateFormatShort: "2 Jan 2006" Date & Time Long datetimeFormat: "January 2, 2006 15:04 MST" Date & Time Short datetimeFormatShort: "Mon 2 Jan 2006
+  15:04 MST" -->
+
+  {{ $format := $page.Site.Params.dateFormat }}
+  <!-- set default -->
   {{ with .Block.format }}
     {{ if eq "Date Short" . }}
       {{ $format = $page.Site.Params.dateFormatShort }}
@@ -57,16 +51,14 @@
     {{ else if eq "Date & Time Short" . }}
       {{ $format = $page.Site.Params.datetimeFormatShort }}
     {{ else }}
-      {{ $format = . }} <!-- custom format -->
+      {{ $format = . }}
+      <!-- custom format -->
     {{ end }}
   {{ end }}
 
-<!-- TODO -->
-  <!--  If giving user the option to change the timezone or to localize the time,
-        then display the timezone in the timezone span element. Timezones will
-        be shown as their abbreviation, e.g. "MST"
-        Remove timezone from format string. -->
-  
+  <!-- TODO -->
+  <!-- If giving user the option to change the timezone or to localize the time, then display the timezone in the timezone span element. Timezones will be shown as their abbreviation, e.g. "MST" Remove timezone from format string. -->
+
   {{ $show_timezone := false }}
   {{ $tzFormats := slice "MST" "Z0700" `Z07:00` `Z07` `-0700` `-07:00` `-07` }}
   {{ range $tzFormats }}
@@ -80,35 +72,27 @@
   {{ if $change_timezone }}
     {{ $show_timezone = true }}
   {{ end }}
-  
+
   <!-- format as required for <time> - RFC3339 -->
   {{ $timeHTML := dateFormat "2006-01-02T15:04:03-0700" $time }}
 
   <!-- display format -->
   {{ $timeDisplay := dateFormat $format $time }}
-  
+
   <!-- timezone format -->
   {{ $timezoneDisplay := dateFormat "MST" $time }}
-  
+
   <!-- display format in moment.js format (eg. YYYY-MM-DD ... ) -->
   {{ $jsFormat := partial "functions/goTimeToJsTime.html" $format }}
 
   <time class="datetime{{$classes}}" datetime="{{ $timeHTML }}" data-format="{{ $jsFormat }}">
     <span class="datetime__displaydate">{{ $timeDisplay }}</span>
-    {{ if $show_timezone }}<span class="datetime__timezone">{{ $timezoneDisplay }}</span>{{ end }}
+    {{ if $show_timezone }}
+      <span class="datetime__timezone">{{ $timezoneDisplay }}</span>{{ end }}
     {{ if $change_timezone }}
-      <input class="datetime__tz-input"
-        type="search"
-        id="timezone-finder"
-        placeholder="Enter city or timezone"
-        aria-hidden="true"/>
-      <button
-        class="datetime__button button button--quaternary"
-        aria-label="Change the timezone"
-        aria-expanded="false"
-        aria-controls="timezone-finder"
-        onclick="toggleTimezoneInput(this)">Edit timezone</button>
+      <input class="datetime__tz-input" type="search" id="timezone-finder" placeholder="Enter city or timezone" aria-hidden="true"/>
+      <button class="datetime__button button button--col-quaternary" type="button" aria-label="Change the timezone" aria-expanded="false" aria-controls="timezone-finder" onclick="toggleTimezoneInput(this)">Edit timezone</button>
     {{ end }}
   </time>
-  
+
 {{ end }}
