@@ -1,16 +1,19 @@
-.address{
-  &__delivery-point {
-  }
-  
-  &__city {
-  }
-  
-  &__administrative-area {
-  }
-  
-  &__country{  
-  }
-  
-  &__postal-code{
-  }
+.address {
+  &__delivery-point {}
+
+  &__city {}
+
+  &__administrative-area {}
+
+  &__country {}
+
+  &__postal-code {}
+}
+
+.address--multi-line {
+  display: block;
+}
+
+.address--single-line {
+  display: inline-block;
 }

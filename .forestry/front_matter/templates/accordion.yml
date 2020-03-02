@@ -1,7 +1,7 @@
 ---
 label: Accordion
 hide_body: true
-display_field: text
+display_field: template
 fields:
 - type: text
   name: template

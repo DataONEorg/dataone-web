@@ -1,11 +1,13 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "address" }}
 
 <!-- save block parameters as a variable so we can overwrite it -->
 {{ $addressParams := .Block }}
 
 <!-- classess to add to this block -->
-{{ $classes := "" }}
+{{ $classes := $bn }}
 
 <!-- multi-line or single-line? -->
 {{ $format := .Block.format | default "multi-line" }}
@@ -24,8 +26,7 @@
 {{ $country             := $addressParams.country              | default "" }}
 {{ $postal_code         := $addressParams.postal_code          | default "" }}
 
-<!-- Address part separators depend on which address parts are provided 
-    as well as whether it's a one-line or multi-line address format -->
+<!-- Address part separators depend on which address parts are provided as well as whether it's a one-line or multi-line address format -->
 
 {{ $break         :=  "<br>" | safeHTML }}
 {{ $comma         :=  ", " }}
@@ -62,23 +63,23 @@
   {{ $countryPostalSep   = $comma }}
 {{ end }}
 
-<address class="address{{ $classes }}">
+<address class="{{ $classes }}">
   {{- with $name -}}
-    <span class="address__name">{{ . }}</span>{{ $nameEnd }}
+    <span class="{{ $bn }}__name">{{ . }}</span>{{ $nameEnd }}
   {{- end -}}
   {{ range $delivery_points }}
-    <span class="address__delivery-point">{{ . }}</span>{{ $deliveryPointEnd }}
+    <span class="{{ $bn }}__delivery-point">{{ . }}</span>{{ $deliveryPointEnd }}
   {{ end }}
   {{- with $city -}}
-    <span class="address__city">{{ . }}</span>{{ $cityAdminSep }}
+    <span class="{{ $bn }}__city">{{ . }}</span>{{ $cityAdminSep }}
   {{- end -}}
   {{- with $administrative_area -}}
-    <span class="address__administrative-area">{{ . }}</span>{{ $cityAdminEnd }}
-  {{- end -}} 
+    <span class="{{ $bn }}__administrative-area">{{ . }}</span>{{ $cityAdminEnd }}
+  {{- end -}}
   {{ with $country }}
-    <span class="address__country">{{ . }}</span>{{ $countryPostalSep }}
+    <span class="{{ $bn }}__country">{{ . }}</span>{{ $countryPostalSep }}
   {{ end }}
   {{ with $postal_code }}
-    <span class="address__postal-code">{{ . }}</span>
+    <span class="{{ $bn }}__postal-code">{{ . }}</span>
   {{ end }}
 </address>
