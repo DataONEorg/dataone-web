@@ -1,6 +1,6 @@
 ---
-label: _page_webinars
-hide_body: false
+label: "\U0001F4C4Webinars Page"
+hide_body: true
 display_field: title
 fields:
 - type: datetime
