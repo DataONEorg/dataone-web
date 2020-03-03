@@ -1,0 +1,40 @@
+---
+label: _page_webinars
+hide_body: true
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: webinar_datetime
+  label: webinar_datetime
+- type: number
+  name: duration
+  label: duration
+- type: text
+  name: status
+  label: status
+- type: list
+  name: tags
+  label: tags
+- type: number
+  name: vimeoID
+  label: vimeoID
+- type: text
+  name: meetingID
+  label: meetingID
+- type: file
+  name: slides
+  label: slides
+- type: textarea
+  name: short_abstract
+  label: short_abstract
+- type: textarea
+  name: abstract
+  label: abstract
+- type: list
+  name: speakers
+  label: speakers
