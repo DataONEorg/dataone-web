@@ -8,7 +8,8 @@ header:
   type: text-only
   color: secondary
   title: Get in touch
-  intro: "We're here to help and answer any question you might have. We look forward to hearing from you!"
+  intro: We're here to help and answer any question you might have. We look forward
+    to hearing from you!
   pill:
     template: ''
     type: ''
@@ -35,6 +36,5 @@ menu:
   footer:
     parent: Organization
     weight: 8
-draft: true
 
 ---
