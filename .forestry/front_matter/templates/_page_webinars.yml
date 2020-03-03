@@ -101,7 +101,7 @@ fields:
   config:
     min: 
     max: 
-    labelField: 
+    labelField: speaker
   label: Speakers
   description: The people giving the talk. To add people to the list of options, first
     add them in the "People" section (see sidebar)
