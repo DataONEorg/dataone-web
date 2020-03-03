@@ -50,6 +50,8 @@ sections:
   label: Webinars
   create: all
   match: "**/*"
+  templates:
+  - _page_webinars
 - type: directory
   path: content/news
   label: News
