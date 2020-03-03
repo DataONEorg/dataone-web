@@ -21,6 +21,5 @@ abstract: |-
 speakers:
 - people/suzie_allard.md
 - people/rong_tang.md
-Slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"
 
 ---

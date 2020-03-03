@@ -2,7 +2,7 @@
 avatar: "/uploads/rong_tang.png"
 fullname: Rong Tang
 firstname: Matthew
-title: Associate Professor
+role: Associate Professor
 organization: School of Library and Information Science (SLIS), Simmons University
 shortbio: 
 longbio: |-

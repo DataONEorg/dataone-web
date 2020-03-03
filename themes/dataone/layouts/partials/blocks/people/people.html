@@ -1,5 +1,5 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
 
 <!-- whether or not to show photos for each person -->
 {{ $show_avatars := .Block.show_avatars }}
@@ -16,12 +16,14 @@
 {{ if .Block.team_members }}
   {{ $teamPages := where ($page.Site.GetPage "/people").Resources "Params.organization" "DataONE" }}
   {{ range $teamPages }}
-      {{ $people = $people | append .Params }}
+    {{ $people = $people | append .Params }}
   {{ end }}
 {{ else }}
   {{ range .Block.people }}
-  {{ $person := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
-  {{ $people = $people | append $person.Params }}
+    {{ $person := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "people/" . ) }}
+    {{ if $person }}
+      {{ $people = $people | append $person.Params }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
@@ -48,104 +50,102 @@
 {{ end }}
 {{ with .Block.color }}
   {{ $classes = print $classes " people--col-" . }}
-  {{ $color = . }} <!-- to passs on to accordion block within range  -->
+  {{ $color = . }}
+  <!-- to passs on to accordion block within range -->
 {{ end }}
 
 <div class="people{{$classes}}">
-  
-<!-- For each person ... -->
-{{ range $people }}
 
-  <!-- Get the desired biography length for each person -->
-  {{ $bio := .shortbio }}
-  <!-- If long bio is preferred, use the long_bio but default to short_bio -->
-  {{ if $show_longbio }}
-    {{ with .longbio}}
-      {{ $bio = . }}
+  <!-- For each person ... -->
+  {{ range $people }}
+
+    <!-- Get the desired biography length for each person -->
+    {{ $bio := .shortbio }}
+    <!-- If long bio is preferred, use the long_bio but default to short_bio -->
+    {{ if $show_longbio }}
+      {{ with .longbio}}
+        {{ $bio = . }}
+      {{ end }}
+    {{ else }}
+      <!-- If short bio is preferred but there isn't one, then truncate long bio -->
+      {{ if not .shortbio }}
+        {{ $split := split .shortbio ". " }}
+        <!-- limit absolute length to 250 characters -->
+        <!-- Get the first one to three full sentences -->
+        {{ $truncBio := .longbio | truncate 250 | findRE "(.*?[\\.\\!\\?]\\B){1,3}"}}
+        {{ $bio =  index $truncBio 0 }}
+      {{ end }}
     {{ end }}
-  {{ else }}
-  <!-- If short bio is preferred but there isn't one, then truncate long bio -->
-    {{ if not .shortbio }}
-      {{ $split := split .shortbio ". " }}
-      <!-- limit absolute length to 250 characters -->
-      <!-- Get the first one to three full sentences -->
-      {{ $truncBio := .longbio | truncate 250 | findRE "(.*?[\\.\\!\\?]\\B){1,3}"}}
-      {{ $bio =  index $truncBio 0 }}
+
+    <!-- Generate HTML in parts so we can arrange differently for each type -->
+    {{ $img := "" }}
+    {{ if and ($show_avatars) (ne .avatar "") (ne .avatar " ") }}
+      {{ $img = printf "<img class='person__avatar' src = '%s' alt='%s' title='%s'>" .avatar .fullname .fullname | safeHTML }}
     {{ end }}
-  {{ end }}
-  
-  <!-- Generate HTML in parts so we can arrange differently for each type -->
-  {{ $img := "" }}
-  {{ if and ($show_avatars) (ne .avatar "") (ne .avatar " ") }}
-    {{ $img = printf "<img class='person__avatar' src = '%s' alt='%s' title='%s'>" .avatar .fullname .fullname | safeHTML }}
-  {{ end }}
-  
-  {{ $name := "" }}
-  {{ with .fullname }}
-    {{ $name = printf "<h3 class='person__fullname'>%s</h3>" . | safeHTML }}
-  {{ end }}
-  
-  {{ $title := "" }}
-  {{ with .title }}
-    {{ $title = printf "<h4 class='person__title'>%s</h4>" . | safeHTML }}
-  {{ end }}
-  
-  {{ $organization := "" }}
-  {{ if and (.organization) ($show_organization) }}
-    {{ $organization = printf "<h4 class='person__organization'>%s</h4>" .organization | safeHTML }}
-  {{ end }}
-  
-  {{ $HTMLbio := "" }}
-  {{ with $bio }}
-    {{ $HTMLbio = printf `<div class="person__bio">%s</div>` ( . | markdownify ) | safeHTML }}
-  {{ end }}
-  
-  {{ $contact := "" }}
-  {{ with .email }}
-    {{ $contact = printf `<div class="person__contact"><address><a class="person__email" href="mailto:%s">%s</a></address></div>` . . | safeHTML }}
-  {{ end }}
-  
 
-  
-  <!-- Start person layout -->
-  <div class="person">
-    
-  <!-- accordion layout -->
-  {{ if eq $type "accordion" }}
-    
-    {{ $heading := printf `<div class = "person__heading">%s<div class="person__info">%s%s%s</div></div>` $img $name $title $organization | safeHTML}}
-    {{ $content := print $HTMLbio $contact | safeHTML}}
-    {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" $color)) }}
-    
-  <!-- simple layout -->
-  {{ else if eq $type "simple" }}
-  
-    {{ $img  }}
-    <div class="person__info">
-      {{ $name }}
-    </div>
-  
-  <!-- default layout -->
-  {{ else }}
-  
-    <div class = "person__heading">
-      {{ $img  }}
-      <div class="person__info">
-        {{ $name }}
-        {{ $title }}
-        {{ $organization }}
-      </div>
-    </div>
-    {{ $HTMLbio }}
-    {{ $contact }}
-  
-  {{ end }}
-    
-  
-  <!-- end of person div -->
-  </div>
-  
-{{ end }}
+    {{ $name := "" }}
+    {{ with .fullname }}
+      {{ $name = printf "<h3 class='person__fullname'>%s</h3>" . | safeHTML }}
+    {{ end }}
 
-<!-- end of people div -->
+    {{ $role := "" }}
+    {{ with .role }}
+      {{ $role = printf "<h4 class='person__role'>%s</h4>" . | safeHTML }}
+    {{ end }}
+
+    {{ $organization := "" }}
+    {{ if and (.organization) ($show_organization) }}
+      {{ $organization = printf "<h4 class='person__organization'>%s</h4>" .organization | safeHTML }}
+    {{ end }}
+
+    {{ $HTMLbio := "" }}
+    {{ with $bio }}
+      {{ $HTMLbio = printf `<div class="person__bio">%s</div>` ( . | markdownify ) | safeHTML }}
+    {{ end }}
+
+    {{ $contact := "" }}
+    {{ with .email }}
+      {{ $contact = printf `<div class="person__contact"><address><a class="person__email" href="mailto:%s">%s</a></address></div>` . . | safeHTML }}
+    {{ end }}
+
+    <!-- Start person layout -->
+    <div class="person">
+
+      <!-- accordion layout -->
+      {{ if eq $type "accordion" }}
+
+        {{ $heading := printf `<div class = "person__heading">%s<div class="person__info">%s%s%s</div></div>` $img $name $role $organization | safeHTML}}
+        {{ $content := print $HTMLbio $contact | safeHTML}}
+        {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" $color)) }}
+
+        <!-- simple layout -->
+      {{ else if eq $type "simple" }}
+
+        {{ $img  }}
+        <div class="person__info">
+          {{ $name }}
+        </div>
+
+        <!-- default layout -->
+      {{ else }}
+
+        <div class="person__heading">
+          {{ $img  }}
+          <div class="person__info">
+            {{ $name }}
+            {{ $role }}
+            {{ $organization }}
+          </div>
+        </div>
+        {{ $HTMLbio }}
+        {{ $contact }}
+
+      {{ end }}
+
+      <!-- end of person div -->
+    </div>
+
+  {{ end }}
+
+  <!-- end of people div -->
 </div>

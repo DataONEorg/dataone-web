@@ -15,12 +15,12 @@ fields:
   name: firstname
   label: First Name
   description: The first name of the person
-- name: title
+- name: role
   type: text
   config:
     required: false
-  label: Title
-  description: The person's role or title
+  label: Role
+  description: The person's role or professional title
 - name: organization
   type: text
   config:

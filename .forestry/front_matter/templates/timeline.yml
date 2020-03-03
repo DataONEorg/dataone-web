@@ -9,8 +9,8 @@ fields:
   default: timeline
 - name: event
   type: field_group_list
-  label: Event
-  description: A single event in a timeline
+  label: Events
+  description: The events to include in the timeline.
   fields:
   - name: event
     type: include

@@ -45,7 +45,7 @@
     color     : $c-foreground-emphasis;
   }
 
-  &__title {
+  &__role {
     font-size     : .88rem;
     text-transform: uppercase;
     letter-spacing: .05em;
@@ -141,7 +141,7 @@
 
   .person__fullname,
   .person__organization,
-  .person__title {
+  .person__role {
     text-align: left;
   }
 
@@ -209,7 +209,7 @@
     line-height: 1.4;
   }
 
-  .person__title {
+  .person__role {
     font-size: .8rem;
   }
 
@@ -228,7 +228,7 @@
     color: col($c-neutral, 1);
   }
 
-  .person__title {
+  .person__role {
     color: col($c-tertiary, 2);
   }
 
