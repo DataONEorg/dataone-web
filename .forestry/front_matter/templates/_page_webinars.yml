@@ -83,25 +83,14 @@ fields:
     schema:
       format: markdown
 - name: speakers
-  type: field_group_list
-  fields:
-  - name: speaker
-    type: select
-    default: []
-    config:
-      required: false
-      options: []
-      source:
-        type: pages
-        section: people
-        file: 
-        path: 
-    label: Speaker
-    description: The webinar speaker
+  type: list
   config:
-    min: 
-    max: 
-    labelField: speaker
+    use_select: true
+    min: '1'
+    max: '6'
+    source:
+      type: pages
+      section: people
   label: Speakers
-  description: The people giving the talk. To add people to the list of options, first
-    add them in the "People" section (see sidebar)
+  description: To add to the list of speaker options, first add the speaker to the
+    "People" section (see sidebar)
