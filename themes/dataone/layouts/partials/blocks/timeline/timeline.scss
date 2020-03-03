@@ -1,195 +1,107 @@
-
 // =======
 
-
-
-.timeline{
-  
-  position: relative;
-  overflow-x: hidden;
+.timeline {
+  position     : relative;
+  overflow-x   : hidden;
   padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-
+  padding-left : 15px;
+  margin-right : auto;
+  margin-left  : auto;
   // the line for the time line
-	&::before {
-		content: '';
-		background: $c-primary;
-    opacity: 0.5;
-		width: 5px;
-		height: 95%;
-		position: absolute;
-		left: 50px;
-		transform: translateX(-50%);
-    @include desktop{
+  &::before {
+    content   : '';
+    background: $c-primary;
+    opacity   : .5;
+    width     : 5px;
+    height    : 95%;
+    position  : absolute;
+    left      : 50px;
+    transform : translateX(-50%);
+    @include desktop {
       left: 50%;
     }
-	}
-  
-  
-  &__event{
-    width: 100%;
-  	margin-bottom: $intra-section-spacing;
-    
+  }
+
+  &__event {
+    width        : 100%;
+    margin-bottom: $intra-section-spacing;
     // ensure events are in separate 'rows'
     &::after {
       content: '';
       display: block;
-      clear: both;
+      clear  : both;
     }
 
-  	&:nth-child(even) {
-
-  		.timeline__content {
-        float: none;
-  			padding: 40px 20px 10px 20px;
-        @include desktop{
+    &:nth-child(even) {
+      .card {
+        float  : none;
+        padding: 40px 20px 10px;
+        @include desktop {
           float: right;
         }
 
-  			.timeline__date {
+        .card__date {
           right: auto;
-  				left: 0;
-  			}
+          left : 0;
+        }
 
-  			&::after {
-  				content: '';
-  				position: absolute;
-  				border-style: solid;
-  				width: 0;
-  				height: 0;
-  				top: 30px;
-  				left: -15px;
-  				border-width: 10px 15px 10px 0;
-  				border-color: transparent $c-background transparent transparent;
-  			}
-  		}
-  	}
-
-    &:nth-child(odd) {
-
-      .timeline__content {
-        
         &::after {
-          content: '';
-          position: absolute;
+          content     : '';
+          position    : absolute;
           border-style: solid;
-          width: 0;
-          height: 0;
-          top: 30px;
-          left: -15px;
+          width       : 0;
+          height      : 0;
+          top         : 30px;
+          left        : -15px;
           border-width: 10px 15px 10px 0;
           border-color: transparent $c-background transparent transparent;
-          
-          @include desktop{
-            left: auto;
-        		right: -15px;
-        		border-width: 10px 0 10px 15px;
-        		border-color: transparent transparent transparent $c-background;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      .card {
+        &::after {
+          content     : '';
+          position    : absolute;
+          border-style: solid;
+          width       : 0;
+          height      : 0;
+          top         : 30px;
+          left        : -15px;
+          border-width: 10px 15px 10px 0;
+          border-color: transparent $c-background transparent transparent;
+          @include desktop {
+            left        : auto;
+            right       : -15px;
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent $c-background;
           }
         }
       }
-
     }
+  }
 
-  	
-  
-  }
-  
-  &__date {
-    background: $c-secondary;
-  	display: inline-block;
-  	color: white;
-  	padding: 10px;
-  	position: absolute;
-  	top: 0;
-  	right: 0;
-    z-index: 4;
-  }
-  
   &__point {
-    width: 30px;
-    height: 30px;
-    background: $c-primary;
+    width        : 30px;
+    height       : 30px;
+    background   : $c-primary;
     border-radius: 50%;
-    position: absolute;
-    left: 50px;
-    margin-top: 25px;
-    margin-left: -15px;
-    @include desktop{
+    position     : absolute;
+    left         : 50px;
+    margin-top   : 25px;
+    margin-left  : -15px;
+    @include desktop {
       left: 50%;
     }
   }
-  
-  &__content {
-    position: relative;
+
+  .card {
     margin-left: 70px;
-    @include card;
-    
-    @include desktop{
-      max-width: auto;
-			margin-left: 0px;
-      width: 45%;
+    @include desktop {
+      max-width  : auto;
+      margin-left: 0;
+      width      : 45%;
     }
-
   }
-
-  
-  &__title{
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
-  
-  &__description{
-    margin: 0 0 20px;
-    padding: 0;
-  }
-  
-  &__button{
-    margin-bottom: 20px;
-    margin-top: 10px;
-    overflow: hidden;
-    display: block;
-    max-width: 100%;
-    
-  }
-  
-}
-
-.timeline__event--image-header {
-  
-  .timeline__image{
-    height: 200px;
-    position: absolute;
-    margin-bottom: 20px;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-  
-  .timeline__image-gradient{
-    background: linear-gradient(rgba(0,0,0,0),rgba(51, 51, 58, 0.8));
-    background-size: cover;
-    position: absolute;
-    margin-bottom: 20px;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    height: 200px;
-    width: 100%;
-  }
-  
-  .timeline__title{
-    color: white;
-    position: absolute;
-    bottom: 5px;
-    left: 20px;
-    z-index: 2;
-  }
-  
-  .timeline__description{
-    margin-top: 210px;
-  }
-  
 }

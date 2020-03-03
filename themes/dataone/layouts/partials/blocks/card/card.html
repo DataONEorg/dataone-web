@@ -1,0 +1,66 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "card" }}
+<!-- classes to add to the outer-most element -->
+{{ $classes := $bn }}
+
+<!-- Make a variable that indicates whether there's an image -->
+{{ $hasImage := false }}
+{{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
+  {{ $hasImage = true }}
+{{ end }}
+
+<!-- Make a variable that indicates whether there's a button -->
+{{ $hasButton := false }}
+{{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
+  {{ $hasButton = true }}
+{{ end }}
+
+<!-- modifier class for cards with images -->
+{{ if $hasImage}}
+  {{ $classes = print $classes " " $bn "--image-header" }}
+{{ end }}
+
+<div class="{{ $classes }} ">
+  <!-- Image (optional) -->
+  {{ if $hasImage }}
+    <div class="{{ $bn }}__image">
+      {{ $imageType := (dict "type" "cover") }}
+      {{ $imageParams :=  merge .Block.image $imageType }}
+      {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
+    </div>
+    <div class="{{ $bn }}__image-gradient">
+    {{ end }}
+
+    {{ with .Block.pill }}
+      {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
+    {{ end }}
+    {{ with .Block.title }}
+      <h3 class="{{ $bn }}__title">{{ . }}</h3>
+    {{ end }}
+    {{ with .Block.subtitle }}
+      <h4 class="{{ $bn }}__subtitle">{{ . }}</h3>
+    {{ end }}
+    <!-- close the __image-gradient div -->
+    {{ if $hasImage }}
+    </div>
+  {{ end }}
+
+  {{ with .Block.datetime }}
+    <div class="{{ $bn }}__date">
+      {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
+    </div>
+  {{ end }}
+
+  {{ with .Block.description }}
+    <p class="{{ $bn }}__description">{{ . }}</p>
+  {{ end }}
+
+  <!-- Button (optional) -->
+  {{ if $hasButton }}
+    <div class="{{ $bn }}__button">
+      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
+    </div>
+  {{ end }}
+</div>

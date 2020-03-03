@@ -56,9 +56,7 @@
     {{ end }}
   {{ end }}
 
-  <!-- TODO -->
-  <!-- If giving user the option to change the timezone or to localize the time, then display the timezone in the timezone span element. Timezones will be shown as their abbreviation, e.g. "MST" Remove timezone from format string. -->
-
+  <!-- If giving user the option to change the timezone or to localize the time, then display the timezone in the timezone span element. Timezones will be shown as their abbreviation, e.g. "MST" Remove timezone from format string -->
   {{ $show_timezone := false }}
   {{ $tzFormats := slice "MST" "Z0700" `Z07:00` `Z07` `-0700` `-07:00` `-07` }}
   {{ range $tzFormats }}

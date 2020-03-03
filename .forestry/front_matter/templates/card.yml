@@ -1,0 +1,87 @@
+---
+label: Card
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: card
+- name: datetime
+  type: field_group
+  config: {}
+  fields:
+  - name: datetime
+    type: include
+    config: {}
+    template: datetime
+    label: Date
+    description: The date
+  label: Date
+  description: The date
+- name: pill
+  type: field_group
+  config: {}
+  fields:
+  - name: pill
+    type: include
+    config: {}
+    template: pill
+    label: Pill
+  label: Header Pill
+  description: An optional pill that will appear above the title
+- name: title
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Title
+  description: A brief title or headline
+- name: subtitle
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Event Title
+  description: An optional subtitle that gives context
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Description
+  description: Any relevant details
+- name: button
+  type: field_group
+  config: {}
+  fields:
+  - name: button
+    type: include
+    config: {}
+    template: button
+    label: Button
+    description: An optional button that leads to more information about a related topic
+  label: Button
+  description: An optional button that leads to more information about a related topic
+- name: image
+  type: field_group
+  config: {}
+  fields:
+  - name: image
+    type: include
+    config: {}
+    template: image
+    label: Image
+    description: An optional image to display in the header
+  label: Image
+  description: An optional image to display in the header

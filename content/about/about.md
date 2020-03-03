@@ -14,17 +14,6 @@ header:
     resources and materials. We envision researchers, educators, and the public using
     DataONE to better understand and conserve life on earth and the environment that
     sustains it.
-  pill:
-    template: ''
-    type: ''
-    text: ''
-  buttons: []
-  headerimage:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - template: section
   type: secondary-light
@@ -36,7 +25,11 @@ page_sections:
     - title: DataONE starts as a DataNet program
       description: Supported by funding from the US National Science Foundation as
         one of the initial DataNet programs in 2009
-      date: '2009-01-01'
+      datetime:
+        time: '2009-01-01'
+        dateformat: "02 Jan 2006"
+        localize: false
+        change_timezone: false
       button:
         template: button
         type: external website
@@ -49,32 +42,23 @@ page_sections:
         alttext: World map shown with Robinson projection
         title: DataONE created global data research infrastructure
         type: default
-    - date: '2014-01-01'
+    - datetime:
+        time: '2014-01-01'
+        dateformat: "02 Jan 2006"
+        localize: false
+        change_timezone: false
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        title: ''
-        type: ''
-    - date: '2019-01-15'
+    - datetime:
+        time: '2019-01-15'
+        dateformat: "02 Jan 2006"
+        localize: false
+        change_timezone: false
       title: New leadership transition
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        title: ''
-        type: ''
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 - template: section
   type: secondary-medium
   title: The people behind the data
@@ -83,11 +67,6 @@ page_sections:
   - template: people
     show_avatars: true
     team_members: true
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 - template: section
   type: bold
   title: Contribute

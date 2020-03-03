@@ -1,46 +1,21 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "timeline" }}
+<!-- classes to add to the outer-most element -->
+{{ $classes := $bn }}
 
-<div class="timeline">
-{{- range .Block.event -}}
+<!-- how date times should be displayed for timelines -->
+{{ $dateTimeParams := (dict "change_timezone" false "localize" false "format" (.Block.format | default "02 Jan 2006"))}}
 
-<!-- Make a variable that indicates whether there's an image  -->
-{{ $hasImage := false }}
-{{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
-  {{ $hasImage = true }}
-{{ end }}
+<div class="{{ $classes }}">
+  {{- range .Block.event -}}
 
-<div class="timeline__event{{if $hasImage}} timeline__event--image-header{{ end }}">
-  <div class="timeline__point"></div>
-  <div class="timeline__content">
-    
-    <!-- Image (optional) -->
-    {{ if $hasImage }}
-    <div class="timeline__image">
-      {{ $imageType := (dict "type" "cover") }}
-      {{ $imageParams :=  merge .image $imageType }}
-      {{- partial "blocks/image/image" (dict "Block" $imageParams) -}}
+    <div class="{{ $bn }}__event">
+      <div class="{{ $bn }}__point"></div>
+
+      {{ partial "blocks/card/card" (dict "Block" . "Page" $page) }}
+
     </div>
-    <div class="timeline__image-gradient">
-      <h3 class="timeline__title">{{ .title }}</h3>
-    </div>
-    {{ else }}
-      <h3 class="timeline__title">{{ .title }}</h3>
-    {{ end }}
-    
-    <time class="timeline__date" datetime="{{.date}}">{{ dateFormat "02 Jan 2006"  .date }}</time>
-    <p class="timeline__description">{{ .description }}</p>
-    
-    
-    
-    <!-- Button (optional) -->
-    {{ if and (partial "functions/hasValues" .button) (ne .button.text "") (ne .button.text " ") }}
-    <div class="timeline__button">
-      {{- partial "blocks/button/button" (dict "Block" .button "Page" $page) -}}
-    </div>
-    {{ end }}
-    
-  </div>
-</div>
-{{- end -}}
+  {{- end -}}
 </div>
