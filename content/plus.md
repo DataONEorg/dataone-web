@@ -33,7 +33,8 @@ page_sections:
     customized way to communicate your science, your team, your data, and related
     data from within the DataONE network.
   blocks:
-  - template: two-columns
+  - template: columns
+    num_cols: 2
     columns:
     - template: image
       src: "/uploads/portal-data-page.png"
@@ -112,7 +113,8 @@ page_sections:
   type: default
   title: Access to DataONE expertise
   blocks:
-  - template: three-columns
+  - template: columns
+    num_cols: 3
     columns:
     - template: feature-simple
       icon:

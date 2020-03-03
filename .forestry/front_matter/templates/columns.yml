@@ -1,12 +1,23 @@
 ---
-label: Two columns
+label: Columns
 hide_body: true
 fields:
 - type: text
   name: template
   label: Template
   hidden: true
-  default: two-columns
+  default: columns
+- type: select
+  name: num_cols
+  label: Number of Columns
+  description: How many columns should be used in the layout
+  default: 2
+  config:
+    source:
+      type: simple
+    options:
+    - 2
+    - 3
 - type: blocks
   name: columns
   label: Columns
@@ -17,6 +28,3 @@ fields:
   - feature-detailed
   - image
   description: The items to include in each column
-  config:
-    min: '2'
-    max: '2'

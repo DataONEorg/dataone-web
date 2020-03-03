@@ -115,7 +115,8 @@ page_sections:
     text: Brand your data repository with customized features allowing you to connect
       directly with your community.
     type: right
-  - template: three-columns
+  - template: columns
+    num_cols: 3
     columns:
     - headline: Private and public access
       template: feature-simple
@@ -164,7 +165,8 @@ page_sections:
     levels of expertise. DataONE tools and services undergo extensive usability testing
     to ensure they meet community needs.
   blocks:
-  - template: two-columns
+  - template: columns
+    num_cols: 2
     columns:
     - template: feature-detailed
       type: top
@@ -203,7 +205,8 @@ page_sections:
           title: Use the DataONE API to work with your repository
           type: float
       details: []
-  - template: three-columns
+  - template: columns
+    num_cols: 3
     columns:
     - template: feature-simple
       icon:

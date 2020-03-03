@@ -1,0 +1,18 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "columns" }}
+<!-- classess to add to this block -->
+{{ $classes := $bn }}
+
+{{ with .Block.num_cols }}
+  {{ $classes = print $classes " " $bn "--" . "cols" }}
+{{ end }}
+
+<div class="{{ $classes }}">
+  {{- range .Block.columns -}}
+    <div class="{{ $bn }}__column">
+      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+    </div>
+  {{- end -}}
+</div>
