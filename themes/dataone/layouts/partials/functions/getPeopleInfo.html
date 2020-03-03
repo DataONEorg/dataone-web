@@ -1,0 +1,34 @@
+<!-- All the person information -->
+{{ $people := slice }}
+
+<!-- Speaker full names in an array (for calendar) -->
+{{ $personNames := slice }}
+
+<!-- Speaker names and biographies as a single string (for calendar) -->
+{{ $personBiosString := "" }}
+
+<!-- Speaker full names in a comma delimited string -->
+{{ $personListString := ""}}
+
+{{ $page := .Page }}
+<!-- fill in the person variables by ranging through the person resource pages -->
+{{ range .People }}
+
+  {{ $person := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
+  {{ $people = $people | append $person.Params }}
+  {{ $personNames = $personNames | append $person.Params.fullname }}
+  <!-- prefer full bio for calendar description -->
+  {{ $bio := "" }}
+  {{ with $person.Params.shortbio }}{{$bio = . }}
+  {{ end }}
+  {{ with $person.Params.longbio }}{{$bio = . }}
+  {{ end }}
+  {{ with $bio }}
+    {{ $personBiosString = print "\n\n" $personBiosString $person.Params.fullname ": " "\n\n" . "\n\n" }}
+  {{ end }}
+{{ end }}
+{{ with $personNames }}
+  {{ $personListString = delimit . ", " " & " }}
+{{ end }}
+
+{{ return (dict "params" $people "names" $personNames "bios_string" $personBiosString "names_string" $personListString )}}

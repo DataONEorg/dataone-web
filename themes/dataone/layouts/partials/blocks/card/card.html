@@ -5,6 +5,10 @@
 <!-- classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
+{{ if .Block.clickable }}
+  {{ $classes = print $classes " " $bn "--clickable" }}
+{{ end }}
+
 <!-- Make a variable that indicates whether there's an image -->
 {{ $hasImage := false }}
 {{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}

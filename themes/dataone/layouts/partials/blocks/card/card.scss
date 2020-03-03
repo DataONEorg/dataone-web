@@ -1,6 +1,11 @@
 .card {
   position: relative;
   @include card;
+  color   : col($c-neutral, 7);
+
+  .pill {
+    margin-top: 1rem;
+  }
 
   &__date {
     background: $c-secondary;
@@ -16,11 +21,21 @@
   &__title {
     margin-top   : 40px;
     margin-bottom: 10px;
+    font-size    : 1.3rem;
+  }
+
+  &__subtitle {
+    margin     : 0 0 1.5rem;
+    font-weight: 400;
+    color      : col($c-neutral, 6);
+    font-size  : 1.1rem;
   }
 
   &__description {
-    margin : 0 0 20px;
-    padding: 0;
+    margin     : 0 0 20px;
+    padding    : 0;
+    line-height: 1.4;
+    font-size  : 1.05rem;
   }
 
   &__button {
@@ -64,5 +79,14 @@
 
   .card__description {
     margin-top: 210px;
+  }
+}
+
+.card--clickable {
+  cursor: pointer;
+
+  &:hover {
+    transform : translateY(-0.8px);
+    box-shadow: 5px 6px 27px -14px rgba(0, 0, 0, 0.5);
   }
 }

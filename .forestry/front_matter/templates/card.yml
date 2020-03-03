@@ -8,6 +8,11 @@ fields:
   label: Template
   hidden: true
   default: card
+- type: boolean
+  name: clickable
+  label: Make clickable
+  default: false
+  description: If set to true, card will have a hover effect style
 - name: datetime
   type: field_group
   config: {}

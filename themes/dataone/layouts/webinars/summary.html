@@ -11,18 +11,11 @@
   {{ $classes = print $classes " webinar--st-" $status }}
 {{ end }}
 
-<article class="{{$classes}}">
-  {{ partial "blocks/datetime/datetime" (dict "Block" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "Page" $page)}}
-  <span class="{{ $bn }}__date"></span>
-  {{ partial "blocks/pill/pill" (dict "Block" $pillBlock "Page" $page) }}
-  <div class="{{ $bn }}__speakers">
-    {{ $peopleBlock := dict "people" $webinar.speakers "show_avatars" "true" "show_longbio" false "type" "simple" }}
-    {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $page) }}
-  </div>
-  <h2 class="{{ $bn }}__title">
-    <a class="{{ $bn }}__title-link" href="{{ .RelPermalink | relURL }}">{{ .Title }}</a>
-  </h2>
-  <p class="{{ $bn }}__intro">
-    {{ $webinar.short_abstract }}
-  </p>
-</article>
+{{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
+
+{{ $cardBlock := dict "clickable" true "title" .Title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+{{ $href := $page.Permalink }}
+
+<a class="{{ $classes }}" href="{{$href}}">
+  {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+</a>

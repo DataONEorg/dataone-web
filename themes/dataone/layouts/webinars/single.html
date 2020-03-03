@@ -17,36 +17,19 @@
   <!-- the date and time the webinar ends -->
   {{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
 
+  {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
+
   <!-- All the speaker information -->
-  {{ $speakers := slice }}
+  {{ $speakers := $speakerInfo.params }}
 
   <!-- Speaker full names in an array (for calendar) -->
-  {{ $speakerNames := slice }}
+  {{ $speakerNames := $speakerInfo.namess }}
 
   <!-- Speaker names and biographies as a single string (for calendar) -->
-  {{ $speakerBiosString := "" }}
+  {{ $speakerBiosString := $speakerInfo.bios_string }}
 
   <!-- Speaker full names in a comma delimited string -->
-  {{ $speakerListString := ""}}
-
-  <!-- fill in the speaker variables by ranging through the speaker resource pages -->
-  {{ range $webinar.speakers }}
-    {{ $speaker := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "/people/" . ) }}
-    {{ $speakers = $speakers | append $speaker.Params }}
-    {{ $speakerNames = $speakerNames | append $speaker.Params.fullname }}
-    <!-- prefer full bio for calendar description -->
-    {{ $bio := "" }}
-    {{ with $speaker.Params.shortbio }}{{$bio = . }}
-    {{ end }}
-    {{ with $speaker.Params.longbio }}{{$bio = . }}
-    {{ end }}
-    {{ with $bio }}
-      {{ $speakerBiosString = print "\n\n" $speakerBiosString $speaker.Params.fullname ": " "\n\n" . "\n\n" }}
-    {{ end }}
-  {{ end }}
-  {{ with $speakerNames }}
-    {{ $speakerListString = delimit . ", " " & " }}
-  {{ end }}
+  {{ $speakerListString := $speakerInfo.names_string }}
 
   <!-- URL for this page (used in calendar) -->
   {{ $URL := $page.Permalink }}
