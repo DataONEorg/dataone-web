@@ -61,8 +61,8 @@ fields:
   label: ZOOM meeting ID
   description: The ID of the zoom meeting
 - type: file
-  name: Slides
-  label: slides
+  name: slides
+  label: Slides
   description: The slides used in the presentation
 - type: textarea
   name: short_abstract
