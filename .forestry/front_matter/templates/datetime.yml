@@ -7,7 +7,7 @@ fields:
   label: Template
   hidden: true
   default: datetime
-- type:  datetime
+- type: datetime
   name: time
   label: Date & Time
   description: The date and time of the event
@@ -15,22 +15,24 @@ fields:
 - type: boolean
   name: change_timezone
   label: Allow use to change timezone
-  description: If true, user will have an option to convert the date & time into any timezone they wish
+  description: If true, user will have an option to convert the date & time into any
+    timezone they wish
 - type: boolean
   name: localize
   label: Localize the displayed time
-  description: If true, the date and time will be converted to the user's local timezone (as reported by the browser)
+  description: If true, the date and time will be converted to the user's local timezone
+    (as reported by the browser)
 - type: select
   name: format
   label: Format
   description: How should the date and time be displayed?
-  default: "02 Jan 2006"
+  default: 02 Jan 2006
   config:
     source:
       type: simple
     options:
-    - "January 2, 2006"
-    - "02 Jan 2006"
-    - "January 2, 2006 15:04 MST"
-    - "Mon 2 Jan 2006 15:04 MST"
-    - "2006-01-02"
+    - January 2, 2006
+    - 02 Jan 2006
+    - January 2, 2006 15:04 MST
+    - Mon 2 Jan 2006 15:04 MST
+    - '2006-01-02'

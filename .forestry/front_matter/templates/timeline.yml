@@ -18,3 +18,5 @@ fields:
     template: card
     label: Event
     description: A single event in a timeline
+  config:
+    labelField: title

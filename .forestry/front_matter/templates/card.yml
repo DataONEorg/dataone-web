@@ -75,7 +75,8 @@ fields:
     config: {}
     template: button
     label: Button
-    description: An optional button that leads to more information about a related topic
+    description: An optional button that leads to more information about a related
+      topic
   label: Button
   description: An optional button that leads to more information about a related topic
 - name: image

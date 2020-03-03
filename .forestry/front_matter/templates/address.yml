@@ -11,53 +11,54 @@ fields:
 - type: select
   name: format
   label: Format
-  default: 'multi-line'
+  default: multi-line
   description: whether to show the address with or without line breaks.
   config:
     source:
       type: simple
     options:
-    - 'multi-line'
-    - 'single-line'
+    - multi-line
+    - single-line
 - type: select
   name: type
   label: Type
-  default: 'custom'
+  default: custom
   description: Select DataONE to use DataONE's address
   config:
     source:
       type: simple
     options:
-    - 'custom'
-    - 'DataONE'
+    - custom
+    - DataONE
 - type: text
   name: name
   label: Name
   description: The name of the person or organization
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
 - type: list
   name: delivery_points
   label: Delivery Points
-  description: The physical address for postal communication, equivalent to a U.S. 'street address'.
+  description: The physical address for postal communication, equivalent to a U.S.
+    'street address'.
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
 - type: text
   name: city
   label: City
   description: The name of the town, village, or city
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
 - type: text
   name: administrative_area
   label: Administrative area
   description: The state, province, territory, or other political area of a country
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
 - type: text
   name: country
   label: Country
@@ -65,11 +66,11 @@ fields:
   default: United States
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
 - type: text
   name: postal_code
   label: Postal Code
   description: The postal code or zip code
   showOnly:
     field: type
-    value: 'custom'
+    value: custom
