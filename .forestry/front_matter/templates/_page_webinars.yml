@@ -1,40 +1,107 @@
 ---
 label: _page_webinars
-hide_body: true
+hide_body: false
+display_field: title
 fields:
 - type: datetime
   name: date
-  label: date
+  label: Date
+  description: The date this page was created
+  default: now
 - type: text
   name: title
-  label: title
+  label: Title
+  description: The name or topic of the webinar
 - type: datetime
   name: webinar_datetime
-  label: webinar_datetime
+  label: Webinar date and time
+  description: When does the webinar take place? Choose the time that it happens in
+    *your current timezone.* Times will automatically be converted.
 - type: number
   name: duration
-  label: duration
-- type: text
-  name: status
-  label: status
+  label: Duration
+  config:
+    min: '0'
+    max: '720'
+  default: '60'
+  description: The expected duration of the webinar in minutes
+- name: status
+  type: select
+  default: auto
+  config:
+    required: false
+    options:
+    - happening-now
+    - upcoming
+    - past
+    - auto
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Status
+  description: Whether the webinar is upcoming, happening now, or past. Select auto
+    to guess the webinar's status based on whether a meeting ID or vimeoID is available.
 - type: list
   name: tags
-  label: tags
+  label: Tags
+  config:
+    use_select: false
+    source:
+      type: documents
+    options: []
+  description: General topic tags used to group webinars together
 - type: number
   name: vimeoID
-  label: vimeoID
+  label: Vimeo ID
+  description: The ID of the vimeo video, once the webinar has been posted online
 - type: text
   name: meetingID
-  label: meetingID
+  label: ZOOM meeting ID
+  description: The ID of the zoom meeting
 - type: file
-  name: slides
+  name: Slides
   label: slides
+  description: The slides used in the presentation
 - type: textarea
   name: short_abstract
-  label: short_abstract
+  label: Short Abstract
+  description: Very brief (max 3 sentence) summary of the webinar. The short abstract
+    should motivate the user to watch the webinar.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: textarea
   name: abstract
-  label: abstract
-- type: list
-  name: speakers
-  label: speakers
+  label: Abstract
+  description: A long description of the topic the webinar covers, what the user will
+    gain from watching the webinar, and any other relevant details
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- name: speakers
+  type: field_group_list
+  fields:
+  - name: speaker
+    type: select
+    default: []
+    config:
+      required: false
+      options: []
+      source:
+        type: pages
+        section: people
+        file: 
+        path: 
+    label: Speaker
+    description: The webinar speaker
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Speakers
+  description: The people giving the talk. To add people to the list of options, first
+    add them in the "People" section (see sidebar)
