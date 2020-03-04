@@ -1,12 +1,12 @@
 ---
 label: Section
 hide_body: true
-display_field: title
+display_field: template
 fields:
 - type: text
   name: template
   label: Template
-  hidden: true
+  hidden: false
   default: section
 - type: select
   label: Section style
