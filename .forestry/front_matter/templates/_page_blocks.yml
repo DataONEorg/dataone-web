@@ -44,7 +44,7 @@ fields:
     description: Modular sections to organize content
   description: The different building blocks that make up the page sections
   config:
-    labelField: template
+    labelField: title
 pages:
 - content/about/contact.md
 - content/plus/portals.md
