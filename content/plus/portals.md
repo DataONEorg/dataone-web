@@ -60,37 +60,6 @@ header:
 title: Portals
 description: ''
 page_sections:
-- template: section
-  type: ''
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  title: This is the section title
-  intro: ''
-  blocks: []
-  button:
-    template: ''
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      name: ''
-      size: ''
-      style: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
 - type: default
   template: section
   icon:
