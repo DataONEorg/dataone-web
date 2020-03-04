@@ -5,11 +5,11 @@ display_field: title
 fields:
 - name: template
   type: select
-  default: template
+  default: section
   config:
     required: false
     options:
-    - template
+    - section
     source:
       type: simple
       section: 
