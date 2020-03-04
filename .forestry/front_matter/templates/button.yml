@@ -97,7 +97,7 @@ fields:
   description: The page that the button should navigate to when clicked
   showOnly:
     field: type
-    value: internal website
+    value: internal page
 - name: icon
   type: field_group
   fields:
@@ -106,9 +106,8 @@ fields:
     template: icon
     label: Icon
     description: An optional icon to display to the left of the button text
-  label: Button
-  description: An optional button that leads to more information about a topic related
-    to the event
+  description: An optional icon to show on the left side of the button
+  label: Icon
 - name: event
   type: field_group
   label: Event details
