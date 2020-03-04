@@ -14,14 +14,21 @@ sections:
   path: content/_index.md
   label: Homepage
 - type: directory
-  path: content
-  label: Services
+  path: content/plus
+  label: DataONE Plus
   create: all
-  match: "*"
-  exclude: _index.md
+  match: "**/*"
   templates:
-  - markdown
   - _page_blocks
+  - markdown
+- type: directory
+  path: content/hostedrepo
+  label: Hosted Repository
+  create: all
+  match: "**/*"
+  templates:
+  - _page_blocks
+  - markdown
 - type: directory
   path: content/network
   label: Network

@@ -12,7 +12,8 @@ fields:
   name: clickable
   label: Make clickable
   default: false
-  description: If set to true, card will link to the URL indicated in the Link field and will have a hover effect style
+  description: If set to true, card will link to the URL indicated in the Link field
+    and will have a hover effect style
 - type: text
   name: href
   label: Link
