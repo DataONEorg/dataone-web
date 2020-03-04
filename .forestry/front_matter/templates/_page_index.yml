@@ -13,6 +13,7 @@ fields:
   label: Date
   description: The date the page was created
   default: now
+  hidden: true
 - type: text
   label: Title
   name: title
