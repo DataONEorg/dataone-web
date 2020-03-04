@@ -1,6 +1,6 @@
 ---
 layout: blocks
-date: 2020-03-04T09:49:58-08:00
+date: 2020-03-04T17:49:58.000+00:00
 header:
   template: header
   type: text-only
@@ -60,6 +60,37 @@ header:
 title: Portals
 description: ''
 page_sections:
+- type: default
+  template: ''
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  title: ''
+  intro: ''
+  blocks: []
+  button:
+    template: ''
+    html_tag: ''
+    id: ''
+    type_attr: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      name: ''
+      size: ''
+      style: ''
+    event:
+      title: ''
+      description: ''
+      URL: ''
+      start: ''
+      end: ''
 - type: bold
   title: Interested in a becoming a DataONE Plus member?
   intro: Enhanced DataONE services are currently available on a limited basis as part
@@ -70,7 +101,7 @@ page_sections:
     precheck_plus: true
     precheck_hostedrepo: false
     precheck_newsletter: false
-  template: 'section'
+  template: section
   icon:
     template: ''
     name: ''

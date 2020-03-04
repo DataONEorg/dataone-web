@@ -107,7 +107,8 @@ fields:
     template: icon
     label: Icon
     description: An optional icon to display to the left of the button text
-  description: CMS Feature coming soon - An optional icon to show on the left side of the button
+  description: CMS Feature coming soon - An optional icon to show on the left side
+    of the button
   label: Icon
 - name: event
   type: field_group
