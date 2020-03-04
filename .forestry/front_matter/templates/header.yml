@@ -55,8 +55,6 @@ fields:
   type: blocks
   label: Call-to-action buttons
   template_types:
-  - button-contact
-  - button-join-form
   - button
   config:
     min: '0'
