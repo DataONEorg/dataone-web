@@ -12,7 +12,14 @@ fields:
   name: clickable
   label: Make clickable
   default: false
-  description: If set to true, card will have a hover effect style
+  description: If set to true, card will link to the URL indicated in the Link field and will have a hover effect style
+- type: text
+  name: href
+  label: Link
+  description: Where should the card go when it's clicked?
+  showOnly:
+    field: clickable
+    value: true
 - name: datetime
   type: field_group
   config: {}
@@ -79,6 +86,9 @@ fields:
       topic
   label: Button
   description: An optional button that leads to more information about a related topic
+  showOnly:
+    field: clickable
+    value: false
 - name: image
   type: field_group
   config: {}

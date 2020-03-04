@@ -207,10 +207,6 @@ $padding: 40px; // layout breaks sooner for webinar layout
     grid-template-columns: 1fr 1fr;
   }
 }
-
-.webinar-summary {
-  text-decoration: none;
-}
 // ==== IMPORT ALL BLOCK SCSS ====
 // Import all .scss files contained one subdirectory below the "blocks" directory
 {{$blockDir :=  .Site.Params.blockDir}}

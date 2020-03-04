@@ -26,45 +26,55 @@
   {{ $classes = print $classes " " $bn "--image-header" }}
 {{ end }}
 
-<div class="{{ $classes }} ">
-  <!-- Image (optional) -->
-  {{ if $hasImage }}
-    <div class="{{ $bn }}__image">
-      {{ $imageType := (dict "type" "cover") }}
-      {{ $imageParams :=  merge .Block.image $imageType }}
-      {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
-    </div>
-    <div class="{{ $bn }}__image-gradient">
+{{ if and .Block.clickable .Block.href }}
+  <a class="{{ $classes }} " href="{{ .Block.href }}">
+  {{ else }}
+    <div class="{{ $classes }} ">
     {{ end }}
-
-    {{ with .Block.pill }}
-      {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
-    {{ end }}
-    {{ with .Block.title }}
-      <h3 class="{{ $bn }}__title">{{ . }}</h3>
-    {{ end }}
-    {{ with .Block.subtitle }}
-      <h4 class="{{ $bn }}__subtitle">{{ . }}</h3>
-    {{ end }}
-    <!-- close the __image-gradient div -->
+    <!-- Image (optional) -->
     {{ if $hasImage }}
-    </div>
-  {{ end }}
+      <div class="{{ $bn }}__image">
+        {{ $imageType := (dict "type" "cover") }}
+        {{ $imageParams :=  merge .Block.image $imageType }}
+        {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
+      </div>
+      <div class="{{ $bn }}__image-gradient">
+      {{ end }}
 
-  {{ with .Block.datetime }}
-    <div class="{{ $bn }}__date">
-      {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
-    </div>
-  {{ end }}
+      {{ with .Block.pill }}
+        {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
+      {{ end }}
+      <div class="{{ $bn }}__titles">
+        {{ with .Block.title }}
+          <h3 class="{{ $bn }}__title">{{ . }}</h3>
+        {{ end }}
+        {{ with .Block.subtitle }}
+          <h4 class="{{ $bn }}__subtitle">{{ . }}</h3>
+        {{ end }}
+      </div>
+      <!-- close the __image-gradient div -->
+      {{ if $hasImage }}
+      </div>
+    {{ end }}
 
-  {{ with .Block.description }}
-    <p class="{{ $bn }}__description">{{ . }}</p>
-  {{ end }}
+    {{ with .Block.datetime }}
+      <div class="{{ $bn }}__date">
+        {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
+      </div>
+    {{ end }}
 
-  <!-- Button (optional) -->
-  {{ if $hasButton }}
-    <div class="{{ $bn }}__button">
-      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
-    </div>
-  {{ end }}
-</div>
+    {{ with .Block.description }}
+      <p class="{{ $bn }}__description">{{ . }}</p>
+    {{ end }}
+
+    <!-- Button (optional). Don't show if entire block is clickable -->
+    {{ if and $hasButton (not .Block.clickable) }}
+      <div class="{{ $bn }}__button">
+        {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
+      </div>
+    {{ end }}
+    {{ if and .Block.clickable .Block.href }}
+    </a>
+  {{ else }}
+  </div>
+{{ end }}

@@ -19,11 +19,9 @@
     {{ $people = $people | append .Params }}
   {{ end }}
 {{ else }}
-  {{ range .Block.people }}
-    {{ $person := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "people/" . ) }}
-    {{ if $person }}
-      {{ $people = $people | append $person.Params }}
-    {{ end }}
+  {{ if .Block.people }}
+    {{ $peopleInfo := partial "functions/getPeopleInfo" (dict "People" .Block.people "Page" $page )}}
+    {{ $people = $peopleInfo.params }}
   {{ end }}
 {{ end }}
 

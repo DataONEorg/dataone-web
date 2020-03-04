@@ -1,0 +1,29 @@
+---
+label: Webinar summary
+hide_body: true
+display_field: webinar
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: webinar-summary
+- type: boolean
+  name: auto_select
+  label: Select most recent webinar
+  default: false
+  description: If true, the next upcoming or most recently held webinar will be shown.
+- name: webinar
+  type: list
+  config:
+    use_select: true
+    min: '1'
+    max: '1'
+    source:
+      type: pages
+      section: webinarss
+  label: Webinars
+  description: Which webinar summary should be displayed?
+  showOnly:
+    field: auto_select
+    value: false

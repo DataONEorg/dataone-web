@@ -23,6 +23,7 @@ fields:
   label: People
   showOnly:
     field: team_members
+    value: false
   fields:
   - name: person
     type: select

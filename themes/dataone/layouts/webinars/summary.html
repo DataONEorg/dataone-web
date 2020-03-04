@@ -1,21 +1,6 @@
 {{ $page := . }}
-{{ $bn := "webinar-summary" }}
-{{ $webinar := .Params }}
-{{ $status := partial "functions/getWebinarStatus" $webinar }}
-{{ $pillBlock := partial "functions/getWebinarPill" $status }}
-{{ $datetime := (time $webinar.webinar_datetime).UTC }}
 
-<!-- add status as a modifier class -->
-{{ $classes := $bn }}
-{{ with $status }}
-  {{ $classes = print $classes " webinar--st-" $status }}
-{{ end }}
+<!-- remove trailing slash in link -->
+{{ $pageLink := replaceRE "/$" "" .RelPermalink }}
 
-{{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
-
-{{ $cardBlock := dict "clickable" true "title" .Title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
-{{ $href := $page.Permalink }}
-
-<a class="{{ $classes }}" href="{{$href}}">
-  {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
-</a>
+{{ partial "blocks/webinar-summary/webinar-summary" (dict "Block" (dict "webinar" $pageLink) "Page" $page )}}

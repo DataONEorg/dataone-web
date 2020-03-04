@@ -1,452 +1,424 @@
-
 .global-header {
   @include f-common;
-  bottom: 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  border-radius: 5px 5px 0 0;
-  transition: all 0.2s 0s ease-in-out;
-  padding-top: 7px 0;
+  bottom          : 0;
+  position        : fixed;
+  width           : 100%;
+  z-index         : 10;
+  border-radius   : 5px 5px 0 0;
+  transition      : all .2s 0s ease-in-out;
+  padding-top     : 7px 0;
   background-color: col($c-secondary, 2);
-  box-shadow: 22px 1px 11px rgba(0,20,30,0.15);
-  @include desktop{
-    border-radius: 0;
-    padding: 0;
-    position: relative;
-    top: 0;
+  box-shadow      : 22px 1px 11px rgba(0,20,30,0.15);
+  @include desktop {
+    border-radius   : 0;
+    padding         : 0;
+    position        : relative;
+    top             : 0;
     background-color: unset;
-    box-shadow: none;
+    box-shadow      : none;
     background-color: $c-background;
   }
-  
 }
 
 .toplevel-nav {
-  
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  
-  display: grid;
+  width                : 100%;
+  padding              : 0;
+  margin               : 0;
+  display              : grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 63px auto 1fr;
-  grid-template-areas: "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
-  
+  grid-template-rows   : 63px auto 1fr;
+  grid-template-areas  : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   @include limit-width;
   @include medium-lr-padding;
-  
-  @include desktop{
+  @include desktop {
     grid-template-columns: min-content auto min-content min-content;
-    grid-template-rows: auto;
-    grid-template-areas: "logo menu search d1search";
-    align-items: center;
+    grid-template-rows   : auto;
+    grid-template-areas  : "logo menu search d1search";
+    align-items          : center;
   }
-  
-  
+
   &__button {
-    
     @include button-reset;
-    
-    display: inline-block;
+    display   : inline-block;
     text-align: center;
-    
-    color: $c-foreground;
-    height: 100%;
-    padding: 8px 8px 15px;
-    
-    &:focus{
-      
+    color     : $c-foreground;
+    height    : 100%;
+    padding   : 8px 8px 15px;
+
+    &:focus {
       .toplevel-nav__button-icon {
         fill: $c-foreground;
       }
+
       .toplevel-nav__button-text {
         color: $c-foreground;
       }
-      
     }
-    
-    @include desktop{
-      width: fit-content;
-      height: fit-content;
+    @include desktop {
+      width  : fit-content;
+      height : fit-content;
       padding: 0;
     }
-    
   }
-  
+
   &__button-icon {
-    width: 24px;
+    width : 24px;
     height: 24px;
-    fill: $c-foreground-subtle;
-    &--active{
+    fill  : $c-foreground-subtle;
+
+    &--active {
       fill: $c-foreground;
     }
   }
-  
-  &__button-text{
+
+  &__button-text {
     @include f-common;
-    font-size: 13px;
+    font-size  : 13px;
     font-weight: 600;
     line-height: 16px;
-    display: block;
-    margin-top: 2px;
-    color: $c-foreground-subtle;
-    &--active{
+    display    : block;
+    margin-top : 2px;
+    color      : $c-foreground-subtle;
+
+    &--active {
       color: $c-foreground;
     }
-    @include desktop{
+    @include desktop {
       display: none;
     }
   }
-  
-  &__button--logo{
+
+  &__button--logo {
     grid-area: logo;
-    height: auto;
-    .logo{
-      fill:url("#theme-gradient");
-      transform: translate(0,0) scale(1);
+    height   : auto;
+
+    .logo {
+      fill      : url("#theme-gradient");
+      transform : translate(0,0) scale(1);
       transition: .2s;
     }
     @include desktop {
       padding-left: 5px;
     }
-    &:hover .logo{
+
+    &:hover .logo {
       transform: translate(0px,-1px) scale(1.01);
-      
     }
   }
-  
-  &__button--menu-toggle{
+
+  &__button--menu-toggle {
     grid-area: menu-toggle;
-    @include desktop{
+    @include desktop {
       display: none;
     }
   }
-  
   // SEARCH
-  
-  &__button--search{
+  &__button--search {
     grid-area: search;
-    @include desktop{
+    @include desktop {
       justify-self: end;
-      padding: 0 5px;
+      padding     : 0 5px;
     }
   }
-  
-  &__d1search{
-    grid-area: d1search;
-    opacity: 0;
-    visibility: hidden;
-    transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
+
+  &__d1search {
+    grid-area    : d1search;
+    opacity      : 0;
+    visibility   : hidden;
+    transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
     margin-bottom: -100%;
-    margin-top: 0;
-    @include desktop{
-      display: block;
+    margin-top   : 0;
+    @include desktop {
+      display      : block;
       margin-bottom: 0;
-      width: 0px;
-      margin-left: -400px;
-      transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out,
-                  width 0.18s 0s ease-in-out;
+      width        : 0;
+      margin-left  : -400px;
+      transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
     }
-    label{
+
+    label {
       display: none;
     }
-    
+
     &[aria-hidden="false"] {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+      opacity      : 1;
+      visibility   : visible;
+      transform    : translateY(0);
       margin-bottom: 20px;
-      margin-top: 10px;
-      label{
+      margin-top   : 10px;
+
+      label {
         display: block;
       }
-      
       // The menu search button when the search is expanded on desktop
       & ~ .toplevel-nav__button--search {
         .toplevel-nav__button-icon {
           display: none;
         }
+
         .toplevel-nav__button-text {
           margin-top: -4px;
         }
         // A close button (X)
-        &:before{
-          display: inline-block;
-          content: "\00d7"; 
-          font-size: 40px;
-          font-size: 45px;
+        &:before {
+          display   : inline-block;
+          content   : "\00d7";
+          font-size : 40px;
+          font-size : 45px;
           margin-top: -19px;
-          color: $c-foreground-subtle;
-          @include desktop{
+          color     : $c-foreground-subtle;
+          @include desktop {
             margin-top: 5px;
           }
         }
       }
-      
-      @include desktop{
-        margin: 0 36px 0 0;
+      @include desktop {
+        margin   : 0 36px 0 0;
         transform: none;
-        width: 400px;
+        width    : 400px;
         // The menu when the search is expanded on desktop
-        & ~ .toplevel-nav__menu{
-            width: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-left: -100%;
-            transition: all 0.18s 0s ease-in-out;
+        & ~ .toplevel-nav__menu {
+          width      : 0;
+          opacity    : 0;
+          overflow   : hidden;
+          margin-left: -100%;
+          transition : all .18s 0s ease-in-out;
         }
       }
-      
     }
-    
-    
   }
-  
   // MENU & MENU ITEMS
-
-  &__menu{
-    grid-area: menu;
-    margin: 20px 0 20px 0;
+  &__menu {
+    grid-area           : menu;
+    margin              : 20px 0;
     padding-inline-start: 0;
-    margin-block-end: 0;
-    text-decoration: none;
-    
-    opacity: 0;
-    visibility: hidden;
-    transition: margin 0.18s 0s ease-in-out, opacity 0.1s 0.17s ease-in-out;
-    margin-bottom: -100%;
-    
-    
-    @include desktop{
-      margin: 0 5px;
-      
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      
-      display: flex;
+    margin-block-end    : 0;
+    text-decoration     : none;
+    opacity             : 0;
+    visibility          : hidden;
+    transition          : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
+    margin-bottom       : -100%;
+    @include desktop {
+      margin        : 0 5px;
+      opacity       : 1;
+      visibility    : visible;
+      transform     : translateY(0);
+      display       : flex;
       flex-direction: row;
-      flex-wrap: nowrap;
-      justify-self: end;
+      flex-wrap     : nowrap;
+      justify-self  : end;
     }
+
     &[aria-hidden="true"] {
-      @include desktop{
+      @include desktop {
         // menu on desktop when ARIA label set to hidden (for testing)
       }
     }
-    
+
     &[aria-hidden="false"] {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+      opacity      : 1;
+      visibility   : visible;
+      transform    : translateY(0);
       margin-bottom: 20px;
-      @include desktop{
+      @include desktop {
         margin-bottom: 0;
-        transform: none;
+        transform    : none;
       }
-      
     }
-    
   }
-  
-  &__sub-menu{
-    @include desktop{
-      position: absolute;
+
+  &__sub-menu {
+    @include desktop {
+      position        : absolute;
       background-color: $c-background;
-      display: block;
-      border-radius: 4px;
-      box-shadow: -1px 1px 7px -1px rgba(82,95,127,.11);
+      display         : block;
+      border-radius   : 4px;
+      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
       // center the menu
-      transform: translate(-50%, 0);
-      left: 50%;
-      padding: 1rem 1.75rem;
+      transform       : translate(-50%, 0);
+      left            : 50%;
+      padding         : 1rem 1.75rem;
     }
     padding-inline-start: 0;
-    transition: max-height 0.25s 0s ease-in-out, opacity 0.15s 0s ease-in-out;
+    transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
     // closed
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
+    max-height          : 0;
+    overflow            : hidden;
+    opacity             : 0;
+    visibility          : hidden;
     // open
     &[aria-hidden="false"] {
-      height: auto;
+      height    : auto;
       max-height: 500px;
-      opacity: 1;
+      opacity   : 1;
       visibility: visible;
-      
       // submenu arrow when menu is open
       & ~ .toplevel-nav__sub-menu-arrow {
-        @include desktop{
-          bottom: -5px;
-          transform: translate(-50%, 0);
-          left: 50%;
-          position: absolute;
-          margin: 0 0 0 -6px;
-          width: 12px;
-          height: 12px;
+        @include desktop {
+          bottom           : -5px;
+          transform        : translate(-50%, 0);
+          left             : 50%;
+          position         : absolute;
+          margin           : 0 0 0 -6px;
+          width            : 12px;
+          height           : 12px;
           -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-          border-radius: 4px 0 0 0;
-          background: $c-background;
-          box-shadow: -3px -3px 5px rgba(82,95,127,.05);
-          opacity: 1;
+          transform        : rotate(45deg);
+          border-radius    : 4px 0 0 0;
+          background       : $c-background;
+          box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
+          opacity          : 1;
         }
       }
     }
   }
-  
-  &__sub-menu-arrow{
-    opacity: 0;
-    transition: opacity 0.2s 0s ease-in-out;
+
+  &__sub-menu-arrow {
+    opacity   : 0;
+    transition: opacity .2s 0s ease-in-out;
   }
-  
+
   &__sub-menu-link {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: .03em;
-    display: block;
+    margin         : 0;
+    font-size      : .9rem;
+    line-height    : 1.5;
+    text-transform : uppercase;
+    font-weight    : 400;
+    letter-spacing : .03em;
+    display        : block;
     text-decoration: none;
-    color: $c-foreground-subtle;
-    white-space: nowrap;
-    padding: 0.5rem 0;
-    
-    &--active{
-      color: $c-foreground;
+    color          : $c-foreground-subtle;
+    white-space    : nowrap;
+    padding        : .5rem 0;
+
+    &--active {
+      color      : $c-foreground;
       font-weight: 600;
     }
-    
-    @include desktop{
-      &:hover{
-        color: $c-foreground-emphasis;
-        transition: color 0.1s 0s ease-in-out;
+    @include desktop {
+      &:hover {
+        color     : $c-foreground-emphasis;
+        transition: color .1s 0s ease-in-out;
       }
     }
   }
-  
-  &__sub-menu-item{
-    
+
+  &__sub-menu-item {
     text-align: center;
-    height: auto;
-    display: block;
-    position: relative;
-    @include desktop{
+    height    : auto;
+    display   : block;
+    position  : relative;
+    @include desktop {
       margin: 5px 2px;
       height: auto;
     }
-    
-    &--active{
-    
-    }
-  }
-  
-  &__sub-menu-icon{
-    margin-top: -2px;
-    stroke: $c-foreground-subtle;
-    position: relative;
-    top: -1px;
+
+    &--active {}
   }
 
-  &__menu-item{
-    
+  &__sub-menu-icon {
+    margin-top: -2px;
+    stroke    : $c-foreground-subtle;
+    position  : relative;
+    top       : -1px;
+  }
+
+  &__menu-item {
     text-align: center;
-    height: auto;
-    display: block;
-    position: relative;
-    @include desktop{
+    height    : auto;
+    display   : block;
+    position  : relative;
+    @include desktop {
       margin: 5px 2px;
       height: auto;
     }
-    
-    &--active{
-      
-    }
+
+    &--active {}
   }
-  
-  &__menu-link{
+
+  &__menu-link {
     @include button-reset;
     text-decoration: none;
-    color: $c-foreground-subtle;
-    white-space: nowrap;
-    width: 100%;
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 56px;
-    &--active{
-      color: $c-foreground;
+    color          : $c-foreground-subtle;
+    white-space    : nowrap;
+    width          : 100%;
+    display        : block;
+    font-size      : 1.1rem;
+    font-weight    : 600;
+    line-height    : 56px;
+
+    &--active {
+      color      : $c-foreground;
       font-weight: 600;
     }
-    
-    @include desktop{
+    @include desktop {
       line-height: 1;
-      padding: 22px 10px;
-      
-      &:hover{
-        color: $c-foreground-emphasis;
-        transition: color 0.1s 0s ease-in-out;
+      padding    : 22px 10px;
+
+      &:hover {
+        color     : $c-foreground-emphasis;
+        transition: color .1s 0s ease-in-out;
       }
     }
   }
-  
 }
-
 // ========================================================
 // === HOMEPAGE ===
 // 
-.global-header--homepage{
-  
-  @include desktop{
-    .toplevel-nav{
-      display: flex;
+
+.global-header--homepage {
+  @include desktop {
+    .toplevel-nav {
+      display        : flex;
       justify-content: center;
     }
-    .toplevel-nav__button--logo{
+
+    .toplevel-nav__button--logo {
       display: none;
     }
-    .toplevel-nav__button--search{
+
+    .toplevel-nav__button--search {
       display: none;
     }
   }
-  
 }
-
 // ========================================================
 // === WAVE ===
 // 
 // to work with .header--wave
+
 .global-header--wave {
-  @include desktop{
-    height: auto;
-    max-height: 60px;
+  @include desktop {
+    height          : auto;
+    max-height      : 60px;
     background-color: transparent;
-    position: absolute;
-    
+    position        : absolute;
   }
 }
-
 // ========================================================
 // === DARK BKG ===
 // 
-.global-header--dark-bkg{
-  @include desktop{
-    .toplevel-nav__menu-link{
+
+.global-header--dark-bkg {
+  @include desktop {
+    .toplevel-nav__menu-link {
       color: col($c-neutral, 3);
     }
-    .toplevel-nav__menu-link:hover{
+
+    .toplevel-nav__menu-link:hover {
       color: col($c-neutral, 1);
     }
-    .toplevel-nav__button--logo .logo, .toplevel-nav__button-icon{
+
+    .toplevel-nav__button--logo .logo,
+    .toplevel-nav__button-icon {
       fill: col($c-neutral, 3);
     }
+
     .toplevel-nav__sub-menu-icon {
       stroke: col($c-neutral, 3);
     }
-    .d1search__input:focus~.d1search__label{
+
+    .d1search__input:focus~.d1search__label {
       color: col($c-primary, 5);
     }
   }
@@ -454,32 +426,39 @@
 // ========================================================
 // === WEBINAR ===
 // 
-.global-header--webinar{
-  @include desktop{
+
+.global-header--webinar {
+  @include desktop {
     background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
-    box-shadow: -1px 1px 24px 1px rgba(28,29,30,.3);
-    .toplevel-nav__menu-link{
+    box-shadow      : -1px 1px 24px 1px rgba(28,29,30,.3);
+
+    .toplevel-nav__menu-link {
       color: col($c-neutral, 2);
     }
-    .toplevel-nav__menu-link:hover{
+
+    .toplevel-nav__menu-link:hover {
       color: col($c-neutral, 1);
     }
-    .toplevel-nav__button--logo .logo, .toplevel-nav__button-icon{
+
+    .toplevel-nav__button--logo .logo,
+    .toplevel-nav__button-icon {
       fill: col($c-neutral, 2);
     }
+
     .toplevel-nav__sub-menu-icon {
       stroke: col($c-neutral, 2);
     }
-    .d1search__input:focus~.d1search__label{
+
+    .d1search__input:focus~.d1search__label {
       color: col($c-primary, 5);
     }
-    .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before{
+
+    .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before {
       color: col($c-neutral, 3);
     }
-    .toplevel-nav__button:focus .toplevel-nav__button-icon{
+
+    .toplevel-nav__button:focus .toplevel-nav__button-icon {
       fill: col($c-neutral, 2);
     }
-    
   }
-  
 }

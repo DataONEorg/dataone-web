@@ -84,7 +84,7 @@ page_sections:
     size: ''
     style: ''
 - template: section
-  type: secondary-light
+  type: tertiary-light
   title: Build your knowledge
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
@@ -92,26 +92,24 @@ page_sections:
   - template: columns
     num_cols: 2
     columns:
-    - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: ''
-      headline: Upcoming webinar
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
-        used to demonstrate the visual form of a document or a typeface without relying
-        on meaningful content.
-    - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: ''
-      headline: Featured skill
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
-        used to demonstrate the visual form of a document or a typeface without relying
-        on meaningful content.
+    - template: webinar-summary
+      auto_select: true
+    - template: card
+      href: https://dataoneorg.github.io/Education/bp_step/integrate/
+      title: "Best Practice"
+      subtitle: "Integrate"
+      clickable: true
+      pill:
+        template: pill
+        text: Featured skill
+        type: quaternary
+      description: Learn how data from multiple sources can be combined into a form that can be readily analyzed.
+      image:
+        template: image
+        src: "/uploads/integrate.png"
+        alttext: World map shown with Robinson projection
+        title: DataONE created global data research infrastructure
+        type: default
   icon:
     template: ''
     name: ''

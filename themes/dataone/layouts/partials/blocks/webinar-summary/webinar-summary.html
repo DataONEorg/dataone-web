@@ -1,0 +1,45 @@
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "webinar-summary" }}
+
+{{ $webinar := dict }}
+{{ $href := "" }}
+
+<!-- get the most recent webinar if auto select -->
+{{ if .Block.auto_select }}
+  <!-- get all webinars in order of webinar_datetime, with most recent listed first -->
+  {{ $all_webinars := where ($page.Site.RegularPages.ByParam "webinar_datetime").Reverse "Section" "webinars" }}
+  {{ range first 1 $all_webinars }}
+    {{ $webinar = .Params }}
+    {{ $href = .Permalink }}
+  {{ end }}
+  <!-- Otherwise, use the given webinar -->
+{{ else if .Block.webinar }}
+  {{ $webinarPage := $page.Site.GetPage .Block.webinar }}
+  {{ with $webinarPage }}
+    {{ $webinar = .Params }}
+    {{ $href = $webinarPage.Permalink }}
+  {{ end }}
+{{ end }}
+
+{{ if $webinar }}
+
+  {{ $status := partial "functions/getWebinarStatus" $webinar }}
+  {{ $pillBlock := partial "functions/getWebinarPill" $status }}
+  {{ $datetime := (time $webinar.webinar_datetime).UTC }}
+
+  <!-- add status as a modifier class -->
+  {{ $classes := $bn }}
+  {{ with $status }}
+    {{ $classes = print $classes " webinar--st-" $status }}
+  {{ end }}
+
+  {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
+
+  {{ $cardBlock := dict "clickable" true "href" $href "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+
+  <div class="{{ $classes }}">
+    {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+  </div>
+
+{{ end }}

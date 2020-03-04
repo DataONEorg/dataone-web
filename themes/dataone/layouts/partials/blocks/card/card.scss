@@ -1,34 +1,42 @@
 .card {
-  position: relative;
+  text-decoration: none;
+  display        : block;
+  position       : relative;
   @include card;
-  color   : col($c-neutral, 7);
+  color          : col($c-neutral, 7);
+  height         : 100%;
+  width          : 100%;
 
   .pill {
     margin-top: 1rem;
   }
 
   &__date {
-    background: $c-secondary;
-    display   : inline-block;
-    color     : white;
-    padding   : 10px;
-    position  : absolute;
-    top       : 0;
-    right     : 0;
-    z-index   : 4;
+    background   : $c-secondary;
+    display      : inline-block;
+    color        : white;
+    padding      : 10px;
+    position     : absolute;
+    top          : 0;
+    right        : 0;
+    z-index      : 4;
+    border-radius: 3px;
   }
 
   &__title {
     margin-top   : 40px;
     margin-bottom: 10px;
-    font-size    : 1.3rem;
+    font-size    : 1.4rem;
+    font-weight  : 600;
   }
 
   &__subtitle {
-    margin     : 0 0 1.5rem;
-    font-weight: 400;
-    color      : col($c-neutral, 6);
-    font-size  : 1.1rem;
+    margin        : 0 0 1.5rem;
+    font-weight   : 400;
+    color         : col($c-secondary, 5);
+    font-size     : 1.15rem;
+    letter-spacing: .01em;
+    font-weight   : 500;
   }
 
   &__description {
@@ -55,6 +63,10 @@
     top          : 0;
     left         : 0;
     z-index      : 0;
+
+    .figure__image {
+      border-radius: 4px;
+    }
   }
 
   .card__image-gradient {
@@ -69,8 +81,16 @@
     width          : 100%;
   }
 
+  .pill {
+    margin-left: 20px;
+  }
+
+  .card__subtitle,
   .card__title {
-    color   : white;
+    color: white;
+  }
+
+  .card__titles {
     position: absolute;
     bottom  : 5px;
     left    : 20px;
@@ -84,6 +104,12 @@
 
 .card--clickable {
   cursor: pointer;
+  // TODO: re-think .section styles to avoid important tag below
+  // important tag is to overwrite the .section link colours (e.g. .section a:not(.button):visited )
+  // these selectors are used because markdown is rendered in sections without class names.
+  &:not(.button) {
+    color: col($c-neutral, 7) !important;
+  }
 
   &:hover {
     transform : translateY(-0.8px);
