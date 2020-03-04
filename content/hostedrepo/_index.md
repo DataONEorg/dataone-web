@@ -255,7 +255,7 @@ page_sections:
     color: tertiary
     type: internal page
     text: Learn more about DataONE Plus
-    internal_link: "plus.md"
+    internal_link: "plus/_index.md"
   icon:
     template: ''
     name: ''

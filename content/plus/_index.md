@@ -162,7 +162,7 @@ page_sections:
     type: internal page
     color: tertiary
     text: More about hosted repositories
-    internal_link: 'hostedrepo.md'
+    internal_link: 'hostedrepo/_index.md'
   icon:
     template: ''
     name: ''

@@ -13,8 +13,8 @@ header:
     template: button
     text: Request membership
     color: primary
-  - type: internal webshite
-    internal_link: "network.md#section__current-member-nodes"
+  - type: internal page
+    internal_link: "network/_index.md#section__current-member-nodes"
     template: button
     text: See current members
     color: secondary

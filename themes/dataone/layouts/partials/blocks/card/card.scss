@@ -91,10 +91,11 @@
   }
 
   .card__titles {
-    position: absolute;
-    bottom  : 5px;
-    left    : 20px;
-    z-index : 2;
+    position     : absolute;
+    bottom       : 5px;
+    left         : 20px;
+    z-index      : 2;
+    padding-right: 20px;
   }
 
   .card__description {

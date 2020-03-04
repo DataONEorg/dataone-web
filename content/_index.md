@@ -158,7 +158,7 @@ page_sections:
       type: internal page
       color: tertiary
       text: More about DataONE
-      internal_link: "/about/about.md"
+      internal_link: "about/_index.md"
       external_link:
 - template: section
   type: quaternary-light

@@ -15,8 +15,11 @@ enableEmoji: true
 enableRobotsTXT: true
 publishDir: docs
 permalinks:
-  posts: "/:filename/"
-  pages: "/:filename/"
+  about: "/:filename/"
+  resources: "/:filename/"
+  network: "/:filename/"
+  plus: "/:filename/"
+  hostedrepo: "/:filename/"
 DisqusShortname: "x"
 params:
   description: DataONE's products and services.
@@ -27,7 +30,7 @@ params:
     findings, and conclusions or recommendations expressed in this material are those
     of the author(s) and do not necessarily reflect the views of the National Science
     Foundation.'
-  contactLink: /about/contact/
+  contactLink: /contact/
   donateLink: https://giving.ucsb.edu/Funds/Give?id=353
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
