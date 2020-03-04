@@ -187,8 +187,8 @@ page_sections:
     precheck_newsletter: false
 menu:
   toplevel:
-    name: Plus
     weight: 1
+    parent: Plus
   footer:
     weight: 1
 

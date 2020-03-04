@@ -70,6 +70,8 @@ menu:
     title: Old DataONE website
     weight: 14
   toplevel:
+  - name: Plus
+    weight: 1
   - url: https://dataoneorg.github.io/Education/
     name: Skillbuilding
     title: Skillbuilding Hub

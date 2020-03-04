@@ -99,7 +99,7 @@ page_sections:
       end: ''
 menu:
   toplevel:
-    weight: 1
+    weight: 2
     parent: Plus
 
 ---
