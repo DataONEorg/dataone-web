@@ -56,18 +56,17 @@ fields:
   name: blocks
   label: Sub-section blocks
   template_types:
+  - columns
   - feature-detailed
   - feature-simple
   - join-form
-  - markdown
-  - three-columns
-  - two-columns
-  - checklist
   - features-list
+  - checklist
+  - markdown
   - join-form
   - timeline
-  - team
   - metrics
+  - people
   description: The blocks to include in the section
   config:
     min: ''
