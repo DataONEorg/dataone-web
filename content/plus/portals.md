@@ -14,7 +14,7 @@ header:
     src: ''
     alttext: ''
     title: ''
-  title: Portals
+  title: A portal to your data
   intro: Introduction to portals
   buttons:
   - template: button
@@ -70,7 +70,7 @@ page_sections:
     precheck_plus: true
     precheck_hostedrepo: false
     precheck_newsletter: false
-  template: ''
+  template: 'section'
   icon:
     template: ''
     name: ''
