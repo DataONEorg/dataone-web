@@ -36,6 +36,7 @@ menu:
     weight: 5
   footer:
     parent: Resources
-    weight: 7
+    weight: 9
 draft: true
+
 ---

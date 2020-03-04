@@ -162,7 +162,7 @@ page_sections:
     type: internal page
     color: tertiary
     text: More about hosted repositories
-    internal_link: 'hostedrepo/_index.md'
+    internal_link: hostedrepo/_index.md
   icon:
     template: ''
     name: ''
@@ -186,10 +186,10 @@ page_sections:
     precheck_plus: true
     precheck_newsletter: false
 menu:
+  toplevel:
+    name: Plus
+    weight: 1
   footer:
     weight: 1
-  toplevel:
-    weight: 1
-    name: Plus
-draft: false
+
 ---

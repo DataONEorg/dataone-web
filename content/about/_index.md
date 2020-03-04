@@ -27,7 +27,7 @@ page_sections:
         one of the initial DataNet programs in 2009
       datetime:
         time: '2009-01-01'
-        dateformat: "02 Jan 2006"
+        dateformat: 02 Jan 2006
         localize: false
         change_timezone: false
       button:
@@ -44,7 +44,7 @@ page_sections:
         type: default
     - datetime:
         time: '2014-01-01'
-        dateformat: "02 Jan 2006"
+        dateformat: 02 Jan 2006
         localize: false
         change_timezone: false
       title: NSF Funding renewed
@@ -52,7 +52,7 @@ page_sections:
         2015.
     - datetime:
         time: '2019-01-15'
-        dateformat: "02 Jan 2006"
+        dateformat: 02 Jan 2006
         localize: false
         change_timezone: false
       title: New leadership transition
@@ -70,18 +70,21 @@ page_sections:
 - template: section
   type: bold
   title: Contribute
-  intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
+  intro: Help DataONE provide and maintain a distributed framework and sustainable
+    infrastructure that meets the needs of science and society for open, persistent,
+    robust, and secure access to well-described and easily discovered Earth observational
+    data.
   button:
     template: button
     type: donate
     color: primary
     text: Donate
 menu:
+  footer:
+    weight: 11
   toplevel:
+    name: About
     parent: Organization
     weight: 1
-    name: About
-  footer:
-    weight: 10
-draft: false
+
 ---

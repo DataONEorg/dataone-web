@@ -97,6 +97,10 @@ page_sections:
       URL: ''
       start: ''
       end: ''
+menu:
+  toplevel:
+    weight: 1
+    parent: Plus
 draft: true
 
 ---

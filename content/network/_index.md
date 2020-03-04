@@ -7,7 +7,11 @@ header:
   template: header
   type: network-image
   title: Your environmental data ecosystem
-  intro: 'DataONE unites a network of data repositories operated by research centers, universities, non-profit organizations,	citizen	science	initiatives, government	and	non-government organizations, and the like. Member institutions share data and infrastructure with DataONE and in return, we facilitate user access to data and interoperability between members.'
+  intro: "DataONE unites a network of data repositories operated by research centers,
+    universities, non-profit organizations,\tcitizen\tscience\tinitiatives, government\tand\tnon-government
+    organizations, and the like. Member institutions share data and infrastructure
+    with DataONE and in return, we facilitate user access to data and interoperability
+    between members."
 page_sections:
 - template: section
   type: default
@@ -30,11 +34,13 @@ page_sections:
     color: secondary
     text: More about network membership
     type: internal page
-    internal_link: "joinus.md"
+    internal_link: joinus.md
 - template: section
   type: secondary-medium
   title: Our current members
-  intro: Member institutions include libraries,	research centers, scientific consortia,	universities,	museums, non-profit	organizations, citizen science initiatives, corporate divisions and	governmental and non-governmental organizations.	
+  intro: "Member institutions include libraries,\tresearch centers, scientific consortia,\tuniversities,\tmuseums,
+    non-profit\torganizations, citizen science initiatives, corporate divisions and\tgovernmental
+    and non-governmental organizations."
   blocks:
   - template: member-nodes
 menu:
@@ -42,6 +48,6 @@ menu:
     weight: 1
     parent: Network
   footer:
-    weight: 4
-draft: false
+    weight: 5
+
 ---

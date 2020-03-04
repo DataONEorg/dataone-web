@@ -5,10 +5,10 @@ description: About dataone
 menu:
   toplevel:
     parent: Organization
-    weight: 4
+    weight: 3
   footer:
     parent: Organization
-    weight: 11
+    weight: 13
 draft: true
 
 ---

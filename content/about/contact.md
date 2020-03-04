@@ -32,9 +32,9 @@ page_sections:
 menu:
   toplevel:
     parent: Organization
-    weight: 5
+    weight: 4
   footer:
     parent: Organization
-    weight: 8
+    weight: 10
 
 ---

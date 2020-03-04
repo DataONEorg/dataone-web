@@ -8,7 +8,8 @@ description: A dedicated repository solution for your group or institution's dat
   research activity, foster new collaborations, and build community with a repository
   that meets your needs and reflects your brand.
 header:
-  intro: Bring the products of your research together in one centralized location for efficient sharing, access, and reuse.
+  intro: Bring the products of your research together in one centralized location
+    for efficient sharing, access, and reuse.
   template: header
   title: Your dedicated repository managed by DataONE
   type: hosted-repo-header
@@ -26,8 +27,8 @@ header:
     color: secondary
     text: Contact us
 page_sections:
-- intro: Let the experts behind DataONE manage and preserve your data, software,
-      and derived products with our robust software and hardware.
+- intro: Let the experts behind DataONE manage and preserve your data, software, and
+    derived products with our robust software and hardware.
   template: section
   title: Focus on your research, leave your data infrastructure to us
   type: default
@@ -35,7 +36,7 @@ page_sections:
   - details: []
     image:
       template: image
-      src: "uploads/metacat-on-github.png"
+      src: uploads/metacat-on-github.png
       alttext: Metacat on Github
       title: Open source tools by DataONE
       type: tilt-left
@@ -57,7 +58,7 @@ page_sections:
       type: external website
   - image:
       template: image
-      src: "uploads/geographic-replicas.png"
+      src: uploads/geographic-replicas.png
       alttext: Geographic replicas
       title: Replication makes your repository reliable
       type: tilt-right
@@ -78,8 +79,8 @@ page_sections:
         template: icon
     - name: Customization
       template: item-with-icon
-      text: Brand your data repository with customized features allowing you to
-        connect directly with your community.
+      text: Brand your data repository with customized features allowing you to connect
+        directly with your community.
       icon:
         name: checkmark
         size: small
@@ -88,8 +89,8 @@ page_sections:
   - details:
     - template: item-with-icon
       name: Custom DOI prefix
-      text: A DOI prefix is configured exclusively for your datasets, products,
-        and code
+      text: A DOI prefix is configured exclusively for your datasets, products, and
+        code
       icon:
         template: icon
         name: checkmark
@@ -97,8 +98,8 @@ page_sections:
         style: secondary
     - template: item-with-icon
       name: Custom domain name
-      text: Your repository is available at a domain of your choice, but hosted
-        by DataONE
+      text: Your repository is available at a domain of your choice, but hosted by
+        DataONE
       icon:
         template: icon
         name: checkmark
@@ -106,7 +107,7 @@ page_sections:
         style: secondary
     image:
       template: image
-      src: "uploads/custom-domain-and-doi.png"
+      src: uploads/custom-domain-and-doi.png
       alttext: Custom Domain and DOI
       title: Brand your data repository
       type: tilt-left
@@ -181,11 +182,11 @@ page_sections:
         upload data and create metadata to enhance interoperability, reusability,
         and value of data.
       image:
-          template: image
-          src: "uploads/metadata-editor.png"
-          alttext: Metadata Editor
-          title: Uploading data is easy with the Metadata Editor
-          type: float
+        template: image
+        src: uploads/metadata-editor.png
+        alttext: Metadata Editor
+        title: Uploading data is easy with the Metadata Editor
+        type: float
       details: []
     - template: feature-detailed
       type: top
@@ -199,11 +200,11 @@ page_sections:
       text: Programmatically work with your repository through the DataONE tools in
         R, Python, Matlab, and Java.
       image:
-          template: image
-          src: "uploads/dataone-r-api.png"
-          alttext: DataONE R API
-          title: Use the DataONE API to work with your repository
-          type: float
+        template: image
+        src: uploads/dataone-r-api.png
+        alttext: DataONE R API
+        title: Use the DataONE API to work with your repository
+        type: float
       details: []
   - template: columns
     num_cols: 3
@@ -255,7 +256,7 @@ page_sections:
     color: tertiary
     type: internal page
     text: Learn more about DataONE Plus
-    internal_link: "plus/_index.md"
+    internal_link: plus/_index.md
   icon:
     template: ''
     name: ''
@@ -279,10 +280,10 @@ page_sections:
     precheck_plus: false
     precheck_newsletter: false
 menu:
-  footer:
-    weight: 2
   toplevel:
-    weight: 2
     name: Hosted Repo
-draft: false
+    weight: 2
+  footer:
+    weight: 3
+
 ---
