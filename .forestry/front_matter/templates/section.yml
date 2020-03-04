@@ -3,11 +3,20 @@ label: Section
 hide_body: true
 display_field: title
 fields:
-- type: text
-  name: template
+- name: template
+  type: select
+  default: template
+  config:
+    required: false
+    options:
+    - template
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
   label: Template
   hidden: false
-  default: section
 - type: select
   label: Section style
   name: type
