@@ -27,7 +27,7 @@ header:
 page_sections:
 - template: section
   type: default
-  title: Showcase your team’s goals and results with branded portals
+  title: Showcase your team’s goals and results with branded portals.
   intro: Create a custom search portal for your research topic or lab group that spans
     repositories in the DataONE network. Branded portals provide a convenient, readily
     customized way to communicate your science, your team, your data, and related
