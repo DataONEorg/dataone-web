@@ -1,7 +1,7 @@
 ---
 label: Section
 hide_body: true
-display_field: template
+display_field: title
 fields:
 - type: text
   name: template
