@@ -67,7 +67,7 @@ page_sections:
     name: ''
     size: ''
     style: ''
-  title: ''
+  title: This is the section title
   intro: ''
   blocks: []
   button:
