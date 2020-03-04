@@ -101,6 +101,5 @@ menu:
   toplevel:
     weight: 1
     parent: Plus
-draft: true
 
 ---
