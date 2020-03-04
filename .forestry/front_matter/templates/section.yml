@@ -4,19 +4,12 @@ hide_body: true
 display_field: title
 fields:
 - name: template
-  type: select
-  default: section
+  type: text
   config:
-    required: false
-    options:
-    - section
-    source:
-      type: simple
-      section: 
-      file: 
-      path: 
+    required: true
   label: Template
-  hidden: false
+  default: section
+  description: Should be "section" by default
 - type: select
   label: Section style
   name: type
