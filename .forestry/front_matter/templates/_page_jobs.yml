@@ -47,4 +47,4 @@ fields:
   config:
     labelField: title
 pages:
-- jobs/_index.md
+- content/jobs/_index.md
