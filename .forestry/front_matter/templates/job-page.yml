@@ -1,52 +1,73 @@
 ---
 label: "\U0001F4C4Job Page"
 hide_body: true
+display_field: job_title
 fields:
-- type: text
-  name: title
-  label: title
-- type: text
-  name: job_title
-  label: job_title
 - type: datetime
   name: date
-  label: date
+  label: Date
+  description: The date this page was created
+  default: now
+- type: text
+  name: title
+  label: Title
+  hidden: true
+  default: Careers at DataONE
+- type: text
+  name: job_title
+  label: Job Title
+  description: The job title
 - type: datetime
   name: open_date
-  label: open_date
+  label: Opening Date
+  description: The date applications will be accepted for this position
 - type: datetime
   name: close_date
-  label: close_date
+  label: Closing Date
+  description: The last date that applications will be accepted for this position
 - type: text
   name: location
-  label: location
+  label: Location
+  description: Where will the applicant work?
 - type: text
   name: details_url
-  label: details_url
+  label: Details URL
+  description: A link to more details about the position
 - type: text
   name: apply_url
-  label: apply_url
+  label: Application URL
+  description: A link to where the applicant can submit their application
 - type: text
   name: salary
-  label: salary
+  label: Salary
+  description: The salary or salary range offered for this position
 - type: text
   name: job_type
-  label: job_type
+  label: Job Type
+  description: E.g. temporary contract, career, etc.
 - type: list
   name: tags
-  label: tags
+  label: Tags
+  description: 3 or so tags that help categorize the position (e.g. "data science",
+    "people operations", "communication", etc.)
 - type: textarea
   name: summary
-  label: summary
+  label: Summary
+  description: 1 or 2 sentences that describe the main role (as brief as possible)
 - type: textarea
   name: description
-  label: description
+  label: Description
+  description: Any relevant details about the position
 - type: list
   name: min_quals
-  label: min_quals
+  label: Minimum Qualifications
+  description: A list of the required qualifications for the position
 - type: list
   name: prefer_quals
-  label: prefer_quals
+  label: Preferred Qualifications
+  description: A list of the qualifications that would make a candidate competitive
 - type: list
   name: docs
-  label: docs
+  label: Required Documents
+  description: A list of documents required for the application (eg. CV, cover letter,
+    references)
