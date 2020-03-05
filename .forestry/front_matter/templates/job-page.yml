@@ -54,10 +54,18 @@ fields:
   name: summary
   label: Summary
   description: 1 or 2 sentences that describe the main role (as brief as possible)
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: textarea
   name: description
   label: Description
   description: Any relevant details about the position
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: list
   name: min_quals
   label: Minimum Qualifications
