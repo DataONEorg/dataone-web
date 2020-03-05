@@ -1,7 +1,7 @@
 ---
 layout: index
 date: 2019-12-04T21:59:31.000+00:00
-title: 'Data Observation Network for Earth '
+title: 'Data Observation Network for Earth'
 description: Data Observation Network for Earth (DataONE) is the foundation of new
   innovative environmental science through a distributed framework and sustainable
   cyberinfrastructure that meets the needs of science and society for open, persistent,
@@ -10,8 +10,6 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
 page_sections:
 - template: section
   type: default
-  title: ''
-  intro: ''
   blocks:
   - template: logos-bar
     button:
@@ -20,7 +18,6 @@ page_sections:
       color: quaternary
       text: Join our network of members
       internal_link: "/network/network.md"
-      external_link:
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
@@ -49,40 +46,20 @@ page_sections:
     num_cols: 3
     columns:
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: ''
       headline: Lorem ipsum
       text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
         used to demonstrate the visual form of a document or a typeface without relying
         on meaningful content.
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: ''
       headline: Lorem ipsum
       text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
         used to demonstrate the visual form of a document or a typeface without relying
         on meaningful content.
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: ''
       headline: Lorem ipsum
       text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
         used to demonstrate the visual form of a document or a typeface without relying
         on meaningful content.
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 - template: section
   type: tertiary-light
   title: Build your knowledge
@@ -102,7 +79,7 @@ page_sections:
       pill:
         template: pill
         text: Featured skill
-        type: quaternary
+        style: quaternary
       description: Learn how data from multiple sources can be combined into a form that can be readily analyzed.
       image:
         template: image
@@ -185,5 +162,4 @@ page_sections:
     name: ''
     size: ''
     style: ''
-draft: false
 ---

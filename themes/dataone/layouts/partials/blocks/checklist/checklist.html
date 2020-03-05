@@ -1,10 +1,23 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "checklist"}}
+{{ $classes := $bn }}
+{{ $numCols := .Block.num_cols | default 3 }}
+{{ with $numCols }}
+  {{ $classes = print $classes " " $bn "--" . "cols" }}
+{{ end }}
 
-{{- with .Block.items -}}
-  <ul class="checklist">
-    {{- range . -}}
-    <li class="checklist__item"><div class="checklist__checkmark">{{- partial "icons/checkmark.svg" -}}</div>{{ . }}</li>
-    {{- end -}}
-  </ul>
-{{- end -}}
+<div class="{{ $classes }}">
+  {{ with .Block.title }}
+    <h3 class="{{ $bn }}__title">{{ . }}</h3>
+  {{ end }}
+  {{- with .Block.items -}}
+    <ul class="{{ $bn }}__items">
+      {{- range . -}}
+        <li class="{{ $bn }}__item">
+          <div class="{{ $bn }}__checkmark">{{- partial "icons/checkmark.svg" -}}</div>{{ . }}</li>
+      {{- end -}}
+    </ul>
+  {{- end -}}
+</div>

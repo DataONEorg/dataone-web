@@ -1,38 +1,35 @@
-<!-- in order to pass on page parameters from within loops  -->
+<!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 {{ $Site := .Page.Site }}
 <div class="member-nodes">
-  
+
   <div class="member-nodes__nav-container">
     <nav class="member-nodes__nav">
-      
+
       <ol class="member-nodes__toc" id="member-nodes-toc" aria-hidden="false">
-      {{- range $Site.Data.membernodes.categories -}}
-        {{ $category := .category }}
-        {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
-        <li class="member-nodes__toc-item" aria-controls="section__{{urlize $category}}" id="item__{{urlize $category}}">
-          {{ if .category }}
-            <a class="member-nodes__toc-link" href="{{$page.RelPermalink}}#section__{{urlize $category}}">
-              {{ .category }}<span class="member-nodes__count">{{ $nodeCount }}</span>
-            </a>
+        {{- range $Site.Data.membernodes.categories -}}
+          {{ $category := .category }}
+          {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
+          <li class="member-nodes__toc-item" aria-controls="section__{{urlize $category}}" id="item__{{urlize $category}}">
+            {{ if .category }}
+              <a class="member-nodes__toc-link" href="{{$page.RelPermalink}}#section__{{urlize $category}}">
+                {{ .category }}
+                <span class="member-nodes__count">{{ $nodeCount }}</span>
+              </a>
             {{ end }}
-        </li>
-      {{ end }}
+          </li>
+        {{ end }}
       </ol>
-      
-      <button class="member-nodes__toc-button"
-        id="toc-toggle"
-        aria-label="Show table of contents"
-        aria-expanded="true"
-        aria-controls="member-nodes-toc">
+
+      <button class="member-nodes__toc-button" id="toc-toggle" aria-label="Show table of contents" aria-expanded="true" aria-controls="member-nodes-toc">
         <span class="member-nodes__button-icon">
           {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "list" "color" "inherit")) -}}
         </span>
       </button>
-      
+
     </nav>
   </div>
-  
+
   <section class="member-nodes__categories">
     {{- range $Site.Data.membernodes.categories -}}
       {{ $category := .category }}
@@ -45,7 +42,7 @@
           </p>
         {{ end }}
         <div class="member-nodes__category-members">
-          
+
           {{- range $categoryMembers -}}
             <div class="member-nodes__member">
               <!-- Status -->
@@ -58,45 +55,45 @@
                 {{ else if eq . "upcoming" }}
                   {{$pillType = "info" }}
                 {{ end }}
-                
-                {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "type" $pillType) "Page" $page) -}}
+
+                {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "style" $pillType) "Page" $page) -}}
               {{ end }}
-              
+
               <!-- Logo -->
               {{ if .logo }}
-                  {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
-                  {{ if gt $imageResource.Width 300 }}
-                    {{ $imageResource = $imageResource.Resize "300x" }}
-                  {{ end }}
-                  {{ if gt $imageResource.Height 400 }}
-                    {{ $imageResource = $imageResource.Resize "400x" }}
-                  {{ end }}
-                  <figure class="member-nodes__logo">
-                    <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }}alt="{{ .}} logo" title="{{ .}}"{{ end }} />
-                  </figure>
+                {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
+                {{ if gt $imageResource.Width 300 }}
+                  {{ $imageResource = $imageResource.Resize "300x" }}
+                {{ end }}
+                {{ if gt $imageResource.Height 400 }}
+                  {{ $imageResource = $imageResource.Resize "400x" }}
+                {{ end }}
+                <figure class="member-nodes__logo">
+                  <img class="member-nodes__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }} alt="{{ .}} logo" title="{{ .}}" {{ end }}/>
+                </figure>
               {{ end }}
-              
+
               <!-- Node name -->
               <h4 class="member-nodes__name">{{ .name }}</h4>
-              
+
               <!-- Links -->
-              <div class="member-nodes__links">  
+              <div class="member-nodes__links">
                 {{ with .profile }}
                   <a class="member-nodes__link" href="{{ . }}" title="Member node statistics">
                     {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
                   </a>
-                  {{ end }}
+                {{ end }}
                 {{ with .homepage }}
                   <a class="member-nodes__link" href="{{ . }}" title="Member node homepage">
                     {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "home")) -}}
                   </a>
                 {{ end }}
               </div>
-              
+
             </div>
           {{ end }}
         </div>
       </div>
-      {{ end }}
+    {{ end }}
   </section>
 </div>

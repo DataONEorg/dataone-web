@@ -9,8 +9,19 @@
   }
 
   &__column {
-    display        : flex;
+    display: flex;
+  }
+}
+
+.columns--align-center {
+  .columns__column {
     justify-content: center;
+  }
+}
+
+.columns--align-left {
+  .columns__column {
+    justify-content: left;
   }
 }
 

@@ -8,10 +8,6 @@ header:
   type: text-only
   title: Open source tools from DataONE
   intro: ''
-  pill:
-    template: ''
-    type: ''
-    text: ''
   buttons: []
   headerimage:
     template: ''
@@ -37,6 +33,5 @@ menu:
   footer:
     parent: Resources
     weight: 4
-draft: true
 
 ---

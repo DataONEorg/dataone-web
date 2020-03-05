@@ -1,42 +1,43 @@
-.metrics{
-  margin-top: -5rem;
-  display: grid;
-  justify-content: center;
+.metrics {
+  margin-top           : -2rem;
+  display              : grid;
+  justify-content      : center;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 3rem 0;
+  grid-gap             : 3rem 0;
 
-  
-  
-  &__group{
-    display: grid;
+  &__group {
+    display              : grid;
     grid-template-columns: 1fr 1fr;
   }
-  
-  &__metric{
+
+  &__metric {
     text-align: center;
   }
-  
-  &__integer{
+
+  &__integer {
     font-size: 2.8rem;
   }
-  &__name{
-    font-size: 0.9rem;
-    color: $c-foreground-subtle;
-    margin-top: 0.5rem;
+
+  &__name {
+    font-size : .9rem;
+    color     : $c-foreground-subtle;
+    margin-top: .5rem;
   }
-  &__icon{
-    stroke: $c-foreground-subtle;
+
+  &__icon {
+    stroke      : $c-foreground-subtle;
     margin-right: 3px;
   }
-
 }
 
-.metrics--secondary{
+.metrics--secondary {
   color: col($c-tertiary, 5);
-  .metrics__name{
+
+  .metrics__name {
     color: col($c-tertiary, 4);
   }
-  .metrics__icon{
+
+  .metrics__icon {
     stroke: col($c-tertiary, 4);
   }
 }

@@ -1,29 +1,29 @@
 {{- define "main" -}}
 
-    <div class = "job-list">
-      <h1 class="job-list__title">
-        {{if .Params.headline }}
-          {{ .Params.headline }}
-        {{ else }}
-        Work with us
-        {{ end }}
-        </h1>
-          <p class="jobs-list__intro">
-            {{- if .Summary -}}
-              {{ .Summary }}
-            {{- else -}}
-            Open positions.
-            {{- end -}}
-          </p>
-          
-      <section class="jobs-list__list">
-        {{- range .Paginator.Pages -}}
-          
-          {{ .Render "summary" }}
-        {{- end -}}
-        
-        {{- partial "blocks/paginator/paginator" . -}}
-      </section>
-    </div>
-  
+  {{ $jobSectionId := "current-openings" }}
+  {{ $headline := .Params.headline | default "Join the DataONE team" }}
+  {{ $buttonBlock := dict "template" "button" "color" "primary" "type" "internal page" "internal_link" (print "#" $jobSectionId) "text" "See current openings" }}
+  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text-only" "buttons" (slice $buttonBlock)) "Page" $)}}
+
+  {{- range .Params.page_sections -}}
+    {{ $template := .template | default "section" }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+  {{- end -}}
+
+  {{ $subblocks := slice }}
+  {{- range .Paginator.Pages -}}
+    <!-- remove trailing slash in link -->
+    {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
+    <!-- use the webinar summary block -->
+    {{ $jobBlock := (dict "template" "job-summary" "job" $pageLink) }}
+    {{ $subblocks = $subblocks | append $jobBlock }}
+  {{ else }}
+    {{ $noJobBlock := (dict "template" "markdown" "content" ( .Params.no_job_message | default "We're not hiring at the moment, check back soon." )) }}
+    {{ $subblocks = $subblocks | append $noJobBlock }}
+  {{- end -}}
+  {{- partial "blocks/paginator/paginator" . -}}
+
+  {{ $sectionBlock := dict "title" "Current openings" "blocks" $subblocks "id" $jobSectionId }}
+  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
+
 {{- end -}}

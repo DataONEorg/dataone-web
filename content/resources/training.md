@@ -8,17 +8,7 @@ header:
   type: text-only
   title: In-Person Training
   intro: Learn directly from DataONE experts
-  pill:
-    template: ''
-    type: ''
-    text: ''
   buttons: []
-  headerimage:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - template: section
   type: default
@@ -37,6 +27,5 @@ menu:
   footer:
     parent: Resources
     weight: 9
-draft: true
 
 ---

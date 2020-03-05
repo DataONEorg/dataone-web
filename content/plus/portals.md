@@ -6,7 +6,7 @@ header:
   type: text-only
   pill:
     template: pill
-    type: secondary
+    style: secondary
     text: Coming soon
   headerimage:
     template: image

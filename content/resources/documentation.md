@@ -8,10 +8,6 @@ header:
   type: text-only
   title: Documentation
   intro: Detailed how-tos for all DataONE products
-  pill:
-    template: ''
-    type: ''
-    text: ''
   buttons: []
   headerimage:
     template: ''
@@ -37,6 +33,5 @@ menu:
   footer:
     parent: Resources
     weight: 7
-draft: true
 
 ---

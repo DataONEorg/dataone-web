@@ -1,0 +1,50 @@
+---
+label: "\U0001F4C4Jobs Index"
+hide_body: true
+display_field: title
+fields:
+- type: datetime
+  name: date
+  label: Date
+  description: The date the page was created
+  default: now
+  hidden: true
+- type: text
+  label: Title
+  name: title
+  description: The title will display in search results, the browser tab, and bookmarked
+    page
+- type: textarea
+  label: Page headline
+  name: headline
+  description: The title or headline to display at the top of the page in large text
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: text
+  label: Description
+  name: description
+  description: A description of the page. This description will appear in search results.
+- type: textarea
+  label: No jobs messasge
+  name: no_job_message
+  description: The message to show user when there are no job openings at the moment
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: field_group_list
+  name: page_sections
+  label: Page sections
+  fields:
+  - type: include
+    template: section
+    name: section-block
+    label: Section block
+    description: Modular sections to organize content
+  description: The different building blocks that make up the page sections
+  config:
+    labelField: title
+pages:
+- jobs/_index.md

@@ -10,7 +10,7 @@ header:
   type: d1-plus-header
   pill:
     template: pill
-    type: secondary
+    style: secondary
     text: Coming 2020
   title: ONE solution for all your data needs
   intro: Everything you need to support your research with enhanced services from

@@ -5,11 +5,15 @@ display_field: title
 fields:
 - name: template
   type: text
-  config:
-    required: true
+  hidden: true
   label: Template
   default: section
   description: Should be "section" by default
+- name: id
+  type: text
+  hidden: true
+  label: ID
+  description: The ID attribute to give to the section element
 - type: select
   label: Section style
   name: type
@@ -65,10 +69,12 @@ fields:
   - features-list
   - checklist
   - markdown
-  - join-form
   - timeline
   - metrics
   - people
+  - job-summary
+  - webinar-summary
+  - card
   description: The blocks to include in the section
   config:
     min: ''

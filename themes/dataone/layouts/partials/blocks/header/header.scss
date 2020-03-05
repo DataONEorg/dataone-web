@@ -1,543 +1,525 @@
-
 // ==== HEADER ====
 
 .header {
-  
   @include f-common;
-  
-  padding-top: calc( 1.5 * #{$intra-section-spacing} );
+  padding-top   : calc(1.5 * #{$intra-section-spacing});
   padding-bottom: $inter-section-spacing;
-  
-  &__content {
 
+  &__content {
     @include limit-width;
     @include medium-lr-padding;
-    display: flex;
+    display       : flex;
     flex-direction: column;
-    
     @include desktop {
-      display: grid;
-      grid-template-columns: 0.7fr 1fr;
-      grid-gap: 0 $grid-gap;
+      display              : grid;
+      grid-template-columns: .7fr 1fr;
+      grid-gap             : 0 $grid-gap;
     }
-    
   }
-  
+
   &__text {
-    text-align: center;
-    min-height: fit-content;
-    padding-bottom: $intra-section-spacing;
-    display: flex;
-    flex-direction: column;
+    text-align     : center;
+    min-height     : fit-content;
+    padding-bottom : $intra-section-spacing;
+    display        : flex;
+    flex-direction : column;
     justify-content: center;
-    
-    @include desktop{
+    @include desktop {
       text-align: left;
     }
   }
-  
-  &__title-and-pill{
-  }
-  
+
+  &__title-and-pill {}
+
   &__title {
-    display: inline-block;
-    font-size: $fs-h3;
+    display       : inline-block;
+    font-size     : $fs-h3;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: col($c-neutral, 6);
-    margin: 3rem 0.5em 1rem 0;
+    letter-spacing: .05em;
+    color         : col($c-neutral, 6);
+    margin        : 3rem .5em 1rem 0;
   }
-  
+
   &__headline {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: $fs-page-title;
-    line-height: 1.1;
-    color: var(--col-title);
-    font-family: 'Martel';
-    font-weight: 900;
-    
-    @include desktop{
-      font-size: $fs-page-title-desktop;
-      margin-top: calc(1.8 * #{$intra-section-spacing})
+    margin-top   : 1rem;
+    margin-bottom: .5rem;
+    font-size    : $fs-page-title;
+    line-height  : 1.1;
+    color        : var(--col-title);
+    font-family  : 'Martel';
+    font-weight  : 900;
+    @include desktop {
+      font-size : $fs-page-title-desktop;
+      margin-top: calc(1.8 * #{$intra-section-spacing});
     }
   }
-  
+
   &__intro {
     margin-bottom: 5rem;
-    font-size: $fs-page-intro;
-    line-height: 1.6;
-    font-weight: 400;
+    font-size    : $fs-page-intro;
+    line-height  : 1.6;
+    font-weight  : 400;
   }
-  
+
   &__ctas {
-    display: flex;
-    justify-items: left;
-    grid-auto-flow: column;
+    display        : flex;
+    justify-items  : left;
+    grid-auto-flow : column;
     justify-content: center;
-    flex-wrap: wrap;
-    
+    flex-wrap      : wrap;
     @include desktop {
       justify-content: left;
     }
-    
+
     .button {
-      margin-right: 0.5em;
-      margin-top: 0.5em;
+      margin-right: .5em;
+      margin-top  : .5em;
     }
-    
   }
-  
+
   &__figure {
-    
-    margin:0;
+    margin : 0;
     display: block;
-    
+
     svg {
-      width: 100%;
-      max-width: 500px;
-      min-width: 300px;
-      margin-top: auto;
+      width        : 100%;
+      max-width    : 500px;
+      min-width    : 300px;
+      margin-top   : auto;
       margin-bottom: auto;
       @include center-svg;
-      position: relative;
-      
-      flex-shrink: 0;
+      position     : relative;
+      flex-shrink  : 0;
       border-radius: 8px;
-      overflow: hidden;
-      transform: rotate3d(.4,1,0.2,10deg);
-      box-shadow: 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
-      
+      overflow     : hidden;
+      transform    : rotate3d(.4,1,0.2,10deg);
+      box-shadow   : 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
     }
-    &:hover{
-      svg{
+
+    &:hover {
+      svg {
         // fill: red;
         transform: rotate3d(.4,1,0.15,11deg);
       }
     }
-    
   }
 }
 
 .header--left-aligned {
-  
-  .header__text{
+  .header__text {
     padding-bottom: 2rem;
-    @include desktop{
+    @include desktop {
       padding-top: 3rem;
     }
   }
-  
-  .header__figure{
-    
+
+  .header__figure {
     min-height: 165px;
-    img{
-      max-width: 750px;
-      position: absolute;
-      top: auto;
-      right: 0;
-      width: 100vw;
+
+    img {
+      max-width : 750px;
+      position  : absolute;
+      top       : auto;
+      right     : 0;
+      width     : 100vw;
       margin-top: 10px;
     }
-    
-    @media only screen and (min-width: 400px) and (max-width: calc(#{$breakpoint} - 1px)){
+    @media only screen and (min-width: 400px) and (max-width: calc(#{$breakpoint} - 1px)) {
       min-height: 360px;
     }
-    
-    @media only screen and (min-width: $breakpoint) and (max-width: 1130px){
-      img{
+    @media only screen and (min-width: $breakpoint) and (max-width: 1130px) {
+      img {
         margin-top: -10px;
-        width: 58%;
+        width     : 58%;
       }
     }
-    
-    @media only screen and (min-width: 1131px) and (max-width: 1650px){
+    @media only screen and (min-width: 1131px) and (max-width: 1650px) {
       min-height: 550px;
+
       img {
         margin-top: -15px;
-        width: 65%;
+        width     : 65%;
       }
     }
-    @media only screen and (min-width: 1651px){
+    @media only screen and (min-width: 1651px) {
       min-height: 550px;
+
       img {
-        max-width: none;
-        margin-top: 25px;
-        width: 150%;
-        position: relative;
+        max-width    : none;
+        margin-top   : 25px;
+        width        : 150%;
+        position     : relative;
         margin-bottom: -150px;
       }
     }
   }
 }
 
-.header--center-aligned{
+.header--center-aligned {
   // TODO
 }
 
-
-.header--text-only{
+.header--text-only {
   background-color: $c-background-emphasis;
-  padding-bottom: 0;
-  
-  .header__content{
+
+  .header__content {
     display: block;
   }
-  
+
   .header__text {
-    text-align: center;
+    text-align    : center;
     padding-bottom: 0;
-    @include desktop{
+    @include desktop {
       text-align: center;
     }
   }
-  
-  .header__ctas{
+
+  .header__ctas {
     justify-content: center;
   }
 }
-
-
-
 // ========================================================
 // === SVG-BACKGROUND ===
 // 
-.header--svg-background{
+
+.header--svg-background {
   padding-bottom: 400px;
-  padding-top: 0;
-  @include desktop{
-    margin-top: 80px;
+  padding-top   : 0;
+  @include desktop {
+    margin-top    : 80px;
     padding-bottom: 0;
-    min-height: 720px;
-    height: auto;
-    max-height: 720px;
+    min-height    : 720px;
+    height        : auto;
+    max-height    : 720px;
   }
-  
-  .header__text{
-    z-index: 2;
+
+  .header__text {
+    z-index : 2;
     position: relative;
   }
-  .header__headline{
-    font-size: 1.75rem;
+
+  .header__headline {
+    font-size     : 1.75rem;
     letter-spacing: -.006em;
-    line-height: 1.45;
-    @include desktop{
+    line-height   : 1.45;
+    @include desktop {
       font-size: 2.1rem;
     }
-    
   }
-  .header__intro{
-    font-size: 1rem;
+
+  .header__intro {
+    font-size     : 1rem;
     letter-spacing: -0.003em;
-    line-height: 1.5;
-    font-weight: 300;
-    @include desktop{
+    line-height   : 1.5;
+    font-weight   : 300;
+    @include desktop {
       font-size: 1.25rem;
     }
   }
-  .header__content{
+
+  .header__content {
     margin: 0 auto;
-    @include desktop{
+    @include desktop {
       grid-template-columns: 1fr 1fr;
     }
   }
-  
-  .header__svg-background{
-    align-items: center;
-    display: flex;
+
+  .header__svg-background {
+    align-items    : center;
+    display        : flex;
     justify-content: center;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1; // so that content is above svg background
-    svg{
-      flex: 0 0 auto;
-      width: auto;
-      height: 900px;
-      margin-left: -234px;
-      margin-top: 0;
+    left           : 0;
+    overflow       : hidden;
+    position       : absolute;
+    top            : 0;
+    width          : 100%;
+    z-index        : 1; // so that content is above svg background
+
+    svg {
+      flex          : 0 0 auto;
+      width         : auto;
+      height        : 900px;
+      margin-left   : -234px;
+      margin-top    : 0;
       padding-bottom: 0;
-      @include desktop{
-        margin-left: 0px;
-        margin-bottom: 0px;
-        margin-top: -980px;//-900px;
-        height: 1800px;
+      @include desktop {
+        margin-left  : 0;
+        margin-bottom: 0;
+        margin-top   : -980px; //-900px;
+        height       : 1800px;
       }
     }
   }
 }
-
 // ========================================================
 // === SVG IMAGE ===
 // 
-.header--svg-image{
+
+.header--svg-image {
   padding-bottom: 0;
-  @include desktop{
+  @include desktop {
     padding-top: 0;
   }
-  
-  .header__headline{
-    font-size: 1.75rem;
+
+  .header__headline {
+    font-size     : 1.75rem;
     letter-spacing: -.006em;
-    line-height: 1.45;
-    @include desktop{
+    line-height   : 1.45;
+    @include desktop {
       font-size: 2.1rem;
     }
-    
   }
-  .header__intro{
-    font-size: 1rem;
+
+  .header__intro {
+    font-size     : 1rem;
     letter-spacing: -0.003em;
-    line-height: 1.5;
-    font-weight: 300;
-    @include desktop{
+    line-height   : 1.5;
+    font-weight   : 300;
+    @include desktop {
       font-size: 1.25rem;
     }
   }
-  
-  overflow: hidden;
-  .header__svg-figure{
-    display: flex;
-    align-items: center;
+  overflow      : hidden;
+
+  .header__svg-figure {
+    display        : flex;
+    align-items    : center;
     justify-content: center;
   }
-  
-  .header__svg-figure svg{
-    
-    margin-top: $intra-section-spacing;
+
+  .header__svg-figure svg {
+    margin-top : $intra-section-spacing;
     margin-left: -15%;
-    width: 130%;
-    flex: 0 0 auto;
-    height: auto;
-    @include desktop{
-      width: 150%;
+    width      : 130%;
+    flex       : 0 0 auto;
+    height     : auto;
+    @include desktop {
+      width       : 150%;
       margin-right: -12rem;
-      margin-left: 0;
-      max-width: 754px;
+      margin-left : 0;
+      max-width   : 754px;
     }
-    
-    
   }
 }
-
 // ========================================================
 // === HOMEPAGE ===
 // 
-.header--homepage{
 
-  .header__logo{
-    display: flex;
-    align-items: center;
+.header--homepage {
+  .header__logo {
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    padding-top: 25px;
-    z-index: 2;
-    
-    @include desktop{
+    padding-top    : 25px;
+    z-index        : 2;
+    @include desktop {
       padding-top: 45px;
     }
-    
   }
-  
+
   .header__search {
-    display: flex;
-    align-items: center;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    padding-bottom: 3px;
-    z-index: 2;
+    padding-bottom : 3px;
+    z-index        : 2;
   }
-  
+
   .header__advanced-search {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .025em;
-    font-size: $fs-button;
-    color: $c-foreground-subtle;
-    text-align: center;
+    font-weight    : 600;
+    text-transform : uppercase;
+    letter-spacing : .025em;
+    font-size      : $fs-button;
+    color          : $c-foreground-subtle;
+    text-align     : center;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
       color: $c-secondary;
     }
-    z-index: 2;
+    z-index        : 2;
   }
-  
-  .header__content{
-    margin-top: 2rem;
-    display: grid;
+
+  .header__content {
+    margin-top           : 2rem;
+    display              : grid;
     grid-template-columns: 1fr;
-    grid-template-rows: .5fr .5fr;
-    grid-gap: 1.8rem 0;
-    @include desktop{
+    grid-template-rows   : .5fr .5fr;
+    grid-gap             : 1.8rem 0;
+    @include desktop {
       margin-top: 5.5rem;
     }
   }
-
 }
-
 // ========================================================
 // === SVG BACKGROUND ===
 // 
-.header--simple-svg-background{
+
+.header--simple-svg-background {
   @extend .header--svg-background;
   @extend .header--text-only;
   padding-bottom: 250px;
-  @include desktop{
+  @include desktop {
     margin-top: 70px;
     min-height: 700px;
     max-height: 750px;
   }
-  
-  
-  .header__svg-background{
-    svg{
-      margin-left: 0px;
-    
-      height: 1000px;
-      @include desktop{
-        margin-top: 0;
-        margin-left: 0px;
-        height: 800px;
-        margin-bottom: 0px;
+
+  .header__svg-background {
+    svg {
+      margin-left: 0;
+      height     : 1000px;
+      @include desktop {
+        margin-top    : 0;
+        margin-left   : 0;
+        height        : 800px;
+        margin-bottom : 0;
         padding-bottom: 0;
       }
     }
   }
 }
-
-
 // ========================================================
 // === DARK BKG ===
 // 
-.header--dark-bkg{
-  .header__headline{
-    color: col($c-neutral, 1);
+
+.header--dark-bkg {
+  .header__headline {
+    color      : col($c-neutral, 1);
     text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.1);
-    
   }
-  .header__intro{
-    color: col($c-neutral, 1);
+
+  .header__intro {
+    color      : col($c-neutral, 1);
     text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.3);
   }
-  .header__title{
+
+  .header__title {
     color: col($c-neutral, 4);
   }
 }
-
 // ========================================================
 // === HERO ===
 // 
-.header--hero{
+
+.header--hero {
   @include bkg-img;
-  position: relative;
+  position  : relative;
   min-height: 500px;
-  .header__title{
+
+  .header__title {
     margin-top: 5rem;
   }
 }
-
 // ========================================================
 // === NETWORK ===
 // 
 // 
-.header--network-image{
-  @extend .header--text-only;
-  background-image:url('/uploads/duotone-network.jpg');
-  padding-bottom: 6rem;
-  padding-top: 6rem;
 
-  .header__title, .header__intro, .header__headline {
+.header--network-image {
+  @extend .header--text-only;
+  background-image: url("/uploads/duotone-network.jpg");
+  padding-bottom  : 6rem;
+  padding-top     : 6rem;
+
+  .header__headline,
+  .header__intro,
+  .header__title {
     text-shadow: .01em .01em 1.5em rgba(255, 255, 255, 1);
   }
-  .header__title{
+
+  .header__title {
     font-weight: 500;
   }
 }
-
 // ========================================================
 // === WEBINAR ===
 // 
-.header--webinar{
-  
-  .header__content{
-    @include desktop{
+
+.header--webinar {
+  .header__content {
+    @include desktop {
       display: flex;
     }
   }
-  .header__title{
+
+  .header__title {
     margin-top: 1rem;
   }
-  .header__headline{
-    font-size: 2.2rem;
+
+  .header__headline {
+    font-size  : 2.2rem;
     line-height: 1.15;
-    margin-top: 3.5rem;
+    margin-top : 3.5rem;
   }
-  .header__intro{
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin-top: 1rem;
+
+  .header__intro {
+    font-size    : 1.1rem;
+    line-height  : 1.4;
+    margin-top   : 1rem;
     margin-bottom: 3rem;
   }
-  
-  .header__intro:hover{
-    color: white;
-    text-shadow: -1px 0px 16px rgba(255,255,255,0.05);
+
+  .header__intro:hover {
+    color      : white;
+    text-shadow: -1px 0 16px rgba(255,255,255,0.05);
   }
-  
-  .header__abstract{
-    margin-top: 0.95rem;
-    font-size: 1rem;
+
+  .header__abstract {
+    margin-top : .95rem;
+    font-size  : 1rem;
     font-weight: 300;
     line-height: 1.45;
   }
-  
-  .header__read-more{
+
+  .header__read-more {
     font-weight: 300;
-    color: col($c-tertiary, 4);
-    font-size: 1rem;
+    color      : col($c-tertiary, 4);
+    font-size  : 1rem;
   }
-  
-  .header__intro:hover{
-    .header__read-more{
+
+  .header__intro:hover {
+    .header__read-more {
       color: col($c-tertiary, 3);
     }
   }
-  .header__datetime-items{
-    margin: 1.5rem 0;
-    color: col($c-neutral, 2);
-    stroke: col($c-neutral, 3);
-    display: flex;
+
+  .header__datetime-items {
+    margin        : 1.5rem 0;
+    color         : col($c-neutral, 2);
+    stroke        : col($c-neutral, 3);
+    display       : flex;
     flex-direction: column;
-    text-align: left;
+    text-align    : left;
   }
-  .header__datetime-item{
-    margin-bottom: 0.6rem;
-    height: 20px;
-    max-height: 20px;
+
+  .header__datetime-item {
+    margin-bottom: .6rem;
+    height       : 20px;
+    max-height   : 20px;
   }
-  .header__datetime-icon{
+
+  .header__datetime-icon {
     margin-right: 6px;
   }
-  
-  
 }
-
 // ========================================================
 // === HEADER COLOURS FOR TEXT-ONLY ===
 // 
-.header--col-tertiary{
+
+.header--col-tertiary {
   background-color: col($c-tertiary, 5);
-  .header__title{
+
+  .header__title {
     color: col($c-tertiary, 2);
   }
 }
 
-.header--col-secondary{
-  padding-top: 110px;
+.header--col-secondary {
+  padding-top     : 110px;
   background-color: col($c-secondary, 8);
   background-image: linear-gradient(12deg, col($c-secondary, 8) -10%, col($c-secondary, 7) 40%, col($c-secondary, 7) 50%, col($c-secondary, 7) 60%, col($c-secondary, 8) 100%);
 }
-
 // ========================================================
 // === ANIMATIONS - TODO ===
 // 
@@ -550,25 +532,29 @@
   from {
     stroke-dashoffset: 0;
   }
+
   to {
     stroke-dashoffset: 1000;
   }
 }
 
-.animate-card-1{
+.animate-card-1 {
   animation: float 4.2s .4s ease-in-out infinite;
 }
-.animate-card-2{
+
+.animate-card-2 {
   animation: float 3.9s 1.2s ease-in-out infinite;
 }
 @keyframes float {
   0% {
-    transform:  translate(0);
+    transform: translate(0);
   }
+
   65% {
     transform: translateY(5px);
   }
+
   100% {
-    transform:   translate(0);
+    transform: translate(0);
   }
 }

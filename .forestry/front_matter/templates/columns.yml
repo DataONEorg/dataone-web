@@ -18,6 +18,17 @@ fields:
     options:
     - 2
     - 3
+- type: select
+  name: alignment
+  label: Alignment
+  description: Justify the content within each column
+  default: center
+  config:
+    source:
+      type: simple
+    options:
+    - center
+    - left
 - type: blocks
   name: columns
   label: Columns
@@ -27,4 +38,7 @@ fields:
   - features-list
   - feature-detailed
   - image
+  - job-summary
+  - webinar-summary
+  - card
   description: The items to include in each column

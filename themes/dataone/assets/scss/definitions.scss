@@ -1,157 +1,4 @@
-
-// ==== FONTS ====
-
-
-
-// FONTS - TODO - decide which of these we will actually use, remove the rest,
-// including the .woff files. Then add preloader to head.html.
-/* work-sans-100 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Work Sans Thin'), local('WorkSans-Thin'),
-       url('../fonts/work-sans-v5-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-200 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 200;
-  src: local('Work Sans ExtraLight'), local('WorkSans-ExtraLight'),
-       url('../fonts/work-sans-v5-latin-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-300 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Work Sans Light'), local('WorkSans-Light'),
-       url('../fonts/work-sans-v5-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-regular - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Work Sans'), local('WorkSans-Regular'),
-       url('../fonts/work-sans-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-500 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Work Sans Medium'), local('WorkSans-Medium'),
-       url('../fonts/work-sans-v5-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-600 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Work Sans SemiBold'), local('WorkSans-SemiBold'),
-       url('../fonts/work-sans-v5-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-700 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Work Sans Bold'), local('WorkSans-Bold'),
-       url('../fonts/work-sans-v5-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-800 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 800;
-  src: local('Work Sans ExtraBold'), local('WorkSans-ExtraBold'),
-       url('../fonts/work-sans-v5-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* work-sans-900 - latin */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 900;
-  src: local('Work Sans Black'), local('WorkSans-Black'),
-       url('../fonts/work-sans-v5-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/work-sans-v5-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-
-/* martel-200 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 200;
-  src: local('Martel UltraLight'), local('Martel-UltraLight'),
-       url('../fonts/martel-v4-latin-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-300 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Martel Light'), local('Martel-Light'),
-       url('../fonts/martel-v4-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-regular - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Martel'), local('Martel-Regular'),
-       url('../fonts/martel-v4-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-600 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Martel DemiBold'), local('Martel-DemiBold'),
-       url('../fonts/martel-v4-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-700 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Martel Bold'), local('Martel-Bold'),
-       url('../fonts/martel-v4-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-800 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 800;
-  src: local('Martel ExtraBold'), local('Martel-ExtraBold'),
-       url('../fonts/martel-v4-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* martel-900 - latin */
-@font-face {
-  font-family: 'Martel';
-  font-style: normal;
-  font-weight: 900;
-  src: local('Martel Heavy'), local('Martel-Heavy'),
-       url('../fonts/martel-v4-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/martel-v4-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
+// ==== SPACING VARIABLES ====
 // fs- = font size
 $fs-page-title: 2.1rem;
 $fs-page-title-desktop: 2.7rem;
@@ -159,173 +6,286 @@ $fs-page-intro: 1.25rem;
 $fs-h2: 1.7rem;
 $fs-section-intro: 1.25rem;
 $fs-h3: 1.2rem;
-
 $fs-larger: 1.15rem;
 $fs-body: 1rem;
-$fs-smaller: 0.9rem;
-
+$fs-smaller: .9rem;
 $fs-nav-item: 1rem;
-$fs-button: 0.9rem;
-$fs-pill: 0.7rem;
-
+$fs-button: .9rem;
+$fs-pill: .7rem;
+/* ==== FONTS ==== */
 // Font (-f)
-@mixin f-common {
-  font-family: 'Work Sans', serif;
+// max width of desktop content
+$content-width: 1040px; // minimum footer height:
+$footer-height: 500px; // gap between grid cells
+$grid-gap: 1.8rem; // spacing between blocks
+$inter-section-spacing: 6.5rem; // spacing between blocks
+$intra-section-spacing: 2rem; // spaces between small items, pargraphs, etc.
+$inter-item-spacing: 1rem; // padding on left and right for smaller screens
+$mobile-lr-padding: .8rem; //
+// FONTS - TODO - decide which of these we will actually use, remove the rest,
+// including the .woff files. Then add preloader to head.html.
+/* work-sans-100 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 100;
+  src        : local('Work Sans Thin'), local('WorkSans-Thin'), url("../fonts/work-sans-v5-latin-100.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-100.woff") format('woff');
+}
+/* work-sans-200 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 200;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans ExtraLight'), local('WorkSans-ExtraLight'), url("../fonts/work-sans-v5-latin-200.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-200.woff") format('woff');
+}
+/* work-sans-300 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 300;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans Light'), local('WorkSans-Light'), url("../fonts/work-sans-v5-latin-300.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-300.woff") format('woff');
+}
+/* work-sans-regular - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
   font-weight: 400;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans'), local('WorkSans-Regular'), url("../fonts/work-sans-v5-latin-regular.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-regular.woff") format('woff');
+}
+/* work-sans-500 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 500;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans Medium'), local('WorkSans-Medium'), url("../fonts/work-sans-v5-latin-500.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-500.woff") format('woff');
+}
+/* work-sans-600 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 600;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans SemiBold'), local('WorkSans-SemiBold'), url("../fonts/work-sans-v5-latin-600.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-600.woff") format('woff');
+}
+/* work-sans-700 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 700;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans Bold'), local('WorkSans-Bold'), url("../fonts/work-sans-v5-latin-700.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-700.woff") format('woff');
+}
+/* work-sans-800 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 800;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans ExtraBold'), local('WorkSans-ExtraBold'), url("../fonts/work-sans-v5-latin-800.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-800.woff") format('woff');
+}
+/* work-sans-900 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style : normal;
+  font-weight: 900;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Work Sans Black'), local('WorkSans-Black'), url("../fonts/work-sans-v5-latin-900.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-900.woff") format('woff');
+}
+/* martel-200 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 200;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel UltraLight'), local('Martel-UltraLight'), url("../fonts/martel-v4-latin-200.woff2") format('woff2'), url("../fonts/martel-v4-latin-200.woff") format('woff');
+}
+/* martel-300 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 300;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel Light'), local('Martel-Light'), url("../fonts/martel-v4-latin-300.woff2") format('woff2'), url("../fonts/martel-v4-latin-300.woff") format('woff');
+}
+/* martel-regular - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 400;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel'), local('Martel-Regular'), url("../fonts/martel-v4-latin-regular.woff2") format('woff2'), url("../fonts/martel-v4-latin-regular.woff") format('woff');
+}
+/* martel-600 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 600;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel DemiBold'), local('Martel-DemiBold'), url("../fonts/martel-v4-latin-600.woff2") format('woff2'), url("../fonts/martel-v4-latin-600.woff") format('woff');
+}
+/* martel-700 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 700;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel Bold'), local('Martel-Bold'), url("../fonts/martel-v4-latin-700.woff2") format('woff2'), url("../fonts/martel-v4-latin-700.woff") format('woff');
+}
+/* martel-800 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 800;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel ExtraBold'), local('Martel-ExtraBold'), url("../fonts/martel-v4-latin-800.woff2") format('woff2'), url("../fonts/martel-v4-latin-800.woff") format('woff');
+}
+/* martel-900 - latin */
+@font-face {
+  font-family: 'Martel';
+  font-style : normal;
+  font-weight: 900;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src        : local('Martel Heavy'), local('Martel-Heavy'), url("../fonts/martel-v4-latin-900.woff2") format('woff2'), url("../fonts/martel-v4-latin-900.woff") format('woff');
+}
+@mixin f-common {
+  font-family            : 'Work Sans', serif;
+  font-weight            : 400;
+  text-rendering         : optimizeLegibility;
+  -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-// ==== SPACING VARIABLES ====
-
-// max width of desktop content
-$content-width: 1040px;
-
-// minimum footer height:
-$footer-height: 500px;
-
-// gap between grid cells
-$grid-gap: 1.8rem;
-
-// spacing between blocks
-$inter-section-spacing: 6.5rem;
-
-// spacing between blocks
-$intra-section-spacing: 2rem;
-
-// spaces between small items, pargraphs, etc.
-$inter-item-spacing: 1rem;
-
-// padding on left and right for smaller screens
-$mobile-lr-padding: 0.8rem;
-
-
+@mixin f-h3 {
+  @font-size    : $fs-h3;
+  margin-bottom : 0;
+  margin-top    : 2rem;
+  margin-bottom : 1rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  font-weight   : 500;
+}
 // rules for larger (desktop) screens
 @mixin desktop {
   @media only screen and (min-width: $breakpoint) {
     @content;
   }
 }
-
 // make element centered and no larger than the max width for desktop content
 @mixin limit-width {
-  max-width: $content-width;
-  margin-left: auto;
+  max-width   : $content-width;
+  margin-left : auto;
   margin-right: auto;
 }
-
 // add padding on the left and right for full width elements on smaller screens
 @mixin mobile-lr-padding {
-  padding-left: $mobile-lr-padding;
+  padding-left : $mobile-lr-padding;
   padding-right: $mobile-lr-padding;
   @include desktop {
-    padding-left: 0;
+    padding-left : 0;
     padding-right: 0;
   }
 }
-
 // add padding to the left and right when screen is smaller than the max content width
 @mixin medium-lr-padding {
-  padding-left: $mobile-lr-padding;
+  padding-left : $mobile-lr-padding;
   padding-right: $mobile-lr-padding;
   @media only screen and (min-width: calc($content-width - (2 * $mobile-lr-padding))) {
-    padding-left: 0;
+    padding-left : 0;
     padding-right: 0;
   }
 }
-
 // rules for users who prefer less animation
 @mixin low-motion {
   @media (prefers-reduced-motion: reduce) {
-    animation-duration: 0.01ms;
+    animation-duration       : .01ms;
     animation-iteration-count: 1;
-    transition-duration: 0.01ms;
-    scroll-behavior: auto;
+    transition-duration      : .01ms;
+    scroll-behavior          : auto;
   }
 }
-
 // center an svg
 @mixin center-svg {
-  display: block;
-  margin-left: auto;
+  display     : block;
+  margin-left : auto;
   margin-right: auto;
 }
-
 // removes default browser styles for button elements
-@mixin button-reset{
-  border: none;
-  margin: 0;
-  text-decoration: none;
-  background: none;
-  cursor: pointer;
+@mixin button-reset {
+  border            : none;
+  margin            : 0;
+  text-decoration   : none;
+  background        : none;
+  cursor            : pointer;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  &:focus{
+  -moz-appearance   : none;
+
+  &:focus {
     outline: none;
   }
+
   &::-moz-focus-inner {
     border: 0;
   }
 }
-
 // anything with an un-classed link in it (e.g. markdown)
 @mixin text-link {
   a:not(.button) {
-    color: $c-secondary;
+    color          : $c-secondary;
     text-decoration: none;
   }
-  a:not(.button):visited{
+
+  a:not(.button):visited {
     color: $c-secondary;
   }
-  a:not(.button):hover{
-    color: $c-foreground;
-  }
-  a:not(.button):active{
-    color: $c-foreground;
-  }
-  
-}
 
+  a:not(.button):hover {
+    color: $c-foreground;
+  }
+
+  a:not(.button):active {
+    color: $c-foreground;
+  }
+}
 // material-design-like card style
 @mixin card {
-  padding: 10px 20px;
+  padding      : 10px 20px;
   border-radius: 4px;
-  background: $c-background;
-  box-shadow: 3px 4px 25px -12px rgba(0, 0, 0, 0.4);
-  max-width: 100%;
-  width: auto;
+  background   : $c-background;
+  box-shadow   : 3px 4px 25px -12px rgba(0, 0, 0, 0.4);
+  max-width    : 100%;
+  width        : auto;
 }
-
 // general styles for text-input fields
 @mixin forms-text-input {
   background-color: $c-form-fields;
-  border: none;
-  outline: none;
-  border-radius: 3px;
-  color: $c-foreground;
+  border          : none;
+  outline         : none;
+  border-radius   : 3px;
+  color           : $c-foreground;
 }
-
 // to display background image of a header, div, section, etc. properly
 @mixin bkg-img {
   background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat  : no-repeat;
+  background-size    : cover;
 }
-
-@mixin circle-link{
+@mixin circle-link {
   text-decoration: none;
-  font-style: normal;
-  text-align: center;
-  display: block;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
+  font-style     : normal;
+  text-align     : center;
+  display        : block;
+  border-radius  : 50%;
+  width          : 40px;
+  height         : 40px;
+  display        : flex;
+  align-items    : center;
   justify-content: center;
-  &:hover{
-    transform: translateY(-0.1px);
+
+  &:hover {
+    transform : translateY(-0.1px);
     box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(col($c-neutral, 9),.15);
   }
 }

@@ -5,8 +5,15 @@
 <!-- classess to add to this block -->
 {{ $classes := $bn }}
 
-{{ with .Block.num_cols }}
+{{ $numCols := .Block.num_cols | default 2 }}
+{{ $alignment := .Block.alignment | default "center" }}
+
+{{ with $numCols }}
   {{ $classes = print $classes " " $bn "--" . "cols" }}
+{{ end }}
+
+{{ with $alignment }}
+  {{ $classes = print $classes " " $bn "--align-" . }}
 {{ end }}
 
 <div class="{{ $classes }}">

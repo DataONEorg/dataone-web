@@ -21,7 +21,7 @@ fields:
     max: '1'
     source:
       type: pages
-      section: webinarss
+      section: webinars
   label: Webinars
   description: Which webinar summary should be displayed?
   showOnly:

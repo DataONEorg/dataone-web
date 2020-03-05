@@ -67,6 +67,10 @@
       <p class="{{ $bn }}__description">{{ . }}</p>
     {{ end }}
 
+    {{ range .Block.tags }}
+      {{ partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page )}}
+    {{ end }}
+
     <!-- Button (optional). Don't show if entire block is clickable -->
     {{ if and $hasButton (not .Block.clickable) }}
       <div class="{{ $bn }}__button">

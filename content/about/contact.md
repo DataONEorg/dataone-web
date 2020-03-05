@@ -10,10 +10,6 @@ header:
   title: Get in touch
   intro: We're here to help and answer any question you might have. We look forward
     to hearing from you!
-  pill:
-    template: ''
-    type: ''
-    text: ''
   buttons: []
   headerimage:
     template: ''

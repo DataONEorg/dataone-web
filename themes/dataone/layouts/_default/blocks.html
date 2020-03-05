@@ -4,15 +4,13 @@
 
 {{- define "main" -}}
   {{ with .Params.header }}
-    {{ if .template }}
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
-    {{ end }}
+    {{ $template := .template | default "header" }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
   {{ end }}
-  
+
   {{- range .Params.page_sections -}}
-    {{ if .template }}
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
-    {{ end }}
+    {{ $template := .template | default "section" }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
   {{- end -}}
-  
+
 {{- end -}}

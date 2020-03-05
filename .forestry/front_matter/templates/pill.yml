@@ -10,7 +10,7 @@ fields:
   default: pill
 - type: select
   label: Style
-  name: type
+  name: style
   description: The type of pill; determines how the pill is styled
   default: secondary
   config:
@@ -20,6 +20,13 @@ fields:
     - primary
     - secondary
     - tertiary
+    - quaternary
+    - warning
+    - info
+    - success
+    - subtle
+    - on-air
+    - text-only
 - name: text
   type: text
   label: Pill text

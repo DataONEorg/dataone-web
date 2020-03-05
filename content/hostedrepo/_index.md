@@ -16,7 +16,7 @@ header:
   pill:
     template: pill
     text: Coming 2020
-    type: secondary
+    style: secondary
   buttons:
   - template: button
     type: subscribe form
@@ -281,8 +281,9 @@ page_sections:
     precheck_newsletter: false
 menu:
   toplevel:
-    name: Hosted Repo
-    weight: 2
+    name: Hosted Repository
+    weight: 1
+    parent: Hosted Repo
   footer:
     weight: 3
 

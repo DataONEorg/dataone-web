@@ -1,7 +1,13 @@
 ---
-title: Work with us
 date: 2020-01-15T15:53:34.000+00:00
-description: About dataone
+title: Work with us
+headline: Join the DataONE team
+description: Jobs at DataONE
+no_job_message: We're not hiring at the moment, check back soon.
+page_sections:
+- template: section
+  title: "Help make earth & environmental data universally accessible"
+  intro: "Why you should work with us"
 menu:
   toplevel:
     parent: Organization
@@ -9,6 +15,5 @@ menu:
   footer:
     parent: Organization
     weight: 13
-draft: true
-
+    name: Employment
 ---

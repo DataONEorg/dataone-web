@@ -5,16 +5,19 @@
       {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
     {{ end }}
   {{ end }}
-  
+
   {{- range .Params.page_sections -}}
     {{ if .template }}
       {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
     {{ end }}
   {{- end -}}
-  
+
   <section class="webinars" style="margin-bottom:500px">
     {{- range .Paginator.Pages -}}
-      {{ .Render "summary" }}
+      <!-- remove trailing slash in link -->
+      {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
+      <!-- use the webinar summary block -->
+      {{ partial "blocks/webinar-summary/webinar-summary" (dict "Block" (dict "webinar" $pageLink) "Page" $ )}}
     {{- end -}}
     {{- partial "blocks/paginator/paginator" . -}}
   </section>

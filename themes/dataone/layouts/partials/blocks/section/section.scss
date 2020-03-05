@@ -1,174 +1,157 @@
-
 .section:first-of-type {
-  .section__inner{
+  .section__inner {
     // padding-top: 0;
   }
 }
+
 .section:last-of-type {
-  .section__inner{
+  .section__inner {
     padding-bottom: 20rem;
   }
 }
 
-.section{
-
+.section {
   @include f-common;
   @include text-link;
   background-color: var(--col-background);
-  color: var(--col-font);
+  color           : var(--col-font);
 
-  &__inner{
-    width: 100%;
-    display: grid;
+  &__inner {
+    width       : 100%;
+    display     : grid;
     justify-self: center;
     @include limit-width;
-    padding-left: $mobile-lr-padding;
-    padding-right: $mobile-lr-padding;
-    padding-top: calc(0.95 * #{$inter-section-spacing});
-    padding-bottom: calc(0.95 * #{$inter-section-spacing});
+    padding     : calc(0.95 * #{$inter-section-spacing}) $mobile-lr-padding;
   }
-  
-  &__icon{
+
+  &__icon {
     justify-self: center;
   }
-  
-  &__title{
-    width: 100%;
-    text-align: center;
+
+  &__title {
+    width      : 100%;
+    text-align : center;
     @include medium-lr-padding;
-    font-size: $fs-h2;
-    color: var(--col-title);
+    font-size  : $fs-h2;
+    color      : var(--col-title);
     font-family: 'Martel', serif;
     font-weight: 700;
-    
-    &--emphasis{
+
+    &--emphasis {
       font-weight: 600;
-      display: block;
+      display    : block;
     }
   }
-  
-  &__intro{
+
+  &__intro {
     // text-align: center;
     // @include medium-lr-padding;
     padding-bottom: $intra-section-spacing;
-    font-size: $fs-section-intro;
-    line-height: 1.4;
-    font-weight: 300;
-    color: var(--font-col);
+    font-size     : $fs-section-intro;
+    line-height   : 1.4;
+    font-weight   : 300;
+    color         : var(--font-col);
   }
-  
-  &__button{
-    margin: 3rem auto 0 auto;
+
+  &__button {
+    margin: 3rem auto 0;
   }
-  
-  &__blocks{
-    padding-top: calc(2*#{$intra-section-spacing});
-    display: grid;
-    grid-gap: calc(4*#{$intra-section-spacing});
+
+  &__blocks {
+    padding-top   : 1rem;
+    display       : grid;
+    grid-gap      : 2rem;
     grid-auto-rows: min-content;
   }
-
 }
 
-.section--bold{
-  
-  --col-title: #{$cn-neutral-lighter};
-  --col-font: #{$c-background};
+.section--bold {
+  --col-title     : #{$cn-neutral-lighter};
+  --col-font      : #{$c-background};
   --col-background: #{$c-secondary};
+
   a:not(.button) {
-    color: col($c-primary, 5);
+    color          : col($c-primary, 5);
     text-decoration: none;
-    font-weight: 500;
+    font-weight    : 500;
   }
-  a:not(.button):visited{
-    color: col($c-primary, 5);
+
+  a:not(.button):visited {
+    color      : col($c-primary, 5);
     font-weight: 700;
   }
-  a:not(.button):hover{
+
+  a:not(.button):hover {
     color: col($c-primary, 4);
   }
-  a:not(.button):active{
+
+  a:not(.button):active {
     color: col($c-primary, 4);
   }
-  
-  
-  .section__title{
+
+  .section__title {
     font-weight: 800;
   }
-  
-  .section__intro{
+
+  .section__intro {
     font-weight: 400;
   }
-  
 }
-
 $primary-light: col($c-primary, 4);
 $secondary-light: col($c-secondary, 1);
 $secondary-medium: col($c-secondary, 2);
 $tertiary-light: col($c-tertiary, 2);
 $quaternary-light: col($c-quaternary, 3);
 
-.section--subtle-emphasis{
-
+.section--subtle-emphasis {
   --col-background: #{$c-background-emphasis};
 }
 
-.section--primary-light{
-
+.section--primary-light {
   background-color: $primary-light;
   --col-background: #{$primary-light};
 }
 
-.section--secondary-medium{
-
+.section--secondary-medium {
   background-color: $secondary-medium;
   --col-background: #{$secondary-medium};
 }
 
-.section--secondary-light{
-
+.section--secondary-light {
   background-color: $secondary-light;
   --col-background: #{$secondary-light};
 }
 
-.section--tertiary-light{
-
+.section--tertiary-light {
   background-color: $tertiary-light;
   --col-background: #{$tertiary-light};
 }
 
-.section--quaternary-light{
+.section--quaternary-light {
   background-color: $quaternary-light;
   --col-background: #{$quaternary-light};
 }
-
 // TODO: this is how we should name background classes. 
-.section--bkg-tertiary-dark{
+.section--bkg-tertiary-dark {
   background-color: col($c-tertiary, 7);
   background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
 }
 
-.section--bkg-neutral-light{
+.section--bkg-neutral-light {
   background-image: linear-gradient(to top, col($c-neutral, 2), col($c-neutral, 1) 100%);
 }
 
-.section--bkg-map{
-  --col-title: #{$cn-neutral-lighter};
-  --col-font: #{$c-background};
-  
-  stroke: white;
-  position: relative;
+.section--bkg-map {
+  --col-title     : #{$cn-neutral-lighter};
+  --col-font      : #{$c-background};
+  stroke          : white;
+  position        : relative;
   @include bkg-img;
   background-color: col($c-neutral, 8); // fallback
-  background-image: linear-gradient(
-      rgba(col($c-secondary, 7), 0.88), 
-      rgba(col($c-tertiary, 9), 0.8)
-    ), url('/images/santa_barbara__NASA.jpg');
+  background-image: linear-gradient(rgba(col($c-secondary, 7), 0.88), rgba(col($c-tertiary, 9), 0.8)), url("/images/santa_barbara__NASA.jpg");
 }
-
-
 // split section
-$left-proportion: 0.5;
+$left-proportion: .5;
 $left-width: $content-width * $left-proportion;
 $right-width: $content-width * (1 - $left-proportion);
 $diff: abs($right-width - $left-width)/2;
@@ -177,60 +160,59 @@ $outerPadding: 1rem;
 $paddingTopBottom: 5rem;
 $paddingBottom: 20rem; // for footer;
 
-
 .section--split {
   display: grid;
-  
+
   .section__half1,
-  .section__half2{
-    width: 100%;
-    height: 100%;
+  .section__half2 {
+    width   : 100%;
+    height  : 100%;
     overflow: hidden;
   }
-  
-  .section__half2{
+
+  .section__half2 {
     padding-bottom: $paddingBottom;
   }
-  .section__half1{
+
+  .section__half1 {
     padding-bottom: $paddingTopBottom;
   }
-  
-  .section__half2-inner,
-  .section__half1-inner {
+
+  .section__half1-inner,
+  .section__half2-inner {
     @include medium-lr-padding;
-    width: 100%;
-    height: 100%;
-    display: flex;
+    width      : 100%;
+    height     : 100%;
+    display    : flex;
     align-items: center;
     padding-top: $paddingTopBottom;
   }
-  
   @include desktop {
     grid-template-columns: 1fr 1fr;
-    position: relative;
-    
-    .section__half1{
+    position             : relative;
+
+    .section__half1 {
       padding-bottom: $paddingBottom;
     }
 
     .section__half1-inner,
     .section__half2-inner {
-      padding-left: 0;
-      padding-right:0;
+      padding-left : 0;
+      padding-right: 0;
     }
 
     .section__half2-inner {
-      float: left;
-      max-width: $right-width;
-      padding-left: $innerPadding;
+      float        : left;
+      max-width    : $right-width;
+      padding-left : $innerPadding;
       padding-right: $outerPadding;
     }
 
     .section__half1-inner {
-      float: right;
-      max-width: $left-width;
+      float        : right;
+      max-width    : $left-width;
       padding-right: $innerPadding;
-      padding-left: $outerPadding;
+      padding-left : $outerPadding;
     }
   }
 }

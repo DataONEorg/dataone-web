@@ -1,20 +1,29 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+{{ if .Block.type }}
+  <h1>PILL TYPE ERROR</h1>
+{{ end }}
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "pill" }}
+{{ $classes := $bn }}
 {{ $icon := "none" }}
-{{ if eq .Block.type "success" }}
+{{ if eq .Block.style "success" }}
   {{ $icon = "check" }}
-{{ else if eq .Block.type "info" }}
+{{ else if eq .Block.style "info" }}
   {{ $icon = "info" }}
-{{ else if eq .Block.type "warning" }}
+{{ else if eq .Block.style "warning" }}
   {{ $icon = "alert-triangle" }}
 {{ end }}
+{{ with .Block.style }}
+  {{ $classes = print $classes " " $bn "--" . }}
+{{ end }}
 {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
-<span class="pill{{ if .Block.type }} pill--{{ .Block.type }}{{ end }}">
-  {{- if ne $icon "none" -}}
-  <span class="pill__icon">
-    {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
+  <span class="{{ $classes }}">
+    {{- if ne $icon "none" -}}
+      <span class="pill__icon">
+        {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
+      </span>
+    {{- end -}}
+    {{- .Block.text -}}
   </span>
-  {{- end -}}
-  {{- .Block.text -}}
-</span>
 {{- end -}}

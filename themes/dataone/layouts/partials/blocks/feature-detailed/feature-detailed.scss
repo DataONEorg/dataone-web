@@ -1,104 +1,98 @@
-
 .feature-detailed {
-  
+  // these blocks need more padding on the top and bottom
+  margin-top    : 3rem;
+  margin-bottom : 4rem;
   @include f-common;
-  
-  display: flex;
+  display       : flex;
   flex-direction: column;
-  display: grid;
-  grid-gap: $intra-section-spacing;
+  display       : grid;
+  grid-gap      : $intra-section-spacing;
   grid-auto-rows: min-content;
-  
   @include desktop {
-    display: grid;
+    display              : grid;
     grid-template-columns: .52fr .48fr;
-    grid-template-rows: 1fr;
-    grid-gap: 0 $grid-gap;
+    grid-template-rows   : 1fr;
+    grid-gap             : 0 $grid-gap;
   }
-  
+
   &__figure {
-    
-    margin: 0;
-    display: flex;
-    width: 80%;
-    align-items: center;
+    margin         : 0;
+    display        : flex;
+    width          : 80%;
+    align-items    : center;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    
+    margin-left    : auto;
+    margin-right   : auto;
+
     .figure__image {
-      margin: auto auto;
+      margin: auto;
     }
   }
-  
-  &__description{
 
-    padding-top: 0;
-    display: grid;
-    grid-gap: calc(0.5*#{$intra-section-spacing});
+  &__description {
+    padding-top   : 0;
+    display       : grid;
+    grid-gap      : calc(0.5*#{$intra-section-spacing});
     grid-auto-rows: auto;
-    height: 100%;
-    
+    height        : 100%;
   }
-  
+
   &__title-and-intro {
-    display: flex;
-    flex-direction: column;
+    display        : flex;
+    flex-direction : column;
     justify-content: center;
   }
-  
-  &__button{
+
+  &__button {
     align-self: end;
   }
-  
-  &__intro{
-    
-    font-size: $fs-larger;
+
+  &__intro {
+    font-size  : $fs-larger;
     line-height: 1.5;
     font-weight: 300;
-    margin: 0;
+    margin     : 0;
     @include text-link;
   }
-  
-  &__title{
-    
-    font-size: $fs-h3;
+
+  &__title {
+    font-size     : $fs-h3;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--col-title);
-    font-weight: 500;
-    margin: 0 0 1.5rem 0;
+    letter-spacing: .06em;
+    color         : var(--col-title);
+    font-weight   : 500;
+    margin        : 0 0 1.5rem;
   }
-  
-  &--figleft{
-    
+
+  &--figleft {
     @include desktop {
       .feature-detailed__figure {
         order: 1;
       }
-      .feature-detailed__description{
+
+      .feature-detailed__description {
         order: 2;
       }
     }
   }
-  
-  &--figtop{
+
+  &--figtop {
     @include desktop {
-      display: flex;
+      display       : flex;
       flex-direction: column;
     }
+
     .feature-detailed__figure {
       order: 1;
     }
-    .feature-detailed__description{
+
+    .feature-detailed__description {
       order: 2;
     }
-    
-    .feature-detailed__figure{
-      margin-top: 1rem;
+
+    .feature-detailed__figure {
+      margin-top   : 1rem;
       margin-bottom: calc(1.5*#{$intra-section-spacing});
     }
-
   }
-
 }

@@ -1,96 +1,102 @@
 .pill {
   @include f-common;
-  font-size: $fs-pill;
-  line-height: 1.1em;
-  font-weight: 600;
+  font-size     : $fs-pill;
+  line-height   : 1em;
+  font-weight   : 600;
   text-transform: uppercase;
   letter-spacing: .03em;
-  display: inline-block;
-  padding: 0.7em 1.1em;
-  border-radius: 7em;
-  background: $c-foreground;
-  color: $c-background;
-  transform: translateY(-0.18em);
-  
-  &__icon{
+  display       : inline-block;
+  padding       : .7em 1.1em;
+  border-radius : 7em;
+  background    : $c-foreground;
+  color         : $c-background;
+  transform     : translateY(-0.18em);
+
+  &__icon {
     padding-right: .03em;
   }
-  
-  &--secondary{
+
+  &--secondary {
     background: saturate(col($c-secondary, 3),10%);
-    color: col($c-secondary, 7);
+    color     : col($c-secondary, 7);
   }
-  
-  &--primary{
+
+  &--primary {
     background: col($c-primary, 5);
-    color: col($c-primary, 8);
+    color     : col($c-primary, 8);
   }
-  
-  &--tertiary{
+
+  &--tertiary {
     background: col($c-tertiary,5);
   }
-  
-  &--quaternary{
+
+  &--quaternary {
     background: col($c-quaternary,4);
-    color: col($c-quaternary,8);
+    color     : col($c-quaternary,8);
   }
-  
-  &--subtle{
-    background: none;
-    color: col($c-tertiary, 5);
-    padding: 0.2em;
-    line-height: 1em;
+
+  &--subtle {
+    background: col($c-neutral, 1);
+    color     : col($c-tertiary, 5);
+  }
+
+  &--text-only {
+    background    : none;
+    color         : col($c-tertiary, 5);
+    padding       : .2em;
+    line-height   : 1em;
     vertical-align: bottom;
   }
-  
-  &--info{
+
+  &--info {
     background: col($c-info, 2);
-    color: col($c-info, 7);
-    stroke: col($c-info, 7); // for icons
+    color     : col($c-info, 7);
+    stroke    : col($c-info, 7); // for icons
   }
-  
-  &--warning{
+
+  &--warning {
     background: col($c-warning, 3);
-    color: col($c-warning, 7);
-    stroke: col($c-warning, 7); // for icons
+    color     : col($c-warning, 7);
+    stroke    : col($c-warning, 7); // for icons
   }
-  
-  &--success{
+
+  &--success {
     background: col($c-success, 2);
-    color: col($c-success, 6);
-    stroke: col($c-success, 6); // for icons
+    color     : col($c-success, 6);
+    stroke    : col($c-success, 6); // for icons
   }
-  
 }
 
-.pill--on-air{
-  font-size: 1rem;
-  line-height: 1;
-  padding: 0;
+.pill--on-air {
+  font-size    : 1rem;
+  line-height  : 1;
+  padding      : 0;
   border-radius: 0;
-  transform: translateY(0);
-  background: none;
-  color: col($c-primary, 5);
+  transform    : translateY(0);
+  background   : none;
+  color        : col($c-primary, 5);
+
   &::before {
-      content: '';
-      display: inline-block;
-      margin: 0 auto;
-      border-radius: 50%;
+    content      : '';
+    display      : inline-block;
+    margin       : 0 auto;
+    border-radius: 50%;
+    background   : col($c-primary, 5);
+    width        : 12px;
+    height       : 12px;
+    animation    : live 2.5s infinite;
+    margin-left  : 1rem;
+    margin-right : .8rem;
+    @include low-motion;
+  }
+  @keyframes live {
+    0%,
+    100% {
+      background: none;
+    }
+
+    40% {
       background: col($c-primary, 5);
-      width: 12px;
-      height: 12px;
-      animation: live 2.5s infinite;
-      margin-left: 1rem;
-      margin-right: 0.8rem;
-      @include low-motion;
-      
     }
-    @keyframes live {
-      0%, 100% {
-       background: none;
-      }
-      40% {
-       background: col($c-primary, 5);
-      }
-    }
+  }
 }

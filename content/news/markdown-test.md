@@ -20,7 +20,7 @@ Here are some logos:
 
 Here is a pill
 
-{{&lt; pill text="Text here" type="primary" >}}
+{{&lt; pill text="Text here" style="primary" >}}
 
 \#Just a tag
 Also a # tag.

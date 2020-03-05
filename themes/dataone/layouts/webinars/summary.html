@@ -1,6 +1,0 @@
-{{ $page := . }}
-
-<!-- remove trailing slash in link -->
-{{ $pageLink := replaceRE "/$" "" .RelPermalink }}
-
-{{ partial "blocks/webinar-summary/webinar-summary" (dict "Block" (dict "webinar" $pageLink) "Page" $page )}}
