@@ -64,6 +64,8 @@ sections:
   label: News
   create: all
   match: "**/*"
+  templates:
+  - _page_news-item
 - type: directory
   path: content/jobs
   label: Jobs
