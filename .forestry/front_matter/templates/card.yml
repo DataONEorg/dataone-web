@@ -102,3 +102,8 @@ fields:
     description: An optional image to display in the header
   label: Image
   description: An optional image to display in the header
+- name: tags
+  label: Tags
+  type: list
+  description: Pill items to list at the bottom of the card
+  

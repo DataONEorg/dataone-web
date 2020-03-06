@@ -11,8 +11,10 @@
 
 <!-- Make a variable that indicates whether there's an image -->
 {{ $hasImage := false }}
-{{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
-  {{ $hasImage = true }}
+{{ if .Block.image }}
+  {{ if (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
+    {{ $hasImage = true }}
+  {{ end }}
 {{ end }}
 
 <!-- Make a variable that indicates whether there's a button -->
@@ -41,9 +43,12 @@
       <div class="{{ $bn }}__image-gradient">
       {{ end }}
 
-      {{ with .Block.pill }}
-        {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
-      {{ end }}
+      <div class="{{ $bn }}__pill">
+        {{ with .Block.pill }}
+          {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
+        {{ end }}
+      </div>
+
       <div class="{{ $bn }}__titles">
         {{ with .Block.title }}
           <h3 class="{{ $bn }}__title">{{ . }}</h3>

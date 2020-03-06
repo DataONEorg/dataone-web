@@ -1,5 +1,12 @@
 {{- define "main" -}}
 
-  {{- partial "blocks/markdown/markdown" (dict "Block" . "Page" $) -}}
+  {{ $headerBlock := dict "title" .Params.headline "type" "text-only" }}
+  {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
+
+  {{ $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold"}}
+
+  {{ $markdownBlock := dict "template" "markdown" "content" .Content "pre_rendered" true }}
+  {{ $sectionBlock := dict "blocks" (slice $dateBlock $markdownBlock)}}
+  {{ partial "blocks/section/section"  (dict "Block" $sectionBlock "Page" $) }}
 
 {{- end -}}

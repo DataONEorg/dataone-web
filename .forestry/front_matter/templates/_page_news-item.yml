@@ -1,0 +1,50 @@
+---
+label: "\U0001F4C4News Page"
+hide_body: false
+display_field: title
+fields:
+- type: datetime
+  name: date
+  label: Date
+  description: The date for the news item
+  default: now
+- type: text
+  name: title
+  label: Title
+  hidden: true
+  default: DataONE News
+- type: text
+  name: headline
+  label: Headline
+  description: The news headline
+- type: textarea
+  name: summary
+  label: Summary
+  description: One or two sentences that introduce or summarize the news story
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- name: image
+  type: field_group
+  config: {}
+  fields:
+  - name: image
+    type: include
+    config: {}
+    template: image
+    label: Image
+    description: An optional image to display in the header and summary of the news item
+  label: Image
+  description: An optional image to display in the header
+- type: list
+  name: tags
+  label: Tags
+  config:
+    use_select: false
+    source:
+      type: documents
+    options: []
+  description: General topic covered by the news story
+pages:
+- content/news/transition-to-the-future.md

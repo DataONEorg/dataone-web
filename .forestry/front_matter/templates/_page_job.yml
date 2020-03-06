@@ -79,3 +79,5 @@ fields:
   label: Required Documents
   description: A list of documents required for the application (eg. CV, cover letter,
     references)
+pages:
+- content/jobs/example-job.md

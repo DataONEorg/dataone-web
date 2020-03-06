@@ -36,3 +36,14 @@ fields:
     - January 2, 2006 15:04 MST
     - Mon 2 Jan 2006 15:04 MST
     - '2006-01-02'
+- type: select
+  name: style
+  label: Style
+  description: An optional style to add to the datetime
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - bold

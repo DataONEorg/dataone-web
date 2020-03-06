@@ -1,35 +1,38 @@
 {{- define "main" -}}
 
-  <div class = "news-list">
-    <h1 class="news-list__title">
-      {{if .Params.headline }}
-        {{ .Params.headline }}
-      {{ else }}
-      DataONE News
-      {{ end }}
-      </h1>
-        <p class="news-list__intro">
-          {{- if .Summary -}}
-            {{ .Summary }}
-          {{- else -}}
-          Introduction for the news page
-          {{- end -}}
-        </p>
-        {{- if not .Params.hideSignup -}}
-        <div class="newletter-signup">
-          <p>Want to hear it first? Subscribe to our newsletter to get DataONE news directly to your inbox.</p>
-        </div>
-        {{- end -}}
-    <section class="news-list__list">
-      {{- range where .Paginator.Pages "Params.featured" "eq" true -}}
-        {{ .Render "summary" }}
-      {{- end -}}
-      {{- range where .Paginator.Pages "Params.featured" "ne" true -}}
-        {{ .Render "summary" }}
-      {{- end -}}
-      {{- partial "blocks/paginator/paginator" . -}}
-    </section>
-  </div>
+  {{ $headline := .Params.headline | default "The Latest from DataONE" }}
+  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text-only") "Page" $)}}
 
+  {{- range .Params.page_sections -}}
+    {{ $template := .template | default "section" }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+  {{- end -}}
+
+  {{ $subblocks := slice }}
+  {{ $latestNewsBlock := dict }}
+  {{ $otherNewsBlocks := slice }}
+  {{- range $index, $page := .Paginator.Pages -}}
+    <!-- remove trailing slash in link -->
+    {{ $pageLink := replaceRE "/$" "" $page.RelPermalink }}
+    {{ $newsBlock := (dict "template" "news-summary" "news" $pageLink) }}
+    {{ if eq $index 0 }}
+      {{ $latestNewsBlock = $newsBlock }}
+    {{ else }}
+      {{ $otherNewsBlocks = $otherNewsBlocks | append $newsBlock }}
+    {{ end }}
+  {{ else }}
+    {{ $noNewsBlock := (dict "template" "markdown" "content" "No news to share yet! Sign up for our newsletter to be the first to hear DataONE news." ) }}
+    {{ $subblocks = $subblocks | append $noNewsBlock }}
+  {{- end -}}
+
+  {{ $subblocks = $subblocks | append $latestNewsBlock }}
+  {{ if $otherNewsBlocks }}
+    {{ $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) }}
+  {{ end }}
+
+  {{ $sectionBlock := dict "blocks" $subblocks }}
+  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
+
+  {{- partial "blocks/paginator/paginator" . -}}
 
 {{- end -}}

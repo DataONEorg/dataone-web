@@ -21,9 +21,8 @@
     {{ $noJobBlock := (dict "template" "markdown" "content" ( .Params.no_job_message | default "We're not hiring at the moment, check back soon." )) }}
     {{ $subblocks = $subblocks | append $noJobBlock }}
   {{- end -}}
-  {{- partial "blocks/paginator/paginator" . -}}
 
   {{ $sectionBlock := dict "title" "Current openings" "blocks" $subblocks "id" $jobSectionId }}
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
-
+  {{- partial "blocks/paginator/paginator" . -}}
 {{- end -}}

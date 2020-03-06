@@ -1,16 +1,16 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
 
 <!-- the content is the markdown we will render -->
 {{ $content := "" }}
 
-<!-- If the page itself is passed in as the block, render the page content  -->
-<!-- This will automatically be markdownified -->
-{{ if eq .Block $page }}
-  {{ $content = $page.Content }}
+<!-- If the content is already rendered (e.g. it is .Page.Content)... -->
+{{ if .Block.pre_rendered }}
+  {{ with .Block.content }}
+    {{ $content = . | safeHTML }}
+  {{ end }}
 {{ else }}
-<!-- Otherwise look for the content parameter in the block -->
-<!-- We must add the markdownify function in this case -->
+  <!-- Otherwise we must add the markdownify function -->
   {{ with .Block.content }}
     {{ $content = . | markdownify }}
   {{ end }}

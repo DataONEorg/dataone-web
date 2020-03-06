@@ -28,7 +28,7 @@
 
   {{ $datetime := (time $job.open_date).UTC }}
 
-  {{ $cardBlock := dict "clickable" true "href" $href "title" $job.title "subtitle" $job.location "description" $job.summary "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "tags" $job.tags }}
+  {{ $cardBlock := dict "clickable" true "href" $href "title" $job.job_title "subtitle" $job.location "description" $job.summary "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "tags" $job.tags }}
 
   <div class="{{ $classes }}">
     {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}

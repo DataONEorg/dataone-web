@@ -14,7 +14,6 @@ fields:
 - type: list
   name: items
   label: List items
-  hidden: false
   description: The text items to show in the checklist
 - type: select
   name: num_cols

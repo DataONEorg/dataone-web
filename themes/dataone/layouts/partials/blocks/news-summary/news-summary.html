@@ -1,0 +1,37 @@
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "news-summary" }}
+
+{{ $news := dict }}
+{{ $href := "" }}
+
+<!-- get the most recent news if auto select -->
+{{ if .Block.auto_select }}
+  <!-- get all news in order of news_datetime, with most recent listed first -->
+  {{ $all_news := where ($page.Site.RegularPages.ByParam "date").Reverse "Section" "news" }}
+  {{ range first 1 $all_news }}
+    {{ $news = .Params }}
+    {{ $href = .Permalink }}
+  {{ end }}
+  <!-- Otherwise, use the given news -->
+{{ else if .Block.news }}
+  {{ $newsPage := $page.Site.GetPage .Block.news }}
+  {{ with $newsPage }}
+    {{ $news = .Params }}
+    {{ $href = $newsPage.Permalink }}
+  {{ end }}
+{{ end }}
+
+{{ if $news }}
+
+  {{ $classes := $bn }}
+
+  {{ $datetime := (time $news.date).UTC }}
+
+  {{ $cardBlock := dict "clickable" true "href" $href "title" $news.headline "description" $news.summary "datetime" (dict "time" $datetime "format" "January 2, 2006" ) "tags" $news.tags "image" $news.image }}
+
+  <div class="{{ $classes }}">
+    {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+  </div>
+
+{{ end }}

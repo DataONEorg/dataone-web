@@ -1,13 +1,19 @@
 ---
-title: Testing
+title: DataONE news
+headline: Transition to the future
 date: 2020-01-28T15:53:34.000+00:00
-description: Transition to the future
-draft: true
-headline: Testing
-featured: true
+summary: Transition to the future
+tags:
+- tag1
+- tag2
+- tag3
+image:
+  template: image
+  src: "uploads/right-arrow-sign-on-wall_unsplash-hello-im-nik.jpg"
+  alttext: "arrow pointing forward"
+  title: "Transition to the Future"
+  type: default
 ---
-
-# Date test
 
 The DataONE network provides search, discovery, access, and preservation for hundreds of thousands of data sets, and advanced services including data replication and citation reporting for its members. DataONE enters its second decade with a renewed sense of purpose and the goal of helping make earth observation data progressively more findable, accessible, interoperable, and reusable.
 
