@@ -38,7 +38,9 @@ fields:
   - features-list
   - feature-detailed
   - image
-  - job-summary
-  - webinar-summary
   - card
+  - job-summary
+  - news-summary
+  - webinar-summary
+  - join-form
   description: The items to include in each column
