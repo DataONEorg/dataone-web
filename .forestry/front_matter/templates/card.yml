@@ -23,16 +23,14 @@ fields:
     value: true
 - name: datetime
   type: field_group
-  config: {}
   fields:
   - name: datetime
     type: include
-    config: {}
     template: datetime
     label: Date
     description: The date
   label: Date
-  description: The date
+  description: A date to display in the upper section of the card
 - name: pill
   type: field_group
   config: {}
@@ -62,7 +60,7 @@ fields:
     wysiwyg: true
     schema:
       format: markdown
-  label: Event Title
+  label: Sub-title
   description: An optional subtitle that gives context
 - name: description
   type: textarea
