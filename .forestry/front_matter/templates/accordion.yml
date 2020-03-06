@@ -14,10 +14,9 @@ fields:
   template_types:
   - feature-simple
   - markdown
-  - features-list
-  - feature-detailed
   - image
   - button
+  - item-with-icon
 - type: blocks
   name: content
   label: Content
