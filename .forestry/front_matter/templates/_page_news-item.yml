@@ -34,7 +34,8 @@ fields:
     config: {}
     template: image
     label: Image
-    description: An optional image to display in the header and summary of the news item
+    description: An optional image to display in the header and summary of the news
+      item
   label: Image
   description: An optional image to display in the header
 - type: list

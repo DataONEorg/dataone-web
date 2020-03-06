@@ -106,4 +106,3 @@ fields:
   label: Tags
   type: list
   description: Pill items to list at the bottom of the card
-  
