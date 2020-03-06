@@ -1,19 +1,19 @@
 ---
-label: Webinar summary
+label: Job summary
 hide_body: true
-display_field: webinar
+display_field: job
 fields:
 - type: text
   name: template
   label: Template
   hidden: true
-  default: webinar-summary
+  default: job-summary
 - type: boolean
   name: auto_select
-  label: Select most recent webinar
+  label: Select most recently added job
   default: false
-  description: If true, the next upcoming or most recently held webinar will be shown.
-- name: webinar
+  description: If true, the most recently added position will be shown.
+- name: job
   type: list
   config:
     use_select: true
@@ -21,9 +21,9 @@ fields:
     max: '1'
     source:
       type: pages
-      section: webinars
-  label: Webinar
-  description: Which webinar summary should be displayed?
+      section: jobs
+  label: Job
+  description: Which job summary should be displayed?
   showOnly:
     field: auto_select
     value: false
