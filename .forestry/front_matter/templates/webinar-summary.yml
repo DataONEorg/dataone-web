@@ -1,19 +1,19 @@
 ---
-label: Job summary
+label: News summary
 hide_body: true
-display_field: job
+display_field: news
 fields:
 - type: text
   name: template
   label: Template
   hidden: true
-  default: job-summary
+  default: news-summary
 - type: boolean
   name: auto_select
-  label: Select most recently added job
+  label: Select most recent news story
   default: false
-  description: If true, the most recently added position will be shown.
-- name: job
+  description: If true, the most recently added news item will be shown.
+- name: news
   type: list
   config:
     use_select: true
@@ -21,9 +21,9 @@ fields:
     max: '1'
     source:
       type: pages
-      section: jobs
-  label: Job
-  description: Which job summary should be displayed?
+      section: news
+  label: News
+  description: Which news summary should be displayed?
   showOnly:
     field: auto_select
     value: false
