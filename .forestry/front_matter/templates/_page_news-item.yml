@@ -1,7 +1,7 @@
 ---
-label: "\U0001F4C4News Page"
+label: "\U0001F4C4News Item"
 hide_body: false
-display_field: title
+display_field: headline
 fields:
 - type: datetime
   name: date
