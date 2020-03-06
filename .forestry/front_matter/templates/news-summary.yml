@@ -14,16 +14,17 @@ fields:
   default: false
   description: If true, the most recently added news item will be shown.
 - name: news
-  type: list
+  type: select
+  default: []
   config:
-    use_select: true
-    min: '1'
-    max: '1'
+    required: false
+    options: []
     source:
       type: pages
       section: news
-  label: News
-  description: Which news summary should be displayed?
+      file: 
+      path: 
+  label: News story
   showOnly:
     field: auto_select
-    value: false
+  description: Which news summary should be displayed?
