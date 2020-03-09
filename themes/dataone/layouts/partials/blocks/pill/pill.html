@@ -1,10 +1,8 @@
-{{ if .Block.type }}
-  <h1>PILL TYPE ERROR</h1>
-{{ end }}
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "pill" }}
+<!-- classes to add to the outer element -->
 {{ $classes := $bn }}
 {{ $icon := "none" }}
 {{ if eq .Block.style "success" }}
@@ -17,13 +15,15 @@
 {{ with .Block.style }}
   {{ $classes = print $classes " " $bn "--" . }}
 {{ end }}
-{{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
-  <span class="{{ $classes }}">
-    {{- if ne $icon "none" -}}
-      <span class="pill__icon">
-        {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
-      </span>
-    {{- end -}}
-    {{- .Block.text -}}
-  </span>
-{{- end -}}
+{{ if .Block.text }}
+  {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
+    <span class="{{ $classes }}">
+      {{- if ne $icon "none" -}}
+        <span class="pill__icon">
+          {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
+        </span>
+      {{- end -}}
+      {{- .Block.text -}}
+    </span>
+  {{- end -}}
+{{ end }}

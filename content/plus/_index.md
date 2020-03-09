@@ -7,7 +7,7 @@ description: Enhanced DataONE products and services in support of your research,
 date: 2020-01-14T19:04:29.000+00:00
 header:
   template: header
-  type: d1-plus-header
+  type: dataone plus
   pill:
     template: pill
     style: secondary

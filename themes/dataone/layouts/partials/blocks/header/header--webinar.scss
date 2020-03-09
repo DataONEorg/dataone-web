@@ -1,0 +1,71 @@
+// ========================================================
+// === WEBINAR ===
+// 
+
+.header--webinar {
+  .header__content {
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  .header__title {
+    margin-top: 1rem;
+  }
+
+  .header__headline {
+    font-size  : 2.2rem;
+    line-height: 1.15;
+    margin-top : 3.5rem;
+  }
+
+  .header__intro {
+    font-size    : 1.1rem;
+    line-height  : 1.4;
+    margin-top   : 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .header__intro:hover {
+    color      : white;
+    text-shadow: -1px 0 16px rgba(255,255,255,0.05);
+  }
+
+  .header__abstract {
+    margin-top : .95rem;
+    font-size  : 1rem;
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  .header__read-more {
+    font-weight: 300;
+    color      : col($c-tertiary, 4);
+    font-size  : 1rem;
+  }
+
+  .header__intro:hover {
+    .header__read-more {
+      color: col($c-tertiary, 3);
+    }
+  }
+
+  .header__datetime-items {
+    margin        : 1.5rem 0;
+    color         : col($c-neutral, 2);
+    stroke        : col($c-neutral, 3);
+    display       : flex;
+    flex-direction: column;
+    text-align    : left;
+  }
+
+  .header__datetime-item {
+    margin-bottom: .6rem;
+    height       : 20px;
+    max-height   : 20px;
+  }
+
+  .header__datetime-icon {
+    margin-right: 6px;
+  }
+}

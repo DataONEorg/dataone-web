@@ -1,14 +1,14 @@
-<!-- in order to pass on page parameters from within loops  -->
+<!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 
-<header class="header header--homepage header--hero" style="background-image:url('/uploads/duotone-forest.jpg');">
+<header class="header header--homepage" style="background-image:url('/uploads/duotone-forest.jpg');">
   <div class="header__content">
     <div class="header__logo">
-      
+
       {{- partial "blocks/logo/logo" (dict "Block" (dict "type" "homepage") "Page" $page ) -}}
     </div>
     <div class="header__search">
-      
+
       {{- partial "blocks/d1search/d1search" (dict "Block" . "Page" $page ) -}}
     </div>
     <a class="header__advanced-search" href="https://search.dataone.org/data">

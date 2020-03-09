@@ -3,17 +3,12 @@ layout: blocks
 date: 2020-03-04T17:49:58.000+00:00
 header:
   template: header
-  type: text-only
+  type: text only
+  bkg_color: default
   pill:
     template: pill
     style: secondary
     text: Coming soon
-  headerimage:
-    template: image
-    type: default
-    src: ''
-    alttext: ''
-    title: ''
   title: A portal to your data
   intro: Introduction to portals
   buttons:

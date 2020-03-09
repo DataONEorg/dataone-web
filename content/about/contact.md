@@ -5,18 +5,11 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: text-only
-  color: secondary
+  type: text only
+  bkg_color: secondary-dark
   title: Get in touch
   intro: We're here to help and answer any question you might have. We look forward
     to hearing from you!
-  buttons: []
-  headerimage:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - template: section
   type: split

@@ -1,80 +1,102 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "header" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
 
-<!-- in order to pass on page parameters from within loops  -->
+<!-- TODO -->
 {{ $mainTitle := $page.Params.title }}
 
-<!-- Classes -->
-{{ $headerClass := .Block.type }} 
-{{ $extraClass := "none" }}
-{{ $colorClass := "" }}
+<!-- .Block.type options -->
+<!-- options: -->
+<!-- - hero image -->
+<!-- - image on right -->
+<!-- - text only -->
+<!-- - dataone plus -->
+<!-- - hosted repository -->
+<!-- - wave with dataone gradient -->
 
-<!-- TODO - combine in to a single "classess" variable -->
-{{ if eq .Block.type "hosted-repo-header" }}
-  {{ $headerClass = "svg-background" }}
-{{ end }}
-{{ if eq .Block.type "d1-plus-header" }}
-  {{ $headerClass = "svg-image" }}
-{{ end }}
-{{ if eq .Block.type "brand-gradient-header" }}
-  {{ $headerClass = "simple-svg-background" }}
-  {{ $extraClass = "dark-bkg" }}
-{{ end }}
-{{ if eq .Block.type "network-image" }}
-  {{ $headerClass = "hero" }}
-  {{ $extraClass = "network-image" }}
-{{ end }}
-{{ with .Block.color }}
-  {{ $colorClass = print " header--col-" . }}
-  {{ $extraClass = "dark-bkg" }}
+{{ with .Block.type }}
+  {{ $modifier := . | urlize }}
+  {{ $classes = print $classes " " $bn "--" $modifier }}
 {{ end }}
 
+<!-- background colour for relevant block types -->
+{{ if or (eq .Block.type "image on right") (eq .Block.type "hero image") (eq .Block.type "text only") }}
+  {{ with .Block.bkg_color }}
+    {{ $classes = print $classes " " $bn "--col-" . }}
+  {{ end }}
+{{ end }}
 
-<header class="header header--{{ $headerClass }}{{ if ne $extraClass `none` }} header--{{$extraClass}}{{ end }}{{ $colorClass }}">
+<!-- svg or image to render for relevant block types -->
+{{ $svgBkg := "" }}
+{{ $svgFig := "" }}
+{{ $bkgImg := "" }}
+{{ if eq .Block.type "dataone plus" }}
+  {{ $svgFig = "d1-plus-header" }}
+{{ else if eq .Block.type "hosted repository" }}
+  {{ $svgBkg = "hosted-repo-header" }}
+{{ else if eq .Block.type "wave with dataone gradient" }}
+  {{ $svgBkg = "brand-gradient-header" }}
+{{ else if eq .Block.type "hero image" }}
+  {{ with .Block.image.src }}
+    {{ $bkgImg = print ` style="background-image: url('/` . `');"` | safeHTMLAttr }}
+  {{ end }}
+{{ end }}
+
+<!-- ===== -->
+<header class="{{ $classes }}" {{ $bkgImg }}>
+
+  <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
+  {{ with $svgBkg }}
+    <div class="header__svg-background">
+      {{- partial (print "svg/" . ".svg" ) -}}
+    </div>
+  {{ end }}
+
   <div class="header__content">
+
     <div class="header__text">
-      
+
       <div class="header__title-and-pill">
-        {{- with $mainTitle -}}<span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
-        
-        
-        
+        {{- with $mainTitle -}}
+          <span class="header__title">{{ . | safeHTML}}</span>
+        {{- end -}}
+
         {{- with .Block.pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
         {{- end -}}
       </div>
-      
-      <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
-      <p class="header__intro">{{ .Block.intro | markdownify }}</p>
-      
-      {{- if .Block.buttons -}}
-      <div class="header__ctas">
-        {{- range first 2 .Block.buttons -}}
-        {{ .Page }}
-          {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}
-        {{- end -}}
+
+      <div class="header__headline-and-intro">
+        <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
+        <p class="header__intro">{{ .Block.intro | markdownify }}</p>
       </div>
+      {{- if .Block.buttons -}}
+        <div class="header__buttons">
+          {{- range first 2 .Block.buttons -}}
+            {{ .Page }}
+            {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}
+          {{- end -}}
+        </div>
       {{- end -}}
     </div>
     {{- if or (eq .Block.type `left-aligned`) -}}
       {{ with .Block.headerimage }}
-      <div class="header__figure">
-        {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
-      </div>
+        <div class="header__figure">
+          {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
+        </div>
       {{ end }}
     {{- end -}}
-    
-    {{ if eq $headerClass "svg-image"}}
-    <div class="header__svg-figure">
-      {{- partial (print "svg/" .Block.type ".svg" ) -}}
-    </div>
+
+    <!-- for svgs on the right (e.g. dataone Plus) -->
+    {{ with $svgFig }}
+      <div class="header__svg-figure">
+        {{- partial (print "svg/" . ".svg" ) -}}
+      </div>
     {{ end }}
-    
+
   </div>
 
-  {{ if or (eq $headerClass "svg-background") (eq $headerClass "simple-svg-background")}}
-  <div class="header__svg-background">
-    {{- partial (print "svg/" .Block.type ".svg" ) -}}
-  </div>
-  {{ end }}
 </header>

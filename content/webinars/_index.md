@@ -4,8 +4,8 @@ description: Cutting edge earth and environmental science topics
 title: Webinars
 header:
   template: header
-  type: text-only
-  color: tertiary
+  type: text only
+  bkg_color: tertiary
   title: Learn from experts
   intro: Cutting edge earth and environmental science topics
 menu:

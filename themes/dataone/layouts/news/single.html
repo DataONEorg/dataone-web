@@ -1,6 +1,6 @@
 {{- define "main" -}}
 
-  {{ $headerBlock := dict "title" .Params.headline "type" "text-only" }}
+  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "bkg_color" "default" }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
 
   {{ $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold"}}

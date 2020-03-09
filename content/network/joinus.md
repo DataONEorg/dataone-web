@@ -5,11 +5,17 @@ description: Become a member node
 layout: blocks
 header:
   template: header
-  type: network-image
+  type: hero image
   title: Become a network member
   intro: DataONE's flexible architecture and software products allow practically any
     organization wishing to join our network to do so. Get in touch to start the onboarding
     process, or to find out more.
+  image:
+    src: uploads/duotone-network.jpg
+    template: image
+    alttext: Network background
+    title: Network background
+    type: default
   buttons:
   - type: contact
     template: button

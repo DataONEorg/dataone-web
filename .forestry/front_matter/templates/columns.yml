@@ -33,8 +33,8 @@ fields:
   name: columns
   label: Columns
   template_types:
-  - feature-simple
   - markdown
+  - feature-simple
   - features-list
   - feature-detailed
   - image
@@ -43,4 +43,11 @@ fields:
   - news-summary
   - webinar-summary
   - join-form
+  - checklist
+  - timeline
+  - metrics
+  - people
+  - item-with-icon
+  - card
+  - accordion
   description: The items to include in each column

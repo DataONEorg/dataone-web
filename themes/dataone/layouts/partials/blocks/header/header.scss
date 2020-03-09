@@ -1,9 +1,13 @@
 // ==== HEADER ====
+// ===== default - text on left side, left aligned on desktop
 
 .header {
   @include f-common;
-  padding-top   : calc(1.5 * #{$intra-section-spacing});
-  padding-bottom: $inter-section-spacing;
+  padding: 5rem 0;
+  @include desktop {
+    margin-top : -$nav-height;
+    padding-top: calc(5rem + 2 * #{$nav-height});
+  }
 
   &__content {
     @include limit-width;
@@ -20,16 +24,31 @@
   &__text {
     text-align     : center;
     min-height     : fit-content;
-    padding-bottom : $intra-section-spacing;
-    display        : flex;
-    flex-direction : column;
+    display        : grid;
+    grid-auto-rows : max-content;
     justify-content: center;
+    grid-gap       : 2rem;
+    width          : 100%;
+    align-content  : center;
+    grid-auto-flow : rows;
     @include desktop {
-      text-align: left;
+      text-align     : left;
+      justify-content: left;
     }
   }
 
-  &__title-and-pill {}
+  &__title-and-pill {
+    display          : inline-grid;
+    grid-auto-columns: max-content;
+    justify-content  : center;
+    grid-gap         : 1rem;
+    width            : 100%;
+    grid-auto-flow   : column;
+    margin-bottom    : 2rem;
+    @include desktop {
+      justify-content: left;
+    }
+  }
 
   &__title {
     display       : inline-block;
@@ -37,7 +56,7 @@
     text-transform: uppercase;
     letter-spacing: .05em;
     color         : col($c-neutral, 6);
-    margin        : 3rem .5em 1rem 0;
+    margin        : 0;
   }
 
   &__headline {
@@ -49,19 +68,17 @@
     font-family  : 'Martel';
     font-weight  : 900;
     @include desktop {
-      font-size : $fs-page-title-desktop;
-      margin-top: calc(1.8 * #{$intra-section-spacing});
+      font-size: $fs-page-title-desktop;
     }
   }
 
   &__intro {
-    margin-bottom: 5rem;
-    font-size    : $fs-page-intro;
-    line-height  : 1.6;
-    font-weight  : 400;
+    font-size  : $fs-page-intro;
+    line-height: 1.6;
+    font-weight: 400;
   }
 
-  &__ctas {
+  &__buttons {
     display        : flex;
     justify-items  : left;
     grid-auto-flow : column;
@@ -80,122 +97,81 @@
   &__figure {
     margin : 0;
     display: block;
-
-    svg {
-      width        : 100%;
-      max-width    : 500px;
-      min-width    : 300px;
-      margin-top   : auto;
-      margin-bottom: auto;
-      @include center-svg;
-      position     : relative;
-      flex-shrink  : 0;
-      border-radius: 8px;
-      overflow     : hidden;
-      transform    : rotate3d(.4,1,0.2,10deg);
-      box-shadow   : 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
-    }
-
-    &:hover {
-      svg {
-        // fill: red;
-        transform: rotate3d(.4,1,0.15,11deg);
-      }
-    }
+    // svg {
+    //   width        : 100%;
+    //   max-width    : 500px;
+    //   min-width    : 300px;
+    //   margin-top   : auto;
+    //   margin-bottom: auto;
+    //   @include center-svg;
+    //   position     : relative;
+    //   flex-shrink  : 0;
+    //   border-radius: 8px;
+    //   overflow     : hidden;
+    //   transform    : rotate3d(.4,1,0.2,10deg);
+    //   box-shadow   : 35px 65px 125px -23px rgba(30,47,93,.4), 22.3px 35px 70px -40px rgba(0,0,0,.6);
+    // }
   }
 }
-
-.header--left-aligned {
-  .header__text {
-    padding-bottom: 2rem;
-    @include desktop {
-      padding-top: 3rem;
-    }
-  }
-
-  .header__figure {
-    min-height: 165px;
-
-    img {
-      max-width : 750px;
-      position  : absolute;
-      top       : auto;
-      right     : 0;
-      width     : 100vw;
-      margin-top: 10px;
-    }
-    @media only screen and (min-width: 400px) and (max-width: calc(#{$breakpoint} - 1px)) {
-      min-height: 360px;
-    }
-    @media only screen and (min-width: $breakpoint) and (max-width: 1130px) {
-      img {
-        margin-top: -10px;
-        width     : 58%;
-      }
-    }
-    @media only screen and (min-width: 1131px) and (max-width: 1650px) {
-      min-height: 550px;
-
-      img {
-        margin-top: -15px;
-        width     : 65%;
-      }
-    }
-    @media only screen and (min-width: 1651px) {
-      min-height: 550px;
-
-      img {
-        max-width    : none;
-        margin-top   : 25px;
-        width        : 150%;
-        position     : relative;
-        margin-bottom: -150px;
-      }
-    }
-  }
-}
-
-.header--center-aligned {
-  // TODO
-}
+// ===== text centered, no image ======
 
 .header--text-only {
-  background-color: $c-background-emphasis;
-
   .header__content {
     display: block;
   }
 
   .header__text {
-    text-align    : center;
-    padding-bottom: 0;
+    text-align     : center;
+    justify-content: center;
     @include desktop {
       text-align: center;
     }
   }
 
-  .header__ctas {
+  .header__buttons {
     justify-content: center;
+  }
+
+  .header__title-and-pill {
+    @include desktop {
+      justify-content: center;
+    }
   }
 }
 // ========================================================
-// === SVG-BACKGROUND ===
-// 
+// === GENERAL STYLES ===
 
 .header--svg-background {
-  padding-bottom: 400px;
-  padding-top   : 0;
-  @include desktop {
-    margin-top    : 80px;
-    padding-bottom: 0;
-    min-height    : 720px;
-    height        : auto;
-    max-height    : 720px;
+  position     : relative;
+  margin-bottom: -150px;
+  width        : 100%;
+  overflow     : hidden;
+
+  +.section {
+    padding-top: 150px;
+  }
+
+  .header__svg-background {
+    position       : absolute;
+    top            : 0;
+    left           : 0;
+    height         : 100%;
+    width          : 100%;
+    overflow       : hidden;
+    display        : flex;
+    justify-content: center;
+
+    svg {
+      height     : 100%;
+      width      : auto;
+      flex-shrink: 0;
+    }
   }
 
   .header__text {
-    z-index : 2;
-    position: relative;
+    z-index       : 2;
+    position      : relative;
+    padding-bottom: 9rem;
   }
 
   .header__headline {
@@ -223,43 +199,13 @@
       grid-template-columns: 1fr 1fr;
     }
   }
-
-  .header__svg-background {
-    align-items    : center;
-    display        : flex;
-    justify-content: center;
-    left           : 0;
-    overflow       : hidden;
-    position       : absolute;
-    top            : 0;
-    width          : 100%;
-    z-index        : 1; // so that content is above svg background
-
-    svg {
-      flex          : 0 0 auto;
-      width         : auto;
-      height        : 900px;
-      margin-left   : -234px;
-      margin-top    : 0;
-      padding-bottom: 0;
-      @include desktop {
-        margin-left  : 0;
-        margin-bottom: 0;
-        margin-top   : -980px; //-900px;
-        height       : 1800px;
-      }
-    }
-  }
 }
-// ========================================================
 // === SVG IMAGE ===
-// 
 
 .header--svg-image {
   padding-bottom: 0;
-  @include desktop {
-    padding-top: 0;
-  }
+  overflow      : hidden;
+  padding-top   : calc(5rem + 1 * 72px);
 
   .header__headline {
     font-size     : 1.75rem;
@@ -279,7 +225,6 @@
       font-size: 1.25rem;
     }
   }
-  overflow      : hidden;
 
   .header__svg-figure {
     display        : flex;
@@ -301,87 +246,25 @@
     }
   }
 }
-// ========================================================
-// === HOMEPAGE ===
-// 
 
-.header--homepage {
-  .header__logo {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    padding-top    : 25px;
-    z-index        : 2;
-    @include desktop {
-      padding-top: 45px;
-    }
-  }
-
-  .header__search {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    padding-bottom : 3px;
-    z-index        : 2;
-  }
-
-  .header__advanced-search {
-    font-weight    : 600;
-    text-transform : uppercase;
-    letter-spacing : .025em;
-    font-size      : $fs-button;
-    color          : $c-foreground-subtle;
-    text-align     : center;
-    text-decoration: none;
-
-    &:hover {
-      color: $c-secondary;
-    }
-    z-index        : 2;
-  }
-
-  .header__content {
-    margin-top           : 2rem;
-    display              : grid;
-    grid-template-columns: 1fr;
-    grid-template-rows   : .5fr .5fr;
-    grid-gap             : 1.8rem 0;
-    @include desktop {
-      margin-top: 5.5rem;
-    }
-  }
-}
-// ========================================================
-// === SVG BACKGROUND ===
-// 
-
-.header--simple-svg-background {
-  @extend .header--svg-background;
+.header--hero-image {
   @extend .header--text-only;
-  padding-bottom: 250px;
-  @include desktop {
-    margin-top: 70px;
-    min-height: 700px;
-    max-height: 750px;
+  @include bkg-img;
+  position  : relative;
+  min-height: 500px;
+
+  .header__headline,
+  .header__intro,
+  .header__title {
+    text-shadow: .01em .01em 1.5em rgba(255, 255, 255, 1);
   }
 
-  .header__svg-background {
-    svg {
-      margin-left: 0;
-      height     : 1000px;
-      @include desktop {
-        margin-top    : 0;
-        margin-left   : 0;
-        height        : 800px;
-        margin-bottom : 0;
-        padding-bottom: 0;
-      }
-    }
+  .header__title {
+    font-weight: 500;
   }
 }
-// ========================================================
-// === DARK BKG ===
 // 
+// when the background is dark, the text needs to be lighter
 
 .header--dark-bkg {
   .header__headline {
@@ -398,116 +281,98 @@
     color: col($c-neutral, 4);
   }
 }
-// ========================================================
-// === HERO ===
 // 
+// ========= SPECIFIC STYLES ===========
+// 
+// HOSTED REPO
+// hosted repository svg uses absolute sizing so that the svg is displayed correctly behind content
 
-.header--hero {
-  @include bkg-img;
-  position  : relative;
-  min-height: 500px;
+.header--hosted-repository {
+  @extend .header--svg-background;
+  padding-bottom: 600px;
+  margin-bottom : -550px;
+  @include desktop {
+    padding-bottom: 5rem;
+    margin-bottom : -300px;
+  }
 
-  .header__title {
-    margin-top: 5rem;
+  +.section {
+    padding-top: 300px;
+  }
+
+  .header__svg-background {
+    svg {
+      margin-right: 320px;
+      height      : 100%;
+      width       : auto;
+      margin-top  : -219px;
+      @include desktop {
+        margin-top  : -808px;
+        height      : 185%;
+        margin-right: -40px;
+      }
+    }
+  }
+  // animage the svg line
+  .animated-line {
+    animation: dash 200s linear alternate infinite;
+    @include low-motion;
+  }
+  @keyframes dash {
+    from {
+      stroke-dashoffset: 0;
+    }
+
+    to {
+      stroke-dashoffset: 1000;
+    }
   }
 }
-// ========================================================
-// === NETWORK ===
 // 
-// 
+// Wave with DataONE theme gradient
 
-.header--network-image {
+.header--wave-with-dataone-gradient {
+  @extend .header--svg-background;
   @extend .header--text-only;
-  background-image: url("/uploads/duotone-network.jpg");
-  padding-bottom  : 6rem;
-  padding-top     : 6rem;
+  @extend .header--dark-bkg;
+}
+// 
+// DataONE plus
 
-  .header__headline,
-  .header__intro,
-  .header__title {
-    text-shadow: .01em .01em 1.5em rgba(255, 255, 255, 1);
+.header--dataone-plus {
+  @extend .header--svg-image;
+  // give the cards a subtle floating effect
+  .animate-card-1 {
+    animation: float 4.2s .4s ease-in-out infinite;
   }
 
-  .header__title {
-    font-weight: 500;
+  .animate-card-2 {
+    animation: float 3.9s 1.2s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% {
+      transform: translate(0);
+    }
+
+    65% {
+      transform: translateY(5px);
+    }
+
+    100% {
+      transform: translate(0);
+    }
   }
 }
 // ========================================================
-// === WEBINAR ===
+// === HEADER BACKGROUND COLOURS ===
 // 
 
-.header--webinar {
-  .header__content {
-    @include desktop {
-      display: flex;
-    }
-  }
-
-  .header__title {
-    margin-top: 1rem;
-  }
-
-  .header__headline {
-    font-size  : 2.2rem;
-    line-height: 1.15;
-    margin-top : 3.5rem;
-  }
-
-  .header__intro {
-    font-size    : 1.1rem;
-    line-height  : 1.4;
-    margin-top   : 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .header__intro:hover {
-    color      : white;
-    text-shadow: -1px 0 16px rgba(255,255,255,0.05);
-  }
-
-  .header__abstract {
-    margin-top : .95rem;
-    font-size  : 1rem;
-    font-weight: 300;
-    line-height: 1.45;
-  }
-
-  .header__read-more {
-    font-weight: 300;
-    color      : col($c-tertiary, 4);
-    font-size  : 1rem;
-  }
-
-  .header__intro:hover {
-    .header__read-more {
-      color: col($c-tertiary, 3);
-    }
-  }
-
-  .header__datetime-items {
-    margin        : 1.5rem 0;
-    color         : col($c-neutral, 2);
-    stroke        : col($c-neutral, 3);
-    display       : flex;
-    flex-direction: column;
-    text-align    : left;
-  }
-
-  .header__datetime-item {
-    margin-bottom: .6rem;
-    height       : 20px;
-    max-height   : 20px;
-  }
-
-  .header__datetime-icon {
-    margin-right: 6px;
-  }
+.header--col-default {
+  background-color: col($c-neutral, 1);
 }
-// ========================================================
-// === HEADER COLOURS FOR TEXT-ONLY ===
-// 
 
 .header--col-tertiary {
+  @extend .header--dark-bkg;
   background-color: col($c-tertiary, 5);
 
   .header__title {
@@ -515,46 +380,8 @@
   }
 }
 
-.header--col-secondary {
-  padding-top     : 110px;
+.header--col-secondary-dark {
+  @extend .header--dark-bkg;
   background-color: col($c-secondary, 8);
   background-image: linear-gradient(12deg, col($c-secondary, 8) -10%, col($c-secondary, 7) 40%, col($c-secondary, 7) 50%, col($c-secondary, 7) 60%, col($c-secondary, 8) 100%);
-}
-// ========================================================
-// === ANIMATIONS - TODO ===
-// 
-
-.animated-line {
-  animation: dash 200s linear alternate infinite;
-  @include low-motion;
-}
-@keyframes dash {
-  from {
-    stroke-dashoffset: 0;
-  }
-
-  to {
-    stroke-dashoffset: 1000;
-  }
-}
-
-.animate-card-1 {
-  animation: float 4.2s .4s ease-in-out infinite;
-}
-
-.animate-card-2 {
-  animation: float 3.9s 1.2s ease-in-out infinite;
-}
-@keyframes float {
-  0% {
-    transform: translate(0);
-  }
-
-  65% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
 }

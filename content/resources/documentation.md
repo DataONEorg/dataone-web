@@ -5,16 +5,11 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: text-only
+  type: text only
+  bkg_color: default
   title: Documentation
   intro: Detailed how-tos for all DataONE products
   buttons: []
-  headerimage:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - template: section
   type: default

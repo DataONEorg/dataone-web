@@ -62,19 +62,24 @@ fields:
   name: blocks
   label: Sub-section blocks
   template_types:
-  - columns
-  - feature-detailed
-  - feature-simple
-  - join-form
-  - features-list
-  - checklist
   - markdown
+  - feature-simple
+  - features-list
+  - feature-detailed
+  - image
+  - card
+  - job-summary
+  - news-summary
+  - webinar-summary
+  - join-form
+  - columns
+  - checklist
   - timeline
   - metrics
   - people
-  - job-summary
-  - webinar-summary
+  - item-with-icon
   - card
+  - accordion
   description: The blocks to include in the section
   config:
     min: ''

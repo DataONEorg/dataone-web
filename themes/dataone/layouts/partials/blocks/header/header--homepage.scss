@@ -1,0 +1,47 @@
+.header--homepage {
+  // TODO: header--homepage needs to be below header classes in final styles sheet.
+  padding-top   : calc(2 * 72px) !important;
+  padding-bottom: 7rem !important;
+  @include bkg-img;
+
+  .header__logo {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    z-index        : 2;
+  }
+
+  .header__search {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    padding-bottom : 3px;
+    z-index        : 2;
+  }
+
+  .header__advanced-search {
+    font-weight    : 600;
+    text-transform : uppercase;
+    letter-spacing : .025em;
+    font-size      : $fs-button;
+    color          : $c-foreground-subtle;
+    text-align     : center;
+    text-decoration: none;
+
+    &:hover {
+      color: $c-secondary;
+    }
+    z-index        : 2;
+  }
+
+  .header__content {
+    margin-top           : 0;
+    display              : grid;
+    grid-template-columns: 1fr;
+    grid-template-rows   : .5fr .5fr;
+    grid-gap             : 1.8rem 0;
+    @include desktop {
+      margin-top: 5.5rem;
+    }
+  }
+}

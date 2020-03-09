@@ -1,5 +1,15 @@
 // ==== SPACING VARIABLES ====
-// fs- = font size
+$content-width: 1040px; // max width of desktop content
+$footer-height: 500px; // minimum footer height
+$nav-height: 72px; // navigation bar height on desktop
+$grid-gap: 1.8rem; // gap between grid cells
+$inter-section-spacing: 6.5rem; // spacing between blocks
+$intra-section-spacing: 2rem; // spacing between blocks
+$inter-item-spacing: 1rem; // spaces between small items, pargraphs, etc.
+$mobile-lr-padding: .8rem; //padding on left and right for smaller screens
+/* ==== FONTS ==== */
+// Font (-f)
+// // fs- = font size
 $fs-page-title: 2.1rem;
 $fs-page-title-desktop: 2.7rem;
 $fs-page-intro: 1.25rem;
@@ -11,18 +21,7 @@ $fs-body: 1rem;
 $fs-smaller: .9rem;
 $fs-nav-item: 1rem;
 $fs-button: .9rem;
-$fs-pill: .7rem;
-/* ==== FONTS ==== */
-// Font (-f)
-// max width of desktop content
-$content-width: 1040px; // minimum footer height:
-$footer-height: 500px; // gap between grid cells
-$grid-gap: 1.8rem; // spacing between blocks
-$inter-section-spacing: 6.5rem; // spacing between blocks
-$intra-section-spacing: 2rem; // spaces between small items, pargraphs, etc.
-$inter-item-spacing: 1rem; // padding on left and right for smaller screens
-$mobile-lr-padding: .8rem; //
-// FONTS - TODO - decide which of these we will actually use, remove the rest,
+$fs-pill: .7rem; // FONTS - TODO - decide which of these we will actually use, remove the rest,
 // including the .woff files. Then add preloader to head.html.
 /* work-sans-100 - latin */
 @font-face {

@@ -5,13 +5,19 @@ description: DataONE member nodes
 layout: blocks
 header:
   template: header
-  type: network-image
+  type: hero image
   title: Your environmental data ecosystem
   intro: "DataONE unites a network of data repositories operated by research centers,
     universities, non-profit organizations,\tcitizen\tscience\tinitiatives, government\tand\tnon-government
     organizations, and the like. Member institutions share data and infrastructure
     with DataONE and in return, we facilitate user access to data and interoperability
     between members."
+  image:
+    src: uploads/duotone-network.jpg
+    template: image
+    alttext: Network background
+    title: Network background
+    type: default
 page_sections:
 - template: section
   type: default

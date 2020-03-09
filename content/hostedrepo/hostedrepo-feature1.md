@@ -5,7 +5,8 @@ title: Repo Feature 1
 description: 'Description of feature'
 header:
   template: header
-  type: text-only
+  type: text only
+  bkg_color: default
   pill:
     template: pill
     style: secondary

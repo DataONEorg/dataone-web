@@ -1,7 +1,7 @@
 {{- define "main" -}}
 
   {{ $headline := .Params.headline | default "The Latest from DataONE" }}
-  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text-only") "Page" $)}}
+  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "bkg_color" "default") "Page" $)}}
 
   {{- range .Params.page_sections -}}
     {{ $template := .template | default "section" }}

@@ -9,21 +9,42 @@ fields:
   hidden: true
   default: header
 - type: select
-  label: Type of header
+  label: Header style
   name: type
-  description: The layout of header to use
+  description: The style of header to use.
   config:
     source:
       type: simple
     options:
-    - left-aligned
-    - center-aligned
-    - text-only
-    - d1-plus-header
-    - hosted-repo-header
-    - brand-gradient-header
-    - network-image
-  default: left-aligned
+    - hero image
+    - image on right
+    - text only
+    - dataone plus
+    - hosted repository
+    - wave with dataone gradient
+  default: text only
+- type: select
+  label: Background color
+  name: bkg_color
+  description: The background color to use for header with the style 'image on right', and 'text only'. Also determines the text color.
+    config:
+      source:
+        type: simple
+      options:
+      - default
+      - secondary-dark
+- name: image
+  type: field_group
+  config: {}
+  fields:
+  - name: image
+    type: include
+    config: {}
+    template: image
+    label: Image
+    description: The image to show in the header
+  label: Image
+  description: The image to use in the header for headers with the styles 'hero image' or 'image on right'.
 - name: pill
   type: field_group
   config: {}

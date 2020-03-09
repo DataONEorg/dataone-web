@@ -17,6 +17,10 @@
     background-color: unset;
     box-shadow      : none;
     background-color: $c-background;
+    height          : auto;
+    max-height      : $nav-height;
+    background-color: transparent;
+    position        : absolute;
   }
 }
 
@@ -386,15 +390,6 @@
 // === WAVE ===
 // 
 // to work with .header--wave
-
-.global-header--wave {
-  @include desktop {
-    height          : auto;
-    max-height      : 60px;
-    background-color: transparent;
-    position        : absolute;
-  }
-}
 // ========================================================
 // === DARK BKG ===
 // 

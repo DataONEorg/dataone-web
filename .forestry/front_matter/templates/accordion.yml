@@ -17,16 +17,25 @@ fields:
   - image
   - button
   - item-with-icon
+  - card
 - type: blocks
   name: content
   label: Content
   template_types:
-  - feature-simple
   - markdown
+  - feature-simple
   - features-list
   - feature-detailed
   - image
-  - button
+  - card
+  - job-summary
+  - news-summary
+  - webinar-summary
+  - join-form
+  - columns
   - checklist
   - timeline
-  - columns
+  - metrics
+  - people
+  - item-with-icon
+  - card

@@ -12,7 +12,7 @@ header:
     for efficient sharing, access, and reuse.
   template: header
   title: Your dedicated repository managed by DataONE
-  type: hosted-repo-header
+  type: hosted repository
   pill:
     template: pill
     text: Coming 2020

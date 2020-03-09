@@ -5,16 +5,11 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: text-only
+  type: text only
+  bkg_color: default
   title: Open source tools from DataONE
   intro: ''
   buttons: []
-  headerimage:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - template: section
   type: default

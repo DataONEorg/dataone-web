@@ -15,7 +15,7 @@
   {{ end }}
   {{ $buttons := slice $applyButton $detailsButton }}
 
-  {{ $headerBlock := dict "type" "text-only" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
+  {{ $headerBlock := dict "type" "text only" "bkg_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
 
   {{ $details := slice }}
