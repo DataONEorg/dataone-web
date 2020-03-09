@@ -3,27 +3,32 @@
 // 
 
 .header--webinar {
+  // .header__content {
+  //   @include desktop {
+  //     display: flex;
+  //   }
+  // }
   .header__content {
-    @include desktop {
-      display: flex;
-    }
+    grid-template-columns: 1fr;
   }
 
-  .header__title {
-    margin-top: 1rem;
+  .header__text {
+    grid-gap: 0;
   }
 
   .header__headline {
     font-size  : 2.2rem;
     line-height: 1.15;
-    margin-top : 3.5rem;
+    margin-top : 3rem;
   }
 
   .header__intro {
-    font-size    : 1.1rem;
-    line-height  : 1.4;
-    margin-top   : 1rem;
-    margin-bottom: 3rem;
+    font-size    : 1.3rem;
+    margin-bottom: 2rem;
+
+    .accordion__trigger {
+      line-height: 1.5;
+    }
   }
 
   .header__intro:hover {
@@ -32,16 +37,16 @@
   }
 
   .header__abstract {
-    margin-top : .95rem;
-    font-size  : 1rem;
+    font-size  : 1.1rem;
     font-weight: 300;
-    line-height: 1.45;
+    line-height: 1.6;
   }
 
   .header__read-more {
     font-weight: 300;
     color      : col($c-tertiary, 4);
     font-size  : 1rem;
+    margin-left: 1rem;
   }
 
   .header__intro:hover {
