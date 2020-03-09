@@ -27,12 +27,12 @@ fields:
   label: Background color
   name: bkg_color
   description: The background color to use for header with the style 'image on right', and 'text only'. Also determines the text color.
-    config:
-      source:
-        type: simple
-      options:
-      - default
-      - secondary-dark
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - secondary-dark
 - name: image
   type: field_group
   config: {}
@@ -81,14 +81,3 @@ fields:
     min: '0'
     max: '2'
   description: One or two buttons that lead the viewer to some action. Optional.
-- name: headerimage
-  type: field_group
-  config: {}
-  fields:
-  - name: image
-    type: include
-    config: {}
-    template: image
-    label: Header Image
-  label: Header Image
-  description: An image shown in the header
