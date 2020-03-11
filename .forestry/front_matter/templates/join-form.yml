@@ -7,19 +7,32 @@ fields:
   label: Template
   hidden: true
   default: join-form
+- name: newsletter_only
+  type: boolean
+  label: Simple newsletter sign up
+  description: If set to true, create a form for newletter sign up only. In this case, justs an email input and sign up button will be shown, and checkboxes will be hidden.
 - name: precheck_hostedrepo
   type: boolean
   label: Pre-check Hosted Repository box
   description: Set to true to have a checkmark already placed in the "hosted repository"
     checkbox
   default: false
+  showOnly:
+    field: newsletter_only
+    value: false
 - name: precheck_plus
   type: boolean
   label: Pre-check DataONE Plus box
   description: Set to true to have a checkmark already placed in the "dataONE plus"
     checkbox
+  showOnly:
+    field: newsletter_only
+    value: false
 - name: precheck_newsletter
   type: boolean
   label: Pre-check Newsletter subscription box
   description: Set to true to have a checkmark already placed in the newsletter subscription
     checkbox
+  showOnly:
+    field: newsletter_only
+    value: false

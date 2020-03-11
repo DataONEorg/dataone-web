@@ -3,11 +3,6 @@
 // 
 
 .header--webinar {
-  // .header__content {
-  //   @include desktop {
-  //     display: flex;
-  //   }
-  // }
   .header__content {
     grid-template-columns: 1fr;
   }

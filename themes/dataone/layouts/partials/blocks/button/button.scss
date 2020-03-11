@@ -10,20 +10,19 @@
   font-size       : $fs-button;
   background-color: $c-foreground;
   color           : $c-background;
-  display         : inline-block;
   overflow        : hidden;
   text-overflow   : ellipsis;
   padding         : 0 1.25em;
   width           : fit-content;
   max-width       : calc(100vw - 2.5em);
-  border-radius   : 1px;
-  height          : 40px;
-  line-height     : 40px;
+  border-radius   : 2px;
+  height          : 50px;
   text-decoration : none;
   box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
   cursor          : pointer;
   text-align      : center;
   display         : flex;
+  align-items     : center;
 
   &:hover {
     background-color: lighten($c-foreground, 1%);
@@ -31,8 +30,17 @@
     box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
   }
 
+  &__text {
+    margin-top : 1px;
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+  }
+
   &__icon {
-    padding: 6px 6px 0 0;
+    display     : flex;
+    align-items : center;
+    margin-right: 9px;
 
     svg {
       stroke: white;
@@ -103,10 +111,8 @@
 // SEARCH BUTTON
 
 .button--search {
-  margin       : 20px auto 0;
-  display      : flex;
-  align-content: center;
-  fill         : $c-background;
+  margin: 20px auto 0;
+  fill  : $c-background;
   @include desktop {
     padding  : 21px 22px 44px;
     min-width: 68px;
@@ -117,7 +123,7 @@
   }
 
   .button__text {
-    display: block;
+    display: flex;
     // visually hidden on desktop
     @include desktop {
       margin     : 0;
@@ -130,6 +136,12 @@
       /* IE6, IE7 */
       clip       : rect(1px, 1px, 1px, 1px);
       white-space: nowrap;
+    }
+  }
+
+  .button__icon {
+    @include desktop {
+      margin-right: 0;
     }
   }
 }

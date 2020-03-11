@@ -1,66 +1,68 @@
 // === LOGO === //
 
-.logo{
+.logo {
   display: block;
-  fill: $c-foreground;
-  width:143px;
-  height:32px;
-  
+  fill   : $c-foreground;
+  width  : 143px;
+  height : 32px;
 }
-  
+
+.logo--sz-larger {
+  height: 40px;
+  width : 179px;
+}
+
 .logo--subtle {
   fill: $c-foreground-subtle;
 }
+
 .logo--subtle-light {
-  fill: col($c-neutral, 4);
+  fill: col($c-neutral, 3);
 }
 
-.logo--globe-only{
-  
+.logo--globe-only {
   width: 32px;
 
-  .logo__globe{
+  .logo__globe {
     transform: translate(-50%);
   }
-  
-  .logo__data{
-    display: none;
-  }
-  .logo__ne{
+
+  .logo__data {
     display: none;
   }
 
+  .logo__ne {
+    display: none;
+  }
 }
 
-.logo--global-nav{
-  
+.logo--global-nav {
   @extend .logo--globe-only;
-  width: 24px;
-  height: 24px;
+  width  : 24px;
+  height : 24px;
   display: inline-block;
-  fill: inherit;
-  
-  @include desktop{
-    width:143px;
+  fill   : inherit;
+  @include desktop {
+    width : 143px;
     height: 32px;
-    
-    .logo__globe{
+
+    .logo__globe {
       transform: none;
     }
-    
-    .logo__data{
+
+    .logo__data {
       display: inherit;
     }
-    .logo__ne{
+
+    .logo__ne {
       display: inherit;
     }
-    
   }
 }
 
-.logo--homepage{
-  height:100%;
-  width: 50%;
+.logo--homepage {
+  height   : 100%;
+  width    : 50%;
   min-width: 300px;
-  fill:url("#theme-gradient");
+  fill     : url("#theme-gradient");
 }

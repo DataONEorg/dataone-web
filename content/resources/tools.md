@@ -23,10 +23,10 @@ page_sections:
     style: ''
 menu:
   toplevel:
-    parent: Resources
+    parent: Community
     weight: 2
   footer:
-    parent: Resources
+    parent: Community
     weight: 4
 
 ---

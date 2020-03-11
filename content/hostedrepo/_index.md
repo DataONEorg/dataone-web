@@ -269,11 +269,6 @@ page_sections:
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
     when these services are ready for your organization.
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   blocks:
   - template: join-form
     precheck_hostedrepo: true

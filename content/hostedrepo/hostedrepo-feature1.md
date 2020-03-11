@@ -25,17 +25,17 @@ header:
 page_sections:
 - type: default
   template: section
-- type: bold
-  title: Interested in a becoming a DataONE Plus member?
+- template: section
+  type: bold
+  title: Interested in a hosted repository?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
     when these services are ready for your organization.
   blocks:
   - template: join-form
-    precheck_plus: true
-    precheck_hostedrepo: false
+    precheck_hostedrepo: true
+    precheck_plus: false
     precheck_newsletter: false
-  template: section
 menu:
   toplevel:
     weight: 2

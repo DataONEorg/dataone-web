@@ -1,13 +1,36 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn - block name -->
+{{ $bn := "join-form" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
 
-<!--
-    === Hosted repository waitlist & notification sign up form ===
-    HTML taken from MaielrLite with all <style></style> content removed,
-    and some hugo templating options added.
-    Note that the .classes are required for the MailerLite javascript to work.
-  -->
-<div id="join-form">
+<!-- === Newsletter & service sign up form === -->
+<!-- HTML taken from MaielrLite with most <style></style> content removed, -->
+<!-- and some hugo templating options added. -->
+<!-- Note that the .classes are required for the MailerLite javascript to work. -->
+
+{{ $checkHR := "" }}
+{{ $checkPlus := "" }}
+{{ $checkNL := "" }}
+{{ if eq .Block.precheck_hostedrepo true }}
+  {{ $checkHR = "checked" }}
+{{ end }}
+{{ if eq .Block.precheck_plus true }}
+  {{ $checkPlus = "checked" }}
+{{ end }}
+{{ if eq .Block.precheck_newsletter true }}
+  {{ $checkNL = "checked" }}
+{{ end }}
+<!-- if the block should just be a simple newsletter signup -->
+{{ if .Block.newsletter_only }}
+  {{ $checkHR = "" }}
+  {{ $checkPlus = "" }}
+  {{ $checkNL = "checked" }}
+  {{ $classes = print $classes " " $bn "--newsletter-only" }}
+{{ end }}
+
+<div id="join-form" class="{{ $classes }}">
   <div id="mlb2-1647596" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1647596">
     <div class="ml-form-align-center">
       <div class="ml-form-embedWrapper embedForm">
@@ -23,36 +46,69 @@
             </div>
             <div class="ml-form-interestGroupsRow ml-block-groups">
               <div class="ml-form-interestGroupsRowCheckbox last-group" style="">
-                <label> <input type="checkbox" name="groups[]" value="76427432" {{- if .Block.precheck_hostedrepo -}}checked{{- end -}}> <div class="label-description">Join the waitlist for a Hosted Repository from DataONE</div> </label>
+                <label>
+                  <input type="checkbox" name="groups[]" value="76427432" {{ $checkHR }}>
+                  <div class="label-description">Join the waitlist for a Hosted Repository from DataONE</div>
+                </label>
               </div>
               <div class="ml-form-interestGroupsRowCheckbox group" style="">
-                <label> <input type="checkbox" name="groups[]" value="76427356" {{- if .Block.precheck_plus -}}checked{{- end -}}> <div class="label-description">Join the waitlist for a DataONE Plus membership</div> </label>
+                <label>
+                  <input type="checkbox" name="groups[]" value="76427356" {{ $checkPlus }}>
+                  <div class="label-description">Join the waitlist for a DataONE Plus membership</div>
+                </label>
               </div>
               <div class="ml-form-interestGroupsRowCheckbox group" style="">
-                <label> <input type="checkbox" name="groups[]" value="9902726" {{- if .Block.precheck_newsletter -}}checked{{- end -}}> <div class="label-description">Subscribe to the DataONE Newsletter</div> </label>
+                <label>
+                  <input type="checkbox" name="groups[]" value="9902726" {{ $checkNL }}>
+                  <div class="label-description">Subscribe to the DataONE Newsletter</div>
+                </label>
               </div>
             </div>
             <style type="text/css">
-              .ml-form-recaptcha{margin-bottom:20px;float:left}.ml-form-recaptcha.ml-error iframe{border:solid 1px red}@media screen and (max-width:768px){.ml-form-recaptcha{transform:scale(.77);-webkit-transform:scale(.77);transform-origin:0 0;-webkit-transform-origin:0 0}}
+              .ml-form-recaptcha {
+                margin-bottom: 20px;
+                float: left;
+              }
+              .ml-form-recaptcha.ml-error iframe {
+                border: solid 1px red;
+              }
+              @media screen and (max-width:768px) {
+                .ml-form-recaptcha {
+                  transform: scale(.77);
+                  -webkit-transform: scale(.77);
+                  transform-origin: 0 0;
+                  -webkit-transform-origin: 0 0;
+                }
+              }
             </style>
             <input type="hidden" name="ml-submit" value="1">
             <div class="ml-form-embedSubmit">
               <button type="submit" class="primary">Sign up</button>
-              <button disabled="disabled" style="display:none" type="button" class="loading"> <div class="ml-form-embedSubmitLoad"><div></div><div></div><div></div><div></div></div> </button>
+              <button disabled="disabled" style="display:none" type="button" class="loading">
+                <div class="ml-form-embedSubmitLoad">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </button>
             </div>
           </form>
         </div>
         <div class="ml-form-successBody row-success" style="display:none">
           <div class="ml-form-successContent">
-            <h3 class="response-title">You're almost on the waitlist!</h3>
-            <p class="response-text">Please check your email to confirm your registration.</p>
+            <p class="response-text">Please check your email</p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <script>
-    function ml_webform_success_1647596(){var r=ml_jQuery||jQuery;r(".ml-subscribe-form-1647596 .row-success").show(),r(".ml-subscribe-form-1647596 .row-form").hide()}
+    function ml_webform_success_1647596() {
+      var r = ml_jQuery || jQuery;
+      r(".ml-subscribe-form-1647596 .row-success").show(),
+      r(".ml-subscribe-form-1647596 .row-form").hide()
+    }
   </script>
   <img src="https://track.mailerlite.com/webforms/o/1647596/b7u9a7?v4a60e9ef938a7fa0240ac9ba567062cb" width="1" height="1" style="max-width:1px;max-height:1px;visibility:hidden;padding:0;margin:0;display:block" border="0">
   <script src="https://static.mailerlite.com/js/w/webforms.min.js?v4a60e9ef938a7fa0240ac9ba567062cb" type="text/javascript"></script>

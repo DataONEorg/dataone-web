@@ -11,9 +11,9 @@ header:
 menu:
   toplevel:
     weight: 1
-    parent: Resources
+    parent: Community
   footer:
     weight: 2
-    parent: Resources
+    parent: Community
 
 ---

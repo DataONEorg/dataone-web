@@ -1,42 +1,50 @@
 // === MAILER LITE SIGN UP FORM ===
 // Use the built in classes in case we need to change this form in the full-feature
 // the outer div containing the form
+
+.join-form {}
+
 .ml-subscribe-form {
   @include f-common;
 
   .ml-form-successContent {
-    background-color: saturate(lighten($c-secondary, 15%), 80%);
-    width           : 90%;
+    background-color: col($c-secondary, 4);
+    // width           : 90%;
     margin-left     : auto;
     margin-right    : auto;
-    padding         : $inter-item-spacing calc(2 * #{$inter-item-spacing}) calc(1.5 * #{$inter-item-spacing}) calc(2 * #{$inter-item-spacing});
-    border-radius   : 4px;
+    padding         : 1rem;
+    border-radius   : 40px;
     box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
     @include desktop {
-      width: 70%;
+      // width: 50%;
     }
+  }
+
+  .ml-form-interestGroupsRow.ml-block-groups {
+    margin-top: 1.8rem;
   }
 
   .response-title {
     text-align: center;
-    // @extend .feature-simple__title;
-    // color: $c-background;
-    // color: saturate(lighten($c-secondary, 25%), 100%);
   }
 
   .response-text {
-    text-align: center;
-    font-size : $fs-section-intro;
-    // color: saturate(lighten($c-secondary, 25%), 100%);
+    text-align : center;
+    font-size  : 1.2rem;
+    color      : col($c-secondary, 7);
+    font-weight: 600;
+    margin     : 0;
+    padding    : 0;
   }
 }
 // the email field
+
 .form-control {
   @include forms-text-input;
-  width        : 100%;
-  font-size    : $fs-larger;
-  margin-bottom: 20px;
-  padding      : 15px;
+  width    : 100%;
+  font-size: $fs-larger;
+  padding  : 0 15px;
+  height   : 50px;
 }
 
 .form-control:focus {
@@ -46,12 +54,14 @@
   color           : $c-secondary;
 }
 // the button
+
 .ml-subscribe-form .primary {
   border: none;
   @extend .button;
   @extend .button--col-primary;
 }
 // the group of checkboxes
+
 .ml-block-groups {
   display       : flex;
   flex-direction: column;
@@ -68,6 +78,7 @@
   padding-top: $inter-item-spacing;
 }
 // custom check boxes
+
 input[type="checkbox"] {
   position: absolute;
 }
@@ -125,4 +136,30 @@ input[type="checkbox"]:disabled + .label-description {
 
 input[type="checkbox"]:disabled + .label-description::before {
   background: #ddd;
+}
+// === Show just a simple sign up ===
+// Hide check boxes
+
+.join-form--newsletter-only {
+  .form-control {
+    width    : 100%;
+    display  : block;
+    min-width: unset;
+  }
+
+  .ml-form-formContent {}
+
+  .ml-form-embedSubmit {
+    display: block;
+  }
+
+  .ml-form-interestGroupsRow.ml-block-groups {
+    display: none;
+  }
+
+  .ml-block-form {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap             : 1rem 1rem;
+  }
 }

@@ -22,15 +22,16 @@
   }
 
   &__text {
-    text-align     : center;
-    min-height     : fit-content;
-    display        : grid;
-    grid-auto-rows : max-content;
-    justify-content: center;
-    grid-gap       : 2rem;
-    width          : 100%;
-    align-content  : center;
-    grid-auto-flow : rows;
+    text-align           : center;
+    min-height           : fit-content;
+    display              : grid;
+    grid-auto-rows       : max-content;
+    justify-content      : center;
+    grid-gap             : 2rem;
+    width                : 100%;
+    align-content        : center;
+    grid-auto-flow       : rows;
+    grid-template-columns: 100%;
     @include desktop {
       text-align     : left;
       justify-content: left;
@@ -38,25 +39,21 @@
   }
 
   &__title-and-pill {
-    display          : inline-grid;
-    grid-auto-columns: max-content;
-    justify-content  : center;
-    grid-gap         : 1rem;
-    width            : 100%;
-    grid-auto-flow   : column;
-    margin-bottom    : 2rem;
-    @include desktop {
-      justify-content: left;
-    }
+    // width                : 100%;
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: left;
+    @include desktop {}
   }
 
   &__title {
-    display       : inline-block;
+    display       : block;
     font-size     : $fs-h3;
     text-transform: uppercase;
     letter-spacing: .05em;
     color         : col($c-neutral, 6);
-    margin        : 0;
+    margin        : 0 .8rem 1rem 0;
   }
 
   &__headline {
@@ -128,14 +125,16 @@
     }
   }
 
-  .header__buttons {
+  .header__title-and-pill {
     justify-content: center;
   }
 
-  .header__title-and-pill {
-    @include desktop {
-      justify-content: center;
-    }
+  .header__title {
+    margin: 0 .8rem 1rem;
+  }
+
+  .header__buttons {
+    justify-content: center;
   }
 }
 // ========================================================

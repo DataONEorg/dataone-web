@@ -19,3 +19,14 @@ fields:
     options:
     - default
     - globe-only
+- type: select
+  label: Size
+  name: size
+  description: The size of the logo to use
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - larger

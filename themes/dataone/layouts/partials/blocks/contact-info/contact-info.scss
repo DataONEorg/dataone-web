@@ -1,39 +1,38 @@
 .contact-info {
-  
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-gap:3rem;
-  max-width: 290px;
-  
-  address{
-    font-style: normal;
-    font-size: 1.2rem;
+  display       : grid;
+  grid-auto-flow: row;
+  grid-gap      : 3rem;
+  max-width     : 290px;
+
+  address {
+    font-style : normal;
+    font-size  : 1.2rem;
     line-height: 1.4;
     font-weight: 500;
-    text-shadow: 0.01em 0.01em 1em rgba(col($c-neutral, 9),.4);
+    text-shadow: .01em .01em 1em rgba(col($c-neutral, 9),.4);
   }
-  
-  &__location{
-    display: grid;
+
+  &__location {
+    display              : grid;
     grid-template-columns: 30px auto;
-    grid-gap: 1rem;
+    grid-gap             : 1rem;
   }
-  
-  &__socials{
-    display: grid;
+
+  &__socials {
+    display              : grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0.5rem;
-    width: 100%;
+    grid-gap             : .5rem;
+    width                : 100%;
+    justify-items        : center;
   }
-  
-  &__social-link{
-    justify-self: center;
-    background-color: col($c-secondary, 7);
+
+  &__social-link {
+    stroke          : white;
+    background-color: col($c-secondary, 5);
     @include circle-link;
-    
-    &:hover{
-      background-color: lighten(col($c-secondary, 7), 0.9%);
+
+    &:hover {
+      background-color: lighten(col($c-secondary, 5), 0.9%);
     }
   }
-  
 }

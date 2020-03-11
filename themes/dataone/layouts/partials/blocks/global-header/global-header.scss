@@ -30,7 +30,7 @@
   margin               : 0;
   display              : grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows   : 63px auto 1fr;
+  grid-template-rows   : 63px auto auto;
   grid-template-areas  : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   @include limit-width;
   @include medium-lr-padding;
@@ -147,7 +147,7 @@
     &[aria-hidden="false"] {
       opacity      : 1;
       visibility   : visible;
-      transform    : translateY(0);
+      // transform    : translateY(0);
       margin-bottom: 20px;
       margin-top   : 10px;
 
@@ -202,11 +202,12 @@
     visibility          : hidden;
     transition          : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
     margin-bottom       : -100%;
+    height              : 100%;
     @include desktop {
       margin        : 0 5px;
       opacity       : 1;
       visibility    : visible;
-      transform     : translateY(0);
+      // transform     : translateY(0);
       display       : flex;
       flex-direction: row;
       flex-wrap     : nowrap;
@@ -222,7 +223,7 @@
     &[aria-hidden="false"] {
       opacity      : 1;
       visibility   : visible;
-      transform    : translateY(0);
+      // transform    : translateY(0);
       margin-bottom: 20px;
       @include desktop {
         margin-bottom: 0;
@@ -347,9 +348,9 @@
     white-space    : nowrap;
     width          : 100%;
     display        : block;
-    font-size      : 1.1rem;
+    font-size      : 1.05rem;
     font-weight    : 600;
-    line-height    : 56px;
+    line-height    : 53px;
 
     &--active {
       color      : $c-foreground;
@@ -358,6 +359,7 @@
     @include desktop {
       line-height: 1;
       padding    : 22px 10px;
+      font-size  : 1.1rem;
 
       &:hover {
         color     : $c-foreground-emphasis;

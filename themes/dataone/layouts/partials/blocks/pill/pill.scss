@@ -1,16 +1,23 @@
 .pill {
   @include f-common;
-  font-size     : $fs-pill;
-  line-height   : 1em;
-  font-weight   : 600;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-  display       : inline-block;
-  padding       : .7em 1.1em;
-  border-radius : 7em;
-  background    : $c-foreground;
-  color         : $c-background;
-  transform     : translateY(-0.18em);
+  font-size      : $fs-pill;
+  line-height    : 1em;
+  font-weight    : 600;
+  text-transform : uppercase;
+  letter-spacing : .03em;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  border-radius  : 30px;
+  background     : $c-foreground;
+  color          : $c-background;
+  transform      : translateY(-0.18em);
+  height         : 27px;
+  line-height    : 27px;
+  width          : fit-content;
+  max-width      : calc(100vw - 2.5em);
+  padding        : 0 1.4em;
+  white-space    : nowrap;
 
   &__icon {
     padding-right: .03em;
@@ -85,7 +92,7 @@
     width        : 12px;
     height       : 12px;
     animation    : live 2.5s infinite;
-    margin-left  : 1rem;
+    margin-left  : .3rem;
     margin-right : .8rem;
     @include low-motion;
   }
