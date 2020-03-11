@@ -1,12 +1,14 @@
-// =======
+// ======
+// 
+$line-left-mobile: 1rem; // distance from left for the line & points on mobile
+$circle-size: 30px; // size of circles on line  at each timeline event
+$point-size: 15px; // size of points at each timeline event
+$point-dist-top: 2.5rem; // point's vertical distance from top of event
 
 .timeline {
-  position     : relative;
-  overflow-x   : hidden;
-  padding-right: 15px;
-  padding-left : 15px;
-  margin-right : auto;
-  margin-left  : auto;
+  position    : relative;
+  margin-right: auto;
+  margin-left : auto;
   // the line for the time line
   &::before {
     content   : '';
@@ -15,7 +17,7 @@
     width     : 5px;
     height    : 95%;
     position  : absolute;
-    left      : 50px;
+    left      : $line-left-mobile;
     transform : translateX(-50%);
     @include desktop {
       left: 50%;
@@ -25,79 +27,64 @@
   &__event {
     width        : 100%;
     margin-bottom: $intra-section-spacing;
-    // ensure events are in separate 'rows'
-    &::after {
-      content: '';
-      display: block;
-      clear  : both;
+    // point
+    .card::after {
+      content     : '';
+      display     : block;
+      clear       : both;
+      position    : absolute;
+      border-style: solid;
+      width       : 0;
+      height      : 0;
+      top         : calc(#{$point-dist-top} + (.5 * #{$point-size}));
+      left        : -$point-size;
+      border-width: ((2/3) * $point-size) $point-size ((2/3) * $point-size) 0;
+      border-color: transparent $c-background transparent transparent;
     }
 
     &:nth-child(even) {
       .card {
-        float  : none;
-        padding: 40px 20px 10px;
         @include desktop {
-          float: right;
+          margin-left: 55%;
         }
+      }
 
-        .card__date {
-          right: auto;
-          left : 0;
-        }
-
-        &::after {
-          content     : '';
-          position    : absolute;
-          border-style: solid;
-          width       : 0;
-          height      : 0;
-          top         : 30px;
-          left        : -15px;
-          border-width: 10px 15px 10px 0;
-          border-color: transparent $c-background transparent transparent;
-        }
+      .card__date {
+        right: auto;
+        left : 0;
       }
     }
 
     &:nth-child(odd) {
-      .card {
-        &::after {
-          content     : '';
-          position    : absolute;
-          border-style: solid;
-          width       : 0;
-          height      : 0;
-          top         : 30px;
-          left        : -15px;
-          border-width: 10px 15px 10px 0;
-          border-color: transparent $c-background transparent transparent;
-          @include desktop {
-            left        : auto;
-            right       : -15px;
-            border-width: 10px 0 10px 15px;
-            border-color: transparent transparent transparent $c-background;
-          }
+      .card::after {
+        left: -$point-size;
+        @include desktop {
+          left        : auto;
+          right       : -$point-size;
+          border-width: ((2/3) * $point-size) 0 ((2/3) * $point-size) $point-size;
+          border-color: transparent transparent transparent $c-background;
         }
       }
     }
   }
 
-  &__point {
-    width        : 30px;
-    height       : 30px;
+  &__circle {
+    width        : $circle-size;
+    height       : $circle-size;
     background   : $c-primary;
     border-radius: 50%;
     position     : absolute;
-    left         : 50px;
-    margin-top   : 25px;
-    margin-left  : -15px;
+    left         : $line-left-mobile;
+    margin-top   : $point-dist-top;
+    margin-left  : -.5 * $circle-size;
     @include desktop {
       left: 50%;
     }
   }
 
   .card {
-    margin-left: 70px;
+    margin-left: 3.5rem;
+    width      : auto;
     @include desktop {
       max-width  : auto;
       margin-left: 0;

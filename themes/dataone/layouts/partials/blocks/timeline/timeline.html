@@ -12,7 +12,7 @@
   {{- range .Block.event -}}
 
     <div class="{{ $bn }}__event">
-      <div class="{{ $bn }}__point"></div>
+      <div class="{{ $bn }}__circle"></div>
 
       {{ partial "blocks/card/card" (dict "Block" . "Page" $page) }}
 
