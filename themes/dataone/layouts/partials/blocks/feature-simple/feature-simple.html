@@ -1,5 +1,5 @@
 <!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+{{ $page := .Page }}
 
 <div class="feature-simple{{ with .Block.type }} feature-simple--{{ . }}{{ end }}">
   {{ if and (partial "functions/hasValues" .Block.icon) (ne .Block.icon.name "") (ne .Block.icon.name " ") }}
@@ -9,7 +9,13 @@
   {{- end -}}
   <div>
     <h3 class="feature-simple__title">
-      {{ .Block.headline | markdownify }}
+      {{ if .Block.header_link }}
+        <a href="">
+      {{- end -}}
+        {{ .Block.headline | markdownify }}
+      {{ if .Block.header_link }}
+        </a>
+      {{- end -}}
     </h3>
     <p class="feature-simple__paragraph">
       {{ .Block.text | markdownify }}

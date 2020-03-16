@@ -90,7 +90,13 @@ page_sections:
           name: checkmark
         text: Add and reorder pages, upload images, and pick datasets in minutes
         headline: Easy online editor
-      - headline: Citation reports
+      - template: feature-simple
+        icon:
+          template: icon
+          size: small
+          style: secondary-subtle
+          name: checkmark
+        headline: Citation reports
         text: Find out who is citing your data
   title: Custom search portals
 - template: section
