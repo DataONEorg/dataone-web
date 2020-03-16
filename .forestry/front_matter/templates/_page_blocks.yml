@@ -47,6 +47,7 @@ fields:
     labelField: title
 pages:
 - content/about/contact.md
+- content/features/access.md
 - content/plus/portals.md
 - content/resources/documentation.md
 - content/resources/tools.md
