@@ -10,7 +10,9 @@ fields:
 - name: newsletter_only
   type: boolean
   label: Simple newsletter sign up
-  description: If set to true, create a form for newletter sign up only. In this case, justs an email input and sign up button will be shown, and checkboxes will be hidden.
+  description: If set to true, create a form for newletter sign up only. In this case,
+    justs an email input and sign up button will be shown, and checkboxes will be
+    hidden.
 - name: precheck_hostedrepo
   type: boolean
   label: Pre-check Hosted Repository box

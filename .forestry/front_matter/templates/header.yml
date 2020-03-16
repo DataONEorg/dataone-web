@@ -26,7 +26,8 @@ fields:
 - type: select
   label: Background color
   name: bkg_color
-  description: The background color to use for header with the style 'image on right', and 'text only'. Also determines the text color.
+  description: The background color to use for header with the style 'image on right',
+    and 'text only'. Also determines the text color.
   config:
     source:
       type: simple
@@ -44,7 +45,8 @@ fields:
     label: Image
     description: The image to show in the header
   label: Image
-  description: The image to use in the header for headers with the styles 'hero image' or 'image on right'.
+  description: The image to use in the header for headers with the styles 'hero image'
+    or 'image on right'.
 - name: pill
   type: field_group
   config: {}

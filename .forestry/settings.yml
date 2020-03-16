@@ -53,6 +53,11 @@ sections:
   - _page_blocks
   - markdown
 - type: directory
+  path: content/features
+  label: Features
+  create: all
+  match: "**/*"
+- type: directory
   path: content/webinars
   label: Webinars
   create: all
