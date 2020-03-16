@@ -45,20 +45,14 @@ page_sections:
     num_cols: 3
     columns:
     - template: feature-simple
-      headline: Lorem ipsum
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
-        used to demonstrate the visual form of a document or a typeface without relying
-        on meaningful content.
+      headline: DataONE Network
+      text: A network of earth and environmental data providers making data more discoverable, accessible, and usable.
     - template: feature-simple
-      headline: Lorem ipsum
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
-        used to demonstrate the visual form of a document or a typeface without relying
-        on meaningful content.
+      headline: DataONE Plus
+      text: Enhanced DataONE products and services in support of your research.
     - template: feature-simple
-      headline: Lorem ipsum
-      text: In publishing and graphic design, lorem ipsum is a placeholder text commonly
-        used to demonstrate the visual form of a document or a typeface without relying
-        on meaningful content.
+      headline: Hosted Repositories
+      text: A dedicated repository solution for your group or institution’s data, managed by DataONE.
 - template: section
   type: wave
   title: Build your knowledge
