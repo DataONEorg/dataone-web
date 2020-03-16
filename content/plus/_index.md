@@ -13,8 +13,8 @@ header:
     style: secondary
     text: Coming 2020
   title: Showcase your team’s goals & results with branded portals
-  intro: Plus everything you need to support your research with enhanced services from
-    DataONE.
+  intro: Custom search portals that communicate your science, your team, your data,
+    and related data in the DataONE network.
   buttons:
   - template: button
     type: subscribe form
