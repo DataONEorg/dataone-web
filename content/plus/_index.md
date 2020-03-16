@@ -48,7 +48,7 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Create a catalog of your team's data
+        text: Create a catalog of your team's data that spans the DataONE network
         headline: All of your data in one place
       - template: feature-simple
         icon:
@@ -64,15 +64,15 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Usage and citation metrics aggregated for your data collection
-        headline: Aggregated metrics
+        text: Access aggregated view and download metrics for datasets
+        headline: Usage metrics
       - template: feature-simple
         icon:
           template: icon
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Aggregated FAIR reports for your data
+        text: Aggregated FAIR metadata assessment scores
         headline: FAIR Assessments
       - template: feature-simple
         icon:
@@ -80,7 +80,7 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Add colours, logos, and custom content
+        text: Customize your portal with colors, logos, and images
         headline: Branded to match your project
       - template: feature-simple
         icon:
@@ -88,8 +88,10 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Setup in minutes with the easy user interface
-        headline: Online portal editor
+        text: Add and reorder pages, upload images, and pick datasets in minutes
+        headline: Easy online editor
+      - headline: Citation reports
+        text: Find out who is citing your data
 - template: section
   type: data-wave
   title: Make your data FAIR
