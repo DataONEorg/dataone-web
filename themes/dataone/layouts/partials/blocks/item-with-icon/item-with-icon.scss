@@ -1,26 +1,25 @@
 .item-with-icon {
-  
   @include f-common;
-  display: grid;
+  display              : grid;
   grid-template-columns: 30px 1fr;
-  
-  &__icon{
-    svg{
-      fill: $c-secondary;
-      margin-top: calc(#{$inter-item-spacing} + 4px);
+
+  &__icon {
+    svg {
+      fill        : $c-secondary;
+      margin-top  : calc(#{$inter-item-spacing} + 4px);
       margin-right: 2px;
     }
   }
-  
+
   &__paragraph {
-    margin-top: $inter-item-spacing;
-    font-size: $fs-body;
-    line-height: 1.35;
+    margin-top : $inter-item-spacing;
+    font-size  : 1.15rem;
+    line-height: 1.6;
   }
-  
-  &__emphasis{
-    font-style: normal;
-    font-weight: 600;
+
+  &__emphasis {
+    font-style : normal;
+    font-weight: 500;
+    color      : col($c-secondary, 5);
   }
-  
 }

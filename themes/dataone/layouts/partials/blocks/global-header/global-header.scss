@@ -1,3 +1,6 @@
+$mobile-nav-height: 63px;
+$icon-color: col($c-neutral, 1);
+
 .global-header {
   @include f-common;
   bottom          : 0;
@@ -7,20 +10,17 @@
   border-radius   : 5px 5px 0 0;
   transition      : all .2s 0s ease-in-out;
   padding-top     : 7px 0;
-  background-color: col($c-secondary, 2);
+  background-color: tint(col($c-secondary, 5), 5%);
   box-shadow      : 22px 1px 11px rgba(0,20,30,0.15);
   @include desktop {
     border-radius   : 0;
     padding         : 0;
-    position        : relative;
-    top             : 0;
-    background-color: unset;
     box-shadow      : none;
-    background-color: $c-background;
     height          : auto;
     max-height      : $nav-height;
-    background-color: transparent;
     position        : absolute;
+    top: 0;
+    box-shadow      : -1px 1px 20px 1px rgba(28,29,30,.2);
   }
 }
 
@@ -30,7 +30,7 @@
   margin               : 0;
   display              : grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows   : 63px auto auto;
+  grid-template-rows   : $mobile-nav-height auto auto;
   grid-template-areas  : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   @include limit-width;
   @include medium-lr-padding;
@@ -40,6 +40,10 @@
     grid-template-areas  : "logo menu search d1search";
     align-items          : center;
   }
+  
+  .d1search__input:focus~.d1search__label {
+    color: col($c-primary, 5);
+  }
 
   &__button {
     @include button-reset;
@@ -48,44 +52,41 @@
     color     : $c-foreground;
     height    : 100%;
     padding   : 8px 8px 15px;
-
-    &:focus {
-      .toplevel-nav__button-icon {
-        fill: $c-foreground;
-      }
-
-      .toplevel-nav__button-text {
-        color: $c-foreground;
-      }
-    }
+    stroke: $icon-color;
     @include desktop {
       width  : fit-content;
       height : fit-content;
       padding: 0;
     }
-  }
+    &:focus {
+      .toplevel-nav__button-icon {
+        svg{
+          stroke: col($c-primary, 4); // for the line-icons
+          // fill: col($c-primary, 4); // for the home-icon (logo)
+        }
+      }
 
-  &__button-icon {
-    width : 24px;
-    height: 24px;
-    fill  : $c-foreground-subtle;
-
-    &--active {
-      fill: $c-foreground;
+      .toplevel-nav__button-text {
+        font-weight: 800;
+        color: col($c-primary, 4);
+      }
     }
+    
   }
 
   &__button-text {
     @include f-common;
-    font-size  : 13px;
+    font-size  : 0.86rem;
+    letter-spacing: 0.01em;
     font-weight: 600;
-    line-height: 16px;
+    line-height: 0.82rem;
     display    : block;
     margin-top : 2px;
-    color      : $c-foreground-subtle;
+    color      : col($c-neutral, 1);
 
     &--active {
-      color: $c-foreground;
+      font-weight: 800;
+      color: white;
     }
     @include desktop {
       display: none;
@@ -97,13 +98,15 @@
     height   : auto;
 
     .logo {
-      fill      : url("#theme-gradient");
+      fill      : col($c-neutral, 1);
       transform : translate(0,0) scale(1);
       transition: .2s;
+      @include desktop {
+        // padding-left: 5px;
+        // fill      : url("#theme-gradient");
+      }
     }
-    @include desktop {
-      padding-left: 5px;
-    }
+    
 
     &:hover .logo {
       transform: translate(0px,-1px) scale(1.01);
@@ -124,6 +127,13 @@
       padding     : 0 5px;
     }
   }
+  &__button-icon--close{
+    @include desktop{
+      margin-top: 17px;
+      margin-right: 10px;
+    }
+    
+  }
 
   &__d1search {
     grid-area    : d1search;
@@ -139,15 +149,20 @@
       margin-left  : -400px;
       transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
     }
-
-    label {
+    
+    label{
       display: none;
+    }
+    
+    & ~ .toplevel-nav__button--search {
+      .toplevel-nav__button-icon--close {
+      display: none;
+    }
     }
 
     &[aria-hidden="false"] {
       opacity      : 1;
       visibility   : visible;
-      // transform    : translateY(0);
       margin-bottom: 20px;
       margin-top   : 10px;
 
@@ -156,24 +171,12 @@
       }
       // The menu search button when the search is expanded on desktop
       & ~ .toplevel-nav__button--search {
-        .toplevel-nav__button-icon {
+        .toplevel-nav__button-icon--search {
           display: none;
         }
-
-        .toplevel-nav__button-text {
-          margin-top: -4px;
-        }
         // A close button (X)
-        &:before {
-          display   : inline-block;
-          content   : "\00d7";
-          font-size : 40px;
-          font-size : 45px;
-          margin-top: -19px;
-          color     : $c-foreground-subtle;
-          @include desktop {
-            margin-top: 5px;
-          }
+        .toplevel-nav__button-icon--close {
+          display   : block;
         }
       }
       @include desktop {
@@ -194,7 +197,8 @@
   // MENU & MENU ITEMS
   &__menu {
     grid-area           : menu;
-    margin              : 20px 0;
+    padding              : 20px 0;
+    margin: 0;
     padding-inline-start: 0;
     margin-block-end    : 0;
     text-decoration     : none;
@@ -203,15 +207,21 @@
     transition          : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
     margin-bottom       : -100%;
     height              : 100%;
+    max-height: calc(100vh - #{$mobile-nav-height + 20px});
+    overflow-y: scroll;
     @include desktop {
+      
+      max-height: 100%;
       margin        : 0 5px;
+      padding       : 0;
       opacity       : 1;
+      overflow-y: visible;
       visibility    : visible;
-      // transform     : translateY(0);
       display       : flex;
       flex-direction: row;
       flex-wrap     : nowrap;
       justify-self  : end;
+      
     }
 
     &[aria-hidden="true"] {
@@ -285,25 +295,31 @@
 
   &__sub-menu-link {
     margin         : 0;
-    font-size      : .9rem;
+    font-size      : 1.05rem;
     line-height    : 1.5;
     text-transform : uppercase;
-    font-weight    : 400;
+    font-weight    : 500;
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;
-    color          : $c-foreground-subtle;
+    color          : col($c-neutral, 1);
     white-space    : nowrap;
     padding        : .5rem 0;
 
     &--active {
-      color      : $c-foreground;
-      font-weight: 600;
+      color      : white;
+      font-weight: 800;
     }
     @include desktop {
+      color          : col($c-neutral, 5);
       &:hover {
-        color     : $c-foreground-emphasis;
+        color     : col($c-primary, 6);
         transition: color .1s 0s ease-in-out;
+        font-weight: 600;
+        
+      }
+      &--active {
+        font-weight: 600;
       }
     }
   }
@@ -323,7 +339,7 @@
 
   &__sub-menu-icon {
     margin-top: -2px;
-    stroke    : $c-foreground-subtle;
+    stroke    : $icon-color;
     position  : relative;
     top       : -1px;
   }
@@ -344,17 +360,19 @@
   &__menu-link {
     @include button-reset;
     text-decoration: none;
-    color          : $c-foreground-subtle;
+    color          : col($c-neutral, 1);
     white-space    : nowrap;
     width          : 100%;
     display        : block;
-    font-size      : 1.05rem;
+    font-size      : 1.1rem;
     font-weight    : 600;
     line-height    : 53px;
+    letter-spacing : .03em;
+    
 
     &--active {
-      color      : $c-foreground;
-      font-weight: 600;
+      color      : white;
+      font-weight: 800;
     }
     @include desktop {
       line-height: 1;
@@ -362,8 +380,13 @@
       font-size  : 1.1rem;
 
       &:hover {
-        color     : $c-foreground-emphasis;
+        color     : col($c-primary, 5);
         transition: color .1s 0s ease-in-out;
+        
+        .toplevel-nav__sub-menu-icon{
+          stroke     : col($c-primary, 5);
+          transition: stroke .1s 0s ease-in-out;
+        }
       }
     }
   }
@@ -396,66 +419,66 @@
 // === DARK BKG ===
 // 
 
-.global-header--dark-bkg {
-  @include desktop {
-    .toplevel-nav__menu-link {
-      color: col($c-neutral, 3);
-    }
-
-    .toplevel-nav__menu-link:hover {
-      color: col($c-neutral, 1);
-    }
-
-    .toplevel-nav__button--logo .logo,
-    .toplevel-nav__button-icon {
-      fill: col($c-neutral, 3);
-    }
-
-    .toplevel-nav__sub-menu-icon {
-      stroke: col($c-neutral, 3);
-    }
-
-    .d1search__input:focus~.d1search__label {
-      color: col($c-primary, 5);
-    }
-  }
-}
+// .global-header--dark-bkg {
+//   @include desktop {
+//     .toplevel-nav__menu-link {
+//       color: col($c-neutral, 3);
+//     }
+// 
+//     .toplevel-nav__menu-link:hover {
+//       color: col($c-neutral, 1);
+//     }
+// 
+//     .toplevel-nav__button--logo .logo,
+//     .toplevel-nav__button-icon {
+//       fill: col($c-neutral, 3);
+//     }
+// 
+//     .toplevel-nav__sub-menu-icon {
+//       stroke: col($c-neutral, 3);
+//     }
+// 
+//     .d1search__input:focus~.d1search__label {
+//       color: col($c-primary, 5);
+//     }
+//   }
+// }
 // ========================================================
 // === WEBINAR ===
 // 
 
-.global-header--webinar {
-  @include desktop {
-    background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
-    box-shadow      : -1px 1px 24px 1px rgba(28,29,30,.3);
-
-    .toplevel-nav__menu-link {
-      color: col($c-neutral, 2);
-    }
-
-    .toplevel-nav__menu-link:hover {
-      color: col($c-neutral, 1);
-    }
-
-    .toplevel-nav__button--logo .logo,
-    .toplevel-nav__button-icon {
-      fill: col($c-neutral, 2);
-    }
-
-    .toplevel-nav__sub-menu-icon {
-      stroke: col($c-neutral, 2);
-    }
-
-    .d1search__input:focus~.d1search__label {
-      color: col($c-primary, 5);
-    }
-
-    .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before {
-      color: col($c-neutral, 3);
-    }
-
-    .toplevel-nav__button:focus .toplevel-nav__button-icon {
-      fill: col($c-neutral, 2);
-    }
-  }
-}
+// .global-header--webinar {
+//   @include desktop {
+//     background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
+//     box-shadow      : -1px 1px 24px 1px rgba(28,29,30,.3);
+// 
+//     .toplevel-nav__menu-link {
+//       color: col($c-neutral, 2);
+//     }
+// 
+//     .toplevel-nav__menu-link:hover {
+//       color: col($c-neutral, 1);
+//     }
+// 
+//     .toplevel-nav__button--logo .logo,
+//     .toplevel-nav__button-icon {
+//       fill: col($c-neutral, 2);
+//     }
+// 
+//     .toplevel-nav__sub-menu-icon {
+//       stroke: col($c-neutral, 2);
+//     }
+// 
+//     .d1search__input:focus~.d1search__label {
+//       color: col($c-primary, 5);
+//     }
+// 
+//     .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before {
+//       color: col($c-neutral, 1);
+//     }
+// 
+//     .toplevel-nav__button:focus .toplevel-nav__button-icon {
+//       fill: col($c-neutral, 2);
+//     }
+//   }
+// }

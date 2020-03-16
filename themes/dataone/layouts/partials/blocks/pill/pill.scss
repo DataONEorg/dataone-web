@@ -1,7 +1,6 @@
 .pill {
   @include f-common;
-  font-size      : $fs-pill;
-  line-height    : 1em;
+  font-size      : .90rem;
   font-weight    : 600;
   text-transform : uppercase;
   letter-spacing : .03em;
@@ -16,7 +15,7 @@
   line-height    : 27px;
   width          : fit-content;
   max-width      : calc(100vw - 2.5em);
-  padding        : 0 1.4em;
+  padding        : 0 1.2em;
   white-space    : nowrap;
 
   &__icon {
@@ -24,8 +23,8 @@
   }
 
   &--secondary {
-    background: saturate(col($c-secondary, 3),10%);
-    color     : col($c-secondary, 7);
+    background: saturate(col($c-secondary, 5),10%);
+    color     : white;
   }
 
   &--primary {
@@ -38,8 +37,8 @@
   }
 
   &--quaternary {
-    background: col($c-quaternary,4);
-    color     : col($c-quaternary,8);
+    background: col($c-quaternary,5);
+    color     : white;
   }
 
   &--subtle {

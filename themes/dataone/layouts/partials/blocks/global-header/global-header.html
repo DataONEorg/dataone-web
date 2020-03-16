@@ -20,6 +20,10 @@
 {{ if or (eq .Params.header.type "wave with dataone gradient") (eq .Type "webinars") (eq .Params.header.bkg_color "secondary-dark") }}
   {{ $classes = print $classes " " $bn "--dark-bkg" }}
 {{ end }}
+
+<!-- settings for menu icons -->
+{{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
+
 <header class="{{$classes}}" id="global-header">
   <nav class="toplevel-nav">
 
@@ -44,7 +48,7 @@
     <!-- MENU BUTTON -->
     <button class="toplevel-nav__button toplevel-nav__button--menu-toggle" id="primary-menu-toggle" aria-label="Open primary menu" aria-expanded="false" aria-controls="primary-menu">
       <span class="toplevel-nav__button-icon">
-        {{- partial "icons/menu.svg" . -}}
+        {{- partial "blocks/line-icon/line-icon" (dict "Block" (merge $iconSettings (dict "icon" "menu")) "Page" $page) -}}
       </span>
       <span class="toplevel-nav__button-text">Menu</span>
     </button>
@@ -62,7 +66,7 @@
               <button class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Name }}">
                 {{ .Name }}
                 <span class="toplevel-nav__sub-menu-icon">
-                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "chevron-down" "size" "tiny" "color" "inherit")) -}}
+                  {{- partial "blocks/line-icon/line-icon" (dict "Block" (merge $iconSettings (dict "icon" "chevron-down" "size" "tiny")) "Page" $page) -}}
                 </span>
               </button>
 
@@ -106,8 +110,11 @@
 
     <!-- SEARCH BUTTON-->
     <button class="toplevel-nav__button toplevel-nav__button--search" id="search-toggle" aria-label="Show data search bar" {{ if ne .Kind `home` }} aria-expanded="false" aria-controls="nav-search-bar" {{ end }}>
-      <span class="toplevel-nav__button-icon">
-        {{- partial "icons/search.svg" . -}}
+      <span class="toplevel-nav__button-icon toplevel-nav__button-icon--close">
+        {{- partial "blocks/line-icon/line-icon" (dict "Block" (merge $iconSettings (dict "icon" "x")) "Page" $page) -}}
+      </span>
+      <span class="toplevel-nav__button-icon toplevel-nav__button-icon--search">
+        {{- partial "blocks/line-icon/line-icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) -}}
       </span>
       <span class="toplevel-nav__button-text">
         Find Data

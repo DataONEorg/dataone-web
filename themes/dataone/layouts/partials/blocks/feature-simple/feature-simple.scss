@@ -1,16 +1,22 @@
 .feature-simple {
   @include f-common;
 
+  &__icon {
+    margin: 2.5rem 0;
+  }
+
   &__title {
-    color: var(--col-title);
-    @include f-h3;
+    color         : var(--col-title);
+    font-size     : 1.4rem;
+    font-weight   : 500;
+    line-height   : 1.6;
+    letter-spacing: .01em;
   }
 
   &__paragraph {
-    font-size    : $fs-body;
-    line-height  : 1.4;
-    margin-top   : $inter-item-spacing;
-    margin-bottom: $inter-item-spacing;
+    font-size    : 1.2rem;
+    line-height  : 1.6;
+    margin-bottom: 1rem;
     margin-top   : 0;
   }
 

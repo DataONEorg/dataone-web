@@ -4,9 +4,11 @@
 .header {
   @include f-common;
   padding: 5rem 0;
+  color         : col($c-neutral, 6);
   @include desktop {
     margin-top : -$nav-height;
-    padding-top: calc(5rem + 2 * #{$nav-height});
+    // margin-top: -.5rem;
+    padding-top: calc(6rem + 2 * #{$nav-height});
   }
 
   &__content {
@@ -16,8 +18,8 @@
     flex-direction: column;
     @include desktop {
       display              : grid;
-      grid-template-columns: .7fr 1fr;
-      grid-gap             : 0 $grid-gap;
+      grid-template-columns: .57fr .43fr;
+      grid-gap             : 0 1.5rem;
     }
   }
 
@@ -54,20 +56,20 @@
     font-size     : $fs-h3;
     text-transform: uppercase;
     letter-spacing: .05em;
-    color         : col($c-neutral, 6);
     margin        : 0 .8rem 1rem 0;
   }
 
   &__headline {
     margin-top   : 1rem;
     margin-bottom: .5rem;
-    font-size    : $fs-page-title;
-    line-height  : 1.1;
-    color        : var(--col-title);
+    font-size    : 2.4rem;
+    color: col($c-neutral, 7);
     font-family  : 'Martel';
     font-weight  : 900;
+    letter-spacing: -.006em;
+    line-height   : 1.3;
     @include desktop {
-      font-size: $fs-page-title-desktop;
+      font-size: 3.1rem;
     }
   }
 
@@ -149,7 +151,7 @@
   overflow     : hidden;
 
   +.section {
-    padding-top: 150px;
+    padding-top: 200px;
   }
 
   .header__svg-background {
@@ -176,11 +178,9 @@
   }
 
   .header__headline {
-    font-size     : 1.75rem;
-    letter-spacing: -.006em;
-    line-height   : 1.45;
+    // font-size     : 1.75rem;
     @include desktop {
-      font-size: 2.1rem;
+      // font-size: 2.1rem;
     }
   }
 
@@ -197,23 +197,19 @@
   .header__content {
     margin: 0 auto;
     @include desktop {
-      grid-template-columns: 1fr 1fr;
+      // grid-template-columns: 1fr 1fr;
     }
   }
 }
 // === SVG IMAGE ===
 
 .header--svg-image {
-  padding-bottom: 0;
   overflow      : hidden;
-  padding-top   : calc(5rem + 1 * 72px);
 
   .header__headline {
-    font-size     : 1.75rem;
-    letter-spacing: -.006em;
-    line-height   : 1.45;
+    // font-size     : 1.75rem;
     @include desktop {
-      font-size: 2.1rem;
+      // font-size: 2.1rem;
     }
   }
 
@@ -252,7 +248,7 @@
   @extend .header--text-only;
   @include bkg-img;
   position  : relative;
-  min-height: 500px;
+  // min-height: 500px;
 
   .header__headline,
   .header__intro,
@@ -279,12 +275,19 @@
   }
 
   .header__title {
-    color: col($c-neutral, 4);
+    color: col($c-neutral, 2);
   }
 }
 // 
 // ========= SPECIFIC STYLES ===========
 // 
+// WAVE WITH DATAONE GRADIENT (e.g. about page)
+
+.header--wave-with-dataone-gradient {
+  @extend .header--svg-background;
+  @extend .header--text-only;
+  @extend .header--dark-bkg;
+}
 // HOSTED REPO
 // hosted repository svg uses absolute sizing so that the svg is displayed correctly behind content
 
@@ -293,12 +296,12 @@
   padding-bottom: 600px;
   margin-bottom : -550px;
   @include desktop {
-    padding-bottom: 5rem;
-    margin-bottom : -300px;
+    padding-bottom: 100px;
+    margin-bottom : -310px;
   }
 
   +.section {
-    padding-top: 300px;
+    padding-top: 320px;
   }
 
   .header__svg-background {
@@ -308,9 +311,9 @@
       width       : auto;
       margin-top  : -219px;
       @include desktop {
-        margin-top  : -808px;
-        height      : 185%;
-        margin-right: -40px;
+        margin-top  : -888px;
+        height      : 190%;
+        margin-right: -147px;
       }
     }
   }
@@ -330,18 +333,13 @@
   }
 }
 // 
-// Wave with DataONE theme gradient
 
-.header--wave-with-dataone-gradient {
-  @extend .header--svg-background;
-  @extend .header--text-only;
-  @extend .header--dark-bkg;
-}
 // 
-// DataONE plus
+// DATAONE PLUS
 
 .header--dataone-plus {
   @extend .header--svg-image;
+  padding-top: calc(2rem + 2 * 72px);
   // give the cards a subtle floating effect
   .animate-card-1 {
     animation: float 4.2s .4s ease-in-out infinite;
@@ -371,18 +369,22 @@
 .header--col-default {
   background-color: col($c-neutral, 1);
 }
-
+// TODO: to fix:
 .header--col-tertiary {
   @extend .header--dark-bkg;
-  background-color: col($c-tertiary, 5);
+  background-color: col($c-secondary, 6);
 
   .header__title {
-    color: col($c-tertiary, 2);
+    color: col($c-secondary, 1);
   }
 }
 
 .header--col-secondary-dark {
   @extend .header--dark-bkg;
-  background-color: col($c-secondary, 8);
-  background-image: linear-gradient(12deg, col($c-secondary, 8) -10%, col($c-secondary, 7) 40%, col($c-secondary, 7) 50%, col($c-secondary, 7) 60%, col($c-secondary, 8) 100%);
+
+  .header__title {
+    font-weight: 500;
+  }
+  background-color: col($c-secondary, 5);
+  background-image: linear-gradient(12deg, col($c-secondary, 6) -10%, col($c-secondary, 5) 40%, col($c-secondary, 5) 50%, col($c-secondary, 5) 60%, col($c-secondary, 6) 100%);
 }

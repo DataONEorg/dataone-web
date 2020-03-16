@@ -16,7 +16,7 @@ header:
     sustains it.
 page_sections:
 - template: section
-  type: secondary-light
+  type: default
   title: Over a decade of data science and education
   intro: ''
   blocks:
@@ -60,7 +60,7 @@ page_sections:
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
 - template: section
-  type: secondary-medium
+  type: secondary-light
   title: The people behind the data
   intro: ''
   blocks:

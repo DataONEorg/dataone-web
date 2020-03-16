@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1532px" height="703px" viewBox="0 0 1532 703" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>wave-section</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="86.0350852%" y1="46.4156098%" x2="7.73725276%" y2="63.5409082%" id="linearGradient-1">
+            <stop stop-color="#EFF3F7" offset="0%"></stop>
+            <stop stop-color="#F6F8F9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="wave-section" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M25.5097823,94.9201551 C83.1795552,84.3369319 171.833337,76.4130263 244.346418,73.4215725 C546.44064,60.9589813 546.198394,168.839704 803.462192,154.626874 C1060.72599,140.414045 1074.59243,54.1791116 1568.88386,95.9868418 C1568.88386,95.9868717 1509.14503,582.520558 1509.14503,582.520558 C1509.14503,582.520558 1055.01779,676.223677 749.951169,590.439184 C444.884545,504.654691 -37.3709905,607.042952 -37.3709905,607.042952 C-37.3709905,607.042952 -16.4107329,436.335353 25.5097823,94.9201551 Z" id="Path" fill="url(#linearGradient-1)" transform="translate(765.756436, 349.516329) rotate(-7.000000) translate(-765.756436, -349.516329) "></path>
+    </g>
+</svg>

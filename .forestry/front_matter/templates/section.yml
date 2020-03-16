@@ -22,14 +22,12 @@ fields:
     source:
       type: simple
     options:
-    - bold
-    - subtle-emphasis
     - default
-    - primary-light
     - secondary-light
-    - secondary-medium
-    - tertiary-light
-    - quaternary-light
+    - bold
+    - card
+    - data-wave
+    - wave
   default: default
 - type: field_group
   template: icon

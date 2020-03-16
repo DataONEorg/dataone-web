@@ -1,7 +1,7 @@
 {{ $status := . }}
 <!-- default -->
 {{ $pillText := "webinar" }}
-{{ $pillType := "quaternary" }}
+{{ $pillType := "secondary" }}
 <!-- based on status -->
 {{ if eq $status "upcoming" }}
   {{ $pillText = "Upcoming webinar" }}
@@ -12,6 +12,6 @@
 {{ end }}
 {{ if eq $status "past" }}
   {{ $pillText = "Watch on demand" }}
-  {{ $pillType = "secondary" }}
+  {{ $pillType = "subtle" }}
 {{ end }}
 {{ return (dict "text" $pillText "style" $pillType) }}

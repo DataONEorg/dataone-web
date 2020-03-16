@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: hero image
-  title: Become a network member
+  title: Become a network repository
   intro: DataONE's flexible architecture and software products allow practically any
     organization wishing to join our network to do so. Get in touch to start the onboarding
     process, or to find out more.
@@ -19,17 +19,17 @@ header:
   buttons:
   - type: contact
     template: button
-    text: Request membership
+    text: Join our network
     color: primary
   - type: internal page
     internal_link: network/_index.md#section__current-member-nodes
     template: button
-    text: See current members
+    text: See network repositories
     color: secondary
 page_sections:
 - template: section
   type: default
-  title: Benefits of network membership
+  title: Benefits of becoming a network repository
   intro: When you join the DataONE network, your organization becomes a leader in
     the open data movement. In addition, your data is more discoverable, your infrastructure
     is more reliable, and your citation and collaboration opportunities are bolstered.

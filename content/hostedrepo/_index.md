@@ -147,7 +147,7 @@ page_sections:
         style: default
         template: icon
 - template: section
-  type: secondary-light
+  type: data-wave
   title: Make your data FAIR
   intro: Evaluate your metadata with community established FAIR principles. Scores
     are refreshed with updates to your metadata, helping make your data even more
@@ -237,7 +237,7 @@ page_sections:
       text: Easily show how your files relate to each other by providing well-described
         provenance workflows
 - template: section
-  type: secondary-medium
+  type: card
   title: Includes all the DataONE Plus features
   blocks:
   - template: checklist
@@ -253,16 +253,10 @@ page_sections:
     - Individualized support
   button:
     template: button
-    color: tertiary
+    color: secondary
     type: internal page
     text: Learn more about DataONE Plus
     internal_link: plus/_index.md
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  intro: ''
 - template: section
   type: bold
   title: Interested in a hosted repository?
