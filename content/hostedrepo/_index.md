@@ -63,29 +63,6 @@ page_sections:
         size: large
         style: default
         template: icon
-  - details: []
-    image:
-      template: image
-      src: uploads/metacat-on-github.png
-      alttext: Metacat on Github
-      title: Open source tools by DataONE
-      type: tilt-left
-    headline: Open source repository platform
-    template: feature-detailed
-    text: DataONE hosted repositories represent stand-alone deployments of the open
-      source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
-      and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
-      web client. These repository platforms are trusted by many repositories, including
-      the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
-      [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
-      among many others.
-    type: right
-    button:
-      external_link: https://github.com/DataONEorg
-      template: button
-      text: DataONE on Github
-      color: tertiary
-      type: external website
   - image:
       template: image
       src: uploads/geographic-replicas.png
@@ -236,6 +213,29 @@ page_sections:
       headline: Link data and software
       text: Easily show how your files relate to each other by providing well-described
         provenance workflows
+  - details: []
+    image:
+      template: image
+      src: uploads/metacat-on-github.png
+      alttext: Metacat on Github
+      title: Open source tools by DataONE
+      type: tilt-left
+    headline: Open source repository platform
+    template: feature-detailed
+    text: DataONE hosted repositories represent stand-alone deployments of the open
+      source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
+      and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
+      web client. These repository platforms are trusted by many repositories, including
+      the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
+      [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
+      among many others.
+    type: right
+    button:
+      external_link: https://github.com/DataONEorg
+      template: button
+      text: DataONE on Github
+      color: tertiary
+      type: external website
 - template: section
   type: card
   title: Includes all the DataONE Plus features
