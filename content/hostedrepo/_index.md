@@ -28,7 +28,9 @@ header:
     text: Contact us
 page_sections:
 - intro: Let the experts behind DataONE manage and preserve your data, software, and
-    derived products with our robust software and hardware.
+    derived products with our robust software and hardware.  Accelerate research activity,
+    foster new collaborations, and build community with a repository that meets your
+    needs and reflects your brand.
   template: section
   title: Focus on your research, leave your data infrastructure to us
   type: default
@@ -270,9 +272,8 @@ page_sections:
     precheck_newsletter: false
 menu:
   toplevel:
-    name: Hosted Repository
-    weight: 1
-    parent: Hosted Repo
+    name: Hosted Repo
+    weight: 2
   footer:
     weight: 3
 
