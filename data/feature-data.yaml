@@ -1,0 +1,17 @@
+---
+feature:
+- name: Metadata Harvest, Indexing, and Audit
+  description: DataONE harvests your metadata, performs integrity checks, and indexes for discovery
+  free: true
+  plus: true
+  hosted-repo: true,
+- name: Cross-Repository Search
+  description: Find common data in all participating repositories
+  free: true
+  plus: true
+  hosted-repo: true
+- name: Education and Outreach Materials
+  description: Extensive resources to support good data management practices
+  free: true
+  plus: true
+  hosted-repo: true
