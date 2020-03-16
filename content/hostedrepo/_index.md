@@ -33,6 +33,36 @@ page_sections:
   title: Focus on your research, leave your data infrastructure to us
   type: default
   blocks:
+  - template: columns
+    num_cols: 3
+    columns:
+    - headline: Private and public access
+      template: feature-simple
+      text: Control access to your datasets prior to publication with collaborative
+        groups or just keep it private
+      icon:
+        name: private-public-access
+        size: large
+        style: default
+        template: icon
+    - headline: Usage metrics
+      template: feature-simple
+      text: Understand how your data are being used over time with view, download,
+        and citation metrics
+      icon:
+        name: metrics
+        size: large
+        style: default
+        template: icon
+    - headline: Scalable storage
+      template: feature-simple
+      text: Grow your 1 TB repository capacity based on your storage needs in 1 TB
+        increments
+      icon:
+        name: scalable-storage
+        size: large
+        style: default
+        template: icon
   - details: []
     image:
       template: image
@@ -116,36 +146,6 @@ page_sections:
     text: Brand your data repository with customized features allowing you to connect
       directly with your community.
     type: right
-  - template: columns
-    num_cols: 3
-    columns:
-    - headline: Private and public access
-      template: feature-simple
-      text: Control access to your datasets prior to publication with collaborative
-        groups or just keep it private
-      icon:
-        name: private-public-access
-        size: large
-        style: default
-        template: icon
-    - headline: Usage metrics
-      template: feature-simple
-      text: Understand how your data are being used over time with view, download,
-        and citation metrics
-      icon:
-        name: metrics
-        size: large
-        style: default
-        template: icon
-    - headline: Scalable storage
-      template: feature-simple
-      text: Grow your 1 TB repository capacity based on your storage needs in 1 TB
-        increments
-      icon:
-        name: scalable-storage
-        size: large
-        style: default
-        template: icon
 - template: section
   type: data-wave
   title: Make your data FAIR

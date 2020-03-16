@@ -12,8 +12,8 @@ header:
     template: pill
     style: secondary
     text: Coming 2020
-  title: ONE solution for all your data needs
-  intro: Everything you need to support your research with enhanced services from
+  title: Showcase your team’s goals & results with branded portals
+  intro: Plus everything you need to support your research with enhanced services from
     DataONE.
   buttons:
   - template: button
@@ -27,7 +27,6 @@ header:
 page_sections:
 - template: section
   type: default
-  title: Showcase your team’s goals and results with branded portals.
   intro: Create a custom search portal for your research topic or lab group that spans
     repositories in the DataONE network. Branded portals provide a convenient, readily
     customized way to communicate your science, your team, your data, and related
@@ -114,41 +113,16 @@ page_sections:
   title: Access to DataONE expertise
   blocks:
   - template: columns
-    num_cols: 3
+    num_cols: 2
     columns:
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: direct-support
-      headline: One-on-one support
-      text: Institutional subscriptions include direct contact with our staff to resolve
-        issues in a timely manner
-    - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: consulting
       headline: Consulting services
       text: Custom design, data curation, and management consulting are available
         at hourly rates
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: discount-training
       headline: Discounted training
       text: Take advantage of discounted pricing for data science and data management
         training courses
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  intro: ''
 - template: section
   type: card
   title: Need more? Add a dedicated hosted repository

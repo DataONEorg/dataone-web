@@ -86,40 +86,11 @@ page_sections:
         alttext: World map shown with Robinson projection
         title: DataONE created global data research infrastructure
         type: default
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 - template: section
   type: default
   blocks:
   - template: feature-detailed
-    headline: Open Source
-    image:
-      template: image
-      src: "/uploads/metacat-on-github.png"
-      alttext: DataONE on GitHub
-      title: DataONE on Github
-      type: tilt-left
-    text: DataONE hosted repositories represent stand-alone deployments of the open
-      source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
-      and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
-      web client. These repository platforms are trusted by many repositories, including
-      the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
-      [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
-      among many others.
-    type: right
-    button:
-      template: button
-      type: external website
-      color: tertiary
-      text: DataONE on Github
-      internal_link: 
-      external_link: https://github.com/DataONEorg
-    details: []
-  - template: feature-detailed
-    headline: Universal access to data
+    headline: The dataone federation
     image:
       template: image
       src: "/uploads/data.png"
@@ -138,13 +109,13 @@ page_sections:
       external_link:
 - template: section
   type: card
-  title: Contribute
+  title: Donate
   intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
   button:
     template: button
     type: donate
     color: primary
-    text: Donate
+    text: Make a donation
 - template: section
   type: bold
   title: Interested in services by DataONE?
