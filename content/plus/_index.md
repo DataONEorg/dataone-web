@@ -102,7 +102,7 @@ page_sections:
     type: external website
     color: secondary
     text: Learn more about FAIR
-    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
+    external_link: "/features/fair"
   icon:
     template: ''
     name: ''
