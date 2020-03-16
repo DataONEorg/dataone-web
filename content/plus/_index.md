@@ -92,6 +92,7 @@ page_sections:
         headline: Easy online editor
       - headline: Citation reports
         text: Find out who is citing your data
+  title: Custom search portals
 - template: section
   type: data-wave
   title: Make your data FAIR
