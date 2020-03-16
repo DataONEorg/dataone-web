@@ -93,9 +93,10 @@ page_sections:
 - template: section
   type: data-wave
   title: Make your data FAIR
-  intro: Help your community improve data discovery, accessibility, interoperability,
-    and reusability with quantitative metadata quality assessment using the FAIR principles.
-    Get reports for individual datasets, portal collections, or an entire repository.
+  intro: "Improve data discovery, accessibility, interoperability, and reusability
+    with a quantitative metadata assessment using the FAIR principles. \n\nDiscover
+    how FAIR scores change over time through time series charts in your DataONE Plus
+    portal.\n\nDrill down into detailed FAIR reports for individual datasets."
   button:
     template: button
     type: external website
