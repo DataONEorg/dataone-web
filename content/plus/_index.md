@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: DataONE Plus
+title: Plus
 description: Enhanced DataONE products and services in support of your research, including
   branded portals, customized search, quality assessment metrics (including the FAIR
   suite), and much more.
