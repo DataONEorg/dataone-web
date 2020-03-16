@@ -8,6 +8,7 @@
   display       : grid;
   grid-gap      : $intra-section-spacing;
   grid-auto-rows: min-content;
+  color: col($c-neutral, 5);
   @include desktop {
     display              : grid;
     grid-template-columns: .52fr .48fr;
@@ -45,10 +46,11 @@
 
   &__button {
     align-self: end;
+    margin-top: 2rem;
   }
 
   &__intro {
-    font-size  : $fs-larger;
+    font-size  : 1.3rem;
     line-height: 1.5;
     font-weight: 300;
     margin     : 0;
@@ -56,12 +58,8 @@
   }
 
   &__title {
-    font-size     : $fs-h3;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color         : var(--col-title);
-    font-weight   : 500;
-    margin        : 0 0 1.5rem;
+    @include fs-h3;
+    color: col($c-neutral, 7);
   }
 
   &--figleft {

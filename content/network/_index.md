@@ -1,5 +1,5 @@
 ---
-title: Member network
+title: Member repositories
 date: 2020-01-23
 description: DataONE member nodes
 layout: blocks
@@ -25,7 +25,7 @@ page_sections:
   - template: metrics
     type: secondary
 - template: section
-  type: secondary-light
+  type: card
   title: Amplify the products of your research
   blocks:
   - template: checklist
@@ -37,13 +37,13 @@ page_sections:
     - Enhance collaboration
   button:
     template: button
-    color: secondary
-    text: More about network membership
+    color: primary
+    text: Learn about joining the network
     type: internal page
     internal_link: joinus.md
 - template: section
-  type: secondary-medium
-  title: Our current members
+  type: subtle-emphasis
+  title: Repositories currently in our network
   intro: "Member institutions include libraries,\tresearch centers, scientific consortia,\tuniversities,\tmuseums,
     non-profit\torganizations, citizen science initiatives, corporate divisions and\tgovernmental
     and non-governmental organizations."

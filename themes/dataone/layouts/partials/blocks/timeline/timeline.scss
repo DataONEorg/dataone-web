@@ -1,7 +1,7 @@
 // ======
 // 
 $line-left-mobile: 1rem; // distance from left for the line & points on mobile
-$circle-size: 30px; // size of circles on line  at each timeline event
+$circle-size: 22px; // size of circles on line  at each timeline event
 $point-size: 15px; // size of points at each timeline event
 $point-dist-top: 2.5rem; // point's vertical distance from top of event
 
@@ -36,7 +36,7 @@ $point-dist-top: 2.5rem; // point's vertical distance from top of event
       border-style: solid;
       width       : 0;
       height      : 0;
-      top         : calc(#{$point-dist-top} + (.5 * #{$point-size}));
+      top         : calc((#{$point-dist-top} + (.5 * #{$circle-size})) - (.5 * #{$point-size}) - 4px );
       left        : -$point-size;
       border-width: ((2/3) * $point-size) $point-size ((2/3) * $point-size) 0;
       border-color: transparent $c-background transparent transparent;

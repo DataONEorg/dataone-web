@@ -1,27 +1,24 @@
 .section:first-of-type {
   .section__inner {
-    // padding-top: 0;
+    padding-top: 3rem;
   }
 }
 
 .section:last-of-type {
   .section__inner {
-    padding-bottom: 20rem;
+    padding-bottom: 20rem; // for the footer
   }
 }
 
 .section {
   @include f-common;
-  @include text-link;
-  background-color: var(--col-background);
-  color           : var(--col-font);
 
   &__inner {
     width       : 100%;
     display     : grid;
     justify-self: center;
     @include limit-width;
-    padding     : calc(0.95 * #{$inter-section-spacing}) $mobile-lr-padding;
+    padding     : 7rem $mobile-lr-padding;
   }
 
   &__icon {
@@ -30,27 +27,29 @@
 
   &__title {
     width      : 100%;
+    margin     : 2rem auto 3rem;
     text-align : center;
-    @include medium-lr-padding;
-    font-size  : $fs-h2;
-    color      : var(--col-title);
+    font-size  : 2.3rem;
+    line-height: 1.2;
     font-family: 'Martel', serif;
     font-weight: 700;
+    color: col($c-neutral, 7);
+    @include desktop{
+      font-size  : 2.35rem;
+    }
 
     &--emphasis {
-      font-weight: 600;
+      font-weight: 800;
       display    : block;
     }
   }
 
   &__intro {
-    // text-align: center;
-    // @include medium-lr-padding;
-    padding-bottom: $intra-section-spacing;
-    font-size     : $fs-section-intro;
-    line-height   : 1.4;
-    font-weight   : 300;
-    color         : var(--font-col);
+    margin     : 0 auto 1rem;
+    font-size  : 1.33rem;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 2rem;
   }
 
   &__button {
@@ -66,10 +65,11 @@
 }
 
 .section--bold {
-  --col-title     : #{$cn-neutral-lighter};
-  --col-font      : #{$c-background};
-  --col-background: #{$c-secondary};
-
+  background-color: col($c-secondary, 6);
+  color           : col($c-neutral, 1);
+  text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 7), 0.3);
+  
+  
   a:not(.button) {
     color          : col($c-primary, 5);
     text-decoration: none;
@@ -88,8 +88,16 @@
   a:not(.button):active {
     color: col($c-primary, 4);
   }
+  
+  .section__inner{
+    padding-top: 6.5rem;
+  }
 
   .section__title {
+    // font-weight: 800;
+    // color: tint(col($c-neutral, 1), 50%);
+    color: white;
+    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 7), 0.9);
     font-weight: 800;
   }
 
@@ -97,41 +105,97 @@
     font-weight: 400;
   }
 }
-$primary-light: col($c-primary, 4);
-$secondary-light: col($c-secondary, 1);
-$secondary-medium: col($c-secondary, 2);
-$tertiary-light: col($c-tertiary, 2);
-$quaternary-light: col($c-quaternary, 3);
 
-.section--subtle-emphasis {
-  --col-background: #{$c-background-emphasis};
+.section--wave {
+  background-image   : url("/images/wave-section.svg");
+  background-size    : 200%;
+  background-position: 0 -3rem;
+  background-repeat  : no-repeat;
+  @include desktop {
+    background-position: 0 -2rem;
+    background-size    : 115%;
+  }
 }
 
-.section--primary-light {
-  background-color: $primary-light;
-  --col-background: #{$primary-light};
+.section--data-wave {
+  color              : col($c-neutral, 1);
+
+  .section__title {
+    color: tint(col($c-secondary, 5), 10%);
+    font-weight: 900;
+    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), 1);
+  }
+  background-image   : url("/images/data-wave.svg");
+  background-size    : 200%;
+  background-position: 0 0;
+  background-repeat  : no-repeat;
+  @include desktop {
+    background-position: 0 -2rem;
+    background-size    : 115%;
+  }
 }
 
-.section--secondary-medium {
-  background-color: $secondary-medium;
-  --col-background: #{$secondary-medium};
+.section--card {
+  background-color: col($c-secondary, 1);
+  
+  .section__inner{
+    @include card;
+    @include limit-width;
+    padding     : 5rem 3.5rem;
+    margin: 5rem $mobile-lr-padding;
+    @include desktop{
+      margin : 6rem auto;
+    }
+  }
+  .section__intro{
+    font-size: 1.2rem;
+    @include desktop{
+      font-size: 1.4rem;
+    }
+  }
 }
 
 .section--secondary-light {
-  background-color: $secondary-light;
-  --col-background: #{$secondary-light};
+  background-color: col($c-secondary, 2);
 }
 
-.section--tertiary-light {
-  background-color: $tertiary-light;
-  --col-background: #{$tertiary-light};
-}
+// $primary-light: col($c-primary, 4);
+// $secondary-light: col($c-secondary, 1);
+// $secondary-medium: col($c-secondary, 2);
+// $tertiary-light: col($c-tertiary, 2);
+// $quaternary-light: col($c-quaternary, 3);
+// 
+// .section--subtle-emphasis {
+//   --col-background: #{col($c-neutral, 1)};
+// }
+// 
+// .section--primary {
+//   --col-background: #{col($c-primary, 5)};
+// }
 
-.section--quaternary-light {
-  background-color: $quaternary-light;
-  --col-background: #{$quaternary-light};
-}
+// .section--primary-light {
+//   background-color: $primary-light;
+//   --col-background: #{$primary-light};
+// }
+
+
+
+// .section--secondary-light {
+//   background-color: $secondary-light;
+//   --col-background: #{$secondary-light};
+// }
+// 
+// .section--tertiary-light {
+//   background-color: $tertiary-light;
+//   --col-background: #{$tertiary-light};
+// }
+// 
+// .section--quaternary-light {
+//   background-color: $quaternary-light;
+//   --col-background: #{$quaternary-light};
+// }
 // TODO: this is how we should name background classes. 
+
 .section--bkg-tertiary-dark {
   background-color: col($c-tertiary, 7);
   background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);

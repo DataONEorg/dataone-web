@@ -29,8 +29,7 @@ page_sections:
       logo: "/uploads/member_node_logos/ornldaac.png"
     - name: University of Kansas - Biodiversity Institute
       logo: "/uploads/member_node_logos/kubi.png"
-  - template: columns
-    num_cols: 2
+  - num_cols: 2
     columns:
     - template: image
       alttext: Person working with a server
@@ -61,7 +60,7 @@ page_sections:
         used to demonstrate the visual form of a document or a typeface without relying
         on meaningful content.
 - template: section
-  type: tertiary-light
+  type: wave
   title: Build your knowledge
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
@@ -79,7 +78,7 @@ page_sections:
       pill:
         template: pill
         text: Featured skill
-        style: quaternary
+        style: primary
       description: Learn how data from multiple sources can be combined into a form that can be readily analyzed.
       image:
         template: image
@@ -138,13 +137,13 @@ page_sections:
       internal_link: "about/_index.md"
       external_link:
 - template: section
-  type: quaternary-light
+  type: card
   title: Contribute
   intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
   button:
     template: button
     type: donate
-    color: tertiary
+    color: primary
     text: Donate
 - template: section
   type: bold

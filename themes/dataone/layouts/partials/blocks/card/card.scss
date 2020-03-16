@@ -12,9 +12,9 @@
   }
 
   &__date {
-    background   : $c-secondary;
+    background   : col($c-secondary, 4);
+    color        : col($c-secondary, 8);
     display      : inline-block;
-    color        : white;
     padding      : 10px;
     position     : absolute;
     top          : 0;

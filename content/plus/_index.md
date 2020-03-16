@@ -92,7 +92,7 @@ page_sections:
         text: Setup in minutes with the easy user interface
         headline: Online portal editor
 - template: section
-  type: quaternary-light
+  type: data-wave
   title: Make your data FAIR
   intro: Help your community improve data discovery, accessibility, interoperability,
     and reusability with quantitative metadata quality assessment using the FAIR principles.
@@ -100,7 +100,7 @@ page_sections:
   button:
     template: button
     type: external website
-    color: tertiary
+    color: secondary
     text: Learn more about FAIR
     external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
   icon:
@@ -150,7 +150,7 @@ page_sections:
     style: ''
   intro: ''
 - template: section
-  type: secondary-medium
+  type: card
   title: Need more? Add a dedicated hosted repository
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository
@@ -160,7 +160,7 @@ page_sections:
   button:
     template: button
     type: internal page
-    color: tertiary
+    color: secondary
     text: More about hosted repositories
     internal_link: hostedrepo/_index.md
   icon:

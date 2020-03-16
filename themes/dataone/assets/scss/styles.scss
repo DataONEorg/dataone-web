@@ -17,17 +17,17 @@ html {
 .page {
   // Use css variables for colours so that we can easily re-colour sub-block
   // elements within modified blocks.
-  --col-title    : #{$c-foreground-emphasis};
-  --col-font     : #{$c-foreground};
-  --col-backgroud: #{$c-background};
-  background     : var(--col-backgroud);
-  color          : var(--col-font);
-  margin         : 0;
-  min-height     : 100vh;
-  scroll-behavior: smooth;
+  --col-title     : #{$c-foreground-emphasis};
+  --col-font      : #{$c-foreground};
+  --col-backgroud : #{$c-background};
+  background-color: lighten(col($c-neutral, 1), 50%);
+  color           : var(--col-font);
+  margin          : 0;
+  min-height      : 100vh;
+  scroll-behavior : smooth;
   @include low-motion;
-  overflow-y     : scroll;
-  max-width      : 100vw;
+  overflow-y      : scroll;
+  max-width       : 100vw;
   @include f-common;
 }
 // ==== ARTICLE ====
@@ -38,48 +38,6 @@ html {
   min-height: 40rem;
 }
 // To convert to blocks
-// === NEWS & JOBS ==== //
-// styles placed here temporarily
-
-.news-list {
-  @include f-common;
-  @include text-link;
-  @include mobile-lr-padding;
-  @include limit-width;
-
-  .newletter-signup {
-    background-color: $c-background-emphasis;
-    padding         : 2rem;
-    margin-bottom   : 5rem;
-  }
-
-  &__title {
-    margin-top   : $intra-section-spacing;
-    margin-bottom: $intra-section-spacing;
-    font-size    : $fs-page-title;
-    line-height  : 1.1;
-    color        : var(--col-title);
-    font-weight  : bold;
-  }
-}
-// styles placed here temporarily
-
-.job-list {
-  @include f-common;
-  @include text-link;
-  @include mobile-lr-padding;
-  @include limit-width;
-  width: 100%;
-
-  &__title {
-    margin-top   : $intra-section-spacing;
-    margin-bottom: $intra-section-spacing;
-    font-size    : $fs-page-title;
-    line-height  : 1.1;
-    color        : var(--col-title);
-    font-weight  : bold;
-  }
-}
 // === WEBINARS === //
 // styles placed here temporarily
 $left-proportion: .5;
