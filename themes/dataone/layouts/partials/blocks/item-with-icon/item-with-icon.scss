@@ -22,4 +22,20 @@
     font-weight: 500;
     color      : col($c-secondary, 5);
   }
+
+  &--dark-background {
+    .item-with-icon__paragraph {
+      font-weight: 500;
+    }
+
+    .item-with-icon__emphasis {
+      color      : col($c-secondary, 4);
+      font-weight: 600;
+      text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 9), 0.6);
+    }
+
+    .item-with-icon__icon svg {
+      fill: col($c-secondary, 4);
+    }
+  }
 }

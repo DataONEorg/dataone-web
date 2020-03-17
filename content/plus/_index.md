@@ -102,22 +102,42 @@ page_sections:
 - template: section
   type: data-wave
   title: Make your data FAIR
-  intro: "Improve data discovery, accessibility, interoperability, and reusability
-    with a quantitative metadata assessment using the FAIR principles. \n\nDiscover
-    how FAIR scores change over time through time series charts in your DataONE Plus
-    portal.\n\nDrill down into detailed FAIR reports for individual datasets."
+  intro: Ensure your data is Findable, Accessible, Interoperable, and Reusable
   button:
     template: button
     type: external website
     color: secondary
     text: Learn more about FAIR
     external_link: "/features/fair"
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
-  blocks: []
+  blocks:
+  - template: feature-detailed
+    type: right
+    image:
+      template: image
+      src: uploads/data.png
+      alttext: FAIR metrcis report
+      title: FAIR metrcis report
+      type: tilt-left
+    headline: 
+    text: Improve data discovery, accessibility, interoperability, and reusability
+      with a quantitative metadata assessment using the FAIR principles
+    details:
+    - template: item-with-icon
+      name: Time series charts
+      text: Discover how FAIR scores change over time through time series charts in your DataONE Plus portal
+      icon:
+        name: checkmark
+        size: small
+        style: secondary
+        template: icon
+    - template: item-with-icon
+      name: Detailed analysis
+      text: Drill down into detailed FAIR reports for individual datasets
+      icon:
+        name: checkmark
+        size: small
+        style: secondary
+        template: icon
 - template: section
   type: default
   title: Access to DataONE expertise

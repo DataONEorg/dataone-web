@@ -22,9 +22,14 @@
 
   <!-- SVG background for some section types -->
   {{ $svg := "" }}
+  <!-- set a global variable so that sub-blocks can add a modifer classes -->
+  {{ $page.Scratch.Set "section_modifier" "" }}
+
   {{ if eq .Block.type "wave" }}
     {{ $svg = partial "svg/wave-section.svg" }}
   {{ else if eq .Block.type "data-wave" }}
+    <!-- because this block is dark, sub-blocks must have lighter font -->
+    {{ $page.Scratch.Set "section_modifier" "dark-background" }}
     {{ $svg = partial "svg/data-wave.svg" }}
   {{ end }}
 
