@@ -134,14 +134,11 @@
 
 .section--wave {
   @extend .section--svg-background;
+  text-shadow: .01em .01em 1.3em rgba(col($c-neutral, 1), 1);
+  font-weight: 500;
 
   .section__title {
     font-weight: 800;
-    text-shadow: .01em .01em 1.3em rgba(col($c-neutral, 1), 1);
-  }
-
-  .section__intro {
-    text-shadow: .01em .01em 1.3em rgba(col($c-neutral, 1), 0.5);
   }
 
   .section__svg-background {

@@ -6,9 +6,9 @@
   display       : flex;
   flex-direction: column;
   display       : grid;
-  grid-gap      : $intra-section-spacing;
+  grid-gap      : 2rem;
   grid-auto-rows: min-content;
-  color: col($c-neutral, 5);
+  color         : col($c-neutral, 7);
   @include desktop {
     display              : grid;
     grid-template-columns: .52fr .48fr;
@@ -33,7 +33,7 @@
   &__description {
     padding-top   : 0;
     display       : grid;
-    grid-gap      : calc(0.5*#{$intra-section-spacing});
+    grid-gap      : .5rem;
     grid-auto-rows: auto;
     height        : 100%;
   }
@@ -50,16 +50,15 @@
   }
 
   &__intro {
-    font-size  : 1.3rem;
+    font-size  : 1.25rem;
     line-height: 1.5;
-    font-weight: 300;
-    margin     : 0;
+    margin     : 0 0 1rem;
     @include text-link;
   }
 
   &__title {
     @include fs-h3;
-    color: col($c-neutral, 7);
+    color: col($c-neutral, 6);
   }
 
   &--figleft {
@@ -90,7 +89,18 @@
 
     .feature-detailed__figure {
       margin-top   : 1rem;
-      margin-bottom: calc(1.5*#{$intra-section-spacing});
+      margin-bottom: 3rem;
+    }
+  }
+
+  &--dark-background {
+    color      : col($c-neutral, 1);
+    text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 8), 1);
+    font-weight: 500;
+
+    .feature-detailed__title {
+      color      : col($c-neutral, 2);
+      font-weight: 700;
     }
   }
 }

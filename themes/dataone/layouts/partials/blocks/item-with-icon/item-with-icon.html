@@ -1,13 +1,27 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "item-with-icon" }}
+<!-- classes to add to the outer-most element -->
+{{ $classes := $bn }}
 
-<div class="item-with-icon">
+<!-- Add a modifier class if a section modifier was passed on from parent section block -->
+<!-- e.g. in the case that the section dark backgrounds -->
+{{ with $page.Scratch.Get "section_modifier"}}
+  {{ $classes = print $classes " " $bn "--" .}}
+{{ end }}
+
+<div class="{{ $classes }}">
   {{- with .Block.icon -}}
-    <div class="item-with-icon__icon">
+    <div class="{{ $bn }}__icon">
       {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
     </div>
   {{- end -}}
-  <p class="item-with-icon__paragraph">
-    {{ if .Block.name }}<em class="item-with-icon__emphasis">{{ .Block.name }} - </em>{{ end }}{{ .Block.text | markdownify }}
+  <p class="{{ $bn }}__paragraph">
+    {{ if .Block.name }}
+      <em class="{{ $bn }}__emphasis">{{ .Block.name }}
+        -
+      </em>
+    {{ end }}{{ .Block.text | markdownify }}
   </p>
 </div>

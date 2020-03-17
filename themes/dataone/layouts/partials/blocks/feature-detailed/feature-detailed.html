@@ -1,29 +1,48 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "feature-detailed" }}
+<!-- classes to add to the outer-most element -->
+{{ $classes := $bn }}
+
+<!-- Add a modifier for each possible figure position (right is default) -->
+{{ with .Block.type }}
+  {{ $classes = print $classes " " $bn "--fig" . }}
+{{ end }}
+
+<!-- Add a modifier class if a section modifier was passed on from parent section block -->
+<!-- e.g. in the case that the section dark backgrounds -->
+{{ with $page.Scratch.Get "section_modifier"}}
+  {{ $classes = print $classes " " $bn "--" .}}
+{{ end }}
 
 <!-- Don't add a class for the default type -->
-<div class="feature-detailed{{ if (ne .Block.type `right`) }} feature-detailed--fig{{ .Block.type }}{{ end }}">
-  <div class="feature-detailed__description">
-    <div class="feature-detailed__title-and-intro">
-      {{ with .Block.headline }}<h3 class="feature-detailed__title">{{ . }}</h3>{{ end }}
-      {{ with .Block.text }}<p class="feature-detailed__intro">{{ . | markdownify }}</p>{{ end }}
+<div class="{{ $classes }}">
+  <div class="{{ $bn }}__description">
+    <div class="{{ $bn }}__title-and-intro">
+      {{ with .Block.headline }}
+        <h3 class="{{ $bn }}__title">{{ . }}</h3>
+      {{ end }}
+      {{ with .Block.text }}
+        <p class="{{ $bn }}__intro">{{ . | markdownify }}</p>
+      {{ end }}
     </div>
     {{- with .Block.details -}}
-    <div class="feature-detailed__details">
-      {{- range . -}}
-        {{- if and .name .text -}}
-          {{- partial "blocks/item-with-icon/item-with-icon" (dict "Block" . "Page" $page) -}}
+      <div class="{{ $bn }}__details">
+        {{- range . -}}
+          {{- if and .name .text -}}
+            {{- partial "blocks/item-with-icon/item-with-icon" (dict "Block" . "Page" $page) -}}
+          {{- end -}}
         {{- end -}}
-      {{- end -}}
-    </div>
+      </div>
     {{- end -}}
     {{ if and (partial "functions/hasValues" .Block.button) (.Block.button.text) }}
-      <div class="feature-detailed__button">
-      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
+      <div class="{{ $bn }}__button">
+        {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>
     {{- end -}}
   </div>
-  <div class="feature-detailed__figure">
+  <div class="{{ $bn }}__figure">
     {{- with .Block.figure }}
       {{ $svgpath := path.Join "svg" . }}
       {{ $svgpath := printf "%s.svg" $svgpath }}
@@ -33,5 +52,5 @@
       {{- partial "blocks/image/image" (dict "Block" .Block.image "Page" $page) -}}
     {{- end -}}
   </div>
-  
+
 </div>
