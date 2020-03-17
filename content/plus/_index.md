@@ -27,7 +27,7 @@ header:
 page_sections:
 - template: section
   type: default
-  intro: Create a custom search portal for your research topic or lab group that spans
+  intro: Create a custom, branded portal for your research topic or lab group that spans
     repositories in the DataONE network. Branded portals provide a convenient, readily
     customized way to communicate your science, your team, your data, and related
     data from within the DataONE network.
@@ -58,6 +58,7 @@ page_sections:
           name: checkmark
         text: Configure search fields specific to your science topics
         headline: Customized search filters
+        headline_link: /features/custom-search
       - template: feature-simple
         icon:
           template: icon
@@ -66,6 +67,7 @@ page_sections:
           name: checkmark
         text: Access aggregated view and download metrics for datasets
         headline: Usage metrics
+        headline_link: /features/usage-metrics
       - template: feature-simple
         icon:
           template: icon
@@ -74,6 +76,7 @@ page_sections:
           name: checkmark
         text: Aggregated FAIR metadata assessment scores
         headline: FAIR Assessments
+        headline_link: /features/fair
       - template: feature-simple
         icon:
           template: icon
@@ -82,6 +85,7 @@ page_sections:
           name: checkmark
         text: Customize your portal with colors, logos, and images
         headline: Branded to match your project
+        headline_link: /features/branding
       - template: feature-simple
         icon:
           template: icon
@@ -90,6 +94,7 @@ page_sections:
           name: checkmark
         text: Add and reorder pages, upload images, and pick datasets in minutes
         headline: Easy online editor
+        headline_link: /features/portal-editor
       - template: feature-simple
         icon:
           template: icon
@@ -97,8 +102,18 @@ page_sections:
           style: secondary-subtle
           name: checkmark
         headline: Citation reports
+        headline_link: /features/citations
         text: Find out who is citing your data
-  title: Custom search portals
+      - template: feature-simple
+        headline: Showcase your results
+        headline_link: /features/portal-content
+        text: Your portal pages can include visualizations of your research, a list of your team members, or any other custom content
+        icon:
+          template: icon
+          size: small
+          style: secondary-subtle
+          name: checkmark
+  title: A home for your research online
 - template: section
   type: data-wave
   title: Make your data FAIR
