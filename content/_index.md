@@ -29,18 +29,6 @@ page_sections:
       logo: "/uploads/member_node_logos/ornldaac.png"
     - name: University of Kansas - Biodiversity Institute
       logo: "/uploads/member_node_logos/kubi.png"
-  - num_cols: 2
-    columns:
-    - template: image
-      alttext: Person working with a server
-      src: "/uploads/scientist-and-server.png"
-      title: Introducing enhanced services from DataONE
-      type: default
-    - template: markdown
-      content: |-
-        ## Enhance your research with **services from DataONE**
-
-        In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
   - template: columns
     num_cols: 3
     columns:
