@@ -272,7 +272,8 @@ page_sections:
     precheck_newsletter: false
 menu:
   toplevel:
-    name: Hosted Repo
+    parent: Hosted Repo
+    name: Hosted Repository
     weight: 2
   footer:
     weight: 3

@@ -1,7 +1,9 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
+<!-- bn - block name -->
+{{ $bn := "section" }}
 
-{{ $classes := "" }}
+{{ $classes := $bn }}
 {{ with .Block.type }}
   {{ if ne . "default" }}
     {{ $classes = print $classes " section--" . }}
@@ -11,33 +13,47 @@
 <!-- split has a special layout, all others follow the standard layout -->
 {{ if ne .Block.type "split" }}
 
+  <!-- background colour classess -->
   {{ with .Block.background }}
     {{ if ne . "default" }}
-      {{ $classes = print $classes " section--bkg-" . }}
+      {{ $classes = print $classes " " $bn "--bkg-" . }}
     {{ end }}
   {{ end }}
 
-  <section class="section{{ $classes }}" {{ with .Block.id }} id="{{ . }}" {{ end }}>
-    <div class="section__inner">
+  <!-- SVG background for some section types -->
+  {{ $svg := "" }}
+  {{ if eq .Block.type "wave" }}
+    {{ $svg = partial "svg/wave-section.svg" }}
+  {{ else if eq .Block.type "data-wave" }}
+    {{ $svg = partial "svg/data-wave.svg" }}
+  {{ end }}
+
+  <section class="{{ $classes }}" {{ with .Block.id }} id="{{ . }}" {{ end }}>
+    {{ with $svg }}
+      <div class="{{ $bn }}__svg-background">
+        {{ . }}
+      </div>
+    {{ end }}
+    <div class="{{ $bn }}__inner">
       {{ if  partial "functions/hasValues" .Block.icon }}
         {{- with .Block.icon -}}
-          <div class="section__icon">
+          <div class="{{ $bn }}__icon">
             {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
           </div>
         {{- end -}}
       {{ end }}
       {{- with .Block.title -}}
-        <h2 class="section__title">
+        <h2 class="{{ $bn }}__title">
           {{- . | markdownify  -}}
         </h2>
       {{- end -}}
       {{- with .Block.intro -}}
-        <div class="section__intro">
+        <div class="{{ $bn }}__intro">
           {{- . | markdownify -}}
         </div>
       {{- end -}}
       {{ if  partial "functions/hasValues" .Block.blocks }}
-        <div class="section__blocks">
+        <div class="{{ $bn }}__blocks">
           {{- range .Block.blocks -}}
             {{ if .template }}
               {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
@@ -46,7 +62,7 @@
         </div>
       {{ end }}
       {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
-        <div class="section__button">
+        <div class="{{ $bn }}__button">
           {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
         </div>
       {{ end }}
@@ -56,12 +72,14 @@
 {{ else }}
   <!-- split section layout -->
 
+  <!-- background for the first half of the split layout -->
   {{ $half1Bkg := "" }}
   {{ with .Block.background }}
     {{ if ne . "default" }}
       {{ $half1Bkg = print $half1Bkg " section--bkg-" . }}
     {{ end }}
   {{ end }}
+  <!-- background class for the second half of the split layout -->
   {{ $half2Bkg := "" }}
   {{ with .Block.background2 }}
     {{ $half2Bkg = print $half2Bkg " section--bkg-" . }}
@@ -74,8 +92,8 @@
         <!-- because go starts counting at zero -->
         {{ $index = add $index 1 }}
         <!-- add background class for second half -->
-        <div class="section__half{{ $index }}{{ if eq $index 2 }}{{ $half2Bkg }}{{ end }}">
-          <div class="section__half{{ $index }}-inner">
+        <div class="{{ $bn }}__half{{ $index }}{{ if eq $index 2 }}{{ $half2Bkg }}{{ end }}">
+          <div class="{{ $bn }}__half{{ $index }}-inner">
             {{ partial (printf "blocks/%s/%s.html" $block.template $block.template) (dict "Block" $block "Page" $page) }}
           </div>
         </div>

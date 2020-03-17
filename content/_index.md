@@ -17,7 +17,7 @@ page_sections:
       type: internal page
       color: quaternary
       text: Join our network of members
-      internal_link: "/network/network.md"
+      internal_link: "/network/_index.md"
     logos:
     - name: CyVerse
       logo: "/uploads/member_node_logos/cyverse.png"
