@@ -1,46 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1202px" height="428px" viewBox="0 0 1202 428" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
-    <title>data-wave</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="-16.4752768%" y1="50%" x2="119.013958%" y2="50%" id="linearGradient-1">
-            <stop stop-color="#0E909B" offset="0%"></stop>
-            <stop stop-color="#1D587B" offset="16.0196064%"></stop>
-            <stop stop-color="#1D5578" offset="75.0256473%"></stop>
-            <stop stop-color="#0E909B" offset="100%"></stop>
-        </linearGradient>
-        <radialGradient cx="125.31981%" cy="23.8897888%" fx="125.31981%" fy="23.8897888%" r="125.519004%" gradientTransform="translate(1.253198,0.238898),scale(1.000000,0.757869),rotate(160.258513),translate(-1.253198,-0.238898)" id="radialGradient-2">
-            <stop stop-color="#197893" offset="0%"></stop>
-            <stop stop-color="#1E5679" offset="100%"></stop>
-        </radialGradient>
-        <radialGradient cx="-35.2102724%" cy="7.54435532%" fx="-35.2102724%" fy="7.54435532%" r="122.809985%" gradientTransform="translate(-0.352103,0.075444),scale(1.000000,0.787342),rotate(46.065282),scale(1.000000,0.958377),translate(0.352103,-0.075444)" id="radialGradient-3">
-            <stop stop-color="#157992" offset="0%"></stop>
-            <stop stop-color="#1D5679" offset="100%"></stop>
-        </radialGradient>
-    </defs>
-    <g id="data-wave" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="bkg-wave" fill="url(#linearGradient-1)" fill-rule="nonzero" points="1201.72512 0 1202 428 0 428 0.498909317 0"></polygon>
-        <path d="M1202,413 C1150.07284,352.044828 1067.77608,389.940165 989.403207,357.757474 C911.030336,325.574782 876.373338,246.946454 893.129857,156.094611 C898.970797,124.425732 922.149671,79.3987403 949.887446,61.8535247 C968.379297,50.1567144 995.930627,29.5388728 1032.54144,0 C1141.2586,0 1197.74478,0 1202,0 L1202,413 Z" id="frg-wave" fill="url(#radialGradient-2)" fill-rule="nonzero"></path>
-        <path d="M269.612465,0 C108.277691,164.448321 354.685004,143.924408 303.990612,307.363131 C282.887223,375.400459 177.945687,390.405628 0,395 L0,0 L269.612465,0 Z" id="frg-wave" fill="url(#radialGradient-3)" fill-rule="nonzero"></path>
-        <polygon id="Rect" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" points="114.41569 296 106 284.41662 117.58431 276 126 287.58338"></polygon>
-        <polygon id="Rect" fill="#00C2D4" fill-rule="nonzero" opacity="0.124511719" points="1003.57412 248 996 237.574958 1006.42588 230 1014 240.425042"></polygon>
-        <polygon id="Rect" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" points="48.0717866 109.246547 41.4524021 88.8699742 61.8330176 82.2465474 68.4524021 102.623121"></polygon>
-        <polygon id="Rect" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" transform="translate(1160.141537, 31.693742) rotate(96.000000) translate(-1160.141537, -31.693742) " points="1151.14653 22.6987368 1169.14154 22.6937419 1169.13654 40.688747 1151.14154 40.6937419"></polygon>
-        <polygon id="Rect" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" points="1156.5731 378.114956 1180.10094 389.591329 1168.62878 413.114956 1145.10094 401.638582"></polygon>
-        <polygon id="Plus" fill="#00C2D4" opacity="0.264043899" points="1131.57536 291 1133.72969 300.331416 1143.06111 298.177089 1145 306.575363 1135.66765 308.729905 1137.82291 318.061106 1129.42464 320 1127.26938 310.6688 1117.93889 312.822911 1116 304.424637 1125.33142 302.27031 1123.17709 292.938894"></polygon>
-        <polygon id="Plus" fill="#00C2D4" opacity="0.264043899" points="175.050981 334.635016 171.012075 340.622942 177 344.661848 173.364984 350.050981 167.37646 346.011671 163.338152 352 157.949019 348.364984 161.987327 342.376655 156 338.338152 159.635016 332.949019 165.622942 336.987925 169.661848 331"></polygon>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.124511719" transform="translate(223.500000, 293.500000) rotate(45.000000) translate(-223.500000, -293.500000) " cx="223.5" cy="293.5" r="5.5"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.124511719" transform="translate(949.500000, 300.500000) rotate(45.000000) translate(-949.500000, -300.500000) " cx="949.5" cy="300.5" r="5.5"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.124511719" transform="translate(1012.500000, 41.500000) rotate(45.000000) translate(-1012.500000, -41.500000) " cx="1012.5" cy="41.5" r="5.5"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.124511719" transform="translate(152.500000, 104.500000) rotate(45.000000) translate(-152.500000, -104.500000) " cx="152.5" cy="104.5" r="5.5"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" transform="translate(116.500000, 403.378680) rotate(45.000000) translate(-116.500000, -403.378680) " cx="116.5" cy="403.37868" r="7"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" transform="translate(86.500000, 19.500000) rotate(45.000000) translate(-86.500000, -19.500000) " cx="86.5" cy="19.5" r="5.5"></circle>
-        <circle id="Oval" fill="#00C2D4" fill-rule="nonzero" opacity="0.264043899" transform="translate(1041.000000, 305.000000) rotate(45.000000) translate(-1041.000000, -305.000000) " cx="1041" cy="305" r="9"></circle>
-        <circle id="Outline-Oval" stroke="#00C2D4" stroke-width="6" opacity="0.393949963" cx="1085" cy="368" r="16"></circle>
-        <circle id="Outline-Oval" stroke="#00C2D4" stroke-width="6" opacity="0.393949963" cx="1087.5" cy="95.5" r="13.5"></circle>
-        <circle id="Outline-Oval" stroke="#00C2D4" stroke-width="6" opacity="0.393949963" cx="36.5" cy="34.5" r="15.5"></circle>
-        <circle id="Outline-Oval" stroke="#00C2D4" stroke-width="6" opacity="0.393949963" cx="119" cy="50" r="10"></circle>
-        <circle id="Outline-Oval" stroke="#00C2D4" stroke-width="6" opacity="0.393949963" cx="36" cy="347" r="16"></circle>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 428" preserveAspectRatio="none">
+  <defs>
+    <radialGradient cx="125.32%" cy="23.89%" fx="125.32%" fy="23.89%" r="125.519%" gradientTransform="scale(-1 -.75787) rotate(-19.741 -1.592 7.164)" id="data-wave-b">
+      <stop stop-color="#197893" offset="0%"/>
+      <stop stop-color="#1E5679" offset="100%"/>
+    </radialGradient>
+    <radialGradient cx="-35.21%" cy="7.544%" fx="-35.21%" fy="7.544%" r="122.81%" gradientTransform="matrix(.69384 .56699 -.69016 .52355 -.056 .236)" id="data-wave-c">
+      <stop stop-color="#157992" offset="0%"/>
+      <stop stop-color="#1D5679" offset="100%"/>
+    </radialGradient>
+    <linearGradient x1="-16.475%" y1="50%" x2="119.014%" y2="50%" id="data-wave-a">
+      <stop stop-color="#0E909B" offset="0%"/>
+      <stop stop-color="#1D587B" offset="16.02%"/>
+      <stop stop-color="#1D5578" offset="75.026%"/>
+      <stop stop-color="#0E909B" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="url(#data-wave-a)" fill-rule="nonzero" d="M1201.725 0l.275 428H0L.499 0z"/>
+    <path d="M1202 413c-51.927-60.955-134.224-23.06-212.597-55.243-78.373-32.182-113.03-110.81-96.273-201.662 5.84-31.67 29.02-76.696 56.757-94.241C968.38 50.157 995.931 29.539 1032.541 0H1202v413z" fill="url(#data-wave-b)" fill-rule="nonzero"/>
+    <path d="M269.612 0c-161.334 164.448 85.073 143.924 34.379 307.363C282.887 375.4 177.946 390.406 0 395V0h269.612z" fill="url(#data-wave-c)" fill-rule="nonzero"/>
+  </g>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 428">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#00C2D4" fill-rule="nonzero" opacity=".264" d="M114.416 296L106 284.417 117.584 276 126 287.583z"/>
+    <path fill="#00C2D4" fill-rule="nonzero" opacity=".125" d="M1003.574 248L996 237.575l10.426-7.575 7.574 10.425z"/>
+    <path fill="#00C2D4" fill-rule="nonzero" opacity=".264" d="M48.072 109.247l-6.62-20.377 20.381-6.623 6.62 20.376zm1121.956-85.559l-1.877 17.897-17.895-1.886 1.876-17.897zm-13.455 354.427l23.528 11.476-11.472 23.524-23.528-11.476z"/>
+    <path fill="#00C2D4" opacity=".264" d="M1131.575 291l2.155 9.331 9.331-2.154 1.939 8.398-9.332 2.155 2.155 9.331-8.398 1.939-2.156-9.331-9.33 2.154-1.939-8.398 9.331-2.155-2.154-9.331zm-956.524 43.635l-4.039 5.988 5.988 4.039-3.635 5.389-5.989-4.04-4.038 5.989-5.389-3.635 4.038-5.988-5.987-4.039 3.635-5.389 5.988 4.039 4.039-5.988z"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".125" transform="rotate(45 223.5 293.5)" cx="223.5" cy="293.5" r="5.5"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".125" transform="rotate(45 949.5 300.5)" cx="949.5" cy="300.5" r="5.5"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".125" transform="rotate(45 1012.5 41.5)" cx="1012.5" cy="41.5" r="5.5"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".125" transform="rotate(45 152.5 104.5)" cx="152.5" cy="104.5" r="5.5"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".264" transform="rotate(45 116.5 403.379)" cx="116.5" cy="403.379" r="7"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".264" transform="rotate(45 86.5 19.5)" cx="86.5" cy="19.5" r="5.5"/>
+    <circle fill="#00C2D4" fill-rule="nonzero" opacity=".264" transform="rotate(45 1041 305)" cx="1041" cy="305" r="9"/>
+    <circle stroke="#00C2D4" stroke-width="6" opacity=".394" cx="1085" cy="368" r="16"/>
+    <circle stroke="#00C2D4" stroke-width="6" opacity=".394" cx="1087.5" cy="95.5" r="13.5"/>
+    <circle stroke="#00C2D4" stroke-width="6" opacity=".394" cx="36.5" cy="34.5" r="15.5"/>
+    <circle stroke="#00C2D4" stroke-width="6" opacity=".394" cx="119" cy="50" r="10"/>
+    <circle stroke="#00C2D4" stroke-width="6" opacity=".394" cx="36" cy="347" r="16"/>
+  </g>
 </svg>
