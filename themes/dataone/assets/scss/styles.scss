@@ -37,7 +37,7 @@ html {
   height    : 100%;
   min-height: 40rem;
 
-  a{
+  a:not(.button){
     text-decoration: none;
     color: $cn-teal;
   }
