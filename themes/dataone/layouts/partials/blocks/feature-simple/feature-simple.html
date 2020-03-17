@@ -9,11 +9,11 @@
   {{- end -}}
   <div>
     <h3 class="feature-simple__title">
-      {{ if .Block.header_link }}
-        <a href="">
+      {{ if .Block.headline_link }}
+        <a href="{{ .Block.headline_link }}">
       {{- end -}}
         {{ .Block.headline | markdownify }}
-      {{ if .Block.header_link }}
+      {{ if .Block.headline_link }}
         </a>
       {{- end -}}
     </h3>

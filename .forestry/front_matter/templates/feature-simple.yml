@@ -22,6 +22,10 @@ fields:
   name: headline
   description: The name of the feature or a headline that introduces it
 - type: text
+  label: Headline Link URL
+  name: headline_link
+  description: To make the headline a link, add a URL here
+- type: text
   label: Text
   name: text
   description: A brief sentence that summarizes the feature

@@ -1,8 +1,8 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Portal Citation Reports
-description: Find out who is citing your data, and see citation trends over time.
+title: Portal branding
+description: Customize your portal with colors, logos, and images
 header:
   template: header
   type: text only
@@ -11,8 +11,8 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Portal citation reports
-  intro: Find out who is citing your data, and see citation trends over time.
+  title: Portal branding
+  intro: Customize your portal with colors, logos, and images
   buttons:
   - template: button
     type: subscribe form
