@@ -14,7 +14,14 @@ html {
 *:before {
   box-sizing: inherit;
 }
+
+
 // ==== BODY ====
+//Basic link styling
+a{
+  text-decoration: none;
+  color: $cn-teal;
+}
 
 .page {
   // Use css variables for colours so that we can easily re-colour sub-block
