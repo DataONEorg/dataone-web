@@ -2,7 +2,8 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Share when ready
-description: Keep your dataset private while you document it thoroughly. Share it with the world when you're ready.
+description: Keep your dataset private while you document it thoroughly, then share
+  it with the world when you're ready.
 header:
   template: header
   type: text only
@@ -12,19 +13,88 @@ header:
     style: secondary
     text: Coming soon
   title: Share when ready
-  intro: Keep your dataset private while you document it thoroughly, and then make it public when you are ready.
+  intro: Keep your dataset private while you document it thoroughly, and then make
+    it public when you are ready.
   buttons:
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
+    html_tag: ''
+    id: ''
+    type_attr: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      name: ''
+      size: ''
+      style: ''
+    event:
+      title: ''
+      description: ''
+      URL: ''
+      start: ''
+      end: ''
   - template: button
     type: contact
     color: secondary
     text: contact us
+    html_tag: ''
+    id: ''
+    type_attr: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      name: ''
+      size: ''
+      style: ''
+    event:
+      title: ''
+      description: ''
+      URL: ''
+      start: ''
+      end: ''
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    title: ''
+    type: ''
 page_sections:
 - type: default
   template: section
+  id: ''
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  title: ''
+  intro: ''
+  blocks: []
+  button:
+    template: ''
+    html_tag: ''
+    id: ''
+    type_attr: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      name: ''
+      size: ''
+      style: ''
+    event:
+      title: ''
+      description: ''
+      URL: ''
+      start: ''
+      end: ''
 - template: section
   type: bold
   title: Interested in a hosted repository?
@@ -36,6 +106,34 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
+    newsletter_only: false
+  id: ''
+  icon:
+    template: ''
+    name: ''
+    size: ''
+    style: ''
+  button:
+    template: ''
+    html_tag: ''
+    id: ''
+    type_attr: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      name: ''
+      size: ''
+      style: ''
+    event:
+      title: ''
+      description: ''
+      URL: ''
+      start: ''
+      end: ''
 menu:
   toplevel:
     weight: 3
