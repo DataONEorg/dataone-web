@@ -113,6 +113,11 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
+  - template: button
+    text: See a full list of features
+    color: secondary
+    type: internal page
+    internal_link: /features/all
   title: A home for your research online
 - template: section
   type: data-wave
