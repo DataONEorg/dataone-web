@@ -27,8 +27,11 @@
   {{ $classes := $bn }}
 
   {{ $datetime := (time $news.date).UTC }}
+  {{ $datetimeBlock := dict "time" $datetime "format" "January 2, 2006"  }}
 
-  {{ $cardBlock := dict "clickable" true "href" $href "title" $news.headline "description" $news.summary "datetime" (dict "time" $datetime "format" "January 2, 2006" ) "tags" $news.tags "image" $news.image }}
+  {{ $pillBlock := dict "text" "DataONE News" "style" "secondary" }}
+
+  {{ $cardBlock := dict "clickable" true "href" $href "title" $news.headline "description" $news.summary "datetime" $datetimeBlock "tags" $news.tags "image" $news.image "pill" $pillBlock}}
 
   <div class="{{ $classes }}">
     {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}

@@ -20,6 +20,11 @@
     margin-top   : 0;
   }
 
+  &__headline-link {
+    text-decoration: none;
+    color          : col($c-secondary, 5);
+  }
+
   &--icon-left {
     display              : grid;
     grid-template-columns: .06fr .94fr;

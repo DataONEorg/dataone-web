@@ -1,19 +1,19 @@
-<!-- in order to pass on page parameters from within loops  -->
+<!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 
 <div class="feature-simple{{ with .Block.type }} feature-simple--{{ . }}{{ end }}">
   {{ if and (partial "functions/hasValues" .Block.icon) (ne .Block.icon.name "") (ne .Block.icon.name " ") }}
-  <div class="feature-simple__icon">
-    {{- partial "blocks/icon/icon" (dict "Block" .Block.icon "Page" $page) -}}
-  </div>
+    <div class="feature-simple__icon">
+      {{- partial "blocks/icon/icon" (dict "Block" .Block.icon "Page" $page) -}}
+    </div>
   {{- end -}}
   <div>
     <h3 class="feature-simple__title">
       {{ if .Block.headline_link }}
-        <a href="{{ .Block.headline_link }}">
-      {{- end -}}
+        <a class="feature-simple__headline-link" href="{{ .Block.headline_link }}">
+        {{- end -}}
         {{ .Block.headline | markdownify }}
-      {{ if .Block.headline_link }}
+        {{ if .Block.headline_link }}
         </a>
       {{- end -}}
     </h3>

@@ -1,11 +1,11 @@
 .columns {
   width                : 100%;
   display              : grid;
-  grid-gap             : 2rem 0;
+  grid-gap             : 2rem;
   grid-template-rows   : auto;
   grid-template-columns: auto;
   @include desktop {
-    grid-gap: 0 5rem;
+    grid-gap: 4rem 4rem;
   }
 
   &__column {
