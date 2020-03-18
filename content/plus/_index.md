@@ -117,7 +117,7 @@ page_sections:
     text: See a full list of features
     color: secondary
     type: internal page
-    internal_link: /features/all
+    internal_link: /features
   title: A home for your research online
 - template: section
   type: data-wave
