@@ -1,7 +1,7 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: API access
+title: API Access
 description: Programmatically work with your repository through the DataONE
     tools in R, Python, Matlab, and Java.
 header:
