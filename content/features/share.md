@@ -2,7 +2,7 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Share when ready
-description: Keep your dataset private while you document it thoroughly, and then make it public when you are ready.
+description: Keep your dataset private while you document it thoroughly. Share it with the world when you're ready.
 header:
   template: header
   type: text only
