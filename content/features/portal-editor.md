@@ -2,7 +2,7 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Online Portal Editor
-description: Manage your portal and group access through an easy to use online editor.
+description: Pick datasets, add and reorder pages, and upload images in minutes
 header:
   template: header
   type: text only
@@ -12,7 +12,7 @@ header:
     style: secondary
     text: Coming soon
   title: Online portal editor
-  intro: Manage your portal and group access through an easy to use online editor.
+  intro: Pick datasets, add and reorder pages, and upload images in minutes
   buttons:
   - template: button
     type: subscribe form

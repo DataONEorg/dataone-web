@@ -1,7 +1,9 @@
 // screen width at which to switch from mobile view to desktop view
 $breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px;
 @import "colors.scss";
-@import "definitions.scss"; // ==== GLOBAL RESET === /
+@import "definitions.scss";
+@import "tables.scss";
+// ==== GLOBAL RESET === /
 
 html {
   box-sizing: border-box;

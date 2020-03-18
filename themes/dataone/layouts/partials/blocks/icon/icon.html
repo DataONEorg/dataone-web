@@ -3,19 +3,43 @@
 
 {{ $classes := "" }}
 
-{{ with .Block.size }}
+<!-- Use the Block icon size, if is exists. Or use the size variable passed to this partial -->
+{{ $size := "" }}
+{{ if eq .Block.size nil}}
+  {{ $size = .size }}
+{{ else }}
+  {{ $size = .Block.size }}
+{{ end }}
+
+{{ with $size }}
   {{ $classes = print $classes " icon--sz-" . }}
 {{ end }}
-{{ with .Block.style }}
+
+<!-- Use the Block icon sttyle, if is exists. Or use the style variable passed to this partial -->
+{{ $style := "" }}
+{{ if eq .Block.style nil}}
+  {{ $style = .style }}
+{{ else }}
+  {{ $style = .Block.style }}
+{{ end }}
+
+{{ with $style }}
   {{ if ne . "default" }}
     {{ $classes = print $classes " icon--c-" . }}
   {{ end }}
 {{ end }}
 
+<!-- Use the Block icon name, if is exists. Or use the name variable passed to this partial -->
+{{ $name := "" }}
+{{ if eq .Block.name nil}}
+  {{ $name = .name }}
+{{ else }}
+  {{ $name = .Block.name }}
+{{ end }}
+
+
 <div class="icon{{ $classes }}">
-  {{ if .Block.name }}
-    {{ $iconpath := path.Join "icons" .Block.name }}
+    {{ $iconpath := path.Join "icons" $name }}
     {{ $iconpath := printf "%s.svg" $iconpath }}
     {{ partial $iconpath . }}
-  {{ end }}
 </div>

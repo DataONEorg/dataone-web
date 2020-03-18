@@ -1,0 +1,146 @@
+---
+features:
+- name: Metadata harvest, indexing, and audit
+  description: DataONE harvests your metadata, performs integrity checks, and indexes for discovery
+  link:
+  free: true
+  plus: true
+  hostedrepo: true
+- name: Cross-repository search
+  description: Find common data in all participating repositories
+  link: /features/search
+  free: true
+  plus: true
+  hostedrepo: true
+- name: Education and outreach materials
+  description: Extensive resources to support good data management practices
+  link:
+  free: true
+  plus: true
+  hostedrepo: true
+- name: DataONE community participation
+  description: Help DataONE to benefit the global Earth observation community
+  link:
+  free: true
+  plus: true
+  hostedrepo: true
+- name: Dataset usage metrics
+  description: Review your per-dataset views and downloads over time
+  link: /features/usage-metrics
+  free: true
+  plus: true
+  hostedrepo: true
+- name: Dataset citation metrics
+  description: Review your per-dataset citations over time
+  link: /features/citations
+  free: true
+  plus: true
+  hostedrepo: true
+- name: API access
+  description: Use R, Python, Matlab, Javascript, and Java to interact with DataONE services
+  link:
+  free: Limited
+  plus: true
+  hostedrepo: true
+- name: Branded portals
+  description: Communicate your science and project details with a customized view across repositories
+  link: /plus
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Custom portal search filters
+  description: Configure your portals with custom search fields specific to your science topics
+  link: /features/custom-search
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Aggregated FAIR assessments
+  description: See aggregated FAIR reports for each portal collection
+  link: /features/fair
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Aggregated usage metrics
+  description: See aggregated views and downloads over time for your datasets in each portal
+  link: /features/usage-metrics
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Aggregated citations
+  description: See aggregated citations over time for your datasets in each portal
+  link: /features/citations
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Online portal editor
+  description: Pick datasets, add and reorder pages, and upload images in minutes
+  link: /features/portal-editor
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Discounted training
+  description: Discounted access to DataONE data science and data management training courses
+  link: /resources/training
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Consulting services
+  description: Custom design, data curation and management consulting are available at hourly rates
+  link:
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Contact support
+  description: Institutional subscribers can directly contact our staff
+  link: /features/support
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Scaled submissions
+  description: Subscribbe as an individual lab, small, medium, or large institution with services scaled to size
+  link:
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Repository search
+  description: Search your repository by numerous properties including space, time, taxa, authors, and others
+  link: /features/search
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Geographic replicas
+  description: Your datasets are replicated to DataONE repositories across the US
+  link: /features/replicas
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Custom DOI prefix
+  description: A DOI prefix is configured exclusively for your datasets, products, and code
+  link: /features/doi-and-domains
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Custom domain name
+  description: Your repository is available at a domain of your choice, but hosted by DataONE
+  link: /features/doi-and-domains
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Provenance tracking
+  description: Relate data inputs, processing scripts, and outputs into understandable science workflows
+  link: /features/provenance
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Access control
+  description: Manage access to your data with rules and groups you define
+  link: /features/access
+  free: false
+  plus: false
+  hostedrepo: true
+- name: Server resources
+  description: Repositories start with 1 TB of storage, expandable by the TB to match your needs
+  link: /features/storage
+  free: false
+  plus: false
+  hostedrepo: true

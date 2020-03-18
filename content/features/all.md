@@ -23,8 +23,11 @@ header:
     color: secondary
     text: contact us
 page_sections:
-- type: default
-  template: section
+- template: section
+  type: default
+  title: All features of DataONE
+  blocks:
+  - template: feature-table
 - template: section
   type: bold
   title: Interested in DataONE Plus and/or a hosted repository?

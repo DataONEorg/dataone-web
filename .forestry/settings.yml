@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: ''
-webhook_url: 
+webhook_url:
 sections:
 - type: document
   path: README_content-editors.md
@@ -92,6 +92,9 @@ sections:
 - type: document
   path: data/membernodes.yaml
   label: Member Nodes
+- type: document
+  path: data/features.yaml
+  label: Features list
 upload_dir: content/uploads
 public_path: "/uploads"
 front_matter_path: ''

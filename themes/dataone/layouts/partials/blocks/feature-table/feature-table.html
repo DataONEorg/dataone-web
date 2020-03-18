@@ -1,0 +1,75 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+{{ $Site := .Page.Site }}
+
+<table class="table table-striped" id="feature-table">
+  <thead>
+    <tr>
+      <th>DataONE Feature</th>
+      <th class="feature-table-category">Free</th>
+      <th class="feature-table-category">DataONE Plus</th>
+      <th class="feature-table-category">Hosted Repository</th>
+  </thead>
+  <tbody>
+
+    {{- range $mapName, $featuresMap := $Site.Data.features -}}
+      {{- range $mapName2, $feature := $featuresMap -}}
+
+        {{ $name := $feature.name }}
+
+        <tr class="table-row" id="item__{{urlize $name}}">
+          <td class="feature-table-name-cell">
+            <h4 class="feature-table-name">
+              {{ if $feature.link }}
+                <a class="" href="{{ $feature.link }}">
+              {{ end }}
+              {{ $name }}
+              {{ if $feature.link }}
+                </a>
+              {{ end }}
+            </h4>
+            {{ if $feature.description }}
+              <span class="feature-table-description">{{ $feature.description }}</span>
+            {{ end }}
+          </td>
+
+          <td class="feature-table-free-cell feature-table-category-value">
+            {{ if $feature.free }}
+              {{ if eq (printf "%T" $feature.free) "string" }}
+                <span>{{ $feature.free }}</span>
+              {{ else }}
+                <div class="feature-table-icon">
+                  {{- partial "blocks/icon/icon" (dict "name" "checkmark" "size" "small" "style" "secondary-subtle") -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </td>
+
+          <td class="feature-table-plus-cell feature-table-category-value">
+            {{ if $feature.plus }}
+              {{ if eq (printf "%T" $feature.plus) "string" }}
+                <span>{{ $feature.plus }}</span>
+              {{ else }}
+                <div class="feature-table-icon">
+                  {{- partial "blocks/icon/icon" (dict "name" "checkmark" "size" "small" "style" "secondary-subtle") -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </td>
+
+          <td class="feature-table-hostedrepo-cell feature-table-category-value">
+            {{ if $feature.hostedrepo }}
+              {{ if eq (printf "%T" $feature.hostedrepo) "string" }}
+                <span>{{ $feature.hostedrepo }}</span>
+              {{ else }}
+                <div class="feature-table-icon">
+                  {{- partial "blocks/icon/icon" (dict "name" "checkmark" "size" "small" "style" "secondary-subtle") -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </td>
+      {{ end }}
+    {{ end }}
+
+  </tbody>
+</table>

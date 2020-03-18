@@ -1,8 +1,8 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Portal Usage Metrics
-description: Access aggregated view and download metrics for datasets defined in your portals.
+title: Custom DOIs and domains
+description: A custom DOI prefix and domain name for your repository
 header:
   template: header
   type: text only
@@ -11,8 +11,8 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Portal usage metrics
-  intro: Access aggregated view and download metrics for datasets defined in your portals.
+  title: Custom DOIs and domains
+  intro: A custom DOI prefix and domain name for your repository
   buttons:
   - template: button
     type: subscribe form
@@ -27,7 +27,7 @@ page_sections:
   template: section
 - template: section
   type: bold
-  title: Interested in a DataONE Plus portal?
+  title: Interested in a hosted repository?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
     when these services are ready for your organization.
@@ -36,9 +36,5 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-menu:
-  toplevel:
-    weight: 3
-    parent: Hosted Repo
 
 ---

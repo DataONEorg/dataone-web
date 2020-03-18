@@ -1,0 +1,24 @@
+#feature-table{
+  .feature-table-name-cell{
+    padding-left: $inter-item-spacing;
+    padding-bottom: $inter-item-spacing;
+  }
+  .feature-table-name{
+    margin: 10px 0px;
+  }
+  .feature-table-description{
+    color: $cn-neutral;
+    font-weight: normal;
+  }
+  .feature-table-icon .icon{
+    margin: auto;
+  }
+  .feature-table-category{
+    width: 6em;
+  }
+  .feature-table-category-value span{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+  }
+}
