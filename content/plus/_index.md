@@ -2,7 +2,7 @@
 layout: blocks
 title: DataONE Plus
 description: Enhanced DataONE products and services in support of your research, including
-  branded portals, customized search, quality assessment metrics (including the FAIR
+  branded portals, quality assessment metrics (including the FAIR
   suite), and much more.
 date: 2020-01-14T19:04:29.000+00:00
 header:
@@ -92,7 +92,7 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Add and reorder pages, upload images, and pick datasets in minutes
+        text: Pick datasets, add and reorder pages, and upload images in minutes
         headline: Easy online editor
         headline_link: /features/portal-editor
       - template: feature-simple
@@ -133,7 +133,7 @@ page_sections:
       alttext: FAIR metrcis report
       title: FAIR metrcis report
       type: tilt-left
-    headline: 
+    headline:
     text: Improve data discovery, accessibility, interoperability, and reusability
       with a quantitative metadata assessment using the FAIR principles
     details:
@@ -153,6 +153,21 @@ page_sections:
         size: small
         style: secondary
         template: icon
+- template: section
+  type: default
+  title: See what others are doing with DataONE Plus portals
+  blocks:
+  - template: columns
+    num_cols: 2
+    columns:
+    - template: feature-simple
+      headline: State of Alaska's Salmon and People
+      headline_link: https://knb.ecoinformatics.org/portals/sasap
+      text: A collaboration of researchers, cultural leaders, and others working to bring together important, accurate, and up-to-date information that will help to support better salmon decision-making. The State of Alaska's Salmon and People uses a DataONE Plus portal to communicate the results of their research with multiple pages of text, maps, data visualizations. They use custom search filters to let visitors find data by Alaskan region, salmon species, waterbody, and more.
+    - template: feature-simple
+      headline: Distributed Biological Observatory
+      headline_link: https://arcticdata.io/catalog/portals/DBO
+      text: Studying biological responses to rapid physical changes in the Arctic marine ecosystem. The Distributed Biological Observatory uses a DataONE Plus portal to communicate their project's goals and history, house their extensive list of publications and showcase usage of their data, including citations. They enable visitors to find datasets by selecting a vessel, project, or transect name from a custom dropdown menu.
 - template: section
   type: default
   title: Access to DataONE expertise
