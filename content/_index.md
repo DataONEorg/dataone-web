@@ -68,6 +68,18 @@ page_sections:
         alttext: World map shown with Robinson projection
         title: DataONE created global data research infrastructure
         type: default
+    - template: news-summary
+      auto_select: true
+    - template: card
+      href: /training/
+      title: "Example training event"
+      subtitle: "Learn about data"
+      clickable: true
+      pill:
+        template: pill
+        text: Featured skill
+        style: secondary
+      description: This is an example training event.
 - template: section
   type: default
   blocks:

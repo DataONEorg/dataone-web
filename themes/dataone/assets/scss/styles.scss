@@ -36,11 +36,6 @@ html {
   display   : grid;
   height    : 100%;
   min-height: 40rem;
-
-  a:not(.button){
-    text-decoration: none;
-    color: $cn-teal;
-  }
 }
 // To convert to blocks
 // === WEBINARS === //
