@@ -13,7 +13,7 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Powerful online submission
+  title: Powerful online data submission
   intro: The user-friendly data submission tool helps your researchers efficiently
       upload and describe their data. Users can easily create detailed metadata to
       enhance interoperability, reusability, and value of data.
