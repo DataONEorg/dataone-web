@@ -28,22 +28,22 @@
 @function col($color, $level) {
   @if($level == 1) {
     $mod1: tint($color, 95);
-    $mod2: desaturate($mod1, 20);
+    $mod2: desaturate($mod1, 10);
     @return $mod2;
   }
   @if($level == 2) {
     $mod1: tint($color, 85);
-    $mod2: desaturate($mod1, 15);
+    $mod2: desaturate($mod1, 8);
     @return $mod2;
   }
   @if($level == 3) {
     $mod1: tint($color, 65);
-    $mod2: desaturate($mod1, 12);
+    $mod2: desaturate($mod1, 6);
     @return $mod2;
   }
   @if($level == 4) {
     $mod1: tint($color, 45);
-    $mod2: desaturate($mod1, 07);
+    $mod2: desaturate($mod1, 3);
     @return $mod2;
   }
   @if($level == 5) {
@@ -51,23 +51,22 @@
   }
   @if($level == 6) {
     $mod1: shade($color, 85);
-    $mod2: saturate($mod1, 15);
+    $mod2: saturate($mod1, 5);
     @return $mod2;
   }
   @if($level == 7) {
     $mod1: shade($color, 65);
-    $mod2: saturate($mod1, 16);
+    $mod2: saturate($mod1, 8);
     @return $mod2;
   }
   @if($level == 8) {
-    @return(saturate(shade($color, 40),15));
-    $mod1: shade($color, 55);
-    $mod2: saturate($mod1, 17);
+    $mod1: shade($color, 48);
+    $mod2: saturate($mod1, 10);
     @return $mod2;
   }
   @if($level == 9) {
     $mod1: shade($color, 25);
-    $mod2: saturate($mod1, 18);
+    $mod2: saturate($mod1, 12);
     @return $mod2;
   }
 }
@@ -86,10 +85,10 @@ $cn-turquoise: #00ce9e;
 $cn-vibrant-blue: #2f52bb; //
 //
 // New colours:
-$cn-teal: #19b0bb; //#19b6bb;// #19bbb8; //#15adaa;//#00c2d4; //#14ABBA
+$cn-teal: #10bdc9; //#14bec7; //#19b0bb;
 $cn-yellow: #EED268;
-$cn-blue-grey: #607278; //#659196;
-$cn-green: #00ce9e;
+$cn-blue-grey: #607278;
+$cn-green: #41de96; //#2bcf84;
 $cn-blue: #388BC6;
 $cn-red: #F57065; //
 // -- Color variables (-c)

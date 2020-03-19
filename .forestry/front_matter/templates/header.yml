@@ -22,6 +22,7 @@ fields:
     - dataone plus
     - hosted repository
     - wave with dataone gradient
+    - center image
   default: text only
 - type: select
   label: Background color
@@ -45,8 +46,7 @@ fields:
     label: Image
     description: The image to show in the header
   label: Image
-  description: The image to use in the header for headers with the styles 'hero image'
-    or 'image on right'.
+  description: The image to use in the header for headers with the styles 'hero image', 'image on right', or 'center image'
 - name: pill
   type: field_group
   config: {}

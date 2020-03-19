@@ -146,3 +146,16 @@
     }
   }
 }
+// Styles for pages with a theme class
+
+.theme-quaternary {
+  .button--col-primary {
+    background-color: col($c-quaternary, 5);
+    color           : col($c-quaternary, 8);
+  }
+
+  .button--col-secondary {
+    background-color: col($c-secondary, 1);
+    color           : col($c-secondary, 5);
+  }
+}

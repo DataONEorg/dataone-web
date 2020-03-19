@@ -4,7 +4,7 @@
 .header {
   @include f-common;
   padding: 5rem 0;
-  color         : col($c-neutral, 6);
+  color  : col($c-neutral, 6);
   @include desktop {
     margin-top : -$nav-height;
     // margin-top: -.5rem;
@@ -60,12 +60,12 @@
   }
 
   &__headline {
-    margin-top   : 1rem;
-    margin-bottom: .5rem;
-    font-size    : 2.4rem;
-    color: col($c-neutral, 7);
-    font-family  : 'Martel';
-    font-weight  : 900;
+    margin-top    : 1rem;
+    margin-bottom : .5rem;
+    font-size     : 2.4rem;
+    color         : col($c-neutral, 7);
+    font-family   : 'Martel';
+    font-weight   : 900;
     letter-spacing: -.006em;
     line-height   : 1.3;
     @include desktop {
@@ -96,8 +96,10 @@
   }
 
   &__figure {
-    margin : 0;
-    display: block;
+    margin         : 0;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
     // svg {
     //   width        : 100%;
     //   max-width    : 500px;
@@ -139,6 +141,23 @@
 
   .header__buttons {
     justify-content: center;
+  }
+}
+// A large, centered image below the text
+
+.header--center-image {
+  overflow : hidden;
+  max-width: 100vw;
+  @extend .header--text-only;
+  grid-gap : 1.5rem;
+
+  .header__text {
+    margin-bottom: 1rem;
+  }
+
+  .header__figure {
+    width      : 118%;
+    margin-left: -9%;
   }
 }
 // ========================================================
@@ -204,7 +223,7 @@
 // === SVG IMAGE ===
 
 .header--svg-image {
-  overflow      : hidden;
+  overflow: hidden;
 
   .header__headline {
     // font-size     : 1.75rem;
@@ -247,9 +266,8 @@
 .header--hero-image {
   @extend .header--text-only;
   @include bkg-img;
-  position  : relative;
+  position: relative;
   // min-height: 500px;
-
   .header__headline,
   .header__intro,
   .header__title {
@@ -333,34 +351,10 @@
   }
 }
 // 
-
-// 
 // DATAONE PLUS
 
 .header--dataone-plus {
   @extend .header--svg-image;
-  padding-top: calc(2rem + 2 * 72px);
-  // give the cards a subtle floating effect
-  .animate-card-1 {
-    animation: float 4.2s .4s ease-in-out infinite;
-  }
-
-  .animate-card-2 {
-    animation: float 3.9s 1.2s ease-in-out infinite;
-  }
-  @keyframes float {
-    0% {
-      transform: translate(0);
-    }
-
-    65% {
-      transform: translateY(5px);
-    }
-
-    100% {
-      transform: translate(0);
-    }
-  }
 }
 // ========================================================
 // === HEADER BACKGROUND COLOURS ===
@@ -370,6 +364,7 @@
   background-color: col($c-neutral, 1);
 }
 // TODO: to fix:
+
 .header--col-tertiary {
   @extend .header--dark-bkg;
   background-color: col($c-secondary, 6);
@@ -387,4 +382,17 @@
   }
   background-color: col($c-secondary, 5);
   background-image: linear-gradient(12deg, col($c-secondary, 6) -10%, col($c-secondary, 5) 40%, col($c-secondary, 5) 50%, col($c-secondary, 5) 60%, col($c-secondary, 6) 100%);
+}
+// ========================================================
+// Styles for pages with a theme class
+
+.theme-quaternary {
+  .header {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, col($c-secondary, 1) -10%, col($c-secondary, 2) 20%, col($c-secondary, 2) 50%, col($c-secondary, 2) 70%, transparent 70%, transparent 100%);
+
+    .header__title {
+      color: col($c-quaternary, 6);
+    }
+  }
 }

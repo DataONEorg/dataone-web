@@ -16,6 +16,7 @@
 <!-- - dataone plus -->
 <!-- - hosted repository -->
 <!-- - wave with dataone gradient -->
+<!-- center image -->
 
 {{ with .Block.type }}
   {{ $modifier := . | urlize }}
@@ -82,8 +83,8 @@
         </div>
       {{- end -}}
     </div>
-    {{- if or (eq .Block.type `left-aligned`) -}}
-      {{ with .Block.headerimage }}
+    {{- if or (eq .Block.type `image on right`) (eq .Block.type `center image`) -}}
+      {{ with .Block.image }}
         <div class="header__figure">
           {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
         </div>

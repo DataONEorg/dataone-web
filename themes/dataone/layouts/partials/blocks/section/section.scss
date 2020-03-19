@@ -67,7 +67,7 @@
 }
 
 .section--bold {
-  background-color: col($c-secondary, 6);
+  background-color: col($c-secondary, 5);
   color           : col($c-neutral, 1);
   text-shadow     : .01em .01em 1.3em rgba(col($c-secondary, 7), 0.3);
 
@@ -95,10 +95,8 @@
   }
 
   .section__title {
-    // font-weight: 800;
-    // color: tint(col($c-neutral, 1), 50%);
+    font-weight: 800;
     color      : white;
-    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 7), 0.9);
     font-weight: 800;
   }
 
@@ -202,37 +200,6 @@
 .section--secondary-light {
   background-color: col($c-secondary, 2);
 }
-// $primary-light: col($c-primary, 4);
-// $secondary-light: col($c-secondary, 1);
-// $secondary-medium: col($c-secondary, 2);
-// $tertiary-light: col($c-tertiary, 2);
-// $quaternary-light: col($c-quaternary, 3);
-// 
-// .section--subtle-emphasis {
-//   --col-background: #{col($c-neutral, 1)};
-// }
-// 
-// .section--primary {
-//   --col-background: #{col($c-primary, 5)};
-// }
-// .section--primary-light {
-//   background-color: $primary-light;
-//   --col-background: #{$primary-light};
-// }
-// .section--secondary-light {
-//   background-color: $secondary-light;
-//   --col-background: #{$secondary-light};
-// }
-// 
-// .section--tertiary-light {
-//   background-color: $tertiary-light;
-//   --col-background: #{$tertiary-light};
-// }
-// 
-// .section--quaternary-light {
-//   background-color: $quaternary-light;
-//   --col-background: #{$quaternary-light};
-// }
 // TODO: this is how we should name background classes. 
 
 .section--bkg-tertiary-dark {
@@ -316,6 +283,15 @@ $paddingBottom: 20rem; // for footer;
       max-width    : $left-width;
       padding-right: $innerPadding;
       padding-left : $outerPadding;
+    }
+  }
+}
+// Styles for pages with themes
+
+.theme-quaternary {
+  .section--data-wave {
+    .section__title {
+      // color: col($c-quaternary, 6);
     }
   }
 }

@@ -13,6 +13,16 @@ fields:
   label: Date
   description: The date the page was created
   default: now
+- type: select
+  label: Page theme
+  name: theme
+  description: An overall theme for the page. Use a different theme for each service.
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - quaternary
 - type: text
   label: Title
   name: title

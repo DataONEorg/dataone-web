@@ -50,7 +50,7 @@
 .form-control:focus {
   transform       : translateY(-0.4px);
   box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
-  background-color: lighten($c-form-fields, 5%);
+  background-color: lighten(col($c-neutral, 1), 5%);
   color           : $c-secondary;
 }
 // the button
@@ -96,7 +96,7 @@ input[type="checkbox"] + .label-description::before {
   margin-right: 10px;
   width       : 20px;
   height      : 20px;
-  background  : $c-form-fields;
+  background  : col($c-neutral, 1);
 }
 
 input[type="checkbox"]:checked + .label-description::before {
@@ -161,5 +161,19 @@ input[type="checkbox"]:disabled + .label-description::before {
     display              : grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-gap             : 1rem 1rem;
+  }
+}
+// Styles for pages with themes
+
+.theme-quaternary {
+  .join-form {
+    input[type="checkbox"]:checked + .label-description::before {
+      background: col($c-quaternary, 4);
+    }
+
+    input[type="checkbox"]:checked + .label-description::after {
+      border-left  : 4px solid col($c-quaternary, 7);
+      border-bottom: 4px solid col($c-quaternary, 7);
+    }
   }
 }

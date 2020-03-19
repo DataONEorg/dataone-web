@@ -23,7 +23,7 @@
   }
 
   &--secondary {
-    background: saturate(col($c-secondary, 5),10%);
+    background: col($c-secondary, 5);
     color     : white;
   }
 
@@ -38,7 +38,7 @@
 
   &--quaternary {
     background: col($c-quaternary,5);
-    color     : white;
+    color     : col($c-quaternary,8);
   }
 
   &--subtle {
@@ -106,3 +106,6 @@
     }
   }
 }
+// Styles for pages with a theme class
+
+.theme-quaternary {}

@@ -5,16 +5,23 @@ description: Enhanced DataONE products and services in support of your research,
   branded portals, quality assessment metrics (including the FAIR
   suite), and much more.
 date: 2020-01-14T19:04:29.000+00:00
+theme: quaternary
 header:
   template: header
-  type: dataone plus
+  type: center image
   pill:
     template: pill
-    style: secondary
+    style: quaternary
     text: Coming 2020
-  title: Showcase your team’s goals & results with branded portals
+  title: A home for your research online
   intro: Custom search portals for your science, your data, and related data in the
     DataONE network.
+  image: 
+    template: image
+    src: "/uploads/portals-header.png"
+    alttext: Portals from DataONE Plus
+    title: DataONE Plus portals page
+    type: default
   buttons:
   - template: button
     type: subscribe form
@@ -118,7 +125,7 @@ page_sections:
     color: secondary
     type: internal page
     internal_link: /features
-  title: A home for your research online
+  title: Showcase your team’s goals & results with branded portals
 - template: section
   type: data-wave
   title: Make your data FAIR

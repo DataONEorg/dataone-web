@@ -2,8 +2,7 @@
 $breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px;
 @import "colors.scss";
 @import "definitions.scss";
-@import "tables.scss";
-// ==== GLOBAL RESET === /
+@import "tables.scss"; // ==== GLOBAL RESET === /
 
 html {
   box-sizing: border-box;
@@ -14,13 +13,12 @@ html {
 *:before {
   box-sizing: inherit;
 }
-
-
 // ==== BODY ====
 //Basic link styling
-a{
+
+a {
   text-decoration: none;
-  color: $cn-teal;
+  color          : $cn-teal;
 }
 
 .page {
@@ -45,6 +43,38 @@ a{
   display   : grid;
   height    : 100%;
   min-height: 40rem;
+
+  ::-moz-selection {
+    background-color: col($c-secondary, 5);
+    color           : white;
+  }
+
+  ::-webkit-selection {
+    background-color: col($c-secondary, 5);
+    color           : white;
+  }
+
+  ::selection {
+    background-color: col($c-secondary, 5);
+    color           : white;
+  }
+}
+
+.theme-quaternary {
+  ::-moz-selection {
+    background-color: col($c-quaternary, 5);
+    color           : col($c-quaternary, 8);
+  }
+
+  ::-webkit-selection {
+    background-color: col($c-quaternary, 5);
+    color           : col($c-quaternary, 8);
+  }
+
+  ::selection {
+    background-color: col($c-quaternary, 5);
+    color           : col($c-quaternary, 8);
+  }
 }
 // To convert to blocks
 // === WEBINARS === //
