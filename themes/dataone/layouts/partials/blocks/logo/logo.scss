@@ -2,7 +2,7 @@
 
 .logo {
   display: block;
-  fill   : $c-foreground;
+  fill   : col($c-neutral, 7);
   width  : 143px;
   height : 32px;
 }
@@ -13,7 +13,7 @@
 }
 
 .logo--subtle {
-  fill: $c-foreground-subtle;
+  fill: col($c-neutral, 6);
 }
 
 .logo--subtle-light {

@@ -6,13 +6,13 @@
   &__icon {
     svg {
       fill        : $c-secondary;
-      margin-top  : calc(#{$inter-item-spacing} + 4px);
+      margin-top  : calc(#{1rem} + 4px);
       margin-right: 2px;
     }
   }
 
   &__paragraph {
-    margin-top : $inter-item-spacing;
+    margin-top : 1rem;
     font-size  : 1.15rem;
     line-height: 1.6;
   }

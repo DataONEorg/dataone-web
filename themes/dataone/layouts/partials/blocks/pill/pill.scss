@@ -8,8 +8,8 @@
   align-items    : center;
   justify-content: center;
   border-radius  : 30px;
-  background     : $c-foreground;
-  color          : $c-background;
+  background     : col($c-neutral, 7);
+  color          : col($c-neutral, 1);
   transform      : translateY(-0.18em);
   height         : 27px;
   line-height    : 27px;
@@ -38,7 +38,7 @@
 
   &--quaternary {
     background: col($c-quaternary,5);
-    color     : col($c-quaternary,8);
+    color     : col($c-quaternary,1);
   }
 
   &--subtle {

@@ -1,0 +1,34 @@
+.webinar-details {
+  width : 100%;
+  height: 100%;
+  @include desktop {
+    padding-top: 10rem;
+  }
+
+  &__video {
+    display       : grid;
+    grid-auto-rows: auto;
+    grid-gap      : 2rem;
+  }
+
+  &__video-icon {
+    stroke      : col($c-neutral, 5);
+    margin-right: 7px;
+  }
+
+  &__video-title {
+    @include f-common;
+    color: col($c-neutral, 6);
+  }
+
+  &__slides {
+    text-align  : center;
+    margin-top  : 1.6rem;
+    justify-self: end;
+  }
+
+  &__figure {
+    max-width: 350px;
+    margin   : 2rem auto;
+  }
+}

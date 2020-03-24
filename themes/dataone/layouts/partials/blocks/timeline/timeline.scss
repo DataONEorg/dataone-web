@@ -26,7 +26,7 @@ $point-dist-top: 2.5rem; // point's vertical distance from top of event
 
   &__event {
     width        : 100%;
-    margin-bottom: $intra-section-spacing;
+    margin-bottom: 2rem;
     // point
     .card::after {
       content     : '';
@@ -39,7 +39,7 @@ $point-dist-top: 2.5rem; // point's vertical distance from top of event
       top         : calc((#{$point-dist-top} + (.5 * #{$circle-size})) - (.5 * #{$point-size}) - 4px );
       left        : -$point-size;
       border-width: ((2/3) * $point-size) $point-size ((2/3) * $point-size) 0;
-      border-color: transparent $c-background transparent transparent;
+      border-color: transparent col($c-neutral, 1) transparent transparent;
     }
 
     &:nth-child(even) {
@@ -62,7 +62,7 @@ $point-dist-top: 2.5rem; // point's vertical distance from top of event
           left        : auto;
           right       : -$point-size;
           border-width: ((2/3) * $point-size) 0 ((2/3) * $point-size) $point-size;
-          border-color: transparent transparent transparent $c-background;
+          border-color: transparent transparent transparent col($c-neutral, 1);
         }
       }
     }

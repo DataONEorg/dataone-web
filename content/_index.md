@@ -121,9 +121,4 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: true
     precheck_newsletter: true
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 ---

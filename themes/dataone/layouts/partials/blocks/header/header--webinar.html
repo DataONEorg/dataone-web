@@ -1,7 +1,7 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
 
-{{ $headerClass := .Block.type }} 
+{{ $headerClass := .Block.type }}
 
 {{ $tstamp := $page.Params.webinar_datetime }}
 {{ $t := time $tstamp }}
@@ -34,15 +34,16 @@
     <div class="header__text">
 
       <div class="header__title-and-pill">
-        {{- with $mainTitle -}}<span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
+        {{- with $mainTitle -}}
+          <span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
 
         {{- with .Block.pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
         {{- end -}}
       </div>
-      
+
       <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
-      
+
       <!-- date, time, duration -->
       <div class="header__datetime-items">
         <div class="header__datetime-item">
@@ -58,22 +59,22 @@
           {{ $duration }}
         </div>
       </div>
-      
+
       <!-- intro with expandable abstract -->
       {{ $heading := .Block.intro }}
       {{ $content := printf `<div class="header__abstract">%s</div>` .Block.abstract | safeHTML }}
       <div class="header__intro">
         {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
       </div>
-      
+
       <!-- expandable speakers -->
       <div class="header__speakers">
-        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "tertiary"}}
+        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "secondary"}}
         {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
       </div>
-      
+
     </div>
-    
+
   </div>
 
 </header>

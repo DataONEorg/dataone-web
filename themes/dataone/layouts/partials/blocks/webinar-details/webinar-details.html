@@ -1,0 +1,117 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "webinar-details" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+
+<!-- status defines whether this webinar is upcoming, happening now, or past -->
+{{ $status := partial "functions/getWebinarStatus" .Block }}
+
+<!-- the date and time of the webinar -->
+{{ $datetime := (time .Block.webinar_datetime).UTC }}
+
+<!-- the duration of the webinar -->
+{{ $duration := .Block.duration }}
+
+<!-- the date and time the webinar ends -->
+{{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
+
+{{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" .Block.speakers "Page" $page )}}
+
+<!-- All the speaker information -->
+{{ $speakers := $speakerInfo.params }}
+
+<!-- Speaker full names in an array (for calendar) -->
+{{ $speakerNames := $speakerInfo.namess }}
+
+<!-- Speaker names and biographies as a single string (for calendar) -->
+{{ $speakerBiosString := $speakerInfo.bios_string }}
+
+<!-- Speaker full names in a comma delimited string -->
+{{ $speakerListString := $speakerInfo.names_string }}
+
+<!-- URL for this page (used in calendar) -->
+{{ $URL := $page.Permalink }}
+
+<!-- calendar event title -->
+{{ $calTitle := print "DataONE Webinar: " .Block.title " - Speakers: " $speakerListString }}
+
+<!-- calendar description -->
+{{ $calDesc := print "To join the call, visit: " $URL "\n\n" .Block.abstract $speakerBiosString }}
+
+<!-- A link to the slides -->
+{{ $slidesLink := ""}}
+{{ with .Block.slides }}
+  {{ $slidesLink = . }}
+{{ end }}
+{{ $slidesHTML := "" }}
+{{ if $slidesLink }}
+  {{ $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" }}
+  {{ $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
+  {{ $slidesHTML = printf `<div class="{{ $bn }}__slides">%s</div>` $slidesButton | safeHTML }}
+{{ end }}
+
+<!-- Zoom meeting ID -->
+{{ $meetingID := ""}}
+{{ with .Block.meetingID }}
+  {{ $meetingID = . }}
+{{ end }}
+
+<!-- Video ID -->
+{{ $video := "" }}
+{{ with .Block.vimeoID }}
+  {{ $video = . }}
+{{ end }}
+
+<div class="{{ $classes }}">
+  {{ if eq $status "past" }}
+    <div class="{{ $bn }}__video">
+
+      <!-- VIDEO ... =============== -->
+      {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
+      {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
+      {{ $videoBlock := dict "ID" $video }}
+
+      <span class="{{ $bn }}__video-title"><span class="{{ $bn }}__video-icon">{{ $videoIcon }}</span>
+        Watch previously recorded video</span>
+      {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $page) }}
+
+      <!-- SLIDES =============== -->
+      {{ $slidesHTML }}
+
+      <!-- TODO, Disqus block here -->
+
+    </div>
+    <!-- show add to calendar button when status is upcoming -->
+  {{ else if eq $status "upcoming" }}
+
+    <!-- ADD TO CALENDAR =============== -->
+
+    <!-- TODO: -->
+    <!-- 'Webinar starts in X days." -->
+    <!-- use datetime block with type = "countdown" -->
+
+    <figure class="{{ $bn }}__figure" title="Add to calendar">
+      {{ partial "svg/add2cal.svg" }}
+    </figure>
+
+    {{ $eventBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
+    {{ $add2calBlock := dict "type" "add to calendar" "color" "primary" "event" $eventBlock }}
+    {{ partial "blocks/button/button.html" (dict "Block" $add2calBlock "Page" $page) }}
+
+  {{ else if eq $status "happening-now" }}
+    {{ with $meetingID }}
+
+      <figure class="{{ $bn }}__figure" title="Add to calendar">
+        {{ partial "svg/join-webinar.svg" }}
+      </figure>
+
+      {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
+
+    {{ end }}
+
+    {{ $slidesHTML }}
+
+  {{ end }}
+</div>

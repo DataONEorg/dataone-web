@@ -23,7 +23,7 @@
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;
-    color          : $c-foreground-subtle;
+    color          : col($c-neutral, 6);
     white-space    : nowrap;
     padding        : .5rem 0;
 
@@ -43,7 +43,7 @@
     -webkit-transform: rotate(45deg);
     transform        : rotate(45deg);
     border-radius    : 4px 0 0 0;
-    background       : $c-background;
+    background       : col($c-neutral, 1);
     box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
     opacity          : 0;
   }

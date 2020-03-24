@@ -25,7 +25,7 @@
     text-transform : uppercase;
     letter-spacing : .025em;
     font-size      : $fs-button;
-    color          : $c-foreground-subtle;
+    color          : col($c-neutral, 6);
     text-align     : center;
     text-decoration: none;
 

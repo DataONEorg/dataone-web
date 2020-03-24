@@ -20,12 +20,12 @@
 
   &__name {
     font-size : .9rem;
-    color     : $c-foreground-subtle;
+    color     : col($c-neutral, 6);
     margin-top: .5rem;
   }
 
   &__icon {
-    stroke      : $c-foreground-subtle;
+    stroke      : col($c-neutral, 6);
     margin-right: 3px;
   }
 }

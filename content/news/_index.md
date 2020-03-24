@@ -6,10 +6,10 @@ headline: The latest from DataONE
 page_sections: []
 menu:
   toplevel:
-    parent: Organization
+    parent: About
     weight: 2
   footer:
-    parent: Organization
+    parent: About
     weight: 12
 
 ---

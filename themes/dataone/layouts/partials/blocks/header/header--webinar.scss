@@ -39,21 +39,21 @@
 
   .header__read-more {
     font-weight: 300;
-    color      : col($c-tertiary, 4);
+    color      : col($c-secondary, 4);
     font-size  : 1rem;
     margin-left: 1rem;
   }
 
   .header__intro:hover {
     .header__read-more {
-      color: col($c-tertiary, 3);
+      color: col($c-secondary, 3);
     }
   }
 
   .header__datetime-items {
     margin        : 1.5rem 0;
     color         : col($c-neutral, 2);
-    stroke        : col($c-neutral, 3);
+    stroke        : col($c-neutral, 2);
     display       : flex;
     flex-direction: column;
     text-align    : left;

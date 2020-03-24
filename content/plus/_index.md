@@ -234,7 +234,7 @@ page_sections:
 menu:
   toplevel:
     weight: 1
-    parent: Plus
+    name: Plus
   footer:
     weight: 1
 

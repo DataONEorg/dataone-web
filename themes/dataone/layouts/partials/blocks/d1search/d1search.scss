@@ -14,7 +14,7 @@
     top          : -5px;
     display      : block;
     transition   : .2s;
-    color        : $c-foreground-subtle;
+    color        : col($c-neutral, 6);
     padding-left : 10px;
     padding-top  : 5px;
     padding-right: 15px;
@@ -56,12 +56,12 @@
     width      : 100%;
     outline    : 0;
     border     : 0;
-    // border-bottom: 2px solid $c-foreground-subtle;
+    // border-bottom: 2px solid col($c-neutral, 6);
     font-size  : 1.3rem;
     background : transparent;
     transition : border-color .2s;
-    background : $c-background;
-    color      : $c-foreground-subtle;
+    background : col($c-neutral, 1);
+    color      : col($c-neutral, 6);
     font       : inherit;
     box-shadow : .2rem .8rem 1.6rem rgba(0, 0, 0, 0.1);
     padding    : 22px 18px;

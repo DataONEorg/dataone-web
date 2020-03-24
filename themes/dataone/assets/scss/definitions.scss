@@ -1,11 +1,6 @@
 // ==== SPACING VARIABLES ====
 $content-width: 1040px; // max width of desktop content
-$footer-height: 500px; // minimum footer height
 $nav-height: 72px; // navigation bar height on desktop
-$grid-gap: 1.8rem; // gap between grid cells
-$inter-section-spacing: 6.5rem; // spacing between blocks
-$intra-section-spacing: 2rem; // spacing between blocks
-$inter-item-spacing: 1rem; // spaces between small items, pargraphs, etc.
 $mobile-lr-padding: .8rem; //padding on left and right for smaller screens
 /* ==== FONTS ==== */
 // Font (-f)
@@ -167,7 +162,6 @@ $fs-pill: .7rem; //
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 // rules for larger (desktop) screens
 @mixin desktop {
   @media only screen and (min-width: $breakpoint) {
@@ -243,29 +237,29 @@ $fs-pill: .7rem; //
   }
 
   a:not(.button):hover {
-    color: $c-foreground;
+    color: col($c-neutral, 7);
   }
 
   a:not(.button):active {
-    color: $c-foreground;
+    color: col($c-neutral, 7);
   }
 }
 // material-design-like card style
 @mixin card {
   padding      : 10px 20px;
   border-radius: 4px;
-  background   : $c-background;
+  background   : white;
   box-shadow   : 3px 4px 25px -12px rgba(0, 0, 0, 0.4);
   max-width    : 100%;
   width        : auto;
 }
 // general styles for text-input fields
 @mixin forms-text-input {
-  background-color: $c-form-fields;
+  background-color: col($c-neutral, 1);
   border          : none;
   outline         : none;
   border-radius   : 2px;
-  color           : $c-foreground;
+  color           : col($c-neutral, 7);
   height          : 50px;
   padding         : 0 15px;
 }

@@ -1,18 +1,18 @@
-.table{
+.table {
   border-collapse: collapse;
 
-  thead th{
-    background-color: $cn-neutral-dark;
-    color: $cn-neutral-lightest;
-    padding-top: $inter-item-spacing;
-    padding-bottom: $inter-item-spacing;
+  thead th {
+    background-color: col($c-neutral, 5);
+    color           : col($c-neutral, 1);
+    padding-top     : 1rem;
+    padding-bottom  : 1rem;
   }
 
-  &.table-striped tr:nth-child(odd){
-    background-color: $cn-neutral-lighter;
+  &.table-striped tr:nth-child(odd) {
+    background-color: col($c-neutral, 1);
   }
 
-  &.table-striped tr:nth-child(even){
-    background-color: $cn-neutral-lightest;
+  &.table-striped tr:nth-child(even) {
+    background-color: white;
   }
 }

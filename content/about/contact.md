@@ -20,10 +20,10 @@ page_sections:
   - template: contact-form
 menu:
   toplevel:
-    parent: Organization
+    parent: About
     weight: 4
   footer:
-    parent: Organization
+    parent: About
     weight: 10
 
 ---

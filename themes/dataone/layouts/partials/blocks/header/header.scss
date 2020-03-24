@@ -249,7 +249,7 @@
   }
 
   .header__svg-figure svg {
-    margin-top : $intra-section-spacing;
+    margin-top : 2rem;
     margin-left: -15%;
     width      : 130%;
     flex       : 0 0 auto;
@@ -365,9 +365,9 @@
 }
 // TODO: to fix:
 
-.header--col-tertiary {
+.header--col-secondary {
   @extend .header--dark-bkg;
-  background-color: col($c-secondary, 6);
+  background-color: col($c-secondary, 5);
 
   .header__title {
     color: col($c-secondary, 1);

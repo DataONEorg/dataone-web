@@ -71,29 +71,14 @@
   }
 }
 // -- Color names (-cn)
-// Define here but do not apply these colors directly to elements.
-// Instead use them to define them by their function on the website, below.
-// 
-// To replace:
-$cn-neutral-darker: #2c2f48;
-$cn-neutral-dark: #474d69;
-$cn-neutral: #9698A6;
-$cn-neutral-light: #D1D3DC;
-$cn-neutral-lighter: #f2f6f9;
-$cn-neutral-lightest: white;
-$cn-turquoise: #00ce9e;
-$cn-vibrant-blue: #2f52bb; //
-//
-// New colours:
-$cn-teal: #10bdc9; //#14bec7; //#19b0bb;
+$cn-teal: #1ababc;
 $cn-yellow: #EED268;
-$cn-blue-grey: #607278;
-$cn-green: #41de96; //#2bcf84;
-$cn-blue: #388BC6;
+$cn-blue-grey: #507d8f;
+$cn-green: #2bd085;
+$cn-blue: #2793C0;
 $cn-red: #F57065; //
 // -- Color variables (-c)
 // Use the variables defined below directly on elements.
-// 
 $c-primary: $cn-yellow;
 $c-secondary: $cn-teal;
 $c-tertiary: $cn-blue;
@@ -102,16 +87,4 @@ $c-neutral: $cn-blue-grey;
 $c-info: $cn-blue;
 $c-warning: $cn-yellow;
 $c-success: $cn-green;
-$c-error: $cn-red; //
-//
-// // Foreground elements, e.g. "color" property of font
-// Everything that would normally be black in a black and white book with line drawings.
-$c-foreground-emphasis: col($c-neutral, 8);
-$c-foreground: col($c-neutral, 7);
-$c-foreground-subtle: col($c-neutral, 6); // Default background elements, e.g. "background-colour" of div
-// everything that would normally be white in a black and white book with line drawings.
-$c-background: white;
-$c-background-emphasis: col($c-neutral, 1); // default background color for sections with bkg fill
-// for field colours
-$c-form-fields: $cn-neutral-lighter; // borders (e.g. in tables)
-$c-border: $cn-neutral-light;
+$c-error: $cn-red;

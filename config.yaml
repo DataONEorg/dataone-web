@@ -74,15 +74,13 @@ menu:
     title: Old DataONE website
     weight: 14
   toplevel:
-  - name: Plus
-    weight: 1
   - name: Hosted Repo
     weight: 2
   - name: Network
     weight: 3
   - name: Community
     weight: 4
-  - name: Organization
+  - name: About
     weight: 5
   - url: https://dataoneorg.github.io/Education/
     name: Skillbuilding
@@ -92,5 +90,5 @@ menu:
   - url: https://giving.ucsb.edu/Funds/Give?id=353
     name: Donate
     title: Donate
-    parent: Organization
+    parent: About
     weight: 99

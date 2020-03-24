@@ -8,8 +8,8 @@
   text-transform  : uppercase;
   letter-spacing  : .025em;
   font-size       : $fs-button;
-  background-color: $c-foreground;
-  color           : $c-background;
+  background-color: col($c-neutral, 7);
+  color           : col($c-neutral, 1);
   overflow        : hidden;
   text-overflow   : ellipsis;
   padding         : 0 1.25em;
@@ -26,7 +26,7 @@
   transition      : all .2s;
 
   &:hover {
-    background-color: lighten($c-foreground, 1%);
+    background-color: lighten(col($c-neutral, 7), 1%);
     transform       : translateY(-1px);
     box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
   }
@@ -64,7 +64,7 @@
 
 .button--col-secondary {
   background-color: $c-secondary;
-  color           : $c-background;
+  color           : col($c-neutral, 1);
 
   &:hover {
     background-color: lighten($c-secondary, 2%);
@@ -72,7 +72,7 @@
 }
 
 .button--col-tertiary {
-  background-color: $c-background;
+  background-color: col($c-neutral, 1);
   color           : $c-secondary;
   box-shadow      : 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
 
@@ -81,7 +81,7 @@
   }
 
   &:hover {
-    background-color: $c-background;
+    background-color: col($c-neutral, 1);
     color           : lighten($c-secondary, 2%);
     box-shadow      : 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
   }
@@ -113,7 +113,7 @@
 
 .button--search {
   margin: 20px auto 0;
-  fill  : $c-background;
+  fill  : col($c-neutral, 1);
   @include desktop {
     padding  : 21px 22px 44px;
     min-width: 68px;
@@ -151,7 +151,7 @@
 .theme-quaternary {
   .button--col-primary {
     background-color: col($c-quaternary, 5);
-    color           : col($c-quaternary, 8);
+    color           : col($c-quaternary, 1);
   }
 
   .button--col-secondary {

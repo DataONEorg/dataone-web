@@ -13,10 +13,10 @@
     color: $c-secondary;
   }
   a:not(.button):hover{
-    color: $c-foreground;
+    color: col($c-neutral, 7);
   }
   a:not(.button):active{
-    color: $c-foreground;
+    color: col($c-neutral, 7);
   }
   
   line-height: 1.7;
@@ -27,7 +27,7 @@
   }
   
   h1,h2,h3,h4,h5,h6 {
-    color: $c-foreground;
+    color: col($c-neutral, 7);
     font-weight: 500;
     line-height: 1.2;
     margin-top: 0;
@@ -46,7 +46,7 @@
       position: absolute;
       width: 8px;
       height: 8px;
-      background: $c-border;
+      background: col($c-neutral, 3);
       border-radius: 50%;
       left: -22px;
       top: 11px;
@@ -66,7 +66,7 @@
     li:before{
       counter-increment: listitem;
       content: counter(listitem);
-      background: $c-foreground-subtle;
+      background: col($c-neutral, 6);
       color: white;
       font-weight: 600;
       font-size: 13px;
@@ -105,7 +105,7 @@
     thead tr th {
       font-weight: 500;
       font-size: 0.85rem;
-      color: $c-foreground;
+      color: col($c-neutral, 7);
       text-transform: uppercase;
       text-align: left;
       padding: 0 0 8px 16px;
@@ -133,7 +133,7 @@
       }
       
       tr td {
-        border-color: $c-border;//#e3e8ee;
+        border-color: col($c-neutral, 3);//#e3e8ee;
         border-style: solid;
         padding: 16px;
         border-width: 0px;
@@ -172,7 +172,7 @@
       }
 
       tr:nth-child(odd) td {
-        background: $c-background-emphasis;
+        background: col($c-neutral, 1)-emphasis;
       }
     }
 

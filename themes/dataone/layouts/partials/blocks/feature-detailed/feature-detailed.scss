@@ -13,7 +13,7 @@
     display              : grid;
     grid-template-columns: .52fr .48fr;
     grid-template-rows   : 1fr;
-    grid-gap             : 0 $grid-gap;
+    grid-gap             : 0 1.8rem;
   }
 
   &__figure {

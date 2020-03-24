@@ -1,24 +1,29 @@
-#feature-table{
-  .feature-table-name-cell{
-    padding-left: $inter-item-spacing;
-    padding-bottom: $inter-item-spacing;
+#feature-table {
+  .feature-table-name-cell {
+    padding-left  : 1rem;
+    padding-bottom: 1rem;
   }
-  .feature-table-name{
-    margin: 10px 0px;
+
+  .feature-table-name {
+    margin: 10px 0;
   }
-  .feature-table-description{
-    color: $cn-neutral;
+
+  .feature-table-description {
+    color      : col($c-neutral, 5);
     font-weight: normal;
   }
-  .feature-table-icon .icon{
+
+  .feature-table-icon .icon {
     margin: auto;
   }
-  .feature-table-category{
+
+  .feature-table-category {
     width: 6em;
   }
-  .feature-table-category-value span{
+
+  .feature-table-category-value span {
     text-align: center;
-    width: 100%;
-    display: inline-block;
+    width     : 100%;
+    display   : inline-block;
   }
 }

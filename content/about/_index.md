@@ -83,8 +83,7 @@ menu:
   footer:
     weight: 11
   toplevel:
-    name: About
-    parent: Organization
+    parent: About
     weight: 1
 
 ---

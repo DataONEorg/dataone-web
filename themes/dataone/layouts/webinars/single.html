@@ -8,64 +8,10 @@
   <!-- webinar parameters -->
   {{ $webinar := $.Page.Params }}
 
-  <!-- the date and time of the webinar -->
-  {{ $datetime := (time $webinar.webinar_datetime).UTC }}
-
-  <!-- the duration of the webinar -->
-  {{ $duration := $webinar.duration }}
-
-  <!-- the date and time the webinar ends -->
-  {{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
-
-  {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
-
-  <!-- All the speaker information -->
-  {{ $speakers := $speakerInfo.params }}
-
-  <!-- Speaker full names in an array (for calendar) -->
-  {{ $speakerNames := $speakerInfo.namess }}
-
-  <!-- Speaker names and biographies as a single string (for calendar) -->
-  {{ $speakerBiosString := $speakerInfo.bios_string }}
-
-  <!-- Speaker full names in a comma delimited string -->
-  {{ $speakerListString := $speakerInfo.names_string }}
-
-  <!-- URL for this page (used in calendar) -->
-  {{ $URL := $page.Permalink }}
-
-  <!-- calendar event title -->
-  {{ $calTitle := print "DataONE Webinar: " $webinar.title " - Speakers: " $speakerListString }}
-
-  <!-- calendar description -->
-  {{ $calDesc := print "To join the call, visit: " $URL "\n\n" $webinar.abstract $speakerBiosString }}
-
-  <!-- A link to the slides -->
-  {{ $slidesLink := ""}}
-  {{ with $webinar.slides }}{{ $slidesLink = . }}
-  {{ end }}
-  {{ $slidesHTML := "" }}
-  {{ if $slidesLink }}
-    {{ $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" }}
-    {{ $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-    {{ $slidesHTML = printf `<div class="webinar__slides">%s</div>` $slidesButton | safeHTML }}
-  {{ end }}
-
-  <!-- Zoom meeting ID -->
-  {{ $meetingID := ""}}
-  {{ with $webinar.meetingID }}{{ $meetingID = . }}
-  {{ end }}
-
-  <!-- Video ID -->
-  {{ $video := "" }}
-  {{ with $webinar.vimeoID }}{{ $video = . }}
-  {{ end }}
-
   <!-- status defines whether this webinar is upcoming, happening now, or past -->
   {{ $status := partial "functions/getWebinarStatus" $webinar }}
   <!-- Set the pill text based on status -->
   {{ $pillBlock := partial "functions/getWebinarPill" $status }}
-
   <!-- add status as a modifier class -->
   {{ $classes := "" }}
   {{ with $status }}
@@ -74,70 +20,11 @@
 
   <!-- ========================================== BLOCKS ========================================== -->
 
-  <div class="webinar{{ $classes }}">
-    <!-- HEADER =============== -->
-    <div class="webinar__section-1">
-      <div class="webinar__section-1-inner">
-        {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
-        {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
-        {{ $headerBlock := dict "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
-        {{ partial "blocks/header/header--webinar.html" (dict "Block" $headerBlock "Page" $.Page) }}
-      </div>
-    </div>
-    <div class="webinar__section-2">
-      <section class="webinar__section-2-inner">
-        {{ if eq $status "past" }}
-          <div class="webinar__video">
-
-            <!-- VIDEO ... =============== -->
-            {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
-            {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
-            {{ $videoBlock := dict "ID" $video }}
-
-            <span class="webinar__video-title"><span class="webinar__video-icon">{{ $videoIcon }}</span>
-              Watch previously recorded video</span>
-            {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $.Page) }}
-
-            <!-- SLIDES =============== -->
-            {{ $slidesHTML }}
-
-            <!-- TODO, disqus here -->
-
-          </div>
-          <!-- show add to calendar button when status is upcoming -->
-        {{ else if eq $status "upcoming" }}
-
-          <!-- ADD TO CALENDAR =============== -->
-
-          <!-- TODO: -->
-          <!-- 'Webinar starts in X days." -->
-          <!-- use datetime block with type = "countdown" -->
-
-          <figure class="webinar__figure" title="Add to calendar">
-            {{ partial "svg/add2cal.svg" }}
-          </figure>
-
-          {{ $eventBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }}
-          {{ $add2calBlock := dict "type" "add to calendar" "color" "primary" "event" $eventBlock }}
-          {{ partial "blocks/button/button.html" (dict "Block" $add2calBlock "Page" $page) }}
-
-        {{ else if eq $status "happening-now" }}
-          {{ with $meetingID }}
-
-            <figure class="webinar__figure" title="Add to calendar">
-              {{ partial "svg/join-webinar.svg" }}
-            </figure>
-
-            {{ partial "blocks/zoom/zoom.html" (dict "Block" (dict "meetingID" . ) "Page" $.Page) }}
-
-          {{ end }}
-
-          <!-- SLIDES =============== -->
-          {{ $slidesHTML }}
-
-        {{ end }}
-      </section>
-    </div>
-  </div>
+  {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
+  {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
+  {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
+  {{ $webinarBlock := merge (dict "template" "webinar-details") $webinar }}
+  {{ $sectionBlock:= dict "template" "section" "type" "split" "background" "secondary" "background2" "neutral-light" "blocks" (slice $headerBlock $webinarBlock) }}
+  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) }}
 
 {{- end -}}

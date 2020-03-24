@@ -10,17 +10,17 @@ $icon-color: col($c-neutral, 1);
   border-radius   : 5px 5px 0 0;
   transition      : all .2s 0s ease-in-out;
   padding-top     : 7px 0;
-  background-color: tint(col($c-secondary, 5), 5%);
+  background-color: col($c-secondary, 5);
   box-shadow      : 22px 1px 11px rgba(0,20,30,0.15);
   @include desktop {
-    border-radius   : 0;
-    padding         : 0;
-    box-shadow      : none;
-    height          : auto;
-    max-height      : $nav-height;
-    position        : absolute;
-    top: 0;
-    box-shadow      : -1px 1px 20px 1px rgba(28,29,30,.2);
+    border-radius: 0;
+    padding      : 0;
+    box-shadow   : none;
+    height       : auto;
+    max-height   : $nav-height;
+    position     : absolute;
+    top          : 0;
+    box-shadow   : -1px 1px 20px 1px rgba(28,29,30,.2);
   }
 }
 
@@ -40,7 +40,7 @@ $icon-color: col($c-neutral, 1);
     grid-template-areas  : "logo menu search d1search";
     align-items          : center;
   }
-  
+
   .d1search__input:focus~.d1search__label {
     color: col($c-primary, 5);
   }
@@ -49,18 +49,19 @@ $icon-color: col($c-neutral, 1);
     @include button-reset;
     display   : inline-block;
     text-align: center;
-    color     : $c-foreground;
+    color     : col($c-neutral, 7);
     height    : 100%;
     padding   : 8px 8px 15px;
-    stroke: $icon-color;
+    stroke    : $icon-color;
     @include desktop {
       width  : fit-content;
       height : fit-content;
       padding: 0;
     }
+
     &:focus {
       .toplevel-nav__button-icon {
-        svg{
+        svg {
           stroke: col($c-primary, 4); // for the line-icons
           // fill: col($c-primary, 4); // for the home-icon (logo)
         }
@@ -68,25 +69,24 @@ $icon-color: col($c-neutral, 1);
 
       .toplevel-nav__button-text {
         font-weight: 800;
-        color: col($c-primary, 4);
+        color      : col($c-primary, 4);
       }
     }
-    
   }
 
   &__button-text {
     @include f-common;
-    font-size  : 0.86rem;
-    letter-spacing: 0.01em;
-    font-weight: 600;
-    line-height: 0.82rem;
-    display    : block;
-    margin-top : 2px;
-    color      : col($c-neutral, 1);
+    font-size     : .86rem;
+    letter-spacing: .01em;
+    font-weight   : 600;
+    line-height   : .82rem;
+    display       : block;
+    margin-top    : 2px;
+    color         : col($c-neutral, 1);
 
     &--active {
       font-weight: 800;
-      color: white;
+      color      : white;
     }
     @include desktop {
       display: none;
@@ -106,7 +106,6 @@ $icon-color: col($c-neutral, 1);
         // fill      : url("#theme-gradient");
       }
     }
-    
 
     &:hover .logo {
       transform: translate(0px,-1px) scale(1.01);
@@ -127,12 +126,12 @@ $icon-color: col($c-neutral, 1);
       padding     : 0 5px;
     }
   }
-  &__button-icon--close{
-    @include desktop{
-      margin-top: 17px;
+
+  &__button-icon--close {
+    @include desktop {
+      margin-top  : 17px;
       margin-right: 10px;
     }
-    
   }
 
   &__d1search {
@@ -149,15 +148,15 @@ $icon-color: col($c-neutral, 1);
       margin-left  : -400px;
       transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
     }
-    
-    label{
+
+    label {
       display: none;
     }
-    
+
     & ~ .toplevel-nav__button--search {
       .toplevel-nav__button-icon--close {
-      display: none;
-    }
+        display: none;
+      }
     }
 
     &[aria-hidden="false"] {
@@ -176,7 +175,7 @@ $icon-color: col($c-neutral, 1);
         }
         // A close button (X)
         .toplevel-nav__button-icon--close {
-          display   : block;
+          display: block;
         }
       }
       @include desktop {
@@ -197,8 +196,8 @@ $icon-color: col($c-neutral, 1);
   // MENU & MENU ITEMS
   &__menu {
     grid-area           : menu;
-    padding              : 20px 0;
-    margin: 0;
+    padding             : 20px 0;
+    margin              : 0;
     padding-inline-start: 0;
     margin-block-end    : 0;
     text-decoration     : none;
@@ -207,21 +206,19 @@ $icon-color: col($c-neutral, 1);
     transition          : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
     margin-bottom       : -100%;
     height              : 100%;
-    max-height: calc(100vh - #{$mobile-nav-height + 20px});
-    overflow-y: scroll;
+    max-height          : calc(100vh - #{$mobile-nav-height + 20px});
+    overflow-y          : scroll;
     @include desktop {
-      
-      max-height: 100%;
+      max-height    : 100%;
       margin        : 0 5px;
       padding       : 0;
       opacity       : 1;
-      overflow-y: visible;
+      overflow-y    : visible;
       visibility    : visible;
       display       : flex;
       flex-direction: row;
       flex-wrap     : nowrap;
       justify-self  : end;
-      
     }
 
     &[aria-hidden="true"] {
@@ -245,7 +242,7 @@ $icon-color: col($c-neutral, 1);
   &__sub-menu {
     @include desktop {
       position        : absolute;
-      background-color: $c-background;
+      background-color: col($c-neutral, 1);
       display         : block;
       border-radius   : 4px;
       box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
@@ -280,7 +277,7 @@ $icon-color: col($c-neutral, 1);
           -webkit-transform: rotate(45deg);
           transform        : rotate(45deg);
           border-radius    : 4px 0 0 0;
-          background       : $c-background;
+          background       : col($c-neutral, 1);
           box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
           opacity          : 1;
         }
@@ -311,13 +308,14 @@ $icon-color: col($c-neutral, 1);
       font-weight: 800;
     }
     @include desktop {
-      color          : col($c-neutral, 5);
+      color: col($c-neutral, 5);
+
       &:hover {
-        color     : col($c-primary, 6);
-        transition: color .1s 0s ease-in-out;
+        color      : col($c-primary, 6);
+        transition : color .1s 0s ease-in-out;
         font-weight: 600;
-        
       }
+
       &--active {
         font-weight: 600;
       }
@@ -368,7 +366,6 @@ $icon-color: col($c-neutral, 1);
     font-weight    : 600;
     line-height    : 53px;
     letter-spacing : .03em;
-    
 
     &--active {
       color      : white;
@@ -382,9 +379,9 @@ $icon-color: col($c-neutral, 1);
       &:hover {
         color     : col($c-primary, 5);
         transition: color .1s 0s ease-in-out;
-        
-        .toplevel-nav__sub-menu-icon{
-          stroke     : col($c-primary, 5);
+
+        .toplevel-nav__sub-menu-icon {
+          stroke    : col($c-primary, 5);
           transition: stroke .1s 0s ease-in-out;
         }
       }
@@ -418,7 +415,6 @@ $icon-color: col($c-neutral, 1);
 // ========================================================
 // === DARK BKG ===
 // 
-
 // .global-header--dark-bkg {
 //   @include desktop {
 //     .toplevel-nav__menu-link {
@@ -446,7 +442,6 @@ $icon-color: col($c-neutral, 1);
 // ========================================================
 // === WEBINAR ===
 // 
-
 // .global-header--webinar {
 //   @include desktop {
 //     background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);

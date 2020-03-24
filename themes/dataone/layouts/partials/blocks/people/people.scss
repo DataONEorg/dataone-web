@@ -42,7 +42,7 @@
   &__fullname {
     margin    : 1.5rem 0 .75rem;
     text-align: center;
-    color     : $c-foreground-emphasis;
+    color     : col($c-neutral, 8);
   }
 
   &__role {
@@ -246,5 +246,40 @@
     transition      : background-color .2s linear;
     background-color: mix(col($c-tertiary, 8), col($c-tertiary, 7), 95%);
     box-shadow      : inset 3px 2px 17px 0 rgba(20,30,40,.3);
+  }
+}
+
+.people--col-secondary {
+  .person {
+    background-color: mix(col($c-secondary, 7),col($c-secondary, 6),10%);
+    box-shadow      : inset 2px 1px 16px 0 rgba(20,30,40,.1);
+  }
+
+  .person__fullname {
+    color: col($c-neutral, 1);
+  }
+
+  .person__role {
+    color: col($c-secondary, 3);
+  }
+
+  .person__organization {
+    color: col($c-secondary, 3);
+  }
+
+  .person__bio {
+    color: col($c-secondary, 1);
+  }
+}
+
+.people--accordion.people--col-secondary {
+  .accordion__trigger:after {
+    border-color: col($c-secondary, 1);
+  }
+
+  .accordion__trigger:focus,
+  .accordion__trigger:hover,
+  .accordion__trigger[aria-expanded=true] {
+    background-color: col($c-secondary, 5);
   }
 }

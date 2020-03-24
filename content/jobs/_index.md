@@ -10,10 +10,10 @@ page_sections:
   intro: "Why you should work with us"
 menu:
   toplevel:
-    parent: Organization
+    parent: About
     weight: 3
   footer:
-    parent: Organization
+    parent: About
     weight: 13
     name: Employment
 ---

@@ -202,6 +202,10 @@
 }
 // TODO: this is how we should name background classes. 
 
+.section--bkg-secondary {
+  background-color: col($c-secondary, 6);
+}
+
 .section--bkg-tertiary-dark {
   background-color: col($c-tertiary, 7);
   background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
@@ -212,8 +216,8 @@
 }
 
 .section--bkg-map {
-  --col-title     : #{$cn-neutral-lighter};
-  --col-font      : #{$c-background};
+  --col-title     : #{col($c-neutral, 3);};
+  --col-font      : #{col($c-neutral, 1)};
   stroke          : white;
   position        : relative;
   @include bkg-img;
