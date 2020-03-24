@@ -72,7 +72,7 @@
 }
 
 .button--col-tertiary {
-  background-color: col($c-neutral, 1);
+  background-color: white;
   color           : $c-secondary;
   box-shadow      : 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
 
@@ -155,7 +155,7 @@
   }
 
   .button--col-secondary {
-    background-color: col($c-secondary, 1);
+    background-color: white;
     color           : col($c-secondary, 5);
   }
 }

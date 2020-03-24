@@ -74,7 +74,7 @@
   }
 
   &__intro {
-    font-size  : $fs-page-intro;
+    font-size  : 1.35rem;
     line-height: 1.6;
     font-weight: 400;
   }
@@ -182,6 +182,7 @@
     overflow       : hidden;
     display        : flex;
     justify-content: center;
+    z-index        : 1;
 
     svg {
       height     : 100%;
@@ -191,7 +192,6 @@
   }
 
   .header__text {
-    z-index       : 2;
     position      : relative;
     padding-bottom: 9rem;
   }
@@ -214,7 +214,9 @@
   }
 
   .header__content {
-    margin: 0 auto;
+    position: relative;
+    z-index : 2;
+    margin  : 0 auto;
     @include desktop {
       // grid-template-columns: 1fr 1fr;
     }

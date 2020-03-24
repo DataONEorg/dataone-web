@@ -19,7 +19,7 @@
           <span class="{{ $bn }}__sitemap-header">{{ .Name }}</span>
 
           <ul class="{{ $bn }}__sitemap-list" aria-hidden="true" id="{{urlize .Name }}">
-            {{ range first 5 .Children }}
+            {{ range .Children }}
               <li class="{{ $bn }}__sitemap-item">
                 <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
                   {{ .Name }}

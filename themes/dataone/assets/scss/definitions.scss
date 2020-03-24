@@ -7,7 +7,6 @@ $mobile-lr-padding: .8rem; //padding on left and right for smaller screens
 // // fs- = font size
 $fs-page-title: 2.1rem;
 $fs-page-title-desktop: 2.7rem;
-$fs-page-intro: 1.25rem;
 $fs-h2: 1.7rem;
 $fs-section-intro: 1.25rem;
 $fs-h3: 1.2rem;
@@ -156,7 +155,7 @@ $fs-pill: .7rem; //
   src        : local('Martel Heavy'), local('Martel-Heavy'), url("../fonts/martel-v4-latin-900.woff2") format('woff2'), url("../fonts/martel-v4-latin-900.woff") format('woff');
 }
 @mixin f-common {
-  font-family            : 'Work Sans', serif;
+  font-family            : 'Work Sans', sans-serif;
   font-weight            : 400;
   text-rendering         : optimizeLegibility;
   -webkit-font-smoothing : antialiased;

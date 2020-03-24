@@ -1,5 +1,6 @@
 .feature-simple {
   @include f-common;
+  $top-margin: 1.5rem;
 
   &__icon {
     margin: 2.5rem 0;
@@ -30,5 +31,14 @@
     grid-template-columns: .06fr .94fr;
     align-items          : center;
     grid-gap             : 0 7px;
+
+    .feature-simple__icon {
+      align-self: baseline;
+      margin-top: calc(#{$top-margin} + 8px);
+    }
+
+    .feature-simple__title {
+      margin-top: $top-margin;
+    }
   }
 }

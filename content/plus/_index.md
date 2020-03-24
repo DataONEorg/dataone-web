@@ -34,6 +34,9 @@ header:
 page_sections:
 - template: section
   type: default
+  title: |-
+    Showcase your team’s goals & results  
+    with branded portals
   intro: Create a custom, branded portal for your research topic or lab group that spans
     repositories in the DataONE network. Branded portals provide a convenient, readily
     customized way to communicate your science, your team, your data, and related
@@ -72,60 +75,36 @@ page_sections:
           size: small
           style: secondary-subtle
           name: checkmark
-        text: Access aggregated view and download metrics for datasets
-        headline: Usage metrics
-        headline_link: /features/usage-metrics
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        text: Aggregated FAIR metadata assessment scores
-        headline: FAIR Assessments
-        headline_link: /features/fair
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        text: Customize your portal with colors, logos, and images
-        headline: Branded to match your project
-        headline_link: /features/branding
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
         text: Pick datasets, add and reorder pages, and upload images in minutes
         headline: Easy online editor
         headline_link: /features/portal-editor
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        headline: Citation reports
-        headline_link: /features/citations
-        text: Find out who is citing your data
-      - template: feature-simple
-        headline: Showcase your results
-        headline_link: /features/portal-content
-        text: Your portal pages can include visualizations of your research, a list of your team members, or any other custom content
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-  - template: button
-    text: See a full list of features
+  button:
+    template: button
+    type: external website
     color: secondary
     type: internal page
     internal_link: /features
-  title: Showcase your team’s goals & results with branded portals
+    text: See a full list of features
+- template: section
+  type: wave
+  title: Data about your data
+  intro: 
+  blocks:
+  - template: columns
+    num_cols: 3
+    columns:
+    - template: feature-simple
+      text: Access aggregated view and download metrics for datasets
+      headline: Usage metrics
+      headline_link: /features/usage-metrics
+    - template: feature-simple
+      text: Aggregated FAIR metadata assessment scores
+      headline: FAIR Assessments
+      headline_link: /features/fair
+    - template: feature-simple
+      headline: Citation reports
+      headline_link: /features/citations
+      text: Find out who is citing your data
 - template: section
   type: data-wave
   title: Make your data FAIR
@@ -165,6 +144,29 @@ page_sections:
         size: small
         style: secondary
         template: icon
+- template: section
+  type: default
+  title: Customized to match your project
+  intro: 
+  blocks:
+  - template: image
+    src: uploads/portals-branding.png
+    alttext: FAIR metrcis report
+    title: FAIR metrcis report
+  - template: columns
+    num_cols: 3
+    columns:
+    - template: feature-simple
+      headline: Your branding
+      text: Customize your portal with the colors, logos, and images that reflect your project
+      headline_link: /features/branding
+    - template: feature-simple
+      headline: Your content
+      text: Your portal pages can include visualizations of your research, a list of your team members, and any other custom content
+      headline_link: /features/portal-content
+    - template: feature-simple
+      headline: Your supporters
+      text: Acknowledge the people and organizations that support your project by adding their logos to your portal
 - template: section
   type: default
   title: See what others are doing with DataONE Plus portals
