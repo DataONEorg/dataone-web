@@ -117,6 +117,27 @@ page_sections:
       text: Learn more about the portal editor
     text: Pick datasets, add and reorder pages, and upload images in minutes
     headline: Easy online editor
+  - template: feature-detailed
+    image:
+      template: image
+      type: default
+    type: right
+    button:
+      template: button
+      html_tag: a
+      type_attr: button
+      type: internal page
+      color: secondary
+      internal_link: features/custom-search.md
+      icon:
+        template: icon
+        size: large
+        style: default
+      event:
+        title: DataONE Event
+      text: See what you can do with search filters
+    headline: Customized search filters
+    text: Configure search fields specific to your science topics
   button:
     template: button
     type: internal page
