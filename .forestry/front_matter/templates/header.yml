@@ -46,7 +46,8 @@ fields:
     label: Image
     description: The image to show in the header
   label: Image
-  description: The image to use in the header for headers with the styles 'hero image', 'image on right', or 'center image'
+  description: The image to use in the header for headers with the styles 'hero image',
+    'image on right', or 'center image'
 - name: pill
   type: field_group
   config: {}

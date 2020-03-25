@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: ''
-webhook_url:
+webhook_url: 
 sections:
 - type: document
   path: README_content-editors.md
@@ -57,19 +57,22 @@ sections:
   label: Features
   create: all
   match: "**/*"
+  templates:
+  - _page_blocks
 - type: directory
   path: content/webinars
   label: Webinars
   create: all
   match: "**/*"
   templates:
-  - _page_webinars
+  - _page_webinar
 - type: directory
   path: content/news
   label: News
   create: all
   match: "**/*"
   templates:
+  - _page_news-items
   - _page_news-item
 - type: directory
   path: content/jobs
@@ -77,7 +80,7 @@ sections:
   create: all
   match: "**/*"
   templates:
-  - job-page
+  - _page_job
   - _page_jobs
 - type: heading
   label: Data
