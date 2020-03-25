@@ -2,8 +2,8 @@
 layout: blocks
 title: DataONE Plus
 description: Enhanced DataONE products and services in support of your research, including
-  branded portals, quality assessment metrics (including the FAIR
-  suite), and much more.
+  branded portals, quality assessment metrics (including the FAIR suite), and much
+  more.
 date: 2020-01-14T19:04:29.000+00:00
 theme: quaternary
 header:
@@ -16,7 +16,7 @@ header:
   title: A home for your research online
   intro: Custom search portals for your science, your data, and related data in the
     DataONE network.
-  image: 
+  image:
     template: image
     src: "/uploads/portals-header.png"
     alttext: Portals from DataONE Plus
@@ -34,13 +34,11 @@ header:
 page_sections:
 - template: section
   type: default
-  title: |-
-    Showcase your team’s goals & results  
-    with branded portals
-  intro: Create a custom, branded portal for your research topic or lab group that spans
-    repositories in the DataONE network. Branded portals provide a convenient, readily
-    customized way to communicate your science, your team, your data, and related
-    data from within the DataONE network.
+  title: "Showcase your team’s goals & results  \nwith branded portals"
+  intro: Create a custom, branded portal for your research topic or lab group that
+    spans repositories in the DataONE network. Branded portals provide a convenient,
+    readily customized way to communicate your science, your team, your data, and
+    related data from within the DataONE network.
   blocks:
   - template: columns
     num_cols: 2
@@ -68,7 +66,7 @@ page_sections:
           name: checkmark
         text: Configure search fields specific to your science topics
         headline: Customized search filters
-        headline_link: /features/custom-search
+        headline_link: "/features/custom-search"
       - template: feature-simple
         icon:
           template: icon
@@ -77,13 +75,30 @@ page_sections:
           name: checkmark
         text: Pick datasets, add and reorder pages, and upload images in minutes
         headline: Easy online editor
-        headline_link: /features/portal-editor
+        headline_link: "/features/portal-editor"
+  - template: feature-detailed
+    image:
+      template: image
+      type: default
+    type: right
+    button:
+      template: button
+      html_tag: a
+      type_attr: button
+      type: internal page
+      color: secondary
+      internal_link: []
+      icon:
+        template: icon
+        size: large
+        style: default
+      event:
+        title: DataONE Event
   button:
     template: button
-    type: external website
-    color: secondary
     type: internal page
-    internal_link: /features
+    color: secondary
+    internal_link: "/features"
     text: See a full list of features
 - template: section
   type: wave
@@ -96,14 +111,14 @@ page_sections:
     - template: feature-simple
       text: Access aggregated view and download metrics for datasets
       headline: Usage metrics
-      headline_link: /features/usage-metrics
+      headline_link: "/features/usage-metrics"
     - template: feature-simple
       text: Aggregated FAIR metadata assessment scores
       headline: FAIR Assessments
-      headline_link: /features/fair
+      headline_link: "/features/fair"
     - template: feature-simple
       headline: Citation reports
-      headline_link: /features/citations
+      headline_link: "/features/citations"
       text: Find out who is citing your data
 - template: section
   type: data-wave
@@ -124,13 +139,14 @@ page_sections:
       alttext: FAIR metrcis report
       title: FAIR metrcis report
       type: tilt-left
-    headline:
+    headline: 
     text: Improve data discovery, accessibility, interoperability, and reusability
       with a quantitative metadata assessment using the FAIR principles
     details:
     - template: item-with-icon
       name: Time series charts
-      text: Discover how FAIR scores change over time through time series charts in your DataONE Plus portal
+      text: Discover how FAIR scores change over time through time series charts in
+        your DataONE Plus portal
       icon:
         name: checkmark
         size: small
@@ -158,15 +174,18 @@ page_sections:
     columns:
     - template: feature-simple
       headline: Your branding
-      text: Customize your portal with the colors, logos, and images that reflect your project
-      headline_link: /features/branding
+      text: Customize your portal with the colors, logos, and images that reflect
+        your project
+      headline_link: "/features/branding"
     - template: feature-simple
       headline: Your content
-      text: Your portal pages can include visualizations of your research, a list of your team members, and any other custom content
-      headline_link: /features/portal-content
+      text: Your portal pages can include visualizations of your research, a list
+        of your team members, and any other custom content
+      headline_link: "/features/portal-content"
     - template: feature-simple
       headline: Your supporters
-      text: Acknowledge the people and organizations that support your project by adding their logos to your portal
+      text: Acknowledge the people and organizations that support your project by
+        adding their logos to your portal
 - template: section
   type: default
   title: See what others are doing with DataONE Plus portals
@@ -177,11 +196,22 @@ page_sections:
     - template: feature-simple
       headline: State of Alaska's Salmon and People
       headline_link: https://knb.ecoinformatics.org/portals/sasap
-      text: A collaboration of researchers, cultural leaders, and others working to bring together important, accurate, and up-to-date information that will help to support better salmon decision-making. The State of Alaska's Salmon and People uses a DataONE Plus portal to communicate the results of their research with multiple pages of text, maps, data visualizations. They use custom search filters to let visitors find data by Alaskan region, salmon species, waterbody, and more.
+      text: A collaboration of researchers, cultural leaders, and others working to
+        bring together important, accurate, and up-to-date information that will help
+        to support better salmon decision-making. The State of Alaska's Salmon and
+        People uses a DataONE Plus portal to communicate the results of their research
+        with multiple pages of text, maps, data visualizations. They use custom search
+        filters to let visitors find data by Alaskan region, salmon species, waterbody,
+        and more.
     - template: feature-simple
       headline: Distributed Biological Observatory
       headline_link: https://arcticdata.io/catalog/portals/DBO
-      text: Studying biological responses to rapid physical changes in the Arctic marine ecosystem. The Distributed Biological Observatory uses a DataONE Plus portal to communicate their project's goals and history, house their extensive list of publications and showcase usage of their data, including citations. They enable visitors to find datasets by selecting a vessel, project, or transect name from a custom dropdown menu.
+      text: Studying biological responses to rapid physical changes in the Arctic
+        marine ecosystem. The Distributed Biological Observatory uses a DataONE Plus
+        portal to communicate their project's goals and history, house their extensive
+        list of publications and showcase usage of their data, including citations.
+        They enable visitors to find datasets by selecting a vessel, project, or transect
+        name from a custom dropdown menu.
 - template: section
   type: default
   title: Access to DataONE expertise
@@ -235,8 +265,8 @@ page_sections:
     precheck_newsletter: false
 menu:
   toplevel:
-    weight: 1
     name: Plus
+    weight: 1
   footer:
     weight: 1
 
