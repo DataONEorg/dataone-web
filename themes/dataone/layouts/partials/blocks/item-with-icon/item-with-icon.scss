@@ -26,6 +26,7 @@
   &--dark-background {
     .item-with-icon__paragraph {
       font-weight: 500;
+      color      : col($c-neutral, 1);
     }
 
     .item-with-icon__emphasis {

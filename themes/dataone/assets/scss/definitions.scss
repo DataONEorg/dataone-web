@@ -160,6 +160,7 @@ $fs-pill: .7rem; //
   text-rendering         : optimizeLegibility;
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: col($c-neutral, 5);
 }
 // rules for larger (desktop) screens
 @mixin desktop {

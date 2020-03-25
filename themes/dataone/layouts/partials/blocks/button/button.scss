@@ -64,7 +64,7 @@
 
 .button--col-secondary {
   background-color: $c-secondary;
-  color           : col($c-neutral, 1);
+  color           : col($c-secondary, 1);
 
   &:hover {
     background-color: lighten($c-secondary, 2%);
@@ -81,7 +81,7 @@
   }
 
   &:hover {
-    background-color: col($c-neutral, 1);
+    background-color: white;
     color           : lighten($c-secondary, 2%);
     box-shadow      : 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
   }
@@ -89,7 +89,7 @@
 
 .button--col-quaternary {
   white-space     : normal;
-  font-size       : $fs-button;
+  font-size       : 0.95rem;
   background-color: transparent;
   color           : $c-secondary;
   display         : inline-block;
@@ -157,5 +157,9 @@
   .button--col-secondary {
     background-color: white;
     color           : col($c-secondary, 5);
+  }
+  
+  .button--col-quaternary{
+    color           : col($c-quaternary, 5);
   }
 }

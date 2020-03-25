@@ -14,6 +14,7 @@
   @include f-common;
   position: relative;
   z-index : 0;
+  max-width: 100vw;
 
   &__inner {
     width       : 100%;
@@ -33,7 +34,7 @@
     margin     : 2rem auto 3rem;
     text-align : center;
     font-size  : 2.3rem;
-    line-height: 1.2;
+    line-height: 1.5;
     font-family: 'Martel', serif;
     font-weight: 700;
     color      : col($c-neutral, 7);
@@ -133,6 +134,7 @@
 
 .section--wave {
   @extend .section--svg-background;
+
   font-weight: 500;
 
   .section__title {
@@ -140,11 +142,15 @@
   }
 
   .section__svg-background {
+    @include desktop{
+      overflow: visible;
+    }
     svg {
       height: 125%;
       @include desktop {
         height    : 100%;
-        min-width : 1200px;
+        width: 100%;
+        max-width: 100%;
         min-height: 700px;
       }
     }
@@ -183,10 +189,11 @@
   .section__inner {
     @include card;
     @include limit-width;
-    padding: 5rem 3.5rem;
     margin : 5rem $mobile-lr-padding;
     @include desktop {
       margin: 6rem auto;
+      padding: 5rem 3.5rem;
+      width: 95%;
     }
   }
 

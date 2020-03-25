@@ -17,7 +17,7 @@
 
 <!-- icon -->
 {{ $icon := "" }}
-{{ if and .Block.icon (ne .Block.icon.icon "") (ne .Block.icon.icon " " ) }}
+{{ if and .Block.icon .Block.icon.icon (ne .Block.icon.icon "") (ne .Block.icon.icon " " ) }}
 	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" .Block.icon "Page" $page ) }}
 	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}
 {{ end }}

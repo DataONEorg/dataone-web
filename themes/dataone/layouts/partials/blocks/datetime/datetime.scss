@@ -1,5 +1,6 @@
 .datetime {
   @include f-common;
+  color: inherit;
 
   &__displaydate {
     font-weight: 400;

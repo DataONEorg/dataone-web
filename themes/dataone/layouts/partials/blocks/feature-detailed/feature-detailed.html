@@ -16,6 +16,12 @@
   {{ $classes = print $classes " " $bn "--" .}}
 {{ end }}
 
+<!-- Check if there's an image. Add a class if not -->
+{{ $hasImage := and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
+{{ if not $hasImage }}
+  {{ $classes = print $classes " " $bn "--no-image" }}
+{{ end }}
+
 <!-- Don't add a class for the default type -->
 <div class="{{ $classes }}">
   <div class="{{ $bn }}__description">
@@ -42,15 +48,10 @@
       </div>
     {{- end -}}
   </div>
+  {{ if $hasImage }}
   <div class="{{ $bn }}__figure">
-    {{- with .Block.figure }}
-      {{ $svgpath := path.Join "svg" . }}
-      {{ $svgpath := printf "%s.svg" $svgpath }}
-      {{- partial $svgpath -}}
-    {{- end -}}
-    {{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
       {{- partial "blocks/image/image" (dict "Block" .Block.image "Page" $page) -}}
-    {{- end -}}
   </div>
+  {{ end }}
 
 </div>

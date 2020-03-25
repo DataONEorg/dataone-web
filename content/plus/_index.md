@@ -40,108 +40,52 @@ page_sections:
     readily customized way to communicate your science, your team, your data, and
     related data from within the DataONE network.
   blocks:
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: image
-      src: "/uploads/portal-data-page.png"
-      alttext: Portals from DataONE Plus
-      title: DataONE Plus portals page
-      type: float
-    - template: features-list
-      features:
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        text: Create a catalog of your team's data that spans the DataONE network
-        headline: All of your data in one place
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        text: Configure search fields specific to your science topics
-        headline: Customized search filters
-        headline_link: "/features/custom-search"
-      - template: feature-simple
-        icon:
-          template: icon
-          size: small
-          style: secondary-subtle
-          name: checkmark
-        text: Pick datasets, add and reorder pages, and upload images in minutes
-        headline: Easy online editor
-        headline_link: "/features/portal-editor"
   - template: feature-detailed
     image:
       template: image
-      type: default
+      type: tilt-left
+      src: uploads/dataset-collection.png
+      alttext: Dataset collection
+      title: Dataset collection
     type: right
-    button:
-      template: button
-      html_tag: a
-      type_attr: button
-      type: internal page
-      color: secondary
-      internal_link: []
-      icon:
-        template: icon
-        size: large
-        style: default
-      event:
-        title: DataONE Event
     headline: All of your data in one place
     text: Create a catalog of your team's data that spans the DataONE network
   - template: feature-detailed
     image:
       template: image
-      type: default
-    type: right
+      type: tilt-right
+      src: uploads/search-filters.png
+      alttext: Search filters
+      title: Search filters
+    type: left
     button:
       template: button
-      html_tag: a
-      type_attr: button
       type: internal page
-      color: secondary
-      internal_link: features/portal-editor.md
-      icon:
-        template: icon
-        size: large
-        style: default
-      event:
-        title: DataONE Event
-      text: Learn more about the portal editor
-    text: Pick datasets, add and reorder pages, and upload images in minutes
-    headline: Easy online editor
+      color: quaternary
+      text: See what you can do with search filters
+      internal_link: features/custom-search.md
+    headline: Customized search filters
+    text: Configure search fields specific to your science topics
   - template: feature-detailed
     image:
       template: image
-      type: default
+      type: tilt-left
+      src: uploads/portal-editor.png
+      alttext: Search filters
+      title: Search filters
     type: right
     button:
       template: button
-      html_tag: a
-      type_attr: button
       type: internal page
-      color: secondary
-      internal_link: features/custom-search.md
-      icon:
-        template: icon
-        size: large
-        style: default
-      event:
-        title: DataONE Event
-      text: See what you can do with search filters
-    headline: Customized search filters
-    text: Configure search fields specific to your science topics
+      color: quaternary
+      internal_link: features/portal-editor.md
+      text: Portal editor in detail
+    text: Pick datasets, add and reorder pages, and upload images in minutes with the easy-to-use online portal editor
+    headline: Set up in minutes
   button:
     template: button
     type: internal page
-    color: secondary
+    color: primary
     internal_link: "/features"
     text: See a full list of features
 - template: section
@@ -151,19 +95,38 @@ page_sections:
   blocks:
   - template: columns
     num_cols: 3
+    alignment: left
     columns:
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       text: Access aggregated view and download metrics for datasets
       headline: Usage metrics
-      headline_link: "/features/usage-metrics"
-    - template: feature-simple
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Learn more
+        internal_link: "/features/usage-metrics"
+    - template: feature-detailed
+      type: top
       text: Aggregated FAIR metadata assessment scores
       headline: FAIR Assessments
-      headline_link: "/features/fair"
-    - template: feature-simple
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Learn more
+        internal_link: "/features/fair"
+    - template: feature-detailed
+      type: top
       headline: Citation reports
-      headline_link: "/features/citations"
       text: Find out who is citing your data
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Learn more
+        internal_link: "/features/citations"
 - template: section
   type: data-wave
   title: Make your data FAIR
@@ -216,41 +179,68 @@ page_sections:
   - template: columns
     num_cols: 3
     columns:
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: Your branding
       text: Customize your portal with the colors, logos, and images that reflect
         your project
-      headline_link: "/features/branding"
-    - template: feature-simple
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Learn more
+        internal_link: "/features/branding"
+    - template: feature-detailed
+      type: top
       headline: Your content
       text: Your portal pages can include visualizations of your research, a list
         of your team members, and any other custom content
-      headline_link: "/features/portal-content"
-    - template: feature-simple
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Learn more
+        internal_link: "/features/portal-content"
+    - template: feature-detailed
+      type: top
       headline: Your supporters
       text: Acknowledge the people and organizations that support your project by
         adding their logos to your portal
 - template: section
-  type: default
+  type: wave
   title: See what others are doing with DataONE Plus portals
   blocks:
   - template: columns
     num_cols: 2
     columns:
-    - template: feature-simple
-      headline: State of Alaska's Salmon and People
-      headline_link: https://knb.ecoinformatics.org/portals/sasap
-      text: A collaboration of researchers, cultural leaders, and others working to
+    - template: card
+      clickable: true
+      href: https://knb.ecoinformatics.org/portals/sasap
+      image:
+        template: image
+        src: https://knb.ecoinformatics.org/knb/d1/mn/v2/object/urn:uuid:119331ce-43fa-43e2-bba6-86ea60bb780c
+        alttext: Image from the SASAP Portal
+        title: State of Alaska's Salmon and People portal
+        type: tilt-left
+      title: State of Alaska's Salmon and People
+      description: A collaboration of researchers, cultural leaders, and others working to
         bring together important, accurate, and up-to-date information that will help
         to support better salmon decision-making. The State of Alaska's Salmon and
         People uses a DataONE Plus portal to communicate the results of their research
         with multiple pages of text, maps, data visualizations. They use custom search
         filters to let visitors find data by Alaskan region, salmon species, waterbody,
         and more.
-    - template: feature-simple
-      headline: Distributed Biological Observatory
-      headline_link: https://arcticdata.io/catalog/portals/DBO
-      text: Studying biological responses to rapid physical changes in the Arctic
+    - template: card
+      clickable: true
+      image:
+        template: image
+        src: https://arcticdata.io/metacat/d1/mn/v2/object/urn:uuid:fc5c0db6-fff1-4647-acd5-18b976d27727
+        alttext: Image from the DBO Portal
+        title: Distributed Biological Observatory portal
+        type: tilt-left
+      href: https://arcticdata.io/catalog/portals/DBO
+      title: Distributed Biological Observatory
+      description: Studying biological responses to rapid physical changes in the Arctic
         marine ecosystem. The Distributed Biological Observatory uses a DataONE Plus
         portal to communicate their project's goals and history, house their extensive
         list of publications and showcase usage of their data, including citations.
