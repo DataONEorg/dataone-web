@@ -96,6 +96,27 @@ page_sections:
         title: DataONE Event
     headline: All of your data in one place
     text: Create a catalog of your team's data that spans the DataONE network
+  - template: feature-detailed
+    image:
+      template: image
+      type: default
+    type: right
+    button:
+      template: button
+      html_tag: a
+      type_attr: button
+      type: internal page
+      color: secondary
+      internal_link: features/portal-editor.md
+      icon:
+        template: icon
+        size: large
+        style: default
+      event:
+        title: DataONE Event
+      text: Learn more about the portal editor
+    text: Pick datasets, add and reorder pages, and upload images in minutes
+    headline: Easy online editor
   button:
     template: button
     type: internal page
