@@ -94,6 +94,8 @@ page_sections:
         style: default
       event:
         title: DataONE Event
+    headline: All of your data in one place
+    text: Create a catalog of your team's data that spans the DataONE network
   button:
     template: button
     type: internal page
