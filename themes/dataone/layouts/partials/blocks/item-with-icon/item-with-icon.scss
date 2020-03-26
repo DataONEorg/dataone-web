@@ -5,22 +5,23 @@
 
   &__icon {
     svg {
-      fill        : $c-secondary;
-      margin-top  : calc(#{1rem} + 4px);
+      fill        : col($c-secondary, 6);
+      margin-top  : calc(#{1.25rem} + 4px);
       margin-right: 2px;
     }
   }
 
   &__paragraph {
     margin-top : 1rem;
-    font-size  : 1.15rem;
+    font-size  : 1.2rem;
     line-height: 1.6;
   }
 
   &__emphasis {
     font-style : normal;
-    font-weight: 500;
-    color      : col($c-secondary, 5);
+    font-weight: 600;
+    color      : col($c-neutral, 6);
+    font-size: 1.25rem;
   }
 
   &--dark-background {
@@ -30,13 +31,26 @@
     }
 
     .item-with-icon__emphasis {
-      color      : col($c-secondary, 4);
+      color      : col($c-primary, 5);
       font-weight: 600;
       text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 9), 0.6);
     }
 
     .item-with-icon__icon svg {
-      fill: col($c-secondary, 4);
+      fill: col($c-primary, 5);
+    }
+  }
+
+}
+
+.theme-quaternary{
+  .item-with-icon--dark-background{
+    .item-with-icon__emphasis {
+      color      : col($c-quaternary, 5);
+    }
+
+    .item-with-icon__icon svg {
+      fill: col($c-quaternary, 5);
     }
   }
 }

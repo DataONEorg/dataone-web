@@ -22,6 +22,17 @@
 	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}
 {{ end }}
 
+<!-- Icon on the right -->
+{{ $iconRight := "" }}
+{{ if and (eq .Block.color "quaternary") (eq $type "internal page") }}
+	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
+	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
+{{ end }}
+{{ if or (eq $type "external website") (eq $type "donate") }}
+	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
+	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
+{{ end }}
+
 <!-- 'add to calendar' button type uses a very different layout -->
 {{ if eq $type "add to calendar" }}
 	{{ $buttonBlock := merge .Block (dict "classes" $classes "icon" $icon ) }}
@@ -68,6 +79,7 @@
 	{{- with .Block.text -}}
 		<span class="button__text">{{ . }}</span>
 	{{- end -}}
+	{{ $iconRight }}
 
 	{{ printf "</%s>" $htmlTag  | safeHTML }}
 

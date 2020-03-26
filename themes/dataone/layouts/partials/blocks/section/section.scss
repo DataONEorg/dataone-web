@@ -33,7 +33,7 @@
     width      : 100%;
     margin     : 2rem auto 3rem;
     text-align : center;
-    font-size  : 2.3rem;
+    font-size  : 2.4rem;
     line-height: 1.5;
     font-family: 'Martel', serif;
     font-weight: 700;
@@ -50,7 +50,7 @@
 
   &__intro {
     margin       : 0 auto 1rem;
-    font-size    : 1.33rem;
+    font-size    : 1.45rem;
     line-height  : 1.5;
     font-weight  : 400;
     margin-bottom: 2rem;
@@ -173,23 +173,27 @@
   }
 
   .section__title {
-    color      : tint(col($c-secondary, 5), 10%);
+    color      : mix(col($c-neutral, 4), col($c-secondary,5), 60%);
     font-weight: 900;
+    letter-spacing: 0.01em;
     text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), 1);
   }
 
   .section__intro {
-    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), 0.5);
+    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 8), 0.5);
   }
 }
 
 .section--card {
   background-color: col($c-secondary, 1);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   .section__inner {
     @include card;
     @include limit-width;
     margin : 5rem $mobile-lr-padding;
+    padding-bottom: 2rem;
     @include desktop {
       margin: 6rem auto;
       padding: 5rem 3.5rem;
@@ -197,12 +201,6 @@
     }
   }
 
-  .section__intro {
-    font-size: 1.2rem;
-    @include desktop {
-      font-size: 1.4rem;
-    }
-  }
 }
 
 .section--secondary-light {
@@ -301,9 +299,27 @@ $paddingBottom: 20rem; // for footer;
 // Styles for pages with themes
 
 .theme-quaternary {
-  .section--data-wave {
-    .section__title {
-      // color: col($c-quaternary, 6);
+  .section {
+    &__title{
+      strong{
+        background: col($c-quaternary, 2);
+        border-radius: 4px;
+        color: col($c-quaternary, 5);
+        padding: 0 0.3em;
+      }
+    }
+    
+    &__icon{
+      display: flex;
+      stroke: col($c-quaternary, 5);
+      padding: 1.5rem;
+      border-radius: 50%;
+      background-color: col($c-quaternary, 2);
     }
   }
+  
+  // .section--bold {
+  //   background-color: col($c-quaternary, 5);
+  //   color           : col($c-quaternary, 1);
+  // }
 }

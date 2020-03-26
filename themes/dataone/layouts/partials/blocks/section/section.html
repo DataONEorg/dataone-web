@@ -40,10 +40,10 @@
       </div>
     {{ end }}
     <div class="{{ $bn }}__inner">
-      {{ if  partial "functions/hasValues" .Block.icon }}
+      {{ if partial "functions/hasValues" .Block.icon }}
         {{- with .Block.icon -}}
           <div class="{{ $bn }}__icon">
-            {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
+            {{- partial "blocks/line-icon/line-icon" (dict "Block" . "Page" $page) -}}
           </div>
         {{- end -}}
       {{ end }}

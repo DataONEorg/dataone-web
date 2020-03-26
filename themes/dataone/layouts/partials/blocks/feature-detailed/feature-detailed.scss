@@ -111,16 +111,17 @@
   }
 
   &--dark-background {
-    color      : col($c-neutral, 1);
+    color      : col($c-secondary, 2);
     text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 8), 1);
     font-weight: 500;
 
     .feature-detailed__title {
-      color      : col($c-neutral, 2);
+      color      : white;
       font-weight: 700;
+      letter-spacing: 0.065em;
     }
     .feature-detailed__intro{
-      color      : col($c-neutral, 1);
+      color      : col($c-secondary, 2);
     }
   }
 }

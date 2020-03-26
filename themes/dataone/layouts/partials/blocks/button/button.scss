@@ -7,7 +7,7 @@
   font-weight     : 600;
   text-transform  : uppercase;
   letter-spacing  : .025em;
-  font-size       : $fs-button;
+  font-size       : 1rem;
   background-color: col($c-neutral, 7);
   color           : col($c-neutral, 1);
   overflow        : hidden;
@@ -42,10 +42,16 @@
     display     : flex;
     align-items : center;
     margin-right: 9px;
+    transition      : all .2s;
 
     svg {
       stroke: white;
     }
+  }
+  
+  &__icon--right {
+    margin-right: 0;
+    margin-left: 6px;
   }
 }
 
@@ -88,11 +94,13 @@
 }
 
 .button--col-quaternary {
+  $main-color: lighten($c-secondary, 4%);
+  $hover-color: lighten($main-color, 7%);
   white-space     : normal;
-  font-size       : 0.95rem;
+  font-size       : 1.1rem;
   background-color: transparent;
-  color           : $c-secondary;
-  display         : inline-block;
+  color           : $main-color;
+  display         : inline-flex;
   padding         : 0;
   width           : auto;
   height          : auto;
@@ -100,13 +108,16 @@
   box-shadow      : none;
 
   .button__icon svg {
-    stroke: $c-secondary;
+    stroke: $main-color;
   }
 
   &:hover {
     background-color: transparent;
-    color           : lighten($c-secondary, 5%);
+    color           : $hover-color;
     box-shadow      : none;
+    .button__icon svg {
+      stroke: $hover-color;
+    }
   }
 }
 // SEARCH BUTTON
@@ -160,6 +171,6 @@
   }
   
   .button--col-quaternary{
-    color           : col($c-quaternary, 5);
+    // color           : col($c-quaternary, 5);
   }
 }

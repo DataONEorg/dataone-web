@@ -34,7 +34,7 @@ header:
 page_sections:
 - template: section
   type: default
-  title: "Showcase your team’s goals & results  \nwith branded portals"
+  title: "Showcase your team's goals & results with  \n **branded portals**"
   intro: Create a custom, branded portal for your research topic or lab group that
     spans repositories in the DataONE network. Branded portals provide a convenient,
     readily customized way to communicate your science, your team, your data, and
@@ -62,7 +62,7 @@ page_sections:
       template: button
       type: internal page
       color: quaternary
-      text: See what you can do with search filters
+      text: Custom search options
       internal_link: features/custom-search.md
     headline: Customized search filters
     text: Configure search fields specific to your science topics
@@ -87,58 +87,16 @@ page_sections:
     type: internal page
     color: primary
     internal_link: "/features"
-    text: See a full list of features
-- template: section
-  type: wave
-  title: Data about your data
-  intro: 
-  blocks:
-  - template: columns
-    num_cols: 3
-    alignment: left
-    columns:
-    - template: feature-detailed
-      type: top
-      text: Access aggregated view and download metrics for datasets
-      headline: Usage metrics
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Learn more
-        internal_link: "/features/usage-metrics"
-    - template: feature-detailed
-      type: top
-      text: Aggregated FAIR metadata assessment scores
-      headline: FAIR Assessments
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Learn more
-        internal_link: "/features/fair"
-    - template: feature-detailed
-      type: top
-      headline: Citation reports
-      text: Find out who is citing your data
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Learn more
-        internal_link: "/features/citations"
+    text: Explore all features
 - template: section
   type: data-wave
-  title: Make your data FAIR
-  intro: Ensure your data is Findable, Accessible, Interoperable, and Reusable
-  button:
-    template: button
-    type: external website
-    color: secondary
-    text: Learn more about FAIR
-    external_link: "/features/fair"
+  title: Data about your data
+  intro: With access to information about the datasets in your portal, you can monitor how your data is being used and assess its quality based on community established scores.
   blocks:
   - template: feature-detailed
+    headline: Make your data FAIR
+    text: Access aggregated FAIR metadata assessment scores. Improve data discovery, accessibility, interoperability, and reusability
+      with a quantitative metadata assessment using the FAIR principles.
     type: right
     image:
       template: image
@@ -146,9 +104,6 @@ page_sections:
       alttext: FAIR metrcis report
       title: FAIR metrcis report
       type: tilt-left
-    headline: 
-    text: Improve data discovery, accessibility, interoperability, and reusability
-      with a quantitative metadata assessment using the FAIR principles
     details:
     - template: item-with-icon
       name: Time series charts
@@ -167,17 +122,51 @@ page_sections:
         size: small
         style: secondary
         template: icon
+    button:
+      template: button
+      type: internal page
+      color: quaternary
+      text: More about FAIR
+      internal_link: "/features/fair"
+  - template: columns
+    num_cols: 2
+    alignment: left
+    columns:
+    - template: feature-detailed
+      type: top
+      text: Access aggregated view and download metrics for datasets
+      headline: Usage metrics
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: View & Download Metrics
+        internal_link: "/features/usage-metrics"
+    - template: feature-detailed
+      type: top
+      headline: Citation reports
+      text: Find out who is citing your data
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Data citations
+        internal_link: "/features/citations"
 - template: section
   type: default
+  icon:
+    icon: image
+    color: inherit
+    size: large
   title: Customized to match your project
-  intro: 
+  intro: Add custom content and branding
   blocks:
   - template: image
     src: uploads/portals-branding.png
     alttext: FAIR metrcis report
     title: FAIR metrcis report
   - template: columns
-    num_cols: 3
+    num_cols: 2
     columns:
     - template: feature-detailed
       type: top
@@ -188,7 +177,7 @@ page_sections:
         template: button
         type: internal page
         color: quaternary
-        text: Learn more
+        text: See branding options
         internal_link: "/features/branding"
     - template: feature-detailed
       type: top
@@ -199,13 +188,8 @@ page_sections:
         template: button
         type: internal page
         color: quaternary
-        text: Learn more
+        text: Learn more about custom content
         internal_link: "/features/portal-content"
-    - template: feature-detailed
-      type: top
-      headline: Your supporters
-      text: Acknowledge the people and organizations that support your project by
-        adding their logos to your portal
 - template: section
   type: wave
   title: See what others are doing with DataONE Plus portals
@@ -248,22 +232,28 @@ page_sections:
         name from a custom dropdown menu.
 - template: section
   type: default
+  icon:
+    icon: book-open
+    color: inherit
+    size: large
   title: Access to DataONE expertise
   blocks:
   - template: columns
     num_cols: 2
     columns:
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: Consulting services
       text: Custom design, data curation, and management consulting are available
         at hourly rates
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: Discounted training
       text: Take advantage of discounted pricing for data science and data management
         training courses
 - template: section
   type: card
-  title: Need more? Add a dedicated hosted repository
+  title: Need more? **Add a dedicated hosted repository**
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository
     server and MetacatUI search and metadata management web clients. Trusted by many
@@ -272,14 +262,9 @@ page_sections:
   button:
     template: button
     type: internal page
-    color: secondary
+    color: quaternary
     text: More about hosted repositories
     internal_link: hostedrepo/_index.md
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   blocks: []
 - template: section
   type: bold
@@ -287,11 +272,6 @@ page_sections:
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
     when these services are ready for your organization.
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   blocks:
   - template: join-form
     precheck_hostedrepo: false
