@@ -42,29 +42,14 @@ page_sections:
       template: feature-simple
       text: Control access to your datasets prior to publication with collaborative
         groups or just keep it private
-      icon:
-        name: private-public-access
-        size: large
-        style: default
-        template: icon
     - headline: Usage metrics
       template: feature-simple
       text: Understand how your data are being used over time with view, download,
         and citation metrics
-      icon:
-        name: metrics
-        size: large
-        style: default
-        template: icon
     - headline: Scalable storage
       template: feature-simple
       text: Grow your 1 TB repository capacity based on your storage needs in 1 TB
         increments
-      icon:
-        name: scalable-storage
-        size: large
-        style: default
-        template: icon
   - image:
       template: image
       src: uploads/geographic-replicas.png
@@ -82,19 +67,21 @@ page_sections:
       text: All data and metadata are replicated to two geographically independent
         data centers in California and Tennessee
       icon:
-        name: checkmark
-        size: small
-        style: secondary
         template: icon
+        icon: check
+        size: small
+        color: secondary
+        stroke: thicker
     - name: Customization
       template: item-with-icon
       text: Brand your data repository with customized features allowing you to connect
         directly with your community.
       icon:
-        name: checkmark
-        size: small
-        style: secondary
         template: icon
+        icon: check
+        size: small
+        color: secondary
+        stroke: thicker
   - details:
     - template: item-with-icon
       name: Custom DOI prefix
@@ -102,18 +89,20 @@ page_sections:
         code
       icon:
         template: icon
-        name: checkmark
+        icon: check
         size: small
-        style: secondary
+        color: secondary
+        stroke: thicker
     - template: item-with-icon
       name: Custom domain name
       text: Your repository is available at a domain of your choice, but hosted by
         DataONE
       icon:
         template: icon
-        name: checkmark
+        icon: check
         size: small
-        style: secondary
+        color: secondary
+        stroke: thicker
     image:
       template: image
       src: uploads/custom-domain-and-doi.png
@@ -189,29 +178,14 @@ page_sections:
     num_cols: 3
     columns:
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: advanced-search
       headline: Comprehensive search
       text: Quickly find data with detailed search filters, or by navigating the interactive
         map
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: any-file-format
       headline: Any file format
       text: 'Use the scientific file formats for your community: image, tabular, text,
         audio, video, and others'
     - template: feature-simple
-      icon:
-        template: icon
-        size: large
-        style: default
-        name: provenance
       headline: Link data and software
       text: Easily show how your files relate to each other by providing well-described
         provenance workflows

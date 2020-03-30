@@ -35,7 +35,7 @@
           <a class="{{ $bn }}__sitemap-link" href="https://www.dataone.org" title="Archived content from the old version of the DataONE website">
             Old Website
             {{ $iconBlock := dict "icon" "external-link" "color" "inherit" "size" "small" "stroke" "thicker"}}
-            {{ partial "blocks/line-icon/line-icon" (dict "Block" $iconBlock "Page" $page) }}
+            {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
           </a>
         </span>
       </li>
@@ -44,7 +44,7 @@
         <span class="{{ $bn }}__sitemap-header">
           <a class="{{ $bn }}__sitemap-link" href="https://search.dataone.org" title="Search for or browse environmental data on the DataONE network">
             {{ $iconBlock := dict "icon" "search" "color" "inherit" "size" "small" "stroke" "thicker"}}
-            {{ partial "blocks/line-icon/line-icon" (dict "Block" $iconBlock "Page" $page) }}
+            {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
             Find Data
           </a>
         </span>

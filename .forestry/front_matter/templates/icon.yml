@@ -7,7 +7,7 @@ fields:
   name: template
   label: Template
   hidden: true
-  default: line-icon
+  default: icon
 - type: text
   name: icon
   label: Icon name
@@ -26,9 +26,9 @@ fields:
     - medium
     - large
 - type: select
-  label: Icon Style
+  label: Icon Color
   name: color
-  description: The fill colour to use for the icon
+  description: The stroke colour to use for the icon
   default: default
   config:
     source:
@@ -36,6 +36,10 @@ fields:
     options:
     - default
     - white
+    - primary
+    - secondary
+    - tertiary
+    - quaternary
     - inherit
 - type: select
   label: Line width
@@ -47,4 +51,5 @@ fields:
       type: simple
     options:
     - default
+    - thinner
     - thicker

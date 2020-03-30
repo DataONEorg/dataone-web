@@ -1,38 +1,65 @@
+// ===== FEATHER ICONS ===== 
+// see https://github.com/feathericons/feather
 
 .icon {
-  margin: 0;
-  svg{
-    display: block;
+  width          : 24px;
+  height         : 24px;
+  stroke         : col($c-neutral, 7);
+  stroke-width   : 1.5;
+  stroke-linecap : round;
+  stroke-linejoin: round;
+  fill           : none;
+
+  &--sz-tiny {
+    width        : 14px;
+    height       : 14px;
+    margin-bottom: -3px;
+    margin-top   : -3px;
+    stroke-width : 1.5px;
   }
-}
 
-.icon--sz-small {
-  width: 20px;
-  height: 20px;
-}
-.icon--sz-medium {
-  width: 45px;
-  height: 45px;
-}
-.icon--sz-large {
-  width: 65px;
-  height: 65px;
-}
-
-.icon--c-primary{
-  svg{
-    fill: $c-primary;
+  &--sz-small {
+    width        : 18px;
+    height       : 18px;
+    margin-bottom: -3px;
+    margin-top   : -2px;
+    stroke-width : 1.5px;
   }
-}
 
-.icon--c-secondary{
-  svg{
-    fill: $c-secondary;
+  &--sz-large {
+    width : 32px;
+    height: 32px;
   }
-}
 
-.icon--c-secondary-subtle{
-  svg{
-    fill: desaturate(lighten($c-secondary, 25%), 10%);
+  &--col-white {
+    stroke: white;
+  }
+
+  &--col-primary {
+    stroke: col($c-primary, 5);
+  }
+
+  &--col-secondary {
+    stroke: col($c-secondary, 5);
+  }
+
+  &--col-tertiary {
+    stroke: col($c-tertiary, 5);
+  }
+
+  &--col-quaternary {
+    stroke: col($c-quaternary, 5);
+  }
+
+  &--col-inherit {
+    stroke: inherit;
+  }
+
+  &--str-thinner {
+    stroke-width: 1;
+  }
+
+  &--str-thicker {
+    stroke-width: 2.5;
   }
 }

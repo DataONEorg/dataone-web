@@ -110,18 +110,20 @@ page_sections:
       text: Discover how FAIR scores change over time through time series charts in
         your DataONE Plus portal
       icon:
-        name: checkmark
-        size: small
-        style: secondary
         template: icon
+        icon: check
+        size: small
+        color: quaternary
+        stroke: thicker
     - template: item-with-icon
       name: Detailed analysis
       text: Drill down into detailed FAIR reports for individual datasets
       icon:
-        name: checkmark
-        size: small
-        style: secondary
         template: icon
+        icon: check
+        size: small
+        color: quaternary
+        stroke: thicker
     button:
       template: button
       type: internal page

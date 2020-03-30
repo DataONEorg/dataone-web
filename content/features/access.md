@@ -20,22 +20,6 @@ header:
     type: subscribe form
     color: primary
     text: Join the waitlist
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      name: ''
-      size: ''
-      style: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
   - template: button
     type: contact
     color: secondary
@@ -45,11 +29,6 @@ header:
     type_attr: ''
     external_link: ''
     internal_link: ''
-    icon:
-      template: ''
-      name: ''
-      size: ''
-      style: ''
     event:
       title: ''
       description: ''
@@ -66,11 +45,6 @@ page_sections:
 - type: default
   template: section
   id: ''
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   title: ''
   intro: ''
   blocks: []
@@ -84,11 +58,6 @@ page_sections:
     text: ''
     external_link: ''
     internal_link: ''
-    icon:
-      template: ''
-      name: ''
-      size: ''
-      style: ''
     event:
       title: ''
       description: ''
@@ -108,11 +77,6 @@ page_sections:
     precheck_newsletter: false
     newsletter_only: false
   id: ''
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
   button:
     template: ''
     html_tag: ''
@@ -123,11 +87,6 @@ page_sections:
     text: ''
     external_link: ''
     internal_link: ''
-    icon:
-      template: ''
-      name: ''
-      size: ''
-      style: ''
     event:
       title: ''
       description: ''

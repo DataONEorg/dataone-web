@@ -18,11 +18,11 @@
 
 <!-- Phone icon -->
 {{ $phoneIconBlock := dict "icon" "phone" "size" "small" "color" "inherit" }}
-{{ $phoneIcon := partial "blocks/line-icon/line-icon" (dict "Block" $phoneIconBlock "Page" $page) }}
+{{ $phoneIcon := partial "blocks/icon/icon" (dict "Block" $phoneIconBlock "Page" $page) }}
 
 <!-- Number icon -->
 {{ $numberIconBlock := dict "icon" "hash" "size" "small" "color" "inherit" }}
-{{ $numberIcon := partial "blocks/line-icon/line-icon" (dict "Block" $numberIconBlock "Page" $page) }}
+{{ $numberIcon := partial "blocks/icon/icon" (dict "Block" $numberIconBlock "Page" $page) }}
 
 <!-- Join now button -->
 {{ $buttonBlock := dict "color" "primary" "text" "Join via ZOOM" "type" "external website" "external_link" $meetingLink }}

@@ -21,7 +21,7 @@
     display     : grid;
     justify-self: center;
     @include limit-width;
-    padding     : 7rem $mobile-lr-padding;
+    padding     : 6rem $mobile-lr-padding;
     position    : relative;
   }
 

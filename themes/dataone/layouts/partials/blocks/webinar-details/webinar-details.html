@@ -70,7 +70,7 @@
 
       <!-- VIDEO ... =============== -->
       {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
-      {{ $videoIcon := partial "blocks/line-icon/line-icon" (dict "Block" $videoIconBlock "Page" $page) }}
+      {{ $videoIcon := partial "blocks/icon/icon" (dict "Block" $videoIconBlock "Page" $page) }}
       {{ $videoBlock := dict "ID" $video }}
 
       <span class="{{ $bn }}__video-title"><span class="{{ $bn }}__video-icon">{{ $videoIcon }}</span>

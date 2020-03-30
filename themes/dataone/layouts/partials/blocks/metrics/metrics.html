@@ -21,7 +21,7 @@
         {{ partial "functions/roundMillsOrThous" $metrics.downloads.data }}
       </div>
       <div class="metrics__name">
-        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Data downloaded
+        <span class="metrics__icon">{{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Data downloaded
       </div>
     </div>
     
@@ -30,7 +30,7 @@
         {{ partial "functions/roundMillsOrThous" $metrics.downloads.metadata }}
       </div>
       <div class="metrics__name">
-        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata downloaded
+        <span class="metrics__icon">{{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata downloaded
       </div>
     </div>
     
@@ -39,14 +39,14 @@
   <!-- UPLOADS -->
   
   <div class="metrics__group metrics__uploads">
-    <!-- <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud")) -}}</span> -->
+    <!-- <span class="metrics__icon">{{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "upload-cloud")) -}}</span> -->
     
     <div class="metrics__metric metrics__uploads-data">
       <div class="metrics__integer">
         {{ partial "functions/roundMillsOrThous" $metrics.uploads.data }}
       </div>
       <div class="metrics__name">
-        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Data uploaded
+        <span class="metrics__icon">{{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Data uploaded
       </div>
     </div>
     
@@ -55,7 +55,7 @@
         {{ partial "functions/roundMillsOrThous" $metrics.uploads.metadata }}
       </div>
       <div class="metrics__name">
-        <span class="metrics__icon">{{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata uploaded
+        <span class="metrics__icon">{{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "upload-cloud" "color" "inherit" "size" "small")) -}}</span> Metadata uploaded
       </div>
     </div>
   

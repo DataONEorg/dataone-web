@@ -16,11 +16,6 @@ page_sections:
   title: ''
   intro: ''
   blocks: []
-  icon:
-    template: ''
-    name: ''
-    size: ''
-    style: ''
 menu:
   toplevel:
     parent: Community

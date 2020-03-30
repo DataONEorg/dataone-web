@@ -43,7 +43,7 @@
       {{ if partial "functions/hasValues" .Block.icon }}
         {{- with .Block.icon -}}
           <div class="{{ $bn }}__icon">
-            {{- partial "blocks/line-icon/line-icon" (dict "Block" . "Page" $page) -}}
+            {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
           </div>
         {{- end -}}
       {{ end }}

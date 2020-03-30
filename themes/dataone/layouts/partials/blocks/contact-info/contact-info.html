@@ -15,7 +15,7 @@
   {{ if not $hideLocation }}
     <div class="{{ $bn }}__location">
 
-      {{ partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
+      {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
       <div>
         {{ partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
       </div>
@@ -25,7 +25,7 @@
     <div class="{{ $bn }}__socials">
       {{ range $name, $link := $page.Site.Params.social }}
         <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">
-          {{ partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
+          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
         </a>
       {{ end }}
     </div>

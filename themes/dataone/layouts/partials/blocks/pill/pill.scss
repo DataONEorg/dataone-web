@@ -19,7 +19,9 @@
   white-space    : nowrap;
 
   &__icon {
-    padding-right: .03em;
+    padding-right: .4em;
+    display      : flex;
+    align-items  : center;
   }
 
   &--secondary {

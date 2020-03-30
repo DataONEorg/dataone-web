@@ -9,13 +9,13 @@
 
 <!-- Icons -->
 {{ $dateIconBlock := dict "icon" "calendar" "size" "small" "color" "inherit" }}
-{{ $dateIcon := partial "blocks/line-icon/line-icon" (dict "Block" $dateIconBlock "Page" $page) }}
+{{ $dateIcon := partial "blocks/icon/icon" (dict "Block" $dateIconBlock "Page" $page) }}
 
 {{ $timeIconBlock := dict "icon" "clock" "size" "small" "color" "inherit" }}
-{{ $timeIcon := partial "blocks/line-icon/line-icon" (dict "Block" $timeIconBlock "Page" $page) }}
+{{ $timeIcon := partial "blocks/icon/icon" (dict "Block" $timeIconBlock "Page" $page) }}
 
 {{ $durationIconBlock := dict "icon" "watch" "size" "small" "color" "inherit" }}
-{{ $durationIcon := partial "blocks/line-icon/line-icon" (dict "Block" $durationIconBlock "Page" $page) }}
+{{ $durationIcon := partial "blocks/icon/icon" (dict "Block" $durationIconBlock "Page" $page) }}
 
 <!-- Date/Time blocks -->
 {{ $dateBlock := dict "time" $t "change_timezone" false "format" "Mon 02 Jan 2006" }}

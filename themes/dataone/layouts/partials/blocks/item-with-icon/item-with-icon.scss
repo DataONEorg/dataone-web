@@ -5,7 +5,6 @@
 
   &__icon {
     svg {
-      fill        : col($c-secondary, 6);
       margin-top  : calc(#{1.25rem} + 4px);
       margin-right: 2px;
     }
@@ -21,7 +20,7 @@
     font-style : normal;
     font-weight: 600;
     color      : col($c-neutral, 6);
-    font-size: 1.25rem;
+    font-size  : 1.25rem;
   }
 
   &--dark-background {
@@ -36,21 +35,16 @@
       text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 9), 0.6);
     }
 
-    .item-with-icon__icon svg {
-      fill: col($c-primary, 5);
-    }
+    .item-with-icon__icon svg {}
   }
-
 }
 
-.theme-quaternary{
-  .item-with-icon--dark-background{
+.theme-quaternary {
+  .item-with-icon--dark-background {
     .item-with-icon__emphasis {
-      color      : col($c-quaternary, 5);
+      color: col($c-quaternary, 5);
     }
 
-    .item-with-icon__icon svg {
-      fill: col($c-quaternary, 5);
-    }
+    .item-with-icon__icon svg {}
   }
 }

@@ -7,6 +7,10 @@
 {{ with $numCols }}
   {{ $classes = print $classes " " $bn "--" . "cols" }}
 {{ end }}
+<!-- checkmark icon -->
+{{ $checkCol := .Block.check_col | default "secondary" }}
+{{ $checkBlock := dict "icon" "check" "size" "small" "color" "secondary" "stroke" "thicker" }}
+{{ $check := partial "blocks/icon/icon" (dict "Block" $checkBlock "Page" $page) }}
 
 <div class="{{ $classes }}">
   {{ with .Block.title }}
@@ -16,7 +20,7 @@
     <ul class="{{ $bn }}__items">
       {{- range . -}}
         <li class="{{ $bn }}__item">
-          <div class="{{ $bn }}__checkmark">{{- partial "icons/checkmark.svg" -}}</div>{{ . }}</li>
+          <div class="{{ $bn }}__checkmark">{{ $check }}</div>{{ . }}</li>
       {{- end -}}
     </ul>
   {{- end -}}

@@ -16,6 +16,20 @@ fields:
   label: List items
   description: The text items to show in the checklist
 - type: select
+  name: check_col
+  label: Checkmark colour
+  description: Which colour should the checkmark be?
+  default: secondary
+  config:
+    source:
+      type: simple
+    options:
+    - white
+    - primary
+    - secondary
+    - tertiary
+    - quaternary
+- type: select
   name: num_cols
   label: Number of Columns
   description: How many columns should the checklist use

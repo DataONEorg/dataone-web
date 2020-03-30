@@ -20,7 +20,7 @@
     <span class="{{ $classes }}">
       {{- if ne $icon "none" -}}
         <span class="pill__icon">
-          {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit")) -}}
+          {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit" "stroke" "thicker")) -}}
         </span>
       {{- end -}}
       {{- .Block.text -}}

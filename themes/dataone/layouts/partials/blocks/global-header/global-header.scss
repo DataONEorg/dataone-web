@@ -62,7 +62,7 @@ $icon-color: col($c-neutral, 1);
     &:focus {
       .toplevel-nav__button-icon {
         svg {
-          stroke: col($c-primary, 4); // for the line-icons
+          stroke: col($c-primary, 4); // for the icons
           // fill: col($c-primary, 4); // for the home-icon (logo)
         }
       }

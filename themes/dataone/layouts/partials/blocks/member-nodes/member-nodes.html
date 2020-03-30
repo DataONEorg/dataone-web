@@ -23,7 +23,7 @@
 
       <button class="member-nodes__toc-button" id="toc-toggle" aria-label="Show table of contents" aria-expanded="true" aria-controls="member-nodes-toc">
         <span class="member-nodes__button-icon">
-          {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "list" "color" "inherit")) -}}
+          {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "list" "color" "inherit")) -}}
         </span>
       </button>
 
@@ -80,12 +80,12 @@
               <div class="member-nodes__links">
                 {{ with .profile }}
                   <a class="member-nodes__link" href="{{ . }}" title="Member node statistics">
-                    {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
+                    {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "bar-chart-2")) -}}
                   </a>
                 {{ end }}
                 {{ with .homepage }}
                   <a class="member-nodes__link" href="{{ . }}" title="Member node homepage">
-                    {{- partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "home")) -}}
+                    {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "home")) -}}
                   </a>
                 {{ end }}
               </div>

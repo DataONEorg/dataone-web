@@ -18,18 +18,18 @@
 <!-- icon -->
 {{ $icon := "" }}
 {{ if and .Block.icon .Block.icon.icon (ne .Block.icon.icon "") (ne .Block.icon.icon " " ) }}
-	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" .Block.icon "Page" $page ) }}
+	{{ $svg := partial "blocks/icon/icon" (dict "Block" .Block.icon "Page" $page ) }}
 	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}
 {{ end }}
 
 <!-- Icon on the right -->
 {{ $iconRight := "" }}
 {{ if and (eq .Block.color "quaternary") (eq $type "internal page") }}
-	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
+	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
 	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
 {{ end }}
 {{ if or (eq $type "external website") (eq $type "donate") }}
-	{{ $svg := partial "blocks/line-icon/line-icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
+	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
 	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
 {{ end }}
 
