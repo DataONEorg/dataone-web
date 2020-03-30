@@ -32,10 +32,9 @@
 
   &__description {
     padding-top   : 0;
-    display       : grid;
-    grid-gap      : .5rem;
-    grid-auto-rows: auto;
+    display       : flex;
     height        : 100%;
+    flex-direction: column;
   }
 
   &__title-and-intro {
@@ -45,7 +44,7 @@
   }
 
   &__button {
-    margin-top: 0.3rem;
+    margin-top: 1rem;
   }
 
   &__intro {
@@ -54,7 +53,6 @@
     font-size  : 1.25rem;
     line-height: 1.5;
     margin     : 0 0 1rem;
-    
   }
 
   &__title {
@@ -67,6 +65,7 @@
       @include desktop {
         grid-template-columns: .55fr .45fr;
       }
+
       .feature-detailed__figure {
         order: 1;
       }
@@ -82,10 +81,11 @@
       display       : flex;
       flex-direction: column;
     }
-    
-    .feature-detailed__title-and-intro{
+
+    .feature-detailed__title-and-intro {
       justify-content: flex-start;
     }
+
     .feature-detailed__button {
       align-self: end;
     }
@@ -95,18 +95,19 @@
     }
 
     .feature-detailed__description {
-      order: 2;
+      order          : 2;
+      justify-content: space-between;
     }
 
     .feature-detailed__figure {
       margin-top   : 1rem;
       margin-bottom: 3rem;
+      display      : block;
     }
-    
   }
-  
-  &--no-image{
-    margin-top: 0;
+
+  &--no-image {
+    margin-top   : 0;
     margin-bottom: 1rem;
   }
 
@@ -116,12 +117,13 @@
     font-weight: 500;
 
     .feature-detailed__title {
-      color      : white;
-      font-weight: 700;
-      letter-spacing: 0.065em;
+      color         : white;
+      font-weight   : 700;
+      letter-spacing: .065em;
     }
-    .feature-detailed__intro{
-      color      : col($c-secondary, 2);
+
+    .feature-detailed__intro {
+      color: col($c-secondary, 2);
     }
   }
 }

@@ -14,6 +14,7 @@
   text-overflow   : ellipsis;
   padding         : 0 1.25em;
   width           : fit-content;
+  width           : -moz-fit-content;
   max-width       : calc(100vw - 2.5em);
   border-radius   : 2px;
   height          : 50px;
@@ -42,16 +43,16 @@
     display     : flex;
     align-items : center;
     margin-right: 9px;
-    transition      : all .2s;
+    transition  : all .2s;
 
     svg {
       stroke: white;
     }
   }
-  
+
   &__icon--right {
     margin-right: 0;
-    margin-left: 6px;
+    margin-left : 6px;
   }
 }
 
@@ -94,8 +95,8 @@
 }
 
 .button--col-quaternary {
-  $main-color: lighten($c-secondary, 4%);
-  $hover-color: lighten($main-color, 7%);
+  $main-color     : lighten($c-secondary, 4%);
+  $hover-color    : lighten($main-color, 7%);
   white-space     : normal;
   font-size       : 1.1rem;
   background-color: transparent;
@@ -115,6 +116,7 @@
     background-color: transparent;
     color           : $hover-color;
     box-shadow      : none;
+
     .button__icon svg {
       stroke: $hover-color;
     }
@@ -169,8 +171,8 @@
     background-color: white;
     color           : col($c-secondary, 5);
   }
-  
-  .button--col-quaternary{
+
+  .button--col-quaternary {
     // color           : col($c-quaternary, 5);
   }
 }
