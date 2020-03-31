@@ -1,0 +1,56 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "menu-item"}}
+<!-- classes to add to outer element -->
+{{ $classes := $bn }}
+<!-- settings for menu icons -->
+{{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
+
+<!-- whether the menu has a sub-menu -->
+{{ $hasSubmenu := false }}
+{{ with .Block.children  }}
+  {{ if (gt (len .) 1) }}
+    {{ $hasSubmenu = true }}
+  {{ end }}
+{{ end }}
+<!-- Add a class for items that are the active/current page -->
+{{ if .Block.is_active }}
+  {{ $classes = print $classes " " $bn "--active "}}
+{{ end }}
+<!-- add a class for submenu items -->
+{{ if $hasSubmenu }}
+  {{ $classes = print $classes " " $bn "--dropdown "}}
+{{ end }}
+<!-- Start of template -->
+<li class="{{ $classes }}">
+  {{ if not $hasSubmenu }}
+    <!-- regular link -->
+    <!-- Link to the page -->
+    <a class=" {{ $bn }}__link" href="{{ .Block.url }} " title="{{ .Block.title }}">
+      {{ .Block.name }}
+    </a>
+
+  {{ else }}
+    <!-- dropdown button with links below -->
+    <!-- button to open submenu -->
+    <button class="{{ $bn }}__dropdown-button" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Block.name }}">
+      {{ .Block.name }}
+      <span class="{{ $bn }}__dropdown-icon">
+        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "chevron-down" "size" "tiny")) "Page" $page) -}}
+      </span>
+    </button>
+    <!-- submenu -->
+    <ul class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
+      {{ range .Block.children }}
+        <li class="{{ $bn }}__sub-item">
+          <a class=" {{ $bn }}__sub-link" href="{{ .URL }} " title="{{ .Title }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    <!-- submenu arrow at top on desktop -->
+    <div class="{{ $bn }}__sub-menu-arrow"></div>
+  {{ end }}
+</li>

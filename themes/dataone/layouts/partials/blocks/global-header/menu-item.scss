@@ -1,0 +1,150 @@
+.menu-item {
+  // bn = block name, usage: #{ $bn } 
+  $bn       : &;
+  text-align: center;
+  height    : auto;
+  display   : block;
+  position  : relative;
+  @include desktop {
+    margin: .32rem .15rem;
+    height: auto;
+  }
+
+  &__dropdown-icon {
+    margin-top: -2px;
+    stroke    : $icon-color;
+    position  : relative;
+    top       : -1px;
+  }
+
+  &__link,
+  #{$bn}__dropdown-button {
+    @include button-reset;
+    text-decoration: none;
+    color          : col($c-neutral, 1);
+    white-space    : nowrap;
+    width          : 100%;
+    display        : block;
+    font-size      : 1.1rem;
+    font-weight    : 600;
+    line-height    : 3.3125rem;
+    letter-spacing : .03em;
+    @include desktop {
+      line-height: 1;
+      padding    : 1.375rem .625rem;
+      font-size  : 1.1rem;
+
+      &:hover {
+        color     : col($c-primary, 5);
+        transition: color .1s 0s ease-in-out;
+
+        #{$bn}__dropdown-icon {
+          stroke    : col($c-primary, 5);
+          transition: stroke .1s 0s ease-in-out;
+        }
+      }
+    }
+  }
+  // link when item is active
+  &--active {
+    #{$bn}__link {
+      color      : white;
+      font-weight: 800;
+    }
+  }
+
+  &__sub-menu {
+    padding-inline-start: 0;
+    transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
+    @include desktop {
+      position        : absolute;
+      background-color: col($c-neutral, 1);
+      display         : block;
+      border-radius   : 4px;
+      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
+      // center the menu
+      transform       : translate(-50%, 0);
+      left            : 50%;
+      padding         : 1rem 1.75rem;
+    }
+    // closed
+    max-height          : 0;
+    overflow            : hidden;
+    opacity             : 0;
+    visibility          : hidden;
+    // open
+    &[aria-hidden="false"] {
+      height    : auto;
+      max-height: 500px;
+      opacity   : 1;
+      visibility: visible;
+      // submenu arrow when menu is open
+      & ~ #{$bn}__sub-menu-arrow {
+        @include desktop {
+          bottom           : -5px;
+          transform        : translate(-50%, 0);
+          left             : 50%;
+          position         : absolute;
+          margin           : 0 0 0 -6px;
+          width            : 12px;
+          height           : 12px;
+          -webkit-transform: rotate(45deg);
+          transform        : rotate(45deg);
+          border-radius    : 4px 0 0 0;
+          background       : col($c-neutral, 1);
+          box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
+          opacity          : 1;
+        }
+      }
+    }
+  }
+
+  &__sub-menu-arrow {
+    opacity   : 0;
+    transition: opacity .2s 0s ease-in-out;
+  }
+
+  &__sub-link {
+    margin         : 0;
+    font-size      : 1.05rem;
+    line-height    : 1.5;
+    text-transform : uppercase;
+    font-weight    : 500;
+    letter-spacing : .03em;
+    display        : block;
+    text-decoration: none;
+    color          : col($c-neutral, 1);
+    white-space    : nowrap;
+    padding        : .5rem 0;
+
+    &--active {
+      color      : white;
+      font-weight: 600;
+    }
+    @include desktop {
+      color: col($c-neutral, 5);
+
+      &:hover {
+        color      : col($c-primary, 6);
+        transition : color .1s 0s ease-in-out;
+        font-weight: 600;
+      }
+
+      &--active {
+        color      : col($c-primary, 7);
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__sub-item {
+    text-align: center;
+    height    : auto;
+    display   : block;
+    position  : relative;
+    @include desktop {
+      margin: 5px 2px;
+      height: auto;
+    }
+  }
+}

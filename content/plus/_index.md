@@ -280,7 +280,7 @@ page_sections:
     precheck_plus: true
     precheck_newsletter: false
 menu:
-  toplevel:
+  bottom_nav:
     name: Plus
     weight: 1
   footer:

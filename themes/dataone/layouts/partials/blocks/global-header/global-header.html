@@ -4,119 +4,72 @@
 {{ $bn := "global-header"}}
 <!-- classes to add to outer element -->
 {{ $classes := $bn }}
-{{ $type := "" }}
 <!-- modifier classses based on section type -->
+{{ $type := "" }}
 {{ if eq .Kind "home" }}
   {{ $type = "homepage" }}
 {{ end }}
-{{ if eq .Type "webinars" }}
-  {{ $type = "webinar" }}
-{{ end }}
-
 {{ with $type}}
   {{ $classes = print $classes " " $bn "--" . }}
 {{ end }}
-<!-- modifier classes based on the page's header parameterss -->
-{{ if or (eq .Params.header.type "wave with dataone gradient") (eq .Type "webinars") (eq .Params.header.bkg_color "secondary-dark") }}
-  {{ $classes = print $classes " " $bn "--dark-bkg" }}
-{{ end }}
-
 <!-- settings for menu icons -->
 {{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
 
 <header class="{{$classes}}" id="global-header">
-  <nav class="toplevel-nav">
-
+  <nav class="nav">
     <!-- LOGO & HOME LINK -->
-    <a class="toplevel-nav__button toplevel-nav__button--logo" href="{{ .Site.BaseURL }}">
-      <span class="toplevel-nav__button-icon {{ if eq .Kind `home` }}toplevel-nav__button-icon--active{{end}}">
-        {{ $logoType := dict (slice "Block" "type") "global-nav" }}
-        {{- partial "blocks/logo/logo" $logoType -}}
+    <a class="nav__button nav__button--logo" href="{{ .Site.BaseURL }}">
+      <span class="nav__button-icon {{ if eq .Kind `home` }}nav__button-icon--active{{end}}">
+        {{- partial "blocks/logo/logo" (dict "Block" (dict "type" "global-nav")) -}}
       </span>
-      <span class="toplevel-nav__button-text {{ if eq .Kind `home` }}toplevel-nav__button-text--active{{end}}">Home</span>
+      <span class="nav__button-text {{ if eq .Kind `home` }}nav__button-text--active{{end}}">Home</span>
     </a>
 
     <!-- SEARCH FORM -->
     <!-- must be placed before the pages menu -->
     {{ if ne .Kind `home` }}
-      <div class="toplevel-nav__d1search" id="nav-search-bar" aria-hidden="true">
+      <div class="nav__d1search" id="nav-search-bar" aria-hidden="true">
         {{ $searchType := (dict "type" "nav") }}
-        {{- partial "blocks/d1search/d1search.html" (dict "Block" $searchType) -}}
+        {{- partial "blocks/d1search/d1search.html" (dict "Block" $searchType "Page" $page) -}}
       </div>
     {{ end }}
 
-    <!-- MENU BUTTON -->
-    <button class="toplevel-nav__button toplevel-nav__button--menu-toggle" id="primary-menu-toggle" aria-label="Open primary menu" aria-expanded="false" aria-controls="primary-menu">
-      <span class="toplevel-nav__button-icon">
+    <!-- MENU BUTTON (mobile)-->
+    <button class="nav__button nav__button--menu-toggle" id="global-menu-toggle" aria-label="Open primary menu" aria-expanded="false" aria-controls="global-menu">
+      <span class="nav__button-icon">
         {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "menu")) "Page" $page) -}}
       </span>
-      <span class="toplevel-nav__button-text">Menu</span>
+      <span class="nav__button-text">Menu</span>
     </button>
 
-    <!-- PAGES MENU -->
-    <ul class="toplevel-nav__menu" id="primary-menu" aria-hidden="true">
-      {{ range .Site.Menus.toplevel }}
-        {{ if .HasChildren }}
-
-          <!-- make a menu button if there are 2+ child pages -->
-          {{ if gt (len .Children)  1 }}
-            <li class="toplevel-nav__menu-item toplevel-nav__menu-item--hasSubmenu {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-
-              <!-- button to open submenu -->
-              <button class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Name }}">
-                {{ .Name }}
-                <span class="toplevel-nav__sub-menu-icon">
-                  {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "chevron-down" "size" "tiny")) "Page" $page) -}}
-                </span>
-              </button>
-
-              <!-- submenu -->
-              <ul class="toplevel-nav__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
-                {{ range .Children }}
-                  <li class="toplevel-nav__sub-menu-item">
-                    <a class="toplevel-nav__sub-menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__sub-menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
-                      {{ .Name }}
-                    </a>
-                  </li>
-                {{ end }}
-              </ul>
-
-              <!-- submenu arrow at top on desktop -->
-              <div class="toplevel-nav__sub-menu-arrow"></div>
-
-            </li>
-
-            <!-- just make a link to the first child page if there's only one -->
-          {{ else }}
-            {{ range first 1 .Children }}
-              <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-                <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
-                  {{ .Name }}
-                </a>
-              </li>
-            {{ end }}
-          {{ end }}
-
-          <!-- when there are no child pages, make a regular link -->
-        {{ else }}
-          <li class="toplevel-nav__menu-item {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-item--active{{end}}">
-            <a class="toplevel-nav__menu-link {{if or ($page.IsMenuCurrent `toplevel` .) ($page.HasMenuCurrent `toplevel` .) }}toplevel-nav__menu-link--active{{end}}" href="{{ .URL }}" title="{{ .Title }}">
-              {{ .Name }}
-            </a>
-          </li>
+    <!-- MENUS -->
+    <div id="global-menu" aria-hidden="true" class="nav__menu">
+      <ul class="nav__primary-items">
+        {{ range .Site.Menus.bottom_nav }}
+          {{ $itemBlock := dict "name" .Name "url" .URL "title" .Title "children" .Children }}
+          {{ partial "blocks/global-header/menu-item.html" (dict "Block" $itemBlock "Page" $page) }}
         {{ end }}
-      {{ end }}
-    </ul>
+      </ul>
+      <!-- Top navigation section -->
+      <div class="nav__secondary-nav">
+        <ul class="nav__secondary-items" id="secondary-menu" aria-hidden="true">
+          {{ range .Site.Menus.top_nav }}
+            {{ $itemBlock := dict "name" .Name "url" .URL "title" .Title }}
+            {{ partial "blocks/global-header/menu-item.html" (dict "Block" $itemBlock "Page" $page) }}
+          {{ end }}
+        </ul>
+      </div>
+    </div>
 
-    <!-- SEARCH BUTTON-->
-    <button class="toplevel-nav__button toplevel-nav__button--search" id="search-toggle" aria-label="Show data search bar" {{ if ne .Kind `home` }} aria-expanded="false" aria-controls="nav-search-bar" {{ end }}>
-      <span class="toplevel-nav__button-icon toplevel-nav__button-icon--close">
+    <!-- SEARCH BUTTON -->
+    <button class="nav__button nav__button--search" id="search-toggle" aria-label="Show data search bar" {{ if ne .Kind `home` }} aria-expanded="false" aria-controls="nav-search-bar" {{ end }}>
+      <span class="nav__button-icon nav__button-icon--close">
         {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "x")) "Page" $page) -}}
       </span>
-      <span class="toplevel-nav__button-icon toplevel-nav__button-icon--search">
+      <span class="nav__button-icon nav__button-icon--search">
         {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) -}}
       </span>
-      <span class="toplevel-nav__button-text">
+      <span class="nav__button-text">
         Find Data
       </span>
     </button>

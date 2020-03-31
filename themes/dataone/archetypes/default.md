@@ -7,7 +7,7 @@ layout: blocks
 menu:
   footer:
     weight: 
-  toplevel:
+  bottom_nav:
     weight: 
 draft: true
 header:

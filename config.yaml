@@ -61,10 +61,6 @@ params:
     twitter: https://twitter.com/DataONEorg
 menu:
   footer:
-  - name: Services
-    weight: 1
-  - name: Community
-    weight: 
   - url: https://dataoneorg.github.io/Education/
     name: Skillbuilding Hub
     title: Skillbuilding Hub
@@ -73,7 +69,20 @@ menu:
     name: Archived content
     title: Old DataONE website
     weight: 14
-  toplevel:
+  top_nav:
+  - name: Get DataONE Plus
+    title: Get DataONE Plus
+    weight: 1
+    url: /plus/
+  - url: https://giving.ucsb.edu/Funds/Give?id=353
+    name: Donate
+    title: Donate
+    weight: 2
+  - url: https://search.dataone.org/signin
+    name: Sign-in
+    title: Sign-in
+    weight: 3
+  bottom_nav:
   - name: Hosted Repo
     weight: 2
   - name: Network
@@ -87,8 +96,3 @@ menu:
     title: Skillbuilding Hub
     parent: Community
     weight: 3
-  - url: https://giving.ucsb.edu/Funds/Give?id=353
-    name: Donate
-    title: Donate
-    parent: About
-    weight: 99

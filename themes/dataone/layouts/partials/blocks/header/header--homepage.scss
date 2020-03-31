@@ -1,6 +1,6 @@
 .header--homepage {
   // TODO: header--homepage needs to be below header classes in final styles sheet.
-  padding-top   : calc(2 * 72px) !important;
+  padding-top   : calc(2 * #{$nav-height}) !important;
   padding-bottom: 7rem !important;
   @include bkg-img;
 

@@ -1,4 +1,5 @@
 $mobile-nav-height: 63px;
+$secondary-nav-height: 55px; // height on desktop;
 $icon-color: col($c-neutral, 1);
 
 .global-header {
@@ -24,7 +25,7 @@ $icon-color: col($c-neutral, 1);
   }
 }
 
-.toplevel-nav {
+.nav {
   width                : 100%;
   padding              : 0;
   margin               : 0;
@@ -33,10 +34,10 @@ $icon-color: col($c-neutral, 1);
   grid-template-rows   : $mobile-nav-height auto auto;
   grid-template-areas  : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   @include limit-width;
-  @include medium-lr-padding;
+  // @include medium-lr-padding;
   @include desktop {
     grid-template-columns: min-content auto min-content min-content;
-    grid-template-rows   : auto;
+    grid-template-rows   : 1fr;
     grid-template-areas  : "logo menu search d1search";
     align-items          : center;
   }
@@ -60,14 +61,14 @@ $icon-color: col($c-neutral, 1);
     }
 
     &:focus {
-      .toplevel-nav__button-icon {
+      .nav__button-icon {
         svg {
           stroke: col($c-primary, 4); // for the icons
           // fill: col($c-primary, 4); // for the home-icon (logo)
         }
       }
 
-      .toplevel-nav__button-text {
+      .nav__button-text {
         font-weight: 800;
         color      : col($c-primary, 4);
       }
@@ -102,6 +103,7 @@ $icon-color: col($c-neutral, 1);
       transform : translate(0,0) scale(1);
       transition: .2s;
       @include desktop {
+        margin-top: $secondary-nav-height;
         // padding-left: 5px;
         // fill      : url("#theme-gradient");
       }
@@ -124,6 +126,7 @@ $icon-color: col($c-neutral, 1);
     @include desktop {
       justify-self: end;
       padding     : 0 5px;
+      margin-top  : $secondary-nav-height;
     }
   }
 
@@ -153,8 +156,8 @@ $icon-color: col($c-neutral, 1);
       display: none;
     }
 
-    & ~ .toplevel-nav__button--search {
-      .toplevel-nav__button-icon--close {
+    & ~ .nav__button--search {
+      .nav__button-icon--close {
         display: none;
       }
     }
@@ -162,28 +165,28 @@ $icon-color: col($c-neutral, 1);
     &[aria-hidden="false"] {
       opacity      : 1;
       visibility   : visible;
-      margin-bottom: 20px;
-      margin-top   : 10px;
+      margin-bottom: 0;
+      margin-top   : .7rem;
 
       label {
         display: block;
       }
       // The menu search button when the search is expanded on desktop
-      & ~ .toplevel-nav__button--search {
-        .toplevel-nav__button-icon--search {
+      & ~ .nav__button--search {
+        .nav__button-icon--search {
           display: none;
         }
         // A close button (X)
-        .toplevel-nav__button-icon--close {
+        .nav__button-icon--close {
           display: block;
         }
       }
       @include desktop {
-        margin   : 0 36px 0 0;
+        margin   : $secondary-nav-height 36px 0 0;
         transform: none;
         width    : 400px;
         // The menu when the search is expanded on desktop
-        & ~ .toplevel-nav__menu {
+        & ~ .nav__menu {
           width      : 0;
           opacity    : 0;
           overflow   : hidden;
@@ -193,198 +196,95 @@ $icon-color: col($c-neutral, 1);
       }
     }
   }
-  // MENU & MENU ITEMS
-  &__menu {
-    grid-area           : menu;
-    padding             : 20px 0;
+  // ===MENU===
+  // 
+  &__primary-items {
+    margin          : 0;
+    padding         : .5rem 0;
+    margin-block-end: 0;
+    text-decoration : none;
+    @include desktop {
+      display        : flex;
+      flex-direction : row;
+      justify-content: flex-end;
+      margin         : 0 auto;
+      flex-wrap      : nowrap;
+      grid-area      : menu;
+      margin-top     : $secondary-nav-height;
+    }
+  }
+
+  &__secondary-nav {
+    background-color: col($c-secondary, 6);
+    @include desktop {
+      width   : 100%;
+      position: absolute;
+      top     : 0;
+      left    : 0;
+      height  : $secondary-nav-height;
+    }
+
+    .menu-item__link {
+      @include desktop {
+        padding-top   : .7rem;
+        padding-bottom: .7rem;
+        font-weight   : 400;
+      }
+    }
+  }
+
+  &__secondary-items {
     margin              : 0;
+    padding             : .5rem 0;
     padding-inline-start: 0;
     margin-block-end    : 0;
     text-decoration     : none;
-    opacity             : 0;
-    visibility          : hidden;
-    transition          : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
-    margin-bottom       : -100%;
-    height              : 100%;
-    max-height          : calc(100vh - #{$mobile-nav-height + 20px});
-    overflow-y          : scroll;
     @include desktop {
-      max-height    : 100%;
-      margin        : 0 5px;
-      padding       : 0;
-      opacity       : 1;
-      overflow-y    : visible;
-      visibility    : visible;
-      display       : flex;
-      flex-direction: row;
-      flex-wrap     : nowrap;
-      justify-self  : end;
+      display        : flex;
+      justify-content: flex-end;
+      padding        : 0;
+      height         : 100%;
+      align-items    : center;
+      @include limit-width;
     }
+  }
 
-    &[aria-hidden="true"] {
-      @include desktop {
-        // menu on desktop when ARIA label set to hidden (for testing)
-      }
+  &__menu {
+    margin       : 0;
+    grid-area    : menu;
+    opacity      : 0;
+    visibility   : hidden;
+    transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
+    margin-bottom: -100%;
+    height       : 0;
+    max-height   : calc(100vh - #{$mobile-nav-height});
+    overflow-y   : scroll;
+    @include desktop {
+      max-height   : 100%;
+      margin       : 0 5px;
+      padding      : 0;
+      opacity      : 1;
+      height       : 100%;
+      overflow-y   : visible;
+      visibility   : visible;
+      margin-bottom: 0;
+      transform    : none;
     }
 
     &[aria-hidden="false"] {
       opacity      : 1;
       visibility   : visible;
-      // transform    : translateY(0);
-      margin-bottom: 20px;
+      transform    : translateY(0);
+      margin-bottom: 0;
+      height       : 100%;
       @include desktop {
         margin-bottom: 0;
         transform    : none;
       }
     }
-  }
-
-  &__sub-menu {
-    @include desktop {
-      position        : absolute;
-      background-color: col($c-neutral, 1);
-      display         : block;
-      border-radius   : 4px;
-      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
-      // center the menu
-      transform       : translate(-50%, 0);
-      left            : 50%;
-      padding         : 1rem 1.75rem;
-    }
-    padding-inline-start: 0;
-    transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
-    // closed
-    max-height          : 0;
-    overflow            : hidden;
-    opacity             : 0;
-    visibility          : hidden;
-    // open
-    &[aria-hidden="false"] {
-      height    : auto;
-      max-height: 500px;
-      opacity   : 1;
-      visibility: visible;
-      // submenu arrow when menu is open
-      & ~ .toplevel-nav__sub-menu-arrow {
-        @include desktop {
-          bottom           : -5px;
-          transform        : translate(-50%, 0);
-          left             : 50%;
-          position         : absolute;
-          margin           : 0 0 0 -6px;
-          width            : 12px;
-          height           : 12px;
-          -webkit-transform: rotate(45deg);
-          transform        : rotate(45deg);
-          border-radius    : 4px 0 0 0;
-          background       : col($c-neutral, 1);
-          box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
-          opacity          : 1;
-        }
-      }
-    }
-  }
-
-  &__sub-menu-arrow {
-    opacity   : 0;
-    transition: opacity .2s 0s ease-in-out;
-  }
-
-  &__sub-menu-link {
-    margin         : 0;
-    font-size      : 1.05rem;
-    line-height    : 1.5;
-    text-transform : uppercase;
-    font-weight    : 500;
-    letter-spacing : .03em;
-    display        : block;
-    text-decoration: none;
-    color          : col($c-neutral, 1);
-    white-space    : nowrap;
-    padding        : .5rem 0;
-
-    &--active {
-      color      : white;
-      font-weight: 800;
-    }
-    @include desktop {
-      color: col($c-neutral, 5);
-
-      &:hover {
-        color      : col($c-primary, 6);
-        transition : color .1s 0s ease-in-out;
-        font-weight: 600;
-      }
-
-      &--active {
-        font-weight: 600;
-      }
-    }
-  }
-
-  &__sub-menu-item {
-    text-align: center;
-    height    : auto;
-    display   : block;
-    position  : relative;
-    @include desktop {
-      margin: 5px 2px;
-      height: auto;
-    }
-
-    &--active {}
-  }
-
-  &__sub-menu-icon {
-    margin-top: -2px;
-    stroke    : $icon-color;
-    position  : relative;
-    top       : -1px;
-  }
-
-  &__menu-item {
-    text-align: center;
-    height    : auto;
-    display   : block;
-    position  : relative;
-    @include desktop {
-      margin: 5px 2px;
-      height: auto;
-    }
-
-    &--active {}
-  }
-
-  &__menu-link {
-    @include button-reset;
-    text-decoration: none;
-    color          : col($c-neutral, 1);
-    white-space    : nowrap;
-    width          : 100%;
-    display        : block;
-    font-size      : 1.1rem;
-    font-weight    : 600;
-    line-height    : 53px;
-    letter-spacing : .03em;
-
-    &--active {
-      color      : white;
-      font-weight: 800;
-    }
-    @include desktop {
-      line-height: 1;
-      padding    : 22px 10px;
-      font-size  : 1.1rem;
-
-      &:hover {
-        color     : col($c-primary, 5);
-        transition: color .1s 0s ease-in-out;
-
-        .toplevel-nav__sub-menu-icon {
-          stroke    : col($c-primary, 5);
-          transition: stroke .1s 0s ease-in-out;
-        }
-      }
+    // menu on desktop when ARIA label set to hidden (for testing)
+    &[aria-hidden="true"] {
+      @include desktop {}
     }
   }
 }
@@ -394,86 +294,17 @@ $icon-color: col($c-neutral, 1);
 
 .global-header--homepage {
   @include desktop {
-    .toplevel-nav {
+    .nav {
       display        : flex;
       justify-content: center;
     }
 
-    .toplevel-nav__button--logo {
+    .nav__button--logo {
       display: none;
     }
 
-    .toplevel-nav__button--search {
+    .nav__button--search {
       display: none;
     }
   }
 }
-// ========================================================
-// === WAVE ===
-// 
-// to work with .header--wave
-// ========================================================
-// === DARK BKG ===
-// 
-// .global-header--dark-bkg {
-//   @include desktop {
-//     .toplevel-nav__menu-link {
-//       color: col($c-neutral, 3);
-//     }
-// 
-//     .toplevel-nav__menu-link:hover {
-//       color: col($c-neutral, 1);
-//     }
-// 
-//     .toplevel-nav__button--logo .logo,
-//     .toplevel-nav__button-icon {
-//       fill: col($c-neutral, 3);
-//     }
-// 
-//     .toplevel-nav__sub-menu-icon {
-//       stroke: col($c-neutral, 3);
-//     }
-// 
-//     .d1search__input:focus~.d1search__label {
-//       color: col($c-primary, 5);
-//     }
-//   }
-// }
-// ========================================================
-// === WEBINAR ===
-// 
-// .global-header--webinar {
-//   @include desktop {
-//     background-color: mix(col($c-tertiary, 6), col($c-tertiary, 7), 50%);
-//     box-shadow      : -1px 1px 24px 1px rgba(28,29,30,.3);
-// 
-//     .toplevel-nav__menu-link {
-//       color: col($c-neutral, 2);
-//     }
-// 
-//     .toplevel-nav__menu-link:hover {
-//       color: col($c-neutral, 1);
-//     }
-// 
-//     .toplevel-nav__button--logo .logo,
-//     .toplevel-nav__button-icon {
-//       fill: col($c-neutral, 2);
-//     }
-// 
-//     .toplevel-nav__sub-menu-icon {
-//       stroke: col($c-neutral, 2);
-//     }
-// 
-//     .d1search__input:focus~.d1search__label {
-//       color: col($c-primary, 5);
-//     }
-// 
-//     .toplevel-nav__d1search[aria-hidden=false]~.toplevel-nav__button--search:before {
-//       color: col($c-neutral, 1);
-//     }
-// 
-//     .toplevel-nav__button:focus .toplevel-nav__button-icon {
-//       fill: col($c-neutral, 2);
-//     }
-//   }
-// }

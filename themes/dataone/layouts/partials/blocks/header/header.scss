@@ -7,7 +7,6 @@
   color  : col($c-neutral, 6);
   @include desktop {
     margin-top : -$nav-height;
-    // margin-top: -.5rem;
     padding-top: calc(6rem + 2 * #{$nav-height});
   }
 
@@ -331,7 +330,7 @@
       width       : auto;
       margin-top  : -219px;
       @include desktop {
-        margin-top  : -888px;
+        margin-top  : calc(-850px - #{$nav-height});
         height      : 190%;
         margin-right: -147px;
       }

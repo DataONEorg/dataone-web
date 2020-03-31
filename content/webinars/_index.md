@@ -9,7 +9,7 @@ header:
   title: Learn from experts
   intro: Cutting edge earth and environmental science topics
 menu:
-  toplevel:
+  bottom_nav:
     weight: 1
     parent: Community
   footer:

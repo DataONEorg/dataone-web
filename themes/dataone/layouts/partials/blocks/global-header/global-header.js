@@ -2,8 +2,8 @@
 // =================== ELEMENTS & VARS ==================== //
  
 // The menu button, menu, search button, search form, and global-header
-var menuButton    = document.getElementById("primary-menu-toggle"),
-    menu          = document.getElementById("primary-menu"),
+var menuButton    = document.getElementById("global-menu-toggle"),
+    menu          = document.getElementById("global-menu"),
     
     searchButton  = document.getElementById("search-toggle"),
     search        = document.getElementById("nav-search-bar"),
@@ -12,12 +12,9 @@ var menuButton    = document.getElementById("primary-menu-toggle"),
     header        = document.getElementById("global-header"),
     
     searchExists  = search !== null && searchButton !== null,
-    menuExists    = menu !==null && menuButton !== null,
+    menuExists    = menu !== null && menuButton !== null,
     
-    navButtons    = document.querySelectorAll(" button");
-    subMenus      = document.querySelector(".toplevel-nav__sub-menu"),
-    
-    dropdownContainers = document.querySelectorAll(".toplevel-nav__menu-item--hasSubmenu"),
+    dropdownContainers = document.querySelectorAll(".menu-item--dropdown"),
     dropdownEls = [];
 
     // Get the dropdown buttons with corresponding submenus
@@ -25,7 +22,7 @@ var menuButton    = document.getElementById("primary-menu-toggle"),
       dropdownEls[i] = {}
       dropdownEls[i].container = container;
       dropdownEls[i].button    = container.querySelector("button");
-      dropdownEls[i].submenu   = container.querySelector(".toplevel-nav__sub-menu");
+      dropdownEls[i].submenu   = container.querySelector(".menu-item__sub-menu");
     });
     
     var closeDropdownTimeout;

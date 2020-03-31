@@ -1,6 +1,6 @@
 // ==== SPACING VARIABLES ====
 $content-width: 1040px; // max width of desktop content
-$nav-height: 72px; // navigation bar height on desktop
+$nav-height: 141px; // navigation bar height on desktop
 $mobile-lr-padding: .8rem; //padding on left and right for smaller screens
 /* ==== FONTS ==== */
 // Font (-f)
@@ -160,7 +160,7 @@ $fs-pill: .7rem; //
   text-rendering         : optimizeLegibility;
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: col($c-neutral, 5);
+  color                  : col($c-neutral, 5);
 }
 // rules for larger (desktop) screens
 @mixin desktop {
