@@ -45,17 +45,15 @@
     <!-- MENUS -->
     <div id="global-menu" aria-hidden="true" class="nav__menu">
       <ul class="nav__primary-items">
-        {{ range .Site.Menus.bottom_nav }}
-          {{ $itemBlock := dict "name" .Name "url" .URL "title" .Title "children" .Children }}
-          {{ partial "blocks/global-header/menu-item.html" (dict "Block" $itemBlock "Page" $page) }}
+        {{ range .Site.Menus.primary_nav }}
+          {{ partial "blocks/global-header/menu-item" (dict "Block" . "Page" $page) }}
         {{ end }}
       </ul>
       <!-- Top navigation section -->
       <div class="nav__secondary-nav">
         <ul class="nav__secondary-items" id="secondary-menu" aria-hidden="true">
-          {{ range .Site.Menus.top_nav }}
-            {{ $itemBlock := dict "name" .Name "url" .URL "title" .Title }}
-            {{ partial "blocks/global-header/menu-item.html" (dict "Block" $itemBlock "Page" $page) }}
+          {{ range .Site.Menus.secondary_nav }}
+            {{ partial "blocks/global-header/menu-item" (dict "Block" . "Page" $page) }}
           {{ end }}
         </ul>
       </div>

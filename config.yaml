@@ -30,8 +30,10 @@ params:
     findings, and conclusions or recommendations expressed in this material are those
     of the author(s) and do not necessarily reflect the views of the National Science
     Foundation.'
-  contactLink: "/contact/"
-  donateLink: https://giving.ucsb.edu/Funds/Give?id=353
+  links:
+    contact: "/contact/"
+    donate: https://giving.ucsb.edu/Funds/Give?id=353
+    signin: https://search.dataone.org/signin
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 640
@@ -69,20 +71,21 @@ menu:
     name: Archived content
     title: Old DataONE website
     weight: 14
-  top_nav:
+  secondary_nav:
   - name: Get DataONE Plus
     title: Get DataONE Plus
     weight: 1
     url: /plus/
-  - url: https://giving.ucsb.edu/Funds/Give?id=353
-    name: Donate
+    post: DataONE Plus Ad
+  - name: Donate
     title: Donate
     weight: 2
-  - url: https://search.dataone.org/signin
-    name: Sign-in
+    url: donate
+  - name: Sign-in
     title: Sign-in
     weight: 3
-  bottom_nav:
+    url: signin
+  primary_nav:
   - name: Hosted Repo
     weight: 2
   - name: Network

@@ -17,7 +17,7 @@ page_sections:
   intro: ''
   blocks: []
 menu:
-  bottom_nav:
+  primary_nav:
     parent: Community
     weight: 4
   footer:

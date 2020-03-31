@@ -82,7 +82,7 @@ page_sections:
 menu:
   footer:
     weight: 11
-  bottom_nav:
+  primary_nav:
     parent: About
     weight: 1
 

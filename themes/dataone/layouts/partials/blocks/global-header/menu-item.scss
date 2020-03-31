@@ -17,8 +17,8 @@
     top       : -1px;
   }
 
-  &__link,
-  #{$bn}__dropdown-button {
+  #{$bn}__dropdown-button,
+  &__link {
     @include button-reset;
     text-decoration: none;
     color          : col($c-neutral, 1);
@@ -145,6 +145,25 @@
     @include desktop {
       margin: 5px 2px;
       height: auto;
+    }
+  }
+
+  &--dataone-plus-ad {
+    .dataone-plus-logo {
+      margin-right: 3px;
+      fill        : white;
+      height      : 15px;
+      width       : 18px;
+    }
+
+    &:hover {
+      .dataone-plus-logo {
+        fill: col($c-primary, 5);
+      }
+    }
+
+    .pill {
+      margin-left: 3px;
     }
   }
 }

@@ -19,7 +19,7 @@ page_sections:
   - template: contact-info
   - template: contact-form
 menu:
-  bottom_nav:
+  primary_nav:
     parent: About
     weight: 4
   footer:

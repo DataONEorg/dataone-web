@@ -15,6 +15,9 @@
 {{ with .Block.style }}
   {{ $classes = print $classes " " $bn "--" . }}
 {{ end }}
+{{ with .Block.size }}
+  {{ $classes = print $classes " " $bn "--sz-" . }}
+{{ end }}
 {{ if .Block.text }}
   {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
     <span class="{{ $classes }}">

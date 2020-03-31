@@ -5,7 +5,7 @@ description: DataONE news
 headline: The latest from DataONE
 page_sections: []
 menu:
-  bottom_nav:
+  primary_nav:
     parent: About
     weight: 2
   footer:

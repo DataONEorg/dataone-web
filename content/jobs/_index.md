@@ -9,7 +9,7 @@ page_sections:
   title: "Help make earth & environmental data universally accessible"
   intro: "Why you should work with us"
 menu:
-  bottom_nav:
+  primary_nav:
     parent: About
     weight: 3
   footer:

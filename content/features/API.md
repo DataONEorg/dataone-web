@@ -39,7 +39,7 @@ page_sections:
     precheck_plus: false
     precheck_newsletter: false
 menu:
-  bottom_nav:
+  primary_nav:
     weight: 3
     parent: Hosted Repo
 

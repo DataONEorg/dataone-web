@@ -50,7 +50,7 @@ page_sections:
   blocks:
   - template: member-nodes
 menu:
-  bottom_nav:
+  primary_nav:
     weight: 1
     parent: Network
   footer:

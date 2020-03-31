@@ -94,7 +94,7 @@ page_sections:
       start: ''
       end: ''
 menu:
-  bottom_nav:
+  primary_nav:
     weight: 3
     parent: Hosted Repo
 

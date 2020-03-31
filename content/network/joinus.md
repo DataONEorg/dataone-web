@@ -112,7 +112,7 @@ page_sections:
     text: Request membership
     color: primary
 menu:
-  bottom_nav:
+  primary_nav:
     weight: 2
     parent: Network
   footer:

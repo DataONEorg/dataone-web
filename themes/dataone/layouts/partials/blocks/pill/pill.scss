@@ -73,6 +73,15 @@
     color     : col($c-success, 6);
     stroke    : col($c-success, 6); // for icons
   }
+
+  &--sz-smaller {
+    transform  : translateY(-0.18em);
+    height     : 20px;
+    line-height: 20px;
+    width      : fit-content;
+    padding    : 0 .6em;
+    font-size  : .8rem;
+  }
 }
 
 .pill--on-air {

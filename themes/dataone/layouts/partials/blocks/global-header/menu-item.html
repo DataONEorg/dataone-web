@@ -6,50 +6,88 @@
 {{ $classes := $bn }}
 <!-- settings for menu icons -->
 {{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
-
+<!-- content before the link name -->
+{{ $pre := "" }}
+<!-- content after the link name -->
+{{ $post := "" }}
+<!-- custom content for the dropdown menu. Replaces child links -->
+{{ $submenuContent := "" }}
 <!-- whether the menu has a sub-menu -->
 {{ $hasSubmenu := false }}
-{{ with .Block.children  }}
+{{ with .Block.Children  }}
   {{ if (gt (len .) 1) }}
     {{ $hasSubmenu = true }}
   {{ end }}
 {{ end }}
 <!-- Add a class for items that are the active/current page -->
-{{ if .Block.is_active }}
-  {{ $classes = print $classes " " $bn "--active "}}
+<!-- TODO -->
+{{ $isActive := false }}
+{{ if $isActive }}
+  {{ $classes = print $classes " " $bn "--active"}}
 {{ end }}
 <!-- add a class for submenu items -->
 {{ if $hasSubmenu }}
-  {{ $classes = print $classes " " $bn "--dropdown "}}
+  {{ $classes = print $classes " " $bn "--dropdown"}}
+{{ end }}
+<!-- top level navigation URL (does not apply to children ) -->
+{{ $url := .Block.URL }}
+<!-- Check for special link key words, get link from config -->
+{{ if eq .Block.URL "contact" }}
+  {{ $url = $page.Site.Params.links.contact }}
+{{ else if eq .Block.URL "donate" }}
+  {{ $url = $page.Site.Params.links.donate }}
+{{ else if eq .Block.URL "signin" }}
+  {{ $url = $page.Site.Params.links.signin }}
+{{ end }}
+<!-- Special layout for the DataONE Plus Ad -->
+{{ if eq .Block.Post "DataONE Plus Ad"}}
+  {{ $pre = partial "svg/dataone-plus-logo.svg" }}
+  {{ $hasSubmenu = true }}
+  {{ $post = partial "blocks/pill/pill" (dict "Block" (dict "text" "New" "style" "primary" "size" "smaller") "Page" $page) }}
+  {{ $classes = print $classes " " $bn "--dataone-plus-ad"}}
+  <!-- TODO: -->
+  {{ $submenuContent = "DataONE Plus Ad"}}
 {{ end }}
 <!-- Start of template -->
 <li class="{{ $classes }}">
   {{ if not $hasSubmenu }}
     <!-- regular link -->
     <!-- Link to the page -->
-    <a class=" {{ $bn }}__link" href="{{ .Block.url }} " title="{{ .Block.title }}">
-      {{ .Block.name }}
+    <a class=" {{ $bn }}__link" href="{{ $url }}" title="{{ .Block.Title }}">
+      {{ $pre }}
+      {{ .Block.Name }}
+      {{ $post }}
     </a>
 
   {{ else }}
     <!-- dropdown button with links below -->
     <!-- button to open submenu -->
-    <button class="{{ $bn }}__dropdown-button" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Block.name }}">
-      {{ .Block.name }}
+    <button class="{{ $bn }}__dropdown-button" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Block.Name }}">
+      {{ $pre }}
+      {{ .Block.Name }}
       <span class="{{ $bn }}__dropdown-icon">
         {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "chevron-down" "size" "tiny")) "Page" $page) -}}
       </span>
+      {{ $post }}
     </button>
     <!-- submenu -->
-    <ul class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{urlize .Name }}">
-      {{ range .Block.children }}
-        <li class="{{ $bn }}__sub-item">
-          <a class=" {{ $bn }}__sub-link" href="{{ .URL }} " title="{{ .Title }}">
-            {{ .Name }}
-          </a>
-        </li>
-      {{ end }}
-    </ul>
+    {{ if $submenuContent }}
+      <div class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ urlize .Name }}">
+        {{ $submenuContent }}
+      </div>
+    {{ else }}
+      <ul class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ urlize .Name }}">
+
+        {{ range .Block.Children }}
+          <li class="{{ $bn }}__sub-item">
+            <a class=" {{ $bn }}__sub-link" href="{{ .URL }} " title="{{ .Title }}">
+              {{ .Name }}
+            </a>
+          </li>
+        {{ end }}
+
+      </ul>
+    {{ end }}
     <!-- submenu arrow at top on desktop -->
     <div class="{{ $bn }}__sub-menu-arrow"></div>
   {{ end }}

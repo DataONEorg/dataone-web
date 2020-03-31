@@ -52,11 +52,11 @@
 			{{ $href = ref $page . }}
 		{{ end }}
 	{{ else if eq $type "contact" }}
-		{{ $href = $page.Site.Params.contactLink }}
+		{{ $href = $page.Site.Params.links.contact }}
 	{{ else if eq $type "subscribe form" }}
 		{{ $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId }}
 	{{ else if eq $type "donate" }}
-		{{ $href = $page.Site.Params.donateLink }}
+		{{ $href = $page.Site.Params.links.donate }}
 	{{ end }}
 
 	{{ $htmlTag := .Block.html_tag | default "a" }}
