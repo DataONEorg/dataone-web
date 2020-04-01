@@ -58,9 +58,9 @@ fields:
     - contact
     - donate
 - type: select
-  label: Color
+  label: Style
   name: color
-  description: The theme color of the button.
+  description: The style and color of the button, primary draws the most attention, quaternary is the most subtle.
   default: secondary
   config:
     source:

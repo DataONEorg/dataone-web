@@ -1,0 +1,50 @@
+.d1plus-menu-ad {
+  // bn = block name, usage: #{ $bn } 
+  $bn           : &;
+  display       : flex;
+  align-items   : center;
+  flex-direction: column;
+  padding       : 1rem .5rem;
+  color         : col($c-secondary, 2);
+
+  &__headline {
+    margin     : 0;
+    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), .2);
+    display    : block;
+    white-space: nowrap;
+
+    &-upper {
+      font-size  : 1.3rem;
+      display    : inherit;
+      white-space: inherit;
+      font-weight: 600;
+    }
+
+    &-lower {
+      font-size     : 2.6rem;
+      display       : inherit;
+      white-space   : inherit;
+      font-weight   : 800;
+      letter-spacing: .02em;
+    }
+  }
+
+  &__features {
+    font-size  : 1.3rem;
+    font-weight: 600;
+    padding    : 1rem .8rem;
+    width      : 100%;
+  }
+
+  &__feature {
+    display    : flex;
+    align-items: center;
+    padding    : .4rem 0;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    stroke      : col($c-secondary, 2);
+    margin-right: 1rem;
+  }
+}

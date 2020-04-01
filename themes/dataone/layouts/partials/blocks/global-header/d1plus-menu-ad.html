@@ -1,0 +1,44 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "d1plus-menu-ad"}}
+<!-- classes to add to outer element -->
+{{ $classes := $bn }}
+{{ $iconSettings := dict "color" "inherit" "size" "large"}}
+<div class="{{ $classes }}">
+  <h2 class="{{ $bn }}__headline">
+    <span class="{{ $bn }}__headline-upper">Showcase your results with
+    </span>
+    <span class="{{ $bn }}__headline-lower">DataOne Plus
+    </span>
+  </h2>
+  <div class="{{ $bn }}__features">
+    <div class="{{ $bn }}__feature">
+      <span class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "monitor")) "Page" $page) }}
+      </span>
+      Branded portals
+    </div>
+    <div class="{{ $bn }}__feature">
+      <span class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "trending-up")) "Page" $page) }}
+      </span>
+      FAIR data
+    </div>
+    <div class="{{ $bn }}__feature">
+      <span class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) }}
+      </span>
+      Customized search
+    </div>
+    <div class="{{ $bn }}__feature">
+      <span class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "bar-chart-2")) "Page" $page) }}
+      </span>
+      & More...
+    </div>
+  </div>
+
+  {{ $buttonBlock := (dict "text" "Learn more" "type" "internal page" "color" "primary" "internal_link" "/plus/_index.md" )}}
+  {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+</div>

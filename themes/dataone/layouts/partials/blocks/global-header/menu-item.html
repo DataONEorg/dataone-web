@@ -19,16 +19,6 @@
     {{ $hasSubmenu = true }}
   {{ end }}
 {{ end }}
-<!-- Add a class for items that are the active/current page -->
-<!-- TODO -->
-{{ $isActive := false }}
-{{ if $isActive }}
-  {{ $classes = print $classes " " $bn "--active"}}
-{{ end }}
-<!-- add a class for submenu items -->
-{{ if $hasSubmenu }}
-  {{ $classes = print $classes " " $bn "--dropdown"}}
-{{ end }}
 <!-- top level navigation URL (does not apply to children ) -->
 {{ $url := .Block.URL }}
 <!-- Check for special link key words, get link from config -->
@@ -39,15 +29,26 @@
 {{ else if eq .Block.URL "signin" }}
   {{ $url = $page.Site.Params.links.signin }}
 {{ end }}
-<!-- Special layout for the DataONE Plus Ad -->
+<!-- Special layout options for the DataONE Plus Ad -->
 {{ if eq .Block.Post "DataONE Plus Ad"}}
   {{ $pre = partial "svg/dataone-plus-logo.svg" }}
   {{ $hasSubmenu = true }}
   {{ $post = partial "blocks/pill/pill" (dict "Block" (dict "text" "New" "style" "primary" "size" "smaller") "Page" $page) }}
   {{ $classes = print $classes " " $bn "--dataone-plus-ad"}}
   <!-- TODO: -->
-  {{ $submenuContent = "DataONE Plus Ad"}}
+  {{ $submenuContent = partial "blocks/global-header/d1plus-menu-ad" (dict "Page" $page) }}
 {{ end }}
+<!-- Add a class for items that are the active/current page -->
+<!-- TODO -->
+{{ $isActive := false }}
+{{ if $isActive }}
+  {{ $classes = print $classes " " $bn "--active"}}
+{{ end }}
+<!-- add a class for menu items that have a submenu -->
+{{ if $hasSubmenu }}
+  {{ $classes = print $classes " " $bn "--dropdown"}}
+{{ end }}
+
 <!-- Start of template -->
 <li class="{{ $classes }}">
   {{ if not $hasSubmenu }}
