@@ -21,7 +21,7 @@ fields:
     source:
       type: simple
     options:
-    - tiny 
+    - tiny
     - small
     - medium
     - large

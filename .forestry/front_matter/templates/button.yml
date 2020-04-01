@@ -60,7 +60,8 @@ fields:
 - type: select
   label: Style
   name: color
-  description: The style and color of the button, primary draws the most attention, quaternary is the most subtle.
+  description: The style and color of the button, primary draws the most attention,
+    quaternary is the most subtle.
   default: secondary
   config:
     source:
