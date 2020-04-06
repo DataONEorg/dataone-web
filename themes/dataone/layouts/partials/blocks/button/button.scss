@@ -1,6 +1,7 @@
 // ==== BUTTON ====
 
 .button {
+  $bn             : &;
   @include button-reset;
   @include f-common;
   white-space     : nowrap;
@@ -26,6 +27,7 @@
   align-items     : center;
   transition      : all .2s;
 
+  &:focus,
   &:hover {
     background-color: lighten(col($c-neutral, 7), 1%);
     transform       : translateY(-1px);
@@ -39,18 +41,15 @@
     align-items: center;
   }
 
-  &__icon {
+  &__icon .icon {
     display     : flex;
     align-items : center;
     margin-right: 9px;
     transition  : all .2s;
-
-    svg {
-      stroke: white;
-    }
+    stroke      : white;
   }
 
-  &__icon--right {
+  &__icon--right .icon {
     margin-right: 0;
     margin-left : 6px;
   }
@@ -60,10 +59,11 @@
   background-color: col($c-primary, 5);
   color           : col($c-primary, 8);
 
-  .button__icon svg {
+  .button__icon .icon {
     stroke: col($c-primary, 8);
   }
 
+  &:focus,
   &:hover {
     background-color: lighten($c-primary, 1%);
   }
@@ -73,6 +73,7 @@
   background-color: $c-secondary;
   color           : col($c-secondary, 1);
 
+  &:focus,
   &:hover {
     background-color: lighten($c-secondary, 2%);
   }
@@ -83,10 +84,11 @@
   color           : $c-secondary;
   box-shadow      : 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
 
-  .button__icon svg {
+  .button__icon .icon {
     stroke: $c-secondary;
   }
 
+  &:focus,
   &:hover {
     background-color: white;
     color           : lighten($c-secondary, 2%);
@@ -95,10 +97,10 @@
 }
 
 .button--col-quaternary {
-  $main-color     : lighten($c-secondary, 4%);
-  $hover-color    : lighten($main-color, 7%);
+  $main-color     : lighten($c-secondary, 2%);
+  $hover-color    : lighten($main-color, 4%);
   white-space     : normal;
-  font-size       : 1.1rem;
+  font-size       : 1.15rem;
   background-color: transparent;
   color           : $main-color;
   display         : inline-flex;
@@ -108,17 +110,41 @@
   line-height     : 1.05;
   box-shadow      : none;
 
-  .button__icon svg {
+  .button__icon .icon {
     stroke: $main-color;
   }
 
+  &:focus,
   &:hover {
     background-color: transparent;
     color           : $hover-color;
     box-shadow      : none;
 
-    .button__icon svg {
+    .button__icon .icon {
       stroke: $hover-color;
+    }
+  }
+}
+// BUTTONS USED AS TABS (TABS BLOCK)
+
+.button--tab {
+  @extend .button--col-quaternary;
+  white-space: nowrap;
+  color      : lighten(col($c-neutral, 5), 10%);
+  font-weight: 500;
+
+  .button__icon .icon {
+    stroke: lighten(col($c-neutral, 5), 20%);
+  }
+
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    color           : col($c-neutral, 5);
+    box-shadow      : none;
+
+    .button__icon .icon {
+      stroke: lighten(col($c-neutral, 5), 5%);
     }
   }
 }
@@ -153,7 +179,7 @@
     }
   }
 
-  .button__icon {
+  .button__icon .icon {
     @include desktop {
       margin-right: 0;
     }
@@ -165,6 +191,10 @@
   .button--col-primary {
     background-color: col($c-quaternary, 5);
     color           : col($c-quaternary, 1);
+
+    .button__icon .icon {
+      stroke: white;
+    }
   }
 
   .button--col-secondary {

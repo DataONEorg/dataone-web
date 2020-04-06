@@ -1,0 +1,258 @@
+.carousel {
+  // bn = block name, usage: #{ $bn } 
+  $bn                           : &;
+  // height and width of the next/prev buttons
+  $button-size                  : 3rem;
+  // height of the header element
+  $carousel-header-height       : 17rem;
+  $carousel-header-height-mobile: 22rem;
+  width                         : 100%;
+  position                      : relative;
+  min-width                     : 0; // required to keep inline content from expanding past parent width
+  // hide text meant for screen readers
+  max-width                     : calc(100% - #{.5 * $button-size}); // to keep buttons from expanding past parent width
+  margin                        : 0 auto;
+
+  &__screen-reader-text {
+    @include screen-reader-text;
+  }
+  // contains each of the content divs (i.e. each slide)
+  &__container {
+    overflow   : hidden;
+    white-space: nowrap; // make content blocks side by side for slide effect
+    @include card;
+    position   : relative;
+    padding    : 0;
+    margin     : 0; // so buttons aren't clipped on small screens
+  }
+  // aka slides, contains the header and main content divs
+  &__content {
+    display         : inline-block; // make content blocks side by side for slide effect
+    vertical-align  : top;
+    width           : 100%;
+    white-space     : normal;
+    position        : unset;
+    height          : 100%;
+    margin          : 0;
+    padding         : 0;
+    background-color: lighten(col($c-neutral, 1),5%);
+  }
+  // ==== SLIDE HEADER ==== //
+  &__header {
+    position             : absolute;
+    top                  : 0;
+    left                 : 0;
+    right                : 0;
+    width                : 100%;
+    background-color     : col($c-secondary, 5);
+    color                : white;
+    display              : grid;
+    white-space          : normal;
+    align-items          : center;
+    height               : $carousel-header-height-mobile;
+    padding              : 1rem 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows   : auto auto auto;
+    grid-template-areas  : "title" "subtitle" "button";
+    grid-gap             : 1rem 0;
+    align-content        : center;
+    box-shadow           : inset 0 4.1rem 4rem 0 rgba(col($c-neutral, 9),0.12), inset 0 .05rem .2rem 0 rgba(col($c-neutral, 9),0.08);
+    @include desktop {
+      height               : $carousel-header-height;
+      grid-template-columns: auto min-content;
+      grid-template-rows   : min-content min-content;
+      grid-template-areas  : "title title" "subtitle button";
+      grid-gap             : 0 2rem;
+      padding              : 3rem;
+    }
+    // header when visible
+    transition           : opacity .6s ease;
+    opacity              : 1;
+    // header contents when visble
+    > * {
+      opacity   : 1;
+      transform : translateY(0);
+      transition: opacity .2s ease .32s, transform .15s ease .4s;
+    }
+  }
+  // header when hidden
+  &__content[aria-hidden="true"] #{$bn}__header {
+    opacity: 0;
+    // header contents when hidden
+    > * {
+      opacity   : 0;
+      transform : translateY(-1px);
+      transition: opacity .1s ease, transform .1s ease;
+    }
+  }
+
+  &__title {
+    grid-area  : title;
+    font-weight: 500;
+    margin     : 0;
+    white-space: normal;
+    align-self : end;
+    font-size  : 1.5rem;
+    @include desktop {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__subtitle {
+    grid-area  : subtitle;
+    font-size  : 1.15rem;
+    line-height: 1.4;
+    font-weight: 300;
+    margin     : 0;
+    white-space: normal;
+    height     : 100%;
+    @include desktop {
+      padding-top: 1rem;
+      font-size  : 1.1rem;
+    }
+  }
+
+  &__header-button {
+    grid-area: button;
+  }
+  // ==== MAIN SLIDE CONTENT ==== //
+  &__main {
+    margin          : $carousel-header-height-mobile 0 0;
+    width           : 100%;
+    opacity         : 1;
+    transition      : opacity .2s ease, transform .4s ease-in;
+    transition-delay: 0;
+    padding         : 4rem 3rem;
+    @include desktop {
+      margin-top: $carousel-header-height;
+    }
+  }
+  // main slide content when hidden
+  &__content[aria-hidden="true"] #{$bn}__main {
+    opacity   : 0;
+    transition: opacity 1s ease;
+  }
+  // slide effect (for up to 50 slides)
+  @for $i from 1 through 50 {
+    $n       : $i - 1;
+    $position: (-100% * $n);
+
+    [data-carousel-active-slide='#{$i}'] #{$bn}__main {
+      transform: translateX($position);
+    }
+  }
+  //
+  /* ------------------ Controls & Buttons ------------------ */
+  //
+  &__controls {
+    position       : absolute;
+    list-style-type: none;
+    top            : 100%;
+    right          : 0;
+    left           : 0;
+    margin-top     : 2rem;
+    padding-left   : 0;
+    text-align     : center;
+  }
+
+  &__control-item {
+    display: inline-block;
+    margin : 0 .5em;
+  }
+
+  &__control-link {
+    display      : inline-block;
+    width        : 1em;
+    height       : 1em;
+    background   : transparent;
+    border       : 2px solid col($c-neutral, 4);
+    border-radius: 1em;
+    cursor       : pointer;
+
+    &[aria-selected=true] {
+      background: col($c-neutral, 5);
+      border    : 2px solid col($c-neutral, 5);
+    }
+
+    &:focus {
+      outline      : none;
+      border-bottom: 1.5px solid col($c-primary, 5);
+    }
+  }
+
+  &--has-logos {
+    #{$bn}__control-link {
+      width : auto;
+      height: auto;
+      border: none;
+
+      &[aria-selected=true] {
+        background: transparent;
+        border    : none;
+      }
+    }
+
+    #{$bn}__controls {
+      position     : relative;
+      margin-top   : 1rem;
+      margin-bottom: 2.5rem;
+      top          : auto;
+      left         : auto;
+    }
+
+    #{$bn}__logo svg {
+      width         : 6rem;
+      height        : 100%;
+      max-height    : 3.5rem;
+      vertical-align: middle;
+    }
+
+    #{$bn}__control-link #{$bn}__logo {
+      fill: col($c-neutral, 4);
+    }
+
+    #{$bn}__control-link:hover #{$bn}__logo,
+    #{$bn}__control-link[aria-selected=true] #{$bn}__logo {
+      fill: col($c-neutral, 7);
+    }
+
+    #{$bn}__control-link:focus #{$bn}__logo {
+      fill: col($c-neutral, 8);
+    }
+  }
+
+  &__button {
+    @include button-reset;
+    @include circle-link;
+    position        : absolute;
+    top             : calc(50% - (0.5 * #{$button-size}) + (0.5 * #{$carousel-header-height-mobile}));
+    padding         : 0;
+    height          : $button-size;
+    width           : $button-size;
+    background-color: lighten(col($c-neutral, 1), 5%);
+    stroke          : col($c-neutral, 5);
+    box-shadow      : 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(17,32,39,.15);
+    transition      : all .2s ease;
+    @include desktop {
+      top: calc(50% - (0.5 * #{$button-size}) + (0.5 * #{$carousel-header-height}));
+    }
+
+    &:focus {
+      // border: 1.5px solid col($c-primary, 5);
+    }
+
+    &:hover {
+      background-color: lighten(col($c-neutral, 1), 10%);
+      stroke          : lighten(col($c-neutral, 5), 7%);
+      box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+    }
+
+    &--next {
+      right: -.5 * $button-size;
+    }
+
+    &--prev {
+      left: -.5 * $button-size;
+    }
+  }
+}

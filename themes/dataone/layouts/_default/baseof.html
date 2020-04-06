@@ -25,7 +25,7 @@
     {{- partialCached "blocks/global-footer/global-footer.html" . -}}
 
     <!-- Get the bundled javascript resources -->
-    {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "js.main.js" . | resources.Minify }}
+    {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify }}
     <script src="{{ $js.Permalink }}"></script>
 
     <!-- For debugging CSS: -->

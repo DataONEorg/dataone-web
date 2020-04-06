@@ -3,14 +3,11 @@
   margin-top    : 3rem;
   margin-bottom : 4rem;
   @include f-common;
-  display       : flex;
-  flex-direction: column;
   display       : grid;
   grid-gap      : 2rem;
   grid-auto-rows: min-content;
   color         : col($c-neutral, 7);
   @include desktop {
-    display              : grid;
     grid-template-columns: .45fr .55fr;
     grid-template-rows   : 1fr;
     grid-gap             : 0 1.8rem;

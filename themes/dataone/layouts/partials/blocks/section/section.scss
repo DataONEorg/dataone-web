@@ -12,8 +12,8 @@
 
 .section {
   @include f-common;
-  position: relative;
-  z-index : 0;
+  position : relative;
+  z-index  : 0;
   max-width: 100vw;
 
   &__inner {
@@ -31,9 +31,9 @@
 
   &__title {
     width      : 100%;
-    margin     : 2rem auto 3rem;
+    margin     : 2rem auto .9rem;
     text-align : center;
-    font-size  : 2.4rem;
+    font-size  : 3rem;
     line-height: 1.5;
     font-family: 'Martel', serif;
     font-weight: 700;
@@ -50,10 +50,11 @@
 
   &__intro {
     margin       : 0 auto 1rem;
-    font-size    : 1.45rem;
+    font-size    : 1.55rem;
     line-height  : 1.5;
     font-weight  : 400;
     margin-bottom: 2rem;
+    max-width    : 880px;
   }
 
   &__button {
@@ -134,7 +135,6 @@
 
 .section--wave {
   @extend .section--svg-background;
-
   font-weight: 500;
 
   .section__title {
@@ -142,15 +142,16 @@
   }
 
   .section__svg-background {
-    @include desktop{
+    @include desktop {
       overflow: visible;
     }
+
     svg {
       height: 125%;
       @include desktop {
         height    : 100%;
-        width: 100%;
-        max-width: 100%;
+        width     : 100%;
+        max-width : 100%;
         min-height: 700px;
       }
     }
@@ -173,10 +174,10 @@
   }
 
   .section__title {
-    color      : mix(col($c-neutral, 4), col($c-secondary,5), 60%);
-    font-weight: 900;
-    letter-spacing: 0.01em;
-    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), 1);
+    color         : mix(col($c-neutral, 4), col($c-secondary,5), 60%);
+    font-weight   : 900;
+    letter-spacing: .01em;
+    text-shadow   : .01em .01em 1.3em rgba(col($c-secondary, 9), 1);
   }
 
   .section__intro {
@@ -186,21 +187,20 @@
 
 .section--card {
   background-color: col($c-secondary, 1);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top     : 2rem;
+  padding-bottom  : 2rem;
 
   .section__inner {
     @include card;
     @include limit-width;
-    margin : 5rem $mobile-lr-padding;
+    margin        : 5rem $mobile-lr-padding;
     padding-bottom: 2rem;
     @include desktop {
-      margin: 6rem auto;
+      margin : 6rem auto;
       padding: 5rem 3.5rem;
-      width: 95%;
+      width  : 95%;
     }
   }
-
 }
 
 .section--secondary-light {
@@ -300,24 +300,23 @@ $paddingBottom: 20rem; // for footer;
 
 .theme-quaternary {
   .section {
-    &__title{
-      strong{
-        background: col($c-quaternary, 2);
+    &__title {
+      strong {
+        background   : col($c-quaternary, 2);
         border-radius: 4px;
-        color: col($c-quaternary, 5);
-        padding: 0 0.3em;
+        color        : col($c-quaternary, 5);
+        padding      : 0 .3em;
       }
     }
-    
-    &__icon{
-      display: flex;
-      stroke: col($c-quaternary, 5);
-      padding: 1.5rem;
-      border-radius: 50%;
+
+    &__icon {
+      display         : flex;
+      stroke          : col($c-quaternary, 5);
+      padding         : 1.5rem;
+      border-radius   : 50%;
       background-color: col($c-quaternary, 2);
     }
   }
-  
   // .section--bold {
   //   background-color: col($c-quaternary, 5);
   //   color           : col($c-quaternary, 1);

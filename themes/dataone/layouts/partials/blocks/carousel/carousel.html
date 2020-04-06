@@ -1,0 +1,94 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "carousel" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+<!-- Icons to use for the previous and next icons -->
+{{ $iconSettings := dict "size" "large" "color" "inherit" "stroke" "thicker" }}
+{{ $nextIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-right")) "Page" $page) }}
+{{ $prevIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-left")) "Page" $page) }}
+
+<!-- Are logos provided for the control elements? -->
+{{ $hasLogos := false }}
+{{ range .Block.slides }}
+  {{ with .logo }}
+    {{ $hasLogos = true }}
+    {{ $classes = printf "%s %s--has-logos" $classes $bn }}
+  {{ end }}
+{{ end }}
+
+{{- if  partial "functions/hasValues" .Block.slides -}}
+  <div class="{{ $classes }}">
+    <!-- controls -->
+    <ol class="{{ $bn }}__controls" role="tablist">
+      {{- range .Block.slides -}}
+        <li class="{{ $bn }}__control-item" role="presentation">
+
+          <a class="{{ $bn }}__control-link" role="tab">
+            {{- if .logo -}}
+              <span class="{{ $bn }}__logo">
+                {{ readFile .logo  | safeHTML }}
+              </span>
+            {{- end -}}
+            <span class="{{ $bn }}__screen-reader-text">{{ .title }}</span>
+          </a>
+        </li>
+      {{- end -}}
+    </ol>
+    <!-- previous and next SVG elements -->
+    <div class="{{ $bn }}__container" data-carousel-btn-prev="{{ $bn }}__button--prev" data-carousel-btn-next="{{ $bn }}__button--next" data-carousel-existing-hx="h3">
+
+      {{- range .Block.slides -}}
+
+        <div class="{{ $bn }}__content" aria-hidden="true">
+          <!-- The header part of the slide which fades between slides -->
+          <!-- Use the colour as the header background -->
+          {{ $headerStyle := "" }}
+          {{ with .color }}
+            {{ $headerStyle = print `style="background-color:` . `;"` | safeHTMLAttr }}
+          {{ end }}
+
+          <div class="{{- $bn -}}__header" {{ $headerStyle }}>
+            {{ with .title }}
+              <h3 class="{{ $bn }}__title">{{ . }}</h3>
+            {{ end }}
+            {{ with .subtitle }}
+              <h4 class="{{ $bn }}__subtitle">{{ . }}</h4>
+            {{ end }}
+            {{ with .button }}
+              <div class="{{ $bn }}__header-button">
+
+                {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
+
+              </div>
+            {{ end }}
+          </div>
+
+          <!-- The main content of the carousel that slides left to right on slide changes -->
+          {{- with .content -}}
+            <div class="{{- $bn -}}__main">
+              <!-- if the content is a block, render the block -->
+              {{- if reflect.IsMap . -}}
+                {{- if .template -}}
+                  {{- partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+                {{- end -}}
+                <!-- otherwise treat it as a string (could also be HTML content as a string ) -->
+              {{- else -}}
+                {{- . | safeHTML -}}
+              {{- end -}}
+            </div>
+          {{- end -}}
+
+        </div>
+      {{- end -}}
+    </div>
+    <!-- The next/prev buttons -->
+    <button class="{{ $bn }}__button {{ $bn }}__button--prev" type="button" title="Show previous content">
+      {{ $prevIcon }}
+    </button>
+    <button class="{{ $bn }}__button {{ $bn }}__button--next" type="button" title="Show next content">
+      {{ $nextIcon }}
+    </button>
+  </div>
+{{- end -}}

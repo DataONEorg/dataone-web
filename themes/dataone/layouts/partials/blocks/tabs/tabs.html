@@ -1,0 +1,60 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "tabs" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+<!-- custom id for this block -->
+{{ $blockID := delimit (shuffle (seq 1 9)) "" }}
+<!-- an ID for each panel -->
+{{ $tabIDs := slice }}
+{{ range $index, $tab := .Block.tabs }}
+  {{ $tabID := print ($tab.title | urlize) "_" $index "_" $blockID }}
+  {{ $tabIDs = $tabIDs | append $tabID }}
+{{ end }}
+
+<div class="{{ $classes }}" data-orientation="vertical">
+  <!-- <span class="{{ $bn }}__indicator"></span> -->
+  <ul class="{{ $bn }}__tablist">
+    {{ range $index, $tab := .Block.tabs }}
+
+      <li class="{{ $bn }}__tab">
+        <!-- this button will get the classs .button--tab. -->
+        <!-- this class is used as selector in tabs.js -->
+        {{ $link := print "#" (index $tabIDs $index) }}
+        {{ $icon := .icon | default "" }}
+        {{ $buttonBlock := dict "type" "tab" "external_link" $link "text" $tab.title "icon" (dict "icon" $icon) }}
+        {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page ) }}
+      </li>
+
+    {{ end }}
+  </ul>
+  {{ $annoIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "tiny" "color" "inherit" "stroke" "thicker") "Page" $page )}}
+  {{ range $index, $tab := .Block.tabs }}
+
+    <div class="{{ $bn }}__annotation" aria-hidden="true">
+      <span>{{ .annotation }}
+        <span class="{{ $bn }}__anno-icon">{{$annoIcon}}</span></span>
+    </div>
+
+  {{ end }}
+
+  <!-- </div> -->
+  {{ range $index, $tab := .Block.tabs }}
+    <div class="{{ $bn }}__panel" id="{{ index $tabIDs $index }}" aria-hidden="true">
+      <!-- content: what's shown in the tab panel. It can be either a block or a string -->
+      {{ with .content }}
+        <!-- if the content is a block, render the block -->
+        {{ if reflect.IsMap . }}
+          {{ if .template }}
+            {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+          {{ end }}
+          <!-- otherwise treat it as a string -->
+        {{ else }}
+          {{ . }}
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
+
+</div>

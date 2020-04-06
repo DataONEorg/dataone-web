@@ -42,12 +42,8 @@
 	<!-- all other types of buttons use a similar layout -->
 
 	<!-- href link -->
-	{{ $href := "#" }}
-	{{ if eq $type "external website" }}
-		{{ with .Block.external_link }}
-			{{ $href = . }}
-		{{ end }}
-	{{ else if eq $type "internal page" }}
+	{{ $href := .Block.external_link | default "#" }}
+	{{ if eq $type "internal page" }}
 		{{ with .Block.internal_link }}
 			{{ $href = ref $page . }}
 		{{ end }}

@@ -194,44 +194,82 @@ page_sections:
         internal_link: "/features/portal-content"
 - template: section
   type: wave
-  title: See what others are doing with DataONE Plus portals
+  title: Built with DataONE Plus
+  intro: See what others are doing with DataONE Plus portals
   blocks:
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: card
-      clickable: true
-      href: https://knb.ecoinformatics.org/portals/sasap
-      image:
-        template: image
-        src: https://knb.ecoinformatics.org/knb/d1/mn/v2/object/urn:uuid:119331ce-43fa-43e2-bba6-86ea60bb780c
-        alttext: Image from the SASAP Portal
-        title: State of Alaska's Salmon and People portal
-        type: tilt-left
-      title: State of Alaska's Salmon and People
-      description: A collaboration of researchers, cultural leaders, and others working to
+  - template: carousel
+    slides:
+    - title: State of Alaska's Salmon and People
+      subtitle: A collaboration of researchers, cultural leaders, and others working to
         bring together important, accurate, and up-to-date information that will help
-        to support better salmon decision-making. The State of Alaska's Salmon and
-        People uses a DataONE Plus portal to communicate the results of their research
-        with multiple pages of text, maps, data visualizations. They use custom search
-        filters to let visitors find data by Alaskan region, salmon species, waterbody,
-        and more.
-    - template: card
-      clickable: true
-      image:
-        template: image
-        src: https://arcticdata.io/metacat/d1/mn/v2/object/urn:uuid:fc5c0db6-fff1-4647-acd5-18b976d27727
-        alttext: Image from the DBO Portal
-        title: Distributed Biological Observatory portal
-        type: tilt-left
-      href: https://arcticdata.io/catalog/portals/DBO
-      title: Distributed Biological Observatory
-      description: Studying biological responses to rapid physical changes in the Arctic
-        marine ecosystem. The Distributed Biological Observatory uses a DataONE Plus
-        portal to communicate their project's goals and history, house their extensive
-        list of publications and showcase usage of their data, including citations.
-        They enable visitors to find datasets by selecting a vessel, project, or transect
-        name from a custom dropdown menu.
+        to support better salmon decision-making
+      color: "#46567f"
+      button:
+        template: button
+        type: external website
+        color: primary
+        text: See portal
+        external_link: https://knb.ecoinformatics.org/portals/sasap
+      logo: /uploads/portals/logo_SASAP.svg
+      content:
+        template: tabs
+        tabs:
+        - title: Custom content
+          icon: image
+          annotation: Researchers communicate their results with multiple pages of text, maps, data visualizations
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/sasap_content.png
+        - title: Search filters
+          icon: search
+          annotation: Filters enable visitors to find data by Alaskan region, salmon species, waterbody, and more
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/sasap_search.png
+        - title: Members section
+          icon: users
+          annotation: The team credits their members, supporters, and awards with a specialized members section
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/sasap_members.png
+    - title: Distributed Biological Observatory
+      subtitle: Studying biological responses to rapid physical changes in the Arctic
+        marine ecosystem
+      color: "#4f9fb7"
+      button:
+        template: button
+        type: external website
+        color: primary
+        text: See portal
+        external_link: https://arcticdata.io/catalog/portals/DBO
+      logo: /uploads/portals/logo_DBO.svg
+      content:
+        template: tabs
+        tabs:
+        - title: Custom content
+          icon: image
+          annotation: Project members use custom content to share their goals and history, as well as house their extensive list of publications 
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/dbo_publications.png
+        - title: Search filters
+          icon: search
+          annotation: Visitors can find datasets by selecting a vessel, project, or transect name from a custom dropdown menu
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/dbo_search.png
+        - title: Metrics
+          icon: trending-up
+          annotation: The metrics page showcases data usasge, including articles where sspecific datasets have been cited
+          content:
+            template: image
+            type: float
+            src: /uploads/portals/dbo_metrics.png
 - template: section
   type: default
   icon:

@@ -9,7 +9,6 @@ $fs-page-title: 2.1rem;
 $fs-page-title-desktop: 2.7rem;
 $fs-h2: 1.7rem;
 $fs-section-intro: 1.25rem;
-$fs-h3: 1.2rem;
 $fs-larger: 1.15rem;
 $fs-body: 1rem;
 $fs-smaller: .9rem;
@@ -18,9 +17,9 @@ $fs-button: .9rem;
 $fs-pill: .7rem; //
 // Font styles...
 @mixin fs-h3 {
-  font-size     : 1.35rem;
+  font-size     : 1.45rem;
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .025em;
   font-weight   : 500;
   margin        : 0 0 1.5rem;
   line-height   : 1.32;
@@ -285,4 +284,19 @@ $fs-pill: .7rem; //
     transform : translateY(-0.1px);
     box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(col($c-neutral, 9),.15);
   }
+}
+@mixin screen-reader-text {
+  border           : 0 !important;
+  clip             : rect(1px, 1px, 1px, 1px) !important;
+  /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path        : inset(50%) !important;
+  /* 2 */
+  height           : 1px !important;
+  overflow         : hidden !important;
+  margin           : -1px !important;
+  padding          : 0 !important;
+  position         : absolute !important;
+  width            : 1px !important;
+  white-space      : nowrap !important;
 }
