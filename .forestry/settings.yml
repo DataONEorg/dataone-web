@@ -98,10 +98,6 @@ sections:
 - type: document
   path: data/features.yaml
   label: Features list
-- type: document
-  path: data/icons.yaml
-  label: Icon Names
-  read_only: false
 upload_dir: content/uploads
 public_path: "/uploads"
 front_matter_path: ''
