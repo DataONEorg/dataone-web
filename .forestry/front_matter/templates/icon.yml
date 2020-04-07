@@ -8,8 +8,10 @@ fields:
   label: Template
   hidden: true
   default: icon
-- type: text
-  name: icon
+- name: icon
+  type: include
+  config: {}
+  template: icon-names
   label: Icon name
   description: The name of the icon to use
 - type: select
