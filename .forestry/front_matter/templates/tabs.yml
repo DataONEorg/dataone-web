@@ -1,4 +1,54 @@
 ---
-label: tabs
+label: Tabs
 hide_body: true
-fields: []
+fields:
+- name: template
+  type: text
+  config:
+    required: false
+  label: Template
+  description: The HTML template used to build the tabs block
+  default: tabs
+  hidden: true
+- name: tabs
+  type: field_group_list
+  fields:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+    description: The tab name
+  - name: icon
+    type: include
+    config: {}
+    template: icon-names
+    label: Icon
+    description: An optional icon to display next to the tab name
+  - name: annotation
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+      max: '150'
+    label: Annotation
+    description: A brief description of the tab section content that will appear just
+      outside the panel
+  - name: content
+    type: blocks
+    label: Content
+    template_types:
+    - image
+    config:
+      min: 
+      max: '1'
+    description: The contents of the associated panel
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Tabs
+  description: The information and content for each tab
