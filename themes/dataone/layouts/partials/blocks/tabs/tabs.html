@@ -43,7 +43,7 @@
   {{ range $index, $tab := .Block.tabs }}
     <div class="{{ $bn }}__panel" id="{{ index $tabIDs $index }}" aria-hidden="true">
       <!-- content: what's shown in the tab panel. It can be either a block or a string -->
-      {{ with .content }}
+      {{ range first 1 .content }}
         <!-- if the content is a block, render the block -->
         {{ if reflect.IsMap . }}
           {{ if .template }}

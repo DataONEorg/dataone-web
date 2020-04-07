@@ -4,8 +4,6 @@ hide_body: true
 fields:
 - name: template
   type: text
-  config:
-    required: false
   label: Template
   description: The HTML template used to build the tabs block
   default: tabs
@@ -42,6 +40,21 @@ fields:
     label: Content
     template_types:
     - image
+    - card
+    - job-summary
+    - accordion
+    - features-list
+    - item-with-icon
+    - checklist
+    - image
+    - markdown
+    - people
+    - timeline
+    - news-summary
+    - feature-simple
+    - feature-detailed
+    - columns
+    - webinar-summary
     config:
       min: 
       max: '1'

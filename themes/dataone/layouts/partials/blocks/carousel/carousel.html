@@ -18,7 +18,7 @@
   {{ end }}
 {{ end }}
 
-{{- if  partial "functions/hasValues" .Block.slides -}}
+{{- if partial "functions/hasValues" .Block.slides -}}
   <div class="{{ $classes }}">
     <!-- controls -->
     <ol class="{{ $bn }}__controls" role="tablist">
@@ -66,7 +66,7 @@
           </div>
 
           <!-- The main content of the carousel that slides left to right on slide changes -->
-          {{- with .content -}}
+          {{- range first 1 .content -}}
             <div class="{{- $bn -}}__main">
               <!-- if the content is a block, render the block -->
               {{- if reflect.IsMap . -}}

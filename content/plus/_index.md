@@ -212,27 +212,27 @@ page_sections:
         external_link: https://knb.ecoinformatics.org/portals/sasap
       logo: /uploads/portals/logo_SASAP.svg
       content:
-        template: tabs
+      - template: tabs
         tabs:
         - title: Custom content
           icon: image
           annotation: Researchers communicate their results with multiple pages of text, maps, data visualizations
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/sasap_content.png
         - title: Search filters
           icon: search
           annotation: Filters enable visitors to find data by Alaskan region, salmon species, waterbody, and more
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/sasap_search.png
         - title: Members section
           icon: users
           annotation: The team credits their members, supporters, and awards with a specialized members section
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/sasap_members.png
     - title: Distributed Biological Observatory
@@ -247,27 +247,27 @@ page_sections:
         external_link: https://arcticdata.io/catalog/portals/DBO
       logo: /uploads/portals/logo_DBO.svg
       content:
-        template: tabs
+      - template: tabs
         tabs:
         - title: Custom content
           icon: image
           annotation: Project members use custom content to share their goals and history, as well as house their extensive list of publications 
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/dbo_publications.png
         - title: Search filters
           icon: search
           annotation: Visitors can find datasets by selecting a vessel, project, or transect name from a custom dropdown menu
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/dbo_search.png
         - title: Metrics
           icon: trending-up
           annotation: The metrics page showcases data usasge, including articles where sspecific datasets have been cited
           content:
-            template: image
+          - template: image
             type: float
             src: /uploads/portals/dbo_metrics.png
 - template: section
