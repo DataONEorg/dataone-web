@@ -101,8 +101,7 @@ sections:
 - type: document
   path: data/icons.yaml
   label: Icon Names
-  match: "**/*"
-  read_only: true
+  read_only: false
 upload_dir: content/uploads
 public_path: "/uploads"
 front_matter_path: ''
