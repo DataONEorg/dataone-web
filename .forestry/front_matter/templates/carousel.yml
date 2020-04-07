@@ -1,4 +1,95 @@
 ---
-label: carousel
+label: Carousel
 hide_body: false
-fields: []
+fields:
+- name: template
+  type: text
+  config:
+    required: false
+  label: Template
+  description: The name of the HTML template used by this block
+  hidden: true
+  default: carousel
+- name: slides
+  type: field_group_list
+  fields:
+  - name: title
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+      max: '55'
+    label: Title
+    description: The heading for the slide, this will be shown in large font at the
+      top of each slide
+  - name: subtitle
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+      max: '200'
+    label: Subtitle
+    description: The text that will be displayed directly below the title (optional)
+  - name: color
+    type: color
+    label: Header Color
+    config:
+      required: false
+      color_format: Hex
+    description: The background color of the header. Must be dark enough for white
+      text to display above.
+    default: "#EEF2F2"
+  - name: button
+    type: field_group
+    config: {}
+    fields:
+    - name: button
+      type: include
+      config: {}
+      template: button
+      label: Button
+    label: Button
+    description: A button to display in the header section, next to the title and
+      subtitle
+  - name: logo
+    type: file
+    config:
+      maxSize: 250
+    label: 'Logo '
+    description: Optional SVG logo that corresponds to each slide. The SVG will be
+      used as a control to switch between slides. SVG format ONLY.
+  - name: content
+    type: blocks
+    label: Content
+    template_types:
+    - card
+    - job-summary
+    - accordion
+    - features-list
+    - item-with-icon
+    - checklist
+    - image
+    - markdown
+    - people
+    - timeline
+    - news-summary
+    - feature-simple
+    - feature-detailed
+    - columns
+    - webinar-summary
+    config:
+      min: 
+      max: 
+    description: The content to display within each slide, below the title and subtitle
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Slides
+  description: The content and information for each slide in the caroussel
