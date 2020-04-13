@@ -12,14 +12,21 @@
     {{ end }}
   {{- end -}}
 
-  <section class="webinars" style="margin-bottom:500px">
-    {{- range .Paginator.Pages -}}
-      <!-- remove trailing slash in link -->
-      {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
-      <!-- use the webinar summary block -->
-      {{ partial "blocks/webinar-summary/webinar-summary" (dict "Block" (dict "webinar" $pageLink) "Page" $ )}}
-    {{- end -}}
-    {{- partial "blocks/paginator/paginator" . -}}
-  </section>
+  {{ $webinarBlocks := slice }}
+
+  {{- range .Paginator.Pages -}}
+    <!-- remove trailing slash in link -->
+    {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
+    <!-- use the webinar summary block -->
+    {{ $webinarBlock := (dict "template" "page-summary" "type" "webinar" "webinar" $pageLink) }}
+    {{ $webinarBlocks = $webinarBlocks | append $webinarBlock }}
+  {{- end -}}
+
+  {{ $columnsBlock := (dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks) }}
+  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) }}
+
+  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
+
+  <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 
 {{- end -}}

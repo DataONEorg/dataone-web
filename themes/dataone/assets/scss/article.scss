@@ -1,0 +1,55 @@
+// ==========================================================================
+//  Article "block"
+// ==========================================================================
+//
+// Pages are structed such that they contain a header (with navigation), an
+// article (main content, including page header and a series of sections), plus
+// a footer. The overall layout for pages is found in the
+// layout/_default/baseof.html file. The "main" part contains the article, each
+// of which has a slightly different layout depending on page type - eg blocks,
+// news/single.html, jobs/single.html, news/webinar.html, etc. This scss file
+// provides styles that are used by all the "article" elements. It positions the
+// page header, sections, and footer relative to one another.
+//
+.article {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  //
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}
+  //
+  $bn                    : &;
+
+  $footer-section-overlap: 20rem;
+  $header-section-overlap: 3rem;
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. :root), such that blocks can be themed from a higher level (e.g. page).
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+  // 
+
+  .section {
+
+    // The first section needs extra padding at top for the header.
+    &:first-of-type {
+      .section__inner {
+        padding-top: 3rem;
+      }
+    }
+    // The last section in a page needs extra padding at the bottom for the footer
+    &:last-of-type {
+      .section__inner {
+        padding-bottom: $footer-section-overlap;
+      }
+    }
+
+  }
+}
+
+.article .section:last-of-type {}
+
+.theme-quaternary {}

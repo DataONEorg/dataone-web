@@ -1,4 +1,30 @@
 .checklist {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                  : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix              : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  $checklist-check-size: 1.5rem;
+
   &__title {
     @include fs-h3;
   }
@@ -14,25 +40,31 @@
     display  : block;
     @include f-common;
     color    : var(--col-font);
-    font-size: $fs-larger;
+    font-size: var(--fs-large, 1.15rem);
   }
 
   &__checkmark {
-    margin-right: 10px;
-    display     : inline-block;
-    width       : 14px;
-    height      : 14px;
+    margin-right   : .625rem;
+    display        : inline-block;
+    width          : $checklist-check-size;
+    height         : $checklist-check-size;
+    box-shadow     : 0 2px 4px -1px var(--c-shadow), 0 1px 3px -1px var(--c-shadow);
+    border-radius  : 50%;
+    padding        : .2rem;
+    display        : inline-flex;
+    align-items    : center;
+    justify-content: center;
   }
-}
 
-.checklist--2cols {
-  .checklist__items {
-    grid-template-columns: repeat(2, minmax(100px, 0.5fr));
+  &--2cols {
+    #{$bn}__items {
+      grid-template-columns: repeat(2, minmax(100px, 0.5fr));
+    }
   }
-}
 
-.checklist--3cols {
-  .checklist__items {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  &--3cols {
+    #{$bn}__items {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
   }
 }

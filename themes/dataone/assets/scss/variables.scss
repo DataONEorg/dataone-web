@@ -1,0 +1,96 @@
+// ==== COLORS ====
+// -- Color names (-cn)
+$cn-teal: #1ab7bc; //#1ababc;
+$cn-yellow: #EED268;
+$cn-blue-grey: #507d8f;
+$cn-green: #25cb9e; //#2bd085;
+$cn-blue: #2793C0;
+$cn-red: #F57065; //
+
+// Assume all of these colour variables could change based on page theme
+:root {
+  $theme-default-colors: (
+    neutral     : col($cn-blue-grey, 5),
+    background  : col($cn-blue-grey, 1),
+    foreground  : col($cn-blue-grey, 5),
+    major-accent: (base: col($cn-teal, 5), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
+    minor-accent: (base: col($cn-yellow, 5), foreground: col($cn-yellow, 8), accent: col($cn-teal, 5)),
+    rare-accent : (base: col($cn-green, 6), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5))
+  );
+  @include set-theme-colors($theme-default-colors);
+
+  //
+  // Some default font colours
+  // ==========================================================================
+  --fc-link            : var(--c-major-accent-on-default);
+  --fc-link-hover      : var(--c-major-accent-emphasis-on-default);
+
+  //
+  // Font families
+  // ==========================================================================
+  --ff-title           : #{$ff-serif}; // highest level titles, e.g. page headline
+  --ff-title2          : #{$ff-serif}; // e.g. section level titles
+  --ff-title3          : #{$ff-sans-serif}; // e.g. h3 titles of sub-section blocks
+  --ff-body            : #{$ff-sans-serif}; // all other fonts
+
+  //
+  // Font sizes (responsive)
+  // ==========================================================================
+  @include rfs(.8rem, --fs-smallest);
+  @include rfs(.85rem, --fs-x-small);
+  @include rfs(.9rem, --fs-x-smaller); // pills
+  @include rfs(1rem, --fs-small);
+  @include rfs(1.1rem, --fs-medium); // 
+  @include rfs(1.22rem, --fs-large); // body
+  @include rfs(1.48rem, --fs-larger); //intro
+  @include rfs(1.75rem, --fs-x-large); //intro
+  @include rfs(2.8rem, --fs-xx-large); //sec title
+  @include rfs(3.5rem, --fs-xxx-large); // smaller page title
+  @include rfs(4.0rem, --fs-largest); //page title
+
+  //
+  // Font weights
+  // ==========================================================================
+  --fw-normal          : 400;
+  --fw-bold            : 500;
+  --fw-bolder          : 700;
+  --fw-x-bold          : 800;
+
+  //
+  // Border radius
+  // ==========================================================================
+  --br-default         : .25rem;
+
+}
+
+// // ==== SPACING VARIABLES ====
+$content-width: 1040px; // max width of desktop content
+$nav-height: 7rem; // navigation bar height on desktop
+$lr-padding: .8rem; // padding on the left and right for full-width elements
+
+// TODO - replace the following variables with new css vars
+/* ==== FONTS ==== */
+// Font (-f)
+// // fs- = font size
+$fs-page-title: 2.1rem;
+$fs-page-title-desktop: 2.7rem;
+$fs-h2: 1.7rem;
+$fs-section-intro: 1.25rem;
+$fs-larger: 1.15rem;
+$fs-body: 1rem;
+$fs-smaller: .9rem;
+$fs-nav-item: 1rem;
+$fs-button: .9rem;
+$fs-pill: .7rem; //
+
+// -- Color variables (-c)
+// Use the variables defined below directly on elements.
+$c-primary: $cn-yellow;
+$c-secondary: $cn-teal;
+$c-tertiary: $cn-blue;
+$c-quaternary: $cn-green;
+$c-neutral: $cn-blue-grey;
+$c-info: $cn-blue;
+$c-warning: $cn-yellow;
+$c-success: $cn-green;
+$c-error: $cn-red;

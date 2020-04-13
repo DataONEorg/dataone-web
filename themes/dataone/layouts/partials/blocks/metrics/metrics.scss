@@ -1,9 +1,33 @@
 .metrics {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                  : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix              : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   display              : grid;
   justify-content      : center;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap             : 3rem 0;
-  padding-top: 2rem;
+  padding-top          : 2rem;
 
   &__group {
     display              : grid;
@@ -20,24 +44,25 @@
 
   &__name {
     font-size : .9rem;
-    color     : col($c-neutral, 6);
+    color     : var(--section-fc-body, black);
     margin-top: .5rem;
   }
 
   &__icon {
-    stroke      : col($c-neutral, 6);
+    stroke      : var(--section-fc-body, black);
     margin-right: 3px;
+    filter: brightness(1.05);
   }
 }
 
-.metrics--secondary {
-  color: col($c-tertiary, 5);
+.metrics--accent {
+  color: var(--section-c-accent, black);
 
   .metrics__name {
-    color: col($c-tertiary, 4);
+    color: var(--section-c-accent, black);
   }
 
   .metrics__icon {
-    stroke: col($c-tertiary, 4);
+    stroke: var(--section-c-accent, black);
   }
 }

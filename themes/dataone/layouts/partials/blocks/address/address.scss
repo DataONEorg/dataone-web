@@ -1,5 +1,29 @@
 .address {
-  color: col($c-neutral, 1);
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+
   &__delivery-point {}
 
   &__city {}
@@ -9,12 +33,12 @@
   &__country {}
 
   &__postal-code {}
-}
 
-.address--multi-line {
-  display: block;
-}
+  &--multi-line {
+    display: block;
+  }
 
-.address--single-line {
-  display: inline-block;
+  &--single-line {
+    display: inline-block;
+  }
 }

@@ -14,7 +14,7 @@
   {{- range $index, $page := .Paginator.Pages -}}
     <!-- remove trailing slash in link -->
     {{ $pageLink := replaceRE "/$" "" $page.RelPermalink }}
-    {{ $newsBlock := (dict "template" "news-summary" "news" $pageLink) }}
+    {{ $newsBlock := (dict "template" "page-summary" "type" "news" "news" $pageLink) }}
     {{ if eq $index 0 }}
       {{ $latestNewsBlock = $newsBlock }}
     {{ else }}

@@ -41,7 +41,6 @@ fields:
     - primary
     - secondary
     - tertiary
-    - quaternary
     - inherit
 - type: select
   label: Line width

@@ -1,15 +1,16 @@
 .d1plus-menu-ad {
   // bn = block name, usage: #{ $bn } 
-  $bn           : &;
-  display       : flex;
-  align-items   : center;
-  flex-direction: column;
-  padding       : 1rem .5rem;
-  color         : col($c-secondary, 2);
+  --ad-foreground-color: var(--c-major-accent-2, white);
+
+  $bn                  : &;
+  display              : flex;
+  align-items          : center;
+  flex-direction       : column;
+  padding              : 1rem .5rem;
+  color                : var(--ad-foreground-color);
 
   &__headline {
     margin     : 0;
-    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 9), .2);
     display    : block;
     white-space: nowrap;
 
@@ -44,7 +45,7 @@
   }
 
   &__icon {
-    stroke      : col($c-secondary, 2);
+    stroke      : var(--ad-foreground-color);
     margin-right: 1rem;
   }
 }

@@ -20,7 +20,6 @@ header:
     template: image
     src: "/uploads/portals-header.png"
     alttext: Portals from DataONE Plus
-    title: DataONE Plus portals page
     type: default
   buttons:
   - template: button
@@ -46,7 +45,6 @@ page_sections:
       type: tilt-left
       src: uploads/dataset-collection.png
       alttext: Dataset collection
-      title: Dataset collection
     type: right
     headline: All of your data in one place
     text: Create a catalog of your team's data that spans the DataONE network
@@ -56,7 +54,6 @@ page_sections:
       type: tilt-right
       src: uploads/search-filters.png
       alttext: Search filters
-      title: Search filters
     type: left
     button:
       template: button
@@ -72,7 +69,6 @@ page_sections:
       type: tilt-left
       src: uploads/portal-editor.png
       alttext: Search filters
-      title: Search filters
     type: right
     button:
       template: button
@@ -89,7 +85,7 @@ page_sections:
     internal_link: "/features"
     text: Explore all features
 - template: section
-  type: data-wave
+  background: data-wave
   title: Data about your data
   intro: With access to information about the datasets in your portal, you can monitor how your data is being used and assess its quality based on community established scores.
   blocks:
@@ -102,7 +98,6 @@ page_sections:
       template: image
       src: uploads/data.png
       alttext: FAIR metrcis report
-      title: FAIR metrcis report
       type: tilt-left
     details:
     - template: item-with-icon
@@ -113,7 +108,7 @@ page_sections:
         template: icon
         icon: check
         size: small
-        color: quaternary
+        color: secondary
         stroke: thicker
     - template: item-with-icon
       name: Detailed analysis
@@ -122,7 +117,7 @@ page_sections:
         template: icon
         icon: check
         size: small
-        color: quaternary
+        color: secondary
         stroke: thicker
     button:
       template: button
@@ -166,7 +161,6 @@ page_sections:
   - template: image
     src: uploads/portals-branding.png
     alttext: FAIR metrcis report
-    title: FAIR metrcis report
   - template: columns
     num_cols: 2
     columns:
@@ -193,7 +187,7 @@ page_sections:
         text: Learn more about custom content
         internal_link: "/features/portal-content"
 - template: section
-  type: wave
+  background: wave
   title: Built with DataONE Plus
   intro: See what others are doing with DataONE Plus portals
   blocks:
@@ -293,6 +287,7 @@ page_sections:
         training courses
 - template: section
   type: card
+  background: subtle-emphasis
   title: Need more? **Add a dedicated hosted repository**
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository
@@ -307,7 +302,7 @@ page_sections:
     internal_link: hostedrepo/_index.md
   blocks: []
 - template: section
-  type: bold
+  background: major-accent-color
   title: Interested in a becoming a DataONE Plus member?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch

@@ -1,16 +1,38 @@
-.video{
-  padding: 46.88% 0 0 0;
-  position:relative;
-  
-  &__iframe{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    border-radius: 3px;
-    background: #d7e8ec;
-    box-shadow:  10px 10px 30px #b7c5c9, 
-                 -10px -10px 30px white;
+.video {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn     : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  padding : 46.88% 0 0;
+  position: relative;
+
+  &__iframe {
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    width        : 100%;
+    height       : 100%;
+    border-radius: var(--br-default, .25rem);
+    background   : #d7e8ec;
+    box-shadow   : .625rem .625rem 2rem var(--section-c-shadow-4), -0.625rem -0.625rem 2rem white;
   }
 }

@@ -2,97 +2,97 @@
 // are automatically generated from markdown by hugo, and those generated
 // elements don't have classes.
 
-.markdown{
-  @include f-common;
-  
-  a:not(.button) {
-    color: $c-secondary;
-    text-decoration: none;
-  }
-  a:not(.button):visited{
-    color: $c-secondary;
-  }
-  a:not(.button):hover{
-    color: col($c-neutral, 7);
-  }
-  a:not(.button):active{
-    color: col($c-neutral, 7);
-  }
-  
-  line-height: 1.7;
-  font-size: 1.15rem;
-  
+.markdown {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include style-links(a);
+
   h1 {
     font-size: $fs-page-title;
   }
-  
-  h1,h2,h3,h4,h5,h6 {
-    color: col($c-neutral, 7);
-    font-weight: 500;
-    line-height: 1.2;
-    margin-top: 0;
-  }
-  
-  ul{
+
+  ul {
     font-size: 1.25rem;
+
     li {
-      margin: 15px 0;
+      margin    : 15px 0;
       list-style: none;
-      position: relative;
-      font-size: 1.25rem;
+      position  : relative;
+      font-size : 1.25rem;
     }
+
     li:before {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: col($c-neutral, 3);
+      content      : "";
+      position     : absolute;
+      width        : 8px;
+      height       : 8px;
+      background   : var(--section-c-background-darker-2);
       border-radius: 50%;
-      left: -22px;
-      top: 11px;
+      left         : -22px;
+      top          : 11px;
     }
   }
+
   ol {
     counter-reset: listitem;
-    font-size: 1.25rem;
-    margin-left: 30px;
-    
+    font-size    : 1.25rem;
+    margin-left  : 30px;
+
     li {
-      margin: 15px 0;
+      margin    : 15px 0;
       list-style: none;
-      position: relative;
+      position  : relative;
     }
-    
-    li:before{
+
+    li:before {
       counter-increment: listitem;
-      content: counter(listitem);
-      background: col($c-neutral, 6);
-      color: white;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 19px;
-      height: 19px;
-      width: 19px;
-      text-align: center;
-      padding: 0;
-      border-radius: 11px;
-      position: absolute;
-      left: -32px;
-      top: 9px;
+      content          : counter(listitem);
+      background       : var(--section-fc-body, grey);
+      color            : white;
+      font-weight      : 600;
+      font-size        : 13px;
+      line-height      : 19px;
+      height           : 19px;
+      width            : 19px;
+      text-align       : center;
+      padding          : 0;
+      border-radius    : 11px;
+      position         : absolute;
+      left             : -32px;
+      top              : 9px;
     }
   }
 
   pre {
-    padding: 1.5rem;
-    border-radius: 4px;
-    
+    padding      : 1.5rem;
+    border-radius: var(--br-default, 0.25rem);
   }
-  
   //  TABLES 
   table {
-    width: 100%;
+    width          : 100%;
     border-collapse: separate;
-    border-spacing: 0;
+    border-spacing : 0;
 
     &:not(:first-child) {
       margin-top: 20px;
@@ -103,83 +103,99 @@
     }
 
     thead tr th {
-      font-weight: 500;
-      font-size: 0.85rem;
-      color: col($c-neutral, 7);
+      font-weight   : 500;
+      font-size     : .85rem;
+      color         : var(--section--c-background-darker-2, gray);
       text-transform: uppercase;
-      text-align: left;
-      padding: 0 0 8px 16px;
+      text-align    : left;
+      padding       : 0 0 8px 16px;
     }
 
     thead tr th p {
-      font-size: 0.85rem;
+      font-size     : .85rem;
       text-transform: uppercase;
-      padding: 0;
-      line-height: 15px;
+      padding       : 0;
+      line-height   : 15px;
     }
 
-    
-    tbody{
-      font-size: 0.85rem;
-      line-height: 1.45rem;
+    tbody {
+      font-size     : .85rem;
+      line-height   : 1.45rem;
       vertical-align: top;
-      padding-top: 0;
-      
-      td>* {
-        font-size: 0.85rem;
-        line-height: 1.45rem;
+      padding-top   : 0;
+
+      td > * {
+        font-size     : .85rem;
+        line-height   : 1.45rem;
         vertical-align: top;
-        padding-top: 0;
+        padding-top   : 0;
       }
-      
+
       tr td {
-        border-color: col($c-neutral, 3);//#e3e8ee;
+        border-color: var(--section--c-background-darker-2, gray);
         border-style: solid;
-        padding: 16px;
-        border-width: 0px;
+        padding     : 16px;
+        border-width: 0;
       }
 
       tr td:first-child {
-        border-left-width: 1px
+        border-left-width: 1px;
       }
 
       tr td:last-child {
-        border-right-width: 1px
+        border-right-width: 1px;
       }
 
-      tr:first-child>td {
-        border-top-width: 1px
+      tr:first-child > td {
+        border-top-width: 1px;
       }
 
       tr td {
         border-bottom-width: 1px;
       }
 
-      tr:first-child>td:first-child {
-        border-top-left-radius: 4px
+      tr:first-child > td:first-child {
+        border-top-left-radius: 4px;
       }
 
-      tr:first-child>td:last-child {
-        border-top-right-radius: 4px
+      tr:first-child > td:last-child {
+        border-top-right-radius: 4px;
       }
 
-      tr:last-child>td:first-child {
-        border-bottom-left-radius: 4px
+      tr:last-child > td:first-child {
+        border-bottom-left-radius: 4px;
       }
 
-      tr:last-child>td:last-child {
-        border-bottom-right-radius: 4px
+      tr:last-child > td:last-child {
+        border-bottom-right-radius: 4px;
       }
 
       tr:nth-child(odd) td {
-        background: col($c-neutral, 1)-emphasis;
+        background: var(--section-c-background-lighter, white);
       }
     }
 
     th:first-child {
       text-align: right;
-      padding: 0 9px 7px 16px
+      padding   : 0 9px 7px 16px;
     }
   }
-  
+
+  &--standalone {
+    @include f-common;
+    line-height: 1.7;
+    font-size  : 1.15rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color      : var(--section-fc-title, black);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-top : 0;
+    }
+  }
 }

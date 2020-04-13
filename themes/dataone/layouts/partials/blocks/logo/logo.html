@@ -1,11 +1,13 @@
 {{ $bn := "logo" }}
 {{ $classes := $bn }}
+
 {{ with .Block.type }}
   {{ $classes = print $classes " " $bn "--" . }}
 {{ end }}
 {{ with .Block.size }}
   {{ $classes = print $classes " " $bn "--sz-" . }}
 {{ end }}
+
 <svg viewbox="0 0 490 109" width="143" height="32" preserveaspectratio="xMinYMin slice" class="{{ $classes }}">
 
   <title>DataONE</title>

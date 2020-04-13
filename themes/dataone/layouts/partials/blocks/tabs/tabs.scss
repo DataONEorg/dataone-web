@@ -1,4 +1,28 @@
 .tabs {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                  : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix              : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   display              : grid;
   grid-gap             : 2rem;
   grid-template-columns: 100%;
@@ -56,7 +80,7 @@
   }
 
   &__anno-icon {
-    stroke   : col($c-secondary, 5);
+    stroke   : var(--section-c-accent, dimgray);
     display  : inline-flex;
     transform: rotate(-90deg);
     @include desktop {
@@ -82,27 +106,16 @@
     padding: .5rem;
 
     &[aria-selected=true] {
-      box-shadow      : 0 3px 8px -1px rgba(50,50,93,.2), 0 0 2px -1px rgba(0,0,0,.2);
-      border-radius   : 3px;
-      color           : col($c-secondary, 5);
-      background-color: white;
+      box-shadow      : 0 3px 8px -1px var(--section-c-shadow-1, rgba(0,0,0,0.2)), 0 0 2px -1px var(--section-c-shadow-2, rgba(0,0,0,0.3));
+      border-radius   : var(--br-default, .25rem);
+      color           : var(--section-c-accent, black);
+      background-color: var(--section-c-background-lighter, white);
+      filter: brightness(1.1);
 
       .icon {
-        stroke: lighten(col($c-secondary, 5), 3%);
+        stroke: var(--section-c-accent, black);
+        filter: brightness(1.1);
       }
     }
   }
-  // &__indicator {
-  //   transition-property       : transform;
-  //   transition-duration       : 200ms;
-  //   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  //   width                     : 100%;
-  //   box-shadow                : 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-  //   position                  : absolute;
-  //   height                    : 2.5rem;
-  //   border-radius             : 4px;
-  //   -webkit-transform-origin  : 50% 0;
-  //   transform-origin          : 50% 0;
-  //   display                   : block;
-  // }
 }

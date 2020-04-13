@@ -17,6 +17,7 @@ header:
 page_sections:
 - template: section
   type: default
+  background: default
   title: Over a decade of data science and education
   intro: ''
   blocks:
@@ -40,7 +41,6 @@ page_sections:
         template: image
         src: "/uploads/800px-Robinson-projection.jpg"
         alttext: World map shown with Robinson projection
-        title: DataONE created global data research infrastructure
         type: default
     - datetime:
         time: '2014-01-01'
@@ -60,7 +60,7 @@ page_sections:
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
 - template: section
-  type: secondary-light
+  background: subtle-emphasis
   title: The people behind the data
   intro: ''
   blocks:
@@ -68,7 +68,7 @@ page_sections:
     show_avatars: true
     team_members: true
 - template: section
-  type: bold
+  background: major-accent-color
   title: Contribute
   intro: Help DataONE provide and maintain a distributed framework and sustainable
     infrastructure that meets the needs of science and society for open, persistent,

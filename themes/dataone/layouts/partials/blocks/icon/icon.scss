@@ -2,9 +2,32 @@
 // see https://github.com/feathericons/feather
 
 .icon {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn            : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix        : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   width          : 24px;
   height         : 24px;
-  stroke         : col($c-neutral, 7);
+  stroke         : var(--section-fc-body, grey);
   stroke-width   : 1.5;
   stroke-linecap : round;
   stroke-linejoin: round;
@@ -36,19 +59,15 @@
   }
 
   &--col-primary {
-    stroke: col($c-primary, 5);
+    stroke: var(--c-minor-accent, grey);
   }
 
   &--col-secondary {
-    stroke: col($c-secondary, 5);
+    stroke: var(--section-c-accent, var(--c-major-accent, grey));
   }
 
   &--col-tertiary {
-    stroke: col($c-tertiary, 5);
-  }
-
-  &--col-quaternary {
-    stroke: col($c-quaternary, 5);
+    stroke: var(--c-rare-accent, grey);
   }
 
   &--col-inherit {

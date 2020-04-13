@@ -1,0 +1,147 @@
+// FONTS - TODO - decide which of these we will actually use, remove the rest,
+// including the .woff files. Then add preloader to head.html.
+/* work-sans-100 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 100;
+  src         : local('Work Sans Thin'), local('WorkSans-Thin'), url("../fonts/work-sans-v5-latin-100.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-100.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-200 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 200;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans ExtraLight'), local('WorkSans-ExtraLight'), url("../fonts/work-sans-v5-latin-200.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-200.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-300 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 300;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans Light'), local('WorkSans-Light'), url("../fonts/work-sans-v5-latin-300.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-300.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-regular - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 400;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans'), local('WorkSans-Regular'), url("../fonts/work-sans-v5-latin-regular.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-regular.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-500 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 500;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans Medium'), local('WorkSans-Medium'), url("../fonts/work-sans-v5-latin-500.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-500.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-600 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 600;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans SemiBold'), local('WorkSans-SemiBold'), url("../fonts/work-sans-v5-latin-600.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-600.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-700 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 700;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans Bold'), local('WorkSans-Bold'), url("../fonts/work-sans-v5-latin-700.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-700.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-800 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 800;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans ExtraBold'), local('WorkSans-ExtraBold'), url("../fonts/work-sans-v5-latin-800.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-800.woff") format('woff');
+  font-display: fallback;
+}
+/* work-sans-900 - latin */
+@font-face {
+  font-family : 'Work Sans';
+  font-style  : normal;
+  font-weight : 900;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Work Sans Black'), local('WorkSans-Black'), url("../fonts/work-sans-v5-latin-900.woff2") format('woff2'), url("../fonts/work-sans-v5-latin-900.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-200 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 200;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel UltraLight'), local('Martel-UltraLight'), url("../fonts/martel-v4-latin-200.woff2") format('woff2'), url("../fonts/martel-v4-latin-200.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-300 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 300;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel Light'), local('Martel-Light'), url("../fonts/martel-v4-latin-300.woff2") format('woff2'), url("../fonts/martel-v4-latin-300.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-regular - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 400;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel'), local('Martel-Regular'), url("../fonts/martel-v4-latin-regular.woff2") format('woff2'), url("../fonts/martel-v4-latin-regular.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-600 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 600;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel DemiBold'), local('Martel-DemiBold'), url("../fonts/martel-v4-latin-600.woff2") format('woff2'), url("../fonts/martel-v4-latin-600.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-700 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 700;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel Bold'), local('Martel-Bold'), url("../fonts/martel-v4-latin-700.woff2") format('woff2'), url("../fonts/martel-v4-latin-700.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-800 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 800;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel ExtraBold'), local('Martel-ExtraBold'), url("../fonts/martel-v4-latin-800.woff2") format('woff2'), url("../fonts/martel-v4-latin-800.woff") format('woff');
+  font-display: fallback;
+}
+/* martel-900 - latin */
+@font-face {
+  font-family : 'Martel';
+  font-style  : normal;
+  font-weight : 900;
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src         : local('Martel Heavy'), local('Martel-Heavy'), url("../fonts/martel-v4-latin-900.woff2") format('woff2'), url("../fonts/martel-v4-latin-900.woff") format('woff');
+  font-display: fallback;
+}
+$ff-sans-serif: 'Work Sans', sans-serif !default;
+$ff-serif: 'Martel', serif;

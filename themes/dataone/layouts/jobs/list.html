@@ -15,7 +15,7 @@
     <!-- remove trailing slash in link -->
     {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
     <!-- use the webinar summary block -->
-    {{ $jobBlock := (dict "template" "job-summary" "job" $pageLink) }}
+    {{ $jobBlock := (dict "template" "page-summary" "job" $pageLink) }}
     {{ $subblocks = $subblocks | append $jobBlock }}
   {{ else }}
     {{ $noJobBlock := (dict "template" "markdown" "content" ( .Params.no_job_message | default "We're not hiring at the moment, check back soon." )) }}

@@ -20,13 +20,6 @@ fields:
     required: false
   label: Alternative Text
   description: The alternative text to use in place of the image if it's not viewable
-- name: title
-  type: text
-  config:
-    required: false
-  label: Image Title
-  description: A title that describes the image. Will be shown when the user hovers
-    over the image.
 - type: select
   label: Image Style
   name: type

@@ -1,6 +1,28 @@
 .carousel {
-  // bn = block name, usage: #{ $bn } 
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
   $bn                           : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   // height and width of the next/prev buttons
   $button-size                  : 3rem;
   // height of the header element
@@ -12,10 +34,6 @@
   // hide text meant for screen readers
   max-width                     : calc(100% - #{.5 * $button-size}); // to keep buttons from expanding past parent width
   margin                        : 0 auto;
-
-  &__screen-reader-text {
-    @include screen-reader-text;
-  }
   // contains each of the content divs (i.e. each slide)
   &__container {
     overflow   : hidden;
@@ -35,7 +53,7 @@
     height          : 100%;
     margin          : 0;
     padding         : 0;
-    background-color: lighten(col($c-neutral, 1),5%);
+    background-color: var(--section-c-background-lighter, white);
   }
   // ==== SLIDE HEADER ==== //
   &__header {
@@ -44,7 +62,7 @@
     left                 : 0;
     right                : 0;
     width                : 100%;
-    background-color     : col($c-secondary, 5);
+    background-color     : var(--section-c-accent, grey);
     color                : white;
     display              : grid;
     white-space          : normal;
@@ -56,7 +74,7 @@
     grid-template-areas  : "title" "subtitle" "button";
     grid-gap             : 1rem 0;
     align-content        : center;
-    box-shadow           : inset 0 4.1rem 4rem 0 rgba(col($c-neutral, 9),0.12), inset 0 .05rem .2rem 0 rgba(col($c-neutral, 9),0.08);
+    box-shadow           : inset 0 4.1rem 4rem 0 var(--section-c-shadow-1, rgba(0,0,0,0.1)), inset 0 .05rem .2rem 0 var(--section-c-shadow-1, rgba(0,0,0,0.1));
     @include desktop {
       height               : $carousel-header-height;
       grid-template-columns: auto min-content;
@@ -165,18 +183,18 @@
     width        : 1em;
     height       : 1em;
     background   : transparent;
-    border       : 2px solid col($c-neutral, 4);
+    border       : 2px solid var(--section-c-icon-background, grey);
     border-radius: 1em;
     cursor       : pointer;
 
     &[aria-selected=true] {
-      background: col($c-neutral, 5);
-      border    : 2px solid col($c-neutral, 5);
+      background: var(--section-fc-body, gray);
+      border    : 2px solid var(--section-fc-body, gray);
     }
 
     &:focus {
       outline      : none;
-      border-bottom: 1.5px solid col($c-primary, 5);
+      border-bottom: 1.5px solid var(--section-c-accent, grey);
     }
   }
 
@@ -208,16 +226,16 @@
     }
 
     #{$bn}__control-link #{$bn}__logo {
-      fill: col($c-neutral, 4);
+      fill: var(--section-c-foreground-very-subtle, lightgrey);
     }
 
     #{$bn}__control-link:hover #{$bn}__logo,
     #{$bn}__control-link[aria-selected=true] #{$bn}__logo {
-      fill: col($c-neutral, 7);
+      fill: var(--section-fc-title, black);
     }
 
     #{$bn}__control-link:focus #{$bn}__logo {
-      fill: col($c-neutral, 8);
+      // fill: var(--section-fc-title, black);
     }
   }
 
@@ -229,22 +247,19 @@
     padding         : 0;
     height          : $button-size;
     width           : $button-size;
-    background-color: lighten(col($c-neutral, 1), 5%);
-    stroke          : col($c-neutral, 5);
+    background-color: var(--section-c-background-lighter, white);
+    stroke          : var(--section-fc-body, gray);
     box-shadow      : 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(17,32,39,.15);
     transition      : all .2s ease;
     @include desktop {
       top: calc(50% - (0.5 * #{$button-size}) + (0.5 * #{$carousel-header-height}));
     }
 
-    &:focus {
-      // border: 1.5px solid col($c-primary, 5);
-    }
+    &:focus {}
 
     &:hover {
-      background-color: lighten(col($c-neutral, 1), 10%);
-      stroke          : lighten(col($c-neutral, 5), 7%);
-      box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+      filter: brightness(1.1);
+      box-shadow: 0 3px 5px var(--section-c-shadow-1, rgba(0,0,0,.07)), 0 1px 3px var(--section-c-shadow-1, rgba(0,0,0,.07));
     }
 
     &--next {

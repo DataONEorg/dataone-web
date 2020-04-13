@@ -24,7 +24,7 @@
   {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
   {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
   {{ $webinarBlock := merge (dict "template" "webinar-details") $webinar }}
-  {{ $sectionBlock:= dict "template" "section" "type" "split" "background" "secondary" "background2" "neutral-light" "blocks" (slice $headerBlock $webinarBlock) }}
+  {{ $sectionBlock:= dict "template" "section" "type" "split" "background" "major-accent-color" "background2" "subtle-emphasis" "blocks" (slice $headerBlock $webinarBlock) }}
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) }}
 
 {{- end -}}

@@ -1,0 +1,235 @@
+// Functions
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+// 
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+// 
+@function shade($color, $percentage) {
+  // @return mix(black, $color, $percentage);
+  @return mix(black, $color, (100-$percentage));
+}
+/// Return a standardized shade/tint of a given colour
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $level - A number between 1 and 9 that represents the desired shade/tint, where 9 is the darkest and 1 is the lightest
+/// @return {Color}
+//
+@function col($color, $level) {
+  @if($level == 1) {
+    $mod1: tint($color, 97);
+    $mod2: desaturate($mod1, 15);
+    @return $mod2;
+  }
+  @if($level == 2) {
+    $mod1: tint($color, 84);
+    $mod2: desaturate($mod1, 10);
+    @return $mod2;
+  }
+  @if($level == 3) {
+    $mod1: tint($color, 65);
+    $mod2: desaturate($mod1, 5);
+    @return $mod2;
+  }
+  @if($level == 4) {
+    $mod1: tint($color, 45);
+    $mod2: desaturate($mod1, 2);
+    @return $mod2;
+  }
+  @if($level == 5) {
+    @return $color;
+  }
+  @if($level == 6) {
+    $mod1: shade($color, 85);
+    $mod2: saturate($mod1, 4);
+    @return $mod2;
+  }
+  @if($level == 7) {
+    $mod1: shade($color, 65);
+    $mod2: saturate($mod1, 7);
+    @return $mod2;
+  }
+  @if($level == 8) {
+    $mod1: shade($color, 48);
+    $mod2: saturate($mod1, 9);
+    @return $mod2;
+  }
+  @if($level == 9) {
+    $mod1: shade($color, 25);
+    $mod2: saturate($mod1, 11);
+    @return $mod2;
+  }
+}
+// return css color variable with different opacity value
+@function alpha($color, $opacity) {
+  $color  : str-replace($color, 'var(');
+  $color  : str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+// Calculeate brightness of a given color.
+// source: Brendan Saunders, https://codepen.io/bluesaunders/pen/FCLaz
+@function color-brightness($color) {
+  @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100%;
+}
+// checks if a colors' brightness is < 50%.
+@function emphasize($color) {
+  @if $color == null {
+    @return null;
+  } @else {
+    $color-brightness: color-brightness($color);
+    $emphasized-color: $color;
+    @if $color-brightness < 50% {
+      $emphasized-color: saturate(shade($color, 68),6%);
+    } @else {
+      $emphasized-color: desaturate(tint($color, 75%),5%);
+    }
+    @return $emphasized-color;
+  }
+}
+/// Get a standardized shadow color with alpha based on a given color. Use a darker
+/// shade of the color as the base color, and calculate a opacity based on the
+/// brightness of a given color, such that the opacity is higher for darker
+/// colors and lower for lighter colors. Give a lighter or darker value given
+/// a level between 1 and 4.
+@function get-shadow($color, $level) {
+
+  $brightness        : color-brightness($color)/1%;
+  $darkness-decimal  : 1 - ($brightness/100);
+  $shadow-color      : col($color, 8);
+  $base-opacity      : null;
+  $scale             : 28 - ($darkness-decimal * 2);
+
+  // Increase opacity for darker colors.
+  @if $brightness < 28 {
+    $base-opacity: .25;
+  } @else 
+  if $brightness > 98 {
+    $base-opacity: .15;
+  } @else {
+    $base-opacity: .25 + ($brightness - $scale) * -0.004; //-0.009
+  }
+  // Add a little more opacity for each level
+  $additional-opacity: ($level - 1) * .2;
+  // Calculate total opacity
+  $opacity           : $base-opacity + $additional-opacity;
+
+  // Max value for opacity is 1, set min to .06
+  @if $opacity > 1 {
+    $opacity: 1;
+  } @else 
+  if $opacity < 0.06 {
+    $opacity: .06;
+  }
+
+  @return rgba($shadow-color, $opacity);
+}
+
+/// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty".
+/// This takes the red, green and blue (RGB) values of an element’s background color, multiplies them by some special numbers (299, 587, and 144, respectively), adds them together, then divides the total by 1,000. When that sum is greater than 128, it will return the darker colour; otherwise, we’ll get the lighter colour.
+/// source: Brendan Saunders, https://codepen.io/bluesaunders/pen/FCLaz
+@function color-contrast($color, $dark: #000, $light: #fff) {
+  @if $color == null {
+    @return null;
+  } @else {
+    $color-brightness     : color-brightness($color);
+    $light-text-brightness: color-brightness($light);
+    $dark-text-brightness : color-brightness($dark);
+
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+  }
+}
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/// Set css color variables for all situations based on a map of theme colors
+@mixin set-theme-colors($theme) {
+
+  // Prefix for the css variables
+  $prefix         : '--c';
+
+  $main-colors    : "neutral", "major-accent", "minor-accent", "rare-accent";
+
+  $main-colors    : (
+    "neutral"     : map-get($theme, "neutral"),
+    "major-accent": map-deep-get($theme, "major-accent", "base"),
+    "minor-accent": map-deep-get($theme, "minor-accent", "base"),
+    "rare-accent" : map-deep-get($theme, "rare-accent", "base")
+  );
+
+  // Make a variable for shades & tints of each of the main colors (mostly used for svg fills, strokes, and stop-colors)
+  @each $color-name, $value in $main-colors {
+    @for $i from 1 through 9 {
+      #{$prefix}-#{$color-name}-#{$i}: col($value, $i);
+    }
+  }
+
+  $standard-colors: (
+    // Create a map of the default colors
+    "default"    : (base : map-get($theme, "background"), foreground : map-get($theme, "foreground"), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent")),
+    // Create a map for foreground colors that will always be on dark backgrounds
+    "always-dark": (base : col(map-get($main-colors, "neutral"),9), foreground : col(map-get($main-colors, "neutral"),1), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent"))
+  );
+
+  $all-colors     : map-merge($standard-colors, $theme);
+
+  @each $color-group, $value in $all-colors {
+    @if type-of($value) == 'map' {
+      $base: map-get($value, "base");
+      @each $color-type, $color in $value {
+        @if $color-type == "base" {
+          // For use as background colours
+          #{$prefix}-#{$color-group}-lighter-2: lighten($color, 12%);
+          #{$prefix}-#{$color-group}-lighter  : lighten($color, 5%);
+          #{$prefix}-#{$color-group}          : $color;
+          #{$prefix}-#{$color-group}-darker   : darken($color, 3%);
+          #{$prefix}-#{$color-group}-darker-2 : darken($color, 4%);
+          @for $i from 1 through 4 {
+            #{$prefix}-shadow-#{$i}-on-#{$color-group}: get-shadow($color, $i);
+          }
+        } @else {
+          // For use as foreground colours on "base" color as background
+          #{$prefix}-#{$color-type}-very-subtle-on-#{$color-group}: mix($base, $color, 70%);
+          #{$prefix}-#{$color-type}-subtle-on-#{$color-group}     : mix($base, $color, 20%);
+          #{$prefix}-#{$color-type}-on-#{$color-group}            : $color;
+          #{$prefix}-#{$color-type}-emphasis-on-#{$color-group}   : emphasize($color);
+        }
+
+      }
+    }
+  }
+}

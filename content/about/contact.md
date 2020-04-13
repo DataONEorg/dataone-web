@@ -14,7 +14,7 @@ page_sections:
 - template: section
   type: split
   background: map
-  background2: neutral-light
+  background2: subtle-emphasis
   blocks:
   - template: contact-info
   - template: contact-form

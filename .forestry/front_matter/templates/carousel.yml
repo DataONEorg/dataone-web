@@ -71,7 +71,6 @@ fields:
     - card
     - job-summary
     - accordion
-    - features-list
     - item-with-icon
     - checklist
     - image

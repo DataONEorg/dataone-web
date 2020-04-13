@@ -1,88 +1,108 @@
-.zoom{
+.zoom {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  //
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}
+  //
+  $bn                               : &;
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+  --c-zoom-icon                     : var(--section-fc-body, gray);
+  --c-zoom-meeting-number-background: var(--section-c-background-lighter, white);
+  --fc-zoom-foreground-emphasis     : var(--section-fc-title, black);
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
   @include f-common;
-  display: grid;
-  grid-template-columns: max-content auto;
-  grid-template-rows: .5fr .05fr 1fr;
-  grid-template-areas: "button button" "title title" "phone-options meeting-ID";
-  grid-gap: 1rem 1rem;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  
-  &__button{
-    grid-area: button;
-    justify-self: center;
+  display                           : grid;
+  grid-template-areas               : "button" "title" "meeting-ID" "phone-options";
+  grid-template-columns             : 1fr;
+  grid-template-rows                : .5fr .05fr 1fr 1fr;
+  grid-gap                          : 1rem 1rem;
+  justify-items                     : center;
+  width                             : 100%;
+  padding                           : 0;
+  margin                            : 0;
+
+  @include desktop {}
+
+  &__button {
+    grid-area    : button;
+    justify-self : center;
     margin-bottom: 3rem;
   }
-  
-  &__phone-options{
+
+  &__phone-options {
     grid-area: phone-options;
   }
+
   &__meeting-ID {
     grid-area: meeting-ID;
   }
-  
-  &__option-icon{
-    stroke: col($c-neutral, 5);
+
+  &__option-icon {
+    stroke    : var(--c-zoom-icon);
     margin-top: -2px;
   }
-  
-  &__phone-option{
-    padding-bottom: 0.7rem;
+
+  &__phone-option {
+    padding-bottom: .7rem;
   }
-  &__phone-city{
-    color: col($c-neutral, 6);
+
+  &__phone-city {
+    color: var(--fc-zoom-foreground-emphasis);
   }
-  &__meeting-ID-name{
-    color: col($c-neutral, 6);
+
+  &__meeting-ID-name {
+    color: var(--fc-zoom-foreground-emphasis);
   }
-  
-  &__phone-title{
-    grid-area: title;
-    font-size: 1rem;
+
+  &__phone-title {
+    grid-area     : title;
+    font-size     : 1rem;
     text-transform: uppercase;
-    letter-spacing: .05em;
-    margin: 0 0 1rem 0;
-    font-weight: 400;
-    text-align: center;
-    color: col($c-neutral, 5);
+    letter-spacing: .02em;
+    margin        : 0 0 1rem;
+    text-align    : center;
+    font-size     : var(--fs-large, 1.5rem);
+    font-weight   : var(--fw-normal, 400);
   }
-  
-  &__meeting-ID-name{
-    text-align: center;
-    display: block;
-    white-space: nowrap;
-    padding-bottom: 0.5rem;
+
+  &__meeting-ID-name {
+    text-align    : center;
+    display       : block;
+    white-space   : nowrap;
+    padding-bottom: .5rem;
   }
-  
-  &__meeting-ID-number{
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    width: fit-content;
-    padding: 1px 7px;
-    white-space: nowrap;
-    font-weight: 400;
-    font-size: 1.5rem;
-    background: mix(col($c-neutral, 1), white, 30%);
-    border-radius: 4px;
+
+  &__meeting-ID-number {
+    text-align      : center;
+    display         : block;
+    margin          : 0 auto;
+    width           : fit-content;
+    padding         : .2rem .5rem;
+    white-space     : nowrap;
+    font-size       : var(--fs-larger, 1.5rem);
+    font-weight     : var(--fw-normal, 400);
+    border-radius   : var(--br-default, .25rem);
+    background-color: var(--c-zoom-meeting-number-background);
   }
-  
-  &__phone-link{
-    text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .025em;
-    font-size: 0.95rem;
-    color: col($c-tertiary, 7);
-    padding: 1px 3px;
-    transition: all 0.15s linear;
-    
-    &:hover{
-      background-color: col($c-tertiary, 1);
-      color: col($c-tertiary, 6);
-      border-radius: 4px;
-      
-    }
+
+  @include style-links("&__phone-link");
+
+  &__phone-link {
+    font-weight  : var(--fw-bold, 500);
+    padding      : .01rem .3rem;
+    border-radius: var(--br-default, 0.25rem);
   }
 }

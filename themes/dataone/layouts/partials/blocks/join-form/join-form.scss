@@ -2,179 +2,194 @@
 // Use the built in classes in case we need to change this form in the full-feature
 // the outer div containing the form
 
-.join-form {}
+.join-form {
 
-.ml-subscribe-form {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
   @include f-common;
 
-  .ml-form-successContent {
-    background-color: col($c-secondary, 4);
-    // width           : 90%;
-    margin-left     : auto;
-    margin-right    : auto;
-    padding         : 1rem;
-    border-radius   : 40px;
-    box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
-    @include desktop {
-      // width: 50%;
+  .ml-subscribe-form {
+    @include f-common;
+
+    .ml-form-successContent {
+      background-color: var(--section-c-background-lighter, white);
+      // width           : 90%;
+      margin-left     : auto;
+      margin-right    : auto;
+      padding         : 1rem;
+      border-radius   : 40px;
+      box-shadow      : 0 3px 5px var(--section-c-shadow-1, rgba(1,1,1,0.08));
+      @include desktop {
+        // width: 50%;
+      }
+    }
+
+    .ml-form-interestGroupsRow.ml-block-groups {
+      margin-top: 1.8rem;
+    }
+
+    .response-title {
+      text-align: center;
+    }
+
+    .response-text {
+      text-align : center;
+      font-size  : 1.2rem;
+      color      : var(--section-fc-body, gray);
+      font-weight: 600;
+      margin     : 0;
+      padding    : 0;
     }
   }
+  // the email field
 
-  .ml-form-interestGroupsRow.ml-block-groups {
-    margin-top: 1.8rem;
-  }
-
-  .response-title {
-    text-align: center;
-  }
-
-  .response-text {
-    text-align : center;
-    font-size  : 1.2rem;
-    color      : col($c-secondary, 7);
-    font-weight: 600;
-    margin     : 0;
-    padding    : 0;
-  }
-}
-// the email field
-
-.form-control {
-  @include forms-text-input;
-  width    : 100%;
-  font-size: $fs-larger;
-  padding  : 0 15px;
-  height   : 50px;
-}
-
-.form-control:focus {
-  transform       : translateY(-0.4px);
-  box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
-  background-color: lighten(col($c-neutral, 1), 5%);
-  color           : $c-secondary;
-}
-// the button
-
-.ml-subscribe-form .primary {
-  border: none;
-  @extend .button;
-  @extend .button--col-primary;
-}
-// the group of checkboxes
-
-.ml-block-groups {
-  display       : flex;
-  flex-direction: column;
-  margin-bottom : 40px;
-}
-
-.label-description {
-  display    : inline-block;
-  font-size  : 1.1em;
-  line-height: 1.2em;
-  color: col($c-neutral, 1);
-}
-
-.ml-form-interestGroupsRowCheckbox {
-  padding-top: 1rem;
-}
-// custom check boxes
-
-input[type="checkbox"] {
-  position: absolute;
-}
-
-input[type="checkbox"] + .label-description {
-  display : block;
-  position: relative;
-  padding : 0 1.5rem;
-}
-
-input[type="checkbox"] + .label-description::before {
-  content     : '';
-  position    : relative;
-  display     : inline-block;
-  margin-right: 10px;
-  width       : 20px;
-  height      : 20px;
-  background  : col($c-neutral, 1);
-}
-
-input[type="checkbox"]:checked + .label-description::before {
-  background: $c-primary;
-}
-
-input[type="checkbox"]:checked + .label-description::after {
-  content      : '';
-  position     : absolute;
-  top          : 3px;
-  left         : 26px;
-  border-left  : 4px solid col($c-primary, 7);
-  border-bottom: 4px solid col($c-primary, 7);
-  height       : 10px;
-  width        : 16px;
-  transform    : rotate(-45deg);
-}
-
-input[type="checkbox"]:focus + .label-description::before {
-  outline   : #5d9dd5 solid 1px;
-  box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
-}
-
-input[type="checkbox"] {
-  position: absolute;
-  height  : 1px;
-  width   : 1px;
-  overflow: hidden;
-  clip    : rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
-  clip    : rect(1px, 1px, 1px, 1px);
-}
-
-input[type="checkbox"]:disabled + .label-description {
-  color: #575757;
-}
-
-input[type="checkbox"]:disabled + .label-description::before {
-  background: #ddd;
-}
-// === Show just a simple sign up ===
-// Hide check boxes
-
-.join-form--newsletter-only {
   .form-control {
-    width    : 100%;
-    display  : block;
-    min-width: unset;
+    @include forms-text-input;
+    width           : 100%;
+    font-size       : $fs-larger;
+    padding         : 0 15px;
+    height          : 50px;
+    background-color: var(--c-default-lighter, white);
+    box-shadow      : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
   }
 
-  .ml-form-formContent {}
+  .form-control:focus {
+    transform : translateY(-0.4px);
+    box-shadow: 0 .1rem 1.2rem var(--section-c-shadow-2, rgba(1,1,1,0.08));
+    color     : var(--c-major-accent-on-default, black);
+    filter: brightness(1.2);
+  }
+  // the button
 
-  .ml-form-embedSubmit {
-    display: block;
+  .ml-subscribe-form .primary {
+    border: none;
+    @extend .button;
+    @extend .button--col-primary;
+  }
+  // the group of checkboxes
+
+  .ml-block-groups {
+    display       : flex;
+    flex-direction: column;
+    margin-bottom : 40px;
   }
 
-  .ml-form-interestGroupsRow.ml-block-groups {
-    display: none;
+  .label-description {
+    display    : inline-block;
+    font-size  : 1.1em;
+    line-height: 1.2em;
+    color      : var(--section-fc-body, gray);
   }
 
-  .ml-block-form {
-    display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-gap             : 1rem 1rem;
+  .ml-form-interestGroupsRowCheckbox {
+    padding-top: 1rem;
   }
-}
-// Styles for pages with themes
+  // custom check boxes
 
-.theme-quaternary {
-  .join-form {
-    input[type="checkbox"]:checked + .label-description::before {
-      background: col($c-quaternary, 4);
+  input[type="checkbox"] {
+    position: absolute;
+  }
+
+  input[type="checkbox"] + .label-description {
+    display : block;
+    position: relative;
+    padding : 0 1.5rem;
+  }
+
+  input[type="checkbox"] + .label-description::before {
+    content     : '';
+    position    : relative;
+    display     : inline-block;
+    margin-right: 10px;
+    width       : 20px;
+    height      : 20px;
+    background  : var(--c-default-lighter, white);
+    box-shadow  : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
+  }
+
+  input[type="checkbox"]:checked + .label-description::before {
+    background: var(--section-c-accent-very-subtle, dimgray);
+  }
+
+  input[type="checkbox"]:checked + .label-description::after {
+    content      : '';
+    position     : absolute;
+    top          : 3px;
+    left         : 26px;
+    border-left  : 4px solid var(--section-c-accent, dimgray);
+    border-bottom: 4px solid var(--section-c-accent, dimgray);
+    height       : 10px;
+    width        : 16px;
+    transform    : rotate(-45deg);
+  }
+
+  input[type="checkbox"]:focus + .label-description::before {
+    outline   : var(--section-c-icon-foreground, dimgray) solid 1px;
+    box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    height  : 1px;
+    width   : 1px;
+    overflow: hidden;
+    clip    : rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip    : rect(1px, 1px, 1px, 1px);
+  }
+
+  input[type="checkbox"]:disabled + .label-description {
+    color: var(--section-c-background-darker-2, lightgray);
+  }
+
+  input[type="checkbox"]:disabled + .label-description::before {
+    background: var(--section-c-background-darker-2, lightgray);
+  }
+  // === Show just a simple sign up ===
+  // Hide check boxes
+
+  &--newsletter-only {
+    .form-control {
+      width    : 100%;
+      display  : block;
+      min-width: unset;
     }
 
-    input[type="checkbox"]:checked + .label-description::after {
-      border-left  : 4px solid col($c-quaternary, 7);
-      border-bottom: 4px solid col($c-quaternary, 7);
+    .ml-form-formContent {}
+
+    .ml-form-embedSubmit {
+      display: block;
+    }
+
+    .ml-form-interestGroupsRow.ml-block-groups {
+      display: none;
+    }
+
+    .ml-block-form {
+      display              : grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-gap             : 1rem 1rem;
     }
   }
+
 }

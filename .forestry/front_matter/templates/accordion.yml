@@ -24,7 +24,6 @@ fields:
   template_types:
   - markdown
   - feature-simple
-  - features-list
   - feature-detailed
   - image
   - card

@@ -42,7 +42,7 @@ page_sections:
       headline: Hosted Repositories
       text: A dedicated repository solution for your group or institution’s data, managed by DataONE.
 - template: section
-  type: wave
+  background: wave
   title: Build your knowledge
   intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
@@ -50,7 +50,8 @@ page_sections:
   - template: columns
     num_cols: 2
     columns:
-    - template: webinar-summary
+    - template: page-summary
+      type: webinar
       auto_select: true
     - template: card
       href: https://dataoneorg.github.io/Education/bp_step/integrate/
@@ -66,9 +67,9 @@ page_sections:
         template: image
         src: "/uploads/integrate.png"
         alttext: World map shown with Robinson projection
-        title: DataONE created global data research infrastructure
         type: default
-    - template: news-summary
+    - template: page-summary
+      type: news
       auto_select: true
     - template: card
       href: /training/
@@ -89,7 +90,6 @@ page_sections:
       template: image
       src: "/uploads/data.png"
       alttext: 'Data'
-      title: 'Data'
       type: tilt-right
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.
@@ -103,6 +103,7 @@ page_sections:
       external_link:
 - template: section
   type: card
+  background: subtle-emphasis
   title: Donate
   intro: Help DataONE provide and maintain a distributed framework and sustainable infrastructure that meets the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered Earth observational data.
   button:
@@ -111,7 +112,7 @@ page_sections:
     color: primary
     text: Make a donation
 - template: section
-  type: bold
+  background: major-accent-color
   title: Interested in services by DataONE?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch

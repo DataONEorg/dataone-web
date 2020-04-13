@@ -1,4 +1,29 @@
 .header--homepage {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn           : ".header";
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+
   // TODO: header--homepage needs to be below header classes in final styles sheet.
   padding-top   : calc(2 * #{$nav-height}) !important;
   padding-bottom: 7rem !important;
@@ -24,13 +49,13 @@
     font-weight    : 600;
     text-transform : uppercase;
     letter-spacing : .025em;
-    font-size      : $fs-button;
-    color          : col($c-neutral, 6);
+    font-size      : var(--fs-medium, 1.1rem);
+    color          : var(--c-major-accent-7, black);
     text-align     : center;
     text-decoration: none;
 
     &:hover {
-      color: $c-secondary;
+      filter: brightness(1.05);
     }
     z-index        : 2;
   }

@@ -5,6 +5,30 @@ $TOCwidth: 250px;
 }
 
 .member-nodes {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   @include desktop {
     display              : grid;
     grid-template-columns: minmax($TOCwidth, .4fr) auto;
@@ -17,7 +41,7 @@ $TOCwidth: 250px;
   }
 
   &__button-icon {
-    stroke: col($c-neutral, 6);
+    stroke: var(--section-fc-title, black);
   }
 
   &__nav {
@@ -42,7 +66,7 @@ $TOCwidth: 250px;
         display   : block;
         visibility: visible;
         text-align: center;
-        color     : col($c-neutral, 6);
+        color     : var(--section-fc-title, black);
         height    : auto;
         padding   : 8px 8px 15px;
         max-height: 60px;
@@ -109,18 +133,18 @@ $TOCwidth: 250px;
     flex-direction : row;
     align-items    : center;
     justify-content: space-between;
-    color          : col($c-neutral, 6);
+    color          : var(--section-fc-title, black);
 
     &:visited {
-      color: col($c-neutral, 6);
+      color: var(--section-fc-title, black);
     }
 
     &:hover {
-      color: col($c-neutral, 7);
+      color: var(--section-fc-title, black);
     }
 
     &:active {
-      color: col($c-neutral, 7);
+      color: var(--section-fc-title, black);
     }
   }
 
@@ -136,8 +160,8 @@ $TOCwidth: 250px;
     padding   : 0;
 
     &--active {
-      background-color: col($c-neutral, 1);
-      border-left     : 4px solid $c-primary;
+      background-color: var(--section-c-background-lighter, white);
+      border-left     : 4px solid var(--section-c-accent, grey);
       margin-left     : -4px;
       opacity         : 1;
       visibility      : visible;
@@ -145,7 +169,7 @@ $TOCwidth: 250px;
       @include toc-item-spacing;
 
       .member-nodes__toc-link {
-        color: col($c-neutral, 7);
+        color: var(--section-fc-title, black);
       }
     }
   }
@@ -172,7 +196,7 @@ $TOCwidth: 250px;
     margin     : 0;
     font-size  : 1.1rem;
     line-height: 1.4;
-    color      : col($c-neutral, 6);
+    color      : var(--section-fc-body, black);
   }
 
   &__category-members {
@@ -210,7 +234,7 @@ $TOCwidth: 250px;
     margin     : auto 0;
     padding-top: .6rem;
     text-align : center;
-    color      : col($c-neutral, 8);
+    color      : var(--section-fc-title, black);
   }
 
   &__links {
@@ -224,11 +248,11 @@ $TOCwidth: 250px;
   }
 
   &__link {
-    background: col($c-neutral, 1);
+    background: var(--section-c-background-lighter, white);
     @include circle-link;
 
     &:hover {
-      background-color: lighten(col($c-neutral, 1), 0.5%);
+      filter: brightness(1.1);
     }
   }
 }

@@ -54,7 +54,6 @@ page_sections:
       template: image
       src: uploads/geographic-replicas.png
       alttext: Geographic replicas
-      title: Replication makes your repository reliable
       type: tilt-right
     headline: Geographic replicas
     template: feature-detailed
@@ -107,7 +106,6 @@ page_sections:
       template: image
       src: uploads/custom-domain-and-doi.png
       alttext: Custom Domain and DOI
-      title: Brand your data repository
       type: tilt-left
     headline: Customization
     template: feature-detailed
@@ -115,7 +113,7 @@ page_sections:
       directly with your community.
     type: right
 - template: section
-  type: data-wave
+  background: data-wave
   title: Make your data FAIR
   intro: Evaluate your metadata with community established FAIR principles. Scores
     are refreshed with updates to your metadata, helping make your data even more
@@ -153,7 +151,6 @@ page_sections:
         template: image
         src: uploads/metadata-editor.png
         alttext: Metadata Editor
-        title: Uploading data is easy with the Metadata Editor
         type: float
       details: []
     - template: feature-detailed
@@ -171,7 +168,6 @@ page_sections:
         template: image
         src: uploads/dataone-r-api.png
         alttext: DataONE R API
-        title: Use the DataONE API to work with your repository
         type: float
       details: []
   - template: columns
@@ -194,7 +190,6 @@ page_sections:
       template: image
       src: uploads/metacat-on-github.png
       alttext: Metacat on Github
-      title: Open source tools by DataONE
       type: tilt-left
     headline: Open source repository platform
     template: feature-detailed
@@ -217,6 +212,7 @@ page_sections:
   title: Includes all the DataONE Plus features
   blocks:
   - template: checklist
+    num_cols: 2
     items:
     - Branded portals
     - Custom portal search filters
@@ -234,7 +230,7 @@ page_sections:
     text: Learn more about DataONE Plus
     internal_link: plus/_index.md
 - template: section
-  type: bold
+  background: major-accent-color
   title: Interested in a hosted repository?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch

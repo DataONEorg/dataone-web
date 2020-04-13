@@ -1,6 +1,29 @@
 .datetime {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
   @include f-common;
-  color: inherit;
+  color  : inherit;
 
   &__displaydate {
     font-weight: 400;
@@ -13,7 +36,7 @@
 }
 
 .datetime--bold {
-  color         : col($c-tertiary, 5);
+  color         : var(--section-c-accent, black);
   text-transform: uppercase;
   letter-spacing: .03em;
 
@@ -50,7 +73,8 @@
 
 .ap-suggestion-icon g,
 .ap-suggestion-icon svg {
-  fill: col($c-neutral, 4);
+  stroke: none;
+  fill  : var(--section-c-foreground-subtle, grey);
 }
 
 .datetime__tz-input {
@@ -60,11 +84,11 @@
 
 .tz-input-dropdown-menu {
   width           : 100%;
-  color           : col($c-neutral, 7);
-  background-color: white;
-  border          : 1px solid col($c-neutral, 1);
+  color           : var(--section-fc-body, grey);
+  background-color: var(--section-c-background-lighter, white);
+  border          : 1px solid var(--section-c-background-lighter, white);
   border-top      : none;
-  border-radius   : 4px;
+  border-radius   : var(--br-default, 0.25rem);
   padding         : .5rem;
   box-shadow      : 1px 1px 32px -10px rgba(0,0,0,0.62);
 }
@@ -77,16 +101,17 @@
 }
 
 .tz-input-suggestion:hover {
-  background-color: col($c-secondary, 2);
+  background-color: var(--section-c-accent-very-subtle, lightgray);
 
   g,
   svg {
-    fill: col($c-secondary, 5);
+    fill  : var(--section-c-accent, black);
+    stroke: none;
   }
 
   .ap-address,
   .tz-abbreviation {
-    color: col($c-secondary, 6);
+    color: var(--section-c-accent, black);
   }
 }
 
@@ -94,13 +119,13 @@
 .tz-abbreviation {
   font-size  : smaller;
   margin-left: 12px;
-  color      : col($c-neutral, 4);
+  color      : var(--section-c-foreground-subtle, grey);
 }
 
 .tz-input-dropdown-menu .tz-input-suggestion em {
   font-weight: bold;
   font-style : normal;
-  color      : col($c-neutral, 8);
+  color      : var(--section-fc-title, black);
 }
 
 .tz-input-header {
@@ -108,13 +133,14 @@
   font-size     : 1rem;
   text-transform: uppercase;
   letter-spacing: .05em;
-  color         : col($c-quaternary, 6);
+  color         : var(--section-c-background-darker-2, black);
   margin        : .7rem 0;
 }
 
 .ap-footer,
 .ap-footer-algolia svg g path:nth-of-type(2n+1),
 .ap-footer-osm svg path {
-  color: col($c-neutral, 4);
-  fill : col($c-neutral, 4);
+  stroke: none;
+  color : var(--section-c-foreground-very-subtle, grey);
+  fill  : var(--section-c-foreground-very-subtle, grey);
 }

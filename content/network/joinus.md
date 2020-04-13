@@ -14,7 +14,6 @@ header:
     src: uploads/duotone-network.jpg
     template: image
     alttext: Network background
-    title: Network background
     type: default
   buttons:
   - type: contact
@@ -43,7 +42,6 @@ page_sections:
       template: image
       src: uploads/reach-a-wider-audience.png
       alttext: Reach a wider audience
-      title: Reach a wider audience
       type: default
     type: right
   - template: feature-detailed
@@ -55,7 +53,6 @@ page_sections:
       template: image
       src: uploads/leverage-exisiting-infrastructure.png
       alttext: Leverage existing cyberinfrastructure
-      title: Leverage existing cyberinfrastructure
       type: default
     type: left
   - template: feature-detailed
@@ -68,7 +65,6 @@ page_sections:
       template: image
       src: uploads/receive-recognition-and-credit.png
       alttext: Receive recognition and credit
-      title: Receive recognition and credit
       type: default
     type: right
   - template: feature-detailed
@@ -81,7 +77,6 @@ page_sections:
       template: image
       src: uploads/maintain-high-availability.png
       alttext: Maintain high availability
-      title: Maintain high availability
       type: default
     type: left
   - template: feature-detailed
@@ -95,11 +90,10 @@ page_sections:
       template: image
       src: uploads/enhance-collaboration-opportunities.png
       alttext: 
-      title: 
       type: default
     type: right
 - template: section
-  type: bold
+  background: major-accent-color
   title: The onboarding process
   intro: 'The path to becoming a network member is divided into four phases: **planning**,
     **development**, **testing**, and **operating**. We will walk you through each

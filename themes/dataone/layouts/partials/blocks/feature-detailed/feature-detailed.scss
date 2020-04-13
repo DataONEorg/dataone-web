@@ -1,12 +1,35 @@
 .feature-detailed {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn           : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   // these blocks need more padding on the top and bottom
   margin-top    : 3rem;
   margin-bottom : 4rem;
-  @include f-common;
   display       : grid;
   grid-gap      : 2rem;
   grid-auto-rows: min-content;
-  color         : col($c-neutral, 7);
+  color         : var(--section-fc-body, grey);
   @include desktop {
     grid-template-columns: .45fr .55fr;
     grid-template-rows   : 1fr;
@@ -46,7 +69,6 @@
 
   &__intro {
     @include f-common;
-    @include text-link;
     font-size  : 1.25rem;
     line-height: 1.5;
     margin     : 0 0 1rem;
@@ -54,7 +76,7 @@
 
   &__title {
     @include fs-h3;
-    color: col($c-neutral, 7);
+    color: var(--section-fc-title, black);
   }
 
   &--figleft {
@@ -108,19 +130,4 @@
     margin-bottom: 1rem;
   }
 
-  &--dark-background {
-    color      : col($c-secondary, 2);
-    text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 8), 1);
-    font-weight: 500;
-
-    .feature-detailed__title {
-      color         : white;
-      font-weight   : 700;
-      letter-spacing: .065em;
-    }
-
-    .feature-detailed__intro {
-      color: col($c-secondary, 2);
-    }
-  }
 }

@@ -1,8 +1,8 @@
-<!-- in order to pass on page parameters from within loops -->
+<!-- In order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "carousel" }}
-<!-- classes to add to the outer element -->
+<!-- Classes to add to the outer element -->
 {{ $classes := $bn }}
 <!-- Icons to use for the previous and next icons -->
 {{ $iconSettings := dict "size" "large" "color" "inherit" "stroke" "thicker" }}
@@ -31,7 +31,7 @@
                 {{ readFile .logo  | safeHTML }}
               </span>
             {{- end -}}
-            <span class="{{ $bn }}__screen-reader-text">{{ .title }}</span>
+            <span class="utility__visually-hidden">{{ .title }}</span>
           </a>
         </li>
       {{- end -}}

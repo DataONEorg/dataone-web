@@ -29,7 +29,7 @@ page_sections:
   blocks:
   - template: feature-table
 - template: section
-  type: bold
+  background: major-accent-color
   title: Interested in DataONE Plus and/or a hosted repository?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch

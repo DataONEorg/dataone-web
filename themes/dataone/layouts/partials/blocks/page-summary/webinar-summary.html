@@ -1,6 +1,8 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "webinar-summary" }}
+<!-- Classes to add to the outer element -->
+{{ $classes := $bn }}
 
 {{ $webinar := dict }}
 {{ $href := "" }}
@@ -29,9 +31,9 @@
   {{ $datetime := (time $webinar.webinar_datetime).UTC }}
 
   <!-- add status as a modifier class -->
-  {{ $classes := $bn }}
+
   {{ with $status }}
-    {{ $classes = print $classes " webinar--st-" $status }}
+    {{ $classes = printf "%s webinar--st-%s" $classes $status }}
   {{ end }}
 
   {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}

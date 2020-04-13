@@ -30,7 +30,7 @@
         <h3 class="{{ $bn }}__title">{{ . }}</h3>
       {{ end }}
       {{ with .Block.text }}
-        <p class="{{ $bn }}__intro">{{ . | markdownify }}</p>
+        <p class="{{ $bn }}__intro markdown">{{ . | markdownify }}</p>
       {{ end }}
     </div>
     {{- with .Block.details -}}
@@ -49,9 +49,9 @@
     {{- end -}}
   </div>
   {{ if $hasImage }}
-  <div class="{{ $bn }}__figure">
+    <div class="{{ $bn }}__figure">
       {{- partial "blocks/image/image" (dict "Block" .Block.image "Page" $page) -}}
-  </div>
+    </div>
   {{ end }}
 
 </div>

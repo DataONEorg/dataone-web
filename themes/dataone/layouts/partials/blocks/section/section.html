@@ -6,7 +6,7 @@
 {{ $classes := $bn }}
 {{ with .Block.type }}
   {{ if ne . "default" }}
-    {{ $classes = print $classes " section--" . }}
+    {{ $classes = printf "%s %s--%s" $classes $bn . }}
   {{ end }}
 {{ end }}
 
@@ -16,30 +16,28 @@
   <!-- background colour classess -->
   {{ with .Block.background }}
     {{ if ne . "default" }}
-      {{ $classes = print $classes " " $bn "--bkg-" . }}
+      {{ $classes = printf "%s %s--bkg-%s" $classes $bn . }}
     {{ end }}
   {{ end }}
 
   <!-- SVG background for some section types -->
   {{ $svg := "" }}
-  <!-- set a global variable so that sub-blocks can add a modifer classes -->
-  {{ $page.Scratch.Set "section_modifier" "" }}
 
-  {{ if eq .Block.type "wave" }}
-    {{ $svg = partial "svg/wave-section.svg" }}
-  {{ else if eq .Block.type "data-wave" }}
-    <!-- because this block is dark, sub-blocks must have lighter font -->
-    {{ $page.Scratch.Set "section_modifier" "dark-background" }}
-    {{ $svg = partial "svg/data-wave.svg" }}
+  {{ if eq .Block.background "wave" }}
+    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "wave-section") "Page" $page) }}
+  {{ else if eq .Block.background "data-wave" }}
+    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "data-wave") "Page" $page) }}
   {{ end }}
 
   <section class="{{ $classes }}" {{ with .Block.id }} id="{{ . }}" {{ end }}>
+    <!-- SVG-BACKGROUND -->
     {{ with $svg }}
       <div class="{{ $bn }}__svg-background">
         {{ . }}
       </div>
     {{ end }}
     <div class="{{ $bn }}__inner">
+      <!-- ICON -->
       {{ if partial "functions/hasValues" .Block.icon }}
         {{- with .Block.icon -}}
           <div class="{{ $bn }}__icon">
@@ -47,16 +45,19 @@
           </div>
         {{- end -}}
       {{ end }}
+      <!-- TITLE -->
       {{- with .Block.title -}}
-        <h2 class="{{ $bn }}__title">
+        <h2 class="{{ $bn }}__title markdown">
           {{- . | markdownify  -}}
         </h2>
       {{- end -}}
+      <!-- INTRO -->
       {{- with .Block.intro -}}
-        <div class="{{ $bn }}__intro">
+        <div class="{{ $bn }}__intro markdown">
           {{- . | markdownify -}}
         </div>
       {{- end -}}
+      <!-- SUB-SECTION BLOCKS -->
       {{ if  partial "functions/hasValues" .Block.blocks }}
         <div class="{{ $bn }}__blocks">
           {{- range .Block.blocks -}}
@@ -87,7 +88,7 @@
   <!-- background class for the second half of the split layout -->
   {{ $half2Bkg := "" }}
   {{ with .Block.background2 }}
-    {{ $half2Bkg = print $half2Bkg " section--bkg-" . }}
+    {{ $half2Bkg = print $half2Bkg " section section--bkg-" . }}
   {{ end }}
 
   <section class="section section--split{{ $half1Bkg }}">

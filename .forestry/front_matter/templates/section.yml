@@ -15,19 +15,55 @@ fields:
   label: ID
   description: The ID attribute to give to the section element
 - type: select
+  label: Background style
+  name: background
+  description: The background color, style, or image to use for the section
+  default: default
+  config:
+    source:
+      type: simple
+  options:
+  - default
+  - subtle-emphasis
+  - major-accent-color
+  - minor-accent-color
+  - rare-accent-color
+  - data-wave
+  - wave
+  - map
+- type: select
+  label: Background style for second half of section
+  name: background2
+  description: The background color, style, or image to use for the second half of the split section
+  default: default
+  showOnly:
+    field: type
+    value: split
+  config:
+    source:
+      type: simple
+  options:
+  - default
+  - subtle-emphasis
+  - major-accent-color
+  - minor-accent-color
+  - rare-accent-color
+  - data-wave
+  - wave
+  - map
+- type: select
   label: Section style
   name: type
-  description: The style to use for the section
+  description: The layout style to use for the section
+  default: default
   config:
     source:
       type: simple
     options:
     - default
-    - secondary-light
-    - bold
     - card
-    - data-wave
-    - wave
+    - split
+    - compact
   default: default
 - type: field_group
   template: icon
@@ -62,7 +98,6 @@ fields:
   template_types:
   - markdown
   - feature-simple
-  - features-list
   - feature-detailed
   - image
   - card

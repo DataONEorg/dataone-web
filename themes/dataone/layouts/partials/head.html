@@ -1,30 +1,33 @@
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <base href="http://192.168.0.163:1313"/> -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15017327-6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-15017327-6');
-    </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
-    <title> {{ .Title }} | DataONE </title>
-    {{- partial "favicon.html" . -}}
-    <link rel="canonical" href="{{ .Permalink }}">
-    
-    
-    <!-- TODO: preload fonts like so: -->
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff` | relURL}}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff2` | relURL}}" crossorigin>
-    
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL}}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL}}" crossorigin>
-    
-    
-    {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
-    {{ $style := resources.Get "scss/styles.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $options | minify }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+  <!-- <base href="http://192.168.0.163:1313"/> -->
+  <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-15017327-6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-15017327-6');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
+  <title>
+    {{ .Title }}
+    | DataONE
+  </title>
+  {{- partial "favicon.html" . -}}
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- TODO: preload fonts like so: -->
+  <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff` | relURL}}" crossorigin="crossorigin">
+  <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff2` | relURL}}" crossorigin="crossorigin">
+
+  <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL}}" crossorigin="crossorigin">
+  <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL}}" crossorigin="crossorigin">
+
+  {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
+  {{ $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" . | toCSS $options | minify }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 </head>

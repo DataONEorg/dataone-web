@@ -1,0 +1,75 @@
+.svg {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                           : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  // Make classes to color svg elements to match theme
+
+  $properties                   : "stroke", "fill", "stop-color";
+  $major-colors-and-hue-fallback: (
+    "neutral"     : ("hue": 0, "saturation": 0),
+    "major-accent": ("hue": 172, "saturation": 52),
+    "minor-accent": ("hue": 57, "saturation": 68),
+    "rare-accent" : ("hue": 211, "saturation": 71)
+  );
+
+  @each $name, $values in $major-colors-and-hue-fallback {
+    $hue       : map-get($values, "hue");
+    $saturation: map-get($values, "saturation");
+    @for $i from 1 through 9 {
+      $l         : ((9 - $i)/9) * 100;
+      $c-fallback: hsl($hue, $saturation, $l);
+      @each $property in $properties {
+        #{$bn}__#{$property}-#{$name}-#{$i} {
+          #{$property}: var(--c-#{$name}-#{$i}, $c-fallback);
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through 20 {
+    $o: $i * 0.05;
+
+    #{$bn}__opacity-#{$i} {
+      opacity: $o;
+    }
+  }
+
+  // ==========================================================================
+  // Modifiers
+  // ==========================================================================
+
+  //
+  // Wave section - color of the wave changed dynamically depending on section
+  // background color
+  // ==========================================================================
+
+  &--wave-section {
+    #{$bn}__stop-color-1 {
+      stop-color: var(--section-c-background-darker, lightgray);
+    }
+
+    #{$bn}__stop-color-2 {
+      stop-color: var(--section-c-background-darker-2, white);
+    }
+  }
+}

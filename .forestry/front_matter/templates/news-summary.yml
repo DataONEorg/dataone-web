@@ -7,7 +7,12 @@ fields:
   name: template
   label: Template
   hidden: true
-  default: news-summary
+  default: page-summary
+- type: text
+  name: type
+  label: Type of page to summarize
+  hidden: true
+  default: news
 - type: boolean
   name: auto_select
   label: Select most recent news story

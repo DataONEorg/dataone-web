@@ -1,0 +1,20 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "page-summary" }}
+<!-- classes to add to the outer-most element -->
+{{ $classes := $bn }}
+
+{{ $path := "" }}
+{{ $basePath := "blocks/page-summary/" }}
+
+{{ if or (.Block.job) (eq .Block.type "job") }}
+  {{ $path = printf "%sjob-summary" $basePath }}
+{{ else if or (.Block.webinar) (eq .Block.type "webinar") }}
+  {{ $path = printf "%swebinar-summary" $basePath }}
+{{ else if or (.Block.news) (eq .Block.type "news") }}
+  {{ $path = printf "%snews-summary" $basePath }}
+{{ end }}
+{{ if $path }}
+  {{ partial "blocks/page-summary/webinar-summary" (dict "Block" .Block "Page" $page) }}
+{{ end }}

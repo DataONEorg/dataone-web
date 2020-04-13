@@ -1,68 +1,93 @@
 // === LOGO === //
 
 .logo {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   display: block;
-  fill   : col($c-neutral, 7);
+  fill   : var(--section-fc-title, black);
   width  : 143px;
   height : 32px;
-}
 
-.logo--sz-larger {
-  height: 40px;
-  width : 179px;
-}
-
-.logo--subtle {
-  fill: col($c-neutral, 6);
-}
-
-.logo--subtle-light {
-  fill: col($c-secondary, 2);
-}
-
-.logo--globe-only {
-  width: 32px;
-
-  .logo__globe {
-    transform: translate(-50%);
+  &--sz-larger {
+    height: 40px;
+    width : 179px;
   }
 
-  .logo__data {
-    display: none;
+  &--subtle {
+    fill: var(--section-fc-body, dimgray);
   }
 
-  .logo__ne {
-    display: none;
+  &--subtle-light {
+    fill: var(--section-c-foreground-subtle, gray);
   }
-}
 
-.logo--global-nav {
-  @extend .logo--globe-only;
-  width  : 24px;
-  height : 24px;
-  display: inline-block;
-  fill   : inherit;
-  @include desktop {
-    width : 143px;
-    height: 32px;
+  &--globe-only {
+    width: 32px;
 
-    .logo__globe {
-      transform: none;
+    #{$bn}__globe {
+      transform: translate(-50%);
     }
 
-    .logo__data {
-      display: inherit;
+    #{$bn}__data {
+      display: none;
     }
 
-    .logo__ne {
-      display: inherit;
+    #{$bn}__ne {
+      display: none;
     }
   }
-}
 
-.logo--homepage {
-  height   : 100%;
-  width    : 50%;
-  min-width: 300px;
-  fill     : url("#theme-gradient");
+  &--global-nav {
+    @extend #{$bn}--globe-only;
+    width  : 24px;
+    height : 24px;
+    display: inline-block;
+    fill   : inherit;
+    @include desktop {
+      width : 143px;
+      height: 32px;
+
+      #{$bn}__globe {
+        transform: none;
+      }
+
+      #{$bn}__data {
+        display: inherit;
+      }
+
+      #{$bn}__ne {
+        display: inherit;
+      }
+    }
+  }
+
+  &--homepage {
+    height   : 100%;
+    width    : 50%;
+    min-width: 300px;
+    fill     : url("#theme-gradient");
+  }
+
 }

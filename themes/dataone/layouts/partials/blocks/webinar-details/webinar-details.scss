@@ -1,6 +1,34 @@
 .webinar-details {
-  width : 100%;
-  height: 100%;
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix: "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+
+  // #{$prefix}-icon-color: var(--section-fc-body, gray);
+
+  width  : 100%;
+  height : 100%;
+
   @include desktop {
     padding-top: 10rem;
   }
@@ -12,19 +40,19 @@
   }
 
   &__video-icon {
-    stroke      : col($c-neutral, 5);
+    stroke      : var(--section-fc-body, gray);
     margin-right: 7px;
   }
 
   &__video-title {
     @include f-common;
-    color: col($c-neutral, 6);
+    color: var(--section-fc, black);
   }
 
   &__slides {
-    text-align  : center;
-    margin-top  : 1.6rem;
-    justify-self: end;
+    margin-top: 1.6rem;
+    text-align: center;
+    text-align: -webkit-center;
   }
 
   &__figure {

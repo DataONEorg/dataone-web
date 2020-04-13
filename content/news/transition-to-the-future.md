@@ -11,7 +11,6 @@ image:
   template: image
   src: "uploads/right-arrow-sign-on-wall_unsplash-hello-im-nik.jpg"
   alttext: "arrow pointing forward"
-  title: "Transition to the Future"
   type: default
 ---
 

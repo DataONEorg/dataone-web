@@ -98,7 +98,7 @@
 
     {{ $HTMLbio := "" }}
     {{ with $bio }}
-      {{ $HTMLbio = printf `<div class="person__bio">%s</div>` ( . | markdownify ) | safeHTML }}
+      {{ $HTMLbio = printf `<div class="person__bio markdown">%s</div>` ( . | markdownify ) | safeHTML }}
     {{ end }}
 
     {{ $contact := "" }}

@@ -1,5 +1,9 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "zoom" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
 
 <!-- zoom meeting ID -->
 {{ $meetingID := "" }}
@@ -28,32 +32,32 @@
 {{ $buttonBlock := dict "color" "primary" "text" "Join via ZOOM" "type" "external website" "external_link" $meetingLink }}
 {{ $button := partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
 
-<div class="zoom">
-  <div class="zoom__button">{{ $button }}</div>
+<div class="{{ $classes }}">
+  <div class="{{ $bn }}__button">{{ $button }}</div>
 
-  <h4 class="zoom__phone-title">Or join by phone</h4>
-  <div class="zoom__phone-options">
+  <h4 class="{{ $bn }}__phone-title">Or join by phone</h4>
+  <div class="{{ $bn }}__phone-options">
 
     {{ range $page.Site.Params.zoom.phone_numbers }}
-      <div class="zoom__phone-option">
-        <span class="zoom__option-icon">{{ $phoneIcon }}</span>
-        <span class="zoom__phone-city">{{ .city }}:
+      <div class="{{ $bn }}__phone-option">
+        <span class="{{ $bn }}__option-icon">{{ $phoneIcon }}</span>
+        <span class="{{ $bn }}__phone-city">{{ .city }}:
         </span>
-        <a class="zoom__phone-link" href="tel:{{ .number}}">{{ .number }}</a>
+        <a class="{{ $bn }}__phone-link" href="tel:{{ .number}}">{{ .number }}</a>
       </div>
     {{ end }}
-    <div class="zoom__phone-option">
-      <span class="zoom__option-icon">{{ $phoneIcon }}</span>
-      <span class="zoom__phone-city">Your location:
+    <div class="{{ $bn }}__phone-option">
+      <span class="{{ $bn }}__option-icon">{{ $phoneIcon }}</span>
+      <span class="{{ $bn }}__phone-city">Your location:
       </span>
-      <a class="zoom__phone-link" href="{{$page.Site.Params.zoom.URL_local_number}}">Find now</a>
+      <a class="{{ $bn }}__phone-link" href="{{$page.Site.Params.zoom.URL_local_number}}">Find now</a>
     </div>
   </div>
 
-  <div class="zoom__meeting-ID">
+  <div class="{{ $bn }}__meeting-ID">
 
-    <span class="zoom__meeting-ID-name"><span class="zoom__option-icon">{{ $numberIcon }}</span>Meeting ID:
+    <span class="{{ $bn }}__meeting-ID-name"><span class="{{ $bn }}__option-icon">{{ $numberIcon }}</span>Meeting ID:
     </span>
-    <span class="zoom__meeting-ID-number">{{ $meetingID_formatted }}</span>
+    <span class="{{ $bn }}__meeting-ID-number">{{ $meetingID_formatted }}</span>
   </div>
 </div>

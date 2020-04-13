@@ -42,7 +42,7 @@
         {{- end -}}
       </div>
 
-      <h1 class="header__headline">{{ .Block.title | markdownify }}</h1>
+      <h1 class="header__headline markdown">{{ .Block.title | markdownify }}</h1>
 
       <!-- date, time, duration -->
       <div class="header__datetime-items">
@@ -69,7 +69,7 @@
 
       <!-- expandable speakers -->
       <div class="header__speakers">
-        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true "color" "secondary"}}
+        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true }}
         {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
       </div>
 

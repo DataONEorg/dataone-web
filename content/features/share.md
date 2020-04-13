@@ -20,63 +20,15 @@ header:
     type: subscribe form
     color: primary
     text: Join the waitlist
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
   - template: button
     type: contact
     color: secondary
     text: contact us
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - type: default
   template: section
-  id: ''
-  title: ''
-  intro: ''
-  blocks: []
-  button:
-    template: ''
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
 - template: section
-  type: bold
+  background: major-accent-color
   title: Interested in a hosted repository?
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
@@ -87,23 +39,6 @@ page_sections:
     precheck_plus: false
     precheck_newsletter: false
     newsletter_only: false
-  id: ''
-  button:
-    template: ''
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
 menu:
   primary_nav:
     weight: 3

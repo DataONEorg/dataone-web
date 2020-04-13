@@ -1,324 +1,315 @@
-.section:first-of-type {
-  .section__inner {
-    padding-top: 3rem;
-  }
-}
-
-.section:last-of-type {
-  .section__inner {
-    padding-bottom: 20rem; // for the footer
-  }
-}
-
 .section {
-  @include f-common;
-  position : relative;
-  z-index  : 0;
-  max-width: 100vw;
 
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  //
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}
+  //
+  $bn                            : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                        : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. :root), such that blocks can be themed from a higher level (e.g. page).
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // 
+  //  Section Mixins
+  // ==========================================================================
+
+  // Font styles
+  #{$prefix}-ff-title            : var(--ff-title2, 'serif');
+  // Font sizes
+  #{$prefix}-fs-intro            : var(--fs-larger, 1.5rem);
+  #{$prefix}-fs-title            : var(--fs-xx-large, 2.8rem);
+  // Font weights
+  #{$prefix}-fw-title            : var(--fw-bolder, 700);
+  #{$prefix}-fw-intro            : var(--fw-normal, 400);
+
+  // Font colours
+  @include set-section-colors("default");
+
+  // Font styles common to all blocks
+  @include f-common;
+
+  // Positioning
+  position                       : relative;
+  z-index                        : 0;
+  // Display
+  max-width                      : 100vw;
+  width                          : 100%;
+  overflow                       : hidden;
+  // Colour
+  background-color               : var(#{$prefix}-c-background);
+  color                          : var(#{$prefix}-fc-body);
+
+  // Inner contains all the content
   &__inner {
-    width       : 100%;
+    position    : relative;
     display     : grid;
     justify-self: center;
+    width       : 100%;
     @include limit-width;
-    padding     : 6rem $mobile-lr-padding;
-    position    : relative;
+    padding     : 6rem $lr-padding; // top, bottom padding
   }
 
+  // An icon that represents the section contents
   &__icon {
-    justify-self: center;
+    display         : flex;
+    justify-self    : center;
+    padding         : 1.5rem;
+    border-radius   : 50%;
+    background-color: var(#{$prefix}-c-icon-background);
+    stroke          : var(#{$prefix}-c-icon-foreground);
   }
 
+  // A title or headline for the section
   &__title {
+    text-align : center;
+    line-height: 1.5;
     width      : 100%;
     margin     : 2rem auto .9rem;
-    text-align : center;
-    font-size  : 3rem;
-    line-height: 1.5;
-    font-family: 'Martel', serif;
-    font-weight: 700;
-    color      : col($c-neutral, 7);
-    @include desktop {
-      font-size: 2.35rem;
-    }
-
-    &--emphasis {
-      font-weight: 800;
-      display    : block;
-    }
+    font-size  : var(#{$prefix}-fs-title);
+    color      : var(#{$prefix}-fc-title);
+    font-family: var(#{$prefix}-ff-title);
+    font-weight: var(#{$prefix}-fw-title);
   }
 
+  // Text that introduces the section.
   &__intro {
-    margin       : 0 auto 1rem;
-    font-size    : 1.55rem;
-    line-height  : 1.5;
-    font-weight  : 400;
-    margin-bottom: 2rem;
-    max-width    : 880px;
+    margin     : 0 auto 2rem;
+    max-width  : 55rem;
+    line-height: 1.5;
+    font-size  : var(#{$prefix}-fs-intro);
+    font-weight: var(#{$prefix}-fw-intro);
   }
 
+  // The container for all sub-blocks.
+  &__blocks {
+    display       : grid;
+    grid-gap      : 2rem;
+    grid-auto-rows: min-content;
+    padding-top   : 1rem;
+  }
+
+  // Button at the end of section, positioning only.
+  // The rest is styled by button component.
   &__button {
     margin: 3rem auto 0;
   }
 
-  &__blocks {
-    padding-top   : 1rem;
-    display       : grid;
-    grid-gap      : 2rem;
-    grid-auto-rows: min-content;
-  }
-}
+  // ==========================================================================
+  // Background modifiers
+  // ==========================================================================
 
-.section--bold {
-  background-color: col($c-secondary, 5);
-  color           : col($c-neutral, 1);
-  text-shadow     : .01em .01em 1.3em rgba(col($c-secondary, 7), 0.3);
+  //
+  // Mixin defining lighter text for sections with darker backgrounds
+  // ==========================================================================
 
-  a:not(.button) {
-    color          : col($c-primary, 5);
-    text-decoration: none;
-    font-weight    : 500;
+  @mixin --dark-bkg {
+
+    @include set-section-colors("always-dark");
+    // Font weights
+    #{$prefix}-fw-title: var(--fw-x-bold, 800);
+    text-shadow        : .01em .01em 1.5em var(#{$prefix}-c-shadow-1);
   }
 
-  a:not(.button):visited {
-    color      : col($c-primary, 5);
-    font-weight: 700;
+  //
+  // Subtle-emphasis - darker version of the default background
+  // ==========================================================================
+
+  &--bkg-subtle-emphasis {
+    #{$prefix}-c-background: var(--c-default-darker, lightgray);
   }
 
-  a:not(.button):hover {
-    color: col($c-primary, 4);
-  }
+  //
+  // Bold: Section styles which are bolder or brighter
+  // ==========================================================================
 
-  a:not(.button):active {
-    color: col($c-primary, 4);
-  }
+  $accents                       : "major-accent", "minor-accent", "rare-accent";
 
-  .section__inner {
-    padding-top: 6.5rem;
-  }
+  @each $accent in $accents {
+    &--bkg-#{$accent}-color {
+      #{$prefix}-fw-title: var(--fw-x-bold, 800);
+      @include set-section-colors($accent);
+      text-shadow        : .01em .01em .05em var(#{$prefix}-c-shadow-1);
 
-  .section__title {
-    font-weight: 800;
-    color      : white;
-    font-weight: 800;
-  }
-
-  .section__intro {
-    font-weight: 400;
-  }
-}
-// general style
-
-.section--svg-background {
-  .section__svg-background {
-    position       : absolute;
-    top            : 0;
-    left           : 0;
-    width          : 100%;
-    height         : 100%;
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    overflow       : hidden;
-
-    svg {
-      height     : 100%;
-      width      : auto;
-      flex-shrink: 0;
-      @include desktop {
-        height: 100%;
-        width : 100%;
+      #{$bn}__inner {
+        padding-top: 6.5rem;
       }
     }
   }
-}
 
-.section--wave {
-  @extend .section--svg-background;
-  font-weight: 500;
+  //
+  // Wave: A subtle SVG wave in the background
+  // ==========================================================================
 
-  .section__title {
-    font-weight: 800;
-  }
+  &--bkg-wave {
+    // Font weights
+    #{$prefix}-fw-title: var(--fw-x-bold, 800);
+    #{$prefix}-fw-intro: var(--fw-bold, 500);
 
-  .section__svg-background {
-    @include desktop {
-      overflow: visible;
-    }
-
-    svg {
-      height: 125%;
+    #{$bn}__svg-background {
+      @extend %svg-background;
       @include desktop {
-        height    : 100%;
-        width     : 100%;
-        max-width : 100%;
-        min-height: 700px;
+        overflow: visible;
+      }
+
+      svg {
+        height: 125%;
+        @include desktop {
+          height    : 100%;
+          width     : 100%;
+          max-width : 100%;
+          min-height: 700px;
+        }
       }
     }
   }
-}
 
-.section--data-wave {
-  @extend .section--svg-background;
-  color: col($c-neutral, 1);
+  //
+  // Data wave: A dark background gradient with subtle wave and various shapes
+  // ==========================================================================
 
-  .section__svg-background {
-    svg {
-      // the "data-wave" background is actually two layered SVGs,
-      // such that the background gradient can have preserveAspectRatio = none
-      // and the shape elements above can keep their aspect ratio
-      position: absolute;
-      top     : 0;
-      left    : 0;
+  &--bkg-data-wave {
+    @include --dark-bkg;
+    #{$prefix}-c-icon-background    : var(--c-neutral-5, lightgray);
+    #{$prefix}-c-icon-foreground    : var(--c-major-accent-5, lightgray);
+    #{$prefix}-c-background-lighter : var(--c-neutral-6, slategray);
+    #{$prefix}-c-background         : var(--c-neutral-7, darkslategray);
+    #{$prefix}-c-background-darker  : var(--c-neutral-8, black);
+    #{$prefix}-c-background-darker-2: var(--c-neutral-9, black);
+
+    text-shadow                     : .01em .01em .1em var(#{$prefix}-c-shadow-1);
+
+    #{$bn}__svg-background {
+      @extend %svg-background;
+
+      svg {
+        // the "data-wave" background is actually two layered SVGs,
+        // such that the background gradient can have preserveAspectRatio = none
+        // and the shape elements above can keep their aspect ratio
+        position: absolute;
+        top     : 0;
+        left    : 0;
+      }
     }
   }
 
-  .section__title {
-    color         : mix(col($c-neutral, 4), col($c-secondary,5), 60%);
-    font-weight   : 900;
-    letter-spacing: .01em;
-    text-shadow   : .01em .01em 1.3em rgba(col($c-secondary, 9), 1);
+  &--bkg-map {
+    @include --dark-bkg;
+    #{$prefix}-c-background-lighter : var(--c-always-dark-lighter, slategray);
+    #{$prefix}-c-background         : var(--c-always-dark, darkslategray);
+    #{$prefix}-c-background-darker  : var(--c-always-dark-darker, black);
+    #{$prefix}-c-background-darker-2: var(--c-always-dark-darker-2, black);
+
+    position                        : relative;
+    @include bkg-img;
+    background-image                : linear-gradient(var(--c-shadow-4-on-major-accent, rgba(darkslategray, 0.9)), var(--c-shadow-3-on-major-accent, rgba(darkslategray, 0.8))), url("/images/santa_barbara__NASA.jpg");
   }
 
-  .section__intro {
-    text-shadow: .01em .01em 1.3em rgba(col($c-secondary, 8), 0.5);
-  }
-}
+  // ==========================================================================
+  // Type modifiers
+  // ==========================================================================
 
-.section--card {
-  background-color: col($c-secondary, 1);
-  padding-top     : 2rem;
-  padding-bottom  : 2rem;
+  //
+  // Card: All content in a floating card with shadow
+  // ==========================================================================
 
-  .section__inner {
-    @include card;
-    @include limit-width;
-    margin        : 5rem $mobile-lr-padding;
+  &--card {
+    padding-top   : 2rem;
     padding-bottom: 2rem;
-    @include desktop {
-      margin : 6rem auto;
-      padding: 5rem 3.5rem;
-      width  : 95%;
-    }
-  }
-}
 
-.section--secondary-light {
-  background-color: col($c-secondary, 2);
-}
-// TODO: this is how we should name background classes. 
-
-.section--bkg-secondary {
-  background-color: col($c-secondary, 6);
-}
-
-.section--bkg-tertiary-dark {
-  background-color: col($c-tertiary, 7);
-  background-image: linear-gradient(to top, col($c-tertiary, 8) 0%, col($c-tertiary, 8) 1%, col($c-tertiary, 7) 100%);
-}
-
-.section--bkg-neutral-light {
-  background-image: linear-gradient(to top, col($c-neutral, 2), col($c-neutral, 1) 100%);
-}
-
-.section--bkg-map {
-  --col-title     : #{col($c-neutral, 3);};
-  --col-font      : #{col($c-neutral, 1)};
-  stroke          : white;
-  position        : relative;
-  @include bkg-img;
-  background-color: col($c-neutral, 8); // fallback
-  background-image: linear-gradient(rgba(col($c-secondary, 7), 0.88), rgba(col($c-tertiary, 9), 0.8)), url("/images/santa_barbara__NASA.jpg");
-}
-// split section
-$left-proportion: .5;
-$left-width: $content-width * $left-proportion;
-$right-width: $content-width * (1 - $left-proportion);
-$diff: abs($right-width - $left-width)/2;
-$innerPadding: 2.5rem;
-$outerPadding: 1rem;
-$paddingTopBottom: 5rem;
-$paddingBottom: 20rem; // for footer;
-
-.section--split {
-  display: grid;
-
-  .section__half1,
-  .section__half2 {
-    width   : 100%;
-    height  : 100%;
-    overflow: hidden;
-  }
-
-  .section__half2 {
-    padding-bottom: $paddingBottom;
-  }
-
-  .section__half1 {
-    padding-bottom: $paddingTopBottom;
-  }
-
-  .section__half1-inner,
-  .section__half2-inner {
-    @include medium-lr-padding;
-    width      : 100%;
-    height     : 100%;
-    display    : flex;
-    align-items: center;
-    padding-top: $paddingTopBottom;
-  }
-  @include desktop {
-    grid-template-columns: 1fr 1fr;
-    position             : relative;
-
-    .section__half1 {
-      padding-bottom: $paddingBottom;
-    }
-
-    .section__half1-inner,
-    .section__half2-inner {
-      padding-left : 0;
-      padding-right: 0;
-    }
-
-    .section__half2-inner {
-      float        : left;
-      max-width    : $right-width;
-      padding-left : $innerPadding;
-      padding-right: $outerPadding;
-    }
-
-    .section__half1-inner {
-      float        : right;
-      max-width    : $left-width;
-      padding-right: $innerPadding;
-      padding-left : $outerPadding;
-    }
-  }
-}
-// Styles for pages with themes
-
-.theme-quaternary {
-  .section {
-    &__title {
-      strong {
-        background   : col($c-quaternary, 2);
-        border-radius: 4px;
-        color        : col($c-quaternary, 5);
-        padding      : 0 .3em;
+    #{$bn}__inner {
+      @include card;
+      background-color: var(#{$prefix}-c-background-lighter);
+      @include limit-width;
+      margin          : 5rem $lr-padding;
+      padding-bottom  : 2rem;
+      @include desktop {
+        margin : 6rem auto;
+        padding: 5rem 3.5rem;
+        width  : 95%;
       }
     }
+  }
 
-    &__icon {
-      display         : flex;
-      stroke          : col($c-quaternary, 5);
-      padding         : 1.5rem;
-      border-radius   : 50%;
-      background-color: col($c-quaternary, 2);
+  //
+  // Split section:
+  // ==========================================================================
+
+  // The split section uses a different layout than other sections, with content
+  // divided into two sub-sections (half1 & half2). Displayed as columns on
+  // desktop, and rows on mobile.
+
+  // Split section variables. Uses the global "content-width" Sass variable.
+  $split-section-left-proportion : .5;
+  $split-section-left-width      : $content-width * $split-section-left-proportion;
+  $split-section-right-width     : $content-width * (1 - $split-section-left-proportion);
+  $split-section-diff            : abs($split-section-right-width - $split-section-left-width)/2;
+  $split-section-innerPadding    : 2.5rem;
+  $split-section-outerPadding    : 1rem;
+  $split-section-paddingTopBottom: 5rem;
+  $split-section-paddingBottom   : 20rem; // for footer TODO;
+
+  &--split {
+    display: grid;
+
+    #{$bn}__half1,
+    #{$bn}__half2 {
+      width   : 100%;
+      height  : 100%;
+      overflow: hidden;
+    }
+
+    #{$bn}__half2 {
+      padding-bottom: $split-section-paddingBottom;
+    }
+
+    #{$bn}__half1 {
+      padding-bottom: $split-section-paddingTopBottom;
+    }
+
+    #{$bn}__half1-inner,
+    #{$bn}__half2-inner {
+      display    : flex;
+      padding    : $split-section-paddingTopBottom $lr-padding 0;
+      width      : 100%;
+      height     : 100%;
+      align-items: center;
+    }
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      position             : relative;
+
+      #{$bn}__half1 {
+        padding-bottom: $split-section-paddingBottom;
+      }
+
+      #{$bn}__half1-inner,
+      #{$bn}__half2-inner {
+        padding-left : 0;
+        padding-right: 0;
+      }
+
+      #{$bn}__half2-inner {
+        float        : left;
+        max-width    : $split-section-right-width;
+        padding-left : $split-section-innerPadding;
+        padding-right: $split-section-outerPadding;
+      }
+
+      #{$bn}__half1-inner {
+        float        : right;
+        max-width    : $split-section-left-width;
+        padding-right: $split-section-innerPadding;
+        padding-left : $split-section-outerPadding;
+      }
     }
   }
-  // .section--bold {
-  //   background-color: col($c-quaternary, 5);
-  //   color           : col($c-quaternary, 1);
-  // }
 }

@@ -1,9 +1,31 @@
 .d1search {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn       : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix   : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   position  : relative;
-  padding   : 15px 0 0;
+  padding   : 1rem $lr-padding;
   margin-top: 10px;
   width     : 100%;
-  @include mobile-lr-padding;
   @include desktop {
     width: 70%;
   }
@@ -60,7 +82,7 @@
     font-size  : 1.3rem;
     background : transparent;
     transition : border-color .2s;
-    background : col($c-neutral, 1);
+    background : var(--section-c-background-lighter, white);
     color      : col($c-neutral, 6);
     font       : inherit;
     box-shadow : .2rem .8rem 1.6rem rgba(0, 0, 0, 0.1);
@@ -113,11 +135,11 @@
     }
 
     .button {
-      padding: 0 11px;
+      padding   : 0 11px;
       max-height: 44px;
       min-height: 44px;
-      max-width: 44px;
-      min-width: 44px;
+      max-width : 44px;
+      min-width : 44px;
     }
   }
 }

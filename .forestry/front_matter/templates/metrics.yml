@@ -16,5 +16,5 @@ fields:
       type: simple
     options:
     - default
-    - secondary
+    - accent
   default: default

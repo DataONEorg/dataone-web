@@ -1,0 +1,12 @@
+{{ $bn := "svg" }}
+{{ $classes := printf "%s %s--%s" $bn $bn . }}
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1532 703" preserveAspectRatio="none" class="{{ $classes }}">
+  <defs>
+    <linearGradient x1="86.035%" y1="46.416%" x2="7.737%" y2="63.541%" id="section-wave-gradient" class="{{ $bn }}__gradient">
+      <stop offset="0%" class="{{ $bn }}__stop-color-1"/>
+      <stop offset="100%" class="{{ $bn }}__stop-color-2"/>
+    </linearGradient>
+  </defs>
+  <path d="M25.51 94.92c57.67-10.583 146.323-18.507 218.836-21.498 302.095-12.463 301.852 95.418 559.116 81.205 257.264-14.213 271.13-100.448 765.422-58.64l-59.739 486.534s-454.127 93.703-759.194 7.918C444.885 504.655-37.37 607.043-37.37 607.043L25.509 94.92z" fill="url(#section-wave-gradient)" transform="rotate(-7 765.756 349.516)" fill-rule="evenodd"/>
+</svg>

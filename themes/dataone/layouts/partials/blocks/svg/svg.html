@@ -1,0 +1,14 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn - block name -->
+{{ $bn := "svg" }}
+
+<!-- {{ $classes := $bn }} -->
+<!-- {{ with .Block.name }} -->
+<!-- {{ $classes = printf "%s %s--%s" $classes $bn . }} -->
+<!-- {{ end }} -->
+
+{{ with .Block.name }}
+  {{ $path := printf "blocks/svg/%s.svg" . }}
+  {{ partial $path . }}
+{{ end }}

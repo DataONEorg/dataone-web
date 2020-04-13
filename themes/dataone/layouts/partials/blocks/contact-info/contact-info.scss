@@ -1,4 +1,27 @@
 .contact-info {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn           : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   display       : grid;
   grid-auto-flow: row;
   grid-gap      : 3rem;
@@ -9,7 +32,6 @@
     font-size  : 1.2rem;
     line-height: 1.4;
     font-weight: 500;
-    text-shadow: .01em .01em 1em rgba(col($c-neutral, 9),.4);
   }
 
   &__location {
@@ -28,11 +50,11 @@
 
   &__social-link {
     stroke          : white;
-    background-color: col($c-secondary, 5);
+    background-color: var(--c-major-accent, grey);
     @include circle-link;
 
     &:hover {
-      background-color: lighten(col($c-secondary, 5), 0.9%);
+      filter: brightness(1.05);
     }
   }
 }

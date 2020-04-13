@@ -1,11 +1,33 @@
 .item-with-icon {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                  : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix              : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
   @include f-common;
   display              : grid;
   grid-template-columns: 30px 1fr;
 
   &__icon {
     svg {
-      margin-top  : calc(#{1.25rem} + 4px);
+      margin-top  : calc(1.25rem + 4px);
       margin-right: 2px;
     }
   }
@@ -19,32 +41,8 @@
   &__emphasis {
     font-style : normal;
     font-weight: 600;
-    color      : col($c-neutral, 6);
+    color      : var(--section-fc-body, black);
     font-size  : 1.25rem;
   }
 
-  &--dark-background {
-    .item-with-icon__paragraph {
-      font-weight: 500;
-      color      : col($c-neutral, 1);
-    }
-
-    .item-with-icon__emphasis {
-      color      : col($c-primary, 5);
-      font-weight: 600;
-      text-shadow: .01em .01em 1.1em rgba(col($c-secondary, 9), 0.6);
-    }
-
-    .item-with-icon__icon svg {}
-  }
-}
-
-.theme-quaternary {
-  .item-with-icon--dark-background {
-    .item-with-icon__emphasis {
-      color: col($c-quaternary, 5);
-    }
-
-    .item-with-icon__icon svg {}
-  }
 }

@@ -49,7 +49,7 @@
 {{ if $slidesLink }}
   {{ $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" }}
   {{ $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-  {{ $slidesHTML = printf `<div class="{{ $bn }}__slides">%s</div>` $slidesButton | safeHTML }}
+  {{ $slidesHTML = printf `<div class="%s__slides">%s</div>` $bn $slidesButton | safeHTML }}
 {{ end }}
 
 <!-- Zoom meeting ID -->

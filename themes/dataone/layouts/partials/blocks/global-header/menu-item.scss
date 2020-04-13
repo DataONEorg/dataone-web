@@ -1,13 +1,35 @@
 .menu-item {
-  // bn = block name, usage: #{ $bn } 
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
   $bn       : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix   : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
   text-align: center;
   height    : auto;
   display   : block;
   position  : relative;
   @include desktop {
-    margin: .32rem .15rem;
-    height: auto;
+    margin: .3rem .15rem;
+    height: calc(100% - .6rem);
   }
 
   &:hover {
@@ -24,10 +46,10 @@
   }
 
   &__dropdown-icon {
-    margin-top: -2px;
     stroke    : $icon-color;
+    margin-top: -2px;
     position  : relative;
-    top       : -1px;
+    padding   : 0 .2rem;
   }
 
   &__dropdown-button,
@@ -43,22 +65,13 @@
     line-height    : 3.3125rem;
     letter-spacing : .03em;
     @include desktop {
-      line-height: 1;
-      padding    : 1.375rem .625rem;
+      padding    : 0 .62rem;
       font-size  : 1.1rem;
+      height     : 100%;
+      line-height: normal;
+      display    : flex;
+      align-items: center;
     }
-    // &:focus::before {
-    //   content           : "";
-    //   position          : absolute;
-    //   left              : -2px;
-    //   right             : -2px;
-    //   top               : 2px;
-    //   bottom            : 2px;
-    //   -webkit-box-shadow: 0 0 0 1.5px inset white;
-    //   box-shadow        : inset 0 0 0 1.5px white;
-    //   border-radius     : 3px;
-    //   opacity           : 1;
-    // }
   }
   // link when item is active
   &--active {
@@ -75,7 +88,7 @@
       position        : absolute;
       background-color: col($c-neutral, 1);
       display         : block;
-      border-radius   : 4px;
+      border-radius   : var(--br-default, 0.25rem);
       box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
       // center the menu
       transform       : translate(-50%, 0);
@@ -90,7 +103,7 @@
     // open
     &[aria-hidden="false"] {
       height    : auto;
-      max-height: 500px;
+      max-height: 1000px;
       opacity   : 1;
       visibility: visible;
       // submenu arrow when menu is open
@@ -105,7 +118,7 @@
           height           : 12px;
           -webkit-transform: rotate(45deg);
           transform        : rotate(45deg);
-          border-radius    : 4px 0 0 0;
+          border-radius    : var(--br-default, 0.25rem) 0 0 0;
           box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
           opacity          : 1;
         }
@@ -137,7 +150,7 @@
       font-weight: 600;
     }
     @include desktop {
-      color: col($c-neutral, 5);
+      color: var(--c-foreground-on-default, gray);
 
       &:hover {
         color      : col($c-primary, 6);

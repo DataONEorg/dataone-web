@@ -16,14 +16,13 @@ header:
     src: uploads/duotone-network.jpg
     template: image
     alttext: Network background
-    title: Network background
     type: default
 page_sections:
 - template: section
   type: default
   blocks:
   - template: metrics
-    type: secondary
+    type: default
 - template: section
   type: card
   title: Amplify the products of your research
@@ -42,7 +41,7 @@ page_sections:
     type: internal page
     internal_link: joinus.md
 - template: section
-  type: subtle-emphasis
+  background: subtle-emphasis
   title: Repositories currently in our network
   intro: "Member institutions include libraries,\tresearch centers, scientific consortia,\tuniversities,\tmuseums,
     non-profit\torganizations, citizen science initiatives, corporate divisions and\tgovernmental

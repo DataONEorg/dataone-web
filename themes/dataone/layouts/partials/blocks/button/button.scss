@@ -1,37 +1,73 @@
 // ==== BUTTON ====
+//
+// @TODO
+// .button {
+//   color: #ff0000;
+// }
+// 
+// /* note: 100% is baseline so 85% is slightly darker, 
+//    20% would be significantly darker */
+// .button:hover {
+//   filter: brightness(85%);
+// }
+//
 
 .button {
-  $bn             : &;
-  @include button-reset;
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                  : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix              : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  #{$prefix}-background: var(--section-fc-body, black);
+  #{$prefix}-foreground: var(--section-c-background, white);
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
   @include f-common;
-  white-space     : nowrap;
-  font-weight     : 600;
-  text-transform  : uppercase;
-  letter-spacing  : .025em;
-  font-size       : 1rem;
-  background-color: col($c-neutral, 7);
-  color           : col($c-neutral, 1);
-  overflow        : hidden;
-  text-overflow   : ellipsis;
-  padding         : 0 1.25em;
-  width           : fit-content;
-  width           : -moz-fit-content;
-  max-width       : calc(100vw - 2.5em);
-  border-radius   : 2px;
-  height          : 50px;
-  text-decoration : none;
-  box-shadow      : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
-  cursor          : pointer;
-  text-align      : center;
-  display         : flex;
-  align-items     : center;
-  transition      : all .2s;
+  @include button-reset;
+  white-space          : nowrap;
+  font-weight          : 600;
+  text-transform       : uppercase;
+  letter-spacing       : .025em;
+  font-size            : 1rem;
+  background-color     : var(--button-background);
+  color                : var(--button-foreground);
+  overflow             : hidden;
+  text-overflow        : ellipsis;
+  padding              : 0 1.25em;
+  width                : fit-content;
+  width                : -moz-fit-content;
+  max-width            : calc(100vw - 2.5em);
+  border-radius        : 2px;
+  height               : 50px;
+  text-decoration      : none;
+  box-shadow           : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
+  cursor               : pointer;
+  text-align           : center;
+  display              : flex;
+  align-items          : center;
+  transition           : all .2s;
+  text-shadow          : none;
 
   &:focus,
   &:hover {
-    background-color: lighten(col($c-neutral, 7), 1%);
-    transform       : translateY(-1px);
-    box-shadow      : 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
+    filter: brightness(1.05);
+    transform : translateY(-1px);
+    box-shadow: 0 6px 13px rgba(30,50,93,.1), 0 2px 5px rgba(0,0,0,.08);
   }
 
   &__text {
@@ -42,109 +78,76 @@
   }
 
   &__icon .icon {
-    display     : flex;
-    align-items : center;
-    margin-right: 9px;
-    transition  : all .2s;
-    stroke      : white;
+    display      : flex;
+    align-items  : center;
+    margin-right : 9px;
+    transition   : all .2s;
+    stroke       : var(--button-foreground);
+    margin-bottom: 1px;
   }
 
   &__icon--right .icon {
     margin-right: 0;
     margin-left : 6px;
   }
-}
 
-.button--col-primary {
-  background-color: col($c-primary, 5);
-  color           : col($c-primary, 8);
-
-  .button__icon .icon {
-    stroke: col($c-primary, 8);
+  &--col-primary {
+    #{$prefix}-background: var(--c-minor-accent);
+    #{$prefix}-foreground: var(--c-foreground-on-minor-accent);
   }
 
-  &:focus,
-  &:hover {
-    background-color: lighten($c-primary, 1%);
-  }
-}
-
-.button--col-secondary {
-  background-color: $c-secondary;
-  color           : col($c-secondary, 1);
-
-  &:focus,
-  &:hover {
-    background-color: lighten($c-secondary, 2%);
-  }
-}
-
-.button--col-tertiary {
-  background-color: white;
-  color           : $c-secondary;
-  box-shadow      : 0 1px 5px rgba(30,50,93,.08), 0 1px 3px rgba(0,0,0,.06);
-
-  .button__icon .icon {
-    stroke: $c-secondary;
+  &--col-secondary {
+    #{$prefix}-background: var(--c-major-accent);
+    #{$prefix}-foreground: var(--c-foreground-on-major-accent);
   }
 
-  &:focus,
-  &:hover {
-    background-color: white;
-    color           : lighten($c-secondary, 2%);
-    box-shadow      : 0 3px 10px rgba(30,50,93,.08), 0 2px 5px rgba(0,0,0,.07);
-  }
-}
-
-.button--col-quaternary {
-  $main-color     : lighten($c-secondary, 2%);
-  $hover-color    : lighten($main-color, 4%);
-  white-space     : normal;
-  font-size       : 1.15rem;
-  background-color: transparent;
-  color           : $main-color;
-  display         : inline-flex;
-  padding         : 0;
-  width           : auto;
-  height          : auto;
-  line-height     : 1.05;
-  box-shadow      : none;
-
-  .button__icon .icon {
-    stroke: $main-color;
+  &--col-tertiary {
+    #{$prefix}-background: var(--section-c-background-lighter, var(--c-default-lighter, white));
+    #{$prefix}-foreground: var(--c-section-accent, var(--c-major-accent, black));
   }
 
-  &:focus,
-  &:hover {
-    background-color: transparent;
-    color           : $hover-color;
-    box-shadow      : none;
+  &--col-quaternary {
+    #{$prefix}-background: transparent;
+    #{$prefix}-foreground: var(--c-section-accent, var(--c-major-accent, black));
+    white-space          : normal;
+    font-size            : 1.15rem;
+    display              : inline-flex;
+    padding              : 0;
+    width                : auto;
+    height               : auto;
+    line-height          : 1.05;
+    box-shadow           : none;
 
-    .button__icon .icon {
-      stroke: $hover-color;
+    &:focus,
+    &:hover {
+      box-shadow: none;
     }
   }
+
 }
+
 // BUTTONS USED AS TABS (TABS BLOCK)
 
 .button--tab {
   @extend .button--col-quaternary;
   white-space: nowrap;
-  color      : lighten(col($c-neutral, 5), 10%);
+  color      : var(--section-fc-body, gray);
   font-weight: 500;
+  filter: brightness(1.1);
 
   .button__icon .icon {
-    stroke: lighten(col($c-neutral, 5), 20%);
+    stroke: var(--section-fc-body, gray);
+    filter: brightness(1.1);
   }
 
   &:focus,
   &:hover {
     background-color: transparent;
-    color           : col($c-neutral, 5);
     box-shadow      : none;
+    filter: brightness(1);
 
     .button__icon .icon {
-      stroke: lighten(col($c-neutral, 5), 5%);
+      filter: brightness(1.05);
     }
   }
 }
@@ -152,9 +155,8 @@
 
 .button--search {
   margin: 20px auto 0;
-  fill  : col($c-neutral, 1);
   @include desktop {
-    padding  : 21px 22px 44px;
+    padding  : 22px 22px 46px;
     min-width: 68px;
     position : absolute;
     top      : -5px;
@@ -183,26 +185,5 @@
     @include desktop {
       margin-right: 0;
     }
-  }
-}
-// Styles for pages with a theme class
-
-.theme-quaternary {
-  .button--col-primary {
-    background-color: col($c-quaternary, 5);
-    color           : col($c-quaternary, 1);
-
-    .button__icon .icon {
-      stroke: white;
-    }
-  }
-
-  .button--col-secondary {
-    background-color: white;
-    color           : col($c-secondary, 5);
-  }
-
-  .button--col-quaternary {
-    // color           : col($c-quaternary, 5);
   }
 }

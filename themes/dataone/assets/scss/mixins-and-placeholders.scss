@@ -1,0 +1,205 @@
+// rules for larger (desktop) screens
+@mixin desktop {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+// -----------------------------------------------------------------------------
+/// Add font styles that are common to all blocks
+@mixin f-common {
+  font-family            : var(--ff-body, 'Work Sans', sans-serif);
+  font-size              : var(--fs-body, 1rem);
+  font-weight            : var(--fw-body, 400);
+  text-rendering         : optimizeLegibility;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// -----------------------------------------------------------------------------
+/// Style link elements in all states using css vars
+///
+/// @param {Selector} $selector A selector to style (e.g. "a", ""&__link")
+///
+@mixin style-links($selector) {
+
+  $fallback: lightseagreen;
+
+  #{$selector} {
+    color          : var(--fc-link, $fallback);
+    text-decoration: none;
+    transition     : color .15s linear;
+  }
+
+  #{$selector}:visited {
+    color: var(--fc-link, $fallback);
+  }
+
+  #{$selector}:hover {
+    color: var(--fc-link-hover, $fallback);
+    filter: brightness(1.1);
+  }
+
+  #{$selector}:active {
+    color: var(--fc-link-hover, $fallback);
+  }
+
+  #{$selector}:focus {
+    color: var(--fc-link-hover, $fallback);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// elements with SVG backgrounds
+
+%svg-background {
+  position       : absolute;
+  top            : 0;
+  left           : 0;
+  width          : 100%;
+  height         : 100%;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  overflow       : hidden;
+
+  svg {
+    height     : 100%;
+    width      : auto;
+    flex-shrink: 0;
+    @include desktop {
+      height: 100%;
+      width : 100%;
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+@mixin fs-h3 {
+  font-size     : 1.45rem;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  font-weight   : 500;
+  margin        : 0 0 1.5rem;
+  line-height   : 1.32;
+}
+// make element centered and no larger than the max width for desktop content
+@mixin limit-width {
+  max-width   : $content-width;
+  margin-left : auto;
+  margin-right: auto;
+}
+// rules for users who prefer less animation
+@mixin low-motion {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration       : .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration      : .01ms !important;
+    scroll-behavior          : auto !important;
+  }
+}
+// removes default browser styles for button elements
+@mixin button-reset {
+  border            : none;
+  margin            : 0;
+  text-decoration   : none;
+  background        : none;
+  cursor            : pointer;
+  -webkit-appearance: none;
+  -moz-appearance   : none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+// material-design-like card style
+@mixin card {
+  padding         : .625rem 1.25rem;
+  border-radius   : var(--br-default, 0.25rem);
+  background      : white;
+  box-shadow      : .19rem .25rem 1.5rem -0.75rem var(--section-c-shadow-3, rgba(0, 0, 0, 0.4));
+  max-width       : 100%;
+  width           : auto;
+  background-color: var(--section-c-background-lighter, white);
+}
+// general styles for text-input fields
+@mixin forms-text-input {
+  background-color: col($c-neutral, 1);
+  border          : none;
+  outline         : none;
+  border-radius   : 2px;
+  color           : col($c-neutral, 7);
+  height          : 50px;
+  padding         : 0 15px;
+}
+// to display background image of a header, div, section, etc. properly
+@mixin bkg-img {
+  background-position: 50%;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+}
+@mixin circle-link {
+  text-decoration: none;
+  font-style     : normal;
+  text-align     : center;
+  display        : block;
+  border-radius  : 50%;
+  width          : 50px;
+  height         : 50px;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+
+  &:hover {
+    transform : translateY(-0.1px);
+    box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(col($c-neutral, 9),.15);
+  }
+}
+
+// Set section color variables based on variables defined at the root.
+@mixin set-section-colors($background-color, $prefix: "--section") {
+  #{$prefix}-fc-body                 : var(--c-foreground-on-#{$background-color}, grey);
+  #{$prefix}-fc-title                : var(--c-foreground-emphasis-on-#{$background-color}, black);
+  --fc-link                          : var(--c-accent-on-#{$background-color}, lightseagreen);
+  --fc-link-hover                    : var(--c-accent-emphasis-on-#{$background-color}, lightseagreen);
+
+  // Default foreground
+  #{$prefix}-c-foreground-very-subtle: var(--c-foreground-very-subtle-on-#{$background-color}, lightgray);
+  #{$prefix}-c-foreground-subtle     : var(--c-foreground-subtle-on-#{$background-color}, dimgray);
+
+  // Default background
+  #{$prefix}-c-background-lighter    : var(--c-#{$background-color}-lighter, white);
+  #{$prefix}-c-background            : var(--c-#{$background-color}, white);
+  #{$prefix}-c-background-darker     : var(--c-#{$background-color}-darker, lightgray);
+  #{$prefix}-c-background-darker-2   : var(--c-#{$background-color}-darker-2, lightgray);
+
+  // $standard-accent-name: "accent"
+  // @if($background-color == "default"){
+  //    "major-accent"
+  // }
+
+  @if(($background-color == "default") or ($background-color == "always-dark")) {
+    #{$prefix}-c-icon-background   : var(--c-major-accent-very-subtle-on-#{$background-color}, lightgray);
+    #{$prefix}-c-icon-foreground   : var(--c-major-accent-on-#{$background-color}, rgba(white, 0.5));
+
+    #{$prefix}-c-accent-emphasis   : var(--c-major-accent-emphasis-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent            : var(--c-major-accent-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent-subtle     : var(--c-major-accent-subtle-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent-very-subtle: var(--c-major-accent-very-subtle-on-#{$background-color}, lightgray);
+  } @else {
+    #{$prefix}-c-icon-background   : var(--c-#{$background-color}-lighter-2, lightgray);
+    #{$prefix}-c-icon-foreground   : var(--c-foreground-on-#{$background-color}, rgba(white, 0.5));
+
+    #{$prefix}-c-accent-emphasis   : var(--c-accent-emphasis-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent            : var(--c-accent-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent-subtle     : var(--c-accent-subtle-on-#{$background-color}, dimgray);
+    #{$prefix}-c-accent-very-subtle: var(--c-accent-very-subtle-on-#{$background-color}, lightgray);
+  }
+
+  // Shadows
+  @for $i from 1 through 4 {
+    $o                       : $i/10;
+    #{$prefix}-c-shadow-#{$i}: var(--c-shadow-#{$i}-on-#{$background-color}, rgba(0,0,0,$o));
+  }
+}
