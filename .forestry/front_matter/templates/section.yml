@@ -9,11 +9,19 @@ fields:
   label: Template
   default: section
   description: Should be "section" by default
-- name: id
-  type: text
-  hidden: true
-  label: ID
-  description: The ID attribute to give to the section element
+- type: select
+  label: Layout style
+  name: type
+  description: The layout style to use for the section
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - card
+    - split
+  default: default
 - type: select
   label: Background style
   name: background
@@ -22,15 +30,15 @@ fields:
   config:
     source:
       type: simple
-  options:
-  - default
-  - subtle-emphasis
-  - major-accent-color
-  - minor-accent-color
-  - rare-accent-color
-  - data-wave
-  - wave
-  - map
+    options:
+    - default
+    - subtle-emphasis
+    - major-accent-color
+    - minor-accent-color
+    - rare-accent-color
+    - data-wave
+    - wave
+    - map
 - type: select
   label: Background style for second half of section
   name: background2
@@ -42,29 +50,15 @@ fields:
   config:
     source:
       type: simple
-  options:
-  - default
-  - subtle-emphasis
-  - major-accent-color
-  - minor-accent-color
-  - rare-accent-color
-  - data-wave
-  - wave
-  - map
-- type: select
-  label: Section style
-  name: type
-  description: The layout style to use for the section
-  default: default
-  config:
-    source:
-      type: simple
     options:
     - default
-    - card
-    - split
-    - compact
-  default: default
+    - subtle-emphasis
+    - major-accent-color
+    - minor-accent-color
+    - rare-accent-color
+    - data-wave
+    - wave
+    - map
 - type: field_group
   template: icon
   label: Icon
