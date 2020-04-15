@@ -117,17 +117,68 @@ page_sections:
     type: right
 - template: section
   background: data-wave
-  title: Make your data FAIR
-  intro: Evaluate your metadata with community established FAIR principles. Scores
-    are refreshed with updates to your metadata, helping make your data even more
-    Findable, Accessible, Interoperable, and Reusable.
-  button:
-    template: button
-    type: external website
-    color: tertiary
-    text: Learn more about FAIR
-    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
-  blocks: []
+  title: Data about your data
+  intro: With access to information about the datasets in your repository, you can monitor how your data is being used and assess its quality based on community established scores.
+  blocks:
+  - template: feature-detailed
+    headline: Make your data FAIR
+    text: Access aggregated FAIR metadata assessment scores. Improve data discovery, accessibility, interoperability, and reusability
+      with a quantitative metadata assessment using the FAIR principles.
+    type: right
+    image:
+      template: image
+      src: uploads/data.png
+      alttext: FAIR metrcis report
+      type: tilt-left
+    details:
+    - template: item-with-icon
+      name: Time series charts
+      text: Discover how FAIR scores change over time through time series charts
+      icon:
+        template: icon
+        icon: check
+        size: small
+        color: secondary
+        stroke: thicker
+    - template: item-with-icon
+      name: Detailed analysis
+      text: Drill down into detailed FAIR reports for individual datasets
+      icon:
+        template: icon
+        icon: check
+        size: small
+        color: secondary
+        stroke: thicker
+    button:
+      template: button
+      type: internal page
+      color: quaternary
+      text: More about FAIR
+      internal_link: "/features/fair"
+  - template: columns
+    num_cols: 2
+    alignment: left
+    columns:
+    - template: feature-detailed
+      type: top
+      text: Access aggregated view and download metrics for datasets
+      headline: Usage metrics
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: View & Download Metrics
+        internal_link: "/features/usage-metrics"
+    - template: feature-detailed
+      type: top
+      headline: Citation reports
+      text: Find out who is citing your data
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Data citations
+        internal_link: "/features/citations"
 - template: section
   type: default
   title: For users & developers
