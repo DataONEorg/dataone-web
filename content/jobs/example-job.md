@@ -9,6 +9,7 @@ details_url: https://recruit.ap.ucsb.edu/JPF01754
 apply_url: https://recruit.ap.ucsb.edu/portfolios?return_url=%2FJPF01755%2Fapply%3Futf8%3D%25E2%259C%2593
 salary: $26.10 - $28.74/hr
 job_type: 6 month contract
+draft: true
 tags:
 - research
 - data analysis
