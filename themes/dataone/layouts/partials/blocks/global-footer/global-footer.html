@@ -14,10 +14,22 @@
     <!-- ==== SITE MAP ==== -->
     <ul class="{{ $bn }}__sitemap" id="footer-sitemap">
       {{ range .Site.Menus.primary_nav }}
-
+        {{ $hasSubmenu := and .Children (gt (len .Children) 1) }}
         <li class="{{ $bn }}__sitemap-group">
-          <span class="{{ $bn }}__sitemap-header">{{ .Name }}</span>
-
+          <!-- Site map section header -->
+          <span class="{{ $bn }}__sitemap-header">
+            <!-- Name with no link if this is just a header -->
+            {{ if $hasSubmenu }}
+              {{ .Name }}
+            {{ else}}
+            <!-- Otherwise add a link -->
+            <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
+              {{ .Name }}
+            </a>
+            {{ end }}
+          </span>
+          <!-- Site map sub-section links -->
+          {{ if $hasSubmenu }}
           <ul class="{{ $bn }}__sitemap-list" aria-hidden="true" id="{{urlize .Name }}">
             {{ range .Children }}
               <li class="{{ $bn }}__sitemap-item">
@@ -27,6 +39,7 @@
               </li>
             {{ end }}
           </ul>
+          {{ end }}
         </li>
       {{ end }}
       <!-- old website link -->

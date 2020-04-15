@@ -36,9 +36,4 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-menu:
-  primary_nav:
-    weight: 3
-    parent: Hosted Repo
-
 ---

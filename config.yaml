@@ -86,8 +86,6 @@ menu:
     weight: 3
     url: signin
   primary_nav:
-  - name: Hosted Repo
-    weight: 2
   - name: Network
     weight: 3
   - name: Community

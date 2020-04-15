@@ -298,10 +298,9 @@ page_sections:
     precheck_newsletter: false
 menu:
   primary_nav:
-    parent: Hosted Repo
-    name: Hosted Repository
+    name: Hosted Repo
     weight: 2
   footer:
-    weight: 3
+    weight: 2
 
 ---

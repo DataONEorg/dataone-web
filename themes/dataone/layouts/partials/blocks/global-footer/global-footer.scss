@@ -50,6 +50,7 @@
       grid-template-rows   : auto auto;
       grid-gap             : 1rem 6rem;
       grid-template-areas  : "sitemap organization" "newsletter newsletter";
+      grid-template-rows   : max-content max-content max-content;
     }
   }
 

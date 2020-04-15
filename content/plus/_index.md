@@ -318,5 +318,4 @@ menu:
     weight: 1
   footer:
     weight: 1
-
 ---
