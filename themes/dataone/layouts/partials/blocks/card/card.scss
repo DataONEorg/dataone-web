@@ -49,24 +49,24 @@
   &__title {
     margin-top   : 40px;
     margin-bottom: 10px;
-    font-size    : 1.4rem;
-    font-weight  : 600;
+    font-size : var(--fs-larger, 1.48rem);
+    font-weight : var(--fw-bold, 500);
   }
 
   &__subtitle {
     margin        : 0 0 1.5rem;
-    font-weight   : 400;
+    font-weight : var(--fw-normal, 400);
     color         : var(--section-c-accent, black);
-    font-size     : 1.15rem;
+    font-size : var(--fs-medium, 1.1rem);
     letter-spacing: .01em;
-    font-weight   : 500;
+    font-weight : var(--fw-bold, 500);
   }
 
   &__description {
     margin     : 0 0 20px;
     padding    : 0;
     line-height: 1.4;
-    font-size  : 1.05rem;
+    font-size : var(--fs-medium, 1.1rem);
   }
 
   &__button {

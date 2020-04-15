@@ -31,7 +31,7 @@
         {{ $checklist := dict "template" "checklist" "num_cols" 1 "title" $value "items" $content }}
         {{ $checklists = $checklists | append $checklist }}
       {{ else }}
-        {{ $detail := dict "template" "feature-simple" "headline" $value "text" $content }}
+        {{ $detail := dict "template" "feature-detailed" "type" "top" "headline" $value "text" $content }}
         {{ $details = $details | append $detail }}
       {{ end }}
     {{ end }}

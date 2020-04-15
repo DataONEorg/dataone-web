@@ -113,7 +113,7 @@ $icon-color: var(--c-neutral-1, white);
       }
 
       .nav__button-text {
-        font-weight: 800;
+        font-weight : var(--fw-x-bold, 800);
         color      : var(--c-minor-accent-5, grey);
       }
     }
@@ -121,16 +121,16 @@ $icon-color: var(--c-neutral-1, white);
 
   &__button-text {
     @include f-common;
-    font-size     : .86rem;
+    font-size : var(--fs-x-small, .85rem);
     letter-spacing: .01em;
-    font-weight   : 600;
+    font-weight : var(--fw-bold, 500);
     line-height   : .82rem;
     display       : block;
     margin-top    : 2px;
     color         : var(--c-neutral-1, white);
 
     &--active {
-      font-weight: 800;
+      font-weight : var(--fw-x-bold, 800);
     }
     @include desktop {
       display: none;
@@ -272,7 +272,7 @@ $icon-color: var(--c-neutral-1, white);
       @include desktop {
         padding-top   : .7rem;
         padding-bottom: .7rem;
-        font-weight   : 400;
+        font-weight : var(--fw-normal, 400);
       }
     }
   }

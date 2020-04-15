@@ -12,18 +12,17 @@ fields:
   name: heading
   label: Heading
   template_types:
-  - feature-simple
   - markdown
   - image
   - button
   - item-with-icon
   - card
+  - feature-detailed
 - type: blocks
   name: content
   label: Content
   template_types:
   - markdown
-  - feature-simple
   - feature-detailed
   - image
   - card

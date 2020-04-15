@@ -106,27 +106,27 @@
 
   &__title {
     grid-area  : title;
-    font-weight: 500;
+    font-weight : var(--fw-bold, 500);
     margin     : 0;
     white-space: normal;
     align-self : end;
-    font-size  : 1.5rem;
+    font-size : var(--fs-larger, 1.48rem);
     @include desktop {
-      font-size: 1.75rem;
+      font-size : var(--fs-x-large, 1.75rem);
     }
   }
 
   &__subtitle {
     grid-area  : subtitle;
-    font-size  : 1.15rem;
+    font-size : var(--fs-medium, 1.1rem);
     line-height: 1.4;
-    font-weight: 300;
+    font-weight : var(--fw-light, 300);
     margin     : 0;
     white-space: normal;
     height     : 100%;
     @include desktop {
       padding-top: 1rem;
-      font-size  : 1.1rem;
+      font-size : var(--fs-medium, 1.1rem);
     }
   }
 

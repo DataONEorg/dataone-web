@@ -34,7 +34,6 @@ fields:
   label: Columns
   template_types:
   - markdown
-  - feature-simple
   - feature-detailed
   - image
   - card

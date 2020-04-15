@@ -69,15 +69,7 @@
     @return $mod2;
   }
 }
-// return css color variable with different opacity value
-@function alpha($color, $opacity) {
-  $color  : str-replace($color, 'var(');
-  $color  : str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
-  @return hsla($color-h, $color-s, $color-l, $opacity);
-}
+
 /// Replace `$search` with `$replace` in `$string`
 /// @author Hugo Giraudel
 /// @param {String} $string - Initial string
@@ -91,11 +83,13 @@
   }
   @return $string;
 }
+
 // Calculeate brightness of a given color.
 // source: Brendan Saunders, https://codepen.io/bluesaunders/pen/FCLaz
 @function color-brightness($color) {
   @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100%;
 }
+
 // checks if a colors' brightness is < 50%.
 @function emphasize($color) {
   @if $color == null {
@@ -111,39 +105,57 @@
     @return $emphasized-color;
   }
 }
+
+/// Simple power function. Only allows positive $exponent arguments.
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
 /// Get a standardized shadow color with alpha based on a given color. Use a darker
 /// shade of the color as the base color, and calculate a opacity based on the
 /// brightness of a given color, such that the opacity is higher for darker
 /// colors and lower for lighter colors. Give a lighter or darker value given
 /// a level between 1 and 4.
-@function get-shadow($color, $level) {
+@function get-shadow($color, $level: 1) {
 
-  $brightness        : color-brightness($color)/1%;
-  $darkness-decimal  : 1 - ($brightness/100);
-  $shadow-color      : col($color, 8);
-  $base-opacity      : null;
-  $scale             : 28 - ($darkness-decimal * 2);
-
-  // Increase opacity for darker colors.
-  @if $brightness < 28 {
-    $base-opacity: .25;
-  } @else 
-  if $brightness > 98 {
-    $base-opacity: .15;
-  } @else {
-    $base-opacity: .25 + ($brightness - $scale) * -0.004; //-0.009
+  @if $color == null {
+    @return null;
   }
-  // Add a little more opacity for each level
-  $additional-opacity: ($level - 1) * .2;
-  // Calculate total opacity
-  $opacity           : $base-opacity + $additional-opacity;
 
-  // Max value for opacity is 1, set min to .06
+  // The brightness value of the given color, unitless number between 1 and 100
+  $brightness        : color-brightness($color)/1%;
+  // Get a darker shade of the given color to use for the rgb part of the shadow
+  $shadow-color      : col($color, 8);
+  // The minimum opacity allowable (use for the brightest colors)
+  $min-opacity       : .09;
+  // The maximum allowable opacity for the first level (will increase at level 2, 3, and 4)
+  $max-level1-opacity: .4;
+  // How much to increase the opacity at each level
+  $level-increment   : .05;
+
+  // Increase opacity for darker colors, such that the max opacity possible is
+  // $max-level1-opacity for colors with brightness <= 28, and the min opacity
+  // possible is $min-opacity for colors with brightness >= 98.
+  // https://www.desmos.com/calculator/pk9xyhattv
+  $base-opacity      : $min-opacity + (($max-level1-opacity - $min-opacity) / (1 + pow( ($brightness/6),2.7) ));
+
+  // Add a little more opacity for each level
+  $additional-opacity: .15;
+
+  // Calculate total opacity
+  $opacity           : $base-opacity + (($level - 1) * $level-increment);
+
+  // Max value for opacity is 1
   @if $opacity > 1 {
     $opacity: 1;
-  } @else 
-  if $opacity < 0.06 {
-    $opacity: .06;
   }
 
   @return rgba($shadow-color, $opacity);
@@ -182,8 +194,6 @@
   // Prefix for the css variables
   $prefix         : '--c';
 
-  $main-colors    : "neutral", "major-accent", "minor-accent", "rare-accent";
-
   $main-colors    : (
     "neutral"     : map-get($theme, "neutral"),
     "major-accent": map-deep-get($theme, "major-accent", "base"),
@@ -191,7 +201,8 @@
     "rare-accent" : map-deep-get($theme, "rare-accent", "base")
   );
 
-  // Make a variable for shades & tints of each of the main colors (mostly used for svg fills, strokes, and stop-colors)
+  // Make a variable for shades & tints of each of the main colors
+  // (mostly used for svg fills, strokes, and stop-colors)
   @each $color-name, $value in $main-colors {
     @for $i from 1 through 9 {
       #{$prefix}-#{$color-name}-#{$i}: col($value, $i);
@@ -200,16 +211,38 @@
 
   $standard-colors: (
     // Create a map of the default colors
-    "default"    : (base : map-get($theme, "background"), foreground : map-get($theme, "foreground"), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent")),
+    "default"    : (
+      base : map-get($theme, "background"),
+      foreground : map-get($theme, "foreground"),
+      major-accent: map-get($main-colors, "major-accent"),
+      minor-accent: map-get($main-colors, "minor-accent"),
+      rare-accent : map-get($main-colors, "rare-accent")),
     // Create a map for foreground colors that will always be on dark backgrounds
-    "always-dark": (base : col(map-get($main-colors, "neutral"),9), foreground : col(map-get($main-colors, "neutral"),1), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent"))
+    "always-dark": (
+      base : col(map-get($main-colors, "neutral"),9),
+      foreground : col(map-get($main-colors, "neutral"),1),
+      major-accent: map-get($main-colors, "major-accent"),
+      minor-accent: map-get($main-colors, "minor-accent"),
+      rare-accent : map-get($main-colors, "rare-accent")
+    )
   );
 
   $all-colors     : map-merge($standard-colors, $theme);
+  $alerts: map-get($theme, alerts);
+  
+  // $
+  // (success: $cn-green, info: $cn-blue, warning: $cn-yellow, error: $cn-red)
+
 
   @each $color-group, $value in $all-colors {
-    @if type-of($value) == 'map' {
+    @if type-of($value) == 'map' and $color-group != "alerts" {
       $base: map-get($value, "base");
+      $base-inverted: invert($base, 100%);
+      @each $alert-type, $alert-color in $alerts {
+        
+        #{$prefix}-#{$alert-type}-on-#{$color-group} : mix(emphasize($base-inverted), $alert-color, 18%);
+        #{$prefix}-#{$alert-type}-subtle-on-#{$color-group} : mix(emphasize($base), $alert-color, 60%);
+      }
       @each $color-type, $color in $value {
         @if $color-type == "base" {
           // For use as background colours
@@ -228,7 +261,6 @@
           #{$prefix}-#{$color-type}-on-#{$color-group}            : $color;
           #{$prefix}-#{$color-type}-emphasis-on-#{$color-group}   : emphasize($color);
         }
-
       }
     }
   }

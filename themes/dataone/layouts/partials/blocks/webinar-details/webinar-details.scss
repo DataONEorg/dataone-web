@@ -46,7 +46,7 @@
 
   &__video-title {
     @include f-common;
-    color: var(--section-fc, black);
+    color: var(--section-fc-body, black);
   }
 
   &__slides {

@@ -14,8 +14,11 @@
   // The value may change in modified blocks or elements (i.e. block--modifier).
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
-
-  // #{$prefix}- : var( , );
+ 
+ 
+  #{$prefix}-c-foreground : var(--section-fc-body, var(--c-foreground-on-default, black));
+  #{$prefix}-c-accent: var(--section-c-accent, var(--c-accent-major, grey));
+  #{$prefix}-c-form-field: var(--section-c-background-lighter, var(--c-default-lighter, white));
 
   // ==========================================================================
   //    Styles
@@ -36,7 +39,7 @@
     top          : -5px;
     display      : block;
     transition   : .2s;
-    color        : col($c-neutral, 6);
+    color        : var(#{$prefix}-c-foreground);
     padding-left : 10px;
     padding-top  : 5px;
     padding-right: 15px;
@@ -54,9 +57,9 @@
   &__input:placeholder-shown~.d1search__label {
     cursor   : text;
     top      : 33px;
-    font-size: .9rem;
+    font-size : var(--fs-smaller, 0.9rem);
     @include desktop {
-      font-size: 1.3rem;
+      font-size : var(--fs-large, 1.22rem);
     }
   }
   // label when input field is focused
@@ -65,11 +68,11 @@
     top        : -10px;
     display    : block;
     transition : .2s;
-    color      : col($c-primary, 6);
-    font-weight: 600;
-    font-size  : .9rem;
+    color      : var(#{$prefix}-c-accent);
+    font-weight : var(--fw-bold, 500);
+    font-size : var(--fs-smaller, 0.9rem);
     @include desktop {
-      font-size: 1rem;
+      font-size : var(--fs-small, 1rem);
     }
   }
   // INPUT FIELD
@@ -78,12 +81,11 @@
     width      : 100%;
     outline    : 0;
     border     : 0;
-    // border-bottom: 2px solid col($c-neutral, 6);
-    font-size  : 1.3rem;
+    font-size : var(--fs-large, 1.22rem);
     background : transparent;
     transition : border-color .2s;
-    background : var(--section-c-background-lighter, white);
-    color      : col($c-neutral, 6);
+    background : var(#{$prefix}-c-form-field);
+    color      : var(#{$prefix}-c-foreground);
     font       : inherit;
     box-shadow : .2rem .8rem 1.6rem rgba(0, 0, 0, 0.1);
     padding    : 22px 18px;
@@ -101,10 +103,8 @@
     &:focus {
       padding-bottom: 19px;
       padding-left  : 25px;
-      font-weight   : 700;
+      font-weight : var(--fw-bolder, 700);
       border-width  : 3px;
-      // border-image: linear-gradient(to right, $c-secondary,$c-primary);
-      // border-image-slice: 1;
     }
   }
 }
@@ -126,11 +126,11 @@
 
     .d1search__input:placeholder-shown~.d1search__label {
       top      : 29px;
-      font-size: .9rem;
+      font-size : var(--fs-smaller, 0.9rem);
     }
 
     .d1search__input:focus~.d1search__label {
-      font-size: .8rem;
+      font-size : var(--fs-smallest, .8rem);
       top      : -2px;
     }
 

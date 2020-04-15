@@ -26,7 +26,6 @@ fields:
     - success
     - subtle
     - on-air
-    - text-only
 - name: text
   type: text
   label: Pill text

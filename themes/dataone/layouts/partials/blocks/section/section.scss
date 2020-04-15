@@ -150,9 +150,6 @@
   // ==========================================================================
 
   &--bkg-wave {
-    // Font weights
-    #{$prefix}-fw-title: var(--fw-x-bold, 800);
-    #{$prefix}-fw-intro: var(--fw-bold, 500);
 
     #{$bn}__svg-background {
       @extend %svg-background;

@@ -38,16 +38,19 @@ page_sections:
   - template: columns
     num_cols: 3
     columns:
-    - headline: Private and public access
-      template: feature-simple
+    - template: feature-detailed
+      type: top
+      headline: Private & public access
       text: Control access to your datasets prior to publication with collaborative
-        groups or just keep it private
-    - headline: Usage metrics
-      template: feature-simple
+        groups or just keep it private 
+    - template: feature-detailed
+      type: top
+      headline: Usage metrics
       text: Understand how your data are being used over time with view, download,
         and citation metrics
-    - headline: Scalable storage
-      template: feature-simple
+    - template: feature-detailed
+      type: top
+      headline: Scalable storage
       text: Grow your 1 TB repository capacity based on your storage needs in 1 TB
         increments
   - image:
@@ -173,18 +176,20 @@ page_sections:
   - template: columns
     num_cols: 3
     columns:
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: Comprehensive search
+      text: Quickly find data with detailed search filters, or by navigating the interactive map
+    - template: feature-detailed
+      type: top
+      headline: Any file format
+      text:  'Use the scientific file formats for your community: image, tabular, text,
+        audio, video, and others'
+    - template: feature-detailed
+      type: top
+      headline: Link data and software
       text: Quickly find data with detailed search filters, or by navigating the interactive
         map
-    - template: feature-simple
-      headline: Any file format
-      text: 'Use the scientific file formats for your community: image, tabular, text,
-        audio, video, and others'
-    - template: feature-simple
-      headline: Link data and software
-      text: Easily show how your files relate to each other by providing well-described
-        provenance workflows
   - details: []
     image:
       template: image

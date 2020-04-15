@@ -56,9 +56,9 @@
   }
 
   &__annotation {
-    font-size  : 1.15rem;
+    font-size : var(--fs-medium, 1.1rem);
     line-height: 1.45;
-    font-weight: 400;
+    font-weight : var(--fw-normal, 400);
     grid-area  : annotation;
     display    : flex;
     align-items: flex-start;
@@ -106,7 +106,7 @@
     padding: .5rem;
 
     &[aria-selected=true] {
-      box-shadow      : 0 3px 8px -1px var(--section-c-shadow-1, rgba(0,0,0,0.2)), 0 0 2px -1px var(--section-c-shadow-2, rgba(0,0,0,0.3));
+      box-shadow      : 0 3px 8px var(--section-c-shadow-2, rgba(0,0,0,0.2)), 0 0 2px var(--section-c-shadow-3, rgba(0,0,0,0.3));
       border-radius   : var(--br-default, .25rem);
       color           : var(--section-c-accent, black);
       background-color: var(--section-c-background-lighter, white);

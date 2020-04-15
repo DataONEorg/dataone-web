@@ -50,7 +50,6 @@ fields:
     - people
     - timeline
     - news-summary
-    - feature-simple
     - feature-detailed
     - columns
     - webinar-summary

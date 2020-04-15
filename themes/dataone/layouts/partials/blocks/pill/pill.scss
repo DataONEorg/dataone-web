@@ -5,9 +5,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn            : &;
+  $bn                    : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix        : "--" + str-replace(#{$bn}, ".");
+  $prefix                : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -15,85 +15,80 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  // fall back colors for for different alert pill types
+  $alerts-fallback       : (
+    "success": green,
+    "info"   : blue,
+    "warning": yellow,
+    "error"  : red
+  );
+
+  // default colors for pill foreground (text, icon) and background (pill bubble)
+  #{$prefix}-c-background: var(--section-fc-body, black);
+  #{$prefix}-c-foreground: var(--section-c-background, white);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  font-size      : .90rem;
-  font-weight    : 600;
-  text-transform : uppercase;
-  letter-spacing : .03em;
-  display        : inline-flex;
-  align-items    : center;
-  justify-content: center;
-  border-radius  : 30px;
-  background     : col($c-neutral, 7);
-  color          : col($c-neutral, 1);
-  transform      : translateY(-0.18em);
-  height         : 27px;
-  line-height    : 27px;
-  width          : fit-content;
-  max-width      : calc(100vw - 2.5em);
-  padding        : 0 1.2em;
-  white-space    : nowrap;
+  font-size : var(--fs-smaller, .9rem);
+  font-weight : var(--fw-bold, 500);
+  text-transform         : uppercase;
+  letter-spacing         : .03em;
+  display                : inline-flex;
+  align-items            : center;
+  justify-content        : center;
+  border-radius          : 30px;
+  background             : var(#{$prefix}-c-background);
+  color                  : var(#{$prefix}-c-foreground);
+  transform              : translateY(-0.18em);
+  height                 : 27px;
+  line-height            : 27px;
+  width                  : fit-content;
+  max-width              : calc(100vw - 2.5em);
+  padding                : 0 1.2em;
+  white-space            : nowrap;
+  text-shadow: none;
 
   &__icon {
     padding-right: .4em;
     display      : flex;
     align-items  : center;
-  }
-
-  &--secondary {
-    background: col($c-secondary, 5);
-    color     : white;
+    stroke       : var(#{$prefix}-c-foreground);
   }
 
   &--primary {
-    background: col($c-primary, 5);
-    color     : col($c-primary, 8);
+    #{$prefix}-c-background: var(--c-minor-accent);
+    #{$prefix}-c-foreground: var(--c-foreground-on-minor-accent);
+  }
+
+  &--secondary {
+    #{$prefix}-c-background: var(--c-major-accent);
+    #{$prefix}-c-foreground: var(--c-foreground-on-major-accent);
   }
 
   &--tertiary {
-    background: col($c-tertiary,5);
+    #{$prefix}-c-background: var(--c-rare-accent);
+    #{$prefix}-c-foreground: var(--c-foreground-on-rare-accent);
+
   }
 
   &--quaternary {
-    background: col($c-quaternary,5);
-    color     : col($c-quaternary,1);
+    #{$prefix}-c-background: var(--c-major-accent-3);
+    #{$prefix}-c-foreground: var(--c-major-accent-6);
   }
 
   &--subtle {
-    background: var(--section-c-background-lighter, white);
-    color     : col($c-tertiary, 5);
+    #{$prefix}-c-background: var(--c-neutral-2);
+    #{$prefix}-c-foreground: var(--c-neutral-6);
   }
 
-  &--text-only {
-    background    : none;
-    color         : col($c-tertiary, 5);
-    padding       : .2em;
-    line-height   : 1em;
-    vertical-align: bottom;
-  }
-
-  &--info {
-    background: col($c-info, 2);
-    color     : col($c-info, 7);
-    stroke    : col($c-info, 7); // for icons
-  }
-
-  &--warning {
-    background: col($c-warning, 3);
-    color     : col($c-warning, 7);
-    stroke    : col($c-warning, 7); // for icons
-  }
-
-  &--success {
-    background: col($c-success, 2);
-    color     : col($c-success, 6);
-    stroke    : col($c-success, 6); // for icons
+  @each $alert-type, $default in $alerts-fallback {
+    &--#{$alert-type} {
+      #{$prefix}-c-background: var(--section-c-#{$alert-type}-subtle, col($default,2));
+      #{$prefix}-c-foreground: var(--section-c-#{$alert-type}, $default);
+    }
   }
 
   &--sz-smaller {
@@ -102,43 +97,40 @@
     line-height: 20px;
     width      : fit-content;
     padding    : 0 .6em;
-    font-size  : .8rem;
+    font-size : var(--fs-smallest, .8rem);
+  }
+
+  &--on-air {
+    #{$prefix}-c-background: transparent;
+    #{$prefix}-c-foreground: var(--c-minor-accent);
+    font-size : var(--fs-small, 1rem);
+    line-height            : 1;
+    padding                : 0;
+    border-radius          : 0;
+    transform              : translateY(0);
+
+    &::before {
+      content      : '';
+      display      : inline-block;
+      margin       : 0 auto;
+      border-radius: 50%;
+      background   : var(#{$prefix}-c-foreground);
+      width        : 12px;
+      height       : 12px;
+      animation    : live 2.5s infinite;
+      margin-left  : .3rem;
+      margin-right : .8rem;
+      @include low-motion;
+    }
+    @keyframes live {
+      0%,
+      100% {
+        background: transparent;
+      }
+
+      40% {
+        background: var(#{$prefix}-c-foreground);
+      }
+    }
   }
 }
-
-.pill--on-air {
-  font-size    : 1rem;
-  line-height  : 1;
-  padding      : 0;
-  border-radius: 0;
-  transform    : translateY(0);
-  background   : none;
-  color        : col($c-primary, 5);
-
-  &::before {
-    content      : '';
-    display      : inline-block;
-    margin       : 0 auto;
-    border-radius: 50%;
-    background   : col($c-primary, 5);
-    width        : 12px;
-    height       : 12px;
-    animation    : live 2.5s infinite;
-    margin-left  : .3rem;
-    margin-right : .8rem;
-    @include low-motion;
-  }
-  @keyframes live {
-    0%,
-    100% {
-      background: none;
-    }
-
-    40% {
-      background: col($c-primary, 5);
-    }
-  }
-}
-// Styles for pages with a theme class
-
-.theme-quaternary {}

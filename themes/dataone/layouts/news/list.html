@@ -11,10 +11,12 @@
   {{ $subblocks := slice }}
   {{ $latestNewsBlock := dict }}
   {{ $otherNewsBlocks := slice }}
+
   {{- range $index, $page := .Paginator.Pages -}}
     <!-- remove trailing slash in link -->
     {{ $pageLink := replaceRE "/$" "" $page.RelPermalink }}
     {{ $newsBlock := (dict "template" "page-summary" "type" "news" "news" $pageLink) }}
+
     {{ if eq $index 0 }}
       {{ $latestNewsBlock = $newsBlock }}
     {{ else }}
@@ -33,6 +35,6 @@
   {{ $sectionBlock := dict "blocks" $subblocks }}
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
 
-  {{- partial "blocks/paginator/paginator" . -}}
+  <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 
 {{- end -}}

@@ -34,15 +34,15 @@
 
   &__paragraph {
     margin-top : 1rem;
-    font-size  : 1.2rem;
+    font-size : var(--fs-large, 1.22rem);
     line-height: 1.6;
   }
 
   &__emphasis {
     font-style : normal;
-    font-weight: 600;
+    font-weight : var(--fw-bold, 500);
     color      : var(--section-fc-body, black);
-    font-size  : 1.25rem;
+    font-size : var(--fs-large, 1.22rem);
   }
 
 }

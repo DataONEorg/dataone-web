@@ -1,6 +1,6 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
-{{ $bn := "news-summary" }}
+{{ $bn := "page-summary" }}
 
 {{ $news := dict }}
 {{ $href := "" }}
@@ -24,7 +24,7 @@
 
 {{ if $news }}
 
-  {{ $classes := $bn }}
+  {{ $classes := printf "%s %s--news" $bn $bn }}
 
   {{ $datetime := (time $news.date).UTC }}
   {{ $datetimeBlock := dict "time" $datetime "format" "January 2, 2006"  }}

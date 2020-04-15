@@ -16,10 +16,10 @@
   &__link {
     @include f-common;
     margin         : 0;
-    font-size      : .9rem;
+    font-size : var(--fs-smaller, 0.9rem);
     line-height    : 1.5;
     text-transform : uppercase;
-    font-weight    : 400;
+    font-weight : var(--fw-normal, 400);
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;

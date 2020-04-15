@@ -73,7 +73,8 @@
 }
 // -----------------------------------------------------------------------------
 @mixin fs-h3 {
-  font-size     : 1.45rem;
+  font-size     : var(--fs-large, 1.45rem);
+  color: var(--section-fc-title, --c-foreground-emphasis-on-default);
   text-transform: uppercase;
   letter-spacing: .025em;
   font-weight   : 500;
@@ -123,16 +124,7 @@
   width           : auto;
   background-color: var(--section-c-background-lighter, white);
 }
-// general styles for text-input fields
-@mixin forms-text-input {
-  background-color: col($c-neutral, 1);
-  border          : none;
-  outline         : none;
-  border-radius   : 2px;
-  color           : col($c-neutral, 7);
-  height          : 50px;
-  padding         : 0 15px;
-}
+
 // to display background image of a header, div, section, etc. properly
 @mixin bkg-img {
   background-position: 50%;
@@ -150,56 +142,80 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
+  box-shadow: 0 1px 9px -2px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 1px 3px -2px var(--section-c-shadow-1, rgba(0,0,0,0.05));
+  filter: brightness(1.07);
 
   &:hover {
-    transform : translateY(-0.1px);
-    box-shadow: 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(col($c-neutral, 9),.15);
+    transform : translateY(-0.5px);
+    filter: brightness(1.01);
+    box-shadow: 0 2px 15px -1px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 3px 5px -1px var(--section-c-shadow-1, rgba(0,0,0,0.05));
   }
 }
 
 // Set section color variables based on variables defined at the root.
 @mixin set-section-colors($background-color, $prefix: "--section") {
-  #{$prefix}-fc-body                 : var(--c-foreground-on-#{$background-color}, grey);
-  #{$prefix}-fc-title                : var(--c-foreground-emphasis-on-#{$background-color}, black);
-  --fc-link                          : var(--c-accent-on-#{$background-color}, lightseagreen);
-  --fc-link-hover                    : var(--c-accent-emphasis-on-#{$background-color}, lightseagreen);
+  
+  $root-color-prefix: "--c";
+  
+  // fall back colors for alerts
+  $alerts-fallback: (
+    "success": green,
+    "info": blue,
+    "warning": yellow,
+    "error": red
+  );
+  
+  $link-fallback: lightseagreen;
+  $background-fallback-light: white;
+  $background-fallback-dark: lightgray;
+  $foreground-fallback: grey;
+  $foreground-emphasis-fallback: black;
+  $foreground-light-fallback: lightgray;
+  $accent-fallback: mediumorchid;
+  $accent-light-fallback: thistle;
+  
+  #{$prefix}-fc-body                 : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-fallback);
+  #{$prefix}-fc-title                : var(#{$root-color-prefix}-foreground-emphasis-on-#{$background-color}, $foreground-emphasis-fallback);
+  --fc-link                          : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
+  --fc-link-hover                    : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
 
   // Default foreground
-  #{$prefix}-c-foreground-very-subtle: var(--c-foreground-very-subtle-on-#{$background-color}, lightgray);
-  #{$prefix}-c-foreground-subtle     : var(--c-foreground-subtle-on-#{$background-color}, dimgray);
+  #{$prefix}-c-foreground-very-subtle: var(#{$root-color-prefix}-foreground-very-subtle-on-#{$background-color}, $foreground-light-fallback);
+  #{$prefix}-c-foreground-subtle     : var(#{$root-color-prefix}-foreground-subtle-on-#{$background-color}, $foreground-light-fallback);
 
   // Default background
-  #{$prefix}-c-background-lighter    : var(--c-#{$background-color}-lighter, white);
-  #{$prefix}-c-background            : var(--c-#{$background-color}, white);
-  #{$prefix}-c-background-darker     : var(--c-#{$background-color}-darker, lightgray);
-  #{$prefix}-c-background-darker-2   : var(--c-#{$background-color}-darker-2, lightgray);
-
-  // $standard-accent-name: "accent"
-  // @if($background-color == "default"){
-  //    "major-accent"
-  // }
+  #{$prefix}-c-background-lighter    : var(#{$root-color-prefix}-#{$background-color}-lighter, $background-fallback-light);
+  #{$prefix}-c-background            : var(#{$root-color-prefix}-#{$background-color}, $background-fallback-light);
+  #{$prefix}-c-background-darker     : var(#{$root-color-prefix}-#{$background-color}-darker, $background-fallback-dark);
+  #{$prefix}-c-background-darker-2   : var(#{$root-color-prefix}-#{$background-color}-darker-2, $background-fallback-dark);
+  
+  // Alert colors
+  @each $alert-type, $default in $alerts-fallback {
+    #{$prefix}-c-#{$alert-type} : var(#{$root-color-prefix}-#{$alert-type}-on-#{$background-color}, $default);
+    #{$prefix}-c-#{$alert-type}-subtle : var(#{$root-color-prefix}-#{$alert-type}-subtle-on-#{$background-color}, col($default,2));
+  }
 
   @if(($background-color == "default") or ($background-color == "always-dark")) {
-    #{$prefix}-c-icon-background   : var(--c-major-accent-very-subtle-on-#{$background-color}, lightgray);
-    #{$prefix}-c-icon-foreground   : var(--c-major-accent-on-#{$background-color}, rgba(white, 0.5));
+    #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $foreground-light-fallback);
+    #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $foreground-fallback);
 
-    #{$prefix}-c-accent-emphasis   : var(--c-major-accent-emphasis-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent            : var(--c-major-accent-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent-subtle     : var(--c-major-accent-subtle-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent-very-subtle: var(--c-major-accent-very-subtle-on-#{$background-color}, lightgray);
+    #{$prefix}-c-accent-emphasis   : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $accent-fallback);
+    #{$prefix}-c-accent            : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $accent-fallback);
+    #{$prefix}-c-accent-subtle     : var(#{$root-color-prefix}-major-accent-subtle-on-#{$background-color}, $accent-light-fallback);
+    #{$prefix}-c-accent-very-subtle: var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $accent-light-fallback);
   } @else {
-    #{$prefix}-c-icon-background   : var(--c-#{$background-color}-lighter-2, lightgray);
-    #{$prefix}-c-icon-foreground   : var(--c-foreground-on-#{$background-color}, rgba(white, 0.5));
+    #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-#{$background-color}-lighter-2, $foreground-fallback);
+    #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-light-fallback);
 
-    #{$prefix}-c-accent-emphasis   : var(--c-accent-emphasis-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent            : var(--c-accent-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent-subtle     : var(--c-accent-subtle-on-#{$background-color}, dimgray);
-    #{$prefix}-c-accent-very-subtle: var(--c-accent-very-subtle-on-#{$background-color}, lightgray);
+    #{$prefix}-c-accent-emphasis   : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $accent-fallback);
+    #{$prefix}-c-accent            : var(#{$root-color-prefix}-accent-on-#{$background-color}, $accent-fallback);
+    #{$prefix}-c-accent-subtle     : var(#{$root-color-prefix}-accent-subtle-on-#{$background-color}, $accent-light-fallback);
+    #{$prefix}-c-accent-very-subtle: var(#{$root-color-prefix}-accent-very-subtle-on-#{$background-color}, $accent-light-fallback);
   }
 
   // Shadows
   @for $i from 1 through 4 {
     $o                       : $i/10;
-    #{$prefix}-c-shadow-#{$i}: var(--c-shadow-#{$i}-on-#{$background-color}, rgba(0,0,0,$o));
+    #{$prefix}-c-shadow-#{$i}: var(#{$root-color-prefix}-shadow-#{$i}-on-#{$background-color}, rgba(0,0,0,$o));
   }
 }

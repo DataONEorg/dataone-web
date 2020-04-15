@@ -15,24 +15,24 @@
     white-space: nowrap;
 
     &-upper {
-      font-size  : 1.3rem;
+      font-size : var(--fs-large, 1.22rem);
       display    : inherit;
       white-space: inherit;
-      font-weight: 600;
+      font-weight : var(--fw-bold, 500);
     }
 
     &-lower {
-      font-size     : 2.6rem;
+      font-size : var(--fs-xx-large, 2.8rem);
       display       : inherit;
       white-space   : inherit;
-      font-weight   : 800;
+      font-weight : var(--fw-x-bold, 800);
       letter-spacing: .02em;
     }
   }
 
   &__features {
-    font-size  : 1.3rem;
-    font-weight: 600;
+    font-size : var(--fs-large, 1.22rem);
+    font-weight : var(--fw-bold, 500);
     padding    : 1rem .8rem;
     width      : 100%;
   }

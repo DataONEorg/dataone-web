@@ -69,7 +69,7 @@
     margin              : 0;
     padding             : 0;
     padding-inline-start: 0;
-    font-size           : .95rem;
+    font-size : var(--fs-smaller, .9rem);
     letter-spacing      : .88px;
     text-shadow         : 0 0 16px 0 rgba(6,40,61,0.23);
   }
@@ -80,8 +80,8 @@
 
   &__sitemap-header {
     color         : var(--section-fc-title, black);
-    font-size     : 1.2rem;
-    font-weight   : 600;
+    font-size : var(--fs-large, 1.22rem);
+    font-weight : var(--fw-bold, 500);
     letter-spacing: .06em;
     text-transform: uppercase;
     margin-bottom : 1.1rem;
@@ -91,7 +91,7 @@
   &__sitemap-item {
     list-style    : none;
     margin-bottom : .69rem;
-    font-size     : 1.1rem;
+    font-size : var(--fs-medium, 1.1rem);
     letter-spacing: .01em;
   }
 
@@ -153,8 +153,8 @@
   &__name {
     margin-top    : 1.05rem;
     color         : var(--section-fc-body, grey);
-    font-size     : 1.05rem;
-    font-weight   : 300;
+    font-size : var(--fs-medium, 1.1rem);
+    font-weight : var(--fw-light, 300);
     letter-spacing: .42px;
     line-height   : 21px;
     text-shadow   : 0 0 16px 0 rgba(6,40,61,0.23);
@@ -165,8 +165,8 @@
     color         : var(--section-fc-body, grey);
     display       : block;
     margin-top    : 1.4rem;
-    font-size     : 1rem;
-    font-weight   : 500;
+    font-size : var(--fs-small, 1rem);
+    font-weight : var(--fw-bold, 500);
     letter-spacing: .44px;
     line-height   : 1.4;
     text-shadow   : 0 0 16px 0 rgba(6,40,61,0.23);
@@ -192,7 +192,7 @@
   }
 
   &__newsletter-title {
-    font-size   : 1.3rem;
+    font-size : var(--fs-large, 1.22rem);
     font-family : Martel;
     color       : var(--section-fc-title, black);
     margin      : 6px 0 0;

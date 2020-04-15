@@ -31,14 +31,17 @@ page_sections:
       logo: "/uploads/member_node_logos/kubi.png"
   - template: columns
     num_cols: 3
-    columns:
-    - template: feature-simple
+    columns:      
+    - template: feature-detailed
+      type: top
       headline: DataONE Network
       text: A network of earth and environmental data providers making data more discoverable, accessible, and usable.
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: DataONE Plus
       text: Enhanced DataONE products and services in support of your research.
-    - template: feature-simple
+    - template: feature-detailed
+      type: top
       headline: Hosted Repositories
       text: A dedicated repository solution for your group or institution’s data, managed by DataONE.
 - template: section

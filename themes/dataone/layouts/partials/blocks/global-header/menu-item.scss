@@ -16,8 +16,13 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
-
+  // #{$prefix}-c-accent : var( , );
+  // 
+  #{$prefix}-fc-hover: var(--c-minor-accent, grey);
+  #{$prefix}-c-menu-background: var(--c-default-lighter, white);
+  #{$prefix}-fc-sub-link: var(--c-foreground-on-default, gray);
+  #{$prefix}-c-foreground-on-dark: var(--c-foreground-on-always-dark, white);
+  
   // ==========================================================================
   //    Styles
   // ==========================================================================
@@ -34,13 +39,13 @@
 
   &:hover {
     #{$bn}__dropdown-icon {
-      stroke    : col($c-primary, 5);
+      stroke    : var(#{$prefix}-fc-hover);
       transition: stroke .1s 0s ease-in-out;
     }
 
     #{$bn}__dropdown-button,
     #{$bn}__link {
-      color     : col($c-primary, 5);
+      color     : var(#{$prefix}-fc-hover);
       transition: color .1s 0s ease-in-out;
     }
   }
@@ -56,17 +61,17 @@
   &__link {
     @include button-reset;
     text-decoration: none;
-    color          : col($c-neutral, 1);
+    color          : var(#{$prefix}-c-foreground-on-dark);
     white-space    : nowrap;
     width          : 100%;
     display        : block;
-    font-size      : 1.1rem;
-    font-weight    : 600;
+    font-size : var(--fs-medium, 1.1rem);
+    font-weight : var(--fw-bold, 500);
     line-height    : 3.3125rem;
     letter-spacing : .03em;
     @include desktop {
       padding    : 0 .62rem;
-      font-size  : 1.1rem;
+      font-size : var(--fs-medium, 1.1rem);
       height     : 100%;
       line-height: normal;
       display    : flex;
@@ -77,7 +82,7 @@
   &--active {
     #{$bn}__link {
       color      : white;
-      font-weight: 800;
+      font-weight : var(--fw-x-bold, 800);
     }
   }
 
@@ -86,7 +91,7 @@
     transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
     @include desktop {
       position        : absolute;
-      background-color: col($c-neutral, 1);
+      background-color: var(#{$prefix}-c-menu-background);
       display         : block;
       border-radius   : var(--br-default, 0.25rem);
       box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
@@ -129,38 +134,37 @@
   &__sub-menu-arrow {
     opacity   : 0;
     transition: opacity .2s 0s ease-in-out;
-    background: col($c-neutral, 1);
+    background: var(#{$prefix}-c-foreground-on-dark);
   }
 
   &__sub-link {
     margin         : 0;
-    font-size      : 1.05rem;
+    font-size : var(--fs-medium, 1.1rem);
     line-height    : 1.5;
     text-transform : uppercase;
-    font-weight    : 500;
+    font-weight : var(--fw-bold, 500);
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;
-    color          : col($c-neutral, 1);
+    color          : var(#{$prefix}-c-foreground-on-dark);
     white-space    : nowrap;
     padding        : .5rem 0;
 
     &--active {
       color      : white;
-      font-weight: 600;
+      font-weight : var(--fw-bold, 500);
     }
     @include desktop {
-      color: var(--c-foreground-on-default, gray);
+      color: var(#{$prefix}-fc-sub-link);
 
       &:hover {
-        color      : col($c-primary, 6);
+        color      :var(#{$prefix}-fc-hover);
         transition : color .1s 0s ease-in-out;
-        font-weight: 600;
+        font-weight : var(--fw-bold, 500);
       }
 
       &--active {
-        color      : col($c-primary, 7);
-        font-weight: 600;
+        font-weight : var(--fw-bold, 500);
       }
     }
   }
@@ -186,7 +190,7 @@
 
     &:hover {
       .dataone-plus-logo {
-        fill: col($c-primary, 5);
+        fill: var(#{$prefix}-fc-hover);
       }
     }
 
@@ -202,4 +206,5 @@
       background-color: #20628A;
     }
   }
+  
 }

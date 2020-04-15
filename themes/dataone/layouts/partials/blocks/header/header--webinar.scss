@@ -20,7 +20,8 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-accent : var(--section-c-accent, var(--c-major-accent-on-default, grey));
+  #{$prefix}-c-forground-subtle: var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray));
 
   // ==========================================================================
   //    Styles
@@ -37,13 +38,13 @@
   }
 
   .header__headline {
-    font-size  : 2.2rem;
+    font-size : var(--fs-x-large, 1.75rem);
     line-height: 1.15;
     margin-top : 3rem;
   }
 
   .header__intro {
-    font-size    : 1.3rem;
+    font-size : var(--fs-large, 1.22rem);
     margin-bottom: 2rem;
 
     .accordion__trigger {
@@ -57,28 +58,28 @@
   }
 
   .header__abstract {
-    font-size  : 1.1rem;
-    font-weight: 300;
+    font-size : var(--fs-medium, 1.1rem);
+    font-weight : var(--fw-light, 300);
     line-height: 1.6;
   }
 
   .header__read-more {
-    font-weight: 300;
-    color      : col($c-secondary, 4);
-    font-size  : 1rem;
+    font-weight : var(--fw-light, 300);
+    color      : var(#{$prefix}-c-accent);
+    font-size : var(--fs-small, 1rem);
     margin-left: 1rem;
   }
 
   .header__intro:hover {
     .header__read-more {
-      color: col($c-secondary, 3);
+      filter: brightness(1.05);
     }
   }
 
   .header__datetime-items {
     margin        : 1.5rem 0;
-    color         : col($c-neutral, 2);
-    stroke        : col($c-neutral, 2);
+    color         : var(#{$prefix}-c-forground-subtle);
+    stroke        : var(#{$prefix}-c-forground-subtle);
     display       : flex;
     flex-direction: column;
     text-align    : left;

@@ -1,3 +1,22 @@
+.table {
+  border-collapse: collapse;
+
+  thead th {
+    background-color: var(--section-fc-body, gray);
+    color           : var(--section-c-background, white);
+    padding-top     : 1rem;
+    padding-bottom  : 1rem;
+  }
+
+  &.table-striped tr:nth-child(odd) {
+    background-color: var(--section-c-background, white);
+  }
+
+  &.table-striped tr:nth-child(even) {
+    background-color: white;
+  }
+}
+
 #feature-table {
   .feature-table-name-cell {
     padding-left  : 1rem;

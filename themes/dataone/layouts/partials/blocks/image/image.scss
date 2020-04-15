@@ -35,9 +35,9 @@
   }
 
   &__caption {
-    font-weight: 400;
+    font-weight : var(--fw-normal, 400);
     color      : var(--section-fc-body, gray);
-    font-size  : 1.15rem;
+    font-size : var(--fs-medium, 1.1rem);
     line-height: 1.45;
     margin     : 1.5rem 0;
   }

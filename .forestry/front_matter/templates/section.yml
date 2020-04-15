@@ -91,7 +91,6 @@ fields:
   label: Sub-section blocks
   template_types:
   - markdown
-  - feature-simple
   - feature-detailed
   - image
   - card

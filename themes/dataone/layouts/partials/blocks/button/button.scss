@@ -40,12 +40,12 @@
   @include f-common;
   @include button-reset;
   white-space          : nowrap;
-  font-weight          : 600;
+  font-weight : var(--fw-bold, 500);
   text-transform       : uppercase;
   letter-spacing       : .025em;
-  font-size            : 1rem;
-  background-color     : var(--button-background);
-  color                : var(--button-foreground);
+  font-size : var(--fs-small, 1rem);
+  background-color     : var(#{$prefix}-background);
+  color                : var(#{$prefix}-foreground);
   overflow             : hidden;
   text-overflow        : ellipsis;
   padding              : 0 1.25em;
@@ -82,7 +82,7 @@
     align-items  : center;
     margin-right : 9px;
     transition   : all .2s;
-    stroke       : var(--button-foreground);
+    stroke       : var(#{$prefix}-foreground);
     margin-bottom: 1px;
   }
 
@@ -110,7 +110,7 @@
     #{$prefix}-background: transparent;
     #{$prefix}-foreground: var(--c-section-accent, var(--c-major-accent, black));
     white-space          : normal;
-    font-size            : 1.15rem;
+    font-size : var(--fs-medium, 1.1rem);
     display              : inline-flex;
     padding              : 0;
     width                : auto;
@@ -132,7 +132,7 @@
   @extend .button--col-quaternary;
   white-space: nowrap;
   color      : var(--section-fc-body, gray);
-  font-weight: 500;
+  font-weight : var(--fw-bold, 500);
   filter: brightness(1.1);
 
   .button__icon .icon {

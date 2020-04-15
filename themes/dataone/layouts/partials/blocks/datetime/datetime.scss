@@ -26,12 +26,12 @@
   color  : inherit;
 
   &__displaydate {
-    font-weight: 400;
+    font-weight : var(--fw-normal, 400);
   }
 
   &__timezone {
-    font-size  : .9rem;
-    font-weight: 300;
+    font-size : var(--fs-smaller, 0.9rem);
+    font-weight : var(--fw-light, 300);
   }
 }
 
@@ -41,8 +41,8 @@
   letter-spacing: .03em;
 
   .datetime__displaydate {
-    font-weight: 600;
-    font-size  : 1.05rem;
+    font-weight : var(--fw-bold, 500);
+    font-size : var(--fs-medium, 1.1rem);
   }
 }
 
@@ -78,8 +78,6 @@
 }
 
 .datetime__tz-input {
-  @include f-common;
-  @include forms-text-input;
 }
 
 .tz-input-dropdown-menu {
@@ -129,8 +127,8 @@
 }
 
 .tz-input-header {
-  font-weight   : 600;
-  font-size     : 1rem;
+  font-weight : var(--fw-bold, 500);
+  font-size : var(--fs-small, 1rem);
   text-transform: uppercase;
   letter-spacing: .05em;
   color         : var(--section-c-background-darker-2, black);

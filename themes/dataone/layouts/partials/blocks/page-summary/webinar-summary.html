@@ -1,8 +1,8 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
-{{ $bn := "webinar-summary" }}
+{{ $bn := "page-summary" }}
 <!-- Classes to add to the outer element -->
-{{ $classes := $bn }}
+{{ $classes := printf "%s %s--jobs" $bn $bn }}
 
 {{ $webinar := dict }}
 {{ $href := "" }}

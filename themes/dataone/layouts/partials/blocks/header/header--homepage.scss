@@ -46,7 +46,7 @@
   }
 
   .header__advanced-search {
-    font-weight    : 600;
+    font-weight : var(--fw-bold, 500);
     text-transform : uppercase;
     letter-spacing : .025em;
     font-size      : var(--fs-medium, 1.1rem);

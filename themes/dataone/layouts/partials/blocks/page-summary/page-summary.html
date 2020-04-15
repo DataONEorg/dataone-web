@@ -16,5 +16,5 @@
   {{ $path = printf "%snews-summary" $basePath }}
 {{ end }}
 {{ if $path }}
-  {{ partial "blocks/page-summary/webinar-summary" (dict "Block" .Block "Page" $page) }}
+  {{ partial $path (dict "Block" .Block "Page" $page) }}
 {{ end }}
