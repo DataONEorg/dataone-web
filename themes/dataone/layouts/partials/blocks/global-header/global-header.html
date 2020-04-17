@@ -27,12 +27,12 @@
 
     <!-- SEARCH FORM -->
     <!-- must be placed before the pages menu -->
-    {{ if ne .Kind `home` }}
-      <div class="nav__d1search" id="nav-search-bar" aria-hidden="true">
-        {{ $searchType := (dict "type" "nav") }}
-        {{- partial "blocks/d1search/d1search.html" (dict "Block" $searchType "Page" $page) -}}
-      </div>
-    {{ end }}
+    <!-- {{ if ne .Kind `home` }} -->
+    <!-- <div class="nav__d1search" id="nav-search-bar" aria-hidden="true"> -->
+    <!-- {{ $searchType := (dict "type" "nav") }} -->
+    <!-- {{- partial "blocks/d1search/d1search.html" (dict "Block" $searchType "Page" $page) -}} -->
+    <!-- </div> -->
+    <!-- {{ end }} -->
 
     <!-- MENU BUTTON (mobile)-->
     <button class="nav__button nav__button--menu-toggle" id="global-menu-toggle" aria-label="Open primary menu" aria-expanded="false" aria-controls="global-menu">
@@ -59,18 +59,26 @@
       </div>
     </div>
 
+    <!-- SIGN IN BUTTON -->
+    <a class="nav__button nav__button--sign-in" href="{{ $page.Site.Params.links.signin }}">
+      <span class="nav__button-icon">
+        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "user")) "Page" $page) -}}
+      </span>
+      <span class="nav__button-text">Sign-in</span>
+    </a>
+
     <!-- SEARCH BUTTON -->
-    <button class="nav__button nav__button--search" id="search-toggle" aria-label="Show data search bar" {{ if ne .Kind `home` }} aria-expanded="false" aria-controls="nav-search-bar" {{ end }}>
-      <span class="nav__button-icon nav__button-icon--close">
-        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "x")) "Page" $page) -}}
-      </span>
-      <span class="nav__button-icon nav__button-icon--search">
-        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) -}}
-      </span>
-      <span class="nav__button-text">
-        Find Data
-      </span>
-    </button>
+    <!-- <button class="nav__button nav__button--search" id="search-toggle" aria-label="Show data search bar" {{ if ne .Kind `home` }} aria-expanded="false" aria-controls="nav-search-bar" {{ end }}> -->
+    <!-- <span class="nav__button-icon nav__button-icon--close"> -->
+    <!-- {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "x")) "Page" $page) -}} -->
+    <!-- </span> -->
+    <!-- <span class="nav__button-icon nav__button-icon--search"> -->
+    <!-- {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) -}} -->
+    <!-- </span> -->
+    <!-- <span class="nav__button-text"> -->
+    <!-- Find Data -->
+    <!-- </span> -->
+    <!-- </button> -->
 
   </nav>
 </header>

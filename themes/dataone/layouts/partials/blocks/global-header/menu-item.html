@@ -42,11 +42,16 @@
 <!-- TODO -->
 {{ $isActive := false }}
 {{ if $isActive }}
-  {{ $classes = print $classes " " $bn "--active"}}
+  {{ $classes = printf "%s %s--active" $classes $bn }}
 {{ end }}
 <!-- add a class for menu items that have a submenu -->
 {{ if $hasSubmenu }}
-  {{ $classes = print $classes " " $bn "--dropdown"}}
+  {{ $classes = printf "%s %s--dropdown" $classes $bn }}
+{{ end }}
+
+<!-- add the link name as a modifier class -->
+{{ with .Block.Name }}
+  {{ $classes = printf "%s %s--%s" $classes $bn (urlize . ) }}
 {{ end }}
 
 <!-- Start of template -->

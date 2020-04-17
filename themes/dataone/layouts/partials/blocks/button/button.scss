@@ -161,4 +161,9 @@
       margin: 0;
     }
   }
+
+  &:focus,
+  &:hover {
+    transform: scale(1.02);
+  }
 }

@@ -73,7 +73,6 @@ $icon-color: var(--c-neutral-1, white);
 
   @include f-common;
   width                : 100%;
-  padding              : 0 $lr-padding;
   margin               : 0;
   display              : grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -85,10 +84,7 @@ $icon-color: var(--c-neutral-1, white);
     grid-template-rows   : 1fr;
     grid-template-areas  : "logo menu search d1search";
     align-items          : center;
-  }
-
-  .d1search__input:focus~.d1search__label {
-    color: var(--c-major-accent-5, grey);
+    padding              : 0 $lr-padding;
   }
 
   &__button {
@@ -105,15 +101,21 @@ $icon-color: var(--c-neutral-1, white);
       padding: 0;
     }
 
+    &:active,
     &:focus {
       .nav__button-icon {
         svg {
-          stroke: var(--c-minor-accent-5, grey); // for the icons
+          stroke: var(--c-minor-accent-5, grey);
+
+          g {
+            fill: var(--c-minor-accent-5, grey);
+          }
+
         }
       }
 
       .nav__button-text {
-        font-weight : var(--fw-x-bold, 800);
+        font-weight: var(--fw-x-bold, 800);
         color      : var(--c-minor-accent-5, grey);
       }
     }
@@ -121,16 +123,16 @@ $icon-color: var(--c-neutral-1, white);
 
   &__button-text {
     @include f-common;
-    font-size : var(--fs-x-small, .85rem);
+    font-size     : var(--fs-x-small, .85rem);
     letter-spacing: .01em;
-    font-weight : var(--fw-bold, 500);
+    font-weight   : var(--fw-bold, 500);
     line-height   : .82rem;
     display       : block;
     margin-top    : 2px;
     color         : var(--c-neutral-1, white);
 
     &--active {
-      font-weight : var(--fw-x-bold, 800);
+      font-weight: var(--fw-x-bold, 800);
     }
     @include desktop {
       display: none;
@@ -153,6 +155,7 @@ $icon-color: var(--c-neutral-1, white);
     }
 
     &:hover .logo {
+      filter: brightness(1.02);
       transform: translate(0px,-1px) scale(1.01);
     }
   }
@@ -163,82 +166,97 @@ $icon-color: var(--c-neutral-1, white);
       display: none;
     }
   }
+
+  // USER SIGN IN BUTTON REPLACES SEARCH FOR NOW
+  // Hide sign-in link on mobile, since there's a button for that in the main nav bar
+  .menu-item--sign-in {
+    display: none;
+    @include desktop {
+      display: block;
+    }
+  }
+
   // SEARCH
-  &__button--search {
-    grid-area: search;
-    @include desktop {
-      justify-self: end;
-      padding     : 0 5px;
-      margin-top  : $secondary-nav-height;
-    }
-  }
+  // &__button--search {
+  //   grid-area: search;
+  //   @include desktop {
+  //     justify-self: end;
+  //     padding     : 0 5px;
+  //     margin-top  : $secondary-nav-height;
+  //   }
+  // }
 
-  &__button-icon--close {
-    @include desktop {
-      margin-top  : 17px;
-      margin-right: 10px;
-    }
-  }
+  // &__button-icon--close {
+  //   @include desktop {
+  //     margin-top  : 17px;
+  //     margin-right: 10px;
+  //   }
+  // }
 
-  &__d1search {
-    grid-area    : d1search;
-    opacity      : 0;
-    visibility   : hidden;
-    transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
-    margin-bottom: -100%;
-    margin-top   : 0;
-    @include desktop {
-      display      : block;
-      margin-bottom: 0;
-      width        : 0;
-      margin-left  : -400px;
-      transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
-    }
+  // .d1search__input:focus~.d1search__label {
+  //   color: var(--c-major-accent-5, grey);
+  // }
 
-    label {
-      display: none;
-    }
+  // &__d1search {
+  //   grid-area    : d1search;
+  //   opacity      : 0;
+  //   visibility   : hidden;
+  //   transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out;
+  //   margin-bottom: -100%;
+  //   margin-top   : 0;
+  //   @include desktop {
+  //     display      : block;
+  //     margin-bottom: 0;
+  //     width        : 0;
+  //     margin-left  : -400px;
+  //     transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
+  //   }
+  // 
+  //   label {
+  //     display: none;
+  //   }
+  // 
+  //   & ~ .nav__button--search {
+  //     .nav__button-icon--close {
+  //       display: none;
+  //     }
+  //   }
+  // 
+  //   &[aria-hidden="false"] {
+  //     opacity      : 1;
+  //     visibility   : visible;
+  //     margin-bottom: 0;
+  //     margin-top   : .7rem;
+  // 
+  //     label {
+  //       display: block;
+  //     }
+  //     // The menu search button when the search is expanded on desktop
+  //     & ~ .nav__button--search {
+  //       .nav__button-icon--search {
+  //         display: none;
+  //       }
+  //       // A close button (X)
+  //       .nav__button-icon--close {
+  //         display: block;
+  //       }
+  //     }
+  //     @include desktop {
+  //       margin   : $secondary-nav-height 36px 0 0;
+  //       transform: none;
+  //       width    : 400px;
+  //       // The menu when the search is expanded on desktop
+  //       & ~ .nav__menu {
+  //         width      : 0;
+  //         opacity    : 0;
+  //         overflow   : hidden;
+  //         margin-left: -100%;
+  //         transition : all .18s 0s ease-in-out;
+  //       }
+  //     }
+  //   }
+  // }
 
-    & ~ .nav__button--search {
-      .nav__button-icon--close {
-        display: none;
-      }
-    }
-
-    &[aria-hidden="false"] {
-      opacity      : 1;
-      visibility   : visible;
-      margin-bottom: 0;
-      margin-top   : .7rem;
-
-      label {
-        display: block;
-      }
-      // The menu search button when the search is expanded on desktop
-      & ~ .nav__button--search {
-        .nav__button-icon--search {
-          display: none;
-        }
-        // A close button (X)
-        .nav__button-icon--close {
-          display: block;
-        }
-      }
-      @include desktop {
-        margin   : $secondary-nav-height 36px 0 0;
-        transform: none;
-        width    : 400px;
-        // The menu when the search is expanded on desktop
-        & ~ .nav__menu {
-          width      : 0;
-          opacity    : 0;
-          overflow   : hidden;
-          margin-left: -100%;
-          transition : all .18s 0s ease-in-out;
-        }
-      }
-    }
-  }
   // ===MENU===
   // 
   &__primary-items {
@@ -272,7 +290,7 @@ $icon-color: var(--c-neutral-1, white);
       @include desktop {
         padding-top   : .7rem;
         padding-bottom: .7rem;
-        font-weight : var(--fw-normal, 400);
+        font-weight   : var(--fw-normal, 400);
       }
     }
   }
@@ -336,19 +354,19 @@ $icon-color: var(--c-neutral-1, white);
 // === HOMEPAGE ===
 // 
 
-.global-header--homepage {
-  @include desktop {
-    .nav {
-      display        : flex;
-      justify-content: center;
-    }
-
-    .nav__button--logo {
-      display: none;
-    }
-
-    .nav__button--search {
-      display: none;
-    }
-  }
-}
+// .global-header--homepage {
+//   @include desktop {
+//     .nav {
+//       display        : flex;
+//       justify-content: center;
+//     }
+// 
+//     .nav__button--logo {
+//       display: none;
+//     }
+// 
+//     .nav__button--search {
+//       display: none;
+//     }
+//   }
+// }
