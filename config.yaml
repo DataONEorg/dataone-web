@@ -36,7 +36,7 @@ params:
     signin: https://search.dataone.org/signin
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
-  mobileDesktopBreakpoint: 640
+  mobileDesktopBreakpoint: 699
   dateFormat: January 2, 2006
   dateFormatShort: 2 Jan 2006
   datetimeFormat: January 2, 2006 15:04 MST
@@ -48,6 +48,7 @@ params:
     - city: San Jose, USA
       number: "+1 408 638 0968"
     URL_local_number: https://us04web.zoom.us/u/fcD9Evl80t
+  emailAddress: support@dataone.org
   mailingAddress:
     delivery_points:
     - '735 State St #300'

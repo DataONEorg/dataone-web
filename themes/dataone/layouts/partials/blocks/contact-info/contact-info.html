@@ -2,26 +2,37 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "contact-info" }}
+<!-- Classes to add to the outmost element -->
+{{ $classes := $bn }}
 
-{{ $hideLocation := false }}
-{{ with .Block.hideLocation }}
-  {{ $hideLocation = . }}
-{{ end }}
-{{ $hideSocials := false }}
-{{ with .Block.hideSocials }}
-  {{ $hideSocials = . }}
-{{ end }}
-<div class="{{ $bn }}">
-  {{ if not $hideLocation }}
-    <div class="{{ $bn }}__location">
+<!-- Block options and their default values -->
+{{ $hide_location := .Block.hide_location | default false }}
+{{ $hide_email := .Block.hide_email | default false }}
+{{ $hide_socials := .Block.hide_socials |default false }}
 
-      {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
-      <div>
-        {{ partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
+<!-- Other variables -->
+{{ $emailAddress := $page.Site.Params.emailAddress }}
+
+<div class="{{ $classes }}">
+  {{ if not $hide_location }}
+    <div class="{{ $bn }}__address {{ $bn }}__address--mailing">
+      <div class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
       </div>
+      {{ partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
     </div>
   {{ end }}
-  {{ if not $hideSocials }}
+  {{ if not $hide_email }}
+    <div class="{{ $bn }}__address {{ $bn }}__address--email">
+      <div class="{{ $bn }}__icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) }}
+      </div>
+      <address>
+        <a class="{{ $bn }}__email" href="mailto:{{ $emailAddress }}">{{ $emailAddress }}</a>
+      </address>
+    </div>
+  {{ end }}
+  {{ if not $hide_socials }}
     <div class="{{ $bn }}__socials">
       {{ range $name, $link := $page.Site.Params.social }}
         <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">

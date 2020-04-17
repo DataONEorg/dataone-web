@@ -119,10 +119,11 @@
 
 .button--tab {
   @extend .button--col-quaternary;
-  white-space: nowrap;
-  color      : var(--section-fc-body, gray);
-  font-weight: var(--fw-bold, 500);
+  white-space    : nowrap;
+  color          : var(--section-fc-body, gray);
+  font-weight    : var(--fw-bold, 500);
   filter: brightness(1.1);
+  justify-content: left;
 
   .button__icon .icon {
     stroke: var(--section-fc-body, gray);

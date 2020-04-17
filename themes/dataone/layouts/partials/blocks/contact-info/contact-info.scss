@@ -5,9 +5,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn           : &;
+  $bn                           : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix       : "--" + str-replace(#{$bn}, ".");
+  $prefix                       : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -15,29 +15,38 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-icon             : var(--section-fc-body, var(--c-foreground-on-default, black));
+  #{$prefix}-c-button-background: var(--c-major-accent, grey);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  display       : grid;
-  grid-auto-flow: row;
-  grid-gap      : 3rem;
-  max-width     : 290px;
+  display                       : grid;
+  grid-auto-flow                : row;
+  grid-gap                      : 3rem;
+  max-width                     : 290px;
 
-  address {
-    font-style : normal;
-    font-size : var(--fs-large, 1.22rem);
-    line-height: 1.4;
-    font-weight : var(--fw-bold, 500);
-  }
-
-  &__location {
+  &__address {
+    font-size            : var(--fs-large, 1.22rem);
+    line-height          : 1.4;
+    font-weight          : var(--fw-bold, 500);
     display              : grid;
     grid-template-columns: 30px auto;
     grid-gap             : 1rem;
+    stroke               : var(#{$prefix}-c-icon);
+
+    address {
+      font-style: normal;
+    }
+
+  }
+
+  @include style-links("&__email");
+
+  &__icon {
+    margin-top: .25rem;
   }
 
   &__socials {
@@ -50,11 +59,7 @@
 
   &__social-link {
     stroke          : white;
-    background-color: var(--c-major-accent, grey);
+    background-color: var(#{$prefix}-c-button-background);
     @include circle-link;
-
-    &:hover {
-      filter: brightness(1.05);
-    }
   }
 }

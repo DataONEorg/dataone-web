@@ -32,6 +32,7 @@
   height                         : auto;
   display                        : block;
   position                       : relative;
+  overflow                       : visible;
   @include desktop {
     margin: .3rem .15rem;
     height: calc(100% - .6rem);
@@ -90,15 +91,16 @@
     padding-inline-start: 0;
     transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
     @include desktop {
-      position        : absolute;
-      background-color: var(#{$prefix}-c-menu-background);
       display         : block;
-      border-radius   : var(--br-default, 0.25rem);
-      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
       // center the menu
-      transform       : translate(-50%, 0);
+      position        : absolute;
+      transform       : translateX(-50%);
       left            : 50%;
       padding         : 1rem 1.75rem;
+      // menu colors
+      background-color: var(#{$prefix}-c-menu-background);
+      border-radius   : var(--br-default, 0.25rem);
+      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
     }
     // closed
     max-height          : 0;

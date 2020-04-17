@@ -1,0 +1,21 @@
+---
+label: Contact Information
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: contact-info
+- type: boolean
+  name: hide_location
+  label: Hide address
+  description: If set to true, the mailing address will not be shown
+- type: boolean
+  name: hide_email
+  label: Hide email
+  description: If set to true, the email address will not be shown
+- type: boolean
+  name: hide_socials
+  label: Hide
+  description: If set to true, the social media links will not be shown

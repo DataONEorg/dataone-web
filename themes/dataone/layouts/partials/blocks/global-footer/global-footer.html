@@ -22,23 +22,23 @@
             {{ if $hasSubmenu }}
               {{ .Name }}
             {{ else}}
-            <!-- Otherwise add a link -->
-            <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
-              {{ .Name }}
-            </a>
+              <!-- Otherwise add a link -->
+              <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
+                {{ .Name }}
+              </a>
             {{ end }}
           </span>
           <!-- Site map sub-section links -->
           {{ if $hasSubmenu }}
-          <ul class="{{ $bn }}__sitemap-list" aria-hidden="true" id="{{urlize .Name }}">
-            {{ range .Children }}
-              <li class="{{ $bn }}__sitemap-item">
-                <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
-                  {{ .Name }}
-                </a>
-              </li>
-            {{ end }}
-          </ul>
+            <ul class="{{ $bn }}__sitemap-list" aria-hidden="true" id="{{urlize .Name }}">
+              {{ range .Children }}
+                <li class="{{ $bn }}__sitemap-item">
+                  <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
+                    {{ .Name }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
           {{ end }}
         </li>
       {{ end }}
@@ -76,7 +76,7 @@
       {{ $buttonBlock := dict "color" "secondary" "text" "Send a message" "type" "contact" "icon" (dict "icon" "mail" "size" "small") }}
       {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
       <!-- socials -->
-      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "hideLocation" true) "Page" $page ) }}
+      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "hide_location" true "hide_email" true) "Page" $page ) }}
     </section>
 
   </div>

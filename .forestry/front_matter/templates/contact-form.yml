@@ -1,0 +1,9 @@
+---
+label: Contact form
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: contact-form

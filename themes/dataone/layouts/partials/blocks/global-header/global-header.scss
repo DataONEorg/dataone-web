@@ -55,9 +55,9 @@ $icon-color: var(--c-neutral-1, white);
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                  : &;
+  $bn                     : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix              : "--" + str-replace(#{$bn}, ".");
+  $prefix                 : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -72,19 +72,19 @@ $icon-color: var(--c-neutral-1, white);
   // ==========================================================================
 
   @include f-common;
-  width                : 100%;
-  margin               : 0;
-  display              : grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows   : $mobile-nav-height auto auto;
-  grid-template-areas  : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
+  width                   : 100%;
+  margin                  : 0;
+  display                 : grid;
+  grid-template-columns   : 1fr 1fr 1fr;
+  grid-template-rows      : $mobile-nav-height auto auto;
+  grid-template-areas     : "logo menu-toggle search" "d1search d1search d1search" "menu menu menu";
   @include limit-width;
   @include desktop {
-    grid-template-columns: min-content auto min-content min-content;
+    grid-template-columns: min-content auto;
     grid-template-rows   : 1fr;
-    grid-template-areas  : "logo menu search d1search";
+    grid-template-areas  : "logo menu";
     align-items          : center;
-    padding              : 0 $lr-padding;
+    padding              : 0;
   }
 
   &__button {
@@ -173,6 +173,13 @@ $icon-color: var(--c-neutral-1, white);
     display: none;
     @include desktop {
       display: block;
+    }
+  }
+
+  // Likewise, hide the signin button on desktop
+  &__button--sign-in {
+    @include desktop {
+      display: none;
     }
   }
 
@@ -347,6 +354,20 @@ $icon-color: var(--c-neutral-1, white);
     // menu on desktop when ARIA label set to hidden (for testing)
     &[aria-hidden="true"] {
       @include desktop {}
+    }
+  }
+
+  // Keep the right-most drop down menu from expanding beyond page limits
+  $half-max-width-sub-menu: 150px;
+
+  .menu-item:last-of-type {
+    // When the screen is almost less than the limit for content width, but greater than mobile
+    @media only screen and (min-width: $breakpoint) and (max-width: ($content-width + $half-max-width-sub-menu)) {
+      .menu-item__sub-menu {
+        transform: none;
+        left     : unset;
+        right    : 0;
+      }
     }
   }
 }
