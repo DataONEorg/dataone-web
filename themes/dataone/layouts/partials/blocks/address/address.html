@@ -2,12 +2,10 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "address" }}
-
-<!-- save block parameters as a variable so we can overwrite it -->
-{{ $addressParams := .Block }}
-
 <!-- classess to add to this block -->
 {{ $classes := $bn }}
+<!-- save block parameters as a variable so we can overwrite it -->
+{{ $addressParams := .Block }}
 
 <!-- multi-line or single-line? -->
 {{ $format := .Block.format | default "multi-line" }}

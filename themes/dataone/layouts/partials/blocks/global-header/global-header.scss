@@ -94,23 +94,26 @@ $icon-color: var(--c-neutral-1, white);
     color     : var(--c-neutral-7, black);
     height    : 100%;
     padding   : 8px 8px 15px;
-    stroke    : $icon-color;
+
     @include desktop {
       width  : fit-content;
       height : fit-content;
       padding: 0;
     }
 
+    svg:not(.logo) {
+      stroke: $icon-color;
+    }
+
     &:active,
     &:focus {
       .nav__button-icon {
-        svg {
+        svg:not(.logo) {
           stroke: var(--c-minor-accent-5, grey);
+        }
 
-          g {
-            fill: var(--c-minor-accent-5, grey);
-          }
-
+        svg.logo {
+          fill: var(--c-minor-accent-5, grey);
         }
       }
 
@@ -118,7 +121,9 @@ $icon-color: var(--c-neutral-1, white);
         font-weight: var(--fw-x-bold, 800);
         color      : var(--c-minor-accent-5, grey);
       }
+
     }
+
   }
 
   &__button-text {
@@ -148,8 +153,8 @@ $icon-color: var(--c-neutral-1, white);
       transform : translate(0,0) scale(1);
       transition: .2s;
       @include desktop {
-        margin-top: $secondary-nav-height;
-        // padding-left: 5px;
+        margin-top : $secondary-nav-height;
+        margin-left: $lr-padding;
         // fill      : url("#theme-gradient");
       }
     }

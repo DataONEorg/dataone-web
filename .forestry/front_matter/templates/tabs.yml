@@ -53,6 +53,8 @@ fields:
     - feature-detailed
     - columns
     - webinar-summary
+    - contact-info
+    - contact-form
     config:
       min: 
       max: '1'

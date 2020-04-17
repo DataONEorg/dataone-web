@@ -82,6 +82,8 @@ fields:
     - columns
     - webinar-summary
     - tabs
+    - contact-info
+    - contact-form
     config:
       min: 
       max: 

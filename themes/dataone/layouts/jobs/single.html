@@ -14,10 +14,16 @@
     {{ $detailsButton = dict "type" "external website" "color" "secondary" "external_link" . "text" "More details" }}
   {{ end }}
   {{ $buttons := slice $applyButton $detailsButton }}
+  <!-- Breadcrumb nav -->
 
-  {{ $headerBlock := dict "type" "text only" "bkg_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
+  {{ $breadcrumbsBlock := dict "back_text" "Back to all careers" "back_link" $page.Parent.RelPermalink }}
+  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+
+  <!-- Header -->
+  {{ $headerBlock := dict "type" "text only" "modifiers" (slice "has-breadcrumb") "bkg_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
 
+  <!-- Job details -->
   {{ $details := slice }}
   {{ $checklists := slice }}
 

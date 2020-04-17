@@ -108,6 +108,8 @@ fields:
   - accordion
   - carousel
   - tabs
+  - contact-info
+  - contact-form
   description: The blocks to include in the section
   config:
     min: ''

@@ -48,4 +48,6 @@ fields:
   - item-with-icon
   - card
   - accordion
+  - contact-info
+  - contact-form
   description: The items to include in each column

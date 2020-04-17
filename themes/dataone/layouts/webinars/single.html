@@ -22,7 +22,12 @@
 
   {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
   {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
+  <!-- Header -->
   {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
+  <!-- Breadcrumb navigation -->
+  {{ $breadcrumbsBlock := dict "back_text" "Back to all webinars" "back_link" $page.Parent.RelPermalink }}
+  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+  <!-- Webinar sections -->
   {{ $webinarBlock := merge (dict "template" "webinar-details") $webinar }}
   {{ $sectionBlock:= dict "template" "section" "type" "split" "background" "major-accent-color" "background2" "subtle-emphasis" "blocks" (slice $headerBlock $webinarBlock) }}
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) }}

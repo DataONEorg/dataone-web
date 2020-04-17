@@ -1,0 +1,20 @@
+---
+label: Breadcrumb Navigation
+hide_body: true
+display_field: text
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: breadcrumbs
+- type: text
+  name: back_text
+  label: Go back display text
+  description: The text to display to indicate that the link goes back to the parent section content
+  default: Back
+- type: text
+  name: back_link
+  label: Parent Link
+  description: The link to the parent section content
+  default: "/"

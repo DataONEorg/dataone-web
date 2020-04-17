@@ -30,7 +30,7 @@
   height : 100%;
 
   @include desktop {
-    padding-top: 10rem;
+    padding-top: 1rem;
   }
 
   &__video {
@@ -58,5 +58,18 @@
   &__figure {
     max-width: 350px;
     margin   : 2rem auto;
+  }
+
+  &--st-upcoming {
+    @include desktop {
+      padding-top: 8rem;
+    }
+
+  }
+
+  &--st-past {
+    @include desktop {
+      padding-top: 8rem;
+    }
   }
 }

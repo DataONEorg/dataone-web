@@ -37,3 +37,5 @@ fields:
   - people
   - item-with-icon
   - card
+  - contact-info
+  - contact-form

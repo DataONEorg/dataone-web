@@ -1,6 +1,12 @@
 {{- define "main" -}}
+  {{ $page := $ }}
+  <!-- Breadcrumb nav -->
 
-  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "bkg_color" "default" }}
+  {{ $breadcrumbsBlock := dict "back_text" "Back to all news" "back_link" $page.Parent.RelPermalink }}
+  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+
+  <!-- Header -->
+  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "modifiers" (slice "has-breadcrumb") "bkg_color" "default" }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
 
   {{ $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold"}}

@@ -8,6 +8,10 @@
 <!-- status defines whether this webinar is upcoming, happening now, or past -->
 {{ $status := partial "functions/getWebinarStatus" .Block }}
 
+{{ with $status }}
+  {{ $classes = printf "%s %s--st-%s" $classes $bn . }}
+{{ end }}
+
 <!-- the date and time of the webinar -->
 {{ $datetime := (time .Block.webinar_datetime).UTC }}
 

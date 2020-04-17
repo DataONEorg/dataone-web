@@ -1,0 +1,69 @@
+.breadcrumbs {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  #{$prefix}-c-background: var(--c-major-accent-6, grey);
+  #{$prefix}-fc          : var(--c-foreground-on-major-accent, white);
+  #{$prefix}-c-icon      : var(--c-foreground-subtle-on-major-accent, white);
+  #{$prefix}-fs          : var(--fs-large, 1.25rem);
+  --fc-link              : var(#{$prefix}-fc);
+  --fc-link-hover        : var(--c-accent-on-major-accent, white);
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  position               : relative;
+  @include desktop {
+    margin-top: $nav-height;
+  }
+
+  padding                : .8rem 0 .7rem;
+
+  background-color       : var(#{$prefix}-c-background);
+
+  @include style-links("&__link");
+
+  &__link {
+    @include limit-width;
+    padding        : 0 $lr-padding;
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: left;
+
+    &:hover {
+      #{$bn}__icon {
+        stroke: var(--fc-link-hover);
+      }
+    }
+  }
+
+  &__icon {
+    stroke      : var(#{$prefix}-c-icon);
+    height      : 100%;
+    margin-right: .7rem;
+  }
+
+  &__text {
+    height       : 100%;
+    line-height  : 1;
+    font-size    : var(#{$prefix}-fs);
+    margin-bottom: .2rem;
+  }
+}

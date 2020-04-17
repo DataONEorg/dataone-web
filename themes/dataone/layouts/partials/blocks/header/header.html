@@ -35,6 +35,13 @@
     {{ end }}
   {{ end }}
 
+  <!-- Extra modifiers -->
+  {{ with .Block.modifiers }}
+    {{ range .}}
+      {{ $classes = printf "%s %s--%s" $classes $bn . }}
+    {{ end }}
+  {{ end }}
+
   <!-- svg or image to render for relevant block types -->
   {{ $svgBkg := "" }}
   {{ $svgFig := "" }}
