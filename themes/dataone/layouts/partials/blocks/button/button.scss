@@ -1,16 +1,4 @@
 // ==== BUTTON ====
-//
-// @TODO
-// .button {
-//   color: #ff0000;
-// }
-// 
-// /* note: 100% is baseline so 85% is slightly darker, 
-//    20% would be significantly darker */
-// .button:hover {
-//   filter: brightness(85%);
-// }
-//
 
 .button {
 
@@ -40,10 +28,10 @@
   @include f-common;
   @include button-reset;
   white-space          : nowrap;
-  font-weight : var(--fw-bold, 500);
+  font-weight          : var(--fw-bold, 500);
   text-transform       : uppercase;
   letter-spacing       : .025em;
-  font-size : var(--fs-small, 1rem);
+  font-size            : var(--fs-small, 1rem);
   background-color     : var(#{$prefix}-background);
   color                : var(#{$prefix}-foreground);
   overflow             : hidden;
@@ -52,7 +40,7 @@
   width                : fit-content;
   width                : -moz-fit-content;
   max-width            : calc(100vw - 2.5em);
-  border-radius        : 2px;
+  border-radius        : var(--br-default, 0.2rem);
   height               : 50px;
   text-decoration      : none;
   box-shadow           : 0 3px 5px rgba(30,50,93,.09), 0 1px 3px rgba(0,0,0,.07);
@@ -60,6 +48,7 @@
   text-align           : center;
   display              : flex;
   align-items          : center;
+  justify-content      : center;
   transition           : all .2s;
   text-shadow          : none;
 
@@ -103,14 +92,14 @@
 
   &--col-tertiary {
     #{$prefix}-background: var(--section-c-background-lighter, var(--c-default-lighter, white));
-    #{$prefix}-foreground: var(--c-section-accent, var(--c-major-accent, black));
+    #{$prefix}-foreground: var(--section-c--accent, var(--c-major-accent, black));
   }
 
   &--col-quaternary {
     #{$prefix}-background: transparent;
-    #{$prefix}-foreground: var(--c-section-accent, var(--c-major-accent, black));
+    #{$prefix}-foreground: var(--section-c-accent, var(--c-major-accent, black));
     white-space          : normal;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size            : var(--fs-medium, 1.1rem);
     display              : inline-flex;
     padding              : 0;
     width                : auto;
@@ -132,7 +121,7 @@
   @extend .button--col-quaternary;
   white-space: nowrap;
   color      : var(--section-fc-body, gray);
-  font-weight : var(--fw-bold, 500);
+  font-weight: var(--fw-bold, 500);
   filter: brightness(1.1);
 
   .button__icon .icon {
@@ -154,36 +143,22 @@
 // SEARCH BUTTON
 
 .button--search {
-  margin: 20px auto 0;
+
   @include desktop {
-    padding  : 22px 22px 46px;
-    min-width: 68px;
-    position : absolute;
-    top      : -5px;
-    right    : -20px;
-    display  : inline-block;
+    // fill the parent container
+    width                    : 100%;
+    height                   : 100%;
+    border-top-left-radius   : 0;
+    border-bottom-left-radius: 0;
   }
 
   .button__text {
     display: flex;
-    // visually hidden on desktop
-    @include desktop {
-      margin     : 0;
-      padding    : 0;
-      position   : absolute !important;
-      height     : 1px;
-      width      : 1px;
-      overflow   : hidden;
-      clip       : rect(1px 1px 1px 1px);
-      /* IE6, IE7 */
-      clip       : rect(1px, 1px, 1px, 1px);
-      white-space: nowrap;
-    }
   }
 
   .button__icon .icon {
     @include desktop {
-      margin-right: 0;
+      margin: 0;
     }
   }
 }

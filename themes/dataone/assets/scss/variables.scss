@@ -18,14 +18,15 @@ $cn-red: #F57065;
     rare-accent : (base: col($cn-green, 6), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
     alerts      : (success: $cn-green, info: $cn-blue, warning: col($cn-yellow,6), error: $cn-red)
   );
+
   @include set-theme-colors($theme-default-colors);
-  
+
   //
   // Some default font colours
   // ==========================================================================
   --fc-link            : var(--c-major-accent-on-default);
   --fc-link-hover      : var(--c-major-accent-emphasis-on-default);
-  
+
   //
   // Font families
   // ==========================================================================
@@ -33,7 +34,7 @@ $cn-red: #F57065;
   --ff-title2          : #{$ff-serif}; // e.g. section level titles
   --ff-title3          : #{$ff-sans-serif}; // e.g. h3 titles of sub-section blocks
   --ff-body            : #{$ff-sans-serif}; // all other fonts
-  
+
   //
   // Font sizes (responsive)
   // ==========================================================================
@@ -48,21 +49,21 @@ $cn-red: #F57065;
   @include rfs(2.6rem, --fs-xx-large);
   @include rfs(3.0rem, --fs-xxx-large);
   @include rfs(3.2rem, --fs-largest);
-  
+
   //
   // Font weights
   // ==========================================================================
-  --fw-light : 300;
+  --fw-light           : 300;
   --fw-normal          : 400;
   --fw-bold            : 500;
   --fw-bolder          : 600;
   --fw-x-bold          : 800;
-  --fw-xx-bold          : 900;
-  
+  --fw-xx-bold         : 900;
+
   //
   // Border radius
   // ==========================================================================
-  --br-default         : .25rem;
+  --br-default         : .2rem;
 
 }
 

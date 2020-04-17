@@ -9,39 +9,6 @@ fields:
   hidden: true
   default: button
 - type: select
-  name: html_tag
-  label: HTML Tag
-  description: For semantic HTML, whether teh button should be built using an anchor
-    tag or a button tag
-  hidden: true
-  default: a
-  config:
-    source:
-      type: simple
-    options:
-    - a
-    - button
-- type: text
-  name: id
-  label: ID
-  hidden: true
-  default: ''
-  description: An optional identifier to add to the button
-- type: select
-  name: type_attr
-  label: Button Type Attribute
-  hidden: true
-  default: button
-  config:
-    source:
-      type: simple
-    options:
-    - submit
-    - button
-    - reset
-  description: For buttons with the button tag, which value to assign to the type
-    attribute
-- type: select
   label: Type
   name: type
   description: The type of button. This changes what type of content the button will
@@ -53,7 +20,6 @@ fields:
     options:
     - internal page
     - external website
-    - add to calendar
     - subscribe form
     - contact
     - donate
@@ -111,37 +77,3 @@ fields:
   description: CMS Feature coming soon - An optional icon to show on the left side
     of the button
   label: Icon
-- name: event
-  type: field_group
-  label: Event details
-  description: Event information used to create an event in the user's calendar
-  showOnly:
-    field: type
-    value: add to calendar
-  config: {}
-  fields:
-  - type: text
-    name: title
-    label: Event name
-    default: DataONE Event
-    description: The name of the event that will be displayed in the calendar.
-  - type: text
-    name: description
-    label: Description
-    default: ''
-    description: A description of the event.
-  - type: text
-    name: URL
-    label: URL
-    default: ''
-    description: A link to more details about the event
-  - type: datetime
-    name: start
-    label: Start time
-    description: The date and time the event begins. Use the time that the event happens
-      in your current timezone.
-  - type: datetime
-    name: end
-    label: End time
-    description: The date and time the event is expected to end. Use the time that
-      the event ends in your current timezone.

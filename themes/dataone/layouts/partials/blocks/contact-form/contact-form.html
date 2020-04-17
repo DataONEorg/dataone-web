@@ -1,41 +1,41 @@
-<!-- in order to pass on page parameters from within loops  -->
+<!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "contact-form" }}
+<!-- Classes to add to the outer-most element -->
+{{ $classes := $bn }}
 
 <!-- TODO: -->
-<div class="{{ $bn }}">
-  <form name="contact" class="" action="/thank-you/" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="contact" />
-    <!-- Text input-->
-    <div class="">
-      <label class="" for="Name"></label>
-      <div class="">
-        <input id="contact-form-name" name="Name" type="text" placeholder="Name" class="form-control input-md" required="" autocomplete="off">
-      </div>
-    </div>
-    <!-- Text input-->
-    <div class="">
-      <label class="" for="Email"></label>
-      <div class="">
-        <input id="contact-form-email" name="Email" type="email" placeholder="Email Address" class="form-control input-md" required="" autocomplete="off">
-      </div>
-    </div>
-    <!-- Text input-->
-    <div class="">
-      <label class="" for="Subject"></label>
-      <div class="">
-        <input id="contact-form-subject" name="Subject" type="text" placeholder="Subject" class="form-control input-md" required="" autocomplete="off">
-      </div>
-    </div>
-    <!-- Textarea -->
-    <div class="">
-      <label class="" for=""></label>
-      <textarea class="form-control" id="contact-form-message" name="Message" placeholder="How can we help?" rows="8"></textarea>
-    </div>
-    <!-- Button -->
-    <div class="">
-      <button class="button button--primary" type="submit" value="Submit" id="Form-submit">Submit</button>
-    </div>
-  </form>
-</div>
+
+<form class="{{ $classes }}" name="contact" action="/thank-you/" method="POST" data-netlify="true">
+
+  <input type="hidden" name="form-name" value="contact"/>
+  <!-- Text input-->
+
+  <div class="{{ $bn }}__field-and-label">
+    <input class="{{ $bn }}__field" id="contact-form-name" name="Name" type="text" placeholder="Ada Lovelace" required="true" aria-required="true" autocomplete="on">
+    <label class="{{ $bn }}__label" for="Name">Your name (required)</label>
+  </div>
+  <!-- Text input-->
+  <div class="{{ $bn }}__field-and-label">
+    <input class="{{ $bn }}__field" id="contact-form-email" name="Email" type="email" placeholder="ada.lovelace@example.com" required="true" aria-required="true" autocomplete="on" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <label class="{{ $bn }}__label" for="Email">Your e-mail address (required)</label>
+  </div>
+  <!-- Text input-->
+  <div class="{{ $bn }}__field-and-label">
+    <input class="{{ $bn }}__field" id="contact-form-subject" name="Subject" type="text" placeholder="Question about DataONE" required="true" aria-required="true" autocomplete="off">
+    <label class="{{ $bn }}__label" for="Subject">Subject (required)</label>
+  </div>
+  <!-- Textarea -->
+  <div class="{{ $bn }}__field-and-label">
+    <textarea class="{{ $bn }}__field {{ $bn }}__field--textarea" id="contact-form-message" name="Message" placeholder="How can we help?" rows="8" autocomplete="off" required="true" aria-required="true"></textarea>
+    <label class="{{ $bn }}__label" for="Message">Your message (required)</label>
+  </div>
+  <!-- Button -->
+
+  <div class="{{ $bn }}__button">
+    {{ $iconParams := dict "template" "icon" "icon" "send" }}
+    {{ $buttonParams := dict "color" "primary" "html_tag" "button" "id" "Form-submit" "type_attr" "submit" "text" "Contact DataONE" "icon" $iconParams }}
+    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) }}
+  </div>
+</form>

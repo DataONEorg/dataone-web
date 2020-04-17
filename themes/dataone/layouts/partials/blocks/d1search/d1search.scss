@@ -5,108 +5,170 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn       : &;
+  $bn                 : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix   : "--" + str-replace(#{$bn}, ".");
+  $prefix             : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
   // The value may change in modified blocks or elements (i.e. block--modifier).
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
- 
- 
-  #{$prefix}-c-foreground : var(--section-fc-body, var(--c-foreground-on-default, black));
-  #{$prefix}-c-accent: var(--section-c-accent, var(--c-accent-major, grey));
-  #{$prefix}-c-form-field: var(--section-c-background-lighter, var(--c-default-lighter, white));
+
+  // #{$prefix}-c-foreground: var(--section-fc-body, var(--c-foreground-on-default, black));
+  // #{$prefix}-c-accent    : var(--section-c-accent, var(--c-accent-major, grey));
+  // #{$prefix}-c-form-field: var(--section-c-background-lighter, var(--c-default-lighter, white));
+
+  $label-size         : 1.3rem;
+  $input-height       : $label-size * 2.6;
+  $border-radius      : var(--br-default, 0.2rem);
+  $padding-above-input: 1.5rem;
+  $focus-y-change     : .5px;
+
+  width               : 100%;
+  display             : flex;
+  flex-direction      : column;
+  align-items         : center;
+
+  @include desktop {
+    width: 70%;
+  }
+
+  // Any styles set by form-field-styles can be overwritten by `floating label`
+  &__input {
+    @include form-field-styles;
+  }
+
+  @include floating-label("this", "&__input", "&__label", $label-size: $label-size, $top-padding: $padding-above-input, $padding-field-top-and-bottom: .9rem);
+
+  // These styles should overwrite those set by `floating-label` mixin
+  &__input {
+    width        : 100%;
+    height       : $input-height;
+    // Keep space for the button on the right of the search field.
+    padding-right: $input-height;
+  }
+
+  // These styles should overwrite those set by `floating-label` mixin
+  &__label {
+    // font-size: .95rem;
+    // @include desktop{
+    // 
+    // }
+  }
+
+  &__button {
+
+    margin-top: 1rem;
+
+    @include desktop {
+      position  : absolute;
+      top       : $padding-above-input;
+      right     : -0.2rem;
+      height    : $input-height;
+      width     : $input-height;
+      transition: all .15s ease;
+      margin-top: 0;
+    }
+
+  }
+
+  // Button when the input is focused
+  &__input:focus ~ #{$bn}__button {
+    // transition to match the focus style of the input element
+    @include desktop {
+      transform    : translateY(-1.5px);
+      border-bottom: 1.5px solid var(--section-c-accent, var(--c-major-accent-on-default, grey));
+    }
+  }
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
-  @include f-common;
-  position  : relative;
-  padding   : 1rem $lr-padding;
-  margin-top: 10px;
-  width     : 100%;
-  @include desktop {
-    width: 70%;
-  }
-  // LABEL
-  // general label styles
-  &__label {
-    position     : absolute;
-    top          : -5px;
-    display      : block;
-    transition   : .2s;
-    color        : var(#{$prefix}-c-foreground);
-    padding-left : 10px;
-    padding-top  : 5px;
-    padding-right: 15px;
-    max-height   : 100%;
-    white-space  : nowrap;
-    overflow     : hidden;
-    max-width    : 90%;
-    @include desktop {
-      padding-top : 0;
-      padding-left: 20px;
-      max-width   : none;
-    }
-  }
-  // label when input field is not in focus
-  &__input:placeholder-shown~.d1search__label {
-    cursor   : text;
-    top      : 33px;
-    font-size : var(--fs-smaller, 0.9rem);
-    @include desktop {
-      font-size : var(--fs-large, 1.22rem);
-    }
-  }
-  // label when input field is focused
-  &__input:focus~.d1search__label {
-    position   : absolute;
-    top        : -10px;
-    display    : block;
-    transition : .2s;
-    color      : var(#{$prefix}-c-accent);
-    font-weight : var(--fw-bold, 500);
-    font-size : var(--fs-smaller, 0.9rem);
-    @include desktop {
-      font-size : var(--fs-small, 1rem);
-    }
-  }
-  // INPUT FIELD
-  &__input {
-    font-family: inherit;
-    width      : 100%;
-    outline    : 0;
-    border     : 0;
-    font-size : var(--fs-large, 1.22rem);
-    background : transparent;
-    transition : border-color .2s;
-    background : var(#{$prefix}-c-form-field);
-    color      : var(#{$prefix}-c-foreground);
-    font       : inherit;
-    box-shadow : .2rem .8rem 1.6rem rgba(0, 0, 0, 0.1);
-    padding    : 22px 18px;
-    height     : 65px;
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:invalid,
-    &:required {
-      box-shadow: none;
-    }
-
-    &:focus {
-      padding-bottom: 19px;
-      padding-left  : 25px;
-      font-weight : var(--fw-bolder, 700);
-      border-width  : 3px;
-    }
-  }
+  // @include f-common;
+  // position               : relative;
+  // padding                : 1rem $lr-padding;
+  // margin-top             : 10px;
+  // width                  : 100%;
+  // @include desktop {
+  //   width: 70%;
+  // }
+  // // LABEL
+  // // general label styles
+  // &__label {
+  //   position     : absolute;
+  //   top          : -5px;
+  //   display      : block;
+  //   transition   : .2s;
+  //   color        : var(#{$prefix}-c-foreground);
+  //   padding-left : 10px;
+  //   padding-top  : 5px;
+  //   padding-right: 15px;
+  //   max-height   : 100%;
+  //   white-space  : nowrap;
+  //   overflow     : hidden;
+  //   max-width    : 90%;
+  //   @include desktop {
+  //     padding-top : 0;
+  //     padding-left: 20px;
+  //     max-width   : none;
+  //   }
+  // }
+  // // label when input field is not in focus
+  // &__input:placeholder-shown~.d1search__label {
+  //   cursor   : text;
+  //   top      : 33px;
+  //   font-size: var(--fs-smaller, 0.9rem);
+  //   @include desktop {
+  //     font-size: var(--fs-large, 1.22rem);
+  //   }
+  // }
+  // // label when input field is focused
+  // &__input:focus~.d1search__label {
+  //   position   : absolute;
+  //   top        : -10px;
+  //   display    : block;
+  //   transition : .2s;
+  //   color      : var(#{$prefix}-c-accent);
+  //   font-weight: var(--fw-bold, 500);
+  //   font-size  : var(--fs-smaller, 0.9rem);
+  //   @include desktop {
+  //     font-size: var(--fs-small, 1rem);
+  //   }
+  // }
+  // // INPUT FIELD
+  // &__input {
+  //   font-family: inherit;
+  //   width      : 100%;
+  //   outline    : 0;
+  //   border     : 0;
+  //   font-size  : var(--fs-large, 1.22rem);
+  //   background : transparent;
+  //   transition : border-color .2s;
+  //   background : var(#{$prefix}-c-form-field);
+  //   color      : var(#{$prefix}-c-foreground);
+  //   font       : inherit;
+  //   box-shadow : .2rem .8rem 1.6rem rgba(0, 0, 0, 0.1);
+  //   padding    : 22px 18px;
+  //   height     : 65px;
+  // 
+  //   &::placeholder {
+  //     color: transparent;
+  //   }
+  // 
+  //   &:invalid,
+  //   &:required {
+  //     box-shadow: none;
+  //   }
+  // 
+  //   &:focus {
+  //     padding-bottom: 19px;
+  //     padding-left  : 25px;
+  //     font-weight   : var(--fw-bolder, 700);
+  //     border-width  : 3px;
+  //   }
+  // }
 }
 
 .d1search--nav {
@@ -126,11 +188,11 @@
 
     .d1search__input:placeholder-shown~.d1search__label {
       top      : 29px;
-      font-size : var(--fs-smaller, 0.9rem);
+      font-size: var(--fs-smaller, 0.9rem);
     }
 
     .d1search__input:focus~.d1search__label {
-      font-size : var(--fs-smallest, .8rem);
+      font-size: var(--fs-smallest, .8rem);
       top      : -2px;
     }
 

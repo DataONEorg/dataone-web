@@ -145,13 +145,10 @@
   // $max-level1-opacity for colors with brightness <= 28, and the min opacity
   // possible is $min-opacity for colors with brightness >= 98.
   // https://www.desmos.com/calculator/pk9xyhattv
-  $base-opacity      : $min-opacity + (($max-level1-opacity - $min-opacity) / (1 + pow( ($brightness/6),2.7) ));
-
-  // Add a little more opacity for each level
-  $additional-opacity: .15;
+  $base-opacity      : $min-opacity + (($max-level1-opacity - $min-opacity) / (1 + pow(($brightness/6),2.7)));
 
   // Calculate total opacity
-  $opacity           : $base-opacity + (($level - 1) * $level-increment);
+  $opacity           : $base-opacity + (pow(($level - 1),2) * $level-increment);
 
   // Max value for opacity is 1
   @if $opacity > 1 {
@@ -186,82 +183,4 @@
     $map: map-get($map, $key);
   }
   @return $map;
-}
-
-/// Set css color variables for all situations based on a map of theme colors
-@mixin set-theme-colors($theme) {
-
-  // Prefix for the css variables
-  $prefix         : '--c';
-
-  $main-colors    : (
-    "neutral"     : map-get($theme, "neutral"),
-    "major-accent": map-deep-get($theme, "major-accent", "base"),
-    "minor-accent": map-deep-get($theme, "minor-accent", "base"),
-    "rare-accent" : map-deep-get($theme, "rare-accent", "base")
-  );
-
-  // Make a variable for shades & tints of each of the main colors
-  // (mostly used for svg fills, strokes, and stop-colors)
-  @each $color-name, $value in $main-colors {
-    @for $i from 1 through 9 {
-      #{$prefix}-#{$color-name}-#{$i}: col($value, $i);
-    }
-  }
-
-  $standard-colors: (
-    // Create a map of the default colors
-    "default"    : (
-      base : map-get($theme, "background"),
-      foreground : map-get($theme, "foreground"),
-      major-accent: map-get($main-colors, "major-accent"),
-      minor-accent: map-get($main-colors, "minor-accent"),
-      rare-accent : map-get($main-colors, "rare-accent")),
-    // Create a map for foreground colors that will always be on dark backgrounds
-    "always-dark": (
-      base : col(map-get($main-colors, "neutral"),9),
-      foreground : col(map-get($main-colors, "neutral"),1),
-      major-accent: map-get($main-colors, "major-accent"),
-      minor-accent: map-get($main-colors, "minor-accent"),
-      rare-accent : map-get($main-colors, "rare-accent")
-    )
-  );
-
-  $all-colors     : map-merge($standard-colors, $theme);
-  $alerts: map-get($theme, alerts);
-  
-  // $
-  // (success: $cn-green, info: $cn-blue, warning: $cn-yellow, error: $cn-red)
-
-
-  @each $color-group, $value in $all-colors {
-    @if type-of($value) == 'map' and $color-group != "alerts" {
-      $base: map-get($value, "base");
-      $base-inverted: invert($base, 100%);
-      @each $alert-type, $alert-color in $alerts {
-        
-        #{$prefix}-#{$alert-type}-on-#{$color-group} : mix(emphasize($base-inverted), $alert-color, 18%);
-        #{$prefix}-#{$alert-type}-subtle-on-#{$color-group} : mix(emphasize($base), $alert-color, 60%);
-      }
-      @each $color-type, $color in $value {
-        @if $color-type == "base" {
-          // For use as background colours
-          #{$prefix}-#{$color-group}-lighter-2: lighten($color, 12%);
-          #{$prefix}-#{$color-group}-lighter  : lighten($color, 5%);
-          #{$prefix}-#{$color-group}          : $color;
-          #{$prefix}-#{$color-group}-darker   : darken($color, 3%);
-          #{$prefix}-#{$color-group}-darker-2 : darken($color, 4%);
-          @for $i from 1 through 4 {
-            #{$prefix}-shadow-#{$i}-on-#{$color-group}: get-shadow($color, $i);
-          }
-        } @else {
-          // For use as foreground colours on "base" color as background
-          #{$prefix}-#{$color-type}-very-subtle-on-#{$color-group}: mix($base, $color, 70%);
-          #{$prefix}-#{$color-type}-subtle-on-#{$color-group}     : mix($base, $color, 20%);
-          #{$prefix}-#{$color-type}-on-#{$color-group}            : $color;
-          #{$prefix}-#{$color-type}-emphasis-on-#{$color-group}   : emphasize($color);
-        }
-      }
-    }
-  }
 }

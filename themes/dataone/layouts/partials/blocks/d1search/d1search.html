@@ -1,17 +1,29 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
-{{ $iconBlock := dict "icon" "search" "color" "white" "stroke" "thicker"}}
-{{ $buttonParams := dict "type" "search" "text" "search" "icon" $iconBlock "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
+<!-- The name of this block -->
+{{ $bn := "d1search" }}
+<!-- The classes to add to the outer-most element -->
+{{ $classes := $bn }}
 
-{{ $classes := "" }}
+<!-- Add classes based on type -->
 {{ with .Block.type }}
-  {{ $classes = print $classes " d1search--" . }}
+  {{ $classes = printf  "%s d1search--%s" $classes . }}
 {{end}}
 
-<form class="d1search{{ $classes }}" role="search" onsubmit="searchD1()">
-  <input class="d1search__input" type="text" id="search-term" placeholder="What environmental data are you looking for?"/>
-  <label class="d1search__label" for="search-term">
-    What environmental data are you looking for?
+<!-- Parameters for the search icon within the search button -->
+{{ $iconBlock := dict "icon" "search" "color" "white" "stroke" "thicker"}}
+<!-- Parameters for the search button -->
+{{ $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" $iconBlock "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
+
+<form class="{{ $classes }}" role="search" onsubmit="searchD1()">
+  <input class="{{ $bn }}__input" type="text" id="search-term" placeholder="Enter a search term"/>
+  <label class="{{ $bn }}__label" for="search-term">
+    <!-- Hide part of text on mobile where the phrase is too long -->
+    What
+    <span class="utility__visually-hidden-on-mobile">environmental
+    </span>data are you looking for?
   </label>
-  {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page)}}
+  <div class="{{ $bn }}__button">
+    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page)}}
+  </div>
 </form>

@@ -5,12 +5,13 @@ $default-border-radius: .25rem;
 @import "colors.scss"; // Sass colour definitions
 @import "fonts.scss"; // Import font families
 @import "functions.scss"; // Custom sass functions
+@import "mixins-and-placeholders.scss"; // mixins used in various blocks
 @import "responsive-font-size.scss"; // (rfs) functions to make length properties responsive
 @import "variables.scss"; // CSS variables set at root, change depending on scope
-@import "mixins-and-placeholders.scss"; // mixins used in various blocks
 @import "utility.scss"; // utility classes
 // page layout components
 @import "article.scss";
+
 *,
 *:after,
 *:before {
@@ -27,11 +28,6 @@ $default-border-radius: .25rem;
   overflow-y     : scroll;
   max-width      : 100vw;
   @include low-motion;
-
-}
-// ==== ARTICLE ====
-
-.theme-quaternary {
 
 }
 

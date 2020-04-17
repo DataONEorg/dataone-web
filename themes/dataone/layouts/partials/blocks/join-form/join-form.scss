@@ -54,35 +54,20 @@
 
     .response-text {
       text-align : center;
-      font-size : var(--fs-large, 1.22rem);
+      font-size  : var(--fs-large, 1.22rem);
       color      : var(--section-fc-body, gray);
-      font-weight : var(--fw-bold, 500);
+      font-weight: var(--fw-bold, 500);
       margin     : 0;
       padding    : 0;
     }
   }
   // the email field
-
   .form-control {
-    border          : none;
-    outline         : none;
-    border-radius   : 2px;
-    height          : 50px;
-    padding         : 0 15px;
-    width           : 100%;
-    font-size       : var(--fs-medium, 1.1rem);
-    padding         : 0 15px;
-    height          : 50px;
-    background-color: var(--c-default-lighter, white);
-    box-shadow      : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
+    @include form-field-styles;
   }
 
-  .form-control:focus {
-    transform : translateY(-0.4px);
-    box-shadow: 0 .1rem 1.2rem var(--section-c-shadow-2, rgba(1,1,1,0.08));
-    color     : var(--c-major-accent-on-default, black);
-    filter: brightness(1.2);
-  }
+  @include floating-label(".ml-field-group", ".form-control", "#{$bn}__label");
+
   // the button
 
   .ml-subscribe-form .primary {
@@ -121,14 +106,15 @@
   }
 
   input[type="checkbox"] + .label-description::before {
-    content     : '';
-    position    : relative;
-    display     : inline-block;
-    margin-right: 10px;
-    width       : 20px;
-    height      : 20px;
-    background  : var(--c-default-lighter, white);
-    box-shadow  : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
+    content      : '';
+    position     : relative;
+    display      : inline-block;
+    margin-right : 10px;
+    width        : 20px;
+    height       : 20px;
+    background   : var(--c-default-lighter, white);
+    box-shadow   : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
+    border-radius: var(--br-default, 0.25rem);
   }
 
   input[type="checkbox"]:checked + .label-description::before {
@@ -193,6 +179,10 @@
       display              : grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       grid-gap             : 1rem 1rem;
+      @include desktop {
+        align-items: baseline;
+        margin-top : -1rem;
+      }
     }
   }
 

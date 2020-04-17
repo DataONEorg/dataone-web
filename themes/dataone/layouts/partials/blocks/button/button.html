@@ -28,7 +28,7 @@
 	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
 	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
 {{ end }}
-{{ if or (eq $type "external website") (eq $type "donate") }}
+{{ if and (or (eq $type "external website") (eq $type "donate")) (not .Block.type_attr) }}
 	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
 	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
 {{ end }}
@@ -67,13 +67,20 @@
 		{{ $id = print "id=" . | safeHTML }}
 	{{ end }}
 
+	<!-- class for the button text span element -->
+	{{ $textClasses := print $bn "__text" }}
+	<!-- option to hide button text on desktop -->
+	{{ if eq .Block.hideTextDesktop "true" }}
+		{{ $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses }}
+	{{ end }}
+
 	<!-- start of button layout -->
 
 	{{ printf "<%s href='%s' class='%s' %s %s>" $htmlTag $href $classes $typeAttr $id | safeHTML }}
 
 	{{ $icon }}
-	{{- with .Block.text -}}
-		<span class="button__text">{{ . }}</span>
+	{{- if .Block.text -}}
+		<span class="{{ $textClasses }}">{{ .Block.text }}</span>
 	{{- end -}}
 	{{ $iconRight }}
 

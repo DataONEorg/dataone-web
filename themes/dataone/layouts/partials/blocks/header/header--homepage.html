@@ -10,9 +10,12 @@
     <div class="header__search">
 
       {{- partial "blocks/d1search/d1search" (dict "Block" . "Page" $page ) -}}
+
     </div>
-    <a class="header__advanced-search" href="https://search.dataone.org/data">
-      Advanced search
-    </a>
+
+    <!-- Parameters for the advanced search button -->
+    {{ $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" }}
+
+    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page )}}
   </div>
 </header>

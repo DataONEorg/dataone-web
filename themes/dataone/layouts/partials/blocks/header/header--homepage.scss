@@ -17,6 +17,7 @@
   // independence & modularity (a la BEM).
 
   // #{$prefix}- : var( , );
+  //--section-c-accent: var(--c-minor-accent);
 
   // ==========================================================================
   //    Styles
@@ -34,29 +35,16 @@
     align-items    : center;
     justify-content: center;
     z-index        : 2;
-    padding-top    : 25px;
+    @include desktop {
+      padding-top: 1.8rem;
+    }
   }
 
   .header__search {
+    margin-top     : .5rem;
     display        : flex;
     align-items    : center;
     justify-content: center;
-    padding-bottom : 3px;
-    z-index        : 2;
-  }
-
-  .header__advanced-search {
-    font-weight : var(--fw-bold, 500);
-    text-transform : uppercase;
-    letter-spacing : .025em;
-    font-size      : var(--fs-medium, 1.1rem);
-    color          : var(--c-major-accent-7, black);
-    text-align     : center;
-    text-decoration: none;
-
-    &:hover {
-      filter: brightness(1.05);
-    }
     z-index        : 2;
   }
 

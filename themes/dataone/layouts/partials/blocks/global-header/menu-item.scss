@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn       : &;
+  $bn                            : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix   : "--" + str-replace(#{$bn}, ".");
+  $prefix                        : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -18,20 +18,20 @@
 
   // #{$prefix}-c-accent : var( , );
   // 
-  #{$prefix}-fc-hover: var(--c-minor-accent, grey);
-  #{$prefix}-c-menu-background: var(--c-default-lighter, white);
-  #{$prefix}-fc-sub-link: var(--c-foreground-on-default, gray);
+  #{$prefix}-fc-hover            : var(--c-minor-accent, grey);
+  #{$prefix}-c-menu-background   : var(--c-default-lighter, white);
+  #{$prefix}-fc-sub-link         : var(--c-foreground-on-default, gray);
   #{$prefix}-c-foreground-on-dark: var(--c-foreground-on-always-dark, white);
-  
+
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  text-align: center;
-  height    : auto;
-  display   : block;
-  position  : relative;
+  text-align                     : center;
+  height                         : auto;
+  display                        : block;
+  position                       : relative;
   @include desktop {
     margin: .3rem .15rem;
     height: calc(100% - .6rem);
@@ -65,13 +65,13 @@
     white-space    : nowrap;
     width          : 100%;
     display        : block;
-    font-size : var(--fs-medium, 1.1rem);
-    font-weight : var(--fw-bold, 500);
+    font-size      : var(--fs-medium, 1.1rem);
+    font-weight    : var(--fw-bold, 500);
     line-height    : 3.3125rem;
     letter-spacing : .03em;
     @include desktop {
       padding    : 0 .62rem;
-      font-size : var(--fs-medium, 1.1rem);
+      font-size  : var(--fs-medium, 1.1rem);
       height     : 100%;
       line-height: normal;
       display    : flex;
@@ -82,7 +82,7 @@
   &--active {
     #{$bn}__link {
       color      : white;
-      font-weight : var(--fw-x-bold, 800);
+      font-weight: var(--fw-x-bold, 800);
     }
   }
 
@@ -134,15 +134,15 @@
   &__sub-menu-arrow {
     opacity   : 0;
     transition: opacity .2s 0s ease-in-out;
-    background: var(#{$prefix}-c-foreground-on-dark);
+    background: var(#{$prefix}-c-menu-background);
   }
 
   &__sub-link {
     margin         : 0;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size      : var(--fs-medium, 1.1rem);
     line-height    : 1.5;
     text-transform : uppercase;
-    font-weight : var(--fw-bold, 500);
+    font-weight    : var(--fw-bold, 500);
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;
@@ -152,19 +152,19 @@
 
     &--active {
       color      : white;
-      font-weight : var(--fw-bold, 500);
+      font-weight: var(--fw-bold, 500);
     }
     @include desktop {
       color: var(#{$prefix}-fc-sub-link);
 
       &:hover {
-        color      :var(#{$prefix}-fc-hover);
+        color      : var(#{$prefix}-fc-hover);
         transition : color .1s 0s ease-in-out;
-        font-weight : var(--fw-bold, 500);
+        font-weight: var(--fw-bold, 500);
       }
 
       &--active {
-        font-weight : var(--fw-bold, 500);
+        font-weight: var(--fw-bold, 500);
       }
     }
   }
@@ -206,5 +206,5 @@
       background-color: #20628A;
     }
   }
-  
+
 }

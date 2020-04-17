@@ -40,7 +40,8 @@
             <div class="ml-form-formContent">
               <div class="ml-form-fieldRow ml-last-item">
                 <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                  <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
+                  <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="ada.lovelace@example.com" autocomplete="email" id="newsletter-email" required="true" aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                  <label class="{{ $bn }}__label" for="newsletter-email">E-mail address (required)</label>
                 </div>
               </div>
             </div>
@@ -97,7 +98,7 @@
         </div>
         <div class="ml-form-successBody row-success" style="display:none">
           <div class="ml-form-successContent">
-            <p class="response-text">Please check your email</p>
+            <p class="response-text">Please check your e-mail</p>
           </div>
         </div>
       </div>

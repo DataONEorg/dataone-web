@@ -150,7 +150,6 @@
   // ==========================================================================
 
   &--bkg-wave {
-
     #{$bn}__svg-background {
       @extend %svg-background;
       @include desktop {
@@ -207,7 +206,7 @@
 
     position                        : relative;
     @include bkg-img;
-    background-image                : linear-gradient(var(--c-shadow-4-on-major-accent, rgba(darkslategray, 0.9)), var(--c-shadow-3-on-major-accent, rgba(darkslategray, 0.8))), url("/images/santa_barbara__NASA.jpg");
+    background-image                : linear-gradient(var(--c-shadow-5-on-major-accent, rgba(darkslategray, 0.9)), var(--c-shadow-4-on-major-accent, rgba(darkslategray, 0.8))), url("/images/santa_barbara__NASA.jpg");
   }
 
   // ==========================================================================

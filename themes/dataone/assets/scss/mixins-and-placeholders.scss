@@ -1,11 +1,20 @@
-// rules for larger (desktop) screens
+//
+// Desktop: Set rules for larger screens.
+// Standard rules should be for small screens.
+// 
+// ==========================================================================
+
 @mixin desktop {
   @media only screen and (min-width: $breakpoint) {
     @content;
   }
 }
-// -----------------------------------------------------------------------------
-/// Add font styles that are common to all blocks
+
+//
+// Font-common: Font styles common to all blocks
+// 
+// ==========================================================================
+
 @mixin f-common {
   font-family            : var(--ff-body, 'Work Sans', sans-serif);
   font-size              : var(--fs-body, 1rem);
@@ -14,7 +23,13 @@
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-// -----------------------------------------------------------------------------
+
+//
+// Style links: Common link styles
+// 
+// ==========================================================================
+
+///
 /// Style link elements in all states using css vars
 ///
 /// @param {Selector} $selector A selector to style (e.g. "a", ""&__link")
@@ -47,6 +62,137 @@
   }
 }
 
+///
+/// Place this mixin within a form field element to add styles for all states
+/// based on section or page level css variables
+///
+@mixin form-field-styles {
+  $fc-field       : var(--c-foreground-on-default, black);
+  $c-field        : var(--c-default-lighter, white);
+  $c-accent       : var(--section-c-accent, var(--c-major-accent-on-default, grey));
+  $transition     : all .15s ease;
+
+  border          : none;
+  outline         : none;
+  border-radius   : var(--br-default, 0.25rem);
+  // use font color and background color set at root, not section
+  color           : $fc-field;
+  background-color: $c-field;
+  box-shadow      : 0 .03rem .5rem -0.2rem var(--section-c-shadow-3, var(--c-shadow-2-on-default, rgba(1,1,1,0.08)));
+  width           : 100%;
+  border-bottom   : 1.5px solid $c-field;
+  transition      : $transition;
+
+  &:focus {
+    transform    : translateY(-0.4px);
+    box-shadow   : .01rem .06rem .8rem -0.17rem var(--section-c-shadow-4, var(--c-shadow-4-on-default , rgba(1,1,1,0.08)));
+    color        : var(--c-major-accent-on-default, black);
+    filter: brightness(1.05);
+    border       : none;
+    border-bottom: 1.5px solid $c-accent;
+    transform    : translateY(-0.5px);
+
+  }
+
+  &::placeholder {
+    @include f-common;
+    color: var(--c-foreground-very-subtle-on-default, white);
+  }
+}
+
+/// Floating-label - Use this mixin to make "floating labels" that move
+/// above a form field when the field is focused
+/// wrapper elememnt must contain the input and the label, *in that order*.
+@mixin floating-label($wrapper, $input, $label, $label-size: 1.1rem, $label-size-above-field: .95rem, $padding-field-left-right : .7rem, $padding-field-top-and-bottom : .75rem, $top-padding : $label-size * 1.3) {
+  // Font colors based on section or page level variables
+  $fc-label-in-field               : var(--c-foreground-subtle-on-default, grey);
+  $fc-label-in-above-field-active  : var(--section-c-accent, var(--c-major-accent-on-default, black));
+  $fc-label-in-above-field-inactive: var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, grey));
+  $fc-placeholder                  : var(--c-foreground-very-subtle-on-default, grey);
+  // Transition for form elements (e.g. position)
+  $transition                      : all .15s ease;
+  // The minimum height of the input required.
+  $min-height-input                : $label-size + 2 * $padding-field-top-and-bottom;
+  // The position of the label when it's within/ontop of the form field
+  $label-top-in-field              : $top-padding + ($min-height-input * .5) - (0.45 * $label-size);
+  // The position of the label when it's above the form field.
+  $label-top-above-field           : 0;
+
+  // The keyword "this" for $wrapper indicates that the mixin is placed INSIDE
+  // the wrapper element that contains the label and input.
+  @if $wrapper == "this" {
+    @include f-common;
+    position   : relative;
+    padding-top: $top-padding; // space for the label when form is active or filled
+
+  }
+  // Otherwise, assume the mixin is outside the wrapper element and use $wrapper
+  // to select the parent of the input and label element.
+@else
+
+  {
+    #{$wrapper} {
+      @include f-common;
+      position   : relative;
+      padding-top: $top-padding; // space for the label when form is active or filled
+    }
+  }
+
+  #{$input} {
+    @include f-common;
+    font-size  : $label-size;
+    line-height: 1;
+    min-height : $min-height-input;
+    padding    : $padding-field-top-and-bottom $padding-field-left-right;
+
+  }
+
+  // Label element
+  #{$label} {
+    @include f-common;
+    position      : absolute;
+    font-size     : $label-size;
+    line-height   : 1.05;
+    top           : $label-top-in-field;
+    left          : $padding-field-left-right;
+    transition    : $transition;
+    white-space   : nowrap;
+    overflow      : hidden;
+    color         : $fc-label-in-field;
+    pointer-events: none;
+  }
+
+  // Label when the text field has text
+  #{$input}:not(:placeholder-shown) ~ #{$label} {
+    font-size: $label-size-above-field;
+    top      : $label-top-above-field;
+    left     : 0;
+    color    : $fc-label-in-above-field-inactive;
+  }
+
+  // Label when the input is focused 
+  #{$input}:focus ~ #{$label} {
+    color    : $fc-label-in-above-field-active;
+    left     : 0;
+    top      : $label-top-above-field;
+    font-size: $label-size-above-field;
+  }
+
+  // The placeholder text should be hidden when label is in the input field
+  #{$input}::placeholder {
+    color      : transparent;
+    @include f-common;
+    font-size  : $label-size;
+    line-height: 1;
+  }
+
+  // The placeholder should be shown when the label moves above the field
+  #{$input}:focus::placeholder {
+    color: $fc-placeholder;
+  }
+
+}
+
 // -----------------------------------------------------------------------------
 // elements with SVG backgrounds
 
@@ -74,7 +220,7 @@
 // -----------------------------------------------------------------------------
 @mixin fs-h3 {
   font-size     : var(--fs-large, 1.45rem);
-  color: var(--section-fc-title, --c-foreground-emphasis-on-default);
+  color         : var(--section-fc-title, --c-foreground-emphasis-on-default);
   text-transform: uppercase;
   letter-spacing: .025em;
   font-weight   : 500;
@@ -131,6 +277,7 @@
   background-repeat  : no-repeat;
   background-size    : cover;
 }
+
 @mixin circle-link {
   text-decoration: none;
   font-style     : normal;
@@ -142,7 +289,7 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
-  box-shadow: 0 1px 9px -2px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 1px 3px -2px var(--section-c-shadow-1, rgba(0,0,0,0.05));
+  box-shadow     : 0 1px 9px -2px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 1px 3px -2px var(--section-c-shadow-1, rgba(0,0,0,0.05));
   filter: brightness(1.07);
 
   &:hover {
@@ -152,28 +299,94 @@
   }
 }
 
+/// Set css color variables for all situations based on a map of theme colors
+@mixin set-theme-colors($theme) {
+
+  // Prefix for the css variables
+  $prefix         : '--c';
+
+  $main-colors    : (
+    "neutral"     : map-get($theme, "neutral"),
+    "major-accent": map-deep-get($theme, "major-accent", "base"),
+    "minor-accent": map-deep-get($theme, "minor-accent", "base"),
+    "rare-accent" : map-deep-get($theme, "rare-accent", "base")
+  );
+
+  // Make a variable for shades & tints of each of the main colors
+  // (mostly used for svg fills, strokes, and stop-colors)
+  @each $color-name, $value in $main-colors {
+    @for $i from 1 through 9 {
+      #{$prefix}-#{$color-name}-#{$i}: col($value, $i);
+    }
+  }
+
+  $standard-colors: (
+    // Create a map of the default colors
+    "default"    : (base : map-get($theme, "background"), foreground : map-get($theme, "foreground"), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent")),
+    // Create a map for foreground colors that will always be on dark backgrounds
+    "always-dark": (base : col(map-get($main-colors, "neutral"),9), foreground : col(map-get($main-colors, "neutral"),1), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent"))
+  );
+
+  $all-colors     : map-merge($standard-colors, $theme);
+  $alerts         : map-get($theme, alerts);
+
+  // $
+  // (success: $cn-green, info: $cn-blue, warning: $cn-yellow, error: $cn-red)
+
+  @each $color-group, $value in $all-colors {
+    @if type-of($value) == 'map' and $color-group != "alerts" {
+      $base         : map-get($value, "base");
+      $base-inverted: invert($base, 100%);
+      @each $alert-type, $alert-color in $alerts {
+
+        #{$prefix}-#{$alert-type}-on-#{$color-group}       : mix(emphasize($base-inverted), $alert-color, 18%);
+        #{$prefix}-#{$alert-type}-subtle-on-#{$color-group}: mix(emphasize($base), $alert-color, 60%);
+      }
+      @each $color-type, $color in $value {
+        @if $color-type == "base" {
+          // For use as background colours
+          #{$prefix}-#{$color-group}-lighter-2: lighten($color, 12%);
+          #{$prefix}-#{$color-group}-lighter  : lighten($color, 5%);
+          #{$prefix}-#{$color-group}          : $color;
+          #{$prefix}-#{$color-group}-darker   : darken($color, 3%);
+          #{$prefix}-#{$color-group}-darker-2 : darken($color, 4%);
+          @for $i from 1 through 5 {
+            #{$prefix}-shadow-#{$i}-on-#{$color-group}: get-shadow($color, $i);
+          }
+        } @else {
+          // For use as foreground colours on "base" color as background
+          #{$prefix}-#{$color-type}-very-subtle-on-#{$color-group}: mix($base, $color, 70%);
+          #{$prefix}-#{$color-type}-subtle-on-#{$color-group}     : mix($base, $color, 20%);
+          #{$prefix}-#{$color-type}-on-#{$color-group}            : $color;
+          #{$prefix}-#{$color-type}-emphasis-on-#{$color-group}   : emphasize($color);
+        }
+      }
+    }
+  }
+}
+
 // Set section color variables based on variables defined at the root.
 @mixin set-section-colors($background-color, $prefix: "--section") {
-  
-  $root-color-prefix: "--c";
-  
+
+  $root-color-prefix                 : "--c";
+
   // fall back colors for alerts
-  $alerts-fallback: (
+  $alerts-fallback                   : (
     "success": green,
-    "info": blue,
+    "info"   : blue,
     "warning": yellow,
-    "error": red
+    "error"  : red
   );
-  
-  $link-fallback: lightseagreen;
-  $background-fallback-light: white;
-  $background-fallback-dark: lightgray;
-  $foreground-fallback: grey;
-  $foreground-emphasis-fallback: black;
-  $foreground-light-fallback: lightgray;
-  $accent-fallback: mediumorchid;
-  $accent-light-fallback: thistle;
-  
+
+  $link-fallback                     : lightseagreen;
+  $background-fallback-light         : white;
+  $background-fallback-dark          : lightgray;
+  $foreground-fallback               : grey;
+  $foreground-emphasis-fallback      : black;
+  $foreground-light-fallback         : lightgray;
+  $accent-fallback                   : mediumorchid;
+  $accent-light-fallback             : thistle;
+
   #{$prefix}-fc-body                 : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-fallback);
   #{$prefix}-fc-title                : var(#{$root-color-prefix}-foreground-emphasis-on-#{$background-color}, $foreground-emphasis-fallback);
   --fc-link                          : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
@@ -188,11 +401,11 @@
   #{$prefix}-c-background            : var(#{$root-color-prefix}-#{$background-color}, $background-fallback-light);
   #{$prefix}-c-background-darker     : var(#{$root-color-prefix}-#{$background-color}-darker, $background-fallback-dark);
   #{$prefix}-c-background-darker-2   : var(#{$root-color-prefix}-#{$background-color}-darker-2, $background-fallback-dark);
-  
+
   // Alert colors
   @each $alert-type, $default in $alerts-fallback {
-    #{$prefix}-c-#{$alert-type} : var(#{$root-color-prefix}-#{$alert-type}-on-#{$background-color}, $default);
-    #{$prefix}-c-#{$alert-type}-subtle : var(#{$root-color-prefix}-#{$alert-type}-subtle-on-#{$background-color}, col($default,2));
+    #{$prefix}-c-#{$alert-type}       : var(#{$root-color-prefix}-#{$alert-type}-on-#{$background-color}, $default);
+    #{$prefix}-c-#{$alert-type}-subtle: var(#{$root-color-prefix}-#{$alert-type}-subtle-on-#{$background-color}, col($default,2));
   }
 
   @if(($background-color == "default") or ($background-color == "always-dark")) {
@@ -214,7 +427,7 @@
   }
 
   // Shadows
-  @for $i from 1 through 4 {
+  @for $i from 1 through 5 {
     $o                       : $i/10;
     #{$prefix}-c-shadow-#{$i}: var(#{$root-color-prefix}-shadow-#{$i}-on-#{$background-color}, rgba(0,0,0,$o));
   }
