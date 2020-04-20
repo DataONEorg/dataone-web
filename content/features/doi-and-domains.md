@@ -15,13 +15,14 @@ header:
   intro: A custom DOI prefix and domain name for your repository
   buttons:
   - template: button
+    type: internal page
+    internal_link: /features
+    color: secondary
+    text: See all features
+  - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
 page_sections:
 - type: default
   template: section

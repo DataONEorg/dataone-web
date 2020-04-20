@@ -1,7 +1,7 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Customized Search
+title: Customized portal search
 description: Custom search feature for DataONE Plus portals.
 header:
   template: header
@@ -11,19 +11,19 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Customized search
-  intro: Configure search fields to focus discovery on your science topics. Make
-      finding the right content easy for your community of researchers with customized search fields, icons, tab ordering,
-      and field types (text, dropdown, checkbox, look-ahead).
+  title: Search tools designed for your data
+  intro: Make finding the right data easy for your community of researchers with
+         search fields focused on your science topics.
   buttons:
+  - template: button
+    type: internal page
+    internal_link: /features
+    color: secondary
+    text: See all features
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
 page_sections:
 - type: default
   template: section
@@ -35,7 +35,7 @@ page_sections:
     when these services are ready for your organization.
   blocks:
   - template: join-form
-    precheck_hostedrepo: true
-    precheck_plus: false
+    precheck_hostedrepo: false
+    precheck_plus: true
     precheck_newsletter: false
 ---

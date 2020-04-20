@@ -17,30 +17,14 @@ header:
     or just yourself.
   buttons:
   - template: button
+    type: internal page
+    internal_link: /features
+    color: secondary
+    text: See all features
+  - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    title: ''
-    type: ''
 page_sections:
 - type: default
   template: section

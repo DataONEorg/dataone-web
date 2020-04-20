@@ -15,13 +15,14 @@ header:
   intro: Use the scientific file formats for your community - image, tabular, text, audio, video, and others.
   buttons:
   - template: button
+    type: internal page
+    internal_link: /features
+    color: secondary
+    text: See all features
+  - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
 page_sections:
 - type: default
   template: section

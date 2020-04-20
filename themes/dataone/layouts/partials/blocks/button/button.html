@@ -4,6 +4,8 @@
 {{ $bn := "button" }}
 
 <!-- what type of button -->
+<!-- Options:
+     internal page, external page, contact, subscribe form, donate-->
 {{ $type := .Block.type | default "external website" }}
 
 <!-- classes to add to the button based on user choices -->
