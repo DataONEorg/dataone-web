@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                  : &;
+  $bn                           : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix              : "--" + str-replace(#{$bn}, ".");
+  $prefix                       : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,53 +16,90 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  // The font size of the integer that gives the value of the metric
+  #{$prefix}-fs-integer         : var(--fs-xx-large, 2.8rem);
+  // The font size of the name of the metric
+  #{$prefix}-fs-name            : var(--fs-smaller, 0.9rem);
+  // The font size of the "as-of" date
+  #{$prefix}-fine-print         : var(--fs-x-small, 0.8rem);
+  // The default foreground color used for text
+  #{$prefix}-c-foreground       : var(--section-fc-body, black);
+  // The default foreground color used for icons and metric name
+  #{$prefix}-c-foreground-subtle: var(--section-c-foreground-subtle, black);
+  // An alternative foreground color for the metrics in the accent style
+  #{$prefix}-c-accent           : var(--section-c-accent, black);
+  // An alternative foreground color for the icons and metric name in the accent style
+  #{$prefix}-c-accent-subtle    : var(--section-c-accent-subtle, black);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  display              : grid;
-  justify-content      : center;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap             : 3rem 0;
-  padding-top          : 2rem;
+  display                       : grid;
+  justify-content               : center;
+  grid-gap                      : 1.5rem 0;
+  padding-top                   : 2rem;
+  color                         : var(#{$prefix}-c-foreground);
+  grid-template-columns         : 1fr;
+  grid-template-rows            : repeat(3,1fr) auto auto;
 
-  &__group {
-    display              : grid;
-    grid-template-columns: 1fr 1fr;
+  @include desktop {
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows   : 1fr auto auto;
   }
 
   &__metric {
+
+    color     : var(#{$prefix}-c-foreground);
     text-align: center;
+    @include desktop {
+      grid-column: span 2;
+    }
   }
 
   &__integer {
-    font-size : var(--fs-xx-large, 2.8rem);
+    font-size: var(#{$prefix}-fs-integer);
   }
 
   &__name {
-    font-size : var(--fs-smaller, 0.9rem);
-    color     : var(--section-fc-body, black);
-    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-size    : var(#{$prefix}-fs-name);
+    color        : var(#{$prefix}-c-foreground-subtle);
   }
 
   &__icon {
-    stroke      : var(--section-fc-body, black);
     margin-right: 3px;
-    filter: brightness(1.05);
-  }
-}
-
-.metrics--accent {
-  color: var(--section-c-accent, black);
-
-  .metrics__name {
-    color: var(--section-c-accent, black);
+    stroke      : var(#{$prefix}-c-foreground-subtle);
+    filter: brightness(1.03);
   }
 
-  .metrics__icon {
-    stroke: var(--section-c-accent, black);
+  &__as-of-date {
+    @include desktop {
+      grid-column: span 6;
+      text-align : right;
+    }
+    text-align: center;
+    color     : var(#{$prefix}-c-foreground-subtle);
+    font-size : var(#{$prefix}-fine-print);
+    font-style: italic;
+
+    .datetime {
+      font-size : var(#{$prefix}-fine-print);
+      font-style: italic;
+    }
   }
+
+  &__more-metrics-link {
+    @include desktop {
+      grid-column: span 6;
+    }
+    text-align: center;
+  }
+
+  &--accent {
+    #{$prefix}-c-foreground       : var(#{$prefix}-c-accent);
+    #{$prefix}-c-foreground-subtle: var(#{$prefix}-c-accent-subtle);
+  }
+
 }

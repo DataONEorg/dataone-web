@@ -19,7 +19,7 @@ header:
     type: default
 page_sections:
 - template: section
-  type: default
+  background: subtle-emphasis
   blocks:
   - template: metrics
     type: default
@@ -28,6 +28,7 @@ page_sections:
   title: Amplify the products of your research
   blocks:
   - template: checklist
+    num_cols: 2
     items:
     - Reach a wider audience
     - Leverage our infrastructure
