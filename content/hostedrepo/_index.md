@@ -265,6 +265,7 @@ page_sections:
       type: external website
 - template: section
   type: card
+  background: subtle-emphasis
   title: Includes all the DataONE Plus features
   blocks:
   - template: checklist

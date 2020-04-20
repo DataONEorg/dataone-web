@@ -28,11 +28,10 @@
   // height of the header element
   $carousel-header-height       : 17rem;
   $carousel-header-height-mobile: 22rem;
-  width                         : 100%;
   position                      : relative;
   min-width                     : 0; // required to keep inline content from expanding past parent width
-  // hide text meant for screen readers
-  max-width                     : calc(100% - #{.5 * $button-size}); // to keep buttons from expanding past parent width
+  // to keep buttons from expanding past parent width
+  max-width                     : calc(100% - #{$button-size} + (2*#{$lr-padding}));
   margin                        : 0 auto;
   // contains each of the content divs (i.e. each slide)
   &__container {
@@ -41,7 +40,6 @@
     @include card;
     position   : relative;
     padding    : 0;
-    margin     : 0; // so buttons aren't clipped on small screens
   }
   // aka slides, contains the header and main content divs
   &__content {
@@ -106,27 +104,27 @@
 
   &__title {
     grid-area  : title;
-    font-weight : var(--fw-bold, 500);
+    font-weight: var(--fw-bold, 500);
     margin     : 0;
     white-space: normal;
     align-self : end;
-    font-size : var(--fs-larger, 1.48rem);
+    font-size  : var(--fs-larger, 1.48rem);
     @include desktop {
-      font-size : var(--fs-x-large, 1.75rem);
+      font-size: var(--fs-x-large, 1.75rem);
     }
   }
 
   &__subtitle {
     grid-area  : subtitle;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1.1rem);
     line-height: 1.4;
-    font-weight : var(--fw-light, 300);
+    font-weight: var(--fw-light, 300);
     margin     : 0;
     white-space: normal;
     height     : 100%;
     @include desktop {
       padding-top: 1rem;
-      font-size : var(--fs-medium, 1.1rem);
+      font-size  : var(--fs-medium, 1.1rem);
     }
   }
 

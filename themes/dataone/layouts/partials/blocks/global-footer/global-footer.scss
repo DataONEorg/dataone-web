@@ -27,14 +27,15 @@
   --section-c-accent-very-subtle: var(--c-minor-accent-on-very-subtle-always-dark);
 
   @include f-common;
-  margin                        : 0;
-  @include f-common;
+
+  // so that newsletter is stacked above svg bkg
+  //(positioned elements will display on top of unpositioned elements)
   position                      : relative;
+  margin                        : 0;
   padding-top                   : 12rem;
   margin-top                    : -15rem;
   overflow                      : hidden;
-  position                      : relative; // so that newsletter is stacked above svg bkg
-  //(positioned elements will display on top of unpositioned elements)
+
   &__content {
     @include limit-width;
     padding              : 3rem $lr-padding;
@@ -154,7 +155,7 @@
   &__name {
     margin-top    : 1.05rem;
     color         : var(--section-fc-body, grey);
-    font-size     : var(--fs-small, 1rem);
+    font-size     : 1rem;
     font-weight   : var(--fw-light, 300);
     letter-spacing: .42px;
     line-height   : 21px;

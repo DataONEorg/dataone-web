@@ -38,17 +38,17 @@ $cn-red: #F57065;
   //
   // Font sizes (responsive)
   // ==========================================================================
-  @include rfs(.8rem, --fs-smallest);
-  @include rfs(.85rem, --fs-x-small);
-  @include rfs(.9rem, --fs-smaller);
-  @include rfs(1rem, --fs-small);
-  @include rfs(1.1rem, --fs-medium);
-  @include rfs(1.25rem, --fs-large);
-  @include rfs(1.48rem, --fs-larger);
-  @include rfs(1.75rem, --fs-x-large);
-  @include rfs(2.6rem, --fs-xx-large);
-  @include rfs(3.0rem, --fs-xxx-large);
-  @include rfs(3.2rem, --fs-largest);
+  @include rfs(.7rem, --fs-smallest);
+  @include rfs(.75rem, --fs-x-small);
+  @include rfs(.8rem, --fs-smaller);
+  @include rfs(.85rem, --fs-small);
+  @include rfs(1rem, --fs-medium);
+  @include rfs(1.2rem, --fs-large);
+  @include rfs(1.2rem, --fs-larger);
+  @include rfs(1.45rem, --fs-x-large);
+  @include rfs(1.9rem, --fs-xx-large);
+  @include rfs(2.3rem, --fs-xxx-large);
+  @include rfs(2.7rem, --fs-largest);
 
   //
   // Font weights

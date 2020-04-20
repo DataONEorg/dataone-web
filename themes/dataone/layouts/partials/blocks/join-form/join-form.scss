@@ -85,8 +85,8 @@
 
   .label-description {
     display    : inline-block;
-    font-size  : var(--fs-medium, 1.1rem);
-    line-height: 1.2em;
+    font-size  : var(--fs-large, 1.1rem);
+    line-height: 1;
     color      : var(--section-fc-body, gray);
   }
 
@@ -100,9 +100,10 @@
   }
 
   input[type="checkbox"] + .label-description {
-    display : block;
-    position: relative;
-    padding : 0 1.5rem;
+    display    : flex;
+    align-items: center;
+    position   : relative;
+    padding    : 0 1.5rem;
   }
 
   input[type="checkbox"] + .label-description::before {

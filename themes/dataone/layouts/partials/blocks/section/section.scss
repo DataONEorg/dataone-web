@@ -39,11 +39,10 @@
 
   // Positioning
   position                       : relative;
-  z-index                        : 0;
   // Display
   max-width                      : 100vw;
   width                          : 100%;
-  overflow                       : hidden;
+  // overflow                       : hidden;
   // Colour
   background-color               : var(#{$prefix}-c-background);
   color                          : var(#{$prefix}-fc-body);
@@ -55,7 +54,7 @@
     justify-self: center;
     width       : 100%;
     @include limit-width;
-    padding     : 6rem $lr-padding; // top, bottom padding
+    padding     : 3.5rem $lr-padding; // top, bottom padding
   }
 
   // An icon that represents the section contents
@@ -73,7 +72,7 @@
     text-align : center;
     line-height: 1.5;
     width      : 100%;
-    margin     : 2rem auto .9rem;
+    margin     : 2rem auto 1.1rem;
     font-size  : var(#{$prefix}-fs-title);
     color      : var(#{$prefix}-fc-title);
     font-family: var(#{$prefix}-ff-title);
@@ -82,7 +81,7 @@
 
   // Text that introduces the section.
   &__intro {
-    margin     : 0 auto 2rem;
+    margin     : 0 auto 2.5rem;
     max-width  : 55rem;
     line-height: 1.5;
     font-size  : var(#{$prefix}-fs-intro);
@@ -92,15 +91,15 @@
   // The container for all sub-blocks.
   &__blocks {
     display       : grid;
-    grid-gap      : 2rem;
+    grid-gap      : 1.8rem;
     grid-auto-rows: min-content;
-    padding-top   : 1rem;
+    padding-top   : .8rem;
   }
 
   // Button at the end of section, positioning only.
   // The rest is styled by button component.
   &__button {
-    margin: 3rem auto 0;
+    margin: 2.5rem auto 1rem;
   }
 
   // ==========================================================================
@@ -140,7 +139,7 @@
       text-shadow        : .01em .01em .05em var(#{$prefix}-c-shadow-1);
 
       #{$bn}__inner {
-        padding-top: 6.5rem;
+        padding-top: 4rem;
       }
     }
   }
@@ -218,18 +217,18 @@
   // ==========================================================================
 
   &--card {
-    padding-top   : 2rem;
-    padding-bottom: 2rem;
+    padding-top   : 5rem;
+    padding-bottom: 5rem;
 
     #{$bn}__inner {
       @include card;
-      background-color: var(#{$prefix}-c-background-lighter);
       @include limit-width;
-      margin          : 5rem $lr-padding;
-      padding-bottom  : 2rem;
+      background-color: var(#{$prefix}-c-background-lighter);
+      margin          : 0 $lr-padding;
+      padding-bottom  : 3rem;
       @include desktop {
-        margin : 6rem auto;
-        padding: 5rem 3.5rem;
+        margin : 0 auto;
+        padding: 2rem 3rem 3rem;
         width  : 95%;
       }
     }
