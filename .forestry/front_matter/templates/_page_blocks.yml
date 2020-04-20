@@ -57,11 +57,10 @@ fields:
     labelField: title
 pages:
 - content/about/contact.md
-- content/features/API.md
+- content/features/developer-tools.md
 - content/features/access.md
 - content/features/any-file-format.md
 - content/features/custom-search.md
-- content/features/fair-for-portals.md
 - content/features/fair.md
 - content/features/portal-editor.md
 - content/features/provenance.md
