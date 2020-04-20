@@ -1,11 +1,11 @@
 {{- define "main" -}}
-
+  {{ $page:= $ }}
   {{ $headline := .Params.headline | default "The Latest from DataONE" }}
   {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "bkg_color" "default") "Page" $)}}
 
   {{- range .Params.page_sections -}}
     {{ $template := .template | default "section" }}
-    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $page $) }}
   {{- end -}}
 
   {{ $subblocks := slice }}
@@ -32,8 +32,11 @@
     {{ $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) }}
   {{ end }}
 
-  {{ $sectionBlock := dict "blocks" $subblocks }}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
+  {{ $pastNewsLink := printf "%s/news" $page.Site.Params.links.old_website }}
+  {{ $buttonBlock := dict "template" "button" "text" "See all news" "type" "external website" "color" "secondary" "external_link" $pastNewsLink }}
+
+  {{ $sectionBlock := dict "blocks" $subblocks "button" $buttonBlock }}
+  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )  }}
 
   <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 

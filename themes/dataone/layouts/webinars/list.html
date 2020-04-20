@@ -1,14 +1,14 @@
 {{- define "main" -}}
-
+  {{ $page := $ }}
   {{ with .Params.header }}
     {{ if .template }}
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
+      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     {{ end }}
   {{ end }}
 
   {{- range .Params.page_sections -}}
     {{ if .template }}
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $) }}
+      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     {{ end }}
   {{- end -}}
 
@@ -22,8 +22,10 @@
     {{ $webinarBlocks = $webinarBlocks | append $webinarBlock }}
   {{- end -}}
 
-  {{ $columnsBlock := (dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks) }}
-  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) }}
+  {{ $pastWebinarsLink := printf "%s/previous-webinars" $page.Site.Params.links.old_website }}
+  {{ $buttonBlock := dict "text" "See past webinars" "type" "external website" "color" "secondary" "external_link" $pastWebinarsLink }}
+  {{ $columnsBlock := dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks }}
+  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) "button" $buttonBlock }}
 
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
 

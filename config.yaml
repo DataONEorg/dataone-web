@@ -34,6 +34,7 @@ params:
     contact: "/contact/"
     donate: https://giving.ucsb.edu/Funds/Give?id=353
     signin: https://search.dataone.org/signin
+    old_website: https://www.dataone.org
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 699

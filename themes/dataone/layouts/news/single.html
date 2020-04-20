@@ -9,10 +9,11 @@
   {{ $headerBlock := dict "title" .Params.headline "type" "text only" "modifiers" (slice "has-breadcrumb") "bkg_color" "default" }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
 
+  <!-- News -->
   {{ $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold"}}
 
   {{ $markdownBlock := dict "template" "markdown" "content" .Content "pre_rendered" true }}
-  {{ $sectionBlock := dict "blocks" (slice $dateBlock $markdownBlock)}}
+  {{ $sectionBlock := dict "blocks" (slice $dateBlock $markdownBlock) }}
   {{ partial "blocks/section/section"  (dict "Block" $sectionBlock "Page" $) }}
 
 {{- end -}}
