@@ -1,8 +1,9 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: FAIR Data
-description: FAIR metadata reports for DataONE Plus portals and hosted repositories.
+title: DataONE Developer Tools
+description: Programmatically work with your repository through the DataONE
+    tools in R, Python, Matlab, and Java. REST API. Open source software.
 header:
   template: header
   type: text only
@@ -11,20 +12,19 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: FAIR Data
-  intro: Help your community improve data discovery, accessibility, interoperability,
-      and reuse with quantitative metadata quality assessment using the FAIR principles.
-      Reports for individual datasets, portal collections, and/or your entire repository
-      are available.
+  title: API access
+  intro: Programmatically work with your repository through the DataONE
+      tools in R, Python, Matlab, and Java.
   buttons:
+  - template: button
+    type: internal page
+    internal_link: /features
+    color: secondary
+    text: See all features
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
 page_sections:
 - type: default
   template: section
