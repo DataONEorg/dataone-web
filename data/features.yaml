@@ -8,7 +8,7 @@ features:
   hostedrepo: true
 - name: Cross-repository search
   description: Find common data in all participating repositories
-  link: /features/search
+  link:
   free: true
   plus: true
   hostedrepo: true
@@ -74,7 +74,7 @@ features:
   hostedrepo: true
 - name: Online portal editor
   description: Pick datasets, add and reorder pages, and upload images in minutes
-  link: /features/portal-editor
+  link:
   free: false
   plus: true
   hostedrepo: true
@@ -92,55 +92,61 @@ features:
   hostedrepo: true
 - name: Contact support
   description: Institutional subscribers can directly contact our staff
-  link: /features/support
-  free: false
-  plus: true
-  hostedrepo: true
-- name: Scaled submissions
-  description: Subscribbe as an individual lab, small, medium, or large institution with services scaled to size
   link:
   free: false
   plus: true
   hostedrepo: true
+- name: Scaled subscriptions
+  description: Subscribe as an individual lab, small, medium, or large institution with services scaled to size
+  link:
+  free: false
+  plus: true
+  hostedrepo: true
+- name: Powerful online dataset submission
+  description: Easily create and submit interoperable, detailed metadata to your repository
+  link:
+  free: false
+  plus: false
+  hostedrepo: true
 - name: Repository search
   description: Search your repository by numerous properties including space, time, taxa, authors, and others
-  link: /features/search
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Geographic replicas
   description: Your datasets are replicated to DataONE repositories across the US
-  link: /features/replicas
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Custom DOI prefix
   description: A DOI prefix is configured exclusively for your datasets, products, and code
-  link: /features/doi-and-domains
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Custom domain name
   description: Your repository is available at a domain of your choice, but hosted by DataONE
-  link: /features/doi-and-domains
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Provenance tracking
   description: Relate data inputs, processing scripts, and outputs into understandable science workflows
-  link: /features/provenance
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Access control
   description: Manage access to your data with rules and groups you define
-  link: /features/access
+  link:
   free: false
   plus: false
   hostedrepo: true
 - name: Server resources
   description: Repositories start with 1 TB of storage, expandable by the TB to match your needs
-  link: /features/storage
+  link:
   free: false
   plus: false
   hostedrepo: true
