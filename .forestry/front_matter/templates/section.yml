@@ -21,7 +21,6 @@ fields:
     - default
     - card
     - split
-  default: default
 - type: select
   label: Background style
   name: background
@@ -42,7 +41,8 @@ fields:
 - type: select
   label: Background style for second half of section
   name: background2
-  description: The background color, style, or image to use for the second half of the split section
+  description: The background color, style, or image to use for the second half of
+    the split section
   default: default
   showOnly:
     field: type

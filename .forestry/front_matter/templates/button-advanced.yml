@@ -8,7 +8,8 @@ fields:
   config: {}
   template: button
   label: Standard button options
-  description: All of the standard button options. These are the options that content editors are most likely to need.
+  description: All of the standard button options. These are the options that content
+    editors are most likely to need.
 - type: select
   name: html_tag
   label: HTML Tag

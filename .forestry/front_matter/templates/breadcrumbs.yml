@@ -11,7 +11,8 @@ fields:
 - type: text
   name: back_text
   label: Go back display text
-  description: The text to display to indicate that the link goes back to the parent section content
+  description: The text to display to indicate that the link goes back to the parent
+    section content
   default: Back
 - type: text
   name: back_link

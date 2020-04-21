@@ -12,21 +12,93 @@ header:
     style: secondary
     text: Coming soon
   title: Search tools designed for your data
-  intro: Make finding the right data easy for your community of researchers with
-         search fields focused on your science topics.
+  intro: Make finding the right data easy for your community of researchers with search
+    fields focused on your science topics.
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: "/features"
     color: secondary
     text: See all features
+    external_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    type: ''
 page_sections:
+- template: ''
+  type: ''
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  title: ''
+  intro: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
 - type: default
   template: section
+  background: default
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  title: ''
+  intro: ''
+  blocks:
+  - template: markdown
+    content: Custom search
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
 - template: section
   background: major-accent-color
   title: Interested in a DataONE Plus portal?
@@ -38,4 +110,28 @@ page_sections:
     precheck_hostedrepo: false
     precheck_plus: true
     precheck_newsletter: false
+    newsletter_only: false
+  type: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+theme: ''
+
 ---
