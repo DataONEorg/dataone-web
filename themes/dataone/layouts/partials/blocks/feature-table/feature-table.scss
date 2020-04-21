@@ -32,8 +32,11 @@
     font-weight: normal;
   }
 
-  .feature-table-icon .icon {
-    margin: auto;
+  .feature-table-icon {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    stroke         : var(--section-c-accent);
   }
 
   .feature-table-category {
