@@ -2,7 +2,7 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: FAIR Metadata Assessments
-description:
+description: ''
 header:
   template: header
   type: text only
@@ -68,6 +68,43 @@ page_sections:
       end dates, data attributes, or publication date (among many more). \n\nAt a
       glance, see how each dataset scores in terms of identification, discoverability,
       and ease of interpretation by viewing the total score for checks in that category."
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+- title: Quantify your metadata improvement efforts
+  blocks:
+  - template: markdown
+    content: |-
+      \- Aggregated FAIR score charts show how your FAIR scores have changed month-to-month, so you can quantify your metadata improvement efforts.
+
+      \- Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
+
+      (show screenshot of aggregated FAIR chart next to those two bullets)
+
+      \*Plus subscribers:* A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
+
+      \*Hosted Repositories:* Each Hosted Repository includes a FAIR scores chart for the entire repository holdings.
+  template: ''
+  type: ''
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  intro: ''
   button:
     template: ''
     type: ''
