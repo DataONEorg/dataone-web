@@ -7,7 +7,7 @@ draft: true
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   title: Open source tools from DataONE
   intro: ''
   buttons: []

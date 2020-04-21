@@ -7,7 +7,7 @@ draft: true
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   title: Documentation
   intro: Detailed how-tos for all DataONE products
   buttons: []

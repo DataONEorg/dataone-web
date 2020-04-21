@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn    : &;
+  $bn                            : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix: "--" + str-replace(#{$bn}, ".");
+  $prefix                        : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,6 +16,40 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
+  //
+  // Defaults
+  // ==========================================================================
+
+  // Color for text, icons, etc.
+  #{$prefix}-c-foreground-default: var(--c-neutral-5, black);
+  // Font size of the title
+  #{$prefix}-fs-title            : var(--fs-large, 1.25rem);
+  // Font weight for the title element
+  #{$prefix}-fw-title            : var(--fw-normal, 400);
+  // Font-size for the headline
+  #{$prefix}-fs-headline         : var(--fs-largest, 2.8rem);
+  // Font color for the headline
+  #{$prefix}-fc-headline         : var(--c-neutral-7, black);
+  // Font family for the headline 
+  #{$prefix}-ff-headline         : var(--ff-title, 'Serif');
+  // Font weight for the headline
+  #{$prefix}-fw-headline         : var(--fw-xx-bold, 900);
+  // Font size for the intro text
+  #{$prefix}-fs-intro            : var(--fs-larger, 1.48rem);
+  // Font size for the intro text
+  #{$prefix}-fw-intro            : var(--fw-normal, 400);
+
+  //
+  // For modified versions of the header
+  // ==========================================================================
+
+  // Shadow behind text on headers with imagery on background
+  #{$prefix}-c-text-shadow       : var(--c-shadow-5-on-default, rgba(0,0,0,0.8));
+  // Bolder font-weight to use on titles that have imagery on background
+  #{$prefix}-fw-bolder           : var(--fw-bold, 500);
+  // Used for over lay effects
+  #{$prefix}-accent              : var(--c-major-accent-6, grey);
+  //
   // #{$prefix}- : var( , );
 
   // ==========================================================================
@@ -23,12 +57,12 @@
   // ==========================================================================
 
   @include f-common;
-  // z-max reserved for global header, which must be above all else on mobile.
-  padding: 5rem 0;
-  color  : var(--c-neutral-6);
+  position                       : relative;
+  padding                        : 5rem 0;
+  color                          : var(#{$prefix}-c-foreground-default);
   @include desktop {
-    margin-top : -$nav-height;
-    padding-top: calc(6rem + 2 * #{$nav-height});
+    margin-top : $nav-height;
+    padding-top: 5rem;
   }
 
   &__content {
@@ -39,21 +73,21 @@
     @include desktop {
       display              : grid;
       grid-template-columns: .57fr .43fr;
-      grid-gap             : 0 1.5rem;
+      grid-gap             : 0 1.4rem;
     }
   }
 
   &__text {
-    text-align           : center;
-    min-height           : fit-content;
     display              : grid;
-    grid-auto-rows       : max-content;
-    justify-content      : center;
-    grid-gap             : 2rem;
-    width                : 100%;
-    align-content        : center;
-    grid-auto-flow       : rows;
     grid-template-columns: 100%;
+    grid-auto-rows       : max-content;
+    grid-auto-flow       : rows;
+    justify-content      : center;
+    text-align           : center;
+    align-content        : center;
+    min-height           : fit-content;
+    grid-gap             : 1.8rem;
+    width                : 100%;
     @include desktop {
       text-align     : left;
       justify-content: left;
@@ -61,7 +95,6 @@
   }
 
   &__title-and-pill {
-    // width                : 100%;
     display        : flex;
     flex-direction : row;
     flex-wrap      : wrap;
@@ -73,27 +106,28 @@
 
   &__title {
     display       : block;
-    font-size     : var(--fs-large, 1.25rem);
+    font-size     : var(#{$prefix}-fs-title);
+    font-weight   : var(#{$prefix}-fw-title);
     text-transform: uppercase;
     letter-spacing: .05em;
     margin        : 0 .8rem 1rem 0;
   }
 
   &__headline {
+    font-size     : var(#{$prefix}-fs-headline);
+    color         : var(#{$prefix}-fc-headline);
+    font-family   : var(#{$prefix}-ff-headline);
+    font-weight   : var(#{$prefix}-fw-headline);
     margin-top    : 1rem;
     margin-bottom : .5rem;
-    font-size     : var(--fs-largest, 2.8rem);
-    color         : var(--c-neutral-7);
-    font-family   : 'Martel';
-    font-weight   : var(--fw-xx-bold, 900);
     letter-spacing: -.006em;
     line-height   : 1.3;
   }
 
   &__intro {
-    font-size  : var(--fs-larger, 1.48rem);
+    font-size  : var(#{$prefix}-fs-intro);
+    font-weight: var(#{$prefix}-fw-intro);
     line-height: 1.6;
-    font-weight: var(--fw-normal, 400);
   }
 
   &__buttons {
@@ -119,288 +153,264 @@
     justify-content: center;
   }
 
+  // ==========================================================================
+  // Modified headers
+  // ==========================================================================
+
+  //
+  // Has breadcrumb: For headers on pages where the navigation includes
+  //  breadcrumb block
+  // ==========================================================================
+
   &--has-breadcrumb {
     @include desktop {
       margin-top : -$nav-height - 3rem;
-      padding-top: calc(2rem + 2 * 7rem);
-    }
-  }
-}
-// ===== text centered, no image ======
-
-.header--text-only {
-  .header__content {
-    display: block;
-  }
-
-  .header__text {
-    text-align     : center;
-    justify-content: center;
-    @include desktop {
-      text-align: center;
+      padding-top: calc(2 * #{$nav-height} + 2rem);
     }
   }
 
-  .header__title-and-pill {
-    justify-content: center;
-  }
+  //
+  // Text only: Headers with text only, no image or other elements
+  // ==========================================================================
 
-  .header__title {
-    margin: 0 .8rem 1rem;
-  }
+  &--text-only {
+    #{$bn}__content {
+      display: block;
+    }
 
-  .header__buttons {
-    justify-content: center;
-  }
-}
-// A large, centered image below the text
+    #{$bn}__text {
+      text-align     : center;
+      justify-content: center;
+      @include desktop {
+        text-align: center;
+      }
+    }
 
-.header--center-image {
-  overflow : hidden;
-  max-width: 100vw;
-  @extend .header--text-only;
-  grid-gap : 1.5rem;
+    #{$bn}__title-and-pill {
+      justify-content: center;
+    }
 
-  .header__text {
-    margin-bottom: 1rem;
-  }
+    #{$bn}__title {
+      margin: 0 .8rem 1rem;
+    }
 
-  .header__figure {
-    width      : 118%;
-    margin-left: -9%;
-  }
-}
-// ========================================================
-// === GENERAL STYLES ===
-
-.header--svg-background {
-  position     : relative;
-  margin-bottom: -150px;
-  width        : 100%;
-  overflow     : hidden;
-
-  +.section {
-    padding-top: 200px;
-  }
-
-  .header__svg-background {
-    position       : absolute;
-    top            : 0;
-    left           : 0;
-    height         : 100%;
-    width          : 100%;
-    overflow       : hidden;
-    display        : flex;
-    justify-content: center;
-
-    svg {
-      height     : 100%;
-      width      : auto;
-      flex-shrink: 0;
+    #{$bn}__buttons {
+      justify-content: center;
     }
   }
 
-  .header__text {
-    position      : relative;
-    padding-bottom: 9rem;
-  }
+  //
+  //  Center image: A large image centered below the title and intro text
+  // ==========================================================================
 
-  .header__headline {
-    // font-size : var(--fs-x-large, 1.75rem);
-    @include desktop {
-      // font-size : var(--fs-x-large, 1.75rem);
+  &--center-image {
+    overflow : hidden;
+    max-width: 100vw;
+    @extend .header--text-only;
+    grid-gap : 1.5rem;
+
+    #{$bn}__text {
+      margin-bottom: 1rem;
+    }
+
+    #{$bn}__figure {
+      width      : 118%;
+      margin-left: -9%;
     }
   }
 
-  .header__intro {
-    font-size     : var(--fs-small, 1rem);
-    letter-spacing: -0.003em;
-    line-height   : 1.5;
-    font-weight   : var(--fw-light, 300);
-    @include desktop {
-      font-size: var(--fs-large, 1.22rem);
+  //
+  // Svg background: A style to extend for any headers that use specific SVGs 
+  //  as background imagery
+  // ==========================================================================
+
+  &--svg-background {
+    $header-section-overlap: 20rem;
+
+    position               : relative;
+    margin-bottom          : -$header-section-overlap;
+    width                  : 100%;
+    overflow               : hidden;
+
+    +.section {
+      padding-top: $header-section-overlap;
+    }
+
+    #{$bn}__svg-background {
+      position       : absolute;
+      top            : 0;
+      left           : 0;
+      display        : flex;
+      height         : 100%;
+      width          : 100%;
+      overflow       : hidden;
+      justify-content: center;
+
+      svg {
+        height     : 100%;
+        width      : auto;
+        flex-shrink: 0;
+      }
+    }
+
+    #{$bn}__text {
+      position      : relative;
+      padding-bottom: 9rem;
+    }
+
+    #{$bn}__content {
+      position: relative;
+      margin  : 0 auto;
     }
   }
 
-  .header__content {
-    position: relative;
-    margin  : 0 auto;
-    @include desktop {
-      // grid-template-columns: 1fr 1fr;
+  //
+  // Hero image: Background with a hero image
+  // ==========================================================================
+
+  &--hero-image {
+    #{$prefix}-fw-intro: var(#{$prefix}-fw-bolder);
+    #{$prefix}-fw-title: var(#{$prefix}-fw-bolder);
+    @extend #{$bn}--text-only;
+    @include bkg-img;
+    position           : relative;
+
+    &::before {
+      content        : '';
+      background     : var(--background-image);
+      background-size: cover;
+      position       : absolute;
+      top            : 0;
+      left           : 0;
+      height         : 100%;
+      width          : 100%;
+      z-index        : -1;
+      overflow       : hidden;
+    }
+
+  }
+
+  //
+  // Overlay effects for hero image headers
+  // ==========================================================================
+
+  &--overlay-major-accent-color {
+    @extend #{$bn}--dark-bkg;
+
+    &::before {
+      background           : linear-gradient(var(#{$prefix}-accent) 0%,var(#{$prefix}-accent) 100%), linear-gradient(to right, var(#{$prefix}-accent) 0%, var(#{$prefix}-accent) 90%), var(--background-image);
+      background-blend-mode: screen, difference, lighten;
+      background-size      : cover;
+    }
+    text-shadow: 0 0 2em var(#{$prefix}-accent), 0 0 1em var(#{$prefix}-accent), 0 0 .2em var(#{$prefix}-accent);
+  }
+
+  //
+  // Dark background: A style to extend for headers with dark backgrounds,
+  //  where the text should be lighter
+  // ==========================================================================
+
+  &--dark-bkg {
+    #{$bn}__headline {
+      color: var(--c-neutral-1);
+    }
+
+    #{$bn}__intro {
+      color: var(--c-neutral-1);
+    }
+
+    #{$bn}__title {
+      color: var(--c-neutral-2);
     }
   }
-}
-// === SVG IMAGE ===
 
-.header--svg-image {
-  overflow: hidden;
+  //
+  // Wave with dataone gradient: An SVG background that uses the DataONE brand
+  //  gradient, and a wave shape at the bottom
+  // ==========================================================================
 
-  .header__headline {
-    // font-size : var(--fs-x-large, 1.75rem);
-    @include desktop {
-      // font-size : var(--fs-x-large, 1.75rem);
-    }
-  }
-
-  .header__intro {
-    font-size     : var(--fs-small, 1rem);
-    letter-spacing: -0.003em;
-    line-height   : 1.5;
-    font-weight   : var(--fw-light, 300);
-    @include desktop {
-      font-size: var(--fs-large, 1.22rem);
-    }
-  }
-
-  .header__svg-figure {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-  }
-
-  .header__svg-figure svg {
-    margin-top : 2rem;
-    margin-left: -15%;
-    width      : 130%;
-    flex       : 0 0 auto;
-    height     : auto;
-    @include desktop {
-      width       : 150%;
-      margin-right: -12rem;
-      margin-left : 0;
-      max-width   : 754px;
-    }
-  }
-}
-
-.header--hero-image {
-  @extend .header--text-only;
-  @include bkg-img;
-  position: relative;
-  // min-height: 500px;
-  .header__headline,
-  .header__intro,
-  .header__title {
-    text-shadow: .01em .01em 1.5em rgba(255, 255, 255, 1);
-  }
-
-  .header__title {
-    font-weight: var(--fw-bold, 500);
-  }
-}
-// 
-// when the background is dark, the text needs to be lighter
-
-.header--dark-bkg {
-  .header__headline {
-    color      : var(--c-neutral-1);
-    text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.1);
-  }
-
-  .header__intro {
-    color      : var(--c-neutral-1);
+  &--wave-with-dataone-gradient {
+    @extend .header--svg-background;
+    @extend .header--text-only;
+    @extend .header--dark-bkg;
+    // TODO
     text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.3);
   }
 
-  .header__title {
-    color: var(--c-neutral-2);
-  }
-}
-// 
-// ========= SPECIFIC STYLES ===========
-// 
-// WAVE WITH DATAONE GRADIENT (e.g. about page)
+  //
+  // Hosted repository: Uses a specific SVG background that illustrates a person
+  //  accessing a database
+  // ==========================================================================
 
-.header--wave-with-dataone-gradient {
-  @extend .header--svg-background;
-  @extend .header--text-only;
-  @extend .header--dark-bkg;
-}
-// HOSTED REPO
-// hosted repository svg uses absolute sizing so that the svg is displayed correctly behind content
+  &--hosted-repository {
+    @extend .header--svg-background;
+    padding-bottom: 600px;
+    margin-bottom : -550px;
+    @include desktop {
+      padding-bottom: 100px;
+      margin-bottom : -450px;
+      min-height    : 900px;
+    }
 
-.header--hosted-repository {
-  @extend .header--svg-background;
-  padding-bottom: 600px;
-  margin-bottom : -550px;
-  @include desktop {
-    padding-bottom: 100px;
-    margin-bottom : -310px;
-    min-height    : 1020px;
-  }
+    +.section {
+      padding-top: 320px;
+    }
 
-  +.section {
-    padding-top: 320px;
-  }
+    #{$bn}__svg-background {
+      svg {
+        margin-right: 320px;
+        height      : 100%;
+        width       : auto;
+        margin-top  : -219px;
+        @include desktop {
+          margin-top  : calc(-850px - #{$nav-height});
+          height      : 190%;
+          margin-right: -147px;
+        }
+      }
+    }
+    // animage the svg line
+    .animated-line {
+      animation: dash 200s linear alternate infinite;
+      @include low-motion;
+    }
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 0;
+      }
 
-  .header__svg-background {
-    svg {
-      margin-right: 320px;
-      height      : 100%;
-      width       : auto;
-      margin-top  : -219px;
-      @include desktop {
-        margin-top  : calc(-850px - #{$nav-height});
-        height      : 190%;
-        margin-right: -147px;
+      to {
+        stroke-dashoffset: 1000;
       }
     }
   }
-  // animage the svg line
-  .animated-line {
-    animation: dash 200s linear alternate infinite;
-    @include low-motion;
+
+  // ==========================================================================
+  //  Background colours
+  // ==========================================================================
+
+  &--col-default {
+    background-color: var(--c-neutral-1);
   }
-  @keyframes dash {
-    from {
-      stroke-dashoffset: 0;
+
+  &--col-secondary {
+    @extend #{$bn}--dark-bkg;
+    background-color: var(--c-major-accent-5);
+
+    #{$bn}__title {
+      color: var(--c-major-accent-1);
     }
+  }
 
-    to {
-      stroke-dashoffset: 1000;
+  &--col-half-light-half-transparent {
+    $header-section-overlap: 40rem;
+    background-color       : transparent;
+    background-image       : linear-gradient(180deg, var(--c-major-accent-1) -10%, var(--c-major-accent-2) 20%, var(--c-major-accent-2) 50%, var(--c-major-accent-2) 70%, transparent 70%, transparent 100%);
+    margin-bottom          : -$header-section-overlap;
+
+    + .section {
+      padding-top: $header-section-overlap;
     }
   }
-}
-// 
-// DATAONE PLUS
 
-.header--dataone-plus {
-  @extend .header--svg-image;
-}
-// ========================================================
-// === HEADER BACKGROUND COLOURS ===
-// 
-
-.header--col-default {
-  background-color: var(--c-neutral-1);
-}
-// TODO: to fix:
-
-.header--col-secondary {
-  @extend .header--dark-bkg;
-  background-color: var(--c-major-accent-5);
-
-  .header__title {
-    color: var(--c-major-accent-1);
-  }
-}
-
-.header--col-secondary-dark {
-  @extend .header--dark-bkg;
-
-  .header__title {
-    font-weight: var(--fw-bold, 500);
-  }
-  background-color: var(--c-major-accent-5);
-  background-image: linear-gradient(12deg, var(--c-major-accent-6) -10%, var(--c-major-accent-5) 40%, var(--c-major-accent-5) 50%, var(--c-major-accent-5) 60%, var(--c-major-accent-6) 100%);
-}
-// ========================================================
-// Styles for pages with a theme class
-// TODO
-.theme-quaternary {
-  .header {
-    background-color: transparent;
-    background-image: linear-gradient(180deg, var(--c-major-accent-1) -10%, var(--c-major-accent-2) 20%, var(--c-major-accent-2) 50%, var(--c-major-accent-2) 70%, transparent 70%, transparent 100%);
-
-  }
 }

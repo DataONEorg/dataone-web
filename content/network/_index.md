@@ -13,7 +13,7 @@ header:
     with DataONE and in return, we facilitate user access to data and interoperability
     between members."
   image:
-    src: uploads/duotone-network.jpg
+    src: uploads/hero_images/duotone-network.jpg
     template: image
     alttext: Network background
     type: default

@@ -6,7 +6,7 @@ description: Pick datasets, add and reorder pages, and upload images in minutes
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

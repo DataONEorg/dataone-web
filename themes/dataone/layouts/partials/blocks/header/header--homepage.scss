@@ -26,7 +26,8 @@
   @include f-common;
 
   // TODO: header--homepage needs to be below header classes in final styles sheet.
-  padding-top   : calc(2 * #{$nav-height}) !important;
+  // Then we can get rid of the "importants"
+
   padding-bottom: 7rem !important;
   @include bkg-img;
 
@@ -49,7 +50,7 @@
   }
 
   .header__content {
-    margin-top           : 0;
+    margin-top           : 0 !important;
     display              : grid;
     grid-template-columns: 1fr;
     grid-template-rows   : .5fr .5fr;

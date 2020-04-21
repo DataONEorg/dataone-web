@@ -6,7 +6,7 @@ description: Customize your portal with colors, logos, and images
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

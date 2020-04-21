@@ -11,7 +11,7 @@ header:
     organization wishing to join our network to do so. Get in touch to start the onboarding
     process, or to find out more.
   image:
-    src: uploads/duotone-network.jpg
+    src: uploads/hero_images/duotone-network.jpg
     template: image
     alttext: Network background
     type: default

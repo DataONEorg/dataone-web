@@ -6,7 +6,7 @@ description: Your portal pages can include visualizations of your research, a li
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

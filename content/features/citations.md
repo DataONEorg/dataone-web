@@ -6,7 +6,7 @@ description: Find out who is citing your data, and see citation trends over time
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

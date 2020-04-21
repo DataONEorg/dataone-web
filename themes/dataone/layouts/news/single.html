@@ -6,7 +6,7 @@
   {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
 
   <!-- Header -->
-  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "modifiers" (slice "has-breadcrumb") "bkg_color" "default" }}
+  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "modifiers" (slice "has-breadcrumb") "background_color" "default" }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
 
   <!-- News -->

@@ -9,6 +9,7 @@ theme: quaternary
 header:
   template: header
   type: center image
+  background_color: half light half transparent
   pill:
     template: pill
     style: quaternary

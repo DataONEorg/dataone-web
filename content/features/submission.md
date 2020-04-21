@@ -8,7 +8,7 @@ description: The user-friendly data submission tool helps your researchers effic
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

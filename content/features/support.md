@@ -7,7 +7,7 @@ description: Institutional subscriptions include direct contact with our staff
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

@@ -26,7 +26,7 @@ fields:
   default: text only
 - type: select
   label: Background color
-  name: bkg_color
+  name: background_color
   description: The background color to use for header with the style 'image on right',
     and 'text only'. Also determines the text color.
   config:
@@ -34,7 +34,8 @@ fields:
       type: simple
     options:
     - default
-    - secondary-dark
+    - secondary
+    - half light half transparent
 - name: image
   type: field_group
   config: {}

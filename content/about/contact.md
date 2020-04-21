@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: text only
-  bkg_color: secondary-dark
+  background_color: secondary
   title: Get in touch
   intro: We're here to help and answer any question you might have. We look forward
     to hearing from you!
