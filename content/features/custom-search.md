@@ -85,7 +85,9 @@ page_sections:
   intro: b
   blocks:
   - template: markdown
-    content: Custom search
+    content: "Choose from six varieties of search filters for researchers to use on
+      your portal:\n\n* Free-text  \n* Dropdown menu \n* Toggle \n* Checkbox\n* Date
+      \n* Number"
   button:
     template: ''
     type: ''
