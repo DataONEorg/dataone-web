@@ -30,6 +30,10 @@
   {{ $classes = print $classes " " $bn "--newsletter-only" }}
 {{ end }}
 
+{{ with .Block.style }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
 <div id="join-form" class="{{ $classes }}">
   <div id="mlb2-1647596" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1647596">
     <div class="ml-form-align-center">

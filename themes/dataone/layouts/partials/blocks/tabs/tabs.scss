@@ -33,9 +33,9 @@
   margin               : 0;
   min-width            : 0;
   @include desktop {
-    grid-gap             : 3rem;
+    grid-gap             : .5rem 3rem;
     grid-template-columns: min-content auto;
-    grid-template-rows   : minmax(0, .5fr) 1fr;
+    grid-template-rows   : min-content, min-content;
     grid-template-areas  : "tabs panel" "annotation panel";
   }
 
@@ -45,7 +45,7 @@
     transition: opacity .4s, transform .35s;
     opacity   : 1;
     z-index   : 1;
-    align-self: center;
+    // align-self: center;
     // hidden panel content
     &[aria-hidden=true] {
       opacity   : 0;
@@ -56,9 +56,9 @@
   }
 
   &__annotation {
-    font-size : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1.1rem);
     line-height: 1.45;
-    font-weight : var(--fw-normal, 400);
+    font-weight: var(--fw-normal, 400);
     grid-area  : annotation;
     display    : flex;
     align-items: flex-start;

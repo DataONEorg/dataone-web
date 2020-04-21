@@ -7,6 +7,17 @@ fields:
   label: Template
   hidden: true
   default: join-form
+- type: select
+  name: style
+  label: Style
+  description: Optional style to add to the newsletter
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - card
 - name: newsletter_only
   type: boolean
   label: Simple newsletter sign up
