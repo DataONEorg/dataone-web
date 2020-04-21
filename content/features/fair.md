@@ -1,10 +1,8 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: FAIR Assessments
-description: Evaluate your metadata with community established FAIR principles. Scores
-  are refreshed with updates to your metadata, helping make your data even more Findable,
-  Accessible, Interoperable, and Reusable.
+title: FAIR Metadata Assessments
+description:
 header:
   template: header
   type: text only
@@ -13,10 +11,8 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: FAIR Assessments
-  intro: Evaluate your metadata with community established FAIR principles. Scores
-    are refreshed with updates to your metadata, helping make your data even more
-    Findable, Accessible, Interoperable, and Reusable.
+  title: Make your data FAIR
+  intro: Evaluate your metadata with community established FAIR principles.
   buttons:
   - template: button
     type: internal page
