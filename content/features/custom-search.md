@@ -81,8 +81,8 @@ page_sections:
     size: ''
     color: ''
     stroke: ''
-  title: ''
-  intro: ''
+  title: a
+  intro: b
   blocks:
   - template: markdown
     content: Custom search
