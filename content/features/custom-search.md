@@ -45,32 +45,6 @@ header:
     alttext: ''
     type: ''
 page_sections:
-- template: ''
-  type: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title: ''
-  intro: ''
-  blocks: []
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
 - type: default
   template: section
   background: default
@@ -81,8 +55,8 @@ page_sections:
     size: ''
     color: ''
     stroke: ''
-  title: a
-  intro: b
+  title:
+  intro:
   blocks:
   - template: markdown
     content: "Mix and match from up to six varieties of search filters for researchers
@@ -91,7 +65,7 @@ page_sections:
       fields from your metadata that the filter will search from, such as title, keywords,
       creators, data attributes, species, or geographic area description. \n\nCustomize
       the look of your portal search fields by adding an icon, a title, and placeholder
-      example text.\n\nFurther customize the search display by grouping related filters
+      example text. (Show some icon examples)\n\nFurther customize the search display by grouping related filters
       together. (add screenshot of tabbed filter groups)\n\nAllow your community to
       search by geographic location using an interactive map. Zoom into the area where
       your research is focused by setting a specific center point and zoom level for
