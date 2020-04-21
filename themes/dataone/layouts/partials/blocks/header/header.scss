@@ -72,7 +72,7 @@
     flex-direction: column;
     @include desktop {
       display              : grid;
-      grid-template-columns: .57fr .43fr;
+      grid-template-columns: .4fr .6fr;
       grid-gap             : 0 1.4rem;
     }
   }
@@ -156,6 +156,18 @@
   // ==========================================================================
   // Modified headers
   // ==========================================================================
+
+  //
+  // Image on right
+  // ==========================================================================
+  &--image-on-right {
+    // Let the image expand out to the right
+    @include desktop {
+      #{$bn}__figure {
+        margin-right: -12rem;
+      }
+    }
+  }
 
   //
   // Has breadcrumb: For headers on pages where the navigation includes
@@ -376,6 +388,14 @@
       padding-top: 320px;
     }
 
+    #{$bn}__content {
+      @include desktop {
+        grid-template-columns: .6fr .4fr;
+        grid-gap             : 0 1.4rem;
+      }
+
+    }
+
     #{$bn}__svg-background {
       svg {
         margin-right: 320px;
@@ -431,6 +451,10 @@
     + .section {
       padding-top: $header-section-overlap;
     }
+  }
+
+  &--col-light {
+    background-image: linear-gradient(180deg, var(--c-major-accent-1) -10%, var(--c-major-accent-2) 20%, var(--c-major-accent-2) 50%, var(--c-major-accent-2) 100%);
   }
 
   // ==========================================================================

@@ -35,6 +35,7 @@ fields:
     options:
     - default
     - secondary
+    - light
     - half light half transparent
 - name: image
   type: field_group
