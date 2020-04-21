@@ -126,7 +126,7 @@ page_sections:
       * Findable - Metadata and data should be easy to find for both humans and computers.
       * Accessible - Once someone finds the required data, s/he needs to know how they can be accessed.
       * Interoperable - The data needs to be easily integrated with other data for analysis, storage, and processing.
-      * Reusable - Metadata and data should be well-described so they can be reused and replicated in different settings.
+      * Reusable - Data should be well-described so they can be reused and replicated in different settings.
 
       Want to dig deeper? \[Watch the DataONE FAIR webinar\]([https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network](https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network "https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network"))
 
