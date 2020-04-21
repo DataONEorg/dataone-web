@@ -40,9 +40,12 @@ fields:
   description: Optionally overlay a color on the background image. This may help make
     foreground text easier to read.
   default: none
-  options:
-  - none
-  - major accent color
+  config:
+    source:
+      type: simple
+    options:
+    - none
+    - major accent color
   showOnly:
     field: type
     value: cover
