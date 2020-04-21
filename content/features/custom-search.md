@@ -85,9 +85,20 @@ page_sections:
   intro: b
   blocks:
   - template: markdown
-    content: "Choose from six varieties of search filters for researchers to use on
-      your portal:\n\n* Free-text  \n* Dropdown menu \n* Toggle \n* Checkbox\n* Date
-      \n* Number"
+    content: "Mix and match from up to six varieties of search filters for researchers
+      to use on your portal:\n\n(add an image of each filter type)\n\n* Free-text
+      \ \n* Dropdown menu \n* Toggle \n* Checkbox\n* Date \n* Number\n\nChoose which
+      fields from your metadata that the filter will search from, such as title, keywords,
+      creators, data attributes, species, or geographic area description. \n\nCustomize
+      the look of your portal search fields by adding an icon, a title, and placeholder
+      example text.\n\nFurther customize the search display by grouping related filters
+      together. (add screenshot of tabbed filter groups)\n\nAllow your community to
+      search by geographic location using an interactive map. Zoom into the area where
+      your research is focused by setting a specific center point and zoom level for
+      the map. (add screenshot of the data tab map)\n\nWant to turn off the map altogether?
+      You can do that too.\n\n(Footnote in subtle style): These portal features will
+      soon be available in the portal editor, but until then, our team can configure
+      these portal features behind-the-scenes."
   button:
     template: ''
     type: ''
