@@ -1,6 +1,6 @@
 {{- define "main" -}}
   <!-- the homepage header block -->
-  {{ partial "blocks/header/header--homepage.html" (dict "Block" . "Page" $) }}
+  {{ partial "blocks/header/header--homepage.html" (dict "Block" .Params "Page" $) }}
 
   <!-- page section blocks -->
   {{- range .Params.page_sections -}}

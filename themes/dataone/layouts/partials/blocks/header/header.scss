@@ -301,8 +301,28 @@
       background           : linear-gradient(var(#{$prefix}-accent) 0%,var(#{$prefix}-accent) 100%), linear-gradient(to right, var(#{$prefix}-accent) 0%, var(#{$prefix}-accent) 90%), var(--background-image);
       background-blend-mode: screen, difference, lighten;
       background-size      : cover;
+      background-position  : center;
     }
-    text-shadow: 0 0 2em var(#{$prefix}-accent), 0 0 1em var(#{$prefix}-accent), 0 0 .2em var(#{$prefix}-accent);
+
+    #{$bn}__headline,
+    #{$bn}__intro,
+    #{$bn}__tagline,
+    #{$bn}__title {
+      text-shadow: 0 0 2em var(#{$prefix}-accent), 0 0 1em var(#{$prefix}-accent), 0 0 .2em var(#{$prefix}-accent);
+    }
+  }
+
+  &--overlay-subtle {
+    @extend #{$bn}--dark-bkg;
+    text-shadow: 0 0 3em var(--c-major-accent-9), 0 0 .3em var(--c-major-accent-7);
+
+    &::before {
+      background           : var(--background-image), linear-gradient(var(--c-major-accent-3), var(--c-shadow-4-on-major-accent));
+      background-blend-mode: soft-light;
+      background-size      : cover;
+      background-position  : center;
+    }
+
   }
 
   //
@@ -410,6 +430,68 @@
 
     + .section {
       padding-top: $header-section-overlap;
+    }
+  }
+
+  // ==========================================================================
+  // Home page header - very different layout from other headers
+  // ==========================================================================
+
+  &--homepage {
+
+    // --section-c-accent: var(--c-minor-accent-5, yellow);
+
+    padding-bottom: 7rem;
+    @include bkg-img;
+
+    #{$bn}__content {
+      margin-top           : 0;
+      display              : grid;
+      grid-template-columns: 1fr;
+      grid-template-rows   : .5fr min-content .5fr;
+      grid-gap             : 1.8rem 0;
+      @include desktop {
+        margin-top: 1rem;
+      }
+    }
+
+    #{$bn}__logo {
+      display        : flex;
+      align-items    : center;
+      justify-content: center;
+      @include desktop {
+        padding-top: 1.8rem;
+      }
+    }
+
+    #{$bn}__search {
+      margin-top     : .5rem;
+      display        : flex;
+      align-items    : center;
+      justify-content: center;
+    }
+
+    #{$bn}__tagline {
+      text-align: center;
+      font-size : var(--fs-xx-large, 2rem);
+      color     : var(--c-minor-accent-2);
+      // font-weight: var(--fw-bold);
+    }
+
+    .logo {
+      filter: drop-shadow(0 0 2em white) drop-shadow(0 0 5em white);
+    }
+
+    .d1search__input:focus ~ .d1search__label,
+    .d1search__input:not(:placeholder-shown) ~ .d1search__label {
+      color      : var(--c-major-accent-1, white);
+      font-weight: var(--fw-bold, 500);
+    }
+
+    .button {
+      --section-c-accent: var(--c-major-accent-2, white);
+      justify-self      : center;
+      width             : max-content;
     }
   }
 

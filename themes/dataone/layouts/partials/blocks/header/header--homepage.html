@@ -1,16 +1,27 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 
-<header class="header header--homepage" style="background-image:url('/uploads/hero_images/duotone-forest.jpg');">
+{{ $tagline := .Block.tagline | default "Data Oberservation Network for Earth" }}
+
+{{ $bkgImg := "" }}
+{{ $src := .Block.header.image }}
+{{ with $src }}
+  {{ $bkgImg = printf ` style="--background-image:url('%s');"` . | safeHTMLAttr  }}
+{{ end }}
+
+<header class="header header--hero-image header--overlay-subtle header--homepage" {{ $bkgImg }}>
   <div class="header__content">
     <div class="header__logo">
 
       {{- partial "blocks/logo/logo" (dict "Block" (dict "type" "homepage") "Page" $page ) -}}
     </div>
+    {{ with $tagline}}
+      <div class="header__tagline">
+        {{ $tagline }}
+      </div>
+    {{ end }}
     <div class="header__search">
-
-      {{- partial "blocks/d1search/d1search" (dict "Block" . "Page" $page ) -}}
-
+      {{- partial "blocks/d1search/d1search" (dict "Block" .Block "Page" $page ) -}}
     </div>
 
     <!-- Parameters for the advanced search button -->

@@ -70,7 +70,7 @@
   $fc-field       : var(--c-foreground-on-default, black);
   $c-field        : var(--c-default-lighter, white);
   $c-accent       : var(--section-c-accent, var(--c-major-accent-on-default, grey));
-  $transition     : all .15s ease;
+  $transition     : transform .15s ease, color .15s ease;
 
   border          : none;
   outline         : none;
@@ -160,22 +160,25 @@
     overflow      : hidden;
     color         : $fc-label-in-field;
     pointer-events: none;
+    text-shadow   : none;
   }
 
   // Label when the text field has text
   #{$input}:not(:placeholder-shown) ~ #{$label} {
-    font-size: $label-size-above-field;
-    top      : $label-top-above-field;
-    left     : 0;
-    color    : $fc-label-in-above-field-inactive;
+    font-size  : $label-size-above-field;
+    top        : $label-top-above-field;
+    left       : 0;
+    color      : $fc-label-in-above-field-inactive;
+    text-shadow: inherit;
   }
 
   // Label when the input is focused 
   #{$input}:focus ~ #{$label} {
-    color    : $fc-label-in-above-field-active;
-    left     : 0;
-    top      : $label-top-above-field;
-    font-size: $label-size-above-field;
+    color      : $fc-label-in-above-field-active;
+    left       : 0;
+    top        : $label-top-above-field;
+    font-size  : $label-size-above-field;
+    text-shadow: inherit;
   }
 
   // The placeholder text should be hidden when label is in the input field

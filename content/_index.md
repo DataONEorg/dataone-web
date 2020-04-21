@@ -7,6 +7,9 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
   cyberinfrastructure that meets the needs of science and society for open, persistent,
   robust, and secure access to well-described and easily discovered Earth observational
   data.
+header:
+  tagline: Data Observation Network for Earth
+  image: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash.jpg"
 page_sections:
 - template: section
   type: default

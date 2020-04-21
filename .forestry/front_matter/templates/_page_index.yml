@@ -15,14 +15,23 @@ fields:
   default: now
   hidden: true
 - type: text
-  label: Title
-  name: title
-  description: The title will display in search results, the browser tab, and bookmarked
-    page
-- type: text
   label: Description
   name: description
   description: A description of the page. This description will appear in search results.
+- type: field_group
+  name: header
+  label: Homepage header
+  fields:
+  - type: text
+    label: Tagline
+    name: tagline
+    description: The tagline to display in the header
+  - name: image
+    type: file
+    config:
+      maxSize: 250
+    label: Header hero image
+    description: The image file to display behind the header content
 - type: field_group_list
   name: page_sections
   label: Page sections
