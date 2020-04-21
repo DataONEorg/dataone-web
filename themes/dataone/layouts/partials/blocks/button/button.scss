@@ -98,6 +98,7 @@
   &--col-quaternary {
     #{$prefix}-background: transparent;
     #{$prefix}-foreground: var(--section-c-accent, var(--c-major-accent, black));
+    text-shadow          : inherit;
     white-space          : normal;
     font-size            : var(--fs-medium, 1.1rem);
     display              : inline-flex;

@@ -7,7 +7,7 @@ description: Understand how your data are being used over time with view,
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

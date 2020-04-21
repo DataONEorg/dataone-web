@@ -8,7 +8,8 @@ date: 2020-01-14T19:04:29.000+00:00
 theme: quaternary
 header:
   template: header
-  type: center image
+  type: image on right
+  background_color: light
   pill:
     template: pill
     style: quaternary

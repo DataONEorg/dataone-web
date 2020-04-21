@@ -4,8 +4,6 @@ hide_body: false
 fields:
 - name: template
   type: text
-  config:
-    required: false
   label: Template
   description: The name of the HTML template used by this block
   hidden: true

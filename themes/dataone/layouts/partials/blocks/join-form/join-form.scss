@@ -64,6 +64,7 @@
   // the email field
   .form-control {
     @include form-field-styles;
+    border: 1px solid var(--c-default-darker-2, white);
   }
 
   @include floating-label(".ml-field-group", ".form-control", "#{$bn}__label");
@@ -113,9 +114,18 @@
     margin-right : 10px;
     width        : 20px;
     height       : 20px;
+    min-width    : 20px;
+    min-height   : 20px;
+    max-width    : 20px;
+    max-height   : 20px;
     background   : var(--c-default-lighter, white);
     box-shadow   : 0 .1rem 1rem var(--section-c-shadow-1, rgba(1,1,1,0.08));
     border-radius: var(--br-default, 0.25rem);
+
+  }
+
+  input[type="checkbox"]:not(:checked) + .label-description::before {
+    border: 1px solid var(--c-default-darker-2, white);
   }
 
   input[type="checkbox"]:checked + .label-description::before {
@@ -156,6 +166,11 @@
   input[type="checkbox"]:disabled + .label-description::before {
     background: var(--section-c-background-darker-2, lightgray);
   }
+
+  // ==========================================================================
+  // Modifiers
+  // ==========================================================================
+
   // === Show just a simple sign up ===
   // Hide check boxes
 
@@ -185,6 +200,11 @@
         margin-top : -1rem;
       }
     }
+  }
+
+  &--card {
+    @include card;
+    padding: 1.5rem 1.5rem 2rem;
   }
 
 }

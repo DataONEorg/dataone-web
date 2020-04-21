@@ -7,7 +7,7 @@ description: Control access to your datasets prior to publication with private g
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

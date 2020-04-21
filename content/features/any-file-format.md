@@ -6,7 +6,7 @@ description: Use the scientific file formats for your community - image, tabular
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

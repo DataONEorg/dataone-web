@@ -3,7 +3,7 @@
   {{ $jobSectionId := "current-openings" }}
   {{ $headline := .Params.headline | default "Join the DataONE team" }}
   {{ $buttonBlock := dict "template" "button" "color" "primary" "type" "internal page" "internal_link" (print "#" $jobSectionId) "text" "See current openings" }}
-  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "bkg_color" "default" "buttons" (slice $buttonBlock)) "Page" $)}}
+  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default" "buttons" (slice $buttonBlock)) "Page" $)}}
 
   {{- range .Params.page_sections -}}
     {{ $template := .template | default "section" }}

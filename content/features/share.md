@@ -7,7 +7,7 @@ description: Keep your dataset private while you document it thoroughly, then sh
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

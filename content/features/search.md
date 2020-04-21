@@ -7,7 +7,7 @@ description: Quickly find data with detailed search filters, or by navigating th
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

@@ -1,6 +1,7 @@
 {{ $bn := "figure" }}
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
+
 <figure class="figure{{ if and (.Block.type) (ne .Block.type `default`) }} figure--{{ .Block.type }}{{ end }}">
   <img class="figure__image" src="{{ .Block.src | relURL}}" alt="{{ .Block.alttext }}"></img>
   {{ with .Block.caption }}

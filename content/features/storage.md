@@ -6,7 +6,7 @@ description: Grow your 1 TB repository capacity based on your storage needs in 1
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

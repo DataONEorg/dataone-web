@@ -23,26 +23,29 @@
 
   @include f-common;
   display              : grid;
-  grid-template-columns: 30px 1fr;
+  grid-gap             : .7rem;
+  grid-template-columns: min-content 1fr;
+  color                : var(--section-fc-body, black);
+  margin               : .9rem 0;
 
   &__icon {
-    svg {
-      margin-top  : calc(1.25rem + 4px);
-      margin-right: 2px;
-    }
+    height         : calc(var(--fs-large, 1.22rem) * 1.6);
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    margin-top     : 4%;
   }
 
   &__paragraph {
-    margin-top : 1rem;
-    font-size : var(--fs-large, 1.22rem);
+    margin     : 0;
+    font-size  : var(--fs-large, 1.22rem);
     line-height: 1.6;
   }
 
   &__emphasis {
     font-style : normal;
-    font-weight : var(--fw-bold, 500);
-    color      : var(--section-fc-body, black);
-    font-size : var(--fs-large, 1.22rem);
+    font-weight: var(--fw-bolder, 500);
+    font-size  : var(--fs-large, 1.22rem);
   }
 
 }

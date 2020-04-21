@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   title: In-Person Training
   intro: Learn directly from DataONE experts
   buttons: []

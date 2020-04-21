@@ -8,7 +8,7 @@ description: Evaluate your metadata with community established FAIR principles.
 header:
   template: header
   type: text only
-  bkg_color: default
+  background_color: default
   pill:
     template: pill
     style: secondary

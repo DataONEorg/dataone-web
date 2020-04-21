@@ -33,3 +33,19 @@ fields:
     - float
     - tilt-left
     - tilt-right
+    - cover
+- type: select
+  label: Overlay effect for background/cover images
+  name: overlay_effect
+  description: Optionally overlay a color on the background image. This may help make
+    foreground text easier to read.
+  default: none
+  config:
+    source:
+      type: simple
+    options:
+    - none
+    - major accent color
+  showOnly:
+    field: type
+    value: cover

@@ -48,8 +48,12 @@
     // So that box shadows and SVG effects from preceding sections can
     // overspill onto subsequent section. Assume there are max 50 sections/page
     @for $i from 1 through 50 {
-      &:nth-of-type(#{$i}) {
+      &:nth-of-type(#{$i}):not(.section--bkg-wave) {
         z-index: $z-max - 2 - $i;
+      }
+
+      &:nth-of-type(#{$i}).section--bkg-wave {
+        z-index: $z-max - 2 - $i + 1;
       }
     }
 

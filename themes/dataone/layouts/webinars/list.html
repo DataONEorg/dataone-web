@@ -25,7 +25,7 @@
   {{ $pastWebinarsLink := printf "%s/previous-webinars" $page.Site.Params.links.old_website }}
   {{ $buttonBlock := dict "text" "See past webinars" "type" "external website" "color" "secondary" "external_link" $pastWebinarsLink }}
   {{ $columnsBlock := dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks }}
-  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) "button" $buttonBlock }}
+  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) "button" $buttonBlock "background" "subtle-emphasis" }}
 
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
 
