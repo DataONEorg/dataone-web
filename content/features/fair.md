@@ -85,15 +85,14 @@ page_sections:
   blocks:
   - template: markdown
     content: |-
-      \- Aggregated FAIR score charts show how your FAIR scores have changed month-to-month, so you can quantify your metadata improvement efforts.
-
-      \- Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
+      * Aggregated FAIR score charts show how your FAIR scores have changed month-to-month, so you can quantify your metadata improvement efforts.
+      * Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
 
       (show screenshot of aggregated FAIR chart next to those two bullets)
 
-      \*Plus subscribers:* A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
+      **Plus subscribers:** A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
 
-      \*Hosted Repositories:* Each Hosted Repository includes a FAIR scores chart for the entire repository holdings.
+      **Hosted Repositories:** Each Hosted Repository includes a FAIR scores chart for the entire repository holdings.
   template: ''
   type: ''
   background: ''
@@ -105,6 +104,45 @@ page_sections:
     color: ''
     stroke: ''
   intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+- title: What is FAIR?
+  intro: FAIR is a community-led set of principles for data and metadata, whose ultimate
+    goal is to enhance the reusability of data.
+  blocks:
+  - template: markdown
+    content: |-
+      * Findable - Metadata and data should be easy to find for both humans and computers.
+      * Accessible - Once someone finds the required data, s/he needs to know how they can be accessed.
+      * Interoperable - The data needs to be easily integrated with other data for analysis, storage, and processing.
+      * Reusable - Metadata and data should be well-described so they can be reused and replicated in different settings.
+
+      Want to dig deeper? \[Watch the DataONE FAIR webinar\]([https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network](https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network "https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network"))
+
+      (use suble style for this citation:)
+
+      Wilkinson et al. (2016) The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3:160018. \[[https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18 "https://doi.org/10.1038/sdata.2016.18")\]([https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18 "https://doi.org/10.1038/sdata.2016.18"))
+  template: ''
+  type: ''
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
   button:
     template: ''
     type: ''
