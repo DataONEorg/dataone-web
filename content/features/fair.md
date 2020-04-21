@@ -156,6 +156,35 @@ page_sections:
       size: ''
       color: ''
       stroke: ''
+- title: What are your metadata requirements?
+  type: card
+  intro: |-
+    Use the DataONE Consulting services to create a custom metadata assessment report built specifically for your data management requirements.
+
+    (Link to consulting page)
+  template: ''
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
