@@ -94,3 +94,5 @@ fields:
   label: Speakers
   description: To add to the list of speaker options, first add the speaker to the
     "People" section (see sidebar)
+pages:
+- content/webinars/rdmla-five-months-post-launch.md
