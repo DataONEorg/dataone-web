@@ -34,6 +34,10 @@
   &__column {
     display: flex;
   }
+
+  &--compact {
+    grid-gap: .5rem 1rem;
+  }
 }
 
 .columns--align-center {

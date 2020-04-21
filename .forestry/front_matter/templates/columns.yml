@@ -29,6 +29,17 @@ fields:
     options:
     - center
     - left
+- type: select
+  name: layout
+  label: Layout
+  description: Layout options for the columns
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - compact
 - type: blocks
   name: columns
   label: Columns
