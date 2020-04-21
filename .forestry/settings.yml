@@ -65,6 +65,7 @@ sections:
   create: all
   match: "**/*"
   templates:
+  - _page_blocks
   - _page_webinar
 - type: directory
   path: content/news

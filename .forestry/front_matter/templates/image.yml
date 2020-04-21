@@ -37,7 +37,8 @@ fields:
 - type: select
   label: Overlay effect for background/cover images
   name: overlay_effect
-  description: Optionally overlay a color on the background image. This may help make foreground text easier to read.
+  description: Optionally overlay a color on the background image. This may help make
+    foreground text easier to read.
   default: none
   options:
   - none
