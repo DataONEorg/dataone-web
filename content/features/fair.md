@@ -85,7 +85,7 @@ page_sections:
   blocks:
   - template: markdown
     content: |-
-      * Aggregated FAIR score charts show how your FAIR scores have changed month-to-month, so you can quantify your metadata improvement efforts.
+      * Aggregated FAIR score charts show how your FAIR scores have changed month-to-month
       * Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
 
       (show screenshot of aggregated FAIR chart next to those two bullets)
