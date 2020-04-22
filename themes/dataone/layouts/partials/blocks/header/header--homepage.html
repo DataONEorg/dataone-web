@@ -1,5 +1,7 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
+<!-- blockname  -->
+{{ $bn := "header" }}
 
 {{ $tagline := .Block.tagline | default "Data Observation Network for Earth" }}
 
@@ -29,4 +31,25 @@
 
     {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page )}}
   </div>
+
+  <div class="{{ $bn }}__logos">
+  <!-- Logos -->
+  {{ $buttonBlock := dict "type" "internal page" "color" "quaternary" "text" "See our entire network" "internal_link" "/network/_index.md" }}
+  {{ $logosBlock := slice }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "CyVerse" "logo" "/uploads/member_node_logos/cyverse.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "Global Biodiversity Information Facility" "logo" "/uploads/member_node_logos/gbif.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "Global Lake Ecological Observatory Network (GLEON)" "logo" "/uploads/member_node_logos/gleon.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "ORNL DAAC" "logo" "/uploads/member_node_logos/ornldaac.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "University of Kansas - Biodiversity Institute" "logo" "/uploads/member_node_logos/kubi.png" ) }}
+  {{ $logosBarBlock := dict "button" $buttonBlock "logos" $logosBlock "style" "dark-background" }}
+  <!-- double it -->
+  {{ $logosBlock = $logosBlock | append ( dict "name" "CyVerse" "logo" "/uploads/member_node_logos/cyverse.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "Global Biodiversity Information Facility" "logo" "/uploads/member_node_logos/gbif.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "Global Lake Ecological Observatory Network (GLEON)" "logo" "/uploads/member_node_logos/gleon.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "ORNL DAAC" "logo" "/uploads/member_node_logos/ornldaac.png" ) }}
+  {{ $logosBlock = $logosBlock | append ( dict "name" "University of Kansas - Biodiversity Institute" "logo" "/uploads/member_node_logos/kubi.png" ) }}
+  {{ $logosBarBlock := dict "button" $buttonBlock "logos" $logosBlock "style" "dark-background" }}
+  {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBarBlock "Page" $page) }}
+</div>
+
 </header>

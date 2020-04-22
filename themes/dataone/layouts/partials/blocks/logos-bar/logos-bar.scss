@@ -24,19 +24,21 @@
 
   @include f-common;
   
-  margin: 0 0 4rem;
+  // margin: 0 0 4rem;
+
   
   &__logos {
     list-style     : none;
     display        : flex;
-    flex-wrap      : wrap;
+    flex-wrap: nowrap;
     align-items    : center;
     justify-content: center;
     justify-content: space-evenly;
     transition     : 1s cubic-bezier(.19,1,.22,1);
     will-change    : transform;
-    filter: url( "data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='filter'><feGaussianBlur stdDeviation='0' /></filter></svg>#filter" );
     filter: blur(0);
+    overflow: hidden;
+    width: 100%;
   }
 
   &__logo {
@@ -46,7 +48,6 @@
   &__logo-image {
     height        : 40px;
     vertical-align: middle;
-    -webkit-filter: invert(28%) sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(1.55);
     filter: invert(28%) sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(1.55);
   }
 
@@ -78,7 +79,6 @@
       .logos-bar__logos {
         opacity  : .7;
         transform: scale(.95);
-        filter: url( "data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'><f…ter id='filter'><feGaussianBlur stdDeviation='10' /></filter></svg>#filter" );
         filter: blur(10px) brightness(1.07);
       }
     }
@@ -93,4 +93,22 @@
     // pointer-events: none;
     // }
   }
+  
+  // ==========================================================================
+  // Modifiers
+  // ==========================================================================
+  
+  //
+  //  For logo bars that are on a dark background
+  // ==========================================================================
+  &--dark-background{
+    background-color: rgba(col($cn-teal,5),0.4);
+    #{$bn}__logo-image {
+      filter: invert(28%) sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(2.5);
+      opacity: 0.9;
+    }
+  }
+  
+  
+  
 }

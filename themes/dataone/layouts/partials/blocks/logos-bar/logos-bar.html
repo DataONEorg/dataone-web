@@ -1,22 +1,32 @@
-<!-- in order to pass on page parameters from within loops  -->
-{{ $page := .Page }} 
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "logos-bar" }}
+<!-- Classes to add to the outer-most element -->
+{{ $classes := $bn }}
 
+<!-- Optional style class to add to the outer most element -->
+{{ $style := .Block.style | default ""}}
+
+{{ with $style }}
+  {{ $classes = printf "%s %s--%s" $classes $bn (. | urlize) }}
+{{ end }}
 
 <!-- button include -->
 <!-- logo selection -->
-<div class="logos-bar">
-  <div class="logos-bar__hover-area">
-    
-    <div class="logos-bar__button-container">
+<div class="{{ $classes }}">
+  <div class="{{ $bn }}__hover-area">
+
+    <div class="{{ $bn }}__button-container">
       {{- with .Block.button -}}
         {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
       {{ end }}
     </div>
     <!-- logos list -->
-    <ul class="logos-bar__logos">
+    <ul class="{{ $bn }}__logos">
       {{- range .Block.logos -}}
         {{ if .logo }}
-          <li class="logos-bar__logo">
+          <li class="{{ $bn }}__logo">
             {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
             {{ if gt $imageResource.Width 400 }}
               {{ $imageResource = $imageResource.Resize "400x" }}
@@ -24,7 +34,7 @@
             {{ if gt $imageResource.Height 200 }}
               {{ $imageResource = $imageResource.Resize "200x" }}
             {{ end }}
-            <img class="logos-bar__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }}alt="{{ .}} logo" title="{{ .}}"{{ end }} />
+            <img class="{{ $bn }}__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }} alt="{{ .}} logo" title="{{ .}}" {{ end }}/>
           </li>
         {{ end }}
       {{ end }}

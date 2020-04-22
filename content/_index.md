@@ -8,37 +8,15 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
   robust, and secure access to well-described and easily discovered Earth observational
   data.
 header:
-  tagline: Data Observation Network for Earth
+  tagline: Making earth & environmental data more discoverable, accessible, and usable
   image: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash.jpg"
 page_sections:
 - template: section
-  type: default
+  background: default
   blocks:
-  - template: logos-bar
-    button:
-      template: button
-      type: internal page
-      color: quaternary
-      text: Join our network of members
-      internal_link: "/network/_index.md"
-    logos:
-    - name: CyVerse
-      logo: "/uploads/member_node_logos/cyverse.png"
-    - name: Global Biodiversity Information Facility
-      logo: "/uploads/member_node_logos/gbif.png"
-    - name: Global Lake Ecological Observatory Network (GLEON)
-      logo: "/uploads/member_node_logos/gleon.png"
-    - name: ORNL DAAC
-      logo: "/uploads/member_node_logos/ornldaac.png"
-    - name: University of Kansas - Biodiversity Institute
-      logo: "/uploads/member_node_logos/kubi.png"
   - template: columns
-    num_cols: 3
+    num_cols: 2
     columns:      
-    - template: feature-detailed
-      type: top
-      headline: DataONE Network
-      text: A network of earth and environmental data providers making data more discoverable, accessible, and usable.
     - template: feature-detailed
       type: top
       headline: DataONE Plus
@@ -109,6 +87,7 @@ page_sections:
         style: card
 - template: section
   type: default
+  background: default
   blocks:
   - template: feature-detailed
     headline: The dataone federation
@@ -133,15 +112,4 @@ page_sections:
       type: donate
       color: quaternary
       text: Make a donation
-- template: section
-  background: major-accent-color
-  title: Interested in services by DataONE?
-  intro: Enhanced DataONE services are currently available on a limited basis as part
-    of a beta program. Please provide the information below and we’ll get in touch
-    when these services are ready for your organization.
-  blocks:
-  - template: join-form
-    precheck_hostedrepo: true
-    precheck_plus: true
-    precheck_newsletter: true
 ---

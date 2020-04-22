@@ -464,7 +464,7 @@
 
     // --section-c-accent: var(--c-minor-accent-5, yellow);
 
-    padding-bottom: 7rem;
+    padding-bottom: 12rem;
     @include bkg-img;
 
     #{$bn}__content {
@@ -495,10 +495,17 @@
     }
 
     #{$bn}__tagline {
-      text-align: center;
-      font-size : var(--fs-xx-large, 2rem);
-      color     : var(--c-minor-accent-2);
-      // font-weight: var(--fw-bold);
+      text-align  : center;
+      font-size   : var(--fs-xx-large, 2rem);
+      color       : var(--c-minor-accent-2);
+      font-weight : var(--fw-bold, 500);
+      max-width   : 700px;
+      justify-self: center;
+    }
+    #{$bn}__logos{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
     }
 
     .logo {
