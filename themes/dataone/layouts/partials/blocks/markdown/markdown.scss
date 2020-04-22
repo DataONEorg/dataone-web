@@ -33,7 +33,7 @@
   }
 
   ul {
-    font-size : var(--fs-large, 1.22rem);
+    font-size: var(--fs-large, 1.22rem);
 
     li {
       margin    : 15px 0;
@@ -47,7 +47,7 @@
       position     : absolute;
       width        : 8px;
       height       : 8px;
-      background   : var(--section-c-background-darker-2);
+      background   : var(--section-c-foreground-subtle);
       border-radius: 50%;
       left         : -22px;
       top          : 11px;
@@ -56,7 +56,7 @@
 
   ol {
     counter-reset: listitem;
-    font-size : var(--fs-large, 1.22rem);
+    font-size    : var(--fs-large, 1.22rem);
     margin-left  : 30px;
 
     li {
@@ -70,7 +70,7 @@
       content          : counter(listitem);
       background       : var(--section-fc-body, grey);
       color            : white;
-      font-weight : var(--fw-bold, 500);
+      font-weight      : var(--fw-bold, 500);
       font-size        : 13px;
       line-height      : 19px;
       height           : 19px;
@@ -103,8 +103,8 @@
     }
 
     thead tr th {
-      font-weight : var(--fw-bold, 500);
-      font-size : var(--fs-x-small, .85rem);
+      font-weight   : var(--fw-bold, 500);
+      font-size     : var(--fs-x-small, .85rem);
       color         : var(--section--c-background-darker-2, gray);
       text-transform: uppercase;
       text-align    : left;
@@ -112,20 +112,20 @@
     }
 
     thead tr th p {
-      font-size : var(--fs-x-small, .85rem);
+      font-size     : var(--fs-x-small, .85rem);
       text-transform: uppercase;
       padding       : 0;
       line-height   : 15px;
     }
 
     tbody {
-      font-size : var(--fs-x-small, .85rem);
+      font-size     : var(--fs-x-small, .85rem);
       line-height   : 1.45rem;
       vertical-align: top;
       padding-top   : 0;
 
       td > * {
-        font-size : var(--fs-x-small, .85rem);
+        font-size     : var(--fs-x-small, .85rem);
         line-height   : 1.45rem;
         vertical-align: top;
         padding-top   : 0;
@@ -184,7 +184,7 @@
   &--standalone {
     @include f-common;
     line-height: 1.7;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1.1rem);
 
     h1,
     h2,
@@ -193,7 +193,7 @@
     h5,
     h6 {
       color      : var(--section-fc-title, black);
-      font-weight : var(--fw-bold, 500);
+      font-weight: var(--fw-bold, 500);
       line-height: 1.2;
       margin-top : 0;
     }
