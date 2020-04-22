@@ -176,8 +176,7 @@
 
   &--has-breadcrumb {
     @include desktop {
-      margin-top : -$nav-height - 3rem;
-      padding-top: calc(2 * #{$nav-height} + 2rem);
+      margin-top: 0;
     }
   }
 
