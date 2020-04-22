@@ -1,8 +1,8 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: All features offered by DataONE
-description: All features offered by DataONE
+title: All features
+description: Features of DataONE products and services
 header:
   template: header
   type: text only
@@ -11,8 +11,8 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: All features offered by DataONE
-  intro: All features offered by DataONE
+  title: Features of DataONE products and services
+  intro:
   buttons:
   - template: button
     type: subscribe form
@@ -25,7 +25,7 @@ header:
 page_sections:
 - template: section
   type: default
-  title: All features of DataONE
+  title:
   blocks:
   - template: feature-table
 - template: section
