@@ -66,8 +66,8 @@ page_sections:
       this page).\n\nEach assessment is made of a number of individual checks that
       assess specific fields in the metadata, such as geographic coverage, start and
       end dates, data attributes, or publication date (among many more). \n\nAt a
-      glance, see how each dataset scores in terms of identification, discoverability,
-      and ease of interpretation by viewing the total score for checks in that category."
+      glance, see how each dataset scores in categories of Findability, Accessibility, Interoperability,
+      and Reusability."
   button:
     template: ''
     type: ''
