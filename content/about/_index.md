@@ -27,7 +27,7 @@ page_sections:
       description: Supported by funding from the US National Science Foundation as
         one of the initial DataNet programs in 2009
       datetime:
-        time: '2009-01-01'
+        time: '2009-08-01T15:58:00-07:00'
         dateformat: 02 Jan 2006
         localize: false
         change_timezone: false
@@ -80,10 +80,10 @@ page_sections:
     color: primary
     text: Donate
 menu:
-  footer:
-    weight: 11
   primary_nav:
     parent: About
     weight: 1
+  footer:
+    weight: 11
 
 ---
