@@ -23,7 +23,7 @@ page_sections:
   blocks:
   - template: timeline
     event:
-    - title: DataONE starts as a DataNet program
+    - title: DataONE starts as a NSF DataNet program
       description: Supported by funding from the US National Science Foundation as
         one of the initial DataNet programs in 2009
       datetime:
