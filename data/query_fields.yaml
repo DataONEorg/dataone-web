@@ -1,0 +1,1214 @@
+queryFields: 
+  - 
+   name: _root_
+   type: string
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: false
+  - 
+   name: _text_
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: _version_
+   type: long
+   searchable: true
+   returnable: true
+   sortable: false
+   multivalued: false
+  - 
+   name: abstract
+   description: "The full text of the abstract as provided in the science metadata document."
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: archived
+   type: boolean
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: attribute
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: attributeDescription
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: attributeLabel
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: attributeName
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: attributeUnit
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: author
+   description: "Principle Investigator (PI) / Author as listed in the metadata document."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: authorGivenName
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: authorGivenNameSort
+   type: alphaOnlySort
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: authoritativeMN
+   description: "The node Id of the authoritative Member Node for the object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: authorLastName
+   description: "The LAST name(s) of the author(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: authorSurName
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: authorSurNameSort
+   type: alphaOnlySort
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: awardNumber
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: awardTitle
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: beginDate
+   description: "The starting date of the temporal range of the content described by the metadata document."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: blockedReplicationMN
+   description: "A multi-valued field that contains the node Ids of member nodes that are blocked from holding replicas of this object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: changePermission
+   description: "List of subjects (groups and individuals) that have change permission on PID."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: checksum
+   description: "The checksum for the object"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: checksumAlgorithm
+   description: "Algorithm used for generating the object checksum"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: class
+   description: "Taxonomic class name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: collectionQuery
+   description: "A query that can be used to retreive the members of a collection."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: contactOrganization
+   description: "Name of the organization to contact for more information about the dataset"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: contactOrganizationText
+   description: "Copy from contactOrganization"
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: datasource
+   description: "The node Id of the member node that originally contributed the content."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: dataUrl
+   description: "The URL that can be used to resolve the location of the object given its PID."
+   type: string
+   searchable: false
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: dateModified
+   description: "The date and time when the object system metadata was last updated."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: datePublished
+   description: "Publication date for the dataset (this may or may not be coincident with when the content is added to DataONE)."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: dateUploaded
+   description: "The date and time when the object was uploaded to the Member Node."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: decade
+   description: "The latest decade that is covered by the dataset, expressed in the form \"1999-2009\""
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: documents
+   description: "Lists all PIDs that this object describes. Obtained by parsing all resource maps in which this object is referenced. Not set for data or resource map objects."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: eastBoundCoord
+   description: "Eastern most longitude of the spatial extent, in decimal degrees, WGS84"
+   type: tfloat
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: edition
+   description: "The version or edition number of the item described."
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: endDate
+   description: "The ending date of the temporal range of the content described by the metadata document."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: family
+   description: "Taxonomic family name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: fileID
+   description: "Contains the `CNRead.resolve` URL for the object ONLY if the object is a science metadata object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: fileName
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: formatId
+   description: "The format identifier indicating the type of content this record refers to."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: formatType
+   description: "The format type of the record - DATA, METADATA, RESOURCE."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: funderIdentifier
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: funderName
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: funding
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: fundingText
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: gcmdKeyword
+   description: "Keywords drawn from the GCMD controlled vocabulary"
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: genus
+   description: "Taxonomic genus name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geoform
+   description: "The name of the general form in which the item's geospatial data is presented"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: geohash_1
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_2
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_3
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_4
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_5
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_6
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_7
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_8
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: geohash_9
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: hasPart
+   description: "Lists all PIDs that are stated as part of this resource (e.g. a project)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: id
+   description: "The identifier of the object being indexed."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: identifier
+   description: "Copy id"
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: investigator
+   description: "Name of the investigator(s) responsible for developing the dataset and associated content."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: investigatorText
+   description: "Copy from investigator."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: isDocumentedBy
+   description: "Lists all PIDs that describe this object. Obtained by parsing all resource maps in which this object is referenced."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: isPartOf
+   description: "Lists all the PIDs that this resource is stated as a part of. (e.g. a project)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: isPublic
+   description: "Set to True if the DataONE `public user` is present in the list of subjects with readPermission on PID."
+   type: boolean
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: isService
+   type: boolean
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: isSpatial
+   description: "Set to \"Y\" for records that contain spatial information"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: keyConcept
+   description: "Terms drawn from a controlled vocabulary of concepts that are applicable to the content described by the metadata document."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: keywords
+   description: "Keywords recorded in the science metadata document. These may be controlled by the generator of the metadata or by the metadata standard of the document, but are effectively uncontrolled within the DataONE context."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: keywordsText
+   description: "Copy from keywords"
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: kingdom
+   description: "Taxonomic kingdom(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: label
+   type: text_case_insensitive
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: language
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: logo
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: LTERSite
+   description: "Data provider organization identifier, for sources within the LTER network."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: mediaType
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: mediaTypeProperty
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: namedLocation
+   description: "The name of the location(s) relevant to the content described by the metadata document."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: noBoundingBox
+   description: "Set to \"Y\" if there is no bounding box information available (i.e., the east, west, north, south most coordinates)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: northBoundCoord
+   description: "Northern most latitude of the spatial extent, in decimal degrees, WGS84"
+   type: tfloat
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: numberReplicas
+   description: "Requested number of replicas for the object"
+   type: int
+   searchable: true
+   returnable: true
+   sortable: false
+   multivalued: false
+  - 
+   name: obsoletedBy
+   description: "If set, indicates the object that replaces this record."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: obsoletes
+   description: "If set, indicates the object that this record obsoletes."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: ogcUrl
+   description: "URL for Open Geospatial Web service if available."
+   type: text_general
+   searchable: false
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: order
+   description: "Taxonomic order name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: origin
+   description: "Investigator or Investigator organization name."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: originator
+   description: "Investigator or Investigator organization name. Derived by normalizing origin."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: originatorText
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: originText
+   description: "Copy from origin"
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: parameter
+   description: "A characteristic, or variable, that is measured or derived as part of data-collection activities."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: parameterText
+   description: "Copy from parameter"
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: phylum
+   description: "Taxonomic phylum (or division) name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: placeKey
+   description: "A place name keyword, assigned by the metadata creator. It is one keyword from the thesaurus named in placekt"
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: preferredReplicationMN
+   description: "A list of member node identifiers that are preferred replication targets for this object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: presentationCat
+   description: "Type of data being preserved (maps, text, etc.)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: project
+   description: "The authorized name of a research effort for which data is collected. This name is often reduced to a convenient abbreviation or acronym. All investigators involved in a project should use a common, agreed-upon name."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: projectText
+   description: "Copy from project"
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_generated
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_generatedByExecution
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_generatedByProgram
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_generatedByUser
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_hasDerivations
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_hasSources
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_instanceOfClass
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_used
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_usedByExecution
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_usedByProgram
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_usedByUser
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_wasDerivedFrom
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_wasExecutedByExecution
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_wasExecutedByUser
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_wasGeneratedBy
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: prov_wasInformedBy
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: pubDate
+   description: "Publication date for the dataset (this may or may not be coincident with when the content is added to DataONE)."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: purpose
+   description: "The \"Purpose\" describes the \"why\" aspects of the data set (For example, why was the data set created?)."
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: readPermission
+   description: "List of subjects (groups and individuals) that have read permission on PID."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: relatedOrganizations
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: replicaMN
+   description: "One or more node Ids holding copies of the object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: replicationAllowed
+   description: "True if this object can be replicated."
+   type: boolean
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: replicationStatus
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: replicaVerifiedDate
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: resourceMap
+   description: "List of resource map PIDs that reference this PID."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: rightsHolder
+   description: "The `Subject` that acts as the rights holder for the object."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: scientificName
+   description: "Taxonomic scientific name(s) at the most precise level available for the organisms of relevance to the dataset"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sem_annotated_by
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sem_annotates
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sem_annotation
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sem_comment
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sensor
+   description: "Also called \"instrument.\" A device that is used for collecting data for a data set."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sensorText
+   description: "Copy from sensor."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: seriesId
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: serviceCoupling
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: serviceDescription
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: serviceEndpoint
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: serviceInput
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: serviceOutput
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: serviceTitle
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: serviceType
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: site
+   description: "The name or description of the physical location where the data were collected"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: siteText
+   description: "Copy from site."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: size
+   description: "The size of the object, in bytes."
+   type: tlong
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: sku
+   description: "Copy from id."
+   type: text_en_splitting_tight
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: source
+   description: "Also called \"platform.\" The mechanism used to support the sensor or instrument that gathers data"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: sourceText
+   description: "Copy from source."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: southBoundCoord
+   description: "Southern most latitude of the spatial extent, in decimal degrees, WGS84"
+   type: tfloat
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: species
+   description: "Taxonomic species name(s)"
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: submitter
+   description: "The `Subject` name of the original submitter of the content to DataONE."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: term
+   description: "A secondary subject area within which parameters can be categorized. Approved terms include \"agricultural chemicals\" and \"atmospheric chemistry,\" among many others. When entering a term in the LandVal Metadata Editor, users should select a standard\n    expression from the pick list for terms if at all possible."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: termText
+   description: "Copy from term."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: text
+   description: "Full text of the metadata record, used to support full text searches"
+   type: text_en_splitting
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: title
+   description: "Title of the dataset as recorded in the science metadata."
+   type: text_general
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: titlestr
+   description: "Copy from title."
+   type: string
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: false
+  - 
+   name: topic
+   description: "The most general subject area within which a parameter is categorized. Approved topics include \"agriculture,\" \"atmosphere,\" and \"hydrosphere,\" among others."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: topicText
+   description: "Copy from topic."
+   type: text_general
+   searchable: true
+   returnable: false
+   sortable: true
+   multivalued: true
+  - 
+   name: updateDate
+   description: "Copy from dateuploaded."
+   type: tdate
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: webUrl
+   description: "Link to the investigator's web-site."
+   type: string
+   searchable: false
+   returnable: true
+   sortable: true
+   multivalued: true
+  - 
+   name: westBoundCoord
+   description: "Western most longitude of the spatial extent, in decimal degrees, WGS84"
+   type: tfloat
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: false
+  - 
+   name: writePermission
+   description: "List of subjects (groups and individuals) that have write permission on PID."
+   type: string
+   searchable: true
+   returnable: true
+   sortable: true
+   multivalued: true

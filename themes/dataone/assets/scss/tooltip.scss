@@ -1,0 +1,78 @@
+// Styles for tooltips created by js/libraries/tooltips.js
+
+.tooltip {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                    : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at the root level.
+  // Tooltips are, for the moment, positioned at the end of the body, so it's
+  // not possible to style them relative to the section.
+  #{$prefix}-c-background: var(--c-default-lighter, white);
+  #{$prefix}-fc          : var(--c-foreground-on-default, black);
+  #{$prefix}-fs          : var(--fs-medium, 0.95rem);
+  #{$prefix}-br          : var(--br-default, .2rem);
+  #{$prefix}-c-shadow    : var(--c-shadow-1-on-default, rgba(0,0,0,.1));
+
+  // ==========================================================================
+  // Styles
+  // ==========================================================================
+
+  @include f-common;
+
+  position               : fixed;
+  pointer-events         : none;
+  z-index                : 999 !important;
+  max-width              : 19rem;
+  background             : var(#{$prefix}-c-background);
+  border-radius          : var(#{$prefix}-br);
+  box-shadow             : 0 0 0 .01rem var(#{$prefix}-c-shadow), 0 .2rem .8rem 0 var(#{$prefix}-c-shadow), 0 .3rem 1.2rem 0 var(#{$prefix}-c-shadow);
+  padding                : .8rem 1rem;
+  font-size              : var(#{$prefix}-fs) !important;
+  line-height            : 1.6;
+  color                  : var(#{$prefix}-fc);
+
+  // :before is the little arrow element
+  &:before {
+    content               : "";
+    position              : absolute;
+    left                  : 50%;
+    width                 : 0;
+    height                : 0;
+    border                : 6px solid var(#{$prefix}-c-background);
+    border-right-color    : transparent;
+    border-bottom-color   : transparent;
+    border-top-left-radius: 3px;
+    box-shadow            : -.01rem -.01rem 0 var(#{$prefix}-c-shadow), -.02rem -.02rem 0 var(#{$prefix}-c-shadow);
+    transform             : translate(-50%,-50%) rotate(45deg);
+  }
+
+  &--pos-bottom:before {
+    top: 1px;
+  }
+
+  &--pos-top:before {
+    top      : 100%;
+    transform: translate(-50%,-50%) rotate(225deg);
+  }
+
+  &--pos-left:before {
+    top      : 50%;
+    left     : 100%;
+    transform: translate(-50%,-50%) rotate(135deg);
+  }
+
+  &--pos-right:before {
+    top      : 50%;
+    left     : 0;
+    transform: translate(-50%,-50%) rotate(315deg);
+  }
+
+}

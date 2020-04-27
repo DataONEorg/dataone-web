@@ -1,0 +1,84 @@
+<!-- ================================================================= -->
+<!-- Common variables -->
+
+<!-- In order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "demo" }}
+
+{{ $iconBlock := dict "size" "small" "stroke" "thinner"  "icon" "search" "stroke" "thicker" }}
+<!-- "color" "inherit" -->
+{{ $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+
+<!-- ================================================================= -->
+<!-- Layout -->
+
+{{ $filterTypes := slice "free-text" "dropdown menu" "date" "toggle"  }}
+<!-- TODO: include "checkbox" "number" ? -->
+
+{{ $slides := slice }}
+{{ range $filterTypes }}
+  {{ $filterType := . }}
+  {{ $innerHTML := "" }}
+
+  <!-- Create an input for each input type -->
+
+  <!-- FREE TEXT -->
+  {{ if eq $filterType "free-text" }}
+    {{ $innerHTML = print `<input class="demo__example-UI-field" type="text" placeholder="Enter any text"></input><button>` $searchIcon `</button>` }}
+
+    <!-- DROPDOWN MENU -->
+  {{ else if eq $filterType "dropdown menu" }}
+    {{ $innerHTML = `
+      <select class="demo__example-UI-field">
+        <option>Select an option</option>
+        <option>Option A</option>
+        <option>Option B</option>
+        <option>Option C</option>
+        <option>Option D</option>
+      </select>
+      ` }}
+
+    <!-- TOGGLE -->
+  {{ else if eq $filterType "toggle" }}
+    {{ $innerHTML = `<input type="checkbox"></input>` }}
+
+    <!-- CHECKBOX -->
+  {{ else if eq $filterType "checkbox" }}
+    {{ $innerHTML = `<input type="checkbox"></input>` }}
+
+    <!-- DATE -->
+  {{ else if eq $filterType "date" }}
+    {{ $innerHTML = `
+    <div id="date-slider-example" se-min="1700" se-step="1" se-min-value="1700" se-max-value="2021" se-max="2021" class="slider">
+      <div class="slider-touch slider-touch-left">
+        <span></span>
+      </div>
+      <div class="slider-touch slider-touch-right">
+        <span></span>
+      </div>
+      <div class="slider-line">
+        <span></span>
+      </div>
+    </div>
+    <div class="demo__results">
+      <input type="number" id="date-slider-example-min-input" onkeyup="updateSliderMin()" value="1700" min="1700" max="2021" class="demo__example-UI-field">
+      <span>to</span>
+      <input type="number" id="date-slider-example-max-input" onkeyup="updateSliderMax()" value="2021" min="1700" max="2021" class="demo__example-UI-field">
+    </div>
+  ` }}
+
+  {{ end }}
+
+  <!-- <h4>Example %s filter</h4> -->
+  {{ $content := printf `<div class="%s__filter-type %s__filter-type--%s">%s</div>` $bn $bn ($filterType | urlize) $innerHTML  }}
+  <!-- SVG logos saved in the theme/static folder -->
+  {{ $logo := printf "themes/dataone/static/UI-logos/%s.svg" ( $filterType | urlize ) }}
+
+  {{ $slides = $slides | append (dict "content" (slice $content) "logo" $logo "title" (print $filterType " example") ) }}
+
+{{ end }}
+
+{{ $carouselBlock := dict "slides" $slides "position_controls" "bottom" }}
+
+{{ partial "blocks/carousel/carousel" (dict "Block" $carouselBlock "Page" $page) }}

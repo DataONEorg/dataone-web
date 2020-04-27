@@ -55,6 +55,8 @@ fields:
     - webinar-summary
     - contact-info
     - contact-form
+    - demo
+    - steps
     config:
       min: 
       max: '1'

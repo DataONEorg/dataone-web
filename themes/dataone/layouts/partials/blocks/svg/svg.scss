@@ -72,4 +72,10 @@
       stop-color: var(--section-c-background-darker-2, white);
     }
   }
+
+  &--topography {
+    #{$bn}__topo-lines {
+      fill: var(--section-c-background-darker-2, lightgray);
+    }
+  }
 }

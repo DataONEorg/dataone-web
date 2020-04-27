@@ -15,7 +15,7 @@ header:
   type: hosted repository
   pill:
     template: pill
-    text: Coming 2020
+    text: Coming soon
     style: secondary
   buttons:
   - template: button

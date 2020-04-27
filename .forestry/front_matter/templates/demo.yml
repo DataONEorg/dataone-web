@@ -1,0 +1,21 @@
+---
+label: Demo
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: demo
+- type: select
+  name: type
+  label: Type of demo
+  description: Which feature to show a demonstration of
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - filter appearance
+    - filter list
+    - query list

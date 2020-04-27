@@ -1,0 +1,27 @@
+<!-- ================================================================= -->
+<!-- Common variables -->
+
+<!-- In order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "demo" }}
+
+{{ $iconBlock := dict "size" "small" "stroke" "thinner"  "icon" "search" "stroke" "thicker" }}
+<!-- "color" "inherit" -->
+{{ $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+
+<!-- ================================================================= -->
+<!-- Layout -->
+
+<!-- All relevant bootstrap 3.2.1 icons combined into one svg, each icon with it's own path -->
+{{ $iconOptions := partial "blocks/demo/demo--filter-appearance_icon-options.svg" }}
+
+<div class="{{ $bn }}__label">
+  <button class="{{$bn}}__icon-button" onclick="switchIcon()" data-tooltip="Click here to preview icon options" data-position="center top">{{ $iconOptions }}</button>
+  <p class="{{$bn}}__label-text" contenteditable="true" data-tooltip="Click here to try changing the filter title" data-position="center top">Filter title</p>
+</div>
+<div class="{{ $bn }}__form-elements">
+  <input class="{{ $bn }}__example-UI-field" type="text" disabled="true"></input>
+  <button class="{{ $bn }}__search-button" disabled="true">{{ $searchIcon }}</button>
+  <p class="{{$bn}}__placeholder-text" contenteditable="true" data-tooltip="Click here to try changing the example text" data-position="center bottom">Placeholder text</p>
+</div>

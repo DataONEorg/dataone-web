@@ -30,7 +30,8 @@ var disqusShortname = {{ .Site.DisqusShortname }};
         try {
           {{ readFile $jspath }}
         } catch (e) {
-          console.log("error in: {{ $jspath }}");
+          console.log("error in: {{ $jspath }}, error messsage:" + e);
+          
         }
       {{ end }}
     {{ end }}

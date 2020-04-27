@@ -13,7 +13,7 @@ header:
   pill:
     template: pill
     style: quaternary
-    text: Coming 2020
+    text: Coming soon
   title: A home for your research online
   intro: Custom search portals for your science, your data, and related data in the
     DataONE network.

@@ -73,7 +73,7 @@
     @include desktop {
       display              : grid;
       grid-template-columns: .4fr .6fr;
-      grid-gap             : 0 1.4rem;
+      grid-gap             : 0 3rem;
     }
   }
 
@@ -147,10 +147,13 @@
   }
 
   &__figure {
-    margin         : 0;
+    margin         : 2rem 0 0;
     display        : flex;
     align-items    : center;
     justify-content: center;
+    @include desktop {
+      margin: 0;
+    }
   }
 
   // ==========================================================================
@@ -161,6 +164,7 @@
   // Image on right
   // ==========================================================================
   &--image-on-right {
+    overflow: hidden;
     // Let the image expand out to the right
     @include desktop {
       #{$bn}__figure {
@@ -502,10 +506,11 @@
       max-width   : 700px;
       justify-self: center;
     }
-    #{$bn}__logos{
+
+    #{$bn}__logos {
       position: absolute;
-      bottom: 0;
-      width: 100%;
+      bottom  : 0;
+      width   : 100%;
     }
 
     .logo {

@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                           : &;
+  $bn         : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix                       : "--" + str-replace(#{$bn}, ".");
+  $prefix     : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -24,15 +24,12 @@
 
   @include f-common;
   // height and width of the next/prev buttons
-  $button-size                  : 3rem;
-  // height of the header element
-  $carousel-header-height       : 17rem;
-  $carousel-header-height-mobile: 22rem;
-  position                      : relative;
-  min-width                     : 0; // required to keep inline content from expanding past parent width
+  $button-size: 3rem;
+  position    : relative;
+  min-width   : 0; // required to keep inline content from expanding past parent width
   // to keep buttons from expanding past parent width
-  max-width                     : calc(100% - #{$button-size} + (2*#{$lr-padding}));
-  margin                        : 0 auto;
+  max-width   : calc(100% - #{$button-size} + (2*#{$lr-padding}));
+  margin      : 0 auto;
   // contains each of the content divs (i.e. each slide)
   &__container {
     overflow   : hidden;
@@ -44,66 +41,67 @@
   // aka slides, contains the header and main content divs
   &__content {
     display         : inline-block; // make content blocks side by side for slide effect
-    vertical-align  : top;
+    vertical-align  : middle;
     width           : 100%;
-    white-space     : normal;
-    position        : unset;
     height          : 100%;
+    white-space     : normal;
     margin          : 0;
     padding         : 0;
     background-color: var(--section-c-background-lighter, white);
   }
   // ==== SLIDE HEADER ==== //
+  &__headers {
+    display              : grid;
+    grid-template-columns: 1fr;
+  }
+
   &__header {
-    position             : absolute;
-    top                  : 0;
-    left                 : 0;
-    right                : 0;
-    width                : 100%;
+    // stack headers on-top of eachother by giving them the same grid position
+    grid-row-start       : 1;
+    grid-column-start    : 1;
+    // positioning of contents
+    display              : grid;
+    grid-gap             : 1rem 0;
+    align-items          : center;
+    align-content        : center;
+    padding              : 1.5rem 2rem;
+    white-space          : normal;
+    grid-template-columns: 1fr;
+    grid-auto-rows       : minmax(0, auto);
+    // default background color
     background-color     : var(--section-c-accent, grey);
     color                : white;
-    display              : grid;
-    white-space          : normal;
-    align-items          : center;
-    height               : $carousel-header-height-mobile;
-    padding              : 1rem 2rem;
-    grid-template-columns: 1fr;
-    grid-template-rows   : auto auto auto;
-    grid-template-areas  : "title" "subtitle" "button";
-    grid-gap             : 1rem 0;
-    align-content        : center;
-    box-shadow           : inset 0 4.1rem 4rem 0 var(--section-c-shadow-1, rgba(0,0,0,0.1)), inset 0 .05rem .2rem 0 var(--section-c-shadow-1, rgba(0,0,0,0.1));
     @include desktop {
-      height               : $carousel-header-height;
+
       grid-template-columns: auto min-content;
       grid-template-rows   : min-content min-content;
       grid-template-areas  : "title title" "subtitle button";
       grid-gap             : 0 2rem;
-      padding              : 3rem;
     }
-    // header when visible
-    transition           : opacity .6s ease;
-    opacity              : 1;
-    // header contents when visble
+
+    // transition for the background
+    transition           : opacity .5s ease 0s;
+    z-index              : 1;
+
+    // delay fading in of header contents (title, subtitle, button)
     > * {
+      transition: opacity .2s ease .2s;
       opacity   : 1;
-      transform : translateY(0);
-      transition: opacity .2s ease .32s, transform .15s ease .4s;
     }
-  }
-  // header when hidden
-  &__content[aria-hidden="true"] #{$bn}__header {
-    opacity: 0;
-    // header contents when hidden
-    > * {
-      opacity   : 0;
-      transform : translateY(-1px);
-      transition: opacity .1s ease, transform .1s ease;
+
+    // Header when hidden
+    &[aria-hidden=true] {
+      opacity: 0;
+      z-index: 0;
+      // header contents (title, subtitle, button)
+      > * {
+        transition: opacity .2s ease 0s;
+        opacity   : 0;
+      }
     }
   }
 
   &__title {
-    grid-area  : title;
     font-weight: var(--fw-bold, 500);
     margin     : 0;
     white-space: normal;
@@ -111,11 +109,12 @@
     font-size  : var(--fs-larger, 1.48rem);
     @include desktop {
       font-size: var(--fs-x-large, 1.75rem);
+      grid-area: title;
     }
   }
 
   &__subtitle {
-    grid-area  : subtitle;
+
     font-size  : var(--fs-medium, 1.1rem);
     line-height: 1.4;
     font-weight: var(--fw-light, 300);
@@ -124,29 +123,31 @@
     height     : 100%;
     @include desktop {
       padding-top: 1rem;
+      grid-area  : subtitle;
       font-size  : var(--fs-medium, 1.1rem);
     }
   }
 
   &__header-button {
-    grid-area: button;
+    @include desktop {
+      grid-area: button;
+    }
+
   }
   // ==== MAIN SLIDE CONTENT ==== //
   &__main {
-    margin          : $carousel-header-height-mobile 0 0;
     width           : 100%;
+    height          : 100%;
     opacity         : 1;
     transition      : opacity .2s ease, transform .4s ease-in;
     transition-delay: 0;
-    padding         : 4rem 3rem;
-    @include desktop {
-      margin-top: $carousel-header-height;
-    }
+    padding         : 2rem 3rem 1.5rem;
   }
   // main slide content when hidden
   &__content[aria-hidden="true"] #{$bn}__main {
     opacity   : 0;
     transition: opacity 1s ease;
+    visibility: hidden; // so that children are not focusable
   }
   // slide effect (for up to 50 slides)
   @for $i from 1 through 50 {
@@ -169,6 +170,7 @@
     margin-top     : 2rem;
     padding-left   : 0;
     text-align     : center;
+    white-space    : nowrap;
   }
 
   &__control-item {
@@ -196,52 +198,12 @@
     }
   }
 
-  &--has-logos {
-    #{$bn}__control-link {
-      width : auto;
-      height: auto;
-      border: none;
-
-      &[aria-selected=true] {
-        background: transparent;
-        border    : none;
-      }
-    }
-
-    #{$bn}__controls {
-      position     : relative;
-      margin-top   : 1rem;
-      margin-bottom: 2.5rem;
-      top          : auto;
-      left         : auto;
-    }
-
-    #{$bn}__logo svg {
-      width         : 6rem;
-      height        : 100%;
-      max-height    : 3.5rem;
-      vertical-align: middle;
-    }
-
-    #{$bn}__control-link #{$bn}__logo {
-      fill: var(--section-c-foreground-very-subtle, lightgrey);
-    }
-
-    #{$bn}__control-link:hover #{$bn}__logo,
-    #{$bn}__control-link[aria-selected=true] #{$bn}__logo {
-      fill: var(--section-fc-title, black);
-    }
-
-    #{$bn}__control-link:focus #{$bn}__logo {
-      // fill: var(--section-fc-title, black);
-    }
-  }
-
   &__button {
     @include button-reset;
     @include circle-link;
     position        : absolute;
-    top             : calc(50% - (0.5 * #{$button-size}) + (0.5 * #{$carousel-header-height-mobile}));
+    z-index         : 1;
+    top             : calc(50% - #{0.5 * $button-size});
     padding         : 0;
     height          : $button-size;
     width           : $button-size;
@@ -249,9 +211,6 @@
     stroke          : var(--section-fc-body, gray);
     box-shadow      : 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(17,32,39,.15);
     transition      : all .2s ease;
-    @include desktop {
-      top: calc(50% - (0.5 * #{$button-size}) + (0.5 * #{$carousel-header-height}));
-    }
 
     &:focus {}
 
@@ -268,4 +227,76 @@
       left: -.5 * $button-size;
     }
   }
+
+  // ==========================================================================
+  // Modifiers
+  // ==========================================================================
+
+  //
+  // Has Logos: Carousel blocks that use logos as the control buttons
+  // =========================================================================
+
+  &--has-logos {
+    #{$bn}__control-link {
+      width : auto;
+      height: auto;
+      border: none;
+
+      &[aria-selected=true] {
+        background: transparent;
+        border    : none;
+      }
+    }
+
+    #{$bn}__control-item {
+      margin: 0 .4em;
+    }
+
+    #{$bn}__controls {
+      position     : relative;
+      margin-top   : 0;
+      margin-bottom: 1.5rem;
+      top          : auto;
+      left         : auto;
+    }
+
+    #{$bn}__logo svg {
+      width         : 5rem;
+      height        : 100%;
+      max-height    : 3.5rem;
+      vertical-align: middle;
+    }
+
+    #{$bn}__control-link #{$bn}__logo {
+      fill: var(--section-c-foreground-very-subtle, lightgrey);
+    }
+
+    #{$bn}__control-link:hover #{$bn}__logo,
+    #{$bn}__control-link[aria-selected=true] #{$bn}__logo {
+      fill: var(--section-fc-title, black);
+    }
+
+    #{$bn}__control-link:focus #{$bn}__logo {}
+  }
+
+  //
+  //  Controls Bottom: Place the control buttons below the carousel content
+  // instead of above (default)
+  // ==========================================================================
+
+  &--controls-bottom {
+    margin-bottom: 3rem;
+
+    #{$bn}__controls {
+      position     : absolute;
+      top          : 100%;
+      right        : 0;
+      left         : 0;
+      margin-top   : 1rem;
+      margin-bottom: 1rem;
+      padding-left : 0;
+      text-align   : center;
+    }
+  }
+
 }

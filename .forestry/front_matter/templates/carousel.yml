@@ -82,6 +82,8 @@ fields:
     - tabs
     - contact-info
     - contact-form
+    - demo
+    - steps
     config:
       min: 
       max: 

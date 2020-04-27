@@ -12,6 +12,7 @@ $lr-padding: .8rem; // padding on the left and right for full-width elements
 @import "functions.scss"; // Custom sass functions
 @import "mixins-and-placeholders.scss"; // mixins used in various blocks
 @import "responsive-font-size.scss"; // (rfs) functions to make length properties responsive
+@import "tooltip.scss"; // Styles for tooltips created by js/libraries/tooltip.js
 @import "variables.scss"; // CSS variables set at root, change depending on scope
 @import "utility.scss"; // utility classes
 // page layout components

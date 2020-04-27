@@ -1,10 +1,43 @@
-{{ $bn := "figure" }}
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
+<!-- The name of the block -->
+{{ $bn := "figure" }}
+<!-- The classes to add to the outermost element -->
+{{ $classes := $bn }}
 
-<figure class="figure{{ if and (.Block.type) (ne .Block.type `default`) }} figure--{{ .Block.type }}{{ end }}">
-  <img class="figure__image" src="{{ .Block.src | relURL}}" alt="{{ .Block.alttext }}"></img>
-  {{ with .Block.caption }}
+<!-- The source of the image or video -->
+{{ $src := .Block.src | default "" }}
+<!-- The type, used to determine the display style -->
+{{ $type := .Block.type | default "default"  }}
+<!-- Alternative description of image -->
+{{ $alt := .Block.alttext | default "an image for decorative purposes" }}
+<!-- An optional caption [WIP - may need styling] -->
+{{ $caption := .Block.caption | default ""}}
+
+<!-- Add type as a modifier class -->
+{{ with $type }}
+  {{ if not (eq . "default") }}
+    {{ $classes = printf "%s %s--%s" $classes $bn . }}
+  {{ end }}
+{{ end }}
+
+<!-- Get the image as a resource so that we can get file information and -->
+<!-- resize or crop when needed -->
+{{ $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) }}
+
+<figure class="{{ $classes }}">
+
+  {{ if eq $imageResource.MediaType.MainType "image" }}
+    <img class="{{ $bn }}__image" src="{{ $imageResource.RelPermalink }}" alt="{{ $alt }}"></img>
+  {{ else if in ($imageResource.MediaType.MainType) "video" }}
+    <div class="{{ $bn }}__image">
+      {{ $videoBlock := merge .Block (dict "type" "uploaded") }}
+      {{ partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) }}
+    </div>
+  {{ end }}
+
+  {{ with $caption }}
     <figcaption class="{{ $bn }}__caption">{{ . }}</figcaption>
   {{ end }}
+
 </figure>

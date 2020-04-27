@@ -13,18 +13,20 @@
   const CAROUSEL_CONTAINER = 'carousel__container';
   const CAROUSEL_CONTENT = 'carousel__content'
 
+  const CAROUSEL_HEADER = 'carousel__header';
+
   const CAROUSEL_CONTROL_LIST = 'carousel__controls';
   const CAROUSEL_CONTROL_LIST_ITEM = 'carousel__control-item';
   const CAROUSEL_CONTROL_LIST_LINK = 'carousel__control-link';
 
   const CAROUSEL_CLASS_SUFFIX = 'carousel';
   const CAROUSEL_CONTAINER_CLASS_SUFFIX = 'carousel__container';
-  const CAROUSEL_CONTENT_CLASS_SUFFIX = 'carousel__content';
 
   const CAROUSEL_BUTTON_PREVIOUS = 'carousel__button--prev';
   const CAROUSEL_BUTTON_NEXT = 'carousel__button--next';
 
   const CAROUSEL_CONTENT_ID_PREFIX = 'id_carousel_content_';
+  const CAROUSEL_HEADER_ID_PREFIX = 'id_carousel_header_';
 
   const CAROUSEL_LINK_ID_PREFIX = 'label_';
 
@@ -42,7 +44,7 @@
   const CAROUSEL_DATA_SPAN_TEXT = 'data-carousel-span-text';
   const CAROUSEL_DATA_HIDE_ARROWS_FOCUS = 'data-carousel-hide-arrows-focus';
 
-  const VISUALLY_HIDDEN_CLASS = 'carousel__screen-reader-text';
+  const VISUALLY_HIDDEN_CLASS = 'utility__visually-hidden';
 
   /*
    * recommended settings by a11y expert
@@ -50,6 +52,7 @@
   const ATTR_ROLE = 'role';
   const ATTR_CONTROL = 'aria-controls';
   const ATTR_LABELLEDBY = 'aria-labelledby';
+  const ATTR_DESCRIBEDBY = 'aria-describedby';
   const ATTR_HIDDEN = 'aria-hidden';
   const ATTR_SELECTED = 'aria-selected';
 
@@ -131,6 +134,28 @@
     }
   }
 
+  /**
+   * Takes the string with space-separated IDs, and returns the ID for the
+   * header element and the ID for the content element
+   * @param  {idString} idString string comprising ids for the header and conent
+   * @return {Obect} Found id for header and found id for content
+   */
+  const getHeaderContentIds = (idString) => {
+    let idContent = "";
+    let idHeader = "";
+    idString.split(" ").forEach((id) => {
+      if (id.includes(CAROUSEL_CONTENT_ID_PREFIX)) {
+        idContent = id;
+      } else if (id.includes(CAROUSEL_HEADER_ID_PREFIX)) {
+        idHeader = id;
+      }
+    });
+    return ({
+      header: idHeader,
+      content: idContent
+    })
+  };
+
   const selectCarrouselElement = config => {
     let controlListLinkToActivate = config.controlListLink;
     let panelControledToActivate = config.panelControled;
@@ -138,15 +163,26 @@
     let carousel = carouselContainer.parentNode;
     let giveFocus = (config.giveFocus ? true : false);
 
+    // get the header that's associated with the panel to active
+    let headerToActivate = findById(panelControledToActivate.getAttribute(ATTR_DESCRIBEDBY));
+
     // unselect current
     let current = Number(carouselContainer.getAttribute(CAROUSEL_DATA_ACTIVE_SLIDE));
     let controlListLinkToDisable = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="${current}"]`);
-    let panelControledToDisable = findById(controlListLinkToDisable.getAttribute(ATTR_CONTROL));
+
+    let ids = getHeaderContentIds(controlListLinkToDisable.getAttribute(ATTR_CONTROL));
+
+    let headerControledToDisable = findById(ids.header);
+    let panelControledToDisable = findById(ids.content);
+
     setAttributes(controlListLinkToDisable, {
       [ATTR_SELECTED]: 'false',
       'tabindex': '-1'
     });
     setAttributes(panelControledToDisable, {
+      [ATTR_HIDDEN]: 'true'
+    });
+    setAttributes(headerControledToDisable, {
       [ATTR_HIDDEN]: 'true'
     });
 
@@ -156,6 +192,9 @@
       'tabindex': '0'
     });
     setAttributes(panelControledToActivate, {
+      [ATTR_HIDDEN]: 'false'
+    });
+    setAttributes(headerToActivate, {
       [ATTR_HIDDEN]: 'false'
     });
     setAttributes(carouselContainer, {
@@ -216,61 +255,83 @@
         addClass(carouselContainer, prefixClassName + CAROUSEL_CONTAINER_CLASS_SUFFIX);
 
         // select control list
-        let carouselControlList = carouselNode.querySelector("."+CAROUSEL_CONTROL_LIST);
-        
+        let carouselControlList = carouselNode.querySelector("." + CAROUSEL_CONTROL_LIST);
+
         setAttributes(carouselControlList, {
           [ATTR_ROLE]: ATTR_TABLIST
         });
 
+        // header
+        let $listCarouselHeader = [].slice.call(carouselContainer.querySelectorAll('.' + CAROUSEL_HEADER));
+        if ($listCarouselHeader) {
+
+          $listCarouselHeader
+            .forEach((carouselHeader, indexCarrouselHeader) => {
+
+              let headerId = `${CAROUSEL_HEADER_ID_PREFIX}${iLisible}_${indexCarrouselHeader}`;
+              let isSelected = (carouselActiveSlide === indexCarrouselHeader + 1);
+              let hx;
+              let textHx;
+
+              setAttributes(carouselHeader, {
+                'id': headerId,
+                [ATTR_HIDDEN]: (isSelected ? 'false' : 'true')
+              });
+
+              hx = carouselHeader.querySelector(carouselExistingHx);
+              if (carouselExistingHx !== '' && hx) {
+
+                setAttributes(hx, {
+                  'tabindex': '-1'
+                });
+                textHx = hx.textContent;
+
+              } else {
+                // text
+                textHx = carouselSpanText + (indexCarrouselHeader + 1);
+                // insert hx
+                let hxToInsert = document.createElement(carouselHx);
+                setAttributes(hxToInsert, {
+                  'tabindex': '-1'
+                });
+                hxToInsert.innerHTML = textHx;
+                addClass(hxToInsert, VISUALLY_HIDDEN_CLASS);
+                hxToInsert = carouselHeader.insertBefore(hxToInsert, carouselHeader.firstChild);
+              }
+
+            });
+
+        }
+
+
         // contents
         let $listCarrouselContent = [].slice.call(carouselContainer.querySelectorAll('.' + CAROUSEL_CONTENT));
+
         $listCarrouselContent
           .forEach((carouselContent, indexCarrouselContent) => {
             let contentId = `${CAROUSEL_CONTENT_ID_PREFIX}${iLisible}_${indexCarrouselContent}`;
+            let headerId = `${CAROUSEL_HEADER_ID_PREFIX}${iLisible}_${indexCarrouselContent}`;
             let linkId = `${CAROUSEL_LINK_ID_PREFIX}${contentId}`;
             let isSelected = (carouselActiveSlide === indexCarrouselContent + 1);
-            let hx;
-            let textHx;
             let carouselControlItem = carouselControlList.querySelectorAll("." + CAROUSEL_CONTROL_LIST_ITEM).item(indexCarrouselContent);
             let carouselControlLink = carouselControlItem.querySelector("." + CAROUSEL_CONTROL_LIST_LINK);
 
-            addClass(carouselContent, prefixClassName + CAROUSEL_CONTENT_CLASS_SUFFIX);
-            addClass(carouselContent, CAROUSEL_CONTENT_CLASS_SUFFIX);
 
             setAttributes(carouselContent, {
               [ATTR_ROLE]: ATTR_TABPANEL,
               'id': contentId,
               [ATTR_HIDDEN]: (isSelected ? 'false' : 'true'),
-              [ATTR_LABELLEDBY]: linkId
+              [ATTR_LABELLEDBY]: linkId,
+              [ATTR_DESCRIBEDBY]: headerId
             });
 
-            if (carouselExistingHx !== '') {
-              hx = carouselContent.querySelector(carouselExistingHx);
-              if (hx) {
-                setAttributes(hx, {
-                  'tabindex': '-1'
-                });
-                textHx = hx.textContent;
-              }
-
-            } else {
-              // text
-              textHx = carouselSpanText + (indexCarrouselContent + 1);
-              // insert hx
-              let hxToInsert = document.createElement(carouselHx);
-              setAttributes(hxToInsert, {
-                'tabindex': '-1'
-              });
-              hxToInsert.innerHTML = textHx;
-              addClass(hxToInsert, VISUALLY_HIDDEN_CLASS);
-              hxToInsert = carouselContent.insertBefore(hxToInsert, carouselContent.firstChild);
-            }
+            // h3...
 
             // update control elements  
             setAttributes(carouselControlLink, {
               id: linkId,
               [ATTR_ROLE]: ATTR_TAB,
-              [ATTR_CONTROL]: contentId,
+              [ATTR_CONTROL]: contentId + " " + headerId,
               [ATTR_SELECTED]: isSelected,
               [CAROUSEL_DATA_ELEMENT_NUMBER]: (indexCarrouselContent + 1),
               tabindex: (isSelected ? '0' : '-1')
@@ -321,9 +382,14 @@
 
             // click on button control
             if (idControlListLink !== '' && eventName === 'click') {
+
               // select control item, panel and carousel
+
               let controlListLink = findById(idControlListLink);
-              let panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+              let idsControlled = controlListLink.getAttribute(ATTR_CONTROL);
+              var ids = getHeaderContentIds(idsControlled);
+
+              let panelControled = findById(ids.content);
               let carouselContainer = panelControled.parentNode;
 
               selectCarrouselElement({
@@ -341,17 +407,23 @@
               let carouselContainer = carousel.querySelector('.' + CAROUSEL_CONTAINER);
               let controlListLink;
               let panelControled;
+              let ids;
 
               // find current one
               let current = Number(carouselContainer.getAttribute(CAROUSEL_DATA_ACTIVE_SLIDE));
 
+
+
               if (current > 1) {
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="${current-1}"]`);
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
+
               } else {
                 // take last one
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_ITEM}:last-child > .${CAROUSEL_CONTROL_LIST_LINK}`);
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
               }
 
               selectCarrouselElement({
@@ -367,6 +439,7 @@
               let buttonNext = findById(idButtonNext);
               let carousel = buttonNext.parentNode.parentNode;
               let carouselContainer = carousel.querySelector('.' + CAROUSEL_CONTAINER);
+              let ids;
 
               let current = Number(carouselContainer.getAttribute(CAROUSEL_DATA_ACTIVE_SLIDE));
 
@@ -375,10 +448,12 @@
               let panelControled;
 
               if (controlListLink) {
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
               } else {
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="1"]`);
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
               }
 
               selectCarrouselElement({
@@ -397,16 +472,19 @@
               let controlListLink;
               let panelControled;
               let current;
+              let ids;
 
               // home = first tab
               if (e.keyCode === 36) {
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="1"]`);
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
               }
               // strike end on the tab => last tab
               else if (e.keyCode === 35) {
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_ITEM}:last-child > .${CAROUSEL_CONTROL_LIST_LINK}`);
-                panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                panelControled = findById(ids.content);
               }
               // strike up or left on the tab => previous tab
               else if ((e.keyCode === 37 || e.keyCode === 38) && !e.ctrlKey) {
@@ -415,11 +493,13 @@
 
                 if (current > 1) {
                   controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="${current-1}"]`);
-                  panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                  ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                  panelControled = findById(ids.content);
                 } else {
                   // take last one
                   controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_ITEM}:last-child > .${CAROUSEL_CONTROL_LIST_LINK}`);
-                  panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                  ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                  panelControled = findById(ids.content);
                 }
 
               }
@@ -432,10 +512,12 @@
                 controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="${current+1}"]`);
 
                 if (controlListLink) {
-                  panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                  ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                  panelControled = findById(ids.content);
                 } else {
                   controlListLink = carousel.querySelector(`.${CAROUSEL_CONTROL_LIST_LINK}[${CAROUSEL_DATA_ELEMENT_NUMBER}="1"]`);
-                  panelControled = findById(controlListLink.getAttribute(ATTR_CONTROL));
+                  ids = getHeaderContentIds(controlListLink.getAttribute(ATTR_CONTROL));
+                  panelControled = findById(ids.content);
                 }
               } else return;
 

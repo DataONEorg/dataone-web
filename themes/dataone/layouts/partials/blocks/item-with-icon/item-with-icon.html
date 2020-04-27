@@ -5,12 +5,6 @@
 <!-- classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
-<!-- Add a modifier class if a section modifier was passed on from parent section block -->
-<!-- e.g. in the case that the section dark backgrounds -->
-{{ with $page.Scratch.Get "section_modifier"}}
-  {{ $classes = print $classes " " $bn "--" .}}
-{{ end }}
-
 <div class="{{ $classes }}">
   {{- with .Block.icon -}}
     <div class="{{ $bn }}__icon">

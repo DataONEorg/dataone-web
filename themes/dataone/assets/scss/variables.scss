@@ -41,14 +41,14 @@ $cn-red: #F57065;
   @include rfs(.7rem, --fs-smallest);
   @include rfs(.75rem, --fs-x-small);
   @include rfs(.8rem, --fs-smaller);
-  @include rfs(.85rem, --fs-small);
-  @include rfs(1rem, --fs-medium);
-  @include rfs(1.2rem, --fs-large);
-  @include rfs(1.2rem, --fs-larger);
-  @include rfs(1.45rem, --fs-x-large);
-  @include rfs(1.9rem, --fs-xx-large);
-  @include rfs(2.3rem, --fs-xxx-large);
-  @include rfs(2.7rem, --fs-largest);
+  @include rfs(.83rem, --fs-small);
+  @include rfs(.98rem, --fs-medium);
+  @include rfs(1.05rem, --fs-large);
+  @include rfs(1.1rem, --fs-larger);
+  @include rfs(1.4rem, --fs-x-large);
+  @include rfs(1.7rem, --fs-xx-large);
+  @include rfs(2.0rem, --fs-xxx-large);
+  @include rfs(2.5rem, --fs-largest);
 
   //
   // Font weights

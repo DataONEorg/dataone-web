@@ -27,6 +27,8 @@
     {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "wave-section") "Page" $page) }}
   {{ else if eq .Block.background "data-wave" }}
     {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "data-wave") "Page" $page) }}
+  {{ else if eq .Block.background "topography" }}
+    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "topography") "Page" $page) }}
   {{ end }}
 
   <section class="{{ $classes }}" {{ with .Block.id }} id="{{ . }}" {{ end }}>

@@ -54,14 +54,15 @@
     justify-self: center;
     width       : 100%;
     @include limit-width;
-    padding     : 3.5rem $lr-padding; // top, bottom padding
+    padding     : 3rem $lr-padding;
   }
 
   // An icon that represents the section contents
   &__icon {
     display         : flex;
     justify-self    : center;
-    padding         : 1.5rem;
+    padding         : 1.2rem;
+    margin-top      : 1rem;
     border-radius   : 50%;
     background-color: var(#{$prefix}-c-icon-background);
     stroke          : var(#{$prefix}-c-icon-foreground);
@@ -72,7 +73,7 @@
     text-align : center;
     line-height: 1.5;
     width      : 100%;
-    margin     : 2rem auto 1.1rem;
+    margin     : 1rem auto .8rem;
     font-size  : var(#{$prefix}-fs-title);
     color      : var(#{$prefix}-fc-title);
     font-family: var(#{$prefix}-ff-title);
@@ -81,7 +82,7 @@
 
   // Text that introduces the section.
   &__intro {
-    margin     : 0 auto 2.5rem;
+    margin     : 0 auto 2rem;
     max-width  : 55rem;
     line-height: 1.5;
     font-size  : var(#{$prefix}-fs-intro);
@@ -100,6 +101,11 @@
   // The rest is styled by button component.
   &__button {
     margin: 2.5rem auto 1rem;
+  }
+
+  // For sections with SVG backgrounds
+  &__svg-background {
+    @extend %svg-background;
   }
 
   // ==========================================================================
@@ -150,7 +156,6 @@
 
   &--bkg-wave {
     #{$bn}__svg-background {
-      @extend %svg-background;
       @include desktop {
         overflow: visible;
       }
@@ -183,8 +188,6 @@
     text-shadow                     : .01em .01em .1em var(#{$prefix}-c-shadow-1);
 
     #{$bn}__svg-background {
-      @extend %svg-background;
-
       svg {
         // the "data-wave" background is actually two layered SVGs,
         // such that the background gradient can have preserveAspectRatio = none
@@ -196,6 +199,10 @@
     }
   }
 
+  //
+  // Map: An aerial view of Santa Barbara
+  // ==========================================================================
+
   &--bkg-map {
     @include --dark-bkg;
     #{$prefix}-c-background-lighter : var(--c-always-dark-lighter, slategray);
@@ -206,6 +213,19 @@
     position                        : relative;
     @include bkg-img;
     background-image                : linear-gradient(var(--c-shadow-5-on-major-accent, rgba(darkslategray, 0.9)), var(--c-shadow-4-on-major-accent, rgba(darkslategray, 0.8))), url("/images/santa_barbara__NASA.jpg");
+  }
+
+  //
+  // Topography: A subtle map topography pattern
+  // ==========================================================================
+
+  &--bkg-topography {
+    #{$prefix}-c-background: var(--c-default-darker, lightgray);
+
+    #{$bn}__svg-background svg {
+      height: auto;
+      width : 100%;
+    }
   }
 
   // ==========================================================================

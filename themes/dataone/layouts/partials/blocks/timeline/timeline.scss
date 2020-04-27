@@ -1,7 +1,7 @@
 // ======
 // 
 $line-left-mobile: 1rem; // distance from left for the line & points on mobile
-$circle-size: 22px; // size of circles on line  at each timeline event
+$circle-size: 13px; // size of circles on line  at each timeline event
 $point-size: 15px; // size of points at each timeline event
 $point-dist-top: 2.5rem; // point's vertical distance from top of event
 $card-color: var(--section-c-background-lighter, white);
@@ -39,7 +39,7 @@ $card-color: var(--section-c-background-lighter, white);
     content   : '';
     background: var(--section-c-accent, dimgray);
     opacity   : .5;
-    width     : 5px;
+    width     : 3px;
     height    : 95%;
     position  : absolute;
     left      : $line-left-mobile;

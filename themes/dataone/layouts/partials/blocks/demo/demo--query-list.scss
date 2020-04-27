@@ -1,0 +1,93 @@
+.demo--query-list {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                          : ".demo";
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                      : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+  // 
+  $padding-above-input         : 1.2rem;
+  $padding-field-top-and-bottom: .4rem;
+  $padding-field-left-right    : 2.1rem;
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  @include card;
+  // Required for tooltips to display correctly. See microtips.scss.
+
+  #{$bn}__input {
+    @include form-field-styles;
+    // change background reduce box shadow from default vals
+    background-color: var(--c-default-darker-2);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(--section-c-shadow-1, var(--c-shadow-1-on-default, rgba(1,1,1,0.08)));
+
+    &:focus {
+      box-shadow: .01rem .06rem .8rem -0.17rem var(--section-c-shadow-2, var(--c-shadow-2-on-default , rgba(1,1,1,0.08)));
+    }
+  }
+
+  #{$bn}__search-area {
+    @include floating-label("this", ".demo__input", ".demo__label", $label-size:0.9rem, $padding-field-top-and-bottom: $padding-field-top-and-bottom, $padding-field-left-right: $padding-field-left-right, $top-padding: $padding-above-input);
+    margin-bottom: .5rem;
+  }
+
+  #{$bn}__label {
+    width: 80%;
+  }
+
+  #{$bn}__search-icon {
+    position      : absolute;
+    left          : $padding-field-left-right * 0.5; // TODO
+    transform     : translate(-50%,-1px);
+    top           : $padding-above-input + $padding-field-top-and-bottom;
+    pointer-events: none;
+    stroke        : var(--c-foreground-subtle-on-default); //TODO
+  }
+
+  // hover the icon along with the input (it's a sibling of input; not a child)
+  #{$bn}__input:focus ~ #{$bn}__search-icon svg {
+    transform: translateY(-.5px);
+  }
+
+  #{$bn}__list {
+    height         : 14rem;
+    overflow-y     : auto;
+    position       : relative;
+    padding        : 0;
+    list-style-type: none;
+  }
+
+  #{$bn}__item {
+    cursor       : pointer;
+    font         : .9rem Source Code Pro,monospace; // TODO
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+    cursor       : pointer;
+    // color        : var(--section-c-foreground-subtle); // TODO
+    font-weight  : 700; // TODO
+    margin-top   : .15rem;
+    padding      : .25rem .4rem;
+  }
+
+  #{$bn}__item:hover {
+    color           : var(--section-fc-title);
+    background-color: var(--section-c-icon-background); // TODO
+  }
+
+}

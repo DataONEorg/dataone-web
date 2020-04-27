@@ -9,6 +9,13 @@
 {{ $nextIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-right")) "Page" $page) }}
 {{ $prevIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-left")) "Page" $page) }}
 
+<!-- The position of the control buttons / logos -->
+{{ $positionControls := .Block.position_controls | default "top" }}
+
+{{ if eq $positionControls "bottom" }}
+  {{ $classes = printf "%s %s--controls-bottom" $classes $bn }}
+{{ end }}
+
 <!-- Are logos provided for the control elements? -->
 {{ $hasLogos := false }}
 {{ range .Block.slides }}
@@ -20,7 +27,11 @@
 
 {{- if partial "functions/hasValues" .Block.slides -}}
   <div class="{{ $classes }}">
-    <!-- controls -->
+
+    <!-- ================================================================== -->
+    <!-- CONTROLS -->
+    <!-- ================================================================== -->
+
     <ol class="{{ $bn }}__controls" role="tablist">
       {{- range .Block.slides -}}
         <li class="{{ $bn }}__control-item" role="presentation">
@@ -36,38 +47,64 @@
         </li>
       {{- end -}}
     </ol>
-    <!-- previous and next SVG elements -->
+
+    <!-- ================================================================== -->
+    <!-- HEADER -->
+    <!-- ================================================================== -->
+
     <div class="{{ $bn }}__container" data-carousel-btn-prev="{{ $bn }}__button--prev" data-carousel-btn-next="{{ $bn }}__button--next" data-carousel-existing-hx="h3">
 
+      <div class="{{ $bn }}__headers">
+        {{- range .Block.slides -}}
+
+          {{ $hasHeader := or (.title) (.subtitle) (.button) }}
+
+          <!-- The header part of the slide which fades between slides -->
+          <!-- Use the colour as the header background -->
+          {{ $headerStyle := "" | safeHTMLAttr }}
+          {{ if $hasHeader }}
+            {{ with .color }}
+              {{ $headerStyle = print `style="background-color:` . `;"` | safeHTMLAttr }}
+            {{ end }}
+          {{ end }}
+
+          {{ $classesHeader := printf "%s__header" $bn }}
+          {{ if not $headerStyle }}
+            {{ $classesHeader = printf "%s" $classesHeader }}
+          {{ end }}
+
+          <div class="{{ $classesHeader }}" aria-hidden="true" {{ $headerStyle }}>
+            {{ if $hasHeader }}
+              {{ with .title }}
+                <h3 class="{{ $bn }}__title">{{ . }}</h3>
+              {{ end }}
+              {{ with .subtitle }}
+                <h4 class="{{ $bn }}__subtitle">{{ . }}</h4>
+              {{ end }}
+              {{ with .button }}
+                <div class="{{ $bn }}__header-button">
+
+                  {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
+
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        {{- end -}}
+      </div>
+
+      <!-- <div class="TEST-CONTENT"> -->
       {{- range .Block.slides -}}
 
         <div class="{{ $bn }}__content" aria-hidden="true">
-          <!-- The header part of the slide which fades between slides -->
-          <!-- Use the colour as the header background -->
-          {{ $headerStyle := "" }}
-          {{ with .color }}
-            {{ $headerStyle = print `style="background-color:` . `;"` | safeHTMLAttr }}
-          {{ end }}
-
-          <div class="{{- $bn -}}__header" {{ $headerStyle }}>
-            {{ with .title }}
-              <h3 class="{{ $bn }}__title">{{ . }}</h3>
-            {{ end }}
-            {{ with .subtitle }}
-              <h4 class="{{ $bn }}__subtitle">{{ . }}</h4>
-            {{ end }}
-            {{ with .button }}
-              <div class="{{ $bn }}__header-button">
-
-                {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
-
-              </div>
-            {{ end }}
-          </div>
+          <!-- ================================================================== -->
+          <!-- MAIN CONTENT BLOCK -->
+          <!-- ================================================================== -->
 
           <!-- The main content of the carousel that slides left to right on slide changes -->
           {{- range first 1 .content -}}
-            <div class="{{- $bn -}}__main">
+
+            <div class="{{ $bn }}__main">
               <!-- if the content is a block, render the block -->
               {{- if reflect.IsMap . -}}
                 {{- if .template -}}
@@ -82,8 +119,14 @@
 
         </div>
       {{- end -}}
+      <!-- test div -->
+      <!-- </div> -->
     </div>
-    <!-- The next/prev buttons -->
+
+    <!-- ================================================================== -->
+    <!-- PREV/NEXT BUTTONS -->
+    <!-- ================================================================== -->
+
     <button class="{{ $bn }}__button {{ $bn }}__button--prev" type="button" title="Show previous content">
       {{ $prevIcon }}
     </button>
@@ -91,4 +134,5 @@
       {{ $nextIcon }}
     </button>
   </div>
+
 {{- end -}}

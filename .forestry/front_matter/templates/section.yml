@@ -38,6 +38,7 @@ fields:
     - data-wave
     - wave
     - map
+    - topography
 - type: select
   label: Background style for second half of section
   name: background2
@@ -59,6 +60,7 @@ fields:
     - data-wave
     - wave
     - map
+    - topography
 - type: field_group
   template: icon
   label: Icon
@@ -110,6 +112,8 @@ fields:
   - tabs
   - contact-info
   - contact-form
+  - demo
+  - steps
   description: The blocks to include in the section
   config:
     min: ''

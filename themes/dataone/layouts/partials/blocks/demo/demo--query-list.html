@@ -1,0 +1,59 @@
+<!-- ================================================================= -->
+<!-- Common variables -->
+
+<!-- In order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "demo" }}
+
+<!-- ================================================================= -->
+<!-- Prepare the query fields data -->
+<!-- The original data -->
+{{ $fields := $page.Site.Data.query_fields.queryFields }}
+<!-- Filters for query values that we don't want to list -->
+{{ $exludeFields := slice }}
+{{ range $fields }}
+  {{ if hasPrefix .name "_" }}
+    {{ $exludeFields = $exludeFields | append .name }}
+  {{ else if hasPrefix .name "geohash" }}
+    {{ $exludeFields = $exludeFields | append .name }}
+  {{ else if hasPrefix .description "Copy" }}
+    {{ $exludeFields = $exludeFields | append .name }}
+  {{ else if eq .searchable false }}
+    {{ $exludeFields = $exludeFields | append .name }}
+  {{ else if eq .returnable false }}
+    {{ $exludeFields = $exludeFields | append .name }}
+  {{ end }}
+{{ end }}
+{{ $fields = where $fields ".name" "not in" $exludeFields }}
+
+<!-- To test, see the list of exluded fields -->
+<!-- {{ range $exludeFields }} <b>{{ . }}</b> </br> {{ end }} -->
+
+<!-- ================================================================= -->
+<!-- Layout elements -->
+
+{{ $iconBlock := dict "size" "small" "stroke" "thinner" "color" "inherit" "icon" "search" }}
+{{ $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+
+<!-- ================================================================= -->
+<!-- Layout -->
+
+<div class="{{ $bn }}__search-area">
+  <input class="{{ $bn }}__input" type="text" id="queryFieldsSearch" placeholder="Enter the name of a metadata field" onkeyup="filterQueryFields()">
+  <label class="{{ $bn }}__label" for="queryFieldsSearch">
+    Search
+    {{ len $fields }}
+    metadata fields
+  </label>
+  <span class="{{ $bn }}__search-icon">
+    {{ $searchIcon }}
+  </span>
+</div>
+
+<ul class="{{ $bn }}__list" id="queryFieldList">
+  {{ range $fields }}
+    {{ $tooltip := .description | default (.name | humanize )}}
+    <li class="{{ $bn }}__item" data-tooltip="{{ $tooltip }}" data-position="center bottom">{{ .name  }}</li>
+  {{ end }}
+</ul>

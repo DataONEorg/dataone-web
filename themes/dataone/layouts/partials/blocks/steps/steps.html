@@ -1,0 +1,81 @@
+<!-- ================================================================= -->
+<!-- Common variables -->
+
+<!-- In order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "steps" }}
+<!-- Classes to add to the outer-most element -->
+{{ $classes := $bn }}
+
+<!-- ================================================================= -->
+<!-- All block options -->
+
+<!-- The type of block -->
+{{ $type := .Block.type | default "" }}
+<!-- Each step comprises a title, text, icon, and content block -->
+{{ $steps := .Block.steps | default slice }}
+
+<!-- ================================================================= -->
+<!-- Other variables -->
+
+<!-- Add type as a modifier class -->
+{{ with $type}}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize) }}
+{{ end }}
+
+<!-- ================================================================= -->
+<!-- Layout -->
+
+<div class="{{ $classes }}">
+  <!-- The line that will connect the steps -->
+  <span class="{{ $bn }}__line"></span>
+  <ol class="{{ $bn }}__step-list">
+
+    <!-- Range through each step -->
+    <!-- Each step comprises a title, text, icon, and content block -->
+    {{ range $index, $step := $steps }}
+
+      <li class="{{ $bn }}__step">
+
+        <!-- Icon -->
+        {{ with .icon }}
+          <span class="{{ $bn }}__icon">
+            {{ $iconBlock := dict "icon" . "color" "inherit" "size" "large" }}
+            {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
+          </span>
+        {{ end }}
+
+        <!-- Pill that gives the step number -->
+        <span class="{{ $bn }}__pill">
+          {{ $pillBlock := dict "text" (printf "Step %d" (add $index 1)) "style" "primary" }}
+          {{ partial "blocks/pill/pill" (dict "Block" $pillBlock "Page" $page )}}
+        </span>
+
+        <!-- Title -->
+        {{ with .title }}
+          <h4 class="{{ $bn }}__title">{{ . }}</h4>
+        {{ end }}
+
+        <!-- Text -->
+        {{ with .text }}
+          <p class="{{ $bn }}__description">{{ . }}</p>
+        {{ end }}
+
+        <!-- Content -->
+        {{ if .content }}
+          <div class="{{ $bn }}__content">
+            {{ range .content }}
+              {{ if .template }}
+                {{ partial (printf "blocks/%s/%s" .template .template) (dict "Block" . "Page" $page) }}
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
+
+      </li>
+
+    {{ end }}
+  </ol>
+
+</div>

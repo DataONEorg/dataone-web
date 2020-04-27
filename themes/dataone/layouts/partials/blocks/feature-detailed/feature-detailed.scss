@@ -39,7 +39,7 @@
   &__figure {
     margin         : 0;
     display        : flex;
-    width          : 80%;
+    width          : 84%;
     align-items    : center;
     justify-content: center;
     margin-left    : auto;
@@ -81,9 +81,8 @@
 
   &--figleft {
     @include desktop {
-      @include desktop {
-        grid-template-columns: .55fr .45fr;
-      }
+
+      grid-template-columns: .55fr .45fr;
 
       .feature-detailed__figure {
         order: 1;

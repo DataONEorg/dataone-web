@@ -27,6 +27,7 @@
   grid-template-columns: min-content 1fr;
   color                : var(--section-fc-body, black);
   margin               : .9rem 0;
+  font-size            : var(--fs-medum, 1rem);
 
   &__icon {
     height         : calc(var(--fs-large, 1.22rem) * 1.6);
@@ -38,14 +39,12 @@
 
   &__paragraph {
     margin     : 0;
-    font-size  : var(--fs-large, 1.22rem);
     line-height: 1.6;
   }
 
   &__emphasis {
     font-style : normal;
     font-weight: var(--fw-bolder, 500);
-    font-size  : var(--fs-large, 1.22rem);
   }
 
 }

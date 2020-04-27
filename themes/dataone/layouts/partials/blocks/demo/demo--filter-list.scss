@@ -1,0 +1,255 @@
+.demo--filter-list {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn        : ".demo";
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix    : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+  // 
+
+  // Common height for UI elements
+  $heightUI  : 40px;
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  width      : 100%;
+  max-width  : 100%;
+  min-width  : 0;
+  // Give the carousel a little extra space
+  margin-left: -0.5rem;
+  @include desktop {
+    margin-left: 0;
+  }
+
+  // Styles for input text, numeric, and select fields
+  #{$bn}__example-UI-field {
+    box-shadow      : none;
+    border-radius   : 4px;
+    position        : relative;
+    margin-bottom   : 0;
+    vertical-align  : top;
+    font-size       : 16px;
+    background-color: #fff;
+    border          : 1px solid #ccc;
+    transition      : border linear .2s,box-shadow linear .2s;
+    display         : inline-block;
+    height          : $heightUI;
+    margin-bottom   : 10px;
+    line-height     : $heightUI;
+    color           : #555;
+    text-indent     : 8px;
+
+    &:focus {
+      outline     : 0;
+      border-color: rgba(82,168,236,.8);
+    }
+  }
+
+  //
+  // Modify the carousel styles
+  // ==========================================================================
+  // TODO: Find a more BEM way to do this - add a modifier to carousel block?
+  // Change the section variables?
+  .carousel__header {
+    padding         : .8rem 1.2rem;
+    background-color: var(--section-c-background, lightgray);
+    color           : var(--section-c-foreground-subtle, black);
+    filter: brightness(0.97);
+  }
+
+  .carousel__title {
+    font-size: var(--fs-medium,1.5rem);
+  }
+
+  .carousel--has-logos .carousel__logo svg {
+    width: 3rem;
+  }
+
+  //
+  //  Date UI
+  // ==========================================================================
+
+  #{$bn}__filter-type--date {
+    .slider {
+      display    : block;
+      position   : relative;
+      height     : 30px;
+      width      : 100%;
+      user-select: none;
+    }
+
+    .slider-touch {
+      display : block;
+      position: absolute;
+      height  : 26px;
+      width   : 10px;
+      padding : 0;
+      z-index : 2;
+      cursor  : grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      span {
+        display      : block;
+        width        : 100%;
+        height       : 100%;
+        background   : #ededed;
+        border       : 1px solid #b6b6b6;
+        border-radius: 4px;
+      }
+
+    }
+
+    .slider-line {
+      position     : absolute;
+      width        : calc(100% - 10px);
+      left         : 5px;
+      top          : 10px;
+      height       : 6px;
+      border-radius: 4px;
+      background   : #ededed;
+      z-index      : 0;
+      overflow     : hidden;
+
+      span {
+        display   : block;
+        height    : 100%;
+        width     : 0;
+        background: var(--c-major-accent, #2c6f90);
+      }
+    }
+
+    #{$bn}__results {
+      display              : grid;
+      grid-template-columns: auto auto auto;
+      grid-gap             : 1rem;
+      align-items          : baseline;
+      justify-content      : center;
+      margin-top           : .2rem;
+    }
+
+    #{$bn}__example-UI-field {
+      max-width: 105px;
+      min-width: 80px;
+      width    : 100%;
+    }
+
+  }
+
+  //
+  // Free text UI
+  // ==========================================================================
+
+  #{$bn}__filter-type--free-text {
+    button {
+      vertical-align  : top;
+      background-color: #f5f5f5;
+      display         : inline-block;
+      box-shadow      : none;
+      border          : 1px solid #ccc;
+      color           : #999;
+      padding         : 4px 10px;
+      border-radius   : 0 4px 4px 0;
+      margin-left     : -1px;
+      height          : $heightUI;
+      width           : $heightUI;
+    }
+
+    #{$bn}__example-UI-field {
+      border-radius: 4px 0 0 4px;
+      width        : calc(100% - #{$heightUI});
+    }
+
+  }
+
+  //
+  // Toggle UI
+  // ==========================================================================
+
+  #{$bn}__filter-type--toggle {
+    position       : relative;
+    display        : flex;
+    align-content  : center;
+    justify-content: center;
+
+    input {
+      -webkit-appearance: none;
+      -moz-appearance   : none;
+      appearance        : none;
+      width             : 87px;
+      height            : 40.5px;
+      display           : inline-block;
+      position          : relative;
+      border-radius     : 4px;
+      overflow          : hidden;
+      outline           : none;
+      border            : none;
+      cursor            : pointer;
+      background-color  : #848484;
+      transition        : background-color ease .3s;
+    }
+
+    input:before {
+      content      : "Off";
+      display      : block;
+      position     : absolute;
+      z-index      : 2;
+      width        : 45px;
+      height       : $heightUI - 2px;
+      line-height  : $heightUI - 4px;
+      background   : white;
+      left         : 1.5px;
+      top          : 1.5px;
+      border-radius: 4px;
+      text-align   : center;
+      color        : #777;
+      white-space  : nowrap;
+      box-shadow   : 0 1px 2px rgba(0,0,0,0.2);
+      transition   : all cubic-bezier(0, 1, 0.5, 1) .3s;
+      font-size    : 17px;
+      font-weight  : 500;
+      border       : 2px solid #777;
+    }
+
+    input:checked {
+      background-color: var(--c-major-accent, #4CD964);
+    }
+
+    input:checked:before {
+      content: "On";
+      left   : 87px - 45px -1px;
+      color  : var(--c-major-accent, #4CD964);
+      border : 2px solid var(--c-major-accent, #4CD964);
+    }
+
+  }
+
+  //
+  // Dropdown menu UI
+  // ==========================================================================
+
+  #{$bn}__filter-type--dropdown-menu {
+    #{$bn}__example-UI-field {
+      width: 100%;
+    }
+
+  }
+
+}

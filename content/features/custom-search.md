@@ -5,8 +5,8 @@ title: Customized portal search
 description: Custom search feature for DataONE Plus portals.
 header:
   template: header
-  type: text only
-  background_color: default
+  type: image on right
+  background_color: light
   pill:
     template: pill
     style: secondary
@@ -20,72 +20,88 @@ header:
     internal_link: "/features"
     color: secondary
     text: See all features
-    external_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   image:
-    template: ''
-    src: ''
+    src: "/uploads/videos/custom-search-demo.mp4"
     alttext: ''
-    type: ''
+    type: float
 page_sections:
-- type: default
-  template: section
-  background: default
-  background2: ''
+- template: section
+  type: default
+  title: How do filters work?
+  intro: Creating a search filter for your portal is easy. Choose a metadata field and a filter type, then select a matching icon and text. Mix and match as many filters as you need, and arrange them into groups.  
+  blocks:
+  - template: steps
+    steps:
+    - title: Choose a metadata field
+      text: Allow visitors to filter your collection of data by any metadata field of your choice.
+      icon: file-text
+      content:
+      - template: demo
+        type: query-list
+    - title: Select a filter type
+      text: Select from up to six varieties of search filters for researchers
+        to use on your portal
+      icon: toggle-right
+      content:
+      - template: demo
+        type: filter-list
+    - title: Customize the appearance
+      text: Customize the look of your portal search fields by adding an icon, a title, and placeholder
+        example text.
+      icon: image
+      content:
+      - template: demo
+        type: filter-appearance
+    - title: Group related filters
+      text: Further customize the search display by grouping related filters
+        together.
+      icon: layers
+      content:
+      - template: image
+        src: /uploads/portals/portals-grouped-filters.png
+        type: card
+- template: section
+  background: topography
+  title: Geographic location search
   icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title:
-  intro:
+    icon: map
+  blocks:
+  - template: feature-detailed
+    type: left
+    text: Allow your community to search by geographic location using an interactive map. Zoom into the area where
+      your research is focused by setting a specific center point and zoom level for
+      the map. 
+    image:
+      template: image
+      type: tilt-right
+      src: /uploads/portals/portals-map-filter.png
+    details:
+    - name: Area search
+      text: Users can filter your data by a specific geographic area.
+      icon:
+        template: icon
+        icon: map-pin
+        size: small
+        color: secondary
+        stroke: thicker
+    - name: Hide map
+      text: Want to turn off the map altogether? You can do that too.
+      icon:
+        template: icon
+        icon: eye-off
+        size: small
+        color: secondary
+        stroke: thicker
+- template: section
   blocks:
   - template: markdown
-    content: "Mix and match from up to six varieties of search filters for researchers
-      to use on your portal:\n\n(add an image of each filter type)\n\n* Free-text
-      \ \n* Dropdown menu \n* Toggle \n* Checkbox\n* Date \n* Number\n\nChoose which
-      fields from your metadata that the filter will search from, such as title, keywords,
-      creators, data attributes, species, or geographic area description. \n\nCustomize
-      the look of your portal search fields by adding an icon, a title, and placeholder
-      example text. (Show some icon examples)\n\nFurther customize the search display by grouping related filters
-      together. (add screenshot of tabbed filter groups)\n\nAllow your community to
-      search by geographic location using an interactive map. Zoom into the area where
-      your research is focused by setting a specific center point and zoom level for
-      the map. (add screenshot of the data tab map)\n\nWant to turn off the map altogether?
-      You can do that too.\n\n(Footnote in subtle style): These portal features will
-      soon be available in the portal editor, but until then, our team can configure
-      these portal features behind-the-scenes."
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
+    content: "*These portal features will
+    soon be available in the portal editor, but until then, our team can configure
+    these portal features behind-the-scenes.*"
 - template: section
   background: major-accent-color
   title: Interested in a DataONE Plus portal?
@@ -98,27 +114,5 @@ page_sections:
     precheck_plus: true
     precheck_newsletter: false
     newsletter_only: false
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-theme: ''
 
 ---

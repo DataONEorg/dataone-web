@@ -1,0 +1,60 @@
+---
+label: Steps
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: steps
+- type: field_group_list
+  name: steps
+  label: Steps
+  fields:
+  - type: text
+    name: title
+    label: Title
+    description: A few words indicating the name of the step
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: text
+    name: text
+    label: Step description
+    description: A description of the step
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - name: icon
+    type: include
+    config: {}
+    template: icon-names
+    label: Icon
+    description: An optional that represents the step
+- name: content
+  type: blocks
+  label: Content
+  template_types:
+  - markdown
+  - feature-detailed
+  - image
+  - card
+  - job-summary
+  - news-summary
+  - webinar-summary
+  - join-form
+  - columns
+  - checklist
+  - timeline
+  - metrics
+  - people
+  - item-with-icon
+  - card
+  - accordion
+  - carousel
+  - tabs
+  - contact-info
+  - contact-form
+  - demo
