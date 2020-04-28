@@ -71,23 +71,23 @@
   }
 
   &__role {
-    font-size : var(--fs-x-small, .85rem);
+    font-size     : var(--fs-x-small, .85rem);
     text-transform: uppercase;
     letter-spacing: .05em;
     margin        : .9rem 0 .6rem;
     text-align    : center;
-    font-weight : var(--fw-bold, 500);
+    font-weight   : var(--fw-bold, 500);
     color         : var(--section-fc-title, black);
     line-height   : 1.3;
   }
 
   &__organization {
-    font-size : var(--fs-medium, 1.1rem);
+    font-size     : var(--fs-medium, 1.1rem);
     // text-transform: uppercase;
     letter-spacing: .05em;
     margin        : 0;
     text-align    : center;
-    font-weight : var(--fw-light, 300);
+    font-weight   : var(--fw-light, 300);
     color         : var(--section-fc-title, black);
     line-height   : 1.05;
   }
@@ -164,9 +164,9 @@
   .person__bio {
     margin     : 1.5rem 0;
     grid-area  : bio;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1.1rem);
     line-height: 1.5;
-    font-weight : var(--fw-normal, 400);
+    font-weight: var(--fw-normal, 400);
     color      : var(--section-fc-title);
   }
 
@@ -181,7 +181,7 @@
   }
 
   .person__email {
-    font-size : var(--fs-small, 1rem);
+    font-size: var(--fs-small, 1rem);
   }
 }
 
@@ -224,8 +224,8 @@
     margin     : 0;
     line-height: 1.1;
     padding    : 0;
-    font-weight : var(--fw-bold, 500);
-    font-size : var(--fs-x-small, .85rem);
+    font-weight: var(--fw-bold, 500);
+    font-size  : var(--fs-x-small, .85rem);
   }
 }
 
@@ -238,15 +238,15 @@
   }
 
   .person__bio {
-    font-size : var(--fs-small, 1rem);
+    font-size  : var(--fs-small, 1rem);
     line-height: 1.4;
   }
 
   .person__role {
-    font-size : var(--fs-smallest, .8rem);
+    font-size: var(--fs-smallest, .8rem);
   }
 
   .person__organization {
-    font-size : var(--fs-small, 1rem);
+    font-size: var(--fs-small, 1rem);
   }
 }

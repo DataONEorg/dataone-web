@@ -16,10 +16,10 @@
   &__link {
     @include f-common;
     margin         : 0;
-    font-size : var(--fs-smaller, 0.9rem);
+    font-size      : var(--fs-smaller, 0.9rem);
     line-height    : 1.5;
     text-transform : uppercase;
-    font-weight : var(--fw-normal, 400);
+    font-weight    : var(--fw-normal, 400);
     letter-spacing : .03em;
     display        : block;
     text-decoration: none;
@@ -33,7 +33,8 @@
   }
 
   &__menu-arrow {
-    bottom           : -16px;
+    bottom           : -23px;
+    z-index          : 1;
     transform        : translate(-50%, 0);
     left             : 50%;
     position         : absolute;

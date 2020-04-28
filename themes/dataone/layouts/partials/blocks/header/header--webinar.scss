@@ -10,9 +10,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                          : ".header";
+  $bn                            : ".header";
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix                      : "--" + str-replace(#{$bn}, ".");
+  $prefix                        : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -20,8 +20,12 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  #{$prefix}-c-accent          : var(--section-c-accent, var(--c-major-accent-on-default, grey));
-  #{$prefix}-c-forground-subtle: var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray));
+  // Important tags are so that these variables take precedence over the regular
+  // .webinar variables
+  #{$prefix}-c-accent            : var(--section-c-accent, var(--c-major-accent-on-default, grey)) !important;
+  #{$prefix}-c-forground-subtle  : var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray)) !important;
+  #{$prefix}-c-foreground-default: var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray)) !important;
+  #{$prefix}-fc-headline         : var(--section-fc-title, var(--c-foreground-on-default, grey)) !important;
 
   // ==========================================================================
   //    Styles
@@ -29,8 +33,8 @@
 
   @include f-common;
 
-  margin-top                   : 0 !important;
-  padding-top                  : 0 !important;
+  margin-top                     : 0 !important;
+  padding-top                    : 0 !important;
 
   #{$bn}__content {
     grid-template-columns: 1fr;
@@ -41,9 +45,9 @@
   }
 
   .header__headline {
-    font-size  : var(--fs-x-large, 1.75rem);
-    line-height: 1.15;
-    margin-top : 3rem;
+    font-size  : var(--fs-xx-large, 1.75rem);
+    line-height: 1.3;
+    margin-top : 2rem;
   }
 
   .header__intro {
@@ -55,14 +59,9 @@
     }
   }
 
-  .header__intro:hover {
-    color      : white;
-    text-shadow: -1px 0 16px rgba(255,255,255,0.05);
-  }
-
   .header__abstract {
     font-size  : var(--fs-medium, 1.1rem);
-    font-weight: var(--fw-light, 300);
+    // font-weight: var(--fw-light, 300);
     line-height: 1.6;
   }
 

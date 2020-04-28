@@ -75,7 +75,7 @@
       <!-- VIDEO ... =============== -->
       {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
       {{ $videoIcon := partial "blocks/icon/icon" (dict "Block" $videoIconBlock "Page" $page) }}
-      {{ $videoBlock := dict "ID" $video }}
+      {{ $videoBlock := dict "ID" $video "type" "vimeo" }}
 
       <span class="{{ $bn }}__video-title"><span class="{{ $bn }}__video-icon">{{ $videoIcon }}</span>
         Watch previously recorded video</span>

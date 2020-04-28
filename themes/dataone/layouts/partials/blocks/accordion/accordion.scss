@@ -64,7 +64,7 @@
 		width             : 100%;
 		z-index           : 2;
 		border-radius     : var(--br-default, 0.25rem);
-		color             : inherit;
+		color             : var(--section-fc-body);
 	}
 
 	&__trigger:after {
@@ -118,7 +118,7 @@
 	&__trigger:hover {
 		outline   : none;
 		transition: all .2s ease-in-out;
-		filter: brightness(1.05);
+		filter: brightness(1.03);
 	}
 
 	&__trigger:focus {
@@ -127,12 +127,7 @@
 
 	&__trigger[aria-disabled="true"]:hover {
 		background-color: var(--section-c-accent, gray);
-		color           : #fff;
 		cursor          : not-allowed;
-	}
-
-	&__trigger[aria-disabled="true"]:focus {
-		background-color: #0a2a42;
 	}
 
 	&__panel {
@@ -162,6 +157,5 @@
 
 	&__trigger[aria-expanded="true"] {
 		background: var(--section-c-background, white);
-		color     : #fff;
 	}
 }
