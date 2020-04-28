@@ -23,15 +23,6 @@ page_sections:
   blocks:
   - template: timeline
     event:
-    - date: '2020-04-14'
-      title: This is a test event
-      description: Description
-      image: "/uploads/AHM_2019_GroupPhoto.jpg"
-      button:
-        type: internal page
-        color: primary
-        text: Button test
-        internal_link: features/_index.md
     - date: '2019-01-15'
       title: New leadership transition
       description: A new management team is formed and administrative oversight of
