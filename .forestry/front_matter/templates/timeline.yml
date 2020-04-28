@@ -12,11 +12,47 @@ fields:
   label: Events
   description: The events to include in the timeline.
   fields:
-  - name: event
-    type: include
+  - type: datetime
+    name: date
+    label: Date of the event
+    description: The date of the event
+  - name: title
+    type: textarea
+    default: ''
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Title
+    description: A brief title or headline
+  - name: description
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Description
+    description: Any relevant details
+  - name: image
+    type: file
+    config:
+      maxSize: 250
+    label: Image File
+    description: An optional image to display with the event
+  - name: button
+    type: field_group
     config: {}
-    template: card
-    label: Event
-    description: A single event in a timeline
+    fields:
+    - name: button
+      type: include
+      config: {}
+      template: button
+      label: Button
+      description: An optional button that leads to more information about a related
+        topic
+    label: Button
+    description: An optional button that leads to more information about a related topic
   config:
     labelField: title

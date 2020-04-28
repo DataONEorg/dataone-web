@@ -5,7 +5,7 @@
 <!-- classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
-{{ if .Block.clickable }}
+{{ if eq .Block.clickable "true" }}
   {{ $classes = print $classes " " $bn "--clickable" }}
 {{ end }}
 
@@ -28,7 +28,7 @@
   {{ $classes = print $classes " " $bn "--image-header" }}
 {{ end }}
 
-{{ if and .Block.clickable .Block.href }}
+{{ if and (eq .Block.clickable "true") .Block.href }}
   <a class="{{ $classes }} " href="{{ .Block.href }}">
   {{ else }}
     <div class="{{ $classes }} ">
@@ -77,7 +77,7 @@
     {{ end }}
 
     <!-- Button (optional). Don't show if entire block is clickable -->
-    {{ if and $hasButton (not .Block.clickable) }}
+    {{ if and $hasButton (eq .Block.clickable "false") }}
       <div class="{{ $bn }}__button">
         {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>

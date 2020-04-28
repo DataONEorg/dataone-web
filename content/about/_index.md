@@ -23,45 +23,28 @@ page_sections:
   blocks:
   - template: timeline
     event:
-    - datetime:
-        time: '2019-01-15'
-        dateformat: 02 Jan 2006
-        localize: false
-        change_timezone: false
+    - date: '2019-01-15'
       title: New leadership transition
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
-    - datetime:
-        time: '2014-01-01'
-        dateformat: 02 Jan 2006
-        localize: false
-        change_timezone: false
+    - date: '2014-01-01'
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
-    - datetime:
-        time: '2011-08-22T23:59:00-07:00'
+    - date: '2011-08-22T23:59:00-07:00'
       title: DataONE learning modules available online
-    - title: DataONE funded as a part of the NSF DataNet program
+    - date: '2009-08-01T15:58:00-07:00' 
+      title: DataONE funded as a part of the NSF DataNet program
       description: 'DataONE, led by PI William Michener, was funded as one of two
         DataNet projects '
-      datetime:
-        time: '2009-08-01T15:58:00-07:00'
-        dateformat: 02 Jan 2006
-        localize: false
-        change_timezone: false
+      image: "/uploads/800px-Robinson-projection.jpg"
       button:
         template: button
         type: external website
         color: quaternary
-        text: Leran more
+        text: Learn more
         external_link: https://www.nsf.gov/awardsearch/showAward?AWD_ID=0830944&HistoricalAwards=false
-      image:
-        template: image
-        src: "/uploads/800px-Robinson-projection.jpg"
-        alttext: World map shown with Robinson projection
-        type: default
 - template: section
   background: subtle-emphasis
   title: The people behind the data
