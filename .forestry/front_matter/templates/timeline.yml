@@ -38,7 +38,7 @@ fields:
   - name: image
     type: file
     config:
-      maxSize: 250
+      maxSize: 
     label: Image File
     description: An optional image to display with the event
   - name: button
@@ -53,6 +53,7 @@ fields:
       description: An optional button that leads to more information about a related
         topic
     label: Button
-    description: An optional button that leads to more information about a related topic
+    description: An optional button that leads to more information about a related
+      topic
   config:
     labelField: title
