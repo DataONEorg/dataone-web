@@ -5,9 +5,7 @@ webinar_datetime: 2020-03-02T20:00:00.000+00:00
 duration: 60
 status: auto
 tags:
-- access
-- describe
-- discover
+- Plan
 vimeoID: 
 meetingID: ''
 slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"

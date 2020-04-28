@@ -5,9 +5,8 @@ webinar_datetime: 2020-02-25T18:00:00.000+00:00
 duration: 60
 status: auto
 tags:
-- access
-- describe
-- discover
+- Describe
+- Discover
 meetingID: 408-224-154
 slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"
 short_abstract: Learn about the rapid growth and future plans of the Research Data

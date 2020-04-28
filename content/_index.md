@@ -31,7 +31,7 @@ page_sections:
   blocks:
   - template: tabs
     tabs:
-    - title: Upcoming webinar
+    - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
       content:
@@ -64,7 +64,7 @@ page_sections:
       - template: page-summary
         type: news
         auto_select: true
-    - title: Upcoming training event
+    - title: Training event
       annotation: Find out about the next training event
       icon: globe
       content:

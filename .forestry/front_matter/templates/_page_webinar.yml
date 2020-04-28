@@ -48,11 +48,19 @@ fields:
   name: tags
   label: Tags
   config:
-    use_select: false
+    use_select: true
     source:
-      type: documents
-    options: []
-  description: General topic tags used to group webinars together
+      type: simple
+    options:
+    - Plan
+    - Collect
+    - Assure
+    - Describe
+    - Preserve
+    - Discover
+    - Integrate
+    - Analyze
+  description: General topic tags used to group webinars together  
 - type: number
   name: vimeoID
   label: Vimeo ID
