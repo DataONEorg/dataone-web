@@ -183,8 +183,11 @@
 
   &--standalone {
     @include f-common;
+    max-width  : 100%;
+    min-width  : 0;
+    overflow   : hidden;
     line-height: 1.7;
-    font-size  : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1rem);
 
     h1,
     h2,

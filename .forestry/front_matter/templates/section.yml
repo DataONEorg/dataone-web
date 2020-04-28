@@ -127,3 +127,8 @@ fields:
     template: button
     name: button
     label: Button
+- name: id
+  type: text
+  label: ID
+  default: 
+  description: An optional HTML ID attribute for this section. This is useful if you need to create a link or button directly to this section.

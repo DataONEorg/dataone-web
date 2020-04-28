@@ -47,40 +47,26 @@ header:
 page_sections:
 - type: default
   template: section
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
   title: Guide your community towards creating better metadata
   intro: Researchers can view metadata assessment reports for their datasets and discover
     exactly which metadata fields are missing or incomplete.
   blocks:
   - template: markdown
-    content: "### Detailed FAIR reports for each dataset\n\nWhenever a dataset is
+    content: |-
+    
+      ### Detailed FAIR reports for each dataset
+      
+      Whenever a dataset is
       updated in your Hosted Repository, the metadata is automatically assessed according
-      to the \\[FAIR data principles\\](inner-page link to What is FAIR? section on
-      this page).\n\nEach assessment is made of a number of individual checks that
+      to the [FAIR data principles]({{< relref #what-is-fair >}}).
+      
+      Each assessment is made of a number of individual checks that
       assess specific fields in the metadata, such as geographic coverage, start and
-      end dates, data attributes, or publication date (among many more). \n\nAt a
+      end dates, data attributes, or publication date (among many more).
+      
+      At a
       glance, see how each dataset scores in categories of Findability, Accessibility, Interoperability,
-      and Reusability."
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
+      and Reusability.
 - title: Quantify your metadata improvement efforts
   blocks:
   - template: markdown
@@ -93,98 +79,53 @@ page_sections:
       **Plus subscribers:** A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
 
       **Hosted Repositories:** Each Hosted Repository includes a FAIR scores chart for the entire repository holdings.
-  template: ''
-  type: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
 - title: What is FAIR?
+  id: what-is-fair
   intro: FAIR is a community-led set of principles for data and metadata, whose ultimate
     goal is to enhance the reusability of data.
+  background: data-wave
   blocks:
+  - template: tabs
+    position: top
+    tabs:
+    - title: F
+      content:
+      - template: card
+        pill:
+          text: Findable
+        title: Metadata and data should be easy to find for both humans and computers.
+    - title: A
+      content:
+      - template: card
+        pill:
+          text: Accessible
+        title: Once someone finds the required data, they need to know how the data can be accessed.
+    - title: I
+      content:
+      - template: card
+        pill:
+          text: Interoperable
+        title: The data needs to be easily integrated with other data for analysis, storage, and processing.
+        subtitle: "  "
+    - title: R
+      content:
+      - template: card
+        pill:
+          text: Reusable
+        title: Data should be well-described so they can be reused and replicated in different settings.
   - template: markdown
-    content: |-
-      * Findable - Metadata and data should be easy to find for both humans and computers.
-      * Accessible - Once someone finds the required data, s/he needs to know how they can be accessed.
-      * Interoperable - The data needs to be easily integrated with other data for analysis, storage, and processing.
-      * Reusable - Data should be well-described so they can be reused and replicated in different settings.
-
-      Want to dig deeper? \[Watch the DataONE FAIR webinar\]([https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network](https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network "https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network"))
-
-      (use suble style for this citation:)
-
-      Wilkinson et al. (2016) The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3:160018. \[[https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18 "https://doi.org/10.1038/sdata.2016.18")\]([https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18 "https://doi.org/10.1038/sdata.2016.18"))
-  template: ''
-  type: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
+    content: "*Wilkinson et al. (2016) The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3:160018. [https://doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)*"
   button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
+    template: button
+    text: Watch the DataONE FAIR webinar
+    color: quaternary
+    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
 - title: What are your metadata requirements?
   type: card
   intro: |-
     Use the DataONE Consulting services to create a custom metadata assessment report built specifically for your data management requirements.
 
     (Link to consulting page)
-  template: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  blocks: []
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
@@ -196,29 +137,5 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-    style: ''
     newsletter_only: false
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-theme: ''
-
 ---

@@ -8,6 +8,16 @@ fields:
   description: The HTML template used to build the tabs block
   default: tabs
   hidden: true
+- name: position
+  label: Tab position
+  default: left
+  type: select
+  config:
+    source:
+      type: simple
+    options:
+    - left
+    - top
 - name: tabs
   type: field_group_list
   fields:

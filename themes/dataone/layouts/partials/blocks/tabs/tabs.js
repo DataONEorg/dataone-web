@@ -227,10 +227,10 @@ class Markup extends Events {
 	 * Set annotation attributes
 	 */
 	setAnnotation( el, i ) {
-
-		el.setAttribute( 'id', `anno_${ this.panels[i].id }` );
-		el.setAttribute('aria-hidden', 'true');
-
+		if(el){
+			el.setAttribute( 'id', `anno_${ this.panels[i].id }` );
+			el.setAttribute('aria-hidden', 'true');
+		}
 	}
 
 	/**
@@ -276,7 +276,9 @@ class Markup extends Events {
 	 * update annotation attributes
 	 */
 	updateAnnotation( el, selected ) {
-		el.setAttribute( 'aria-hidden', selected ? 'false' : 'true' );
+		if(el){
+			el.setAttribute( 'aria-hidden', selected ? 'false' : 'true' );
+		}
 	}
 
 	/**

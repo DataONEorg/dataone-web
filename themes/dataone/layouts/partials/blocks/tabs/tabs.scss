@@ -98,6 +98,7 @@
     display   : block;
     height    : 3rem;
     margin-top: .5rem;
+    min-width : 3rem;
   }
 
   .button--tab {
@@ -118,4 +119,37 @@
       }
     }
   }
+
+  // ==========================================================================
+  //  Modifiers
+  // ==========================================================================
+
+  //
+  //  Tab Position Top - place tabs above content instead of left ( <- default )
+  // ==========================================================================
+
+  &--tab-position-top {
+
+    @include desktop {
+      grid-gap             : 1rem;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows   : auto 1fr auto;
+      grid-template-areas  : "tabs" "panel" "annotation";
+    }
+
+    #{$bn}__tablist {
+      display        : flex;
+      flex-direction : row;
+      justify-content: center;
+    }
+
+    #{$bn}__tab {
+      margin: 0 .5rem;
+    }
+
+    .button--tab {
+      justify-content: center;
+    }
+  }
+
 }

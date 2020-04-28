@@ -4,8 +4,13 @@
 {{ $bn := "tabs" }}
 <!-- classes to add to the outer element -->
 {{ $classes := $bn }}
+
+<!-- The placement of the tabs (top or left), TODO: right -->
+{{ $position := .Block.position | default "left"}}
+
 <!-- custom id for this block -->
 {{ $blockID := delimit (shuffle (seq 1 9)) "" }}
+
 <!-- an ID for each panel -->
 {{ $tabIDs := slice }}
 {{ range $index, $tab := .Block.tabs }}
@@ -13,7 +18,16 @@
   {{ $tabIDs = $tabIDs | append $tabID }}
 {{ end }}
 
-<div class="{{ $classes }}" data-orientation="vertical">
+{{ if ne $position "left" }}
+  {{ $classes = printf "%s %s--tab-position-%s" $classes $bn $position }}
+{{ end }}
+
+{{ $orientation := "vertical" }}
+{{ if eq $position "top" }}
+  {{ $orientation = "horizontal" }}
+{{ end }}
+
+<div class="{{ $classes }}" data-orientation="{{ $orientation }}">
   <!-- <span class="{{ $bn }}__indicator"></span> -->
   <ul class="{{ $bn }}__tablist">
     {{ range $index, $tab := .Block.tabs }}
@@ -31,12 +45,12 @@
   </ul>
   {{ $annoIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "tiny" "color" "inherit" "stroke" "thicker") "Page" $page )}}
   {{ range $index, $tab := .Block.tabs }}
-
-    <div class="{{ $bn }}__annotation" aria-hidden="true">
-      <span>{{ .annotation }}
-        <span class="{{ $bn }}__anno-icon">{{$annoIcon}}</span></span>
-    </div>
-
+    {{ if .annotation }}
+      <div class="{{ $bn }}__annotation" aria-hidden="true">
+        <span>{{ .annotation }}
+          <span class="{{ $bn }}__anno-icon">{{$annoIcon}}</span></span>
+      </div>
+    {{ end }}
   {{ end }}
 
   <!-- </div> -->
