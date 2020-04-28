@@ -24,7 +24,7 @@ page_sections:
   - template: timeline
     event:
     - date: '2019-01-15'
-      title: New leadership
+      title: New leadership transition
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
@@ -32,8 +32,12 @@ page_sections:
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
-    - date: '2011-08-22T23:59:00-07:00'
-      title: DataONE learning modules available online
+    - date: '2011-10-07'
+      title: DMPTool goes live
+      description: The DMP Tool, a collaborative project across seven organizations including DataONE, has now been released. Designed to help researchers learn about data management and write guided Data Management Plans (DMPs), the DMPTool walks researchers through the steps neccesary to create a DMP. 
+    - date: '2011-08-22'
+      title: DataONE releases learning modules
+      description: DataONE learning modules in support of data management training are made available online for widespread use. 
     - date: '2009-08-01'
       title: DataONE funded as a part of the NSF DataNet program
       description: 'DataONE, led by PI William Michener, was funded as one of two
