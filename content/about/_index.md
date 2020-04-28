@@ -36,7 +36,7 @@ page_sections:
         type: external website
         color: quaternary
         text: More about DataNet
-        external_link: https://smartech.gatech.edu/handle/1853/28513
+        external_link: https://en.wikipedia.org/wiki/Datanet
       image:
         template: image
         src: "/uploads/800px-Robinson-projection.jpg"
