@@ -28,7 +28,10 @@
   {{ $classes = print $classes " " $bn "--image-header" }}
 {{ end }}
 
-{{ if and (eq .Block.clickable "true") .Block.href }}
+<!-- Is the entire card clickable? -->
+{{ $isClickable := and (or (eq .Block.clickable true) (eq .Block.clickable "true")) .Block.href }}
+
+{{ if $isClickable }}
   <a class="{{ $classes }} " href="{{ .Block.href }}">
   {{ else }}
     <div class="{{ $classes }} ">
@@ -77,12 +80,12 @@
     {{ end }}
 
     <!-- Button (optional). Don't show if entire block is clickable -->
-    {{ if and $hasButton (eq .Block.clickable "false") }}
+    {{ if and $hasButton (not $isClickable) }}
       <div class="{{ $bn }}__button">
         {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>
     {{ end }}
-    {{ if and .Block.clickable .Block.href }}
+    {{ if $isClickable }}
     </a>
   {{ else }}
   </div>
