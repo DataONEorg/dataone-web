@@ -42,7 +42,7 @@ page_sections:
         2015.
     - datetime:
         time: '2011-08-22T23:59:00-07:00'
-      title: DataONE launches learning modules for data management
+      title: DataONE learning modules available online
     - title: DataONE funded as a part of the NSF DataNet program
       description: 'DataONE, led by PI William Michener, was funded as one of two
         DataNet projects '
