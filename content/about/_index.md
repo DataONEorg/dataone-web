@@ -23,6 +23,15 @@ page_sections:
   blocks:
   - template: timeline
     event:
+    - date: '2020-04-14'
+      title: This is a test event
+      description: Description
+      image: "/uploads/AHM_2019_GroupPhoto.jpg"
+      button:
+        type: internal page
+        color: primary
+        text: Button test
+        internal_link: features/_index.md
     - date: '2019-01-15'
       title: New leadership transition
       description: A new management team is formed and administrative oversight of
@@ -34,7 +43,7 @@ page_sections:
         2015.
     - date: '2011-08-22T23:59:00-07:00'
       title: DataONE learning modules available online
-    - date: '2009-08-01T15:58:00-07:00' 
+    - date: '2009-08-01T15:58:00-07:00'
       title: DataONE funded as a part of the NSF DataNet program
       description: 'DataONE, led by PI William Michener, was funded as one of two
         DataNet projects '
