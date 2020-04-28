@@ -35,8 +35,8 @@ page_sections:
         template: button
         type: external website
         color: quaternary
-        text: More about DataNet
-        external_link: https://en.wikipedia.org/wiki/Datanet
+        text: Leran more
+        external_link: https://www.nsf.gov/awardsearch/showAward?AWD_ID=0830944&HistoricalAwards=false
       image:
         template: image
         src: "/uploads/800px-Robinson-projection.jpg"
