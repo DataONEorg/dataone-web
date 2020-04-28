@@ -30,41 +30,6 @@ header:
     type: float
 page_sections:
 - template: section
-  type: default
-  title: How do filters work?
-  intro: Creating a search filter for your portal is easy. Choose a metadata field and a filter type, then select a matching icon and text. Mix and match as many filters as you need, and arrange them into groups.  
-  blocks:
-  - template: steps
-    steps:
-    - title: Choose a metadata field
-      text: Allow visitors to filter your collection of data by any metadata field of your choice.
-      icon: file-text
-      content:
-      - template: demo
-        type: query-list
-    - title: Select a filter type
-      text: Select from up to six varieties of search filters for researchers
-        to use on your portal
-      icon: toggle-right
-      content:
-      - template: demo
-        type: filter-list
-    - title: Customize the appearance
-      text: Customize the look of your portal search fields by adding an icon, a title, and placeholder
-        example text.
-      icon: image
-      content:
-      - template: demo
-        type: filter-appearance
-    - title: Group related filters
-      text: Further customize the search display by grouping related filters
-        together.
-      icon: layers
-      content:
-      - template: image
-        src: /uploads/portals/portals-grouped-filters.png
-        type: card
-- template: section
   background: topography
   title: Geographic location search
   icon:
@@ -97,11 +62,44 @@ page_sections:
         color: secondary
         stroke: thicker
 - template: section
+  type: default
+  title: How to create a filter
+  intro: Creating a search filter for your portal is easy. Choose a metadata field and a filter type, then select a matching icon and text. Mix and match as many filters as you need, and arrange them into groups.  
   blocks:
   - template: markdown
     content: "*These portal features will
     soon be available in the portal editor, but until then, our team can configure
     these portal features behind-the-scenes.*"
+  - template: steps
+    steps:
+    - title: Choose a metadata field
+      text: Allow visitors to filter your collection of data by any metadata field of your choice.
+      icon: file-text
+      content:
+      - template: demo
+        type: query-list
+    - title: Select a filter type
+      text: Select from up to six varieties of search filters for researchers
+        to use on your portal
+      icon: toggle-right
+      content:
+      - template: demo
+        type: filter-list
+    - title: Customize the appearance
+      text: Customize the look of your portal search fields by adding an icon, a title, and placeholder
+        example text.
+      icon: image
+      content:
+      - template: demo
+        type: filter-appearance
+    - title: Group related filters
+      text: Further customize the search display by grouping related filters
+        together.
+      icon: layers
+      content:
+      - template: image
+        src: /uploads/portals/portals-grouped-filters.png
+        type: card
 - template: section
   background: major-accent-color
   title: Interested in a DataONE Plus portal?

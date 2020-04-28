@@ -70,7 +70,7 @@
     color     : var(--section-fc-title, black);
   }
 
-  &__role {
+  &__title {
     font-size     : var(--fs-x-small, .85rem);
     text-transform: uppercase;
     letter-spacing: .05em;
@@ -176,7 +176,7 @@
 
   .person__fullname,
   .person__organization,
-  .person__role {
+  .person__title {
     text-align: left;
   }
 
@@ -242,7 +242,7 @@
     line-height: 1.4;
   }
 
-  .person__role {
+  .person__title {
     font-size: var(--fs-smallest, .8rem);
   }
 

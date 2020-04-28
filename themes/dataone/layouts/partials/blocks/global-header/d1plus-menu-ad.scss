@@ -15,24 +15,25 @@
     white-space: nowrap;
 
     &-upper {
-      font-size : var(--fs-large, 1.22rem);
+      font-size  : var(--fs-large, 1.22rem);
       display    : inherit;
       white-space: inherit;
-      font-weight : var(--fw-bold, 500);
+      font-weight: var(--fw-bold, 500);
     }
 
     &-lower {
-      font-size : var(--fs-xx-large, 2.8rem);
+      margin-top    : .5rem;
+      font-size     : var(--fs-xx-large, 2.8rem);
       display       : inherit;
       white-space   : inherit;
-      font-weight : var(--fw-x-bold, 800);
+      font-weight   : var(--fw-x-bold, 800);
       letter-spacing: .02em;
     }
   }
 
   &__features {
-    font-size : var(--fs-large, 1.22rem);
-    font-weight : var(--fw-bold, 500);
+    font-size  : var(--fs-large, 1.22rem);
+    font-weight: var(--fw-bold, 500);
     padding    : 1rem .8rem;
     width      : 100%;
   }

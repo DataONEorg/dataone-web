@@ -2,7 +2,7 @@
 avatar: "/uploads/elaine_martin.png"
 fullname: Elaine Martin
 firstname: Elaine
-role: Director and Chief Administrative Officer
+title: Director and Chief Administrative Officer
 organization: Countway Library
 longbio:  |-
   Elaine Martin joined the Countway Library as the Director and Chief Administrative Officer in 2016. Under her direction she oversees and manages a complex organization with a $12 million budget and one of the largest collections of both current medical research materials and historical and rare collections in the world, holding more than 630,000 volumes. The Countway Library serves both academic and practicing physicians at Harvard Medical School, the Harvard T.H. Chan School of Public Health, the Harvard School of Dental Medicine and the Massachusetts Medical Society.

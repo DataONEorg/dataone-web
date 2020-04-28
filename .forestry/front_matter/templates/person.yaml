@@ -19,7 +19,7 @@ fields:
   type: text
   config:
     required: false
-  label: Role
+  label: Professional title
   description: The person's role or professional title
 - name: organization
   type: text
@@ -27,6 +27,10 @@ fields:
     required: false
   label: Organization
   description: The organization the person is associated with
+- name: d1_role
+  type: text
+  label: Role in DataONE
+  description: For people who are a part of the DataONE team, which team are they part of? E.g. executive, community, etc. This will be used to group team members by role.
 - name: shortbio
   type: textarea
   default: ''

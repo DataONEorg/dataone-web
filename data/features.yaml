@@ -42,12 +42,6 @@ features:
   free: Limited
   plus: true
   hostedrepo: true
-- name: Branded portals
-  description: Communicate your science and project details with a customized view across repositories
-  link: /plus
-  free: false
-  plus: true
-  hostedrepo: true
 - name: Custom portal search filters
   description: Configure your portals with custom search fields specific to your science topics
   link: /features/custom-search

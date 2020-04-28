@@ -86,9 +86,9 @@
       {{ $name = printf "<h3 class='person__fullname'>%s</h3>" . | safeHTML }}
     {{ end }}
 
-    {{ $role := "" }}
-    {{ with .role }}
-      {{ $role = printf "<h4 class='person__role'>%s</h4>" . | safeHTML }}
+    {{ $title := "" }}
+    {{ with .title }}
+      {{ $title = printf "<h4 class='person__title'>%s</h4>" . | safeHTML }}
     {{ end }}
 
     {{ $organization := "" }}
@@ -112,7 +112,7 @@
       <!-- accordion layout -->
       {{ if eq $type "accordion" }}
 
-        {{ $heading := printf `<div class = "person__heading">%s<div class="person__info">%s%s%s</div></div>` $img $name $role $organization | safeHTML}}
+        {{ $heading := printf `<div class = "person__heading">%s<div class="person__info">%s%s%s</div></div>` $img $name $title $organization | safeHTML}}
         {{ $content := print $HTMLbio $contact | safeHTML}}
         {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" $color)) }}
 
@@ -131,7 +131,7 @@
           {{ $img  }}
           <div class="person__info">
             {{ $name }}
-            {{ $role }}
+            {{ $title }}
             {{ $organization }}
           </div>
         </div>
