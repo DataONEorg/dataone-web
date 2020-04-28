@@ -32,9 +32,12 @@ page_sections:
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
+    - date: '2012-07-23'
+      title: DataONE goes live
+      description: DataONE today released technology capable of providing researchers access to globally distributed, networked data from a single point of discovery.
     - date: '2011-10-07'
       title: DMPTool goes live
-      description: The DMP Tool, a collaborative project across seven organizations including DataONE, has now been released. Designed to help researchers learn about data management and write guided Data Management Plans (DMPs), the DMPTool walks researchers through the steps neccesary to create a DMP. 
+      description: The DMP Tool, a collaborative project across seven organizations including DataONE, is launched. The DMPTool helps researchers learn about data management and write guided Data Management Plans (DMPs). 
     - date: '2011-08-22'
       title: DataONE releases learning modules
       description: DataONE learning modules in support of data management training are made available online for widespread use. 
