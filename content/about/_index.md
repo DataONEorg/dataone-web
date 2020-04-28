@@ -24,8 +24,8 @@ page_sections:
   - template: timeline
     event:
     - title: DataONE funded as a part of the NSF DataNet program
-      description: Supported by funding from the US National Science Foundation as
-        one of the initial DataNet programs in 2009
+      description: 'DataONE, led by PI William Michener, was funded as one of two
+        DataNet projects '
       datetime:
         time: '2009-08-01T15:58:00-07:00'
         dateformat: 02 Jan 2006
