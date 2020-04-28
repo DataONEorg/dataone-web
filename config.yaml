@@ -11,6 +11,9 @@ markup:
     style: monokailight
     lineNos: true
     lineNumbersInTable: false
+  goldmark:
+    renderer:
+      unsafe: true
 enableEmoji: true
 enableRobotsTXT: true
 publishDir: docs

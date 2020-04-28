@@ -39,9 +39,10 @@
   $fallback: lightseagreen;
 
   #{$selector} {
+    font-weight    : var(--fw-bolder, 500);
     color          : var(--fc-link, $fallback);
     text-decoration: none;
-    transition     : color .15s linear;
+    transition     : filter .15s linear;
   }
 
   #{$selector}:visited {
@@ -49,16 +50,15 @@
   }
 
   #{$selector}:hover {
-    color: var(--fc-link-hover, $fallback);
-    filter: brightness(1.1);
+    filter: brightness(1.08);
   }
 
   #{$selector}:active {
-    color: var(--fc-link-hover, $fallback);
+    filter: brightness(1.08);
   }
 
   #{$selector}:focus {
-    color: var(--fc-link-hover, $fallback);
+    filter: brightness(1.08);
   }
 }
 
@@ -392,8 +392,6 @@
 
   #{$prefix}-fc-body                 : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-fallback);
   #{$prefix}-fc-title                : var(#{$root-color-prefix}-foreground-emphasis-on-#{$background-color}, $foreground-emphasis-fallback);
-  --fc-link                          : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
-  --fc-link-hover                    : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
 
   // Default foreground
   #{$prefix}-c-foreground-very-subtle: var(#{$root-color-prefix}-foreground-very-subtle-on-#{$background-color}, $foreground-light-fallback);
@@ -412,6 +410,10 @@
   }
 
   @if(($background-color == "default") or ($background-color == "always-dark")) {
+
+    --fc-link                      : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $link-fallback);
+    --fc-link-hover                : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $link-fallback);
+
     #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $foreground-light-fallback);
     #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $foreground-fallback);
 
@@ -420,6 +422,10 @@
     #{$prefix}-c-accent-subtle     : var(#{$root-color-prefix}-major-accent-subtle-on-#{$background-color}, $accent-light-fallback);
     #{$prefix}-c-accent-very-subtle: var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $accent-light-fallback);
   } @else {
+
+    --fc-link                      : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
+    --fc-link-hover                : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
+
     #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-#{$background-color}-lighter-2, $foreground-fallback);
     #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-light-fallback);
 

@@ -24,8 +24,8 @@ $cn-red: #F57065;
   //
   // Some default font colours
   // ==========================================================================
-  --fc-link            : var(--c-major-accent-on-default);
-  --fc-link-hover      : var(--c-major-accent-emphasis-on-default);
+  --fc-link            : var(--c-major-accent-on-default, $cn-teal);
+  --fc-link-hover      : var(--c-major-accent-emphasis-on-default, $cn-teal);
 
   //
   // Font families
