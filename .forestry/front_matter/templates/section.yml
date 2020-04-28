@@ -131,4 +131,5 @@ fields:
   type: text
   label: ID
   default: 
-  description: An optional HTML ID attribute for this section. This is useful if you need to create a link or button directly to this section.
+  description: An optional HTML ID attribute for this section. This is useful if you
+    need to create a link or button directly to this section.
