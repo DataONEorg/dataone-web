@@ -24,7 +24,7 @@ page_sections:
   - template: timeline
     event:
     - date: '2019-01-15'
-      title: New leadership transition
+      title: New leadership
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
