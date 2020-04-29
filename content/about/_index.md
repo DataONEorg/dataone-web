@@ -28,10 +28,25 @@ page_sections:
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
-    - date: '2014-01-01'
+    - date: '2014-08-01'
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
         2015.
+    - date:"2014-06-18"
+      title: LTER-Europe joins DataONE
+      description: LTER-EU joins DataONE as the first European and 20th repository in the network. 
+    - date:"2014-06-18"
+      title:Member Node Dashboard released
+      description: DataONE relases a new dashboard exposing real time information on current holdings across the DataONE network of repositories. 
+    - date:"2013-06-27"
+      title: TFRI joins DataONE
+      description: The Taiwan Forestry Research Institute (TFRI) joins the DataONE network as the first repository in Asia.
+    - date:"2013-02-27"
+      title: Release of DataONE R client
+      description: The DataONE R Client, a package for accessing open data in DataONE from within the R environment for statistical computing, is released. 
+    - date:"2012-10-02"
+      title: Launch of DataUP
+      description: California Digital Library (CDL), Microsoft Research Connections and DataONE launch DataUp, a free data management tool and MSExcel add-in.
     - date: '2012-07-23'
       title: DataONE goes live
       description: DataONE today released technology capable of providing researchers access to globally distributed, networked data from a single point of discovery.
@@ -41,6 +56,9 @@ page_sections:
     - date: '2011-08-22'
       title: DataONE releases learning modules
       description: DataONE learning modules in support of data management training are made available online for widespread use. 
+    - date: '2010-12-09
+      title: Inaugural DataONE Users Group meeting
+      description: DataONE hosts its first Users Group Meeting in Chicago, IL following the International Digital Curation Conference.
     - date: '2009-08-01'
       title: DataONE funded as a part of the NSF DataNet program
       description: 'DataONE, led by PI William Michener, was funded as one of two
