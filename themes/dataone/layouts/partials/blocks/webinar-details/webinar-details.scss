@@ -60,11 +60,9 @@
     margin   : 2rem auto;
   }
 
-  &--st-upcoming {
-    @include desktop {
-      padding-top: 8rem;
-    }
-
+  &__registration {
+    display        : flex;
+    justify-content: center;
   }
 
   &--st-past {

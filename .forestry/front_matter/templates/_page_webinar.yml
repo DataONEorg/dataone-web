@@ -43,7 +43,7 @@ fields:
       path: 
   label: Status
   description: Whether the webinar is upcoming, happening now, or past. Select auto
-    to guess the webinar's status based on whether a meeting ID or vimeoID is available.
+    to guess the webinar's status based on whether a registration link or vimeoID is available.
 - type: list
   name: tags
   label: Tags
@@ -61,14 +61,19 @@ fields:
     - Integrate
     - Analyze
   description: General topic tags used to group webinars together  
+- type: text
+  name: registration_link
+  label: Zoom Registration Link
+  description: The zoom link guests can click to register for the webinar
+  default: https://
+- type: text
+  name: Disqus Shortname
+  label: disqus_shortname
+  description: The Disqus Shortname associated with this webinar. The shortname can be found in the "Configure Disqus for Your Site" tab of the Disqus admin section.
 - type: number
   name: vimeoID
   label: Vimeo ID
   description: The ID of the vimeo video, once the webinar has been posted online
-- type: text
-  name: meetingID
-  label: ZOOM meeting ID
-  description: The ID of the zoom meeting
 - type: file
   name: slides
   label: Slides
@@ -104,6 +109,4 @@ fields:
   description: To add to the list of speaker options, first add the speaker to the
     "People" section (see sidebar)
 pages:
-- content/webinars/rdmla-five-months-post-launch.md
-- content/webinars/test-happening-now-webinar.md
-- content/webinars/test-upcoming-webinar.md
+- content/webinars/example.md

@@ -1,1 +1,9 @@
-<div id="disqus_thread"></div>
+{{ $shortname := .Block.shortname | default "" }}
+
+{{ with $shortname }}
+  <div id="disqus_thread">
+    Disqus comments section for
+    <em>{{ . }}</em>
+    will be displayed here.
+  </div>
+{{ end }}

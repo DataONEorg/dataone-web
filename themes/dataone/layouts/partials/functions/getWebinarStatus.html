@@ -8,9 +8,7 @@
 {{ if or (not $status) (eq $status "auto") }}
   {{ if $webinar.vimeoid }}
     {{ $status = "past" }}
-  {{ else if $webinar.meetingid }}
-    {{ $status = "happening-now"}}
-  {{ else }}
+  {{ else if $webinar.registration_link }}
     {{ $status = "upcoming" }}
   {{ end }}
 {{ end }}
