@@ -10,7 +10,7 @@
 <!-- The type, used to determine the display style -->
 {{ $type := .Block.type | default "default"  }}
 <!-- Alternative description of image -->
-{{ $alt := .Block.alttext | default "an image for decorative purposes" }}
+{{ $alt := .Block.alttext | default "" }}
 <!-- An optional caption [WIP - may need styling] -->
 {{ $caption := .Block.caption | default ""}}
 

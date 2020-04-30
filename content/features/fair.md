@@ -23,7 +23,7 @@ header:
 page_sections:
 - background: subtle-emphasis
   title: |- 
-    Researchers increasingly rely on<br>computers to find, access & use data.<br>
+    Researchers increasingly rely on<br>computational tools to find, access & use data.<br>
     **Are your data ready?**
   intro: At a glance, see how your data score in categories of Findability, Accessibility, Interoperability, and Reusability ("FAIR"). With assessments based on the [community established FAIR data principles](#what-is-fair), you can guide your community toward maximizing the value of their digital assets.
   blocks:
@@ -32,6 +32,9 @@ page_sections:
     columns:
     - template: feature-detailed
       type: top
+      image:
+        src: /uploads/fair_reports/fair-for-portals.png
+        alttext: An example line chart with one line for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability) showing changes in scores per month
       headline: DataONE Plus Portals
       text: A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
       details:
@@ -41,6 +44,9 @@ page_sections:
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
     - template: feature-detailed
       type: top
+      image:
+        src: uploads/fair_reports/fair-for-hosted-repos.png
+        alttext: Representation of FAIR products available to Hosted Repository users. A time series chart of aggregated FAIR metrics over time, and a stack of individual metadata assessment for each dataset. The individual assessment shows 38 metadata checks and an overall score for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability)
       headline: Hosted Repositories
       text: In addition to FAIR scores for portals, each Hosted Repository includes a FAIR scores chart for the entire repository holdings, plus individual assessments for each and every dataset
       details:
@@ -61,6 +67,7 @@ page_sections:
   - template: feature-detailed
     image:
       src: /uploads/aggregated-fair-scores.png
+      alttext: A colorful timeseries chart with a legend. The line chart includes one line for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability) showing changes in scores per month. The legend indicates the current score for each metric as a percentage.
       type: tilt-left
     details:
     - icon:
@@ -86,6 +93,7 @@ page_sections:
     image:
       template: image
       src: uploads/fair_reports/metadata-assessment-report.png
+      alttext: A example metadata report for one dataset. There is a percentage score for each of the four FAIR metrics, a donut chart giving a summary of the 38 metadata checks completed, and section headings showing which checks passed or failed. These sections indicate 31 checks out of 37 passed, 1 check had a warning, 3 checks failed, and there were 4 informational checks. Text at the top of the report says 'After running your metadata against our standard set of metadata, data, and congruency checks, we have found the following potential issues. Please assist us in improving the discoverability and reusability of your research data by addressing the issues below.' 
       type: tilt-right
     details:
     - template: item-with-icon
