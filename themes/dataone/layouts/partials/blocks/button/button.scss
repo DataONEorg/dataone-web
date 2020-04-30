@@ -8,9 +8,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                  : &;
+  $bn                    : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix              : "--" + str-replace(#{$bn}, ".");
+  $prefix                : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -18,9 +18,9 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  #{$prefix}-background: var(--section-fc-body, black);
-  #{$prefix}-foreground: var(--section-c-background, white);
-  #{$prefix}-shadow: var(--section-c-shadow-1, rgba(30,50,93,.09));
+  #{$prefix}-background  : var(--section-fc-body, black);
+  #{$prefix}-foreground  : var(--section-c-background, white);
+  #{$prefix}-shadow      : var(--section-c-shadow-1, rgba(30,50,93,.09));
   #{$prefix}-shadow-hover: var(--section-c-shadow-2, rgba(30,50,93,.1));
 
   // ==========================================================================
@@ -29,30 +29,30 @@
 
   @include f-common;
   @include button-reset;
-  white-space          : nowrap;
-  font-weight          : var(--fw-bold, 500);
-  text-transform       : uppercase;
-  letter-spacing       : .025em;
-  font-size            : var(--fs-small, 1rem);
-  background-color     : var(#{$prefix}-background);
-  color                : var(#{$prefix}-foreground);
-  overflow             : hidden;
-  text-overflow        : ellipsis;
-  padding              : 0 1.25em;
-  width                : fit-content;
-  width                : -moz-fit-content;
-  max-width            : calc(100vw - 2.5em);
-  border-radius        : var(--br-default, 0.2rem);
-  height               : 50px;
-  text-decoration      : none;
-  box-shadow           : 0 3px 5px var(#{$prefix}-shadow), 0 1px 3px var(#{$prefix}-shadow);
-  cursor               : pointer;
-  text-align           : center;
-  display              : flex;
-  align-items          : center;
-  justify-content      : center;
-  transition           : all .2s;
-  text-shadow          : none;
+  white-space            : nowrap;
+  font-weight            : var(--fw-bold, 500);
+  text-transform         : uppercase;
+  letter-spacing         : .025em;
+  font-size              : var(--fs-small, 1rem);
+  background-color       : var(#{$prefix}-background);
+  color                  : var(#{$prefix}-foreground);
+  overflow               : hidden;
+  text-overflow          : ellipsis;
+  padding                : 0 1.25em;
+  width                  : fit-content;
+  width                  : -moz-fit-content;
+  max-width              : calc(100vw - 2.5em);
+  border-radius          : var(--br-default, 0.2rem);
+  height                 : 50px;
+  text-decoration        : none;
+  box-shadow             : 0 3px 5px var(#{$prefix}-shadow), 0 1px 3px var(#{$prefix}-shadow);
+  cursor                 : pointer;
+  text-align             : center;
+  display                : flex;
+  align-items            : center;
+  justify-content        : center;
+  transition             : all .2s;
+  text-shadow            : none;
 
   &:focus,
   &:hover {
@@ -109,6 +109,7 @@
     height               : auto;
     line-height          : 1.05;
     box-shadow           : none;
+    letter-spacing       : .05em;
 
     &:focus,
     &:hover {

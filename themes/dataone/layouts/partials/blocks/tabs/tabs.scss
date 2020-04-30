@@ -106,6 +106,12 @@
     height : 100%;
     padding: .5rem;
 
+    strong {
+      font-weight : var(--fw-bolder, 600);
+      font-size   : var(--fs-x-large, 1.1rem);
+      margin-right: .1em;
+    }
+
     &[aria-selected=true] {
       box-shadow      : 0 3px 8px var(--section-c-shadow-2, rgba(0,0,0,0.2)), 0 0 2px var(--section-c-shadow-3, rgba(0,0,0,0.3));
       border-radius   : var(--br-default, .25rem);

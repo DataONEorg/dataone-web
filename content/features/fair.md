@@ -5,10 +5,7 @@ title: FAIR Metadata Assessments
 description: ''
 header:
   template: header
-  type: hero image
-  image:
-    src: uploads/hero_images/yeo-khee-x5JU6lc82EA-unsplash.jpg
-    overlay_effect: subtle
+  type: text only
   background_color: default
   pill:
     template: pill
@@ -24,44 +21,44 @@ header:
     text: See all features
     external_link: ''
 page_sections:
-- type: default
-  background: subtle-emphasis
-  template: section
-  title: Guide your community towards creating better metadata
-  intro: Give researchers the power to view metadata assessment reports for their datasets and discover
-    exactly which metadata fields are missing or incomplete.
+- background: subtle-emphasis
+  title: |- 
+    Researchers increasingly rely on<br>computers to find, access & use data.<br>
+    **Are your data ready?**
+  intro: At a glance, see how your data score in categories of Findability, Accessibility, Interoperability, and Reusability ("FAIR"). With assessments based on the [community established FAIR data principles](#what-is-fair), you can guide your community toward maximizing the value of their digital assets.
   blocks:
-  - template: markdown
-    content: ### Detailed FAIR reports for each dataset
   - template: columns
-    num_cols: 3
+    num_cols: 2
     columns:
-    - template: item-with-icon
-      icon:
-        icon: activity
-      text:  |-
-        Whenever a dataset is
-        updated in your Hosted Repository, the metadata is automatically assessed according
-        to the [FAIR data principles](#what-is-fair).
-    - template: item-with-icon
-      icon:
-        icon: check-circle
-      text:  |-
-        Each assessment is made of a number of individual checks that
-        assess specific fields in the metadata, such as geographic coverage, start and
-        end dates, data attributes, or publication date (among many more).
-    - template: item-with-icon
-      icon:
-        icon: bar-chart-2
-      text:   |-
-        At a glance, see how each dataset scores in categories of Findability,
-        Accessibility, Interoperability, and Reusability.
+    - template: feature-detailed
+      type: top
+      headline: DataONE Plus Portals
+      text: A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
+      details:
+      - icon:
+          icon: trending-up
+        name: "Aggregate FAIR scores for your portal"
+        text: "<br>[Learn about aggregated scores](#aggregated-reports)"
+    - template: feature-detailed
+      type: top
+      headline: Hosted Repositories
+      text: In addition to FAIR scores for portals, each Hosted Repository includes a FAIR scores chart for the entire repository holdings, plus individual assessments for each and every dataset
+      details:
+      - icon:
+          icon: trending-up
+        name: "Aggregate FAIR scores for your repository"
+        text: "<br>[Learn about aggregated scores](#aggregated-reports)"
+      - icon:
+          icon: file-plus
+        name: "Individual FAIR assessments for every dataset"
+        text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
+  id: aggregated-reports
   icon:
     icon: trending-up
+  intro: Get aggretated FAIR scores for all data within your Hosted Repository or DataONE Plus portal
   blocks:
   - template: feature-detailed
-    headline: Aggretated FAIR scores
     image:
       src: /uploads/aggregated-fair-scores.png
       type: tilt-left
@@ -72,19 +69,41 @@ page_sections:
       text: Aggregated FAIR score charts show how your FAIR scores have changed month-to-month
     - icon: 
         icon: list
-      name: Categorized
+      name: Broken down into FAIR categories
       text: Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: feature-detailed
-      type: top
-      headline: Plus subscribers
-      text: A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
-    - template: feature-detailed
-      type: top
-      headline: Hosted Repositories
-      text: Each Hosted Repository includes a FAIR scores chart for the entire repository holdings.
+- type: default
+  background: subtle-emphasis
+  id: individual-reports
+  icon:
+    icon: file-plus
+  template: section
+  title: Guide your community towards creating better metadata
+  intro: Provide detailed FAIR reports for each dataset and give researchers the power to discover
+    exactly which metadata fields are missing or incomplete.
+  blocks:
+  - template: feature-detailed
+    type: left
+    image:
+      template: image
+      src: uploads/fair_reports/metadata-assessment-report.png
+      type: tilt-right
+    details:
+    - template: item-with-icon
+      icon:
+        icon: activity
+      name: Get instant assessments
+      text:  |-
+        Whenever a dataset is
+        updated in your Hosted Repository, the metadata is automatically assessed.
+    - template: item-with-icon
+      icon:
+        icon: check-circle
+      name: Check metadata automatically
+      text:  |-
+        Each assessment is made of a number of individual checks that
+        assess specific fields in the metadata, such as geographic coverage, start and
+        end dates, data attributes, or publication date (among many more).
+    
 - title: What is FAIR?
   id: what-is-fair
   intro: FAIR is a community-led set of principles for data and metadata, whose ultimate
@@ -92,28 +111,32 @@ page_sections:
   background: data-wave
   blocks:
   - template: tabs
-    position: top
+    position: left
     tabs:
-    - title: F
+    - title: "**F**indable"
+      icon: search
       content:
       - template: card
         pill:
           text: Findable
         title: Metadata and data should be easy to find for both humans and computers.
-    - title: A
+    - title: "**A**ccessible"
+      icon: point
       content:
       - template: card
         pill:
           text: Accessible
         title: Once someone finds the required data, they need to know how the data can be accessed.
-    - title: I
+    - title: "**I**nteroperable"
+      icon: gears
       content:
       - template: card
         pill:
           text: Interoperable
         title: The data needs to be easily integrated with other data for analysis, storage, and processing.
         subtitle: "  "
-    - title: R
+    - title: "**R**eusable"
+      icon: cycle
       content:
       - template: card
         pill:
@@ -126,12 +149,14 @@ page_sections:
     text: Watch the DataONE FAIR webinar
     color: quaternary
     external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
-- title: What are your metadata requirements?
-  type: card
-  intro: |-
-    Use the DataONE Consulting services to create a custom metadata assessment report built specifically for your data management requirements.
-
-    (Link to consulting page)
+- type: card
+  background: subtle-emphasis
+  title: Need a custom metadata assessment?
+  intro: Let us help. Use the DataONE Consulting services to create a custom metadata assessment report built specifically for your data management requirements.
+  button:
+    text: Tell us about your metadata requirements
+    type: contact
+    color: quaternary
 - template: section
   background: major-accent-color
   title: Ready to make your data FAIR?
