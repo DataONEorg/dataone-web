@@ -30,7 +30,9 @@ fields:
 - name: d1_role
   type: text
   label: Role in DataONE
-  description: For people who are a part of the DataONE team, which team are they part of? E.g. executive, community, etc. This will be used to group team members by role.
+  description: For people who are a part of the DataONE team, which team are they
+    part of? E.g. executive, community, etc. This will be used to group team members
+    by role.
 - name: shortbio
   type: textarea
   default: ''

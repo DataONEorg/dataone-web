@@ -43,7 +43,8 @@ fields:
       path: 
   label: Status
   description: Whether the webinar is upcoming, happening now, or past. Select auto
-    to guess the webinar's status based on whether a registration link or vimeoID is available.
+    to guess the webinar's status based on whether a registration link or vimeoID
+    is available.
 - type: list
   name: tags
   label: Tags
@@ -60,16 +61,17 @@ fields:
     - Discover
     - Integrate
     - Analyze
-  description: General topic tags used to group webinars together  
+  description: General topic tags used to group webinars together
 - type: text
   name: registration_link
   label: Zoom Registration Link
   description: The zoom link guests can click to register for the webinar
   default: https://
 - type: text
-  name: Disqus Shortname
-  label: disqus_shortname
-  description: The Disqus Shortname associated with this webinar. The shortname can be found in the "Configure Disqus for Your Site" tab of the Disqus admin section.
+  name: disqus_shortname
+  label: Disqus Shortname
+  description: The Disqus Shortname associated with this webinar. The shortname can
+    be found in the "Configure Disqus for Your Site" tab of the Disqus admin section.
 - type: number
   name: vimeoID
   label: Vimeo ID
@@ -100,7 +102,7 @@ fields:
   type: list
   config:
     use_select: true
-    min: '1'
+    min: 0
     max: '6'
     source:
       type: pages
