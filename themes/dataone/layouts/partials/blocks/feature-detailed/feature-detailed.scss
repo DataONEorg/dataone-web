@@ -24,8 +24,8 @@
 
   @include f-common;
   // these blocks need more padding on the top and bottom
-  margin-top    : 3rem;
-  margin-bottom : 4rem;
+  margin-top    : 1rem;
+  margin-bottom : 1rem;
   display       : grid;
   grid-gap      : 2rem;
   grid-auto-rows: min-content;
@@ -39,7 +39,7 @@
   &__figure {
     margin         : 0;
     display        : flex;
-    width          : 84%;
+    width          : 95%;
     align-items    : center;
     justify-content: center;
     margin-left    : auto;
@@ -65,6 +65,7 @@
 
   &__button {
     margin-top: 1rem;
+
   }
 
   &__intro {
@@ -118,8 +119,8 @@
     }
 
     .feature-detailed__figure {
-      margin-top   : 1rem;
-      margin-bottom: 3rem;
+      margin-top   : 0;
+      margin-bottom: 2.5rem;
       display      : block;
     }
   }

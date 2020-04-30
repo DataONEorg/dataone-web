@@ -117,7 +117,7 @@ page_sections:
     type: right
 - template: section
   background: data-wave
-  title: Data about your data
+  title: Get a complete assessment of your data & metadata
   intro: With access to information about the datasets in your repository, you can monitor how your data is being used and assess its quality based on community established scores.
   blocks:
   - template: feature-detailed
@@ -127,8 +127,8 @@ page_sections:
     type: right
     image:
       template: image
-      src: uploads/data.png
-      alttext: FAIR metrcis report
+      src: uploads/fair_reports/fair-for-hosted-repos.png
+      alttext: Representation of FAIR products available to Hosted Repository users. A time series chart of aggregated FAIR metrics over time, and a stack of individual metadata assessment for each dataset. The individual assessment shows 38 metadata checks and an overall score for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability)
       type: tilt-left
     details:
     - template: item-with-icon

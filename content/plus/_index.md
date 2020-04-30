@@ -40,45 +40,47 @@ page_sections:
     readily customized way to communicate your science, your team, your data, and
     related data from within the DataONE network.
   blocks:
-  - template: feature-detailed
-    image:
-      template: image
-      type: tilt-left
-      src: uploads/dataset-collection.png
-      alttext: Dataset collection
-    type: right
-    headline: All of your data in one place
-    text: Create a catalog of your team's data that spans the DataONE network
-  - template: feature-detailed
-    image:
-      template: image
-      type: tilt-right
-      src: uploads/search-filters.png
-      alttext: Search filters
-    type: left
-    button:
-      template: button
-      type: internal page
-      color: quaternary
-      text: Custom search options
-      internal_link: features/custom-search.md
-    headline: Customized search filters
-    text: Configure search fields specific to your science topics
-  - template: feature-detailed
-    image:
-      template: image
-      type: tilt-left
-      src: uploads/portal-editor.png
-      alttext: Search filters
-    type: right
-    button:
-      template: button
-      type: internal page
-      color: quaternary
-      internal_link: features/portal-editor.md
-      text: Portal editor in detail
-    text: Pick datasets, add and reorder pages, and upload images in minutes with the easy-to-use online portal editor
-    headline: Set up in minutes
+  - template: columns
+    num_cols: 3
+    columns:
+    - template: feature-detailed
+      image:
+        template: image
+        type: float
+        src: uploads/dataset-collection.png
+        alttext: Dataset collection
+      type: top
+      headline: All of your data in one place
+      text: Create a catalog of your team's data that spans the DataONE network
+    - template: feature-detailed
+      image:
+        template: image
+        type: float
+        src: uploads/search-filters.png
+        alttext: Search filters
+      type: top
+      button:
+        template: button
+        type: internal page
+        color: quaternary
+        text: Custom search options
+        internal_link: features/custom-search.md
+      headline: Customized search filters
+      text: Configure search fields specific to your science topics
+    - template: feature-detailed
+      image:
+        template: image
+        type: float
+        src: uploads/portal-editor.png
+        alttext: Search filters
+      type: top
+      button:
+        template: button
+        color: quaternary
+        internal_link: features/portal-editor.md
+        text: Portal editor in detail
+      text: Pick datasets, add and reorder pages, and upload images in minutes with the easy-to-use online portal editor
+      headline: Set up in minutes
   button:
     template: button
     type: internal page
@@ -87,7 +89,7 @@ page_sections:
     text: Explore all features
 - template: section
   background: data-wave
-  title: Data about your data
+  title: Maximize the value of your data
   intro: With access to information about the datasets in your portal, you can monitor how your data is being used and assess its quality based on community established scores.
   blocks:
   - template: feature-detailed
@@ -96,10 +98,9 @@ page_sections:
       with a quantitative metadata assessment using the FAIR principles.
     type: right
     image:
-      template: image
-      src: uploads/data.png
-      alttext: FAIR metrcis report
+      src: /uploads/fair_reports/fair-for-portals_compact.png
       type: tilt-left
+      alttext: An example line chart with one line for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability) showing changes in scores per month
     details:
     - template: item-with-icon
       name: Time series charts
@@ -107,16 +108,7 @@ page_sections:
         your DataONE Plus portal
       icon:
         template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
-    - template: item-with-icon
-      name: Detailed analysis
-      text: Drill down into detailed FAIR reports for individual datasets
-      icon:
-        template: icon
-        icon: check
+        icon: trending-up
         size: small
         color: secondary
         stroke: thicker
