@@ -1,24 +1,35 @@
 ---
 date: 2020-02-01
-title: Example webinar
-webinar_datetime: 2020-02-11T20:00:00.000+00:00
+title: Permafrost Discovery Gateway, Geospatial Data and Community Needs
+webinar_datetime: 2020-05-12T12:00:00-07:00
 duration: 60
 status: upcoming
 tags:
-- Describe
+- Integrate
 - Discover
-vimeoID: 390929711
-registration_link: https://support.zoom.us/hc/en-us/articles/204619915-Scheduling-a-Webinar-with-Registration
-slides: "/uploads/rdmla_dataonewebinar_02112020.pdf"
-disqus_shortname: shortname-goes-here
-short_abstract: Learn about the rapid growth and future plans of the Research Data
-  Management Librarian Academy, a free online educational program exploring research
-  data management best practices.
-abstract: |-
-  RDMLA (Research Data Management Librarian Academy) was launched on October 7, 2019. Today, close to five months post the official launch, there are more than 2100 active students from 115 countries around the world. In this talk, we will describe the development process of RDMLA and discuss our future collaborations and partnerships.
+- Analyze
+vimeoID: 
+registration_link: https://ucsb.zoom.us/webinar/register/WN_xWNMRdWST-aLj1Dkr6nX3w
+slides: ''
+disqus_shortname: ''
+short_abstract: 'The Permafrost Discovery Gateway is a new NSF Navigating the New
+  Arctic (NNA) award that will create an online platform for archiving, processing,
+  analyzing, and visualizing permafrost big imagery products for discovery and knowledge-generation.
+  Join us for this interactive webinar to learn about the Permafrost Discovery Gateway
+  and inform initial development. '
+abstract: "The Permafrost Discovery Gateway is a new NSF Navigating the New Arctic
+  (NNA) award that will create an online platform for archiving, processing, analyzing,
+  and visualizing permafrost big imagery products for discovery and knowledge-generation.
+  This new online scientific gateway will provide access to high resolution satellite
+  data products and visualization tools that expand on the Gapminder Foundation, Google
+  Earth and Fluid Earth Viewer to enable exploration of changes in permafrost across
+  decades. Designed as a community resource, we want input across all stages of development.
+  Join us for this interactive webinar to learn about the Permafrost Discovery Gateway
+  and inform initial development. Which geospatial data are critical for inclusion?
+  How will you use the resource and what functionality do you need? How can we improve
+  on efficiencies in your data discovery and access workflow?  \nPlease also visit
+  our website ([permafrost.arcticdata.io](permafrost.arcticdata.io)) to learn more
+  and to join our mailing list for future updates and opportunities to contribute."
+speakers: []
 
-  The RDMLA is a free online educational program exploring research data management best practices. Developed by a team of librarians and LIS faculty members who want to share their extensive knowledge/skills and promote research data services, the RDMLA consists of eight units that can be taken individually, or as a complete program. All units are available globally and can be accessed online via the Canvas learning management system. RDMLA is open to librarians, information professionals, and other professionals who work in a research-intensive environment throughout the world. On Feb 5, 2020, in partnership with Simmons School of Library and Information Science (SLIS), RDMLA launched a Continuing Education (CE) optional component, for a nominal fee.
-speakers:
-- people/suzie_allard.md
-- people/rong_tang.md
 ---
