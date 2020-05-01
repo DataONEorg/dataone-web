@@ -23,7 +23,8 @@ abstract: Data management is a fundamental skill to any researcher, but implemen
   data, even without a database management system. Using a relational data model creates
   a “tidy” data structure, which makes data easier to search, filter, document, and
   analyze.
-speakers: []
+speakers:
+- people/JeanetteClark.md
 draft: true
 
 ---
