@@ -11,7 +11,7 @@ tags:
 - Analyze
 disqus_shortname: tidy-data
 vimeoID: 378621271
-slides: ''
+slides: "/uploads/dataone_webinar_tidy_data.pdf"
 short_abstract: 'This webinar introduces the concept of relational data modeling and
   how it can be used as a principle for organizing data, even without a database management
   system. '
