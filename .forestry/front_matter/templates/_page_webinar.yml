@@ -18,6 +18,10 @@ fields:
   label: Webinar date and time
   description: When does the webinar take place? Choose the time that it happens in
     *your current timezone.* Times will automatically be converted.
+- name: image
+  label: Image
+  description: An optional image that will be used as a background image in the webinary summary
+  type: file
 - type: number
   name: duration
   label: Duration

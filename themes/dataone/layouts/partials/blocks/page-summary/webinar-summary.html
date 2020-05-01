@@ -31,14 +31,17 @@
   {{ $datetime := (time $webinar.webinar_datetime).UTC }}
 
   <!-- add status as a modifier class -->
-
   {{ with $status }}
     {{ $classes = printf "%s webinar--st-%s" $classes $status }}
   {{ end }}
 
+  <!-- Get the speaker names -->
   {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
 
-  {{ $cardBlock := dict "clickable" true "href" $href "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+  <!-- Get the image, if there is one -->
+  {{ $image := $webinar.image | default "" }}
+
+  {{ $cardBlock := dict "clickable" true "href" $href "image" (dict "src" $image) "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
 
   <div class="{{ $classes }}">
     {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}

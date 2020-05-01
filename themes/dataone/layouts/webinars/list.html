@@ -14,7 +14,7 @@
 
   {{ $webinarBlocks := slice }}
 
-  {{- range .Paginator.Pages -}}
+  {{- range (.Paginator.Pages.ByParam "webinar_datetime").Reverse -}}
     <!-- remove trailing slash in link -->
     {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
     <!-- use the webinar summary block -->
