@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Permafrost Discovery Gateway, Geospatial Data and Community Needs
-webinar_datetime: 2020-05-12T12:00:00-07:00
+webinar_datetime: 2020-05-12T09:00:00-07:00
 duration: 60
 status: upcoming
 tags:
