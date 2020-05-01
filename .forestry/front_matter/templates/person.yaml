@@ -56,3 +56,5 @@ fields:
 - type: text
   name: email
   label: Email address
+pages:
+- content/people/AnnaLiljedahl.md
