@@ -25,6 +25,5 @@ abstract: Data management is a fundamental skill to any researcher, but implemen
   analyze.
 speakers:
 - people/JeanetteClark.md
-draft: true
 
 ---
