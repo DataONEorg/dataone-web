@@ -20,7 +20,8 @@ fields:
     *your current timezone.* Times will automatically be converted.
 - name: image
   label: Image
-  description: An optional image that will be used as a background image in the webinary summary
+  description: An optional image that will be used as a background image in the webinary
+    summary
   type: file
 - type: number
   name: duration
@@ -70,7 +71,7 @@ fields:
   name: registration_link
   label: Zoom Registration Link
   description: The zoom link guests can click to register for the webinar
-  default: https://
+  default: ''
 - type: text
   name: disqus_shortname
   label: Disqus Shortname
