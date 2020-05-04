@@ -22,7 +22,8 @@ fields:
   name: auto_select
   label: Select the most recent page
   default: false
-  description: If true, the most recent news, webinar, or job item will be shown. This overrides whichever page is selected below.
+  description: If true, the most recent news, webinar, or job item will be shown.
+    This overrides whichever page is selected below.
 - name: news
   type: select
   default: []

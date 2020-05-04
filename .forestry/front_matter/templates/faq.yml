@@ -1,7 +1,7 @@
 ---
 label: FAQ
 hide_body: true
-display_field: 
+display_field: template
 fields:
 - type: text
   name: template
