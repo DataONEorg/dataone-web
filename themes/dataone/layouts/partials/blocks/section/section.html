@@ -64,7 +64,15 @@
         <div class="{{ $bn }}__blocks">
           {{- range .Block.blocks -}}
             {{ if .template }}
-              {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+
+              <!-- The regular path to the partial template -->
+              {{ $partialPath := printf "blocks/%s/%s.html" .template .template }}
+
+              <!-- Check and only build if the template exists -->
+              {{ if templates.Exists ( printf "partials/%s" $partialPath ) }}
+                {{ partial $partialPath (dict "Block" . "Page" $page) }}
+              {{ end }}
+
             {{ end }}
           {{- end -}}
         </div>

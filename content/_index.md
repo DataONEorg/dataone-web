@@ -98,14 +98,6 @@ page_sections:
   blocks:
   - template: tabs
     tabs:
-    - title: Test tab
-      icon: airplay
-      annotation: Annotation
-      content:
-      - template: webinar-summary
-        type: webinar
-        webinar: []
-        auto_select: true
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -135,13 +127,6 @@ page_sections:
           alttext: World map shown with Robinson projection
           type: default
           overlay_effect: ''
-        datetime:
-          template: ''
-          time: ''
-          change_timezone: false
-          localize: false
-          format: ''
-          style: ''
         button:
           template: ''
           type: ''

@@ -1,0 +1,40 @@
+<!-- ================================================================= -->
+<!-- Common variables -->
+
+<!-- In order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- Block name -->
+{{ $bn := "faq" }}
+<!-- Classes to add to the outer-most element -->
+{{ $classes := $bn }}
+
+<!-- ================================================================= -->
+<!-- All block options -->
+
+<!-- The type of block -->
+{{ $faqs := .Block.faqs | default slice }}
+
+<!-- ================================================================= -->
+<!-- Other variables -->
+
+<!-- Add type as a modifier class -->
+{{/*
+{{ with $type}}
+{{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize) }}
+{{ end }}
+*/}}
+
+<!-- ================================================================= -->
+<!-- Layout -->
+<div class="{{ $classes }}">
+{{ range $faqs }}
+{{ if and .q .a }}
+  <div class="{{ $bn }}__q-and-a">
+    {{ $question := printf "<h3 class='%s__question'>%s</h3>" $bn .q | safeHTML }}
+    {{ $answer := printf "<span class='%s__answer markdown'>%s</span>" $bn (.a | markdownify) | safeHTML }}
+    {{ $accordionBlock := dict "heading" $question "content" .a }}
+    {{ partial "blocks/accordion/accordion" (dict "Block" $accordionBlock "Page" $page) }}
+  </div>
+{{ end }}
+{{ end }}
+</div>

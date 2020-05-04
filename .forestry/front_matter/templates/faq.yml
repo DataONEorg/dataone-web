@@ -1,0 +1,26 @@
+---
+label: FAQ
+hide_body: true
+display_field: 
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: faq
+- type: field_group_list
+  name: faqs
+  label: Questions and answers
+  fields:
+  - type: text
+    name: q
+    label: Question
+    description: A short question, including question mark
+  - type: textarea
+    label: Answer
+    name: a
+    description: Your answer can be styled with markdown
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown

@@ -114,6 +114,7 @@ fields:
   - contact-form
   - demo
   - steps
+  - faq
   description: The blocks to include in the section
   config:
     min: ''

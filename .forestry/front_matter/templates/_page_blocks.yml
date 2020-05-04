@@ -13,8 +13,10 @@ fields:
   label: Date
   description: The date the page was created
   default: now
+  hidden: true
 - type: select
   label: Page theme
+  hidden: true
   name: theme
   description: An overall theme for the page. Use a different theme for each service.
   config:

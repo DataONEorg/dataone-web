@@ -1,0 +1,73 @@
+---
+label: Page summary
+hide_body: true
+display_field: type
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: page-summary
+- type: select
+  name: type
+  label: Type of page to summarize
+  config:
+    source:
+      type: simple
+    options:
+    - news
+    - webinar
+    - job
+- type: boolean
+  name: auto_select
+  label: Select the most recent page
+  default: false
+  description: If true, the most recent news, webinar, or job item will be shown. This overrides whichever page is selected below.
+- name: news
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: news
+      file: 
+      path: 
+  label: News story
+  showOnly:
+    field: type
+    value: news
+  description: Which news summary should be displayed?
+- name: webinar
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: webinars
+      file: 
+      path: 
+  label: Webinar
+  showOnly:
+    field: type
+    value: webinar
+  description: For which webinar should a summary be displayed?
+- name: job
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: jobs
+      file: 
+      path: 
+  label: Job story
+  showOnly:
+    field: type
+    value: job
+  description: For which position should a summary be displayed?

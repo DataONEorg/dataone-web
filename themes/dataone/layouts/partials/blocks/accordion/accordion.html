@@ -2,9 +2,8 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "accordion" }}
-
 <!-- heading: the part of the accordion that's always shown -->
-{{ $heading := "Heading" }}
+{{ $heading := "" }}
 {{ with .Block.heading }}
   <!-- if the heading is a block, render the block -->
   {{ if reflect.IsMap . }}
@@ -37,11 +36,11 @@
   {{ $classes = print $classes "accordion--col-" . }}
 {{ end }}
 
-<div data-aria-accordion="data-aria-accordion" class="{{$classes}}">
-  <div data-aria-accordion-heading="data-aria-accordion-heading">
+<div data-aria-accordion="true" class="{{ $classes }}">
+  <div data-aria-accordion-heading="true">
     {{ $heading }}
   </div>
-  <div data-aria-accordion-panel="data-aria-accordion-panel">
+  <div data-aria-accordion-panel="true">
     {{ $content }}
   </div>
   <!-- TODO: if needed, the pattern above could be repeated for to add multiple accordion panels -->

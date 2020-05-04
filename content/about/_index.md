@@ -35,23 +35,28 @@ page_sections:
     - date: "2014-06-18"
       title: LTER-Europe joins DataONE
       description: LTER-EU joins DataONE as the first European and 20th repository in the network. 
+      image: uploads/lter.jpeg
     - date: "2014-06-18"
       title: Member Node Dashboard released
       description: DataONE relases a new dashboard exposing real time information on current holdings across the DataONE network of repositories. 
     - date: "2013-06-27"
       title: TFRI joins DataONE
+      image: uploads/taiwan-forest.jpg
       description: The Taiwan Forestry Research Institute (TFRI) joins the DataONE network as the first repository in Asia.
     - date: "2013-02-27"
       title: Release of DataONE R client
+      image: uploads/dataone_r_code.png
       description: The DataONE R Client, a package for accessing open data in DataONE from within the R environment for statistical computing, is released. 
     - date: "2012-10-02"
       title: Launch of DataUP
       description: California Digital Library (CDL), Microsoft Research Connections and DataONE launch DataUp, a free data management tool and MSExcel add-in.
     - date: '2012-07-23'
       title: DataONE goes live
+      image: uploads/dataone-search.png
       description: DataONE today released technology capable of providing researchers access to globally distributed, networked data from a single point of discovery.
     - date: '2011-10-07'
       title: DMPTool goes live
+      image: uploads/dmp-tool-create-plan.png
       description: The DMP Tool, a collaborative project across seven organizations including DataONE, is launched. The DMPTool helps researchers learn about data management and write guided Data Management Plans (DMPs). 
     - date: '2011-08-22'
       title: DataONE releases learning modules

@@ -8,6 +8,7 @@ fields:
   label: Date
   description: The date this page was created
   default: now
+  hidden: true
 - type: text
   name: title
   label: Title

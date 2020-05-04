@@ -66,9 +66,11 @@
     {{ end }}
 
     {{ with .Block.datetime }}
-      <div class="{{ $bn }}__date">
-        {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
-      </div>
+      {{ if (partial "functions/hasValues" .) (ne .time "") (ne .time " ") }}
+        <div class="{{ $bn }}__date">
+          {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
+        </div>
+      {{ end }}
     {{ end }}
 
     {{ with .Block.description }}
