@@ -8,7 +8,8 @@
 <!-- Block options and their default values -->
 {{ $hide_location := .Block.hide_location | default false }}
 {{ $hide_email := .Block.hide_email | default false }}
-{{ $hide_socials := .Block.hide_socials |default false }}
+{{ $hide_socials := .Block.hide_socials | default false }}
+{{ $email_as_social := .Block.email_as_social | default false }}
 
 <!-- Other variables -->
 {{ $emailAddress := $page.Site.Params.emailAddress }}
@@ -37,6 +38,11 @@
       {{ range $name, $link := $page.Site.Params.social }}
         <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">
           {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
+        </a>
+      {{ end }}
+      {{ if $email_as_social }}
+        <a class="{{ $bn }}__social-link" href="mailto:{{ $emailAddress }}" title="Email DataONE">
+          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) }}
         </a>
       {{ end }}
     </div>

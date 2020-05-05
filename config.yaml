@@ -64,7 +64,6 @@ params:
     latitude: ''
   social:
     vimeo: https://vimeo.com/channels/dataone
-    youtube: https://www.youtube.com/user/DataONEorg
     twitter: https://twitter.com/DataONEorg
 menu:
   footer:

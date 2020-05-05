@@ -32,13 +32,13 @@
   //(positioned elements will display on top of unpositioned elements)
   position                      : relative;
   margin                        : 0;
-  padding-top                   : 12rem;
+  padding-top                   : 10rem;
   margin-top                    : -15rem;
   overflow                      : hidden;
 
   &__content {
     @include limit-width;
-    padding              : 3rem $lr-padding;
+    padding              : 2rem $lr-padding;
     display              : grid;
     grid-template-columns: 1fr;
     grid-template-rows   : auto;
@@ -49,7 +49,7 @@
     @include desktop {
       grid-template-columns: .66fr .34fr;
       grid-template-rows   : auto auto;
-      grid-gap             : 1rem 6rem;
+      grid-gap             : 1rem 2rem;
       grid-template-areas  : "sitemap organization" "newsletter newsletter";
       grid-template-rows   : max-content max-content max-content;
     }
@@ -60,9 +60,11 @@
     margin               : 0;
     padding              : 0;
     padding-inline-start : 0;
+    margin-top           : 1.5rem;
     grid-area            : sitemap;
     display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    grid-template-rows   : min-content;
     grid-gap             : 2rem 2rem;
   }
 
@@ -82,7 +84,7 @@
 
   &__sitemap-header {
     color         : var(--section-fc-title, black);
-    font-size     : var(--fs-large, 1.22rem);
+    font-size     : var(--fs-medium, 1rem);
     font-weight   : var(--fw-bold, 500);
     letter-spacing: .06em;
     text-transform: uppercase;
@@ -129,24 +131,28 @@
     }
   }
 
-  &__old-site-link {}
+  &__old-site-link {
+    grid-column: span 2;
+  }
 
-  &__search-link {}
+  &__search-link {
+    grid-column: span 2;
+  }
 
   &__organization {
-    margin-top        : 5rem;
-    margin-bottom     : 2rem;
     grid-area         : organization;
     display           : grid;
     justify-content   : center;
+    margin-top        : 5rem;
+    margin-bottom     : 0;
     grid-gap          : 1rem;
-    grid-template-rows: min-content min-content min-content;
+    grid-template-rows: min-content;
     @include desktop {
       margin-top: 1rem;
     }
 
     .contact-info__socials {
-      margin-top   : 3.5rem;
+      margin-top   : 1rem;
       max-width    : 200px;
       justify-items: left;
     }
@@ -172,7 +178,7 @@
     letter-spacing: .44px;
     line-height   : 1.4;
     text-shadow   : 0 0 16px 0 rgba(6,40,61,0.23);
-    margin-bottom : 2.5rem;
+    margin-bottom : 1rem;
   }
 
   &__newsletter {

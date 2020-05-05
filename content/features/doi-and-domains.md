@@ -7,7 +7,7 @@ free: false
 plus: false
 hostedrepo: true
 show_in_table: true
-render_page: true
+render_page: false
 category: branding
 sub_features:
 - title: Custom DOI prefix

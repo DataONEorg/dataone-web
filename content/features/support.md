@@ -8,7 +8,7 @@ free: false
 plus: true
 hostedrepo: true
 show_in_table: true
-render_page: true
+render_page: false
 table_annotations:
 - service: plus
   text: Institutional subscribers only

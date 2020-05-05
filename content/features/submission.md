@@ -1,14 +1,14 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Powerful online submission
+title: Powerful online dataset submission
 description: Easily create and submit interoperable, detailed metadata to your repository
 free: false
 plus: false
 hostedrepo: true
 show_in_table: true
-render_page: true
-category: data import
+render_page: false
+category: dataone tools
 header:
   template: header
   type: text only

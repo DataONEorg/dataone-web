@@ -7,7 +7,7 @@ free: false
 plus: true
 hostedrepo: true
 show_in_table: true
-render_page: true
+render_page: false
 category: branding
 header:
   template: header

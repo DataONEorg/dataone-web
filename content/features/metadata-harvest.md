@@ -7,5 +7,5 @@ plus: true
 hostedrepo: true
 show_in_table: true
 render_page: false
-category: data import
+category: data management
 ---

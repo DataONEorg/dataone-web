@@ -10,7 +10,13 @@
 {{ $features := where $features "Params.show_in_table" true }}
 
 <!-- Feature categories -->
-{{ $featureCategories := slice "misc" "data search" "data import" "security" "analytics" "branding" "support" }}
+<!-- Get feature section page -->
+{{ $sectionPage := dict }}
+{{ range first 1 (where (where $Site.Pages "Type" "features") "Kind" "section") }}
+  {{ $sectionPage = .Params }}
+{{ end }}
+<!-- Get categories -->
+{{ $featureCategories := $sectionPage.categories  }}
 
 <!-- Dictionary of readable service names paired with corresponding variable names -->
 <!-- Must use a slice (list) to set the order. -->

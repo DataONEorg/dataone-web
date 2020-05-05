@@ -7,8 +7,8 @@ free: false
 plus: false
 hostedrepo: true
 show_in_table: true
-render_page: true
-category: security
+render_page: false
+category: access control
 sub_features:
 - title: Share when ready
   description: Keep your dataset private while you document it thoroughly, then share it with the world when you're ready.

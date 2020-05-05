@@ -10,15 +10,15 @@ hostedrepo: true
 show_in_table: true
 render_page: true
 sub_features:
-- title: Aggregated usage metrics
-  description: See aggregated views and downloads over time for your datasets in each portal or hosted repository
-  free: false
-  plus: true
-  hostedrepo: true
-  show_in_table: true
 - title: Dataset usage metrics
   description: Review your per-dataset views and downloads over time
   free: true
+  plus: true
+  hostedrepo: true
+  show_in_table: true
+- title: Aggregated usage metrics
+  description: See aggregated views and downloads over time for your datasets in each portal or hosted repository
+  free: false
   plus: true
   hostedrepo: true
   show_in_table: true

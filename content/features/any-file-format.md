@@ -1,14 +1,14 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Any file format
+title: Upload any file format
 description: Use the scientific file formats for your community - image, tabular, text, audio, video, and others.
 free: true
 plus: true
 hostedrepo: true
 show_in_table: true
-render_page: true
-category: data import
+render_page: false
+category: data management
 header:
   template: header
   type: text only

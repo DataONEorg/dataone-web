@@ -7,8 +7,8 @@ free: false
 plus: false
 hostedrepo: true
 show_in_table: true
-render_page: true
-category: misc
+render_page: false
+category: data management
 header:
   template: header
   type: text only

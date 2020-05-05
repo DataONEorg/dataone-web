@@ -72,11 +72,8 @@
         <span class="{{ $bn }}__name">Data Oberservation Network for Earth</span>
         <span class="{{ $bn }}__mission">Enabling new science and knowledge creation through universal access to data about life on earth and the environment that sustains it</span>
       </div>
-      <!-- contact button -->
-      {{ $buttonBlock := dict "color" "secondary" "text" "Send a message" "type" "contact" "icon" (dict "icon" "mail" "size" "small") }}
-      {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
       <!-- socials -->
-      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "hide_location" true "hide_email" true) "Page" $page ) }}
+      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "hide_location" true "hide_email" true "email_as_social" true) "Page" $page ) }}
     </section>
 
   </div>

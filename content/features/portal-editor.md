@@ -7,8 +7,8 @@ free: false
 plus: true
 hostedrepo: true
 show_in_table: true
-render_page: true
-category: misc
+render_page: false
+category: dataone tools
 header:
   template: header
   type: text only

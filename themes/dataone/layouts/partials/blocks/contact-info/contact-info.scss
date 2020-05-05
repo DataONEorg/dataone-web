@@ -51,7 +51,7 @@
 
   &__socials {
     display              : grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(3.13rem, 1fr));
     grid-gap             : .5rem;
     width                : 100%;
     justify-items        : center;
