@@ -14,6 +14,5 @@ shortbio: Anna is an Associate Scientist at Woods Hole Research Center and PI of
   change.
 longbio: ''
 email: ''
-draft: true
 
 ---
