@@ -33,6 +33,7 @@ abstract: Although data-driven research is already accelerating scientific disco
   ways to engage, and include some lessons learned from Micaela’s 6+ years of experience
   in collaborative institutional experimentation through her work with the Moore-Sloan
   Data Science Environments (msdse.org).
-speakers: []
+speakers:
+- people/file-3.md
 
 ---
