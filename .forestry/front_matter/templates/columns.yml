@@ -61,4 +61,5 @@ fields:
   - accordion
   - contact-info
   - contact-form
+  - faq
   description: The items to include in each column

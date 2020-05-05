@@ -2,9 +2,13 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Powerful online submission
-description: The user-friendly data submission tool helps your researchers efficiently
-    upload and describe their data. Users can easily create detailed metadata to
-    enhance interoperability, reusability, and value of data.
+description: Easily create and submit interoperable, detailed metadata to your repository
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: data import
 header:
   template: header
   type: text only
@@ -20,7 +24,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

@@ -2,7 +2,13 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Expandable storage
-description: Grow your 1 TB repository capacity based on your storage needs in 1 TB increments.
+description: Repositories start with 1 TB of storage, expandable by the TB to match your needs
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: misc
 header:
   template: header
   type: text only
@@ -16,7 +22,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

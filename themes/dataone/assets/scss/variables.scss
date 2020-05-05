@@ -1,11 +1,14 @@
 // ==== COLORS ====
 // -- Color names (-cn)
-$cn-teal: #1ab7bc;
+$cn-teal: #36c5cc;
 $cn-yellow: #EED268;
 $cn-blue-grey: #507d8f;
-$cn-green: #25cb9e;
-$cn-blue: #2793C0;
+$cn-green: #34bb96;
+$cn-blue: #0688d2;
 $cn-red: #F57065;
+$cn-purple: #4f5bb5;
+// #00AAB8
+// #005C70
 
 // Assume all of these colour variables could change based on page theme
 :root {
@@ -14,7 +17,7 @@ $cn-red: #F57065;
     background  : col($cn-blue-grey, 1),
     foreground  : col($cn-blue-grey, 5),
     major-accent: (base: col($cn-teal, 5), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
-    minor-accent: (base: col($cn-yellow, 5), foreground: col($cn-yellow, 8), accent: col($cn-teal, 5)),
+    minor-accent: (base: col($cn-yellow, 5), foreground: col($cn-yellow, 8), accent: col($cn-blue, 5)),
     rare-accent : (base: col($cn-green, 6), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
     alerts      : (success: $cn-green, info: $cn-blue, warning: col($cn-yellow,6), error: $cn-red)
   );

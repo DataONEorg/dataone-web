@@ -1,6 +1,9 @@
-<!-- line icons use the svg sprite in the static folder called icon-sprite.svg -->
+<!-- line icons use the svg sprite located at partials/svg/feather-sprite.svg -->
 <!-- these icons can be previewed here: https://feathericons.com/?query=home -->
 <!-- read more about them on github: https://github.com/feathericons/feather -->
+
+<!-- Extra icons have been create in the same style, are are located at -->
+<!-- partials/svg/feather-sprite-extras -->
 
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
@@ -10,13 +13,19 @@
 {{ $classes := $bn }}
 
 {{ with .Block.size }}
-  {{ $classes = print $classes " " $bn "--sz-" . }}
+  {{ $classes = printf "%s %s--sz-%s" $classes $bn . }}
 {{ end }}
 {{ with .Block.color }}
-  {{ $classes = print $classes " " $bn "--col-" . }}
+  {{ $classes = printf "%s %s--col-%s" $classes $bn . }}
 {{ end }}
 {{ with .Block.stroke }}
-  {{ $classes = print $classes " " $bn "--str-" . }}
+  {{ $classes = printf "%s %s--str-%s" $classes $bn . }}
+{{ end }}
+
+<!-- Add a class for the icons that require fill instead of line, e.g. the DataONE Plus logo -->
+{{ $fillIcons := slice "d1-plus-logo" }}
+{{ if in $fillIcons .Block.icon }}
+  {{ $classes = printf "%s %s--%s" $classes $bn "fill-icon" }}
 {{ end }}
 
 <svg class="{{ $classes }}">

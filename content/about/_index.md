@@ -98,6 +98,7 @@ page_sections:
 menu:
   primary_nav:
     parent: About
+    pre: globe
     weight: 1
   footer:
     weight: 11

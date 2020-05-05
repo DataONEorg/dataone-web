@@ -19,6 +19,7 @@ page_sections:
 menu:
   primary_nav:
     parent: Community
+    pre: briefcase
     weight: 5
   footer:
     parent: Community

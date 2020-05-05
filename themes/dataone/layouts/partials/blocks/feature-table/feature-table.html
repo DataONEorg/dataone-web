@@ -1,79 +1,97 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 {{ $Site := .Page.Site }}
+<!-- block name -->
+{{ $bn := "feature-table" }}
+<!-- classes for the outermost element -->
+{{ $classes := $bn }}
 
-<!-- Check mark icon -->
-{{ $iconBlock := dict "icon" "check" "color" "secondary" "stroke" "thicker"}}
-{{ $checkmark := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+{{ $features := where $Site.Pages "Type" "features" }}
+{{ $features := where $features "Params.show_in_table" true }}
 
-<table class="table table-striped" id="feature-table">
+<!-- Feature categories -->
+{{ $featureCategories := slice "misc" "data search" "data import" "security" "analytics" "branding" "support" }}
+
+<!-- Dictionary of readable service names paired with corresponding variable names -->
+<!-- Must use a slice (list) to set the order. -->
+<!-- Go maps are sorted alphabetically and there's no way around this. -->
+<!-- TODO - get all these values directly from service pages -->
+{{ $serviceNames := slice (dict "varName" "free" "readableName" "Free Membership") (dict "varName" "plus" "readableName" "DataONE Plus") (dict "varName" "hostedrepo" "readableName" "Hosted Repository") }}
+{{ $numServices := len $serviceNames }}
+
+<!-- Note, this block uses the non-BEM utlity classes theme--plus, theme--hostedrepo -->
+
+<table class="{{ $classes }}">
   <thead>
     <tr>
-      <th>DataONE Feature</th>
-      <th class="feature-table-category">Free Membership</th>
-      <th class="feature-table-category">DataONE Plus</th>
-      <th class="feature-table-category">Hosted Repository</th>
-    </thead>
-    <tbody>
+      <th class="{{ $bn }}__col-header {{ $bn }}__col-header--feature">DataONE Feature</th>
+      {{ range $serviceInfo := $serviceNames }}
+        <th class="{{ $bn }}__col-header theme--{{ $serviceInfo.varName }}">
+          {{ $serviceInfo.readableName }}
+        </th>
+      {{ end }}
+    </tr>
+  </thead>
+  <tbody class="{{ $bn }}__body">
 
-      {{- range $mapName, $featuresMap := $Site.Data.features -}}
-        {{- range $mapName2, $feature := $featuresMap -}}
+    {{ range $category := $featureCategories }}
 
-          {{ $name := $feature.name }}
+      {{ if ne $category "misc" }}
+        <tr class="{{ $bn }}__section-header-row">
+          <td class="{{ $bn }}__section-header-cell" colspan="{{ add $numServices 1 }}">
+            {{ $category }}
+          </td>
+        </tr>
+      {{ end }}
 
-          <tr class="table-row" id="item__{{urlize $name}}">
-            <td class="feature-table-name-cell">
-              <h4 class="feature-table-name">
-                {{ if $feature.link }}
-                  <a class="" href="{{ $feature.link }}">
-                  {{ end }}
-                  {{ $name }}
-                  {{ if $feature.link }}
-                  </a>
-                {{ end }}
-              </h4>
-              {{ if $feature.description }}
-                <span class="feature-table-description">{{ $feature.description }}</span>
-              {{ end }}
-            </td>
+      <!-- Group by category -->
+      {{ $featuresInCategory := where $features ".Params.category" "==" $category }}
 
-            <td class="feature-table-free-cell feature-table-category-value">
-              {{ if $feature.free }}
-                {{ if eq (printf "%T" $feature.free) "string" }}
-                  <span>{{ $feature.free }}</span>
-                {{ else }}
-                  <div class="feature-table-icon">
-                    {{ $checkmark }}
-                  </div>
-                {{ end }}
-              {{ end }}
-            </td>
+      <!-- Sort by each of the services -->
+      {{ $featuresInCategorySorted := $featuresInCategory }}
+      {{ $featuresInCategorySorted = $featuresInCategorySorted.ByParam "table_annotations" }}
+      {{ $featuresInCategorySorted = $featuresInCategorySorted.ByParam "plus" }}
+      {{ $featuresInCategorySorted = $featuresInCategorySorted.ByParam "free" }}
+      {{ $featuresInCategorySorted = $featuresInCategorySorted.Reverse }}
 
-            <td class="feature-table-plus-cell feature-table-category-value">
-              {{ if $feature.plus }}
-                {{ if eq (printf "%T" $feature.plus) "string" }}
-                  <span>{{ $feature.plus }}</span>
-                {{ else }}
-                  <div class="feature-table-icon">
-                    {{ $checkmark }}
-                  </div>
-                {{ end }}
-              {{ end }}
-            </td>
+      {{ range $index, $feaeture := $featuresInCategorySorted }}
 
-            <td class="feature-table-hostedrepo-cell feature-table-category-value">
-              {{ if $feature.hostedrepo }}
-                {{ if eq (printf "%T" $feature.hostedrepo) "string" }}
-                  <span>{{ $feature.hostedrepo }}</span>
-                {{ else }}
-                  <div class="feature-table-icon">
-                    {{ $checkmark }}
-                  </div>
-                {{ end }}
-              {{ end }}
-            </td>
-          {{ end }}
+        {{ $feature := $feaeture.Params }}
+        {{ $url := $feaeture.RelPermalink }}
+
+        <!-- Determines if row will be stripe color or not. -->
+        <!-- Add stripe modifer as a variable so that sub-features are same col -->
+        <!-- as parent -->
+        {{ $striped := false }}
+        {{if modBool $index 2 }}
+          {{ $striped = true }}
         {{ end }}
 
-      </tbody>
-    </table>
+        <!-- Make sure the feature is not set to be hidden from table -->
+        {{ if or (eq $feature.show_in_table true) (eq $feature.show_in_table "true") }}
+
+          <!-- A row for each feature... -->
+          {{ $featureBlock := merge $feature (dict "url" $url) }}
+          {{ partial "blocks/feature-table/feature-table-row" (dict "Block" (dict "feature" $featureBlock "serviceNames" $serviceNames "striped" $striped) "Page" $page ) }}
+
+          <!-- ... and each sub-feature -->
+          {{ with $feature.sub_features }}
+            {{ range . }}
+              {{ $subUrl := "" }}
+              {{ $showLink := false }}
+              {{ with .section_id }}
+                {{ $subUrl = printf "%s#%s" (strings.TrimSuffix "/" $url ) . }}
+                {{ $showLink = true }}
+              {{ end }}
+              {{ $subFeatureBlock := merge . (dict "url" $subUrl "render_page" $showLink "subFeature" "true") }}
+              {{ partial "blocks/feature-table/feature-table-row" (dict "Block" (dict "feature" $subFeatureBlock "serviceNames" $serviceNames "striped" $striped) "Page" $page ) }}
+            {{ end }}
+          {{ end }}
+
+        {{ end }}
+
+      {{ end }}
+    {{ end }}
+
+  </tbody>
+</table>

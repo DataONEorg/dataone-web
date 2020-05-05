@@ -1,26 +1,32 @@
-<!-- in order to pass on page parameters from within loops -->
+<!-- In order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "menu-item"}}
-<!-- classes to add to outer element -->
+<!-- Classes to add to outer element -->
 {{ $classes := $bn }}
-<!-- settings for menu icons -->
+
+<!-- ======================================================================= -->
+<!-- Menu variables -->
+
+<!-- Settings for menu icons -->
 {{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
-<!-- content before the link name -->
+<!-- Content before the link name -->
 {{ $pre := "" }}
-<!-- content after the link name -->
+<!-- Content after the link name -->
 {{ $post := "" }}
-<!-- custom content for the dropdown menu. Replaces child links -->
+<!-- Custom content for the dropdown menu. Replaces child links -->
 {{ $submenuContent := "" }}
-<!-- whether the menu has a sub-menu -->
+<!-- Top level navigation URL (does not apply to children ) -->
+{{ $url := .Block.URL }}
+
+<!-- Whether the menu has a sub-menu -->
 {{ $hasSubmenu := false }}
 {{ with .Block.Children  }}
   {{ if (gt (len .) 1) }}
     {{ $hasSubmenu = true }}
   {{ end }}
 {{ end }}
-<!-- top level navigation URL (does not apply to children ) -->
-{{ $url := .Block.URL }}
+
 <!-- Check for special link key words, get link from config -->
 {{ if eq .Block.URL "contact" }}
   {{ $url = $page.Site.Params.links.contact }}
@@ -29,72 +35,162 @@
 {{ else if eq .Block.URL "signin" }}
   {{ $url = $page.Site.Params.links.signin }}
 {{ end }}
+
 <!-- Special layout options for the DataONE Plus Ad -->
 {{ if eq .Block.Post "DataONE Plus Ad"}}
-  {{ $pre = partial "svg/dataone-plus-logo.svg" }}
+  {{ $iconBlock := dict "icon" "d1-plus-logo" "size" "small" "color" "inherit" }}
+  {{ $pre = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+  {{ $pre = printf "<span class='menu-item__logo-icon'>%s</span>" $pre | safeHTML }}
   {{ $hasSubmenu = true }}
   {{ $post = partial "blocks/pill/pill" (dict "Block" (dict "text" "New" "style" "primary" "size" "smaller") "Page" $page) }}
-  {{ $classes = print $classes " " $bn "--dataone-plus-ad"}}
+
+  {{ $classes = printf "%s %s--dataone-plus-ad" $classes $bn }}
   <!-- TODO: -->
   {{ $submenuContent = partial "blocks/global-header/d1plus-menu-ad" (dict "Page" $page) }}
 {{ end }}
+
 <!-- Add a class for items that are the active/current page -->
 <!-- TODO -->
 {{ $isActive := false }}
 {{ if $isActive }}
   {{ $classes = printf "%s %s--active" $classes $bn }}
 {{ end }}
-<!-- add a class for menu items that have a submenu -->
+
+<!-- Add a class for menu items that have a submenu -->
 {{ if $hasSubmenu }}
   {{ $classes = printf "%s %s--dropdown" $classes $bn }}
 {{ end }}
 
-<!-- add the link name as a modifier class -->
+<!-- Add the link name as a modifier class -->
 {{ with .Block.Name }}
   {{ $classes = printf "%s %s--%s" $classes $bn (urlize . ) }}
 {{ end }}
 
-<!-- Start of template -->
+<!-- HTML that contains the parent item (e.g. Services, Network, Community, etc ) -->
+{{ $topLevelName := printf "<span class='%s__top-item-name'>%s</span>" $bn .Block.Name | safeHTML }}
+
+<!-- ID for submenu, if there is one -->
+{{ $subMenuId := printf "%s__sub-menu" (urlize .Block.Name) }}
+
+<!-- ======================================================================= -->
+<!-- Start of layout -->
+
 <li class="{{ $classes }}">
+
+  <!-- For menu items with no children, don't include a dropdown -->
   {{ if not $hasSubmenu }}
-    <!-- regular link -->
+
+    <!-- Regular link -->
     <!-- Link to the page -->
-    <a class=" {{ $bn }}__link" href="{{ $url }}" title="{{ .Block.Title }}">
+    <a class="{{ $bn }}__top-item" href="{{ $url }}" title="{{ .Block.Title }}">
       {{ $pre }}
-      {{ .Block.Name }}
+      {{ $topLevelName }}
       {{ $post }}
     </a>
 
+    <!-- For menu items with children, make a dropdown menu -->
   {{ else }}
+
     <!-- dropdown button with links below -->
     <!-- button to open submenu -->
-    <button class="{{ $bn }}__dropdown-button" aria-haspopup="true" aria-expanded="false" aria-controls="#{{urlize .Block.Name }}">
+    <button class="{{ $bn }}__top-item" aria-haspopup="true" aria-expanded="false" aria-controls="{{ $subMenuId }}">
       {{ $pre }}
-      {{ .Block.Name }}
+      {{ $topLevelName }}
       <span class="{{ $bn }}__dropdown-icon">
         {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "chevron-down" "size" "tiny")) "Page" $page) -}}
       </span>
       {{ $post }}
     </button>
+
     <!-- submenu -->
+
+    <!-- For dropdown menu content that comes from another partial, e.g. DataONE Plus Ad -->
     {{ if $submenuContent }}
-      <div class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ urlize .Name }}">
+      <div class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ $subMenuId }}">
         {{ $submenuContent }}
       </div>
+
+      <!-- For regular drop down menus with child links -->
     {{ else }}
-      <ul class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ urlize .Name }}">
+
+      <ul class="{{ $bn }}__sub-menu" aria-hidden="true" id="{{ $subMenuId }}">
 
         {{ range .Block.Children }}
-          <li class="{{ $bn }}__sub-item">
-            <a class=" {{ $bn }}__sub-link" href="{{ .URL }} " title="{{ .Title }}">
-              {{ .Name }}
+
+          <!-- Description for the menu (optional) -->
+          <!-- This should be text -->
+          {{ $description := .Post | default "" }}
+
+          <!-- Icon to the left of the menu name & description (optional) -->
+          <!-- This should be the NAME an icon available in the icon block -->
+          {{ $icon := .Pre | default "" }}
+
+          <!-- Icon to the right of the menu name & description -->
+          {{ $iconRight := "" }}
+
+          <!-- Overwrite with service icon, if there is one -->
+          {{ if .Page }}
+            {{ with .Page.Params.service_icon }}
+              <!-- Use service icon if one is set -->
+              {{ $icon = . }}
+            {{ end }}
+          {{ end }}
+
+          {{ with $icon }}
+            {{ $iconBlock := dict "icon" . "color" "inherit" "size" "small" }}
+            {{ $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+          {{ end }}
+
+          {{ $subItemElementName := printf "%s__sub-item" $bn }}
+          {{ $subItemClasses := $subItemElementName }}
+
+          {{ if $icon }}
+            {{ $subItemClasses = printf "%s %s--has-icon" $subItemClasses $subItemElementName }}
+          {{ end }}
+
+          {{ if $description }}
+            {{ $subItemClasses = printf "%s %s--has-description" $subItemClasses $subItemElementName }}
+          {{ end }}
+
+          <!-- Set a theme class for service pages -->
+          {{ if .Page }}
+            {{ if and (eq .Page.Type "services") (.Page.Params.service_color) (.Page.Params.service_varName) }}
+              {{ $subItemClasses = printf "%s theme--%s" $subItemClasses (.Page.Params.service_varName) }}
+            {{ end }}
+          {{ end }}
+
+          <!-- Special links at the bottom of menus -->
+          <!-- If the weight is set to >99, give links a class so they -->
+          <!-- can have a different style -->
+          {{ $weight := .Weight | int }}
+          {{ if gt $weight 99 }}
+            {{ $subItemClasses = printf "%s %s--bottom" $subItemClasses $subItemElementName }}
+            {{ $iconBlockRight := dict "icon" "arrow-right" "color" "inherit" "size" "small" }}
+            {{ $iconRight = partial "blocks/icon/icon" (dict "Block" $iconBlockRight "Page" $page) }}
+          {{ end }}
+
+          <li class="{{ $subItemClasses }}">
+            <a class="{{ $bn }}__sub-link" href="{{ .URL }} " title="{{ .Title }}">
+              {{ with $icon }}
+                <span class="{{ $bn }}__sub-item-icon">
+                  {{ . }}
+                </span>
+              {{ end }}
+              {{ with .Name }}
+                <p class="{{ $bn }}__sub-item-name">{{ . }}{{ $iconRight }}</p>
+              {{ end }}
+              {{ with $description }}
+                <p class="{{ $bn }}__sub-item-description">{{ . }}</p>
+              {{ end }}
             </a>
           </li>
         {{ end }}
 
       </ul>
     {{ end }}
-    <!-- submenu arrow at top on desktop -->
+
+    <!-- submenu arrow at top of submenus on desktop -->
     <div class="{{ $bn }}__sub-menu-arrow"></div>
   {{ end }}
+
 </li>

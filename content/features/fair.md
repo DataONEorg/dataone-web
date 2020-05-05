@@ -2,7 +2,28 @@
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: FAIR Metadata Assessments
-description: ''
+description: Evaluate your metadata with community established FAIR principles
+free: false
+plus: true
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: analytics
+sub_features:
+- title: Aggreated FAIR report
+  description: Aggreate FAIR scores for each portal or for each hosted repository
+  free: false
+  plus: true
+  hostedrepo: true
+  show_in_table: true
+  section_id: aggregated-reports
+- title: Per-dataset FAIR report
+  description: Individual FAIR report for each individual dataset
+  free: false
+  plus: false
+  hostedrepo: true
+  show_in_table: true
+  section_id: individual-reports
 header:
   template: header
   type: text only
@@ -16,7 +37,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: "/features"
+    internal_link: "/services"
     color: secondary
     text: See all features
     external_link: ''
@@ -84,7 +105,7 @@ page_sections:
   icon:
     icon: file-plus
   template: section
-  title: Guide your community towards creating better metadata
+  title: Guide your community toward creating better metadata
   intro: Provide detailed FAIR reports for each dataset and give researchers the power to discover
     exactly which metadata fields are missing or incomplete.
   blocks:

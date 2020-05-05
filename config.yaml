@@ -91,14 +91,17 @@ menu:
     weight: 3
     url: signin
   primary_nav:
+  - name: Services
+    weight: 1
   - name: Network
-    weight: 3
+    weight: 2
   - name: Community
-    weight: 4
+    weight: 3
   - name: About
-    weight: 5
+    weight: 4
   - url: https://dataoneorg.github.io/Education/
     name: Skillbuilding
     title: Skillbuilding Hub
     parent: Community
+    pre: award
     weight: 3

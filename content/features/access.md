@@ -1,9 +1,22 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Private and public access
-description: Control access to your datasets prior to publication with private groups
-  or just yourself.
+title: Access control
+description: Manage access to your data with rules and groups you define
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: security
+sub_features:
+- title: Share when ready
+  description: Keep your dataset private while you document it thoroughly, then share it with the world when you're ready.
+  free: false
+  plus: false
+  hostedrepo: true
+  show_in_table: true
+  render_page: true
 header:
   template: header
   type: text only
@@ -18,7 +31,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

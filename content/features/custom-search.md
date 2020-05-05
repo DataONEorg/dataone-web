@@ -1,8 +1,14 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Customized portal search
-description: Custom search feature for DataONE Plus portals.
+title: Custom portal search filters
+description: Configure your portals with custom search fields specific to your science topics
+free: false
+plus: true
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: data search
 header:
   template: header
   type: image on right
@@ -17,7 +23,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: "/features"
+    internal_link: "/services"
     color: secondary
     text: See all features
   - template: button

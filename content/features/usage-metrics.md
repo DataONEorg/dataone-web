@@ -1,9 +1,27 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Dataset usage metrics
-description: Understand how your data are being used over time with view,
-    download, and citation metrics.
+title: Usage metrics
+description: Understand how your data are being used over time with view, download, and citation metrics.
+category: analytics
+free: true
+plus: true
+hostedrepo: true
+show_in_table: true
+render_page: true
+sub_features:
+- title: Aggregated usage metrics
+  description: See aggregated views and downloads over time for your datasets in each portal or hosted repository
+  free: false
+  plus: true
+  hostedrepo: true
+  show_in_table: true
+- title: Dataset usage metrics
+  description: Review your per-dataset views and downloads over time
+  free: true
+  plus: true
+  hostedrepo: true
+  show_in_table: true
 header:
   template: header
   type: text only
@@ -18,7 +36,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

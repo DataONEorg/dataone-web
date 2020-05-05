@@ -3,6 +3,25 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Custom DOIs and domains
 description: A custom DOI prefix and domain name for your repository
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: branding
+sub_features:
+- title: Custom DOI prefix
+  description: A DOI prefix is configured exclusively for your datasets, products, and code
+  free: false
+  plus: false
+  hostedrepo: true
+  show_in_table: true
+- title: Custom domain name
+  description: Your repository is available at a domain of your choice, but hosted by DataONE
+  free: false
+  plus: false
+  hostedrepo: true
+  show_in_table: true
 header:
   template: header
   type: text only
@@ -16,7 +35,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button
@@ -37,5 +56,4 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-
 ---

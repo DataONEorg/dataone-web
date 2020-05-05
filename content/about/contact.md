@@ -57,6 +57,7 @@ theme: ''
 menu:
   primary_nav:
     parent: About
+    pre: mail
     weight: 4
   footer:
     parent: About

@@ -3,6 +3,12 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Portal branding
 description: Customize your portal with colors, logos, and images
+free: false
+plus: true
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: branding
 header:
   template: header
   type: text only
@@ -16,7 +22,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

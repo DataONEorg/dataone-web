@@ -4,8 +4,10 @@ title: DataONE Plus
 description: Enhanced DataONE products and services in support of your research, including
   branded portals, quality assessment metrics (including the FAIR suite), and much
   more.
+service_icon: d1-plus-logo
+service_color: "#34bb96"
+service_varName: "plus"
 date: 2020-01-14T19:04:29.000+00:00
-theme: quaternary
 header:
   template: header
   type: image on right
@@ -85,7 +87,7 @@ page_sections:
     template: button
     type: internal page
     color: primary
-    internal_link: "/features"
+    internal_link: "/services"
     text: Explore all features
 - template: section
   background: data-wave
@@ -292,7 +294,7 @@ page_sections:
     type: internal page
     color: quaternary
     text: More about hosted repositories
-    internal_link: hostedrepo/_index.md
+    internal_link: services/hosted-repo.md
   blocks: []
 - template: section
   background: major-accent-color
@@ -307,8 +309,9 @@ page_sections:
     precheck_newsletter: false
 menu:
   primary_nav:
-    name: Plus
-    weight: 1
+    weight: 2
+    parent: Services
+    post: Portals, custom search, metrics & more
   footer:
     weight: 1
 ---

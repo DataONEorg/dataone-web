@@ -5,6 +5,7 @@
 <!-- classes to add to outer element -->
 {{ $classes := $bn }}
 {{ $iconSettings := dict "color" "inherit" "size" "large"}}
+
 <div class="{{ $classes }}">
   <h2 class="{{ $bn }}__headline">
     <span class="{{ $bn }}__headline-upper">Showcase your results with
@@ -39,6 +40,6 @@
     </div>
   </div>
 
-  {{ $buttonBlock := (dict "text" "Learn more" "type" "internal page" "color" "primary" "internal_link" "/plus/_index.md" )}}
+  {{ $buttonBlock := (dict "text" "Learn more" "type" "internal page" "color" "primary" "internal_link" "/services/plus.md" )}}
   {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
 </div>

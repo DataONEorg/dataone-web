@@ -65,6 +65,7 @@ menu:
   primary_nav:
     weight: 1
     name: Webinars
+    pre: headphones
     parent: Community
   footer:
     weight: 2

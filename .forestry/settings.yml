@@ -114,4 +114,4 @@ build:
   working_dir: "/srv"
   instant_preview_command: hugo server -D -E -F --port 8080 --bind 0.0.0.0 --renderToDisk
     -d public
-version: 0.59.1
+version: 0.69.2

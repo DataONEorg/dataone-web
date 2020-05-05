@@ -1,8 +1,14 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Link data and software
-description: Easily show how your files relate to each other by providing well-described provenance workflows.
+title: Provenance tracking
+description: Relate data inputs, processing scripts, and outputs into understandable science workflows
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: misc
 header:
   template: header
   type: text only
@@ -16,7 +22,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

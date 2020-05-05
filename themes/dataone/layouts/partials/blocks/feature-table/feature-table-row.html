@@ -1,0 +1,108 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+{{ $Site := .Page.Site }}
+<!-- Block name -->
+{{ $bn := "feature-table" }}
+<!-- Element name -->
+{{ $en := printf "%s__row" $bn }}
+<!-- Classes for the element -->
+{{ $classes := $en }}
+
+<!-- Parameters passed from table block -->
+{{ $feature := .Block.feature }}
+{{ $serviceNames := .Block.serviceNames }}
+{{ $subFeature := $feature.subFeature | default false }}
+{{ $striped := .Block.striped }}
+
+{{ if $subFeature }}
+  {{ $classes = printf "%s %s--sub-feature" $classes $en }}
+{{ end }}
+
+{{ if $striped }}
+  {{ $classes = printf "%s %s--striped" $classes $en }}
+{{ end }}
+
+<!-- Checkmark icon -->
+{{ $iconBlock := dict "icon" "check" "color" "inherit" "stroke" "thicker" "size" "small" }}
+{{ $checkmark := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+{{ $checkmark = printf "<span class='%s__checkmark'>%s</span>" $bn $checkmark  | safeHTML }}
+
+<!-- Info icon -->
+{{ $infoIconBlock := dict "icon" "info" "size" "small" }}
+{{ $infoIcon := partial "blocks/icon/icon" (dict "Block" $infoIconBlock "Page" $page) }}
+
+<!-- Subfeature icon -->
+{{ $subfeatureIconBlock := dict "icon" "corner-down-right" "size" "tiny" "color" "inherit"}}
+{{ $subfeatureIcon := partial "blocks/icon/icon" (dict "Block" $subfeatureIconBlock "Page" $page) }}
+{{ $subfeatureIcon = printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $subfeatureIcon  | safeHTML }}
+
+<!-- Name of the feature -->
+{{ $name := $feature.title | default "" }}
+
+<!-- Whether or not to render an anchor tag to the feature page -->
+{{ $link := $feature.url | default "" }}
+{{ with $feature.custom_link }}
+  {{ $link = . }}
+{{ end }}
+{{ $showLink := $feature.render_page | default false }}
+
+<!-- Icon with tool tip for description -->
+{{ $description := $feature.description | default "" }}
+{{ $detail := "" }}
+{{ with $description }}
+  {{ $detail = printf "<span class='%s__details' data-tooltip='%s' data-position='right center'>%s</span>" $bn . $infoIcon | safeHTML }}
+{{ end }}
+
+<!-- What to render in the columns for each service -->
+
+<!-- A scratch that will hold the value to render in each service column -->
+{{ $serviceColumnValues := newScratch }}
+
+<!-- The parameters giving true or false to indicate if feature -->
+<!-- is available to each service -->
+{{ $serviceBooleans := dict "free" $feature.free "plus" $feature.plus "hostedrepo" $feature.hostedrepo }}
+
+<!-- For each service... -->
+{{ range $serviceInfo := $serviceNames }}
+  <!-- Set a checkmark if the corresponding page boolean is true -->
+  {{ $booleanValue := index $serviceBooleans $serviceInfo.varName }}
+  {{ if or (eq $booleanValue true) (eq $booleanValue "true") }}
+    {{ $serviceColumnValues.Set $serviceInfo.varName $checkmark }}
+  {{ end }}
+  <!-- If the table_annotations parameter is set to all, overwrite the -->
+  <!-- column with whatever the text value for all is -->
+  {{ if $feature.table_annotations }}
+    {{ range where $feature.table_annotations "service" "all" }}
+      {{ $serviceColumnValues.Set $serviceInfo.varName .text }}
+    {{ end }}
+    <!-- Otherwise check for annotations specific to the service -->
+    {{ range where $feature.table_annotations "service" $serviceInfo.varName }}
+      {{ $serviceColumnValues.Set $serviceInfo.varName .text }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<tr class="{{ $classes }}">
+
+  <td class="{{ $bn }}__cell {{ $bn }}__cell--feature">
+    <h4 class="{{ $bn }}__feature-name">
+      {{ if $subFeature }}
+        {{ $subfeatureIcon }}
+      {{ end }}
+      {{ if and $showLink $link }}
+        <a class="{{ $bn }}__feature-link" href="{{ $link }}">
+          {{- $name -}}
+        </a>
+      {{ else }}
+        {{ $name }}
+      {{ end }}
+      {{ $detail }}
+    </h4>
+  </td>
+
+  {{ range $serviceInfo := $serviceNames }}
+    <td class="{{ $bn }}__cell theme--{{ $serviceInfo.varName }}">
+      {{ $serviceColumnValues.Get $serviceInfo.varName }}
+    </td>
+  {{ end }}
+</tr>

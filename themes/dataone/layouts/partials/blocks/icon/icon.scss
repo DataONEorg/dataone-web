@@ -8,9 +8,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn            : &;
+  $bn                   : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix        : "--" + str-replace(#{$bn}, ".");
+  $prefix               : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -18,20 +18,27 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  // default icon color
+  #{$prefix}-color      : var(--section-fc-body, grey);
+  // first color choice
+  #{$prefix}-c-primary  : var(--c-minor-accent, grey);
+  // second color choice
+  #{$prefix}-c-secondary: var(--section-c-accent, var(--c-major-accent, grey));
+  // third color choice
+  #{$prefix}-c-tertiary : var(--c-rare-accent, grey);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  width          : 24px;
-  height         : 24px;
-  stroke         : var(--section-fc-body, grey);
-  stroke-width   : 1.5;
-  stroke-linecap : round;
-  stroke-linejoin: round;
-  fill           : none;
+  width                 : 24px;
+  height                : 24px;
+  stroke                : var(#{$prefix}-color);
+  stroke-width          : 1.5;
+  stroke-linecap        : round;
+  stroke-linejoin       : round;
+  fill                  : none;
 
   &--sz-tiny {
     width        : 14px;
@@ -55,19 +62,19 @@
   }
 
   &--col-white {
-    stroke: white;
+    #{$prefix}-color: white;
   }
 
   &--col-primary {
-    stroke: var(--c-minor-accent, grey);
+    #{$prefix}-color: var(#{$prefix}-c-primary);
   }
 
   &--col-secondary {
-    stroke: var(--section-c-accent, var(--c-major-accent, grey));
+    #{$prefix}-color: var(#{$prefix}-c-secondary);
   }
 
   &--col-tertiary {
-    stroke: var(--c-rare-accent, grey);
+    #{$prefix}-color: var(#{$prefix}-c-tertiary);
   }
 
   &--col-inherit {
@@ -81,4 +88,16 @@
   &--str-thicker {
     stroke-width: 2.5;
   }
+
+  // Icons that need a fill instead of a stroke, e.g. the DataONE Plus logo
+  &--fill-icon {
+    stroke: none;
+    fill  : var(#{$prefix}-color);
+
+    &#{$bn}--col-inherit {
+      stroke: none;
+      fill  : inherit;
+    }
+  }
+
 }

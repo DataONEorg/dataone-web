@@ -1,9 +1,14 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Geographic Replicas
-description: Your data are replicated to distinct geographic regions for high
-    availability and preservation.
+title: Geographic replicas
+description: Your datasets are replicated to DataONE repositories across the US
+free: false
+plus: false
+hostedrepo: true
+show_in_table: true
+render_page: true
+category: misc
 header:
   template: header
   type: text only
@@ -18,7 +23,7 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /features
+    internal_link: /services
     color: secondary
     text: See all features
   - template: button

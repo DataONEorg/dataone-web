@@ -53,6 +53,7 @@ menu:
   primary_nav:
     weight: 1
     parent: Network
+    pre: server
   footer:
     weight: 5
 

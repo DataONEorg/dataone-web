@@ -84,6 +84,7 @@ fields:
     - contact-form
     - demo
     - steps
+    - faq
     config:
       min: 
       max: 

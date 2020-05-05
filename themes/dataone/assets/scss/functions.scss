@@ -27,45 +27,45 @@
 @function col($color, $level) {
   @if($level == 1) {
     $mod1: tint($color, 97);
-    $mod2: desaturate($mod1, 15);
+    $mod2: saturate($mod1, 30);
     @return $mod2;
   }
   @if($level == 2) {
-    $mod1: tint($color, 84);
-    $mod2: desaturate($mod1, 10);
+    $mod1: tint($color, 85);
+    $mod2: saturate($mod1, 20);
     @return $mod2;
   }
   @if($level == 3) {
-    $mod1: tint($color, 65);
-    $mod2: desaturate($mod1, 5);
+    $mod1: tint($color, 66);
+    $mod2: saturate($mod1, 10);
     @return $mod2;
   }
   @if($level == 4) {
     $mod1: tint($color, 45);
-    $mod2: desaturate($mod1, 2);
+    $mod2: saturate($mod1, 5);
     @return $mod2;
   }
   @if($level == 5) {
     @return $color;
   }
   @if($level == 6) {
-    $mod1: shade($color, 85);
-    $mod2: saturate($mod1, 4);
+    $mod1: shade($color, 82);
+    $mod2: saturate($mod1, 21);
     @return $mod2;
   }
   @if($level == 7) {
     $mod1: shade($color, 65);
-    $mod2: saturate($mod1, 7);
+    $mod2: saturate($mod1, 25);
     @return $mod2;
   }
   @if($level == 8) {
     $mod1: shade($color, 48);
-    $mod2: saturate($mod1, 9);
+    $mod2: saturate($mod1, 30);
     @return $mod2;
   }
   @if($level == 9) {
     $mod1: shade($color, 25);
-    $mod2: saturate($mod1, 11);
+    $mod2: saturate($mod1, 35);
     @return $mod2;
   }
 }
@@ -132,8 +132,10 @@
 
   // The brightness value of the given color, unitless number between 1 and 100
   $brightness        : color-brightness($color)/1%;
-  // Get a darker shade of the given color to use for the rgb part of the shadow
+  // Get a darker and less saturated shade of the given color to use for the rgb
+  // part of the shadow
   $shadow-color      : col($color, 8);
+  $shadow-color      : desaturate($shadow-color, 30);
   // The minimum opacity allowable (use for the brightest colors)
   $min-opacity       : .09;
   // The maximum allowable opacity for the first level (will increase at level 2, 3, and 4)

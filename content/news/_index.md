@@ -7,6 +7,7 @@ page_sections: []
 menu:
   primary_nav:
     parent: About
+    pre: book-open
     weight: 2
   footer:
     parent: About

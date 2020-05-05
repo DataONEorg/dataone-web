@@ -1,6 +1,7 @@
 .d1plus-menu-ad {
   // bn = block name, usage: #{ $bn } 
   --ad-foreground-color: var(--c-major-accent-2, white);
+  margin               : .8rem 1.5rem;
 
   $bn                  : &;
   display              : flex;

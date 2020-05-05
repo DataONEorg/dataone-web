@@ -6,184 +6,300 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                            : &;
+  $bn                             : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix                        : "--" + str-replace(#{$bn}, ".");
+  $prefix                         : "--" + str-replace(#{$bn}, ".");
+
+  // Padding at the top and bottom of dropdown submenus;
+  $sub-menu-tb-padding            : .8rem;
+  // Width of the optional icon in sub-menu menu-items
+  $sub-menu-icon-width            : 2rem;
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
   // The value may change in modified blocks or elements (i.e. block--modifier).
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
+  // 
 
   // #{$prefix}-c-accent : var( , );
-  // 
-  #{$prefix}-fc-hover            : var(--c-minor-accent, grey);
-  #{$prefix}-c-menu-background   : var(--c-default-lighter, white);
-  #{$prefix}-fc-sub-link         : var(--c-foreground-on-default, gray);
-  #{$prefix}-c-foreground-on-dark: var(--c-foreground-on-always-dark, white);
+
+  //
+  // Top level items
+  // ==========================================================================
+
+  // The color of the font and dropdown icon for top-level items
+  #{$prefix}-fc-top               : var(--c-foreground-on-always-dark, white);
+  // The color of font and icons on hover for top-level items
+  #{$prefix}-fc-top-hover         : var(--c-minor-accent, grey);
+  // The font size of the top-level text
+  #{$prefix}-fs-top               : var(--fs-large, 1.1rem);
+  // The font-weight of the top-level text
+  #{$prefix}-fw-top               : var(--fw-bold, 500);
+  // Shadow for submenu
+  #{$prefix}-shadow               : var(--c-shadow-2-on-default, rgba(82,95,127,.11));
+
+  //
+  // Second level items
+  // ==========================================================================
+
+  // The color of the font for second-level items
+  #{$prefix}-fc-sub               : var(--c-foreground-emphasis-on-default, white);
+  // The background color of second-level items on hover
+  #{$prefix}-c-sub-hover          : var(--c-major-accent-5, grey);
+  // The font size of the second-level text
+  #{$prefix}-fs-sub               : var(--fs-medium, 1rem);
+  // The font-weight of the second-level text
+  #{$prefix}-fw-sub               : var(--fw-bold, 500);
+  // The description font-color
+  #{$prefix}-fc-sub-description   : var(--c-foreground-subtle-on-default, gray);
+
+  // color of dropdown menu background
+  #{$prefix}-c-sub-menu-bkg       : var(--c-default-lighter, white);
+  #{$prefix}-c-sub-menu-bkg-darker: var(--c-default-darker, silver);
+
+  #{$prefix}-c-foreground-on-dark : var(--c-foreground-on-always-dark, white);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  text-align                     : center;
-  height                         : auto;
-  display                        : block;
-  position                       : relative;
-  overflow                       : visible;
+  height                          : auto;
+  display                         : block;
+  position                        : relative;
+  overflow                        : visible;
+
   @include desktop {
     margin: .3rem .15rem;
     height: calc(100% - .6rem);
   }
 
+  // When the top level menu item is hovered
   &:hover {
-    #{$bn}__dropdown-icon {
-      stroke    : var(#{$prefix}-fc-hover);
-      transition: stroke .1s 0s ease-in-out;
-    }
 
-    #{$bn}__dropdown-button,
-    #{$bn}__link {
-      color     : var(#{$prefix}-fc-hover);
+    // Change the font color
+    #{$bn}__top-item-name {
+      color     : var(#{$prefix}-fc-top-hover);
       transition: color .1s 0s ease-in-out;
     }
+
+    // Animate & change color of drop down icon (chevron)
+    #{$bn}__dropdown-icon {
+      transform : translateY(1px);
+      transition: transform .1s 0s ease-in-out;
+      stroke    : var(#{$prefix}-fc-top-hover);
+    }
+
   }
 
+  // The text in the button or link for top-level items
+  &__top-item-name {
+    align-self    : center;
+    color         : var(#{$prefix}-fc-top);
+    font-size     : var(#{$prefix}-fs-top);
+    font-weight   : var(#{$prefix}-fw-top);
+    letter-spacing: .03em;
+  }
+
+  // The chevron that indicates there's a sub-menu
   &__dropdown-icon {
-    stroke    : $icon-color;
-    margin-top: -2px;
-    position  : relative;
-    padding   : 0 .2rem;
+    stroke : var(#{$prefix}-fc-top);
+    padding: 0 .2rem;
   }
 
-  &__dropdown-button,
-  &__link {
+  // top-item contains the top-item-name and dropdown-icon
+  // It's either a button or an anchor element depending on whether it has a
+  // dropdown menu
+  &__top-item {
     @include button-reset;
     text-decoration: none;
-    color          : var(#{$prefix}-c-foreground-on-dark);
     white-space    : nowrap;
     width          : 100%;
     display        : block;
-    font-size      : var(--fs-medium, 1.1rem);
-    font-weight    : var(--fw-bold, 500);
     line-height    : 3.3125rem;
-    letter-spacing : .03em;
+
     @include desktop {
       padding    : 0 .62rem;
-      font-size  : var(--fs-medium, 1.1rem);
       height     : 100%;
       line-height: normal;
       display    : flex;
       align-items: center;
     }
   }
-  // link when item is active
-  &--active {
-    #{$bn}__link {
-      color      : white;
-      font-weight: var(--fw-x-bold, 800);
-    }
+
+  &__sub-menu-arrow {
+    $arrow-size      : .75rem;
+    opacity          : 0;
+    transition       : opacity .1s ease-in-out 0s;
+    background       : var(#{$prefix}-c-sub-menu-bkg);
+    bottom           : (-0.5 * $arrow-size);
+    transform        : translate(-50%, 0);
+    left             : 50%;
+    position         : absolute;
+    margin           : 0 0 0 (-0.5 * $arrow-size);
+    width            : $arrow-size;
+    height           : $arrow-size;
+    -webkit-transform: rotate(45deg);
+    transform        : rotate(45deg);
+    border-radius    : var(--br-default, 0.25rem) 0 0 0;
+    box-shadow       : -3px -3px 5px #{$prefix}-shadow;
   }
 
+  // The container list for the submenu
   &__sub-menu {
-    padding-inline-start: 0;
-    transition          : max-height .25s 0s ease-in-out, opacity .15s 0s ease-in-out;
-    @include desktop {
-      display         : block;
-      // center the menu
-      position        : absolute;
-      transform       : translateX(-50%);
-      left            : 50%;
-      padding         : 1rem 1.75rem;
-      // menu colors
-      background-color: var(#{$prefix}-c-menu-background);
-      border-radius   : var(--br-default, 0.25rem);
-      box-shadow      : -1px 1px 7px -1px rgba(82,95,127,.11);
-    }
+    overflow        : hidden;
+    transition      : max-height .25s ease-in-out, opacity .15s ease-in-out, padding .1s linear .2s;
+    background-color: var(#{$prefix}-c-sub-menu-bkg);
     // closed
-    max-height          : 0;
-    overflow            : hidden;
-    opacity             : 0;
-    visibility          : hidden;
+    max-height      : 0;
+    opacity         : 0;
     // open
     &[aria-hidden="false"] {
+      transition: max-height .25s ease-in-out, opacity .15s ease-in-out, padding 0s linear 0s;
+      padding   : $sub-menu-tb-padding 0;
       height    : auto;
       max-height: 1000px;
       opacity   : 1;
-      visibility: visible;
       // submenu arrow when menu is open
       & ~ #{$bn}__sub-menu-arrow {
         @include desktop {
-          bottom           : -5px;
-          transform        : translate(-50%, 0);
-          left             : 50%;
-          position         : absolute;
-          margin           : 0 0 0 -6px;
-          width            : 12px;
-          height           : 12px;
-          -webkit-transform: rotate(45deg);
-          transform        : rotate(45deg);
-          border-radius    : var(--br-default, 0.25rem) 0 0 0;
-          box-shadow       : -3px -3px 5px rgba(82,95,127,.05);
-          opacity          : 1;
+          transition: opacity .1s ease-in-out .05s;
+          opacity   : 1;
         }
       }
     }
-  }
-
-  &__sub-menu-arrow {
-    opacity   : 0;
-    transition: opacity .2s 0s ease-in-out;
-    background: var(#{$prefix}-c-menu-background);
-  }
-
-  &__sub-link {
-    margin         : 0;
-    font-size      : var(--fs-medium, 1.1rem);
-    line-height    : 1.5;
-    text-transform : uppercase;
-    font-weight    : var(--fw-bold, 500);
-    letter-spacing : .03em;
-    display        : block;
-    text-decoration: none;
-    color          : var(#{$prefix}-c-foreground-on-dark);
-    white-space    : nowrap;
-    padding        : .5rem 0;
-
-    &--active {
-      color      : white;
-      font-weight: var(--fw-bold, 500);
-    }
     @include desktop {
-      color: var(#{$prefix}-fc-sub-link);
-
-      &:hover {
-        color      : var(#{$prefix}-fc-hover);
-        transition : color .1s 0s ease-in-out;
-        font-weight: var(--fw-bold, 500);
-      }
-
-      &--active {
-        font-weight: var(--fw-bold, 500);
-      }
+      // Center the menu
+      display      : block;
+      position     : absolute;
+      transform    : translateX(-50%);
+      left         : 50%;
+      // Give it floating card appearance
+      border-radius: var(--br-default, 0.25rem);
+      box-shadow   : -1px 1px 7px -1px var(#{$prefix}-shadow);
     }
   }
 
   &__sub-item {
-    text-align: center;
-    height    : auto;
-    display   : block;
-    position  : relative;
+    height  : auto;
+    display : block;
+    position: relative;
+    margin  : .2rem 0;
+
+    $this   : &;
+
+    &:not(#{$this}--has-description) {
+      #{$bn}__sub-link {
+        grid-template-areas: "icon name" "icon name";
+      }
+    }
+
+    &--has-description {
+      margin: .8rem 0;
+    }
+
+    &--has-icon {
+      margin-left: -0.33 * $sub-menu-icon-width;
+    }
+
+    // Special links with a weight > 99
+    &--bottom {
+      background-color: var(#{$prefix}-c-sub-menu-bkg-darker);
+      margin-bottom   : -$sub-menu-tb-padding;
+      padding-bottom  : $sub-menu-tb-padding;
+    }
+
+    &--bottom:last-of-type {
+      padding-bottom: $sub-menu-tb-padding + 0.2rem;
+      margin-bottom : -$sub-menu-tb-padding;
+    }
+
+    // The first of the special links with a weight > 99
+    // This selector is a hack that's basically like &__sub-item--bottom:first-of-class
+    &:not(#{$this}--bottom) + #{$this}--bottom {
+      padding-top: $sub-menu-tb-padding + 0.2rem;
+      margin-top : $sub-menu-tb-padding * 2;
+    }
+  }
+
+  &__sub-link {
+    display              : grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows   : auto auto;
+    grid-template-areas  : "icon name" "icon description";
+    margin               : 0;
+    text-decoration      : none;
+    white-space          : nowrap;
+    padding              : .5rem 2.5rem;
+    transition           : background-color .2s ease-in-out;
+
+    &:hover {
+      #{$bn}__sub-item-name {
+        color : var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
+        // incase it has an icon to the right
+        stroke: var(#{$prefix}-c-sub-hover);
+        fill  : var(#{$prefix}-c-sub-hover);
+      }
+
+      #{$bn}__sub-item-description {
+        color: var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
+        filter: brightness(1.03);
+      }
+    }
+
+  }
+
+  &__sub-item-name {
+    grid-area     : name;
+    align-self    : center;
+    margin        : 0;
+    line-height   : 1.5;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    font-size     : var(#{$prefix}-fs-sub);
+    font-weight   : var(#{$prefix}-fw-sub);
+    color         : var(#{$prefix}-fc-sub);
+
+    stroke        : var(#{$prefix}-fc-sub);
+    fill          : var(#{$prefix}-fc-sub);
+
+  }
+
+  &__sub-item-icon {
+    grid-area       : icon;
+    align-self      : center;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    background-color: var(--theme-c-light, col($cn-blue-grey,2));
+    fill            : var(--theme-c, col($cn-blue-grey,6));
+    stroke          : var(--theme-c, col($cn-blue-grey,6));
+    width           : $sub-menu-icon-width;
+    height          : $sub-menu-icon-width;
+    border-radius   : 50%;
+    margin-right    : .7rem;
+  }
+
+  &__sub-item-description {
+    grid-area  : description;
+    margin     : 0;
+    color      : var(#{$prefix}-fc-sub-description);
+    white-space: normal;
     @include desktop {
-      margin: 5px 2px;
-      height: auto;
+      white-space: nowrap;
+    }
+
+  }
+
+  &--dropdown {
+    #{$bn}__top-item {
+      cursor: default;
     }
   }
 
   &--dataone-plus-ad {
-    .dataone-plus-logo {
+    #{$bn}__logo-icon {
       margin-right: 3px;
       fill        : white;
       height      : 15px;
@@ -191,8 +307,8 @@
     }
 
     &:hover {
-      .dataone-plus-logo {
-        fill: var(#{$prefix}-fc-hover);
+      #{$bn}__logo-icon {
+        fill: var(#{$prefix}-fc-top-hover);
       }
     }
 
@@ -201,11 +317,11 @@
     }
 
     #{$bn}__sub-menu {
-      background-image: radial-gradient(#14A2A7 0%, #0E8E9A 18%, #1E628A 67%, #1B435D 100%);
+      background-image: radial-gradient(#14A2A7 0%, #14A2A7 15%, #0E8E9A 50%, #1E628A 90%, #1B435D 120%);
     }
 
     #{$bn}__sub-menu-arrow {
-      background-color: #20628A;
+      background-color: #187892;
     }
   }
 

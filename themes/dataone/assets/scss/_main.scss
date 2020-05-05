@@ -1,3 +1,18 @@
+
+// Set theme colors
+
+{{$services := where $.Site.Pages "Type" "services"}}
+{{$services := where $services "Params.service_color" "!=" nil}}
+{{range $service := $services}}
+  {{$color:= $service.Params.service_color}};
+  $lightercol: mix({{ $color }}, white, 12%);
+  .theme--{{$service.Params.service_varName}}{
+    --theme-c      : {{$color}};
+    --theme-c-light: #{$lightercol};
+  }
+{{end}}
+
+
 // ==== GLOBAL SPACING VARIABLES ====
 // screen width at which to switch from mobile view to desktop view
 $breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px; //

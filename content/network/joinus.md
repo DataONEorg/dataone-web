@@ -109,6 +109,7 @@ menu:
   primary_nav:
     weight: 2
     parent: Network
+    pre: users
   footer:
     weight: 6
 
