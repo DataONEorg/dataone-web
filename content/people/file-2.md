@@ -1,24 +1,20 @@
 ---
-avatar: "/uploads/MargaretOBrien.png"
-fullname: Margaret O'Brien
-firstname: Margaret
-role: Specialist
-organization: Santa Barbara Coastal Long Term Ecological Research
+avatar: "/uploads/downs-1.png"
+fullname: Marty Downs
+firstname: Marty
+role: Director
+organization: Long Term Ecological Research (LTER) Network Office
 d1_role: ''
-shortbio: Margaret O'Brien is currently the information manager for the Santa Barbara
-  Coastal Long Term Ecological Research project (SBC LTER). She coordinates and implements
-  most aspects of data exchange and publication within and outside the group.
-longbio: Margaret O'Brien is currently the information manager for the Santa Barbara
-  Coastal Long Term Ecological Research project (SBC LTER). She coordinates and implements
-  most aspects of data exchange and publication within and outside the group. This
-  includes managing user accounts and services, designing databases, websites and
-  applications; and working with scientists and their staff to plan and publish data
-  products. Margaret collaborates with the Ecoinformatcs Program at UCSB, and with
-  the Moorea Coral Reef LTER on projects related to data integration and use. Prior
-  to working with LTER, Margaret worked with the Bermuda Bio-Optics project at the
-  Earth Research Institute, UCSB.
-email: mob@msi.ucsb.edu
+shortbio: Marty manages the Network Office of the Long Term Ecological Research Network,
+  coordinating scientific synthesis, education, and engagement activities for 28 research
+  sites in every major U.S. biome.
+longbio: |-
+  Marty manages the Network Office of the Long Term Ecological Research Network, coordinating scientific synthesis, education, and engagement activities for 28 research sites in every major U.S. biome.
+
+  Since 2005, she has managed collaboration, communications, and outreach in environmental and public health organizations, including Brown University’s Environmental Change Initiative, the New England Aquarium, and the Nature Conservancy, where she led the Science Impact Project, a professional development program for TNC scientists. As a science journalist, she has written for the Chronicle of Higher Education, Technology Review, the news section of Science, and produced news and commentary for public radio. Marty began her career as an ecologist, investigating plant-soil-atmosphere interactions in temperate forests, subarctic forests, and arctic tundra. Use ORCID to view her research publications.
+
+  Marty earned her B.S. in Natural Resources from Cornell University and her M.S. in Science Journalism from Boston University.
+email: downs@nceas.ucsb.edu
 title: ''
-draft: true
 
 ---
