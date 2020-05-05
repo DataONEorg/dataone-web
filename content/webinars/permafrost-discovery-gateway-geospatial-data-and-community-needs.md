@@ -1,38 +1,38 @@
 ---
 date: 2020-02-01
-title: Permafrost Discovery Gateway, Geospatial Data and Community Needs
-webinar_datetime: 2020-05-12T16:00:00.000+00:00
+title: Academic Data Science, From Individuals to Institutions
+webinar_datetime: 2020-04-14T09:00:00-07:00
 duration: 60
-status: upcoming
+status: past
 tags:
+- Plan
 - Integrate
 - Discover
 - Analyze
-vimeoID: 
-image: uploads/hero_images/nicolas-j-leclercq-uPeYMYCuz6k-unsplash.jpg
-registration_link: https://ucsb.zoom.us/webinar/register/WN_xWNMRdWST-aLj1Dkr6nX3w
-slides: ''
-disqus_shortname: ''
-short_abstract: 'The Permafrost Discovery Gateway is a new NSF Navigating the New
-  Arctic (NNA) award that will create an online platform for archiving, processing,
-  analyzing, and visualizing permafrost big imagery products for discovery and knowledge-generation.
-  Join us for this interactive webinar to learn about the Permafrost Discovery Gateway
-  and inform initial development. '
-abstract: "The Permafrost Discovery Gateway is a new NSF Navigating the New Arctic
-  (NNA) award that will create an online platform for archiving, processing, analyzing,
-  and visualizing permafrost big imagery products for discovery and knowledge-generation.
-  This new online scientific gateway will provide access to high resolution satellite
-  data products and visualization tools that expand on the Gapminder Foundation, Google
-  Earth and Fluid Earth Viewer to enable exploration of changes in permafrost across
-  decades. Designed as a community resource, we want input across all stages of development.
-  Join us for this interactive webinar to learn about the Permafrost Discovery Gateway
-  and inform initial development. Which geospatial data are critical for inclusion?
-  How will you use the resource and what functionality do you need? How can we improve
-  on efficiencies in your data discovery and access workflow?  \nPlease also visit
-  our website ([permafrost.arcticdata.io](permafrost.arcticdata.io)) to learn more
-  and to join our mailing list for future updates and opportunities to contribute."
-speakers:
-- people/AnnaLiljedahl.md
-draft: true
+vimeoID: 414064803
+image: "/uploads/integration-2031395_1280.png"
+registration_link: ''
+slides: "/uploads/asda_webinar_slides.pdf"
+disqus_shortname: academic-data-science
+short_abstract: Although data-driven research is already accelerating scientific discovery,
+  substantial systemic challenges still exist in academia that impact both individual
+  researchers and institutional decision-making. These challenges need to be overcome
+  for academia to fully realize the promise of the new data era. Toward that end,
+  the Academic Data Science Alliance (academicdatascience.org) was established to
+  provide an independent resource network with community building and advocacy opportunities
+  for data scientists in academia across the U.S. and beyond.
+abstract: Although data-driven research is already accelerating scientific discovery,
+  substantial systemic challenges still exist in academia that impact both individual
+  researchers and institutional decision-making. These challenges need to be overcome
+  for academia to fully realize the promise of the new data era. Toward that end,
+  the Academic Data Science Alliance (academicdatascience.org) was established to
+  provide an independent resource network with community building and advocacy opportunities
+  for data scientists in academia across the U.S. and beyond. ADSA aims to facilitate
+  sharing of best practices and lessons learned from higher education institutes experimenting
+  with the integration of data science. This talk will cover ADSA’s efforts and activities,
+  ways to engage, and include some lessons learned from Micaela’s 6+ years of experience
+  in collaborative institutional experimentation through her work with the Moore-Sloan
+  Data Science Environments (msdse.org).
+speakers: []
 
 ---
