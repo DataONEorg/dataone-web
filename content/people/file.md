@@ -1,20 +1,21 @@
 ---
-avatar: "/uploads/AnnaLiljedahl.jpg"
-fullname: Anna Liljedahl
-firstname: Anna
-role: Associate Scientist
-organization: Woods Hole Research Center
+avatar: "/uploads/Mark-Schildhauer.png"
+fullname: Mark Schildhauer
+firstname: Mark
+role: Center Associate
+organization: NCEAS
 d1_role: ''
-shortbio: Anna is an Associate Scientist at Woods Hole Research Center and PI of the
-  Permafrost Discovery Gateway. She describes herself as a scientist that enjoys science
-  that spans multiple disciplines and approaches, while her main "currency" is water.
-  More specifically, how climate change is affecting the flow and storage of water
-  in permafrost and/or glacier affected landscapes. More recent interests include
-  cyberinfrastructure enabling of big data science as well as solutions to climate
-  change.
-longbio: ''
-email: ''
+shortbio: Mark was the Director of Computing at NCEAS from it's opening in 1995 until
+  2017, in charge of building and maintaining the computational infrastructure, and
+  supervising the scientific computing staff. He recently "semi-retired" to become
+  a Center Associate, focused on Ecoinformatics research.
+longbio: |-
+  Mark was the Director of Computing at NCEAS from it's opening in 1995 until 2017, in charge of building and maintaining the computational infrastructure, and supervising the scientific computing staff. He recently "semi-retired" to become a Center Associate, focused on Ecoinformatics research.
+
+  Mark's main research interest is in how to organize data for ecological syntheses. He is currently working in the area of data semantics and knowledge graphs, where they are using new logic-technology approaches to make data more readily discoverable and re-usable over the Web.
+
+  He grew up and went to high school in Southern California, but headed back east to Harvard for an undergraduate degree in Biology. Mark came back to UC Santa Barbara for a PhD in marine ecology, doing research on coral reef fish in the San Blas Islands of Panama.
+email: schild@nceas.ucsb.edu
 title: ''
-draft: true
 
 ---
