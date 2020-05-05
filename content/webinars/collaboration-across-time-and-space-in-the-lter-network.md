@@ -1,27 +1,26 @@
 ---
 date: 2020-02-01
-title: Collaboration Across Time and Space in the LTER Network
-webinar_datetime: 2020-03-10T09:00:00-07:00
+title: RDMLA - Five Months Post Launch
+webinar_datetime: 2020-02-11T09:00:00-08:00
 duration: 60
 status: past
 tags:
-- Integrate
-- Analyze
-vimeoID: 396964636
-image: "/uploads/plants.jpeg"
+- Discover
+- Describe
+vimeoID: 390929711
+image: "/uploads/data-dots_0.jpg"
 registration_link: ''
-slides: "/uploads/downs-dataone2020-presentation-public.pdf"
-disqus_shortname: lter-collaboration
-short_abstract: A recent update of the LTER Network bibliography makes it possible
-  to approach the question of "what works" to facilitate collaboration at both the
-  site- and the network-level. Site tenure and ecosystem type are predictably strong
-  drivers of collaboration in the LTER Network. Researcher mobility emerged as an
-  unexpected source of collaboration that merits further investigation.
+slides: "/uploads/rdmla_dataonewebinar_02112020-1.pdf"
+disqus_shortname: rdmla_five_months_post_launch
+short_abstract: RDMLA (Research Data Management Librarian Academy) was launched on
+  October 7, 2019. Today, close to five months post the official launch, there are
+  more than 2100 active students from 115 countries around the world. In this talk,
+  we will describe the development process of RDMLA and discuss our future collaborations
+  and partnerships.
 abstract: |-
-  The year 2020 is the 40th anniversary of the U.S. National Science Foundation's LTER Program, which has grown from a loosely organized set of research projects to a dynamic network of 28 sustained research programs across 18 major biomes. Hypothesis-driven, place-based research has been the Network's bread and butter throughout its 40-year history. Approaches to cross-site synthesis have varied through time, yet collaborative synthesis is essential for understanding the generality of site-based insights, scaling the results, and making them useful for modeling.
+  RDMLA (Research Data Management Librarian Academy) was launched on October 7, 2019. Today, close to five months post the official launch, there are more than 2100 active students from 115 countries around the world. In this talk, we will describe the development process of RDMLA and discuss our future collaborations and partnerships.
 
-  A recent update of the LTER Network bibliography makes it possible to approach the question of "what works" to facilitate collaboration at both the site- and the network-level. Our analysis shows that between 1980 and 2019, the average number of LTER-based publications per site per year grew from 6 to more than 30. For the first 10-15 years of the Network's history, the number of authors and institutions per publication was similar to a comparable sample of non-LTER publications. But the pace of collaboration accelerated rapidly between 1995 and 2019. Today, LTER papers involve nearly twice as many authors and institutions as comparable non-LTER publications. Site tenure and ecosystem type are predictably strong drivers of collaboration in the LTER Network. Researcher mobility emerged as an unexpected source of collaboration that merits further investigation.
+  The RDMLA is a free online educational program exploring research data management best practices. Developed by a team of librarians and LIS faculty members who want to share their extensive knowledge/skills and promote research data services, the RDMLA consists of eight units that can be taken individually, or as a complete program. All units are available globally and can be accessed online via the Canvas learning management system. RDMLA is open to librarians, information professionals, and other professionals who work in a research-intensive environment throughout the world. On Feb 5, 2020, in partnership with Simmons School of Library and Information Science (SLIS), RDMLA launched a Continuing Education (CE) optional component, for a nominal fee.
 speakers: []
-draft: true
 
 ---
