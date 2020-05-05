@@ -117,6 +117,7 @@ fields:
     "People" section (see sidebar)
 pages:
 - content/webinars/academic-data-science-from-individuals-to-institutions.md
+- content/webinars/collaboration-across-time-and-space-in-the-lter-network.md
 - content/webinars/example.md
 - content/webinars/permafrost-discovery-gateway-geospatial-data-and-community-needs.md
 - content/webinars/tidy-ing-your-data-simple-steps-for-reproducible-research.md
