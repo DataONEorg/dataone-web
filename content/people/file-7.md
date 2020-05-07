@@ -1,16 +1,17 @@
 ---
-avatar: "/uploads/DuaneCosta.png"
-fullname: Duane Costa
-firstname: Duane
-role: Lead Developer (Retired)
+avatar: "/uploads/CorinnaCries.png"
+fullname: Corinna Gries
+firstname: Corinna
+role: Principal Investigator
 organization: Environmental Data Initiative
 d1_role: ''
-shortbio: Duane Costa is a retired team member. He worked as a lead developer for
-  the EDI data repository software until June 2019.
-longbio: Duane Costa is a retired team member. He worked as a lead developer for the
-  EDI data repository software until June 2019.
-email: ''
+shortbio: Corinna Gries is Principal Investigator of EDI and is based at the University
+  of Wisconsin. Corinna leads the data curation, outreach and training activities
+  of EDI.
+longbio: Corinna Gries is Principal Investigator of EDI and is based at the University
+  of Wisconsin. Corinna leads the data curation, outreach and training activities
+  of EDI.
+email: cgries@wisc.edu
 title: ''
-draft: true
 
 ---
