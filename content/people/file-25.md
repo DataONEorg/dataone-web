@@ -1,20 +1,20 @@
 ---
-avatar: "/uploads/bryce_mecum.jpg"
-fullname: Bryce Mecum
-firstname: Bryce
-role: 'Scientific Software Engineer '
-organization: NCEAS
+avatar: "/uploads/fagan_debra.png"
+fullname: Debra Fagan
+firstname: Debra
+role: 'Curation and Technical Specialist '
+organization: Dryad
 d1_role: ''
-shortbio: Bryce Mecum is a scientific software engineer with expertise in data analysis
-  and programming and data management systems, including systems like R, GitHub, repository
-  software, Python, and UNIX. He has a background in fisheries modeling and management,
-  and builds software systems supporting environmental synthesis.
-longbio: Bryce Mecum is a scientific software engineer with expertise in data analysis
-  and programming and data management systems, including systems like R, GitHub, repository
-  software, Python, and UNIX. He has a background in fisheries modeling and management,
-  and builds software systems supporting environmental synthesis.
-email: mecum@nceas.ucsb.edu
+shortbio: 'Debra Fagan is the Curation and Technical Specialist at Dryad. Dryad is
+  an independent, non-profit, general-purpose repository for research data underlying
+  scholarly publications. '
+longbio: Debra Fagan is the Curation and Technical Specialist at Dryad. Dryad is an
+  independent, non-profit, general-purpose repository for research data underlying
+  scholarly publications. Debra holds an undergraduate degree in Computer Science
+  and an MS in Library and Information Science. At Dryad, Debra draws from her education
+  and her years of experience, serving as a librarian and a computer programmer, to
+  work as part of a small team archiving data in a wide variety of formats and disciplines.
+email: ''
 title: ''
-draft: true
 
 ---
