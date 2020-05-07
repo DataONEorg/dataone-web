@@ -1,6 +1,6 @@
 ---
 date: 2020-02-01
-title: 'Data management plans 2.0: Helping you manage your data'
+title: 'Data Management Plans 2.0: Helping you manage your data'
 webinar_datetime: 2018-03-13T09:00:00-07:00
 duration: 60
 status: past
