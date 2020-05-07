@@ -1,35 +1,26 @@
 ---
 date: 2020-02-01
-title: Community Resources for Data Management
-webinar_datetime: 2018-10-09T09:00:00-07:00
+title: 'Open Science as a Movement: Mozilla’s efforts to build community and open
+  leadership in science'
+webinar_datetime: 2018-09-11T09:00:00-07:00
 duration: 60
 status: past
 tags:
-- Analyze
-- Integrate
-- Assure
-- Collect
-- Plan
 - Discover
-- Preserve
-- Describe
-vimeoID: 294242294
-image: "/uploads/14740342074_1e5dbdc347_b.jpg"
+vimeoID: 289330782
+image: "/uploads/open-ideas_0.jpg"
 registration_link: ''
-slides: "/uploads/dataone_webinar_october_sm.pdf"
-disqus_shortname: community-resources-for-data-management
-short_abstract: Over the past ten years DataONE has focused on both making earth and
-  environmental data accessible, and also highlighting the importance of strong skills
-  in data management for researchers. This webinar will provide an overview of DataONE
-  education resources, the new Data Management Skillbuilding Hub and the Data Management
-  Training Clearinghouse in addition to providing attendees with information on how
-  to get involved.
+slides: "/uploads/wright_webinarslides_opensciasmovement_201809.pdf"
+disqus_shortname: open-science-as-a-movement
+short_abstract: The term “open science” means different things to different people.
+  During this webinar we will explain how Mozilla’s definition of open science has
+  evolved over time. As a result, our programs have grown and fostered an open community
+  that has outgrown the original Mozilla science team, includes partnerships outside
+  Mozilla, and has now expanded beyond just science.
 abstract: |-
-  Over the past ten years DataONE has focused on both making earth and environmental data accessible, and also highlighting the importance of strong skills in data management for researchers. We have published data management education modules, led workshops to develop best practices, created user profiles as exemplars, and have introduced many on-point webinar speakers. As a next step we are moving many of these materials to a community-based platform to increase their use and usability by the research community. Education materials are now being hosted through GitHub on our Data Management Skillbuilding Hub and users can download, edit, and contribute to keeping them updated. Need to make changes to a lesson and want to share them with other instructors? By forking these materials in GitHub and making changes, edits and improvements are accessible to others.
+  The term “open science” means different things to different people. For some it means open access to publications and peer review. For others, it’s all about reproducibility through the sharing of research data and code. Still others view open science as synonymous with citizen science.
 
-  The Data Management Skillbuilding Hub is designed as a space for community contribution and enhancement. Recognizing the wealth of relevant content in the community, and the importance of discoverability across platforms, we are collaborating with the Data Management Training Clearinghouse to index DataONE resources. Unfamiliar with the DMTClearinghouse? Tune in to learn more! This webinar will provide an overview of DataONE education resources, the new Data Management Skillbuilding Hub and the Data Management Training Clearinghouse in addition to providing attendees with information on how to get involved.
-speakers:
-- people/amber_budden.md
-draft: true
+  During this webinar we will explain how Mozilla’s definition of open science has evolved over time. As a result, our programs have grown and fostered an open community that has outgrown the original Mozilla science team, includes partnerships outside Mozilla, and has now expanded beyond just science. Due to the best practices inherent in working open, the work is being sustained beyond our original resources and investments into a movement with a global reach.
+speakers: []
 
 ---
