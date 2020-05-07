@@ -1,18 +1,21 @@
 ---
-avatar: "/uploads/KristinVanderbilt.png"
-fullname: Kristin Vanderbilt
-firstname: Kristin
-role: Information Manager
+avatar: "/uploads/ColinSmith.png"
+fullname: Colin Smith
+firstname: Colin
+role: Research Assistant
 organization: Environmental Data Initiative
 d1_role: ''
-shortbio: Kristin Vanderbilt supports the Data Management as a Service activity. Kristin
-  splits her time between the EDI and as an Information Manager of the Florida Coastal
-  Everglades LTER site. She is based at the University of New Mexico.
-longbio: Kristin Vanderbilt supports the Data Management as a Service activity. Kristin
-  splits her time between the EDI and as an Information Manager of the Florida Coastal
-  Everglades LTER site. She is based at the University of New Mexico.
-email: krvander@fiu.edu
+shortbio: "[Colin](http://colin-a-smith.squarespace.com/) is a part of EDI’s data
+  curation team and works with data providers to clean, document, and submit their
+  data to the EDI repository. He also works with the EDI community to develop data
+  management software tools and helps run workshops and training events. Colin works
+  through the University of Wisconsin-Madison and lives in Berkeley CA."
+longbio: "[Colin](http://colin-a-smith.squarespace.com/) is a part of EDI’s data curation
+  team and works with data providers to clean, document, and submit their data to
+  the EDI repository. He also works with the EDI community to develop data management
+  software tools and helps run workshops and training events. Colin works through
+  the University of Wisconsin-Madison and lives in Berkeley CA."
+email: colin.smith@wisc.edu
 title: ''
-draft: true
 
 ---
