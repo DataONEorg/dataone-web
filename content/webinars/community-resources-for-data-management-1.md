@@ -29,6 +29,11 @@ abstract: DataONE Member Nodes are the key to getting research data available th
   The benefits of which can lead to better visibility and dissemination of their data,
   long-term data management, and broader community engagement.
 speakers:
+- people/file-17.md
+- people/file-16.md
+- people/file-15.md
+- people/file-14.md
+- people/file-13.md
 - people/dave_vieglais.md
 
 ---
