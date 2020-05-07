@@ -1,27 +1,29 @@
 ---
 date: 2020-02-01
-title: 'The DataONE Users Group (DUG): Supporting and Connecting the DataONE User
-  Community'
-webinar_datetime: 2018-02-13T09:00:00-08:00
+title: 'The Environmental Data Initiative (EDI): Supporting Curation and Archiving
+  of Environmental Data'
+webinar_datetime: 2018-01-09T09:00:00-08:00
 duration: 60
 status: past
 tags:
-- Integrate
-vimeoID: 255614583
-image: "/uploads/people-3245739_1280.png"
+- Discover
+- Preserve
+- Plan
+vimeoID: 250340720
+image: "/uploads/images.jpeg"
 registration_link: ''
-slides: "/uploads/2018-02-13_dugwebinarslides.pdf"
-disqus_shortname: dug-supporting-connecting-dataone-user-community
-short_abstract: The DataONE Users Group (DUG) is the worldwide community of Earth
-  observation data authors, users, and diverse stakeholders that makeup the DataONE
-  partnership communities. Karl Benedict and Robert Sandusky, the new DUG co-chairs,
-  will introduce their vision for the DUG over the next two years, building on the
-  partnerships developed with DataONE Member Nodes and the broader community.
+slides: "/uploads/edi_project_overview.pdf"
+disqus_shortname: environmental-data-initiative
+short_abstract: The Environmental Data Initiative (EDI) was funded by the National
+  Science Foundation (NSF) to accelerate curation, archiving, and publishing of environmental
+  data. Members of the EDI team will give an overview of EDI’s mission and core activities
+  (data repository, data curation and publishing, data model standardization, metadata
+  pipeline, outreach and data management training).
 abstract: |-
-  The DataONE Users Group (DUG) is the worldwide community of Earth observation data authors, users, and diverse stakeholders that makeup the DataONE partnership communities. The primary function of the DUG is to represent the needs and interests of these communities in the activities of DataONE. In particular, the DUG provides guidance that facilitates DataONE in achieving its vision and mission.
+  The Environmental Data Initiative (EDI) was funded by the National Science Foundation (NSF) to accelerate curation, archiving, and publishing of environmental data. EDI provides a secure data repository and data curation support for ecological research projects with emphasis on NSF funded programs including Long Term Research in Environmental Biology (LTREB), Organization for Biological Field Stations (OBFS), Macrosystems Biology (MSB), and Long Term Ecological Research (LTER). The EDI Data Repository is an extension of the Provenance Aware Synthesis Tracking Architecture (PASTA) developed originally to house LTER data. EDI is a DataOne member node ([www.dataone.org](http://www.dataone.org/)) and is listed in the Registry of Research Data Repositories (re3data.org). EDI supports and trains members of the environmental sciences community to archive and publish high-quality data and metadata.
 
-  Karl Benedict and Robert Sandusky, the new DUG co-chairs, will introduce their vision for the DUG over the next two years, building on the partnerships developed with DataONE Member Nodes and the broader community. Continuing on the success of the annual DUG meetings, the DUG seeks to become a primary venue for repository community discussions, facilitating connections and providing support. There are multiple ways you can help us achieve this vision, the first of which is joining this webinar to learn more.
-speakers: []
-draft: true
+  Members of the EDI team will give an overview of EDI’s mission and core activities (data repository, data curation and publishing, data model standardization, metadata pipeline, outreach and data management training).
+speakers:
+- people/file-1.md
 
 ---
