@@ -1,29 +1,40 @@
 ---
 date: 2020-02-01
-title: RDMLA - Five Months Post Launch
-webinar_datetime: 2020-02-11T17:00:00.000+00:00
+title: 'Data Curation Network: A cross-institutional staffing model for curating research
+  data'
+webinar_datetime: 2018-12-11T09:00:00-08:00
 duration: 60
 status: past
 tags:
-- Discover
+- Preserve
+- Assure
 - Describe
-vimeoID: 390929711
-image: "/uploads/data-dots_0.jpg"
+vimeoID: 305816634
+image: "/uploads/staff-2473863_960_720.jpg"
 registration_link: ''
-slides: "/uploads/rdmla_dataonewebinar_02112020-1.pdf"
-disqus_shortname: rdmla_five_months_post_launch
-short_abstract: RDMLA (Research Data Management Librarian Academy) was launched on
-  October 7, 2019. Today, close to five months post the official launch, there are
-  more than 2100 active students from 115 countries around the world. In this talk,
-  we will describe the development process of RDMLA and discuss our future collaborations
-  and partnerships.
-abstract: |-
-  RDMLA (Research Data Management Librarian Academy) was launched on October 7, 2019. Today, close to five months post the official launch, there are more than 2100 active students from 115 countries around the world. In this talk, we will describe the development process of RDMLA and discuss our future collaborations and partnerships.
-
-  The RDMLA is a free online educational program exploring research data management best practices. Developed by a team of librarians and LIS faculty members who want to share their extensive knowledge/skills and promote research data services, the RDMLA consists of eight units that can be taken individually, or as a complete program. All units are available globally and can be accessed online via the Canvas learning management system. RDMLA is open to librarians, information professionals, and other professionals who work in a research-intensive environment throughout the world. On Feb 5, 2020, in partnership with Simmons School of Library and Information Science (SLIS), RDMLA launched a Continuing Education (CE) optional component, for a nominal fee.
-speakers:
-- people/elaine_martin.md
-- people/rong_tang.md
-draft: true
+slides: "/uploads/dcnimplementation_dataonewebinardec2018.pdf"
+disqus_shortname: data-curation-network
+short_abstract: The Data Curation Network is a community of experts who have the software
+  skills and domain know-how needed to curate digital research data, thereby ensuring
+  those data are valuable and reusable for the long-term. The Data Curation Network
+  provides a shared staffing model for experts across member institutions as well
+  as a commitment to promoting the value of curation with the broader research community.
+  This presentation will address how we are organized, the curation procedures we
+  use, and how we hope to grow in the future.
+abstract: "The Data Curation Network is a community of experts who have the software
+  skills and domain know-how needed to curate digital research data, thereby ensuring
+  those data are valuable and reusable for the long-term. Specialized curatorial actions
+  to best prepare data for reuse include quality assurance, file integrity checks,
+  documentation review, metadata creation for discoverability, and file transformations
+  into archival formats. Due to the heterogeneous and multidisciplinary nature of
+  research data generated in our research institutions, the skills and expertise required
+  to curate data (to prepare, arrange, describe, and test data for optimal reuse)
+  cannot reasonably be provided by a few experts siloed at single institutions. The
+  Data Curation Network provides a shared staffing model for experts across member
+  institutions as well as a commitment to promoting the value of curation with the
+  broader research community. This presentation will address how we are organized,
+  the curation procedures we use, and how we hope to grow in the future.  \n[http://datacurationnetwork.org](http://datacurationnetwork.org
+  \"http://datacurationnetwork.org\")"
+speakers: []
 
 ---
