@@ -25,6 +25,9 @@ abstract: |-
   Finding data can be hard and a common solution to this problem has been to create search portals. However, finding these search portals is often challenging. DataONE partially addresses this problem by providing a unified search portal over its member repositories' holdings (many with their own search portals). But it remains a problem to find DataONE's search portal in the first place. Most people find information on the web using generic search engines such as Google, Bing, Yahoo, etc., but these search engines aren't as good as specialized search portals at finding data. What if this wasn't the case? What if web search engines understood our data and helped us find it?
 
   In this webinar, we will discuss an open, collaborative effort called [Schema.org](https://www.dataone.org/webinars/Schema.org) which can be used to make data available through the web search engines you already use and how DataONE is planning to integrate with this effort.
-speakers: []
+speakers:
+- people/file-23.md
+- people/file-22.md
+- people/file-21.md
 
 ---
