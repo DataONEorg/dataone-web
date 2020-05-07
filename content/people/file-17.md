@@ -21,5 +21,6 @@ longbio: Jim Duncan serves as the director of the Forest Ecosystem Monitoring Co
   tools to map and interact with data, including in Mongolia and Ghana.
 email: james.duncan@uvm.edu
 title: ''
+draft: true
 
 ---
