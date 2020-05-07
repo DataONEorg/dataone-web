@@ -59,7 +59,8 @@ fields:
 pages:
 - content/people/AnnaLiljedahl.md
 - content/people/JeanetteClark.md
-- content/people/Nancy-Hoebel.md
+- content/people/Nancy-Hoebelheinrich.md
+- content/people/bryce-mecum.md
 - content/people/debra-fagan.md
 - content/people/file-1.md
 - content/people/file-10.md
@@ -75,8 +76,6 @@ pages:
 - content/people/file-2.md
 - content/people/file-21.md
 - content/people/file-22.md
-- content/people/file-23.md
-- content/people/file-24.md
 - content/people/file-3.md
 - content/people/file-4.md
 - content/people/file-5.md
@@ -85,3 +84,4 @@ pages:
 - content/people/file-8.md
 - content/people/file-9.md
 - content/people/file.md
+- content/people/lisa-johnston.md
