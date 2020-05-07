@@ -35,6 +35,8 @@ abstract: "The Data Curation Network is a community of experts who have the soft
   broader research community. This presentation will address how we are organized,
   the curation procedures we use, and how we hope to grow in the future.  \n[http://datacurationnetwork.org](http://datacurationnetwork.org
   \"http://datacurationnetwork.org\")"
-speakers: []
+speakers:
+- people/file-25.md
+- people/file-24.md
 
 ---
