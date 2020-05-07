@@ -29,8 +29,8 @@ abstract: |-
 
   The Data Management Skillbuilding Hub is designed as a space for community contribution and enhancement. Recognizing the wealth of relevant content in the community, and the importance of discoverability across platforms, we are collaborating with the Data Management Training Clearinghouse to index DataONE resources. Unfamiliar with the DMTClearinghouse? Tune in to learn more! This webinar will provide an overview of DataONE education resources, the new Data Management Skillbuilding Hub and the Data Management Training Clearinghouse in addition to providing attendees with information on how to get involved.
 speakers:
-- people/file-20.md
 - people/file-19.md
+- people/Nancy-Hoebel.md
 - people/amber_budden.md
 
 ---
