@@ -15,6 +15,5 @@ longbio: Jeanette Clark is a Projects Data Coordinator at the National Center fo
   using open data techniques to facilitate synthesis science among researchers who
   are asking questions that will inform environmental policy making.
 email: ''
-draft: true
 
 ---

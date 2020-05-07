@@ -57,8 +57,8 @@ fields:
   name: email
   label: Email address
 pages:
-- content/people/AnnaLiljedahl.md
-- content/people/JeanetteClark.md
+- content/people/Anna-Liljedahl.md
+- content/people/Jeanette-Clark.md
 - content/people/Nancy-Hoebelheinrich.md
 - content/people/adam-shepherd.md
 - content/people/amy-forrester.md
