@@ -1,22 +1,19 @@
 ---
-avatar: "/uploads/DougFils.jpg"
-fullname: Doug Fils
-firstname: Doug
-role: 'Data Management Technical Expert '
-organization: Consortium for Ocean Leadership (COL)
+avatar: "/uploads/bryce_mecum.jpg"
+fullname: Bryce Mecum
+firstname: Bryce
+role: 'Scientific Software Engineer '
+organization: NCEAS
 d1_role: ''
-shortbio: Doug Fils joined the Consortium for Ocean Leadership (COL) in the position
-  of Data Management Technical Expert in December 2009. His work focuses on leveraging
-  web architecture and semantics to address issues around findable, accessible, interoperable
-  and re-usable (FAIR) data. He is engaged with AGU ESSI, ESIP, RDA and W3C groups
-  in areas related to this work.
-longbio: Doug Fils joined the Consortium for Ocean Leadership (COL) in the position
-  of Data Management Technical Expert in December 2009. His work focuses on leveraging
-  web architecture and semantics to address issues around findable, accessible, interoperable
-  and re-usable (FAIR) data. He is engaged with AGU ESSI, ESIP, RDA and W3C groups
-  in areas related to this work.
-email: ''
+shortbio: Bryce Mecum is a scientific software engineer with expertise in data analysis
+  and programming and data management systems, including systems like R, GitHub, repository
+  software, Python, and UNIX. He has a background in fisheries modeling and management,
+  and builds software systems supporting environmental synthesis.
+longbio: Bryce Mecum is a scientific software engineer with expertise in data analysis
+  and programming and data management systems, including systems like R, GitHub, repository
+  software, Python, and UNIX. He has a background in fisheries modeling and management,
+  and builds software systems supporting environmental synthesis.
+email: mecum@nceas.ucsb.edu
 title: ''
-draft: true
 
 ---
