@@ -1,20 +1,29 @@
 ---
-avatar: "/uploads/StephanieSimms.png"
-fullname: Stephanie Simms
-firstname: Stephanie
-role: Research Data Specialist
-organization: California Digital Library
+avatar: "/uploads/Steve_B&W.jpg"
+fullname: Steve Alexander
+firstname: Steve
+role: Mitacs Canadian Science-Policy Fellow
+organization: National Socio-Environmental Synthesis Center at the University of Maryland
 d1_role: ''
-shortbio: Stephanie Simms is a Research Data Specialist at the California Digital
-  Library and Product Manager for the DMPTool. In both roles, she provides the 10
-  University of California campuses and beyond with technical, educational, and policy-related
-  support for research data management and open scholarship initiatives.
-longbio: |-
-  Stephanie Simms is a Research Data Specialist at the California Digital Library and Product Manager for the DMPTool. In both roles, she provides the 10 University of California campuses and beyond with technical, educational, and policy-related support for research data management and open scholarship initiatives. Her current focus is coordinating global efforts to transform data management plans from an annoying administrative exercise into a useful tool for researchers, funders, and other stakeholders by making them machine actionable.
-
-  Prior to joining the CDL, Stephanie was a CLIR Postdoctoral Fellow at UCLA where she worked on geospatial data and data publishing projects. Her own archaeological research experiences involved plenty of challenges with managing and sharing myriad types of data, both physical and digital, and inform her current work. She holds a PhD in Archaeology and is a member of the DataONE Users Group and co-chair of the RDA Active DMPs Interest Group.
-email: ''
+shortbio: 'Steven is a Mitacs Science Policy Fellow and Science Advisor based at Fisheries
+  and Oceans Canada. Prior to this, he was a Postdoctoral Research Fellow dually affiliated
+  with the National Socio-Environmental Synthesis Center and the Stockholm Resilience
+  Centre. '
+longbio: Steven is a Mitacs Science Policy Fellow and Science Advisor based at Fisheries
+  and Oceans Canada. Prior to this, he was a Postdoctoral Research Fellow dually affiliated
+  with the National Socio-Environmental Synthesis Center and the Stockholm Resilience
+  Centre. As an environmental social scientist, his research focuses on community-based
+  conservation and natural resource management, environmental governance, and the
+  human dimensions of environmental change. Past projects have examined the role of
+  social networks for the management of marine protected areas in Jamaica and the
+  governance dimensions of climate change adaptation in coastal communities. As an
+  interdisciplinary educator, he has worked with students in a variety of bioregions
+  including the Colorado Plateau, Adirondacks/ Northern Forest, the Greater Yellowstone
+  Geo-ecosystem, the Caribbean, and the Canadian Rockies. He has taught and developed
+  both curriculum and programs for several non-profits and educational institutions
+  including the National Outdoor Leadership School, Teton Science Schools, Wild Rockies
+  Field Institute, St. Lawrence University, and University of Waterloo.
+email: salexander@sesync.org
 title: ''
-draft: true
 
 ---
