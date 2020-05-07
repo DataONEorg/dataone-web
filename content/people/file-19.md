@@ -20,5 +20,6 @@ longbio: |-
   Prior to Mozilla, Stephanie worked for the [University of Washington](http://www.washington.edu/) where she developed and led the Libraries [Research Data Services Unit](http://www.lib.washington.edu/digitalscholarship/services/data), served as a Senior Data Science Fellow at the [UW’s eSciences Institute](http://escience.washington.edu/), and co-authored the [Librarian Outreach Kit](https://www.dataone.org/for-librarians) as part of the [Community Engagement & Outreach Working Group](https://www.dataone.org/working_groups/community-engagement-and-outreach) for [DataONE](https://www.dataone.org/).
 email: ''
 title: ''
+draft: true
 
 ---
