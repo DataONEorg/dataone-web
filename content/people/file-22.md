@@ -18,5 +18,6 @@ longbio: Adam Shepherd is the Technical Director for the Biological and Chemical
   Currently, his work focuses on data semantics for improved discovery and reuse.
 email: ashepherd@whoi.edu
 title: ''
+draft: true
 
 ---
