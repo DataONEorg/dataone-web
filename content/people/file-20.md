@@ -1,27 +1,28 @@
 ---
-avatar: "/uploads/MeganMach.png"
-fullname: Megan Mach
-firstname: Megan
-role: Communication and Outreach postdoctoral scholar
-organization: DataONE
+avatar: "/uploads/nancyh.jpg"
+fullname: Nancy Hoebelheinrich
+firstname: Nancy
+role: Founder and Co-owner
+organization: Knowledge Motifs LLC
 d1_role: ''
-shortbio: 'Megan Mach is DataONE’s Communication and Outreach postdoctoral scholar,
-  working with Dr. Amber Budden and the Community Engagement and Outreach (CEO) Working
-  Group. Megan is here to help get the word out about DataONE and the importance of
-  responsible data management. '
-longbio: Megan Mach is DataONE’s Communication and Outreach postdoctoral scholar,
-  working with Dr. Amber Budden and the Community Engagement and Outreach (CEO) Working
-  Group. Megan is here to help get the word out about DataONE and the importance of
-  responsible data management. She dabbles in graphic design, web-wrangling, and learning
-  more about the delicate art of communication plans. Though marine ecology has long
-  been her focus, she is working at DataONE because she believes in the inherent value
-  of visuals and marketing as tools to increase interest and buy-in in the sciences.
-  Megan holds a Bachelor of Science in Biology from the University of Washington,
-  a Master of Science in marine biology from Boston University, and a doctorate degree
-  in Resource Management and Environmental Studies from the University of British
-  Columbia.
-email: ''
+shortbio: 'Nancy J. Hoebelheinrich is a digital library, archives, and data repository
+  consultant specializing in geospatial and cultural heritage resources. Nancy is
+  currently founder and co-owner of Knowledge Motifs LLC ([www.kmotifs.com](http://www.kmotifs.com/))
+  whose recent clients have included the Foundation for Earth Science, San Francisco
+  Estuary Institute, California State Library, American Geophysical Union, California
+  Historical Society, California Digital Library, Library of Congress, and Stanford
+  University Libraries. '
+longbio: Nancy J. Hoebelheinrich is a digital library, archives, and data repository
+  consultant specializing in geospatial and cultural heritage resources. Nancy is
+  currently founder and co-owner of Knowledge Motifs LLC ([www.kmotifs.com](http://www.kmotifs.com/))
+  whose recent clients have included the Foundation for Earth Science, San Francisco
+  Estuary Institute, California State Library, American Geophysical Union, California
+  Historical Society, California Digital Library, Library of Congress, and Stanford
+  University Libraries. Nancy has been active in a number of information and educational
+  technology efforts including those of the ESIP Federation’s Data Stewardship, Partnership,
+  Semantic Technologies, and Product and Services Committees, and the Agriculture
+  and Climate Cluster.
+email: nhoebel@kmotifs.com
 title: ''
-draft: true
 
 ---
