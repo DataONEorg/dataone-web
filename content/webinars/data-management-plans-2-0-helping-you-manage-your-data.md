@@ -1,29 +1,26 @@
 ---
 date: 2020-02-01
-title: 'Data Management Plans 2.0: Helping you manage your data'
-webinar_datetime: 2018-03-13T09:00:00-07:00
+title: 'The DataONE Users Group (DUG): Supporting and Connecting the DataONE User
+  Community'
+webinar_datetime: 2018-02-13T09:00:00-08:00
 duration: 60
 status: past
 tags:
-- Plan
-vimeoID: 259912694
-image: "/uploads/computing-4828418_960_720.jpg"
+- Integrate
+vimeoID: 255614583
+image: "/uploads/people-3245739_1280.png"
 registration_link: ''
-slides: "/uploads/simms-dataone-webinar.pdf"
-disqus_shortname: data-management-plans-2-0
-short_abstract: Data management plans (DMPs) are becoming commonplace across the globe
-  as a result of funders requiring them with grant proposals, but they are not being
-  employed in ways that truly support the research enterprise. The original DMPTool
-  was launched in 2011 and has become a hugely popular resource among researchers
-  and the research data management community as a hub of information about DMP requirements
-  for US funders, especially the NSF and NIH. The webinar will introduce the new (just
-  launched!) version of the DMPTool that represents a joint development effort with
-  the Digital Curation Centre in the UK and other international partners.
+slides: "/uploads/2018-02-13_dugwebinarslides.pdf"
+disqus_shortname: dug-supporting-connecting-dataone-user-community
+short_abstract: The DataONE Users Group (DUG) is the worldwide community of Earth
+  observation data authors, users, and diverse stakeholders that makeup the DataONE
+  partnership communities. Karl Benedict and Robert Sandusky, the new DUG co-chairs,
+  will introduce their vision for the DUG over the next two years, building on the
+  partnerships developed with DataONE Member Nodes and the broader community.
 abstract: |-
-  Data management plans (DMPs) are becoming commonplace across the globe as a result of funders requiring them with grant proposals, but they are not being employed in ways that truly support the research enterprise. The current manifestation of a DMP—a static document often created before a project begins—only contributes to the perception that they are a useless administrative exercise. Conversations about the need for machine-actionable DMPs (also referenced as “active,” “dynamic,” or “machine-readable” DMPs) have been brewing for a few years. We still need a human-readable narrative, but there is now widespread recognition that, underneath, the DMP could have more thematic, machine-actionable richness with added value for all stakeholders: researchers, funders, repository managers, research administrators, data librarians, etc.
+  The DataONE Users Group (DUG) is the worldwide community of Earth observation data authors, users, and diverse stakeholders that makeup the DataONE partnership communities. The primary function of the DUG is to represent the needs and interests of these communities in the activities of DataONE. In particular, the DUG provides guidance that facilitates DataONE in achieving its vision and mission.
 
-  The original DMPTool was launched in 2011 and has become a hugely popular resource among researchers and the research data management community as a hub of information about DMP requirements for US funders, especially the NSF and NIH. The webinar will introduce the new (just launched!) version of the DMPTool that represents a joint development effort with the Digital Curation Centre in the UK and other international partners. Now with a single, internationalized DMP infrastructure, our next steps will focus on piloting machine-actionable DMP use cases. This includes engaging with DataONE member nodes, the Research Data Alliance, and other community-driven initiatives. Our collective vision is to transform DMPs into a tool for better data management by embedding them into existing workflows and exchanging information between research tools and systems. This project is supported by an NSF EAGER grant awarded to the California Digital Library (Award no 1745675).
+  Karl Benedict and Robert Sandusky, the new DUG co-chairs, will introduce their vision for the DUG over the next two years, building on the partnerships developed with DataONE Member Nodes and the broader community. Continuing on the success of the annual DUG meetings, the DUG seeks to become a primary venue for repository community discussions, facilitating connections and providing support. There are multiple ways you can help us achieve this vision, the first of which is joining this webinar to learn more.
 speakers: []
-draft: true
 
 ---
