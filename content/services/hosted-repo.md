@@ -2,7 +2,7 @@
 layout: blocks
 date: 2020-01-09T17:19:25.000+00:00
 title: Hosted Repository
-service_icon: "database"
+service_icon: database
 service_color: "#0688d2"
 weight: 3
 render_page: true
@@ -46,7 +46,7 @@ page_sections:
       type: top
       headline: Private & public access
       text: Control access to your datasets prior to publication with collaborative
-        groups or just keep it private 
+        groups or just keep it private
     - template: feature-detailed
       type: top
       headline: Usage metrics
@@ -122,17 +122,24 @@ page_sections:
 - template: section
   background: data-wave
   title: Get a complete assessment of your data & metadata
-  intro: With access to information about the datasets in your repository, you can monitor how your data is being used and assess its quality based on community established scores.
+  intro: With access to information about the datasets in your repository, you can
+    monitor how your data is being used and assess its quality based on community
+    established scores.
   blocks:
   - template: feature-detailed
     headline: Make your data FAIR
-    text: Access aggregated FAIR metadata assessment scores. Improve data discovery, accessibility, interoperability, and reusability
-      with a quantitative metadata assessment using the FAIR principles.
+    text: Access aggregated FAIR metadata assessment scores. Improve data discovery,
+      accessibility, interoperability, and reusability with a quantitative metadata
+      assessment using the FAIR principles.
     type: right
     image:
       template: image
       src: uploads/fair_reports/fair-for-hosted-repos.png
-      alttext: Representation of FAIR products available to Hosted Repository users. A time series chart of aggregated FAIR metrics over time, and a stack of individual metadata assessment for each dataset. The individual assessment shows 38 metadata checks and an overall score for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability)
+      alttext: Representation of FAIR products available to Hosted Repository users.
+        A time series chart of aggregated FAIR metrics over time, and a stack of individual
+        metadata assessment for each dataset. The individual assessment shows 38 metadata
+        checks and an overall score for each of the four FAIR metrics (Findability,
+        Accessibility, Interoperability, and Reusability)
       type: tilt-left
     details:
     - template: item-with-icon
@@ -234,11 +241,12 @@ page_sections:
     - template: feature-detailed
       type: top
       headline: Comprehensive search
-      text: Quickly find data with detailed search filters, or by navigating the interactive map
+      text: Quickly find data with detailed search filters, or by navigating the interactive
+        map
     - template: feature-detailed
       type: top
       headline: Any file format
-      text:  'Use the scientific file formats for your community: image, tabular, text,
+      text: 'Use the scientific file formats for your community: image, tabular, text,
         audio, video, and others'
     - template: feature-detailed
       type: top
@@ -301,6 +309,7 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
+icon: database
 menu:
   primary_nav:
     weight: 3
@@ -308,4 +317,5 @@ menu:
     post: A dedicated repository for your data
   footer:
     weight: 2
+
 ---
