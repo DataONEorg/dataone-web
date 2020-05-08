@@ -2,6 +2,7 @@
 label: "Feature Parameters"
 hide_body: true
 display_field: title
+fields:
 - type: text
   label: Feature name
   name: title
