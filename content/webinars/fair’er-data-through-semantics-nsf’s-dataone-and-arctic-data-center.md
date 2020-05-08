@@ -24,8 +24,8 @@ abstract: |-
 
   In this webinar we will discuss how DataONE (search.dataone.org), the Arctic Data Center (arcticdata.io) and Environmental Data Initiative (environmentaldatainitiative.org) research data repositories are extending their Metadata services to enhance the "FAIR"ness of their contents, by adopting 1) controlled vocabularies or Ontologies; 2) the RDF/RDFS data model and schema; and 3) persistent dereferenceable globally unique Identifiers, PIRI's - three essential Semantic Web technologies for realizing the vision of a more transparent and integrated scientific data commons, that were endorsed by the authors of the FAIR guidelines (if you read the paper carefully!).
 speakers:
-- people/file.md
-- people/file-1.md
-slug: ''
+- people/margaret-obrien.md
+- people/mark-schildhauer.md
+slug: fair’er-data-through-semantics-nsf’s-dataone-and-arctic-data-center
 
 ---
