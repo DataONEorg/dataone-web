@@ -8,7 +8,7 @@ tags:
 - Discover
 - Describe
 vimeoID: 385103116
-image: "/uploads/download.jpeg"
+image: "/uploads/alina-grubnyak-ZiQkhI7417A-unsplash.jpg"
 registration_link: ''
 slides: ''
 disqus_shortname: fairer-data-through-semantics
