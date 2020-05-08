@@ -14,11 +14,6 @@ fields:
   description: The date the page was created
   default: now
   hidden: true
-- type: boolean
-  name: render_page
-  label: Make service summary page
-  description: If set to true, a page will be generated for this service and a link to the page will be shown in the table. If false, no link will be shown from the feature table and no page will be created. Other content will still be used to generate the feature table.
-  default: true
 - type: text
   label: Service name
   name: title
@@ -38,10 +33,16 @@ fields:
   label: Service icon
   name: service_icon
   description: An icon that represents this service, used through out the website, for example, in the navigation and feature table.
+  template: icon-names
 - type: number
   name: weight
   label: Service order
   description: This number will determine the order that services appear, for example in the feature table.
+- type: boolean
+  name: render_page
+  label: Make service summary page
+  description: If false, no link will be shown from the feature table and no page will be created for this service. The information set here will still be used to define services - for example - the title of the service will show in the feature table.
+  default: true
 - name: header
   type: field_group
   config: {}
@@ -65,6 +66,8 @@ fields:
   config:
     labelField: title
 - type: include
+  showOnly:
+    field: render_page
   template: menu-options
   name: menu
   label: Menu options

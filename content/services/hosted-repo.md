@@ -5,6 +5,7 @@ title: Hosted Repository
 service_icon: "database"
 service_color: "#0688d2"
 weight: 3
+render_page: true
 description: A dedicated repository solution for your group or institution's data,
   managed by DataONE. Bring the products of your research lab, field station, or library
   together in a centralized location for efficient sharing, access, and reuse. Accelerate

@@ -20,6 +20,7 @@ sections:
   match: "**/*"
   templates:
   - _page_service
+  - _page_blocks
 - type: directory
   path: content/features
   label: Features

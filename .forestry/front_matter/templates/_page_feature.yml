@@ -6,14 +6,16 @@ fields:
 - type: boolean
   name: render_page
   label: Create feature summary page
-  description: If set to true, a page will be generated for this feature using content set below, and a link to the page will be shown in the feature table. If false, no link will be shown from the feature table and no page will be created. However, the feature may still be shown in the feature table.
+  description: If false, no link will be shown from the feature table and no page will be created for this feature. However, the feature may still be shown in the feature table.
   default: true
 - type: include
+  name: feature-parameters
+  label: Feature Parameters
   template: feature-parameters
 - type: select
   label: Feature category
   name: category
-  description: Which type of feature is this? This is used to split the feature table into sections. To change the available categories, edit the [Feature index page](#/pages/content-features-_index-md/).
+  description: Used to split the feature table into sections. To change the available categories, edit the [Feature index page](#/pages/content-features-_index-md/).
   default: misc
 - name: sub_features
   type: field_group_list
@@ -21,6 +23,8 @@ fields:
   description: Optional. Add more granular features under this feature.
   fields:
   - type: include
+    name: feature-parameters
+    label: Feature Parameters
     template: feature-parameters
   - name: section_id
     type: text
@@ -29,7 +33,6 @@ fields:
 - name: header
   showOnly:
     field: render_page
-    value: true
   type: field_group
   config: {}
   fields:
@@ -43,7 +46,6 @@ fields:
   name: page_sections
   showOnly:
     field: render_page
-    value: true
   label: Page sections
   fields:
   - type: include

@@ -2,7 +2,6 @@
 label: "Menu Options"
 hide_body: true
 display_field: title
-description: Menu options common to all pages. Used as an include field.
 fields:
 - type: field_group_list
   name: menu

@@ -8,6 +8,7 @@ service_icon: d1-plus-logo
 service_color: "#34bb96"
 weight: 2
 date: 2020-01-14T19:04:29.000+00:00
+render_page: true
 header:
   template: header
   type: image on right
