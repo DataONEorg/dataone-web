@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: What it means to be a DataONE Member Node—Member Nodes Share Their Views
-webinar_datetime: 2018-05-08T09:00:00-07:00
+webinar_datetime: 2018-05-08T16:00:00.000+00:00
 duration: 60
 status: past
 tags:
