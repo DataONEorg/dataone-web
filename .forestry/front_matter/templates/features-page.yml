@@ -1,4 +1,13 @@
 ---
 label: "\U0001F4C4Features Page"
 hide_body: true
-fields: []
+fields:
+- name: categories
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: Feature categories
+  description: The contents and order of this list is used to sort features that are
+    listed in the feature table
