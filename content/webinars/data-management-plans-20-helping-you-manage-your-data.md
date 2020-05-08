@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: 'Data Management Plans 2.0: Helping you manage your data'
-webinar_datetime: 2018-03-13T09:00:00-07:00
+webinar_datetime: 2018-03-13T16:00:00.000+00:00
 duration: 60
 status: past
 tags:
@@ -24,6 +24,7 @@ abstract: |-
 
   The original DMPTool was launched in 2011 and has become a hugely popular resource among researchers and the research data management community as a hub of information about DMP requirements for US funders, especially the NSF and NIH. The webinar will introduce the new (just launched!) version of the DMPTool that represents a joint development effort with the Digital Curation Centre in the UK and other international partners. Now with a single, internationalized DMP infrastructure, our next steps will focus on piloting machine-actionable DMP use cases. This includes engaging with DataONE member nodes, the Research Data Alliance, and other community-driven initiatives. Our collective vision is to transform DMPs into a tool for better data management by embedding them into existing workflows and exchanging information between research tools and systems. This project is supported by an NSF EAGER grant awarded to the California Digital Library (Award no 1745675).
 speakers:
-- people/file-10.md
+- people/stephanie-simms.md
+slug: data-management-plans-20-helping-you-manage-your-data
 
 ---
