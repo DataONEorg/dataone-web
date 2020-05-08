@@ -123,6 +123,7 @@ fields:
   description: To add to the list of speaker options, first add the speaker to the
     "People" section (see sidebar)
 pages:
+- content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/collaboration-across-time-and-space-lter-network.md
 - content/webinars/community-resources-for-data-management-1.md
 - content/webinars/community-resources-for-data-management.md
@@ -130,7 +131,6 @@ pages:
 - content/webinars/data-management-plans-2-0-helping-you-manage-your-data.md
 - content/webinars/fair’er-data-through-semantics-nsf’s-dataone-and-arctic-data-center.md
 - content/webinars/file2.md
-- content/webinars/file3.md
 - content/webinars/permafrost-discovery-gateway-geospatial-data-and-community-needs.md
 - content/webinars/qualitative-data-management-for-interdisciplinary-research.md
 - content/webinars/rdmla-five-months-post-launch-1.md
