@@ -94,12 +94,13 @@ fields:
     - label: Order
       name: weight
       type: number
-      description: This integer is used to order the item in the menu. If the number is
-        > 99, it will be displayed in the grey portion at the bottom of the submenu.
+      description: This integer is used to order the item in the menu. If the number
+        is > 99, it will be displayed in the grey portion at the bottom of the submenu.
     - name: parent
       type: select
       label: Parent
-      description: If this is a sub-menu item, the parent item under which it should go.
+      description: If this is a sub-menu item, the parent item under which it should
+        go.
       config:
         source:
           type: simple
@@ -116,14 +117,15 @@ fields:
     - name: pre
       type: include
       label: Icon
-      description: An optional icon to display in the menu. For sub-menu items only. For
-        the service pages, the service icon will replace whatever is selected here.
+      description: An optional icon to display in the menu. For sub-menu items only.
+        For the service pages, the service icon will replace whatever is selected
+        here.
       config: {}
       template: icon-names
     - name: name
       label: Menu name
-      description: An alternative name to display in the menu. Otherwise defaults to the
-        page title.
+      description: An alternative name to display in the menu. Otherwise defaults
+        to the page title.
       type: text
 pages:
 - content/services/free.md
