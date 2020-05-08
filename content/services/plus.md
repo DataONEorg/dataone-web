@@ -633,14 +633,15 @@ page_sections:
       color: ''
       stroke: ''
   id: ''
+icon: d1-plus-logo
 menu:
   primary_nav:
     weight: 2
     parent: Services
     post: Portals, custom search, metrics & more
     icon: ''
+    name: ''
   footer:
     weight: 1
-icon: d1-plus-logo
 
 ---
