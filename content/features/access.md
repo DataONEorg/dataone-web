@@ -1,20 +1,27 @@
 ---
 layout: blocks
-date: 2020-03-16T09:49:58.000+00:00
+date: '2020-03-16T09:49:58.000+00:00'
 title: Access control
 description: Manage access to your data with rules and groups you define
 linked_services:
-  - service_file: services/hosted-repo.md
+- service_file: services/hosted-repo.md
+  service: services/hosted-repo.md
+  table_annotation: ''
 show_in_table: true
 render_page: false
 category: access control
 sub_features:
 - title: Share when ready
-  description: Keep your dataset private while you document it thoroughly, then share it with the world when you're ready.
+  description: Keep your dataset private while you document it thoroughly, then share
+    it with the world when you're ready.
   linked_services:
-    - service_file: services/hosted-repo.md
+  - service_file: services/hosted-repo.md
+    service: ''
+    table_annotation: ''
   show_in_table: true
   render_page: true
+  custom_link: ''
+  section_id: ''
 header:
   template: header
   type: text only
@@ -29,13 +36,34 @@ header:
   buttons:
   - template: button
     type: internal page
-    internal_link: /services
+    internal_link: "/services"
     color: secondary
     text: See all features
+    external_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    type: ''
+    overlay_effect: ''
 page_sections:
 - type: default
   template: section
@@ -43,6 +71,27 @@ page_sections:
   title: ''
   intro: ''
   blocks: []
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
@@ -55,5 +104,29 @@ page_sections:
     precheck_plus: false
     precheck_newsletter: false
     newsletter_only: false
+    style: ''
   id: ''
+  type: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+custom_link: ''
+
 ---
