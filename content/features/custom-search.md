@@ -38,8 +38,7 @@ page_sections:
 - template: section
   background: topography
   title: Geographic location search
-  icon:
-    icon: map
+  icon: map
   blocks:
   - template: feature-detailed
     type: left
@@ -53,20 +52,10 @@ page_sections:
     details:
     - name: Area search
       text: Users can filter your data by a specific geographic area.
-      icon:
-        template: icon
-        icon: map-pin
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: map-pin
     - name: Hide map
       text: Want to turn off the map altogether? You can do that too.
-      icon:
-        template: icon
-        icon: eye-off
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: eye-off
 - template: section
   type: default
   title: How to create a filter

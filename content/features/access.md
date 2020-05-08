@@ -38,59 +38,13 @@ header:
     internal_link: "/services"
     color: secondary
     text: See all features
-    external_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    type: ''
-    overlay_effect: ''
 page_sections:
 - type: default
   template: section
-  id: ''
-  title: ''
-  intro: ''
-  blocks: []
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
@@ -103,29 +57,5 @@ page_sections:
     precheck_plus: false
     precheck_newsletter: false
     newsletter_only: false
-    style: ''
-  id: ''
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-custom_link: ''
 
 ---

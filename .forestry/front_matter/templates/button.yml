@@ -66,14 +66,7 @@ fields:
     field: type
     value: internal page
 - name: icon
-  type: field_group
-  hidden: true
-  fields:
-  - name: icon
-    type: include
-    template: icon
-    label: Icon
-    description: An optional icon to display to the left of the button text
-  description: CMS Feature coming soon - An optional icon to show on the left side
-    of the button
+  type: include
   label: Icon
+  description: An optional icon to display to the left of the button text
+  template: icon-names

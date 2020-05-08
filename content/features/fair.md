@@ -59,8 +59,7 @@ page_sections:
       headline: DataONE Plus Portals
       text: A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
       details:
-      - icon:
-          icon: trending-up
+      - icon: trending-up
         name: "Aggregate FAIR scores for your portal"
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
     - template: feature-detailed
@@ -71,18 +70,15 @@ page_sections:
       headline: Hosted Repositories
       text: In addition to FAIR scores for portals, each Hosted Repository includes a FAIR scores chart for the entire repository holdings, plus individual assessments for each and every dataset
       details:
-      - icon:
-          icon: trending-up
+      - icon: trending-up
         name: "Aggregate FAIR scores for your repository"
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
-      - icon:
-          icon: file-plus
+      - icon: file-plus
         name: "Individual FAIR assessments for every dataset"
         text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
   id: aggregated-reports
-  icon:
-    icon: trending-up
+  icon: trending-up
   intro: Get aggretated FAIR scores for all data within your Hosted Repository or DataONE Plus portal
   blocks:
   - template: feature-detailed
@@ -91,19 +87,16 @@ page_sections:
       alttext: A colorful timeseries chart with a legend. The line chart includes one line for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability) showing changes in scores per month. The legend indicates the current score for each metric as a percentage.
       type: tilt-left
     details:
-    - icon:
-        icon: calendar
+    - icon: calendar
       name: Changes by month
       text: Aggregated FAIR score charts show how your FAIR scores have changed month-to-month
-    - icon: 
-        icon: list
+    - icon: list
       name: Broken down into FAIR categories
       text: Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
 - type: default
   background: subtle-emphasis
   id: individual-reports
-  icon:
-    icon: file-plus
+  icon: file-plus
   template: section
   title: Guide your community toward creating better metadata
   intro: Provide detailed FAIR reports for each dataset and give researchers the power to discover
@@ -118,15 +111,13 @@ page_sections:
       type: tilt-right
     details:
     - template: item-with-icon
-      icon:
-        icon: activity
+      icon: activity
       name: Get instant assessments
       text:  |-
         Whenever a dataset is
         updated in your Hosted Repository, the metadata is automatically assessed.
     - template: item-with-icon
-      icon:
-        icon: check-circle
+      icon: check-circle
       name: Check metadata automatically
       text:  |-
         Each assessment is made of a number of individual checks that

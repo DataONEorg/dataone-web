@@ -20,62 +20,15 @@ header:
     type: subscribe form
     color: primary
     text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   - template: button
     type: contact
     color: secondary
     text: contact us
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    type: ''
-    overlay_effect: ''
-  intro: ''
 page_sections:
 - template: section
   title: Full feature list
   blocks:
   - template: feature-table
-  type: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
 - template: section
   title: Frequently asked questions
   background: subtle-emphasis
@@ -88,25 +41,7 @@ page_sections:
     text: Get in touch
     type: contact
     color: primary
-    icon:
-      icon: mail
-      template: ''
-      size: ''
-      color: ''
-      stroke: ''
-    template: ''
-    external_link: ''
-    internal_link: ''
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  intro: ''
-  id: ''
+    icon: mail
 - template: section
   background: major-accent-color
   title: Interested in DataONE Plus or a Hosted Repository?
@@ -120,28 +55,6 @@ page_sections:
     precheck_newsletter: false
     style: ''
     newsletter_only: false
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
 date: 2020-05-08T00:32:17.000+00:00
 theme: ''
 menu:

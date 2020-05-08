@@ -61,17 +61,11 @@ fields:
     - wave
     - map
     - topography
-- type: field_group
-  template: icon
+- name: icon
+  type: include
   label: Icon
-  name: icon
   description: An optional icon to display at the top of the section
-  fields:
-  - type: include
-    template: icon
-    name: icon
-    label: Section Icon
-    description: Optional Icon that appears at the top of the section
+  template: icon-names
 - type: textarea
   label: Title
   name: title

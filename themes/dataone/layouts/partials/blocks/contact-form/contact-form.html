@@ -37,8 +37,7 @@
   <!-- Button -->
 
   <div class="{{ $bn }}__button">
-    {{ $iconParams := dict "template" "icon" "icon" "send" }}
-    {{ $buttonParams := dict "color" "primary" "html_tag" "button" "id" "Form-submit" "type_attr" "submit" "text" "Contact DataONE" "icon" $iconParams }}
+    {{ $buttonParams := dict "color" "primary" "html_tag" "button" "id" "Form-submit" "type_attr" "submit" "text" "Contact DataONE" "icon" "send" }}
     {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) }}
   </div>
 </form>

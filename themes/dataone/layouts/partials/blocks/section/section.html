@@ -40,13 +40,14 @@
     {{ end }}
     <div class="{{ $bn }}__inner">
       <!-- ICON -->
-      {{ if partial "functions/hasValues" .Block.icon }}
-        {{- with .Block.icon -}}
-          <div class="{{ $bn }}__icon">
-            {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
-          </div>
-        {{- end -}}
-      {{ end }}
+
+      {{ if eq (printf "%T" .Block.icon) "string" }}
+        <div class="{{ $bn }}__icon">
+          {{ $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "large"}}
+          {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
+        </div>
+      {{ end}}
+
       <!-- TITLE -->
       {{- with .Block.title -}}
         <h2 class="{{ $bn }}__title markdown">

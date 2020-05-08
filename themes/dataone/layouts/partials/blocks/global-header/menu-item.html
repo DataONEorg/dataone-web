@@ -117,6 +117,17 @@
 
         {{ range .Block.Children }}
 
+          <!-- Name for the subitem menu -->
+          {{ $name := .Name }}
+          <!-- If an empty string is set for the menu.nav.name parameter, -->
+          <!-- a blank name will be used. Check for this probelm and -->
+          <!-- overwrite with the page name -->
+          {{ if not $name }}
+            {{ if .Page }}
+              {{ $name =.Page.Title }}
+            {{ end }}
+          {{ end }}
+
           <!-- Description for the menu (optional) -->
           <!-- This should be text -->
           {{ $description := .Post | default "" }}
@@ -176,7 +187,7 @@
                   {{ . }}
                 </span>
               {{ end }}
-              {{ with .Name }}
+              {{ with $name }}
                 <p class="{{ $bn }}__sub-item-name">{{ . }}{{ $iconRight }}</p>
               {{ end }}
               {{ with $description }}

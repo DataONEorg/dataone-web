@@ -5,12 +5,20 @@
 <!-- classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
+{{ $icon := "" }}
+{{ if eq (printf "%T" .Block.icon) "string" }}
+  {{ $iconBlock := dict "icon" .Block.icon "size" "medium"}}
+  {{ $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
+{{ end}}
+
 <div class="{{ $classes }}">
-  {{- with .Block.icon -}}
-    <div class="{{ $bn }}__icon">
-      {{- partial "blocks/icon/icon" (dict "Block" . "Page" $page) -}}
-    </div>
-  {{- end -}}
+  <div class="{{ $bn }}__icon">
+    {{- with $icon -}}
+
+      {{ . }}
+
+    {{- end -}}
+  </div>
   <p class="{{ $bn }}__paragraph">
     {{ if .Block.name }}
       <em class="{{ $bn }}__emphasis">{{ .Block.name }}

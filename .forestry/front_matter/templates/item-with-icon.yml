@@ -21,13 +21,7 @@ fields:
     schema:
       format: markdown
 - name: icon
-  type: field_group
-  config: {}
-  fields:
-  - name: icon
-    type: include
-    config: {}
-    template: icon
-    label: icon
+  type: include
   label: Icon
-  description: An icon to display beside the item
+  description: An optional icon to display at the top of the section
+  template: icon-names

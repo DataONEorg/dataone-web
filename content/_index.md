@@ -35,12 +35,6 @@ page_sections:
         text: ''
         external_link: ''
         internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
     - template: feature-detailed
       type: top
       headline: Hosted Repositories

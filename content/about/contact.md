@@ -10,16 +10,6 @@ header:
   title: Get in touch
   intro: We're here to help and answer any question you might have. We look forward
     to hearing from you!
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    type: ''
-    overlay_effect: ''
-  pill:
-    template: ''
-    style: ''
-    text: ''
   buttons: []
 page_sections:
 - template: section
@@ -32,28 +22,6 @@ page_sections:
     hide_email: false
     hide_socials: false
   - template: contact-form
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-theme: ''
 menu:
   primary_nav:
     parent: About

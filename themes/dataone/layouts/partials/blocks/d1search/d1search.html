@@ -10,10 +10,8 @@
   {{ $classes = printf  "%s d1search--%s" $classes . }}
 {{end}}
 
-<!-- Parameters for the search icon within the search button -->
-{{ $iconBlock := dict "icon" "search" "color" "white" "stroke" "thicker"}}
 <!-- Parameters for the search button -->
-{{ $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" $iconBlock "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
+{{ $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" "search" "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
 
 <form class="{{ $classes }}" role="search" onsubmit="searchD1()">
   <input class="{{ $bn }}__input" type="text" id="search-term" placeholder="Search 44 data repositories at once"/>

@@ -31,26 +31,10 @@ header:
     type: subscribe form
     color: primary
     text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   - template: button
     type: contact
     color: secondary
     text: Contact us
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
 page_sections:
 - template: section
   type: default
@@ -74,19 +58,6 @@ page_sections:
       headline: All of your data in one place
       text: Create a catalog of your team's data that spans the DataONE network
       details: []
-      button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
     - template: feature-detailed
       image:
         template: image
@@ -99,19 +70,6 @@ page_sections:
         the easy-to-use online portal editor
       headline: Set up in minutes
       details: []
-      button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
     - template: feature-detailed
       image:
         template: image
@@ -126,40 +84,15 @@ page_sections:
         color: quaternary
         text: Custom search options
         internal_link: features/custom-search.md
-        external_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
       headline: Customized search filters
       text: Configure search fields specific to your science topics
       details: []
-    alignment: ''
-    layout: ''
   button:
     template: button
     type: internal page
     color: primary
     internal_link: "/services"
     text: Explore all features
-    external_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  id: ''
 - template: section
   background: data-wave
   title: Maximize the value of your data
@@ -179,32 +112,19 @@ page_sections:
       alttext: An example line chart with one line for each of the four FAIR metrics
         (Findability, Accessibility, Interoperability, and Reusability) showing changes
         in scores per month
-      template: ''
       overlay_effect: ''
     details:
     - template: item-with-icon
       name: Time series charts
       text: Discover how FAIR scores change over time through time series charts in
         your DataONE Plus portal
-      icon:
-        template: icon
-        icon: trending-up
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: trending-up
     button:
       template: button
       type: internal page
       color: quaternary
       text: More about FAIR
       internal_link: "/features/fair"
-      external_link: ''
-      icon:
-        template: ''
-        icon: ''
-        size: ''
-        color: ''
-        stroke: ''
   - template: columns
     num_cols: 2
     alignment: left
@@ -219,19 +139,6 @@ page_sections:
         color: quaternary
         text: View & Download Metrics
         internal_link: "/features/usage-metrics"
-        external_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
       details: []
     - template: feature-detailed
       type: top
@@ -244,41 +151,7 @@ page_sections:
         text: Data citations
         internal_link: "/features/citations"
         external_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
       details: []
-    layout: ''
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   id: ''
 - template: section
   title: Customized to match your project
@@ -298,59 +171,12 @@ page_sections:
     - name: Your branding
       text: Customize your portal with the colors, logos, and images that reflect
         your project
-      icon:
-        icon: image
-        size: medium
-        color: secondary
-        template: ''
-        stroke: ''
+      icon: image
       template: ''
     - name: Your content
       text: Your portal pages can include visualizations of your research, a list
         of your team members, and any other custom content
-      icon:
-        template: icon
-        icon: file-text
-        size: medium
-        color: secondary
-        stroke: ''
-      template: ''
-    button:
-      template: ''
-      type: ''
-      color: ''
-      text: ''
-      external_link: ''
-      internal_link: ''
-      icon:
-        template: ''
-        icon: ''
-        size: ''
-        color: ''
-        stroke: ''
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
+      icon: file-text
 - template: section
   background: wave
   title: Built with DataONE Plus
@@ -369,13 +195,6 @@ page_sections:
         color: primary
         text: See portal
         external_link: https://knb.ecoinformatics.org/portals/sasap
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
       logo: "/uploads/portals/logo_SASAP.svg"
       content:
       - template: tabs
@@ -421,13 +240,6 @@ page_sections:
         color: primary
         text: See portal
         external_link: https://arcticdata.io/catalog/portals/DBO
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
       logo: "/uploads/portals/logo_DBO.svg"
       content:
       - template: tabs
@@ -460,39 +272,9 @@ page_sections:
           - template: image
             type: float
             src: "/uploads/portals/dbo_metrics.png"
-            alttext: ''
-            overlay_effect: ''
-        position: ''
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
 - template: section
   type: default
-  icon:
-    icon: book-open
-    color: inherit
-    size: large
-    template: ''
-    stroke: ''
+  icon: book-open
   title: Access to DataONE expertise
   blocks:
   - template: columns
@@ -503,70 +285,11 @@ page_sections:
       headline: Consulting services
       text: Custom design, data curation, and management consulting are available
         at hourly rates
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
-      details: []
-      button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
     - template: feature-detailed
       type: top
       headline: Discounted training
       text: Take advantage of discounted pricing for data science and data management
         training courses
-      image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
-      details: []
-      button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
-    alignment: ''
-    layout: ''
-  background: ''
-  background2: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
 - template: section
   type: card
   background: subtle-emphasis
@@ -583,21 +306,6 @@ page_sections:
     text: More about hosted repositories
     internal_link: services/hosted-repo.md
     external_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  blocks: []
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  id: ''
 - template: section
   background: major-accent-color
   title: Interested in a becoming a DataONE Plus member?
@@ -611,29 +319,6 @@ page_sections:
     precheck_newsletter: false
     style: ''
     newsletter_only: false
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
-icon: d1-plus-logo
 menu:
   primary_nav:
     weight: 2

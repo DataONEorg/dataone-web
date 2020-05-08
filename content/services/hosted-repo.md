@@ -72,43 +72,23 @@ page_sections:
       template: item-with-icon
       text: All data and metadata are replicated to two geographically independent
         data centers in California and Tennessee
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
     - name: Customization
       template: item-with-icon
       text: Brand your data repository with customized features allowing you to connect
         directly with your community.
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
   - details:
     - template: item-with-icon
       name: Custom DOI prefix
       text: A DOI prefix is configured exclusively for your datasets, products, and
         code
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
     - template: item-with-icon
       name: Custom domain name
       text: Your repository is available at a domain of your choice, but hosted by
         DataONE
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
     image:
       template: image
       src: uploads/custom-domain-and-doi.png
@@ -145,21 +125,11 @@ page_sections:
     - template: item-with-icon
       name: Time series charts
       text: Discover how FAIR scores change over time through time series charts
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
     - template: item-with-icon
       name: Detailed analysis
       text: Drill down into detailed FAIR reports for individual datasets
-      icon:
-        template: icon
-        icon: check
-        size: small
-        color: secondary
-        stroke: thicker
+      icon: check
     button:
       template: button
       type: internal page
@@ -309,7 +279,6 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
-icon: database
 menu:
   primary_nav:
     weight: 3
@@ -317,5 +286,4 @@ menu:
     post: A dedicated repository for your data
   footer:
     weight: 2
-
 ---

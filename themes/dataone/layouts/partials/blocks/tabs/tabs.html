@@ -37,7 +37,7 @@
         <!-- this class is used as selector in tabs.js -->
         {{ $link := print "#" (index $tabIDs $index) }}
         {{ $icon := .icon | default "" }}
-        {{ $buttonBlock := dict "type" "tab" "external_link" $link "text" $tab.title "icon" (dict "icon" $icon) }}
+        {{ $buttonBlock := dict "type" "tab" "external_link" $link "text" $tab.title "icon" $icon }}
         {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page ) }}
       </li>
 

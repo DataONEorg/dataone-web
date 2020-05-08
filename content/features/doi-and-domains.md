@@ -47,58 +47,13 @@ header:
     internal_link: "/services"
     color: secondary
     text: See all features
-    external_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   - template: button
     type: subscribe form
     color: primary
     text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    type: ''
-    overlay_effect: ''
 page_sections:
 - type: default
   template: section
-  background: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title: ''
-  intro: ''
-  blocks: []
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   id: ''
 - template: section
   background: major-accent-color
@@ -113,28 +68,4 @@ page_sections:
     precheck_newsletter: false
     style: ''
     newsletter_only: false
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
-custom_link: ''
-
 ---

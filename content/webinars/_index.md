@@ -22,45 +22,27 @@ page_sections:
     - template: item-with-icon
       name: Day
       text: The 2nd Tuesday of every month from September through May (with a pause during summer months)
-      icon:
-        icon: calendar
-        size: large
-        stroke: thinner
+      icon: calendar
     - template: item-with-icon
       name: Duration
       text: "Webinars last one hour with a ~35 minute presentation and 25 minutes for discussion"
-      icon:
-        icon: watch
-        size: large
-        stroke: thinner
+      icon: watch
     - template: item-with-icon
       name: Time
       text: 9AM US Pacific time (12PM US Eastern time)
-      icon:
-        icon: clock
-        size: large
-        stroke: thinner
+      icon: clock
     - template: item-with-icon
       name: How to join
       text: Remote access using Zoom
-      icon:
-        icon: headphones
-        size: large
-        stroke: thinner
+      icon: headphones
     - template: item-with-icon
       name: Video
       text: Webinars are recorded and posted here afterwards
-      icon:
-        icon: video
-        size: large
-        stroke: thinner
+      icon: video
     - template: item-with-icon
       name: Post-webinar open forum
       text: Open for 24 hours to allow further discussion with the speaker
-      icon:
-        icon: message-circle
-        size: large
-        stroke: thinner
+      icon: message-circle
 menu:
   primary_nav:
     weight: 1
