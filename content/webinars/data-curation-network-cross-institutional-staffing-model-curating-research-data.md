@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Data Curation Network: A cross-institutional staffing model for curating research
   data'
-webinar_datetime: 2018-12-11T09:00:00-08:00
+webinar_datetime: 2018-12-11T17:00:00.000+00:00
 duration: 60
 status: past
 tags:
