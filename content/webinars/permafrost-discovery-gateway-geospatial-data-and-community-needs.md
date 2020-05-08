@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Academic Data Science, From Individuals to Institutions
-webinar_datetime: 2020-04-14T09:00:00-07:00
+webinar_datetime: 2020-04-14T16:00:00.000+00:00
 duration: 60
 status: past
 tags:
@@ -35,5 +35,6 @@ abstract: Although data-driven research is already accelerating scientific disco
   Data Science Environments (msdse.org).
 speakers:
 - people/micaela-parker.md
+slug: academic-data-science-individuals-institutions
 
 ---
