@@ -34,6 +34,8 @@ fields:
     description: If this feature page includes a section that describes this sub-feature,
       include the section ID here. This will generate a link directly to this section
       from the feature table.
+  config:
+    labelField: title
 - type: boolean
   name: render_page
   label: Create feature summary page
