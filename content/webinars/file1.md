@@ -23,6 +23,6 @@ abstract: |-
   A recent update of the LTER Network bibliography makes it possible to approach the question of "what works" to facilitate collaboration at both the site- and the network-level. Our analysis shows that between 1980 and 2019, the average number of LTER-based publications per site per year grew from 6 to more than 30. For the first 10-15 years of the Network's history, the number of authors and institutions per publication was similar to a comparable sample of non-LTER publications. But the pace of collaboration accelerated rapidly between 1995 and 2019. Today, LTER papers involve nearly twice as many authors and institutions as comparable non-LTER publications. Site tenure and ecosystem type are predictably strong drivers of collaboration in the LTER Network. Researcher mobility emerged as an unexpected source of collaboration that merits further investigation.
 speakers:
 - people/marty-downs.md
-slug: ''
+slug: collaboration-across-time-and-space-lter-network
 
 ---
