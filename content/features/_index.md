@@ -1,5 +1,5 @@
 ---
-title: "\U0001F4C4 GENERAL FEATURE OPTIONS"
+title: "\U0001F4C4 _ GENERAL FEATURE OPTIONS"
 _build:
   render: false
   list: always
