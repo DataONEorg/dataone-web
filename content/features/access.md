@@ -5,7 +5,6 @@ title: Access control
 description: Manage access to your data with rules and groups you define
 linked_services:
 - service_file: services/hosted-repo.md
-  service: services/hosted-repo.md
   table_annotation: ''
 show_in_table: true
 render_page: false
