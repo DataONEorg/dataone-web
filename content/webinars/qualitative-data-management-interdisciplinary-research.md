@@ -7,7 +7,7 @@ status: past
 tags:
 - Preserve
 vimeoID: 264114209
-image: "/uploads/download (1).jpeg"
+image: "/uploads/andrew-neel-1-29wyvvLJA-unsplash.jpg"
 registration_link: ''
 slides: "/uploads/dws04102018slides_0.pdf"
 disqus_shortname: qualitative-data-management-for-int-research
