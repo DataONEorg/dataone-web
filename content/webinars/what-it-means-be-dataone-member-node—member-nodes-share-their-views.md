@@ -29,11 +29,12 @@ abstract: DataONE Member Nodes are the key to getting research data available th
   The benefits of which can lead to better visibility and dissemination of their data,
   long-term data management, and broader community engagement.
 speakers:
-- people/file-17.md
-- people/file-16.md
-- people/file-15.md
-- people/file-14.md
-- people/file-13.md
-- people/dave_vieglais.md
+- people/ken-casey.md
+- people/james-duncan.md
+- people/mark-servilla.md
+- people/amy-forrester.md
+- people/monica-ihli.md
+- people/dave-vieglais.md
+slug: what-it-means-be-dataone-member-node—member-nodes-share-their-views
 
 ---
