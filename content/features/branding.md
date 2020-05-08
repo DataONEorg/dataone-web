@@ -3,9 +3,9 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Portal branding
 description: Customize your portal with colors, logos, and images
-free: false
-plus: true
-hostedrepo: true
+linked_services:
+- service_file: services/plus.md
+- service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
 category: branding

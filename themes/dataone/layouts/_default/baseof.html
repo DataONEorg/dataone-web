@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
   {{- partial "head.html" . -}}
+  {{ if not (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) }}
+    <body class="page">
 
-  <body class="page">
-    <!-- define SVG gradients and the icon sprite at start of body -->
-    {{- partialCached "svg-defs.html" . -}}
+      <!-- define SVG gradients and the icon sprite at start of body -->
+      {{- partialCached "svg-defs.html" . -}}
 
-    <!-- header/navigation -->
-    {{- block "nav" . }}
-      {{- partial "blocks/global-header/global-header.html" . -}}
-    {{- end -}}
+      <!-- header/navigation -->
+      {{- block "nav" . }}
+        {{- partial "blocks/global-header/global-header.html" . -}}
+      {{- end -}}
 
-    <!-- main content -->
-    <!-- Classes to add to the acticle element -->
-    {{ $classes := "article" }}
-    {{ with .Page.Params.theme }}
-      {{ $classes = print $classes " " "theme-" . }}
-    {{ end }}
-    <article class="{{ $classes }}">
-      {{- block "main" . }}{{- end }}
-    </article>
+      <!-- main content -->
+      <!-- Classes to add to the acticle element -->
+      {{ $classes := "article" }}
+      {{ with .Page.Params.theme }}
+        {{ $classes = print $classes " " "theme-" . }}
+      {{ end }}
+      <article class="{{ $classes }}">
+        {{- block "main" . }}{{- end }}
+      </article>
 
-    <!-- footer -->
-    {{- partialCached "blocks/global-footer/global-footer.html" . -}}
+      <!-- footer -->
+      {{- partialCached "blocks/global-footer/global-footer.html" . -}}
 
-    <!-- Get the bundled javascript resources -->
-    {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify }}
-    <script src="{{ $js.Permalink }}"></script>
+      <!-- Get the bundled javascript resources -->
+      {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify }}
+      <script src="{{ $js.Permalink }}"></script>
 
-    <!-- For debugging CSS: -->
-    <!-- find elements that expand past screen width (esp. on mobile) -->
-    <!-- <script> var docWidth = document.documentElement.offsetWidth; [].forEach.call( document.querySelectorAll('*'), function(el) { if (el.offsetWidth > docWidth) { console.log(el); console.log(el.offsetWidth); } } ); </script> -->
+      <!-- For debugging CSS: -->
+      <!-- find elements that expand past screen width (esp. on mobile) -->
+      <!-- <script> var docWidth = document.documentElement.offsetWidth; [].forEach.call( document.querySelectorAll('*'), function(el) { if (el.offsetWidth > docWidth) { console.log(el); console.log(el.offsetWidth); } } ); </script> -->
 
-  </body>
+    </body>
+  {{ end }}
 </html>

@@ -4,12 +4,14 @@
 {{$services := where $.Site.Pages "Type" "services"}}
 {{$services := where $services "Params.service_color" "!=" nil}}
 {{range $service := $services}}
-  {{$color:= $service.Params.service_color}};
+  {{$color := $service.Params.service_color}};
+  {{$serviceVarName := $service.Params.title | urlize}}
   $lightercol: mix({{ $color }}, white, 12%);
-  .theme--{{$service.Params.service_varName}}{
+  .theme--{{$serviceVarName}}{
     --theme-c      : {{$color}};
     --theme-c-light: #{$lightercol};
   }
+
 {{end}}
 
 

@@ -3,24 +3,26 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Citation reports
 description: Find out who is citing your data, and see citation trends over time
-free: true
-plus: true
-hostedrepo: true
+linked_services:
+- service_file: services/free.md
+- service_file: services/plus.md
+- service_file: services/hosted-repo.md
 show_in_table: true
 render_page: true
 category: analytics
 sub_features:
 - title: Dataset citation metrics
   description: Review your per-dataset citations over time
-  free: true
-  plus: true
-  hostedrepo: true
+  linked_services:
+  - service_file: services/free.md
+  - service_file: services/plus.md
+  - service_file: services/hosted-repo.md
   show_in_table: true
 - title: Aggregated citations
   description: See aggregated citations over time for your datasets in each portal or hosted repository
-  free: false
-  plus: true
-  hostedrepo: true
+  linked_services:
+  - service_file: services/plus.md
+  - service_file: services/hosted-repo.md
   show_in_table: true
 header:
   template: header

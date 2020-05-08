@@ -6,7 +6,7 @@ description: Enhanced DataONE products and services in support of your research,
   more.
 service_icon: d1-plus-logo
 service_color: "#34bb96"
-service_varName: "plus"
+weight: 2
 date: 2020-01-14T19:04:29.000+00:00
 header:
   template: header
@@ -58,6 +58,15 @@ page_sections:
       image:
         template: image
         type: float
+        src: uploads/portal-editor.png
+        alttext: Search filters
+      type: top
+      text: Pick datasets, add and reorder pages, and upload images in minutes with the easy-to-use online portal editor
+      headline: Set up in minutes
+    - template: feature-detailed
+      image:
+        template: image
+        type: float
         src: uploads/search-filters.png
         alttext: Search filters
       type: top
@@ -69,20 +78,6 @@ page_sections:
         internal_link: features/custom-search.md
       headline: Customized search filters
       text: Configure search fields specific to your science topics
-    - template: feature-detailed
-      image:
-        template: image
-        type: float
-        src: uploads/portal-editor.png
-        alttext: Search filters
-      type: top
-      button:
-        template: button
-        color: quaternary
-        internal_link: features/portal-editor.md
-        text: Portal editor in detail
-      text: Pick datasets, add and reorder pages, and upload images in minutes with the easy-to-use online portal editor
-      headline: Set up in minutes
   button:
     template: button
     type: internal page
@@ -145,42 +140,32 @@ page_sections:
         text: Data citations
         internal_link: "/features/citations"
 - template: section
-  type: default
-  icon:
-    icon: image
-    color: inherit
-    size: large
   title: Customized to match your project
-  intro: Add custom content and branding
+  type: default
   blocks:
-  - template: image
-    src: uploads/portals-branding.png
-    alttext: FAIR metrcis report
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: feature-detailed
-      type: top
-      headline: Your branding
+  - template: feature-detailed
+    type: left
+    headline: Add custom content & branding
+    text: Create personalized pages for your project
+    image:
+      src: uploads/portals-branding.png
+      alttext: FAIR metrcis report
+    details:
+    - name: Your branding
       text: Customize your portal with the colors, logos, and images that reflect
         your project
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: See branding options
-        internal_link: "/features/branding"
-    - template: feature-detailed
-      type: top
-      headline: Your content
+      icon:
+        icon: image
+        size: medium
+        color: secondary
+    - name: Your content
       text: Your portal pages can include visualizations of your research, a list
         of your team members, and any other custom content
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Learn more about custom content
-        internal_link: "/features/portal-content"
+      icon:
+        template: icon
+        icon: file-text
+        size: medium
+        color: secondary
 - template: section
   background: wave
   title: Built with DataONE Plus

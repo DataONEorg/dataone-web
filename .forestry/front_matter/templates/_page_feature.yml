@@ -1,0 +1,74 @@
+---
+label: "\U0001F4C4Feature Page"
+hide_body: true
+display_field: title
+fields:
+- type: boolean
+  name: render_page
+  label: Create feature summary page
+  description: If set to true, a page will be generated for this feature using content set below, and a link to the page will be shown in the feature table. If false, no link will be shown from the feature table and no page will be created. However, the feature may still be shown in the feature table.
+  default: true
+- type: include
+  template: feature-parameters
+- type: select
+  label: Feature category
+  name: category
+  description: Which type of feature is this? This is used to split the feature table into sections. To change the available categories, edit the [Feature index page](#/pages/content-features-_index-md/).
+  default: misc
+- name: sub_features
+  type: field_group_list
+  label: Sub features
+  description: Optional. Add more granular features under this feature.
+  fields:
+  - type: include
+    template: feature-parameters
+  - name: section_id
+    type: text
+    label: Associated page section ID
+    description: If this feature page includes a section that describes this sub-feature, include the section ID here. This will generate a link directly to this section from the feature table.
+- name: header
+  showOnly:
+    field: render_page
+    value: true
+  type: field_group
+  config: {}
+  fields:
+  - name: header
+    type: include
+    config: {}
+    template: header
+    label: header
+  label: Page header
+- type: field_group_list
+  name: page_sections
+  showOnly:
+    field: render_page
+    value: true
+  label: Page sections
+  fields:
+  - type: include
+    template: section
+    name: section-block
+    label: Section block
+    description: Modular sections to organize content
+  description: The different building blocks that make up the page sections
+  config:
+    labelField: title
+pages:
+- content/features/access.md
+- content/features/any-file-format.md
+- content/features/custom-search.md
+- content/features/developer-tools.md
+- content/features/fair.md
+- content/features/portal-editor.md
+- content/features/provenance.md
+- content/features/replicas.md
+- content/features/search.md
+- content/features/share.md
+- content/features/storage.md
+- content/features/submission.md
+- content/features/support.md
+- content/features/usage-metrics.md
+- content/resources/documentation.md
+- content/resources/tools.md
+- content/resources/training.md

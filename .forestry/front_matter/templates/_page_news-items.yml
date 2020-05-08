@@ -38,5 +38,10 @@ fields:
   description: The different building blocks that make up the page sections
   config:
     labelField: title
+- type: include
+  template: menu-options
+  name: menu
+  label: Menu options
+  description: Configure how this page will appear in the navigation bar
 pages:
 - content/news/_index.md

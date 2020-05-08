@@ -19,7 +19,14 @@ sections:
   create: all
   match: "**/*"
   templates:
-  - _page_blocks
+  - _page_service
+- type: directory
+  path: content/features
+  label: Features
+  create: all
+  match: "**/*"
+  templates:
+  - _page_feature
 - type: directory
   path: content/network
   label: Network
@@ -27,9 +34,10 @@ sections:
   match: "**/*"
   templates:
   - _page_blocks
+  - markdown
 - type: directory
   path: content/resources
-  label: Resources
+  label: Community
   create: all
   match: "*"
   templates:
@@ -43,13 +51,6 @@ sections:
   templates:
   - _page_blocks
   - markdown
-- type: directory
-  path: content/features
-  label: Features
-  create: all
-  match: "**/*"
-  templates:
-  - _page_blocks
 - type: directory
   path: content/webinars
   label: Webinars

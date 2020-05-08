@@ -10,7 +10,7 @@
 
 <!-- Parameters passed from table block -->
 {{ $feature := .Block.feature }}
-{{ $serviceNames := .Block.serviceNames }}
+{{ $servicePages := .Block.service_pages }}
 {{ $subFeature := $feature.subFeature | default false }}
 {{ $striped := .Block.striped }}
 
@@ -21,6 +21,9 @@
 {{ if $striped }}
   {{ $classes = printf "%s %s--striped" $classes $en }}
 {{ end }}
+
+<!-- Icons -------------------------------------------------------------------->
+<!-- Icons used in the row -->
 
 <!-- Checkmark icon -->
 {{ $iconBlock := dict "icon" "check" "color" "inherit" "stroke" "thicker" "size" "small" }}
@@ -36,50 +39,21 @@
 {{ $subfeatureIcon := partial "blocks/icon/icon" (dict "Block" $subfeatureIconBlock "Page" $page) }}
 {{ $subfeatureIcon = printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $subfeatureIcon  | safeHTML }}
 
-<!-- Name of the feature -->
+<!-- Feature Params ----------------------------------------------------------->
+
+<!-- Name of the feature to use in the table -->
 {{ $name := $feature.title | default "" }}
 
-<!-- Whether or not to render an anchor tag to the feature page -->
-{{ $link := $feature.url | default "" }}
-{{ with $feature.custom_link }}
-  {{ $link = . }}
+<!-- Wrap name in anchor tag if feature has an associated page -->
+{{ with $feature.url }}
+  {{ $name = printf "<a class='%s__feature-link' href='%s'>%s</a>" $bn . $name | safeHTML }}
 {{ end }}
-{{ $showLink := $feature.render_page | default false }}
 
 <!-- Icon with tool tip for description -->
 {{ $description := $feature.description | default "" }}
 {{ $detail := "" }}
 {{ with $description }}
   {{ $detail = printf "<span class='%s__details' data-tooltip='%s' data-position='right center'>%s</span>" $bn . $infoIcon | safeHTML }}
-{{ end }}
-
-<!-- What to render in the columns for each service -->
-
-<!-- A scratch that will hold the value to render in each service column -->
-{{ $serviceColumnValues := newScratch }}
-
-<!-- The parameters giving true or false to indicate if feature -->
-<!-- is available to each service -->
-{{ $serviceBooleans := dict "free" $feature.free "plus" $feature.plus "hostedrepo" $feature.hostedrepo }}
-
-<!-- For each service... -->
-{{ range $serviceInfo := $serviceNames }}
-  <!-- Set a checkmark if the corresponding page boolean is true -->
-  {{ $booleanValue := index $serviceBooleans $serviceInfo.varName }}
-  {{ if or (eq $booleanValue true) (eq $booleanValue "true") }}
-    {{ $serviceColumnValues.Set $serviceInfo.varName $checkmark }}
-  {{ end }}
-  <!-- If the table_annotations parameter is set to all, overwrite the -->
-  <!-- column with whatever the text value for all is -->
-  {{ if $feature.table_annotations }}
-    {{ range where $feature.table_annotations "service" "all" }}
-      {{ $serviceColumnValues.Set $serviceInfo.varName .text }}
-    {{ end }}
-    <!-- Otherwise check for annotations specific to the service -->
-    {{ range where $feature.table_annotations "service" $serviceInfo.varName }}
-      {{ $serviceColumnValues.Set $serviceInfo.varName .text }}
-    {{ end }}
-  {{ end }}
 {{ end }}
 
 <tr class="{{ $classes }}">
@@ -89,20 +63,35 @@
       {{ if $subFeature }}
         {{ $subfeatureIcon }}
       {{ end }}
-      {{ if and $showLink $link }}
-        <a class="{{ $bn }}__feature-link" href="{{ $link }}">
-          {{- $name -}}
-        </a>
-      {{ else }}
-        {{ $name }}
-      {{ end }}
+      {{ $name }}
       {{ $detail }}
+
     </h4>
   </td>
 
-  {{ range $serviceInfo := $serviceNames }}
-    <td class="{{ $bn }}__cell theme--{{ $serviceInfo.varName }}">
-      {{ $serviceColumnValues.Get $serviceInfo.varName }}
+  <!-- Make a cell for each of the service pages -->
+  {{ range $service := $servicePages }}
+    <!-- Use the service title to make a theme class. -->
+    <!-- Selector is used in the css files that set the service theme colors -->
+    <td class="{{ $bn }}__cell theme--{{ $service.Params.title | urlize }}">
+      <!-- Check whether this feature has a map of associates services -->
+      {{ if $feature.linked_services }}
+        <!-- Given path to the service page ($feature.linked_services.service_file), -->
+        <!-- Get the associated service page and see if it matches the service -->
+        <!-- that we're making a table cell for. If it matches, put a checkmark. -->
+        <!-- If there's a table annotation set, use that instead of the checkmark. -->
+        {{ range $feature.linked_services }}
+          {{ if .service_file }}
+            {{ if eq ($page.Site.GetPage .service_file ) $service }}
+              {{ with .table_annotation }}
+                {{ . }}
+              {{ else }}
+                {{ $checkmark }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
     </td>
   {{ end }}
 </tr>

@@ -4,14 +4,12 @@ date: 2020-03-16T09:49:58.000+00:00
 title: Contact support
 description: Directly contact our staff
 category: support
-free: false
-plus: true
-hostedrepo: true
+linked_services:
+- service_file: services/plus.md
+  table_annotation: Institutional subscribers only
+- service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
-table_annotations:
-- service: plus
-  text: Institutional subscribers only
 header:
   template: header
   type: text only

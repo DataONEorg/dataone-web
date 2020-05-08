@@ -1,19 +1,16 @@
 ---
 layout: blocks
-title: Training
+title: In-person training
 description: Access to DataONE data science and data management training courses
-free: true
-plus: true
-hostedrepo: true
+linked_services:
+- service_file: services/free.md
+  table_annotation: Regular prices
+- service_file: services/plus.md
+  table_annotation: Discounted prices
+- service_file: services/hosted-repo.md
+  table_annotation: Discounted prices
 show_in_table: true
 render_page: true
 custom_link: /training
 category: support
-table_annotations:
-- service: free
-  text: Regular prices
-- service: plus
-  text: Discounted prices
-- service: hostedrepo
-  text: Discounted prices
 ---

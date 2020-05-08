@@ -154,8 +154,8 @@
 
           <!-- Set a theme class for service pages -->
           {{ if .Page }}
-            {{ if and (eq .Page.Type "services") (.Page.Params.service_color) (.Page.Params.service_varName) }}
-              {{ $subItemClasses = printf "%s theme--%s" $subItemClasses (.Page.Params.service_varName) }}
+            {{ if and (eq .Page.Type "services") (.Page.Params.service_color) }}
+              {{ $subItemClasses = printf "%s theme--%s" $subItemClasses (.Page.Params.title | urlize ) }}
             {{ end }}
           {{ end }}
 

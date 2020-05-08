@@ -18,11 +18,13 @@ enableEmoji: true
 enableRobotsTXT: true
 publishDir: docs
 permalinks:
-  about: "/:filename/"
-  resources: "/:filename/"
-  network: "/:filename/"
-  plus: "/:filename/"
-  hostedrepo: "/:filename/"
+  about: "/:filename"
+  resources: "/:filename"
+  network: "/:filename"
+  services: "/:filename"
+  features: "/:filename"
+  news: "/:section/:filename"
+  people: "/:section/:title"
 DisqusShortname: x
 params:
   description: DataONE's products and services.

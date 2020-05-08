@@ -1,0 +1,42 @@
+---
+label: "Menu Options"
+hide_body: true
+display_field: title
+description: Menu options common to all pages. Used as an include field.
+fields:
+- type: field_group_list
+  name: menu
+  label: Menu options
+  description: Configure how this page will appear in the navigation bar
+  fields:
+  - name: primary_nav
+    label: Primary navigation Menu
+    type: field_group_list
+    fields:
+      - label: Order
+        name: weight
+        type: number
+        description: This integer is used to order the item in the menu. If the number is > 99, it will be displayed in the grey portion at the bottom of the submenu.
+      - name: parent
+        type: select
+        label: Parent
+        description: If this is a sub-menu item, the parent item under which it should go.
+        config: 
+          source:
+            type: simple
+          options:
+          - ""
+          - Services
+          - Network
+          - Community
+          - About
+      - name: post
+        label: Description
+        description: An optional description to show. Displayed for sub-menu items only.
+        type: text
+      - name: pre
+        type: include
+        label: Icon
+        description: An optional icon to display in the menu. For sub-menu items only. For the service pages, the service icon will replace whatever is selected here.
+        config: {}
+        template: icon-names

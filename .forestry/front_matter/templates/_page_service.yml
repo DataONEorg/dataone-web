@@ -1,0 +1,75 @@
+---
+label: "\U0001F4C4Service Page"
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: layout
+  label: Layout
+  hidden: true
+  default: blocks
+- type: datetime
+  name: date
+  label: Date
+  description: The date the page was created
+  default: now
+  hidden: true
+- type: boolean
+  name: render_page
+  label: Make service summary page
+  description: If set to true, a page will be generated for this service and a link to the page will be shown in the table. If false, no link will be shown from the feature table and no page will be created. Other content will still be used to generate the feature table.
+  default: true
+- type: text
+  label: Service name
+  name: title
+  description: The name of the service. This will display in the feature table, at the top of the page, in the navigation, in search results, the browser tab, and bookmarked
+    page
+- type: text
+  label: Description
+  name: description
+  description: A few sentences that describe the highlights of this feature. Used in page summaries and search results.
+- type: color
+  config:
+      color_format: Hex
+  name: service_color
+  label: Service Color
+  description: A color used to represent this service throughout the website, for example, in the navigation and feature table.
+- type: include
+  label: Service icon
+  name: service_icon
+  description: An icon that represents this service, used through out the website, for example, in the navigation and feature table.
+- type: number
+  name: weight
+  label: Service order
+  description: This number will determine the order that services appear, for example in the feature table.
+- name: header
+  type: field_group
+  config: {}
+  fields:
+  - name: header
+    type: include
+    config: {}
+    template: header
+    label: header
+  label: Page header
+- type: field_group_list
+  name: page_sections
+  label: Page sections
+  fields:
+  - type: include
+    template: section
+    name: section-block
+    label: Section block
+    description: Modular sections to organize content
+  description: The different building blocks that make up the page sections
+  config:
+    labelField: title
+- type: include
+  template: menu-options
+  name: menu
+  label: Menu options
+  description: Configure how this page will appear in the navigation bar
+pages:
+- content/services/free.md
+- content/services/plus.md
+- content/services/hostedrepo.md

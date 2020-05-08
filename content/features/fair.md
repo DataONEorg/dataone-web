@@ -3,25 +3,24 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: FAIR Metadata Assessments
 description: Evaluate your metadata with community established FAIR principles
-free: false
-plus: true
-hostedrepo: true
 show_in_table: true
 render_page: true
 category: analytics
+linked_services:
+- service_file: services/plus.md
+- service_file: services/hosted-repo.md
 sub_features:
 - title: Aggreated FAIR report
   description: Aggreate FAIR scores for each portal or for each hosted repository
-  free: false
-  plus: true
-  hostedrepo: true
+  linked_services:
+    - service_file: services/plus.md
+    - service_file: services/hosted-repo.md
   show_in_table: true
   section_id: aggregated-reports
 - title: Per-dataset FAIR report
   description: Individual FAIR report for each individual dataset
-  free: false
-  plus: false
-  hostedrepo: true
+  linked_services:
+    - service_file: services/hosted-repo.md
   show_in_table: true
   section_id: individual-reports
 header:
@@ -44,7 +43,8 @@ header:
 page_sections:
 - background: subtle-emphasis
   title: |- 
-    Researchers increasingly rely on<br>computational tools to find, access & use data.<br>
+    Researchers increasingly rely on<br>
+    computational tools to find, access & use data.<br>
     **Are your data ready?**
   intro: At a glance, see how your data score in categories of Findability, Accessibility, Interoperability, and Reusability ("FAIR"). With assessments based on the [community established FAIR data principles](#what-is-fair), you can guide your community toward maximizing the value of their digital assets.
   blocks:

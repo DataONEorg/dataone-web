@@ -57,21 +57,13 @@ fields:
   description: The different building blocks that make up the page sections
   config:
     labelField: title
+- type: include
+  template: menu-options
+  name: menu
+  label: Menu options
+  description: Configure how this page will appear in the navigation bar
 pages:
 - content/about/contact.md
-- content/features/access.md
-- content/features/any-file-format.md
-- content/features/custom-search.md
-- content/features/developer-tools.md
-- content/features/fair.md
-- content/features/portal-editor.md
-- content/features/provenance.md
-- content/features/replicas.md
-- content/features/search.md
-- content/features/storage.md
-- content/features/submission.md
-- content/features/support.md
-- content/features/usage-metrics.md
 - content/resources/documentation.md
 - content/resources/tools.md
 - content/resources/training.md

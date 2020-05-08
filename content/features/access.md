@@ -3,18 +3,16 @@ layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
 title: Access control
 description: Manage access to your data with rules and groups you define
-free: false
-plus: false
-hostedrepo: true
+linked_services:
+  - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
 category: access control
 sub_features:
 - title: Share when ready
   description: Keep your dataset private while you document it thoroughly, then share it with the world when you're ready.
-  free: false
-  plus: false
-  hostedrepo: true
+  linked_services:
+    - service_file: services/hosted-repo.md
   show_in_table: true
   render_page: true
 header:
@@ -45,22 +43,6 @@ page_sections:
   title: ''
   intro: ''
   blocks: []
-  button:
-    template: ''
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
@@ -74,20 +56,4 @@ page_sections:
     precheck_newsletter: false
     newsletter_only: false
   id: ''
-  button:
-    template: ''
-    html_tag: ''
-    id: ''
-    type_attr: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    event:
-      title: ''
-      description: ''
-      URL: ''
-      start: ''
-      end: ''
 ---

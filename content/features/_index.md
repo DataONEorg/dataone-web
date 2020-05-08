@@ -1,4 +1,5 @@
 ---
+title: "\U0001F4C4 General Feature Options"
 _build:
   render: false
   list: always

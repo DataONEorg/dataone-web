@@ -116,8 +116,6 @@ fields:
   - steps
   - faq
   description: The blocks to include in the section
-  config:
-    min: ''
 - type: field_group
   name: button
   label: Button

@@ -54,7 +54,7 @@
     justify-self: center;
     width       : 100%;
     @include limit-width;
-    padding     : 3rem $lr-padding;
+    padding     : 4.3rem $lr-padding 2rem;
   }
 
   // An icon that represents the section contents
