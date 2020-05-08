@@ -74,7 +74,7 @@
     {{ end }}
 
     {{ with .Block.description }}
-      <p class="{{ $bn }}__description">{{ . }}</p>
+      <div class="{{ $bn }}__description">{{ . }}</div>
     {{ end }}
 
     {{ range .Block.tags }}
