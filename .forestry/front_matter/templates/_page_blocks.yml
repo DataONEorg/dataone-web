@@ -64,6 +64,4 @@ fields:
   description: Configure how this page will appear in the navigation bar
 pages:
 - content/about/contact.md
-- content/resources/documentation.md
-- content/resources/tools.md
-- content/resources/training.md
+- content/services/_index.md

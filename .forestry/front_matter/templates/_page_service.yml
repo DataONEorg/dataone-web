@@ -17,31 +17,39 @@ fields:
 - type: text
   label: Service name
   name: title
-  description: The name of the service. This will display in the feature table, at the top of the page, in the navigation, in search results, the browser tab, and bookmarked
-    page
+  description: The name of the service. This will display in the feature table, at
+    the top of the page, in the navigation, in search results, the browser tab, and
+    bookmarked page
 - type: text
   label: Description
   name: description
-  description: A few sentences that describe the highlights of this feature. Used in page summaries and search results.
+  description: A few sentences that describe the highlights of this feature. Used
+    in page summaries and search results.
 - type: color
   config:
-      color_format: Hex
+    color_format: Hex
   name: service_color
   label: Service Color
-  description: A color used to represent this service throughout the website, for example, in the navigation and feature table.
+  description: A color used to represent this service throughout the website, for
+    example, in the navigation and feature table.
 - type: include
   label: Service icon
   name: service_icon
-  description: An icon that represents this service, used through out the website, for example, in the navigation and feature table.
+  description: An icon that represents this service, used through out the website,
+    for example, in the navigation and feature table.
   template: icon-names
 - type: number
   name: weight
   label: Service order
-  description: This number will determine the order that services appear, for example in the feature table.
+  description: This number will determine the order that services appear, for example
+    in the feature table.
 - type: boolean
   name: render_page
   label: Make service summary page
-  description: If false, no link will be shown from the feature table and no page will be created for this service. The information set here will still be used to define services - for example - the title of the service will show in the feature table.
+  description: If false, no link will be shown from the feature table and no page
+    will be created for this service. The information set here will still be used
+    to define services - for example - the title of the service will show in the feature
+    table.
   default: true
 - name: header
   type: field_group
@@ -75,4 +83,3 @@ fields:
 pages:
 - content/services/free.md
 - content/services/plus.md
-- content/services/hostedrepo.md

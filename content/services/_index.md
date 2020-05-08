@@ -1,15 +1,11 @@
 ---
 title: Services
-description: All services and features offered by DataONE, including details about DataONE Plus and DataONE Hosted Repositories
+description: All services and features offered by DataONE, including details about
+  DataONE Plus and DataONE Hosted Repositories
 layout: blocks
 aliases:
-  - "/features/"
-  - "/pricing/"
-menu:
-  primary_nav:
-    name: All services & features
-    weight: 100
-    parent: Services
+- "/features/"
+- "/pricing/"
 header:
   template: header
   type: text only
@@ -24,15 +20,62 @@ header:
     type: subscribe form
     color: primary
     text: Join the waitlist
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
   - template: button
     type: contact
     color: secondary
     text: contact us
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    type: ''
+    overlay_effect: ''
+  intro: ''
 page_sections:
 - template: section
   title: Full feature list
   blocks:
   - template: feature-table
+  type: ''
+  background: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+  id: ''
 - template: section
   title: Frequently asked questions
   background: subtle-emphasis
@@ -47,6 +90,23 @@ page_sections:
     color: primary
     icon:
       icon: mail
+      template: ''
+      size: ''
+      color: ''
+      stroke: ''
+    template: ''
+    external_link: ''
+    internal_link: ''
+  type: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  intro: ''
+  id: ''
 - template: section
   background: major-accent-color
   title: Interested in DataONE Plus or a Hosted Repository?
@@ -58,4 +118,36 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: true
     precheck_newsletter: false
+    style: ''
+    newsletter_only: false
+  type: ''
+  background2: ''
+  icon:
+    template: ''
+    icon: ''
+    size: ''
+    color: ''
+    stroke: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon:
+      template: ''
+      icon: ''
+      size: ''
+      color: ''
+      stroke: ''
+  id: ''
+date: 2020-05-07T17:32:17-07:00
+theme: ''
+menu:
+- - primary_nav
+  - name: All services & features
+    weight: 100
+    parent: Services
+
 ---

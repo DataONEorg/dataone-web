@@ -6,7 +6,9 @@ fields:
 - type: boolean
   name: render_page
   label: Create feature summary page
-  description: If false, no link will be shown from the feature table and no page will be created for this feature. However, the feature may still be shown in the feature table.
+  description: If false, no link will be shown from the feature table and no page
+    will be created for this feature. However, the feature may still be shown in the
+    feature table.
   default: true
 - type: include
   name: feature-parameters
@@ -15,7 +17,8 @@ fields:
 - type: select
   label: Feature category
   name: category
-  description: Used to split the feature table into sections. To change the available categories, edit the [Feature index page](#/pages/content-features-_index-md/).
+  description: Used to split the feature table into sections. To change the available
+    categories, edit the [Feature index page](#/pages/content-features-_index-md/).
   default: misc
 - name: sub_features
   type: field_group_list
@@ -29,7 +32,9 @@ fields:
   - name: section_id
     type: text
     label: Associated page section ID
-    description: If this feature page includes a section that describes this sub-feature, include the section ID here. This will generate a link directly to this section from the feature table.
+    description: If this feature page includes a section that describes this sub-feature,
+      include the section ID here. This will generate a link directly to this section
+      from the feature table.
 - name: header
   showOnly:
     field: render_page
@@ -66,7 +71,6 @@ pages:
 - content/features/provenance.md
 - content/features/replicas.md
 - content/features/search.md
-- content/features/share.md
 - content/features/storage.md
 - content/features/submission.md
 - content/features/support.md

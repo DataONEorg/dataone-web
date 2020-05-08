@@ -1,37 +1,44 @@
 ---
-label: "Feature Parameters"
+label: Feature Parameters
 hide_body: true
 display_field: title
 fields:
 - type: text
   label: Feature name
   name: title
-  description: This is the name of the feature that will be displayed in the feature table. The name will also display at the top of the feature page, in the navigation, in search results, the browser tab, and bookmarked
-    page
+  description: This is the name of the feature that will be displayed in the feature
+    table. The name will also display at the top of the feature page, in the navigation,
+    in search results, the browser tab, and bookmarked page
 - type: text
   label: Description
   name: description
-  description: A very brief description of the feature. This description will appear in the feature table and in search results.
+  description: A very brief description of the feature. This description will appear
+    in the feature table and in search results.
 - type: text
   name: custom_link
   label: Custom link to feature info
-  description: By default, the feature table will include a link to this page (unless the `Make feature page` option is turned off). Set a custom URL here to have the feature table lead to another page (e.g. for the training discount feature, we link to the `/resources/traning` page).
+  description: By default, the feature table will include a link to this page (unless
+    the `Make feature page` option is turned off). Set a custom URL here to have the
+    feature table lead to another page (e.g. for the training discount feature, we
+    link to the `/resources/traning` page).
 - type: field_group_list
   label: Associated services
   name: linked_services
   description: Connect this feature to the the services to which it relates.
   fields:
-    - name: service
-      label: Service
-      type: select
-      description: The name of the service that includes this feature
-    - name: table_annotation
-      label: Table Annotation
-      description: Optionally add text to the table where there would normally be a checkmark. For example, under "Contact support", we use Table Annotations to write "Institutional subscribers only" under the Plus column.
-      type: text
+  - name: service
+    label: Service
+    type: select
+    description: The name of the service that includes this feature
+  - name: table_annotation
+    label: Table Annotation
+    description: Optionally add text to the table where there would normally be a
+      checkmark. For example, under "Contact support", we use Table Annotations to
+      write "Institutional subscribers only" under the Plus column.
+    type: text
 - type: boolean
   name: show_in_table
   label: Show in feature table
-  description: If set to true, a row will be created for this feature in the feature table. If false, it will not be shown in the table.
+  description: If set to true, a row will be created for this feature in the feature
+    table. If false, it will not be shown in the table.
   default: true
----
