@@ -41,7 +41,7 @@ fields:
       write "Institutional subscribers only" under the Plus column.
     type: text
   config:
-    labelField: service
+    labelField: service_file
 - type: boolean
   name: show_in_table
   label: Show in feature table
