@@ -3,17 +3,6 @@ label: "\U0001F4C4Feature Page"
 hide_body: true
 display_field: title
 fields:
-- type: boolean
-  name: render_page
-  label: Create feature summary page
-  description: If false, no link will be shown from the feature table and no page
-    will be created for this feature. However, the feature may still be shown in the
-    feature table.
-  default: true
-- type: include
-  name: feature-parameters
-  label: Feature Parameters
-  template: feature-parameters
 - type: select
   label: Feature category
   name: category
@@ -26,6 +15,10 @@ fields:
       section: features
       file: content/features/_index.md
       path: categories
+- type: include
+  name: feature-parameters
+  label: Feature Parameters
+  template: feature-parameters
 - name: sub_features
   type: field_group_list
   label: Sub features
@@ -41,6 +34,13 @@ fields:
     description: If this feature page includes a section that describes this sub-feature,
       include the section ID here. This will generate a link directly to this section
       from the feature table.
+- type: boolean
+  name: render_page
+  label: Create feature summary page
+  description: If false, no link will be shown from the feature table and no page
+    will be created for this feature. However, the feature may still be shown in the
+    feature table.
+  default: true
 - name: header
   showOnly:
     field: render_page
