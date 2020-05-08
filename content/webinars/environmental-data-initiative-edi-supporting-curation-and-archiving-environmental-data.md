@@ -24,10 +24,11 @@ abstract: |-
 
   Members of the EDI team will give an overview of EDI’s mission and core activities (data repository, data curation and publishing, data model standardization, metadata pipeline, outreach and data management training).
 speakers:
-- people/file-4.md
-- people/file-5.md
-- people/file-6.md
-- people/file-7.md
-- people/file-1.md
+- people/kristin-vanderbilt.md
+- people/colin-smith.md
+- people/duane-costa.md
+- people/margaret-obrien.md
+- people/corinna-gries.md
+slug: environmental-data-initiative-edi-supporting-curation-and-archiving-environmental-data
 
 ---
