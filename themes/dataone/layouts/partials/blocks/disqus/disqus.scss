@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn    : &;
+  $bn       : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix: "--" + str-replace(#{$bn}, ".");
+  $prefix   : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -22,5 +22,7 @@
   //    Styles
   // ==========================================================================
 
-  @include f-common;
+  // @include f-common;
+
+  margin-top: 2rem;
 }

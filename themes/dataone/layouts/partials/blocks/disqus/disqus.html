@@ -1,9 +1,6 @@
 {{ $shortname := .Block.shortname | default "" }}
 
-{{ with $shortname }}
-  <div id="disqus_thread">
-    Disqus comments section for
-    <em>{{ . }}</em>
-    will be displayed here.
-  </div>
+{{ if $shortname }}
+  <!-- only one disqus per page allowed. -->
+  <div id="disqus_thread" data-disqus-shortname="{{ $shortname }}" class="disqus"></div>
 {{ end }}

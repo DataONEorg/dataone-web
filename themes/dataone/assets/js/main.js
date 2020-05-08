@@ -3,8 +3,6 @@
 
 // Bring in parameters from config to use globally
 var mobileDesktopBreakpoint = {{.Site.Params.mobileDesktopBreakpoint}};
-var disqusShortname = {{ .Site.DisqusShortname }};
-
 // Helper functions
 {{ readFile "themes/dataone/assets/js/helpers.js" }}
 
