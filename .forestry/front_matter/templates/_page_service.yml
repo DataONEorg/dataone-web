@@ -79,14 +79,19 @@ fields:
   showOnly:
     field: render_page
     value: true
-- type: include
+- type: field_group
+  name: menu
+  label: Menu options
   showOnly:
     field: render_page
     value: true
-  template: menu-options
-  name: menu
-  label: Menu options
   description: Configure how this page will appear in the navigation bar
+  fields:
+  - type: include
+    template: menu-options
+    name: menu
+    label: Menu options
+    description: Configure how this page will appear in the navigation bar
 pages:
 - content/services/free.md
 - content/services/plus.md
