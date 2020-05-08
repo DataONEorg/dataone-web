@@ -3,14 +3,14 @@ label: Menu Options
 hide_body: true
 display_field: title
 fields:
-- type: field_group_list
+- type: field_group
   name: menu
   label: Menu options
   description: Configure how this page will appear in the navigation bar
   fields:
   - name: primary_nav
     label: Primary navigation Menu
-    type: field_group_list
+    type: field_group
     fields:
     - label: Order
       name: weight

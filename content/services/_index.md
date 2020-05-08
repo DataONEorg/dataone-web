@@ -145,9 +145,8 @@ page_sections:
 date: 2020-05-07T17:32:17-07:00
 theme: ''
 menu:
-- - primary_nav
-  - name: All services & features
+  primary_nav:
+    name: All services & features
     weight: 100
     parent: Services
-
 ---
