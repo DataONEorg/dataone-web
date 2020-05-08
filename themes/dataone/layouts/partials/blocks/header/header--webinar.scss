@@ -33,6 +33,7 @@
 
   @include f-common;
 
+  align-self                     : flex-start !important;
   margin-top                     : 0 !important;
   padding-top                    : 0 !important;
 
@@ -40,45 +41,29 @@
     grid-template-columns: 1fr;
   }
 
-  .header__text {
+  #{$bn}__registration-button {
+    display        : flex;
+    justify-content: center;
+    margin-top     : 1rem;
+    margin-bottom  : 3.5rem;
+  }
+
+  #{$bn}__speakers-title {
+    font-weight: var(--fw-bold, 500);
+    margin-top : 0;
+  }
+
+  #{$bn}__text {
     grid-gap: 0;
   }
 
-  .header__headline {
+  #{$bn}__headline {
     font-size  : var(--fs-xx-large, 1.75rem);
     line-height: 1.3;
     margin-top : 2rem;
   }
 
-  .header__intro {
-    font-size    : var(--fs-large, 1.22rem);
-    margin-bottom: 2rem;
-
-    .accordion__trigger {
-      line-height: 1.5;
-    }
-  }
-
-  .header__abstract {
-    font-size  : var(--fs-medium, 1.1rem);
-    // font-weight: var(--fw-light, 300);
-    line-height: 1.6;
-  }
-
-  .header__read-more {
-    font-weight: var(--fw-light, 300);
-    color      : var(#{$prefix}-c-accent);
-    font-size  : var(--fs-small, 1rem);
-    margin-left: 1rem;
-  }
-
-  .header__intro:hover {
-    .header__read-more {
-      filter: brightness(1.05);
-    }
-  }
-
-  .header__datetime-items {
+  #{$bn}__datetime-items {
     margin        : 1.5rem 0;
     color         : var(#{$prefix}-c-forground-subtle);
     stroke        : var(#{$prefix}-c-forground-subtle);
@@ -87,13 +72,13 @@
     text-align    : left;
   }
 
-  .header__datetime-item {
+  #{$bn}__datetime-item {
     margin-bottom: .6rem;
     height       : 20px;
     max-height   : 20px;
   }
 
-  .header__datetime-icon {
+  #{$bn}__datetime-icon {
     margin-right: 6px;
   }
 }

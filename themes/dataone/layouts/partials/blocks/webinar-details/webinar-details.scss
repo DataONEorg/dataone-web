@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn    : &;
+  $bn                : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix: "--" + str-replace(#{$bn}, ".");
+  $prefix            : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,7 +16,7 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-accent: var(--section-c-accent, var(--c-major-accent-on-default, grey)) !important;
 
   // ==========================================================================
   //    Styles
@@ -26,8 +26,8 @@
 
   // #{$prefix}-icon-color: var(--section-fc-body, gray);
 
-  width  : 100%;
-  height : 100%;
+  width              : 100%;
+  height             : 100%;
 
   @include desktop {
     padding-top: 1rem;
@@ -46,7 +46,8 @@
 
   &__video-title {
     @include f-common;
-    color: var(--section-fc-body, black);
+    color      : var(--section-fc-body, black);
+    font-weight: var(--fw-bold, 500);
   }
 
   &__slides {
@@ -60,14 +61,33 @@
     margin   : 2rem auto;
   }
 
-  &__registration {
-    display        : flex;
-    justify-content: center;
+  &__read-more {
+    font-weight: var(--fw-light, 300);
+    color      : var(#{$prefix}-c-accent);
+    font-size  : var(--fs-small, 1rem);
+    margin-left: 1rem;
   }
 
-  &--st-past {
-    @include desktop {
-      padding-top: 8rem;
+  &__intro {
+    font-size    : var(--fs-large, 1.22rem);
+    margin-bottom: 2rem;
+
+    .accordion__trigger {
+      line-height: 1.5;
     }
   }
+
+  &__abstract {
+    font-size  : var(--fs-medium, 1.1rem);
+    // font-weight: var(--fw-light, 300);
+    line-height: 1.6;
+  }
+
+  &__intro:hover {
+    &__read-more {
+      filter: brightness(1.05);
+    }
+  }
+
+  &--st-past {}
 }

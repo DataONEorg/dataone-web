@@ -20,10 +20,13 @@
 
   <!-- ========================================== BLOCKS ========================================== -->
 
-  {{ $readMore := ` <span class="header__read-more">Read more</span>`}}
-  {{ $intro := print $webinar.short_abstract $readMore | safeHTML}}
+  <!-- Registration link -->
+  {{ $buttonBlock := dict }}
+  {{ if or (eq $status "upcoming") (eq $status "happening-now") }}
+    {{ $buttonBlock = dict "text" "Register now" "external_link" ($webinar.registration_link | default "") "color" "primary" }}
+  {{ end }}
   <!-- Header -->
-  {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "intro" $intro "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock}}
+  {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock "button" $buttonBlock}}
   <!-- Breadcrumb navigation -->
   {{ $breadcrumbsBlock := dict "back_text" "Back to all webinars" "back_link" $page.Parent.RelPermalink }}
   {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}

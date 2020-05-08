@@ -38,12 +38,6 @@
 <!-- URL for this page (used in calendar) -->
 {{ $URL := $page.Permalink }}
 
-<!-- calendar event title -->
-{{ $calTitle := print "DataONE Webinar: " .Block.title " - Speakers: " $speakerListString }}
-
-<!-- calendar description -->
-{{ $calDesc := print "To join the call, visit: " $URL "\n\n" .Block.abstract $speakerBiosString }}
-
 <!-- A link to the slides -->
 {{ $slidesLink := ""}}
 {{ with .Block.slides }}
@@ -56,9 +50,6 @@
   {{ $slidesHTML = printf `<div class="%s__slides">%s</div>` $bn $slidesButton | safeHTML }}
 {{ end }}
 
-<!-- Registration link -->
-{{ $registrationLink := .Block.registration_link | default "" }}
-
 <!-- Video ID -->
 {{ $video := .Block.vimeoID | default "" }}
 
@@ -66,6 +57,15 @@
 {{ $disqusShortname := .Block.disqus_shortname | default "" }}
 
 <div class="{{ $classes }}">
+
+  <!-- intro with expandable abstract -->
+  {{ $readMore := printf ` <span class="%s__read-more">Read more</span>` $bn }}
+  {{ $heading := print (.Block.short_abstract | markdownify) $readMore | safeHTML}}
+  {{ $content := printf `<div class="%s__abstract">%s</div>` $bn (.Block.abstract | markdownify) | safeHTML }}
+  <div class="{{ $bn }}__intro markdown">
+    {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
+  </div>
+
   {{ if eq $status "past" }}
     <div class="{{ $bn }}__video">
 
@@ -89,42 +89,20 @@
     <!-- show registration button when status is upcoming -->
   {{ else if eq $status "upcoming"}}
 
-    <!-- ADD TO CALENDAR =============== -->
-
-    <!-- TODO: -->
-    <!-- 'Webinar starts in X days." -->
-    <!-- use datetime block with type = "countdown" -->
-
-    <figure class="{{ $bn }}__figure" title="Add to calendar">
-      {{ partial "svg/add2cal.svg" }}
-    </figure>
-
-    <!-- The "add to calendar" button used in the first iteration of the webinar details block -->
-    <!-- {{ $eventBlock := dict "title" $calTitle "description" $calDesc "start" $datetime "end" $datetimeEnd "URL" $URL }} -->
-    <!-- {{ $add2calBlock := dict "type" "add to calendar" "color" "primary" "event" $eventBlock }} -->
-
-    <!-- The reigstration link -->
-    {{ with $registrationLink }}
-      <div class="{{ $bn }}__registration">
-        {{ $buttonBlock := dict "text" "Register now" "external_link" . "color" "primary" }}
-        {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
-      </div>
+    {{ with .Block.image }}
+      {{ partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page)}}
+    {{ else }}
+      <figure class="{{ $bn }}__figure" title="Add to calendar">
+        {{ partial "svg/add2cal.svg" }}
+      </figure>
     {{ end }}
 
     <!-- If happening now -->
   {{ else if eq $status "happening-now" }}
 
-    <figure class="{{ $bn }}__figure" title="Add to calendar">
+    <figure class="{{ $bn }}__figure" title="Join the webinar">
       {{ partial "svg/join-webinar.svg" }}
     </figure>
-
-    <!-- The reigstration link -->
-    {{ with $registrationLink }}
-      <div class="{{ $bn }}__registration">
-        {{ $buttonBlock := dict "text" "Join now" "external_link" . "color" "primary" }}
-        {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
-      </div>
-    {{ end }}
 
     <!-- Show slides in case they've already been posted -->
     {{ if eq "status" "happening-now"}}

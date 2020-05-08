@@ -34,6 +34,6 @@ abstract: Although data-driven research is already accelerating scientific disco
   in collaborative institutional experimentation through her work with the Moore-Sloan
   Data Science Environments (msdse.org).
 speakers:
-- people/file-3.md
+- people/micaela-parker.md
 
 ---

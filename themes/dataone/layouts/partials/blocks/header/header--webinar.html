@@ -3,6 +3,8 @@
 
 {{ $headerClass := .Block.type }}
 
+{{ $bn := "header" }}
+
 {{ $tstamp := $page.Params.webinar_datetime }}
 {{ $t := time $tstamp }}
 {{ $mainTitle := "Webinar" }}
@@ -27,48 +29,51 @@
 {{ $durationBlock := dict "duration" .Block.duration }}
 {{ $duration :=  partial "blocks/datetime/datetime" (dict "Block" $durationBlock "Page" $page) }}
 
-<header class="header header--webinar">
-  <!-- header--dark-bkg -->
-  <div class="header__content">
+<header class="{{ $bn }} header--webinar">
 
-    <div class="header__text">
+  <div class="{{ $bn }}__content">
 
-      <div class="header__title-and-pill">
+    <div class="{{ $bn }}__text">
+
+      <div class="{{ $bn }}__title-and-pill">
         {{- with $mainTitle -}}
-          <span class="header__title">{{ . | safeHTML}}</span>{{- end -}}
+          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>{{- end -}}
 
         {{- with .Block.pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
         {{- end -}}
       </div>
 
-      <h1 class="header__headline markdown">{{ .Block.title | markdownify }}</h1>
+      <h1 class="{{ $bn }}__headline markdown">{{ .Block.title | markdownify }}</h1>
 
       <!-- date, time, duration -->
-      <div class="header__datetime-items">
-        <div class="header__datetime-item">
-          <span class="header__datetime-icon">{{ $dateIcon }}</span>
+      <div class="{{ $bn }}__datetime-items">
+        <div class="{{ $bn }}__datetime-item">
+          <span class="{{ $bn }}__datetime-icon">{{ $dateIcon }}</span>
           {{ $date }}
         </div>
-        <div class="header__datetime-item">
-          <span class="header__datetime-icon">{{ $timeIcon }}</span>
+        <div class="{{ $bn }}__datetime-item">
+          <span class="{{ $bn }}__datetime-icon">{{ $timeIcon }}</span>
           {{ $time }}
         </div>
-        <div class="header__datetime-item">
-          <span class="header__datetime-icon">{{ $durationIcon }}</span>
+        <div class="{{ $bn }}__datetime-item">
+          <span class="{{ $bn }}__datetime-icon">{{ $durationIcon }}</span>
           {{ $duration }}
         </div>
       </div>
 
-      <!-- intro with expandable abstract -->
-      {{ $heading := .Block.intro }}
-      {{ $content := printf `<div class="header__abstract">%s</div>` .Block.abstract | safeHTML }}
-      <div class="header__intro">
-        {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
-      </div>
+      <!-- registration link -->
+      {{ with .Block.button }}
+        {{ if .external_link }}
+          <div class="{{ $bn }}__registration-button">
+            {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
+          </div>
+        {{ end }}
+      {{ end }}
 
       <!-- expandable speakers -->
-      <div class="header__speakers">
+      <div class="{{ $bn }}__speakers">
+        <h4 class="{{ $bn }}__speakers-title">Speakers</h4>
         {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true }}
         {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
       </div>
