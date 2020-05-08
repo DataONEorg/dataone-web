@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Open Science as a Movement: Mozilla’s efforts to build community and open
   leadership in science'
-webinar_datetime: 2018-09-11T09:00:00-07:00
+webinar_datetime: 2018-09-11T16:00:00.000+00:00
 duration: 60
 status: past
 tags:
@@ -22,6 +22,7 @@ abstract: |-
 
   During this webinar we will explain how Mozilla’s definition of open science has evolved over time. As a result, our programs have grown and fostered an open community that has outgrown the original Mozilla science team, includes partnerships outside Mozilla, and has now expanded beyond just science. Due to the best practices inherent in working open, the work is being sustained beyond our original resources and investments into a movement with a global reach.
 speakers:
-- people/file-18.md
+- people/stephanie-wright.md
+slug: open-science-movement-mozilla’s-efforts-build-community-and-open-leadership-science
 
 ---
