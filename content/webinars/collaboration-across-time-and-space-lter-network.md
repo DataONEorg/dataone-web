@@ -8,7 +8,7 @@ tags:
 - Integrate
 - Analyze
 vimeoID: 396964636
-image: "/uploads/plants.jpeg"
+image: "/uploads/arnaud-mesureur-7EqQ1s3wIAI-unsplash.jpg"
 registration_link: ''
 slides: "/uploads/downs-dataone2020-presentation-public.pdf"
 disqus_shortname: lter-collaboration
