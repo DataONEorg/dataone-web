@@ -14,7 +14,7 @@ tags:
 - Preserve
 - Describe
 vimeoID: 294242294
-image: "/uploads/14740342074_1e5dbdc347_b.jpg"
+image: "/uploads/markus-spiske-qjnAnF0jIGk-unsplash.jpg"
 registration_link: ''
 slides: "/uploads/dataone_webinar_october_sm.pdf"
 disqus_shortname: community-resources-for-data-management
