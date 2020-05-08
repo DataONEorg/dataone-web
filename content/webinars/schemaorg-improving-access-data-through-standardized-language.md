@@ -26,8 +26,9 @@ abstract: |-
 
   In this webinar, we will discuss an open, collaborative effort called [Schema.org](https://www.dataone.org/webinars/Schema.org) which can be used to make data available through the web search engines you already use and how DataONE is planning to integrate with this effort.
 speakers:
-- people/file-23.md
-- people/file-22.md
-- people/file-21.md
+- people/bryce-mecum.md
+- people/doug-fils.md
+- people/adam-shepherd.md
+slug: schemaorg-improving-access-data-through-standardized-language
 
 ---
