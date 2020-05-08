@@ -87,11 +87,16 @@ fields:
     value: true
   description: Configure how this page will appear in the navigation bar
   fields:
-  - type: include
-    template: menu-options
-    name: menu
-    label: Menu options
-    description: Configure how this page will appear in the navigation bar
+  - name: primary_nav
+    label: Primary navigation Menu
+    type: field_group
+    fields:
+    - type: include
+      template: menu-options
+      name: menu
+      label: Menu options
+      description: Configure how this page will appear in the navigation bar
 pages:
 - content/services/free.md
 - content/services/plus.md
+- content/services/free.md
