@@ -22,8 +22,10 @@ fields:
   default: misc
   config:
     source:
-      type: pages
-      section: services
+      type: documents
+      section: features
+      file: content/features/_index.md
+      path: categories
 - name: sub_features
   type: field_group_list
   label: Sub features
