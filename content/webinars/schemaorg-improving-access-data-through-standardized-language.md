@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: 'Schema.org: Improving access to data through a standardized language'
-webinar_datetime: 2018-11-13T09:00:00-08:00
+webinar_datetime: 2018-11-13T17:00:00.000+00:00
 duration: 60
 status: past
 tags:
