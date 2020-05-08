@@ -30,6 +30,10 @@ fields:
     label: Service
     type: select
     description: The name of the service that includes this feature
+    config:
+      source:
+        type: pages
+        section: services
   - name: table_annotation
     label: Table Annotation
     description: Optionally add text to the table where there would normally be a
