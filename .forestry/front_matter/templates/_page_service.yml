@@ -129,5 +129,5 @@ fields:
       type: text
 pages:
 - content/services/free.md
-- content/services/plus.md
 - content/services/hosted-repo.md
+- content/services/plus.md
