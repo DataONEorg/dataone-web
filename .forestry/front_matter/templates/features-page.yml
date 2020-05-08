@@ -2,6 +2,13 @@
 label: "\U0001F4C4Features Page"
 hide_body: true
 fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+  description: The title to display in the list of pages in forestry (this page is
+    not rendered, it just holds options for the feature pages).
 - name: categories
   type: list
   config:
@@ -11,10 +18,3 @@ fields:
   label: Feature categories
   description: The contents and order of this list is used to sort features that are
     listed in the feature table
-- name: title
-  type: text
-  config:
-    required: false
-  label: Title
-  description: The title to display in the list of pages in forestry (this page is
-    not rendered, it just holds options for the feature pages).
