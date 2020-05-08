@@ -641,6 +641,6 @@ menu:
     icon: ''
   footer:
     weight: 1
-icon: ''
+icon: d1-plus-logo
 
 ---
