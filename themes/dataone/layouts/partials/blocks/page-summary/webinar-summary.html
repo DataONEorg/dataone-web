@@ -20,7 +20,7 @@
   {{ $webinarPage := $page.Site.GetPage .Block.webinar }}
   {{ with $webinarPage }}
     {{ $webinar = .Params }}
-    {{ $href = $webinarPage.Permalink }}
+    {{ $href = $webinarPage.RelPermalink }}
   {{ end }}
 {{ end }}
 

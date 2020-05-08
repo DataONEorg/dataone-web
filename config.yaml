@@ -25,6 +25,7 @@ permalinks:
   features: "/:filename"
   news: "/:section/:filename"
   people: "/:section/:title"
+  webinars: "/webinars/:slug"
 params:
   description: DataONE's products and services.
   footerText: 'DataONE is a collaboration among many partner organizations, and is

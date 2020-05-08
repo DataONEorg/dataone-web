@@ -15,12 +15,10 @@
   {{ $webinarBlocks := slice }}
 
   <!-- TODO: add paginator for webinars -->
-
   {{- range (.Pages.ByParam "webinar_datetime").Reverse -}}
-    <!-- remove trailing slash in link -->
-    {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
+    {{ $pageFilePath := .File.Path }}
     <!-- use the webinar summary block -->
-    {{ $webinarBlock := (dict "template" "page-summary" "type" "webinar" "webinar" $pageLink) }}
+    {{ $webinarBlock := (dict "template" "page-summary" "type" "webinar" "webinar" $pageFilePath) }}
     {{ $webinarBlocks = $webinarBlocks | append $webinarBlock }}
   {{- end -}}
 
