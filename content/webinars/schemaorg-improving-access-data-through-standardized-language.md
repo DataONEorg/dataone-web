@@ -9,7 +9,7 @@ tags:
 - Preserve
 - Describe
 vimeoID: 300597240
-image: "/uploads/Schema.org-Logo.svg.png"
+image: "/uploads/kaleidico-26MJGnCM0Wc-unsplash.jpg"
 registration_link: ''
 slides: "/uploads/dataone_webinar_schema.org_improving_access_to_data_through_a_standardized_language.pdf"
 disqus_shortname: improving-access-to-data
