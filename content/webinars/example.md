@@ -9,7 +9,6 @@ tags:
 - Discover
 - Analyze
 vimeoID: 
-image: uploads/hero_images/nicolas-j-leclercq-uPeYMYCuz6k-unsplash.jpg
 registration_link: https://ucsb.zoom.us/webinar/register/WN_xWNMRdWST-aLj1Dkr6nX3w
 slides: ''
 disqus_shortname: ''
@@ -33,5 +32,7 @@ abstract: "The Permafrost Discovery Gateway is a new NSF Navigating the New Arct
   and to join our mailing list for future updates and opportunities to contribute."
 speakers:
 - people/anna-liljedahl.md
+slug: ''
+image: ''
 
 ---
