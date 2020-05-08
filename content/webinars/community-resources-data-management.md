@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Community Resources for Data Management
-webinar_datetime: 2018-10-09T09:00:00-07:00
+webinar_datetime: 2018-10-09T16:00:00.000+00:00
 duration: 60
 status: past
 tags:
@@ -29,8 +29,9 @@ abstract: |-
 
   The Data Management Skillbuilding Hub is designed as a space for community contribution and enhancement. Recognizing the wealth of relevant content in the community, and the importance of discoverability across platforms, we are collaborating with the Data Management Training Clearinghouse to index DataONE resources. Unfamiliar with the DMTClearinghouse? Tune in to learn more! This webinar will provide an overview of DataONE education resources, the new Data Management Skillbuilding Hub and the Data Management Training Clearinghouse in addition to providing attendees with information on how to get involved.
 speakers:
-- people/file-19.md
-- people/Nancy-Hoebel.md
-- people/amber_budden.md
+- people/megan-mach.md
+- people/amber-budden.md
+- people/Nancy-Hoebelheinrich.md
+slug: community-resources-data-management
 
 ---

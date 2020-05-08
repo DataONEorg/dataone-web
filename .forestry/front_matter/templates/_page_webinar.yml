@@ -125,6 +125,7 @@ fields:
 pages:
 - content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/collaboration-across-time-and-space-lter-network.md
+- content/webinars/community-resources-data-management.md
 - content/webinars/community-resources-for-data-management-1.md
 - content/webinars/community-resources-for-data-management.md
 - content/webinars/data-curation-network-cross-institutional-staffing-model-curating-research-data.md
@@ -133,7 +134,6 @@ pages:
 - content/webinars/permafrost-discovery-gateway-geospatial-data-and-community-needs.md
 - content/webinars/qualitative-data-management-for-interdisciplinary-research.md
 - content/webinars/rdmla-five-months-post-launch.md
-- content/webinars/schema-org-improving-access-to-data-through-a-standardized-language.md
 - content/webinars/schemaorg-improving-access-data-through-standardized-language.md
 - content/webinars/the-dataone-users-group-dug-supporting-and-connecting-the-dataone-user-community.md
 - content/webinars/tidy-ing-your-data-simple-steps-for-reproducible-research.md
