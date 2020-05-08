@@ -10,7 +10,7 @@ tags:
 - Preserve
 - Plan
 vimeoID: 250340720
-image: "/uploads/images.jpeg"
+image: "/uploads/grant-ritchie-x1w_Q78xNEY-unsplash.jpg"
 registration_link: ''
 slides: "/uploads/edi_project_overview.pdf"
 disqus_shortname: environmental-data-initiative
