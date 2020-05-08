@@ -36,7 +36,8 @@ abstract: "The Data Curation Network is a community of experts who have the soft
   the curation procedures we use, and how we hope to grow in the future.  \n[http://datacurationnetwork.org](http://datacurationnetwork.org
   \"http://datacurationnetwork.org\")"
 speakers:
-- people/file-25.md
-- people/file-24.md
+- people/debra-fagan.md
+- people/lisa-johnston.md
+slug: data-curation-network-cross-institutional-staffing-model-curating-research-data
 
 ---
