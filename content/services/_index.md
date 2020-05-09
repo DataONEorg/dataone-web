@@ -26,7 +26,15 @@ header:
     text: contact us
 page_sections:
 - template: section
-  title: Full feature list
+  blocks:
+  - template: columns
+    columns:
+    - template: page-summary
+      service: services/plus.md
+    - template: page-summary
+      service: services/hosted-repo.md
+- template: section
+  title: Compare services in detail
   blocks:
   - template: feature-table
 - template: section
@@ -56,7 +64,6 @@ page_sections:
     style: ''
     newsletter_only: false
 date: 2020-05-08T00:32:17.000+00:00
-theme: ''
 menu:
   primary_nav:
     weight: 100

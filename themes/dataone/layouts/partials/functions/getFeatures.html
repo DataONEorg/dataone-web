@@ -1,0 +1,24 @@
+<!-- Given a service Page, return list of associated feature pages -->
+
+<!-- Variables required: -->
+<!-- .Service = type Page -->
+{{ $service := .Service }}
+<!-- .Site = the site parameter so we can access Pages -->
+{{ $Site := .Site }}
+
+<!-- The list of features we will return -->
+{{ $featuresOfService := slice }}
+
+{{ if and $service $Site }}
+
+  {{ $allFeaturePages := where (where $Site.Pages "Type" "features") "Kind" "page" }}
+  {{ range $featurePage := $allFeaturePages }}
+    {{ range $linked_service := $featurePage.Params.linked_services }}
+      {{ if eq ($Site.GetPage $linked_service.service_file ) $service }}
+        {{ $featuresOfService = $featuresOfService | append $featurePage }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $featuresOfService }}

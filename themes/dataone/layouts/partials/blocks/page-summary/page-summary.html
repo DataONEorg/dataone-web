@@ -14,6 +14,8 @@
   {{ $path = printf "%swebinar-summary" $basePath }}
 {{ else if or (.Block.news) (eq .Block.type "news") }}
   {{ $path = printf "%snews-summary" $basePath }}
+{{ else if or (.Block.service) (eq .Block.type "services") }}
+  {{ $path = printf "%sservice-summary" $basePath }}
 {{ end }}
 {{ if $path }}
   {{ partial $path (dict "Block" .Block "Page" $page) }}

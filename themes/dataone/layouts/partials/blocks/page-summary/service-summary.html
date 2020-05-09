@@ -1,0 +1,54 @@
+{{ $page := .Page }}
+{{ $Site := .Page.Site }}
+<!-- bn = block name -->
+{{ $bn := "page-summary" }}
+
+<!-- Classes to add to the outer element -->
+{{ $classes := printf "%s %s--service" $bn $bn }}
+
+{{ $servicePage := $page.Site.GetPage .Block.service }}
+{{ $service := $servicePage.Params }}
+{{ $icon := $service.service_icon }}
+{{ $href := $servicePage.RelPermalink }}
+{{ $title := $service.title }}
+{{ $description := $service.description }}
+{{ $varName := $title | urlize }}
+{{ $weight := $service.weight }}
+
+<!-- Add theme -->
+{{ $classes = printf "%s theme--%s" $classes $varName }}
+
+<!-- Features of this service -->
+{{ $featuresOfService := partial "functions/getFeatures" (dict "Service" $servicePage "Site" $Site) }}
+
+<!-- Features available to this service, but not "lower-level" services -->
+<!-- Other services -->
+{{ $otherServices := where (where $Site.Pages "Type" "services") "Kind" "page" | complement (slice $servicePage)  }}
+<!-- Features that are included in services with a lower weight (order) -->
+{{ $featuresLowerServices := slice }}
+{{ range $otherService := $otherServices }}
+  {{ if lt $otherService.Params.weight $weight }}
+    {{ $featuresLowerService := partial "functions/getFeatures" (dict "Service" $otherService "Site" $Site) }}
+    {{ $featuresLowerServices = $featuresLowerServices | append $featuresLowerService }}
+  {{ end }}
+{{ end }}
+
+{{ $featuresUnique :=  $featuresOfService | complement $featuresLowerServices }}
+
+<div class="{{ $classes}}">
+  {{ with $icon }}
+    {{ $iconBlock := dict "icon" . "size" "large" "color" "inherit" }}
+    {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page )}}
+  {{ end }}
+  <h1>{{ $title }}</h1>
+  <p>{{ $description }}</p>
+  <ul>
+    {{ range $featuresUnique }}
+      <li>
+        {{ .Params.title }}
+      </li>
+    {{ end }}
+  </ul>
+  {{ $buttonBlock := dict "text" (printf "%s in detail" $title) "type" "internal page" "internal_link" $servicePage.File.Path "color" "quaternary" }}
+  {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+</div>
