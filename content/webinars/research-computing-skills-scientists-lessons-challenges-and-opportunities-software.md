@@ -1,36 +1,33 @@
 ---
 date: 2020-02-01
-title: Empowering Earth Science Communities to Share Data Through Guided Metadata
-  Improvement
-webinar_datetime: 2016-02-09T09:00:00-08:00
+title: 'Research Computing Skills for Scientists: Lessons, Challenges, and Opportunities
+  from Software Carpentry'
+webinar_datetime: 2016-03-08T09:00:00-08:00
 duration: 60
 status: past
 tags:
-- Describe
-vimeoID: 154755754
-image: "/uploads/bruno-soares-fBwyKbLqXE8-unsplash.jpg"
+- Analyze
+vimeoID: 158221415
+image: "/uploads/michael-dziedzic--Rc6usOigMk-unsplash.jpg"
 registration_link: ''
-slides: "/uploads/earthscimetadata.pdf"
-disqus_shortname: metadataforearthsciences
-short_abstract: Earth Science communities can improve the discoverability, use and
-  understanding of their data by improving the completeness and consistency of their
-  metadata. We will present the results of a baseline analysis of more than 25 diverse
-  metadata collections from established data repositories representing communities
-  across the earth and environmental sciences. The baseline analysis describes the
-  current state of the metadata in these collections and highlights areas for improvement.
-  We compare these collections to demonstrate exemplar practitioners that can provide
-  guidance to other communities.
-abstract: |-
-  Earth Science communities can improve the discoverability, use and understanding of their data by improving the completeness and consistency of their metadata. Despite the potential for a great payoff, resources to invest in this work are often limited. We are working with DataONE Member Nodes to quantitatively evaluate their metadata and to identify specific strategies to improve the completeness and consistency of their metadata. We have developed an iterative, guided process intended to efficiently improve metadata to better serve their own communities, as well as share data across disciplines. The community specific approach focuses on community metadata requirements, and also provides guidance on adding other metadata concepts to expand the effectiveness of metadata for multiple uses, including data discovery, data understanding, and data re-use. The end goal of this work is to help communities improve their metadata based on their own requirements through time.
-
-  We will present the results of a baseline analysis of more than 25 diverse metadata collections from established data repositories representing communities across the earth and environmental sciences. The baseline analysis describes the current state of the metadata in these collections and highlights areas for improvement. We compare these collections to demonstrate exemplar practitioners that can provide guidance to other communities.
-
-  In addition, we are building web-based tools based on a common metadata evaluation library that can be incorporated into community tools such as metadata editors and repository platforms, as well as form the core of a metadata completeness reporting service that is integrated within specific partner information systems such as the DataONE Coordinating Node services and the Mercury Online Metadata Editor. This aspect of the project is forthcoming and we will discuss the plans for the future.
+slides: "/uploads/software-carpentry-lessons-learned.pdf"
+disqus_shortname: researchcomputingskillsforscientists
+short_abstract: In this webinar, Software Carpentry's co-founder will explore what's
+  been learned along the away about what scientists, engineers, and other researchers
+  actually need to know about programming in order to make their work more shareable,
+  more reproducible, more likely to be correct, and more efficient. He will also discuss
+  practices that the DataONE community and similar groups may be able to use to help
+  researchers deal with large or messy data in a broad range of disciplines.
+abstract: Since 1998, Software Carpentry has evolved from a week-long training course
+  at the US national laboratories into a worldwide volunteer effort to improve researchers'
+  computing skills. In this webinar, Software Carpentry's co-founder will explore
+  what's been learned along the away about what scientists, engineers, and other researchers
+  actually need to know about programming in order to make their work more shareable,
+  more reproducible, more likely to be correct, and more efficient. He will also discuss
+  practices that the DataONE community and similar groups may be able to use to help
+  researchers deal with large or messy data in a broad range of disciplines.
 speakers:
-- people/matthew-jones.md
-- people/Lindsay-Powers.md
-- people/Ted-Habermann.md
-slug: empowering-earth-science-communities-share-data-through-guided-metadata-improvement
-draft: true
+- people/greg-wilson.md
+slug: research-computing-skills-scientists-lessons-challenges-and-opportunities-software
 
 ---
