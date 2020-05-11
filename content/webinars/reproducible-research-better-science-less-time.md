@@ -3,28 +3,27 @@ date: 2020-05-01T21:25:10.000+00:00
 duration: 60
 status: past
 registration_link: ''
-title: 'Provenance-enabled Reproducibility: Developments in DataONE'
-webinar_datetime: 2017-11-14T09:00:00-08:00
+title: 'Reproducible Research: Better science in less time'
+webinar_datetime: 2017-10-10T09:00:00-07:00
 tags:
+- Integrate
 - Describe
-- Discover
-disqus_shortname: provenance-enabled-reproducibility
-vimeoID: 244075806
-slides: "/uploads/20171212_mdc_webinar.pdf"
-short_abstract: During this webinar we will describe the history to date, showcasing
-  the tools developed and providing a demonstration of the new web-based provenance
-  editor. We highlight the collaborative efforts in building a community around provenance,
-  and introduce future integration with WholeTale and other community initiatives.
+disqus_shortname: reproducible-research-better-science-in-less-time
+vimeoID: 237613777
+slides: "/uploads/lowndes_betterscience_dataone_2017_10_10.pdf"
+short_abstract: There has been significant advances on making data publicly available
+  however other products, such as code detailing the research workflow, should also
+  be in the open. For the past four years, we have dramatically improved how we work
+  with the Ocean Health Index by embracing open data science practices and tools.
+  We’re sharing our story because at the time we thought this transformation was intimidating,
+  but we are living proof that it’s possible.
 abstract: |-
-  Reproducible research is enabled, in part, by provenance metadata that describes the lineage and processing history of data and knowledge artifacts. Provenance plays an important role in many scientific applications and use cases. Yet this information is often not tracked as thoroughly and systematically as science metadata. DataONE has been working on tools to display provenance information and to support recording of provenance metadata through programming languages such as R and Matlab and through an intuitive, user friendly, web-based UI.
+  Working in an open environment, publishing software, code, data in an openly accessible format, supports the reproducibility, integrity and usability of research. There has been significant advances on making data publicly available however other products, such as code detailing the research workflow, should also be in the open. For the past four years, we have dramatically improved how we work with the Ocean Health Index by embracing open data science practices and tools. We now work in a way that is more reproducible, transparent, collaborative, and open, with more emphasis on communication. Our work is more reproducible and streamlined, and more than 20 countries around the world are building off our science and our code to assess ocean health in their own jurisdictions.
 
-  During this webinar we will describe the history to date, showcasing the tools developed and providing a demonstration of the new web-based provenance editor. We highlight the collaborative efforts in building a community around provenance, and introduce future integration with WholeTale and other community initiatives.
+  We’re sharing our story because at the time we thought this transformation was intimidating, but we are living proof that it’s possible. By describing specific tools and how we incrementally began using them for the Ocean Health Index project, we hope to encourage others in the scientific community to do the same — so we can all produce better science in less time.
 speakers:
-- people/bryce-mecum.md
-- people/matthew-jones.md
-- people/chris-jones.md
-slug: provenance-enabled-reproducibility-developments-dataone
-image: "/uploads/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
-draft: true
+- people/Julia-Stewart-Lowndes.md
+slug: reproducible-research-better-science-less-time
+image: "/uploads/cameron-fillery-x5Jg_f1nBpE-unsplash.jpg"
 
 ---
