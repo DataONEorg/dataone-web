@@ -63,6 +63,8 @@
     {{ $svgBkg = "hosted-repo-header" }}
   {{ else if eq $type "wave with dataone gradient" }}
     {{ $svgBkg = "brand-gradient-header" }}
+  {{ else if eq $type "subtle wave" }}
+    {{ $svgBkg = "subtle-wave" }}
   {{ else if eq $type "hero image" }}
     {{ with $image.src }}
       {{ $bkgImg = print ` style="--background-image:url('/` . `');"` | safeHTMLAttr }}

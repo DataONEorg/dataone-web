@@ -14,6 +14,9 @@
 <!-- An optional caption [WIP - may need styling] -->
 {{ $caption := .Block.caption | default ""}}
 
+<!-- Max width for images -->
+{{ $maxWidth := .Block.max_width | default 4000 }}
+
 <!-- Add type as a modifier class -->
 {{ with $type }}
   {{ if not (eq . "default") }}
@@ -25,15 +28,21 @@
 <!-- resize or crop when needed -->
 {{ $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) }}
 
-<figure class="{{ $classes }}">
+<!-- Make sure no image is larger than the specified maximum -->
 
-  {{ if eq $imageResource.MediaType.MainType "image" }}
-    <img class="{{ $bn }}__image" src="{{ $imageResource.RelPermalink }}" alt="{{ $alt }}"></img>
-  {{ else if in ($imageResource.MediaType.MainType) "video" }}
-    <div class="{{ $bn }}__image">
-      {{ $videoBlock := merge .Block (dict "type" "uploaded") }}
-      {{ partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) }}
-    </div>
+<figure class="{{ $classes }}">
+  {{ if $imageResource }}
+    {{ if eq $imageResource.MediaType.MainType "image" }}
+      {{ if gt $imageResource.Width $maxWidth }}
+        {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
+      {{ end }}
+      <img class="{{ $bn }}__image" src="{{ $imageResource.RelPermalink }}" alt="{{ $alt }}"></img>
+    {{ else if in ($imageResource.MediaType.MainType) "video" }}
+      <div class="{{ $bn }}__image">
+        {{ $videoBlock := merge .Block (dict "type" "uploaded") }}
+        {{ partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) }}
+      </div>
+    {{ end }}
   {{ end }}
 
   {{ with $caption }}

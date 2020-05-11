@@ -22,6 +22,7 @@ fields:
     - dataone plus
     - hosted repository
     - wave with dataone gradient
+    - subtle wave
     - center image
   default: text only
 - type: select

@@ -1,0 +1,15 @@
+{{- define "main" -}}
+
+  <!-- the homepage header block -->
+
+  {{ partial "blocks/header/header--services.html" (dict "Block" .Params.header "Page" $) }}
+
+  <!-- page section blocks -->
+  {{- range .Params.page_sections -}}
+    {{ if .template }}
+      {{ $template := .template | default "section" }}
+      {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+    {{ end }}
+  {{- end -}}
+
+{{- end -}}

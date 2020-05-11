@@ -18,7 +18,7 @@ short_abstract: Finding data can be hard and a common solution to this problem h
   Most people find information on the web using generic search engines such as Google,
   Bing, Yahoo, etc., but these search engines aren't as good as specialized search
   portals at finding data. In this webinar, we will discuss an open, collaborative
-  effort called [Schema.org](https://www.dataone.org/webinars/Schema.org) which can
+  effort called Schema.org which can
   be used to make data available through the web search engines you already use and
   how DataONE is planning to integrate with this effort.
 abstract: |-

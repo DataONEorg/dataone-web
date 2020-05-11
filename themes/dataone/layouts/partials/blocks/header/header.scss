@@ -58,7 +58,7 @@
 
   @include f-common;
   position                       : relative;
-  padding                        : 5rem 0;
+  padding                        : 4rem 0 5rem;
   color                          : var(#{$prefix}-c-foreground-default);
   @include desktop {
     margin-top : $nav-height;
@@ -329,7 +329,7 @@
 
   &--overlay-subtle {
     @extend #{$bn}--dark-bkg;
-    text-shadow: 0 0 3em var(--c-major-accent-9), 0 0 .3em var(--c-major-accent-7);
+    text-shadow: 0 0 3.5em var(--c-major-accent-7), 0 0 .18em var(--c-major-accent-6);
 
     &::before {
       background           : var(--background-image), linear-gradient(var(--c-major-accent-3), var(--c-shadow-4-on-major-accent));
@@ -370,6 +370,14 @@
     @extend .header--dark-bkg;
     // TODO
     text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.3);
+  }
+
+  //
+  // Subtle wave: An SVG background with organic shape and light color background
+  // ==========================================================================
+
+  &--subtle-wave {
+    @extend .header--svg-background;
   }
 
   //
@@ -465,11 +473,8 @@
   // ==========================================================================
 
   &--homepage {
-
-    // --section-c-accent: var(--c-minor-accent-5, yellow);
-
     padding-bottom: 12rem;
-    @include bkg-img;
+    // --section-c-accent: var(--c-minor-accent-5, yellow);
 
     #{$bn}__content {
       margin-top           : 0;
@@ -500,11 +505,12 @@
 
     #{$bn}__tagline {
       text-align  : center;
-      font-size   : var(--fs-xx-large, 2rem);
-      color       : var(--c-minor-accent-2);
-      font-weight : var(--fw-bold, 500);
+      font-size   : var(--fs-xxx-large, 2rem);
+      color       : var(--c-minor-accent-1);
+      font-weight : 600;
       max-width   : 700px;
       justify-self: center;
+      text-shadow : white;
     }
 
     #{$bn}__logos {
@@ -527,6 +533,36 @@
       --section-c-accent: var(--c-major-accent-2, white);
       justify-self      : center;
       width             : max-content;
+    }
+  }
+
+  &--services {
+    #{$bn} {
+      &__text {
+        padding-bottom: 2.5rem;
+      }
+
+      &__svg-background svg {
+        height: 75%;
+      }
+
+      &__service-summaries {
+        @include limit-width;
+        position             : relative;
+        display              : grid;
+        grid-template-columns: repeat(auto-fit, 1fr);
+        @include desktop {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+      }
+
+      &__service-summary {
+        &:first-of-type {
+          padding-right: 2rem;
+          margin       : 1.5rem -2rem 1.5rem 0;
+        }
+      }
     }
   }
 

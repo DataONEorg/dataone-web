@@ -9,10 +9,17 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
   data.
 header:
   tagline: Making earth & environmental data more discoverable, accessible, and usable
-  image: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash.jpg"
+  image: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
 page_sections:
 - template: section
   background: default
+  title: Introducing services from DataONE
+  button:
+    type: 'internal page'
+    color: 'primary'
+    text: 'Compare services from DataONE'
+    internal_link: 'services/_index.md'
+    icon: columns
   blocks:
   - template: columns
     num_cols: 2
@@ -22,70 +29,25 @@ page_sections:
       headline: DataONE Plus
       text: Enhanced DataONE products and services in support of your research.
       image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
+        src: /uploads/portals-summary.png
       details: []
       button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
+        type: 'internal page'
+        color: 'quaternary'
+        text: 'Learn more about DataONE Plus'
+        internal_link: 'services/plus.md'
     - template: feature-detailed
       type: top
       headline: Hosted Repositories
       text: A dedicated repository solution for your group or institution’s data,
         managed by DataONE.
       image:
-        template: ''
-        src: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
-      details: []
+        src: /uploads/hosted-repo-summary.png
       button:
-        template: ''
-        type: ''
-        color: ''
-        text: ''
-        external_link: ''
-        internal_link: ''
-        icon:
-          template: ''
-          icon: ''
-          size: ''
-          color: ''
-          stroke: ''
-    alignment: ''
-    layout: ''
-  type: ''
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
+        type: 'internal page'
+        color: 'quaternary'
+        text: 'Discover DataONE Hosted Repositories'
+        internal_link: 'services/plus.md'
 - template: section
   background: wave
   title: The latest updates from DataONE
@@ -120,20 +82,6 @@ page_sections:
           src: "/uploads/integrate.png"
           alttext: World map shown with Robinson projection
           type: default
-          overlay_effect: ''
-        button:
-          template: ''
-          type: ''
-          color: ''
-          text: ''
-          external_link: ''
-          internal_link: ''
-          icon:
-            template: ''
-            icon: ''
-            size: ''
-            color: ''
-            stroke: ''
         tags: []
     - title: Latest news
       annotation: Read the latest news and information from DataONE
@@ -170,12 +118,6 @@ page_sections:
           text: ''
           external_link: ''
           internal_link: ''
-          icon:
-            template: ''
-            icon: ''
-            size: ''
-            color: ''
-            stroke: ''
         image:
           template: ''
           src: ''
@@ -197,12 +139,6 @@ page_sections:
     position: ''
   type: ''
   background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
   intro: ''
   button:
     template: ''
@@ -211,12 +147,6 @@ page_sections:
     text: ''
     external_link: ''
     internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
   id: ''
 - template: section
   type: default
@@ -242,12 +172,6 @@ page_sections:
       text: Learn more about DataONE
       internal_link: about/_index.md
       external_link: ''
-      icon:
-        template: ''
-        icon: ''
-        size: ''
-        color: ''
-        stroke: ''
     details: []
   - template: feature-detailed
     headline: Donate
@@ -262,42 +186,5 @@ page_sections:
       color: quaternary
       text: Make a donation
       external_link: ''
-      internal_link: ''
-      icon:
-        template: ''
-        icon: ''
-        size: ''
-        color: ''
-        stroke: ''
-    image:
-      template: ''
-      src: ''
-      alttext: ''
-      type: ''
-      overlay_effect: ''
-    details: []
-  background2: ''
-  icon:
-    template: ''
-    icon: ''
-    size: ''
-    color: ''
-    stroke: ''
-  title: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon:
-      template: ''
-      icon: ''
-      size: ''
-      color: ''
-      stroke: ''
-  id: ''
 
 ---

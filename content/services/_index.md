@@ -2,37 +2,17 @@
 title: Services
 description: All services and features offered by DataONE, including details about
   DataONE Plus and DataONE Hosted Repositories
-layout: blocks
+layout: services
 aliases:
 - "/features/"
 - "/pricing/"
 header:
   template: header
-  type: text only
-  background_color: default
+  title: Everything you need to support your research
   pill:
-    template: pill
     style: primary
     text: New!
-  title: Introducing services from DataONE
-  buttons:
-  - template: button
-    type: subscribe form
-    color: primary
-    text: Join the waitlist
-  - template: button
-    type: contact
-    color: secondary
-    text: contact us
 page_sections:
-- template: section
-  blocks:
-  - template: columns
-    columns:
-    - template: page-summary
-      service: services/plus.md
-    - template: page-summary
-      service: services/hosted-repo.md
 - template: section
   title: Compare services in detail
   blocks:

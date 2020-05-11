@@ -169,6 +169,10 @@
 
   &:focus,
   &:hover {
-    transform: scale(1.02);
+    transform: none;
+
+    .icon {
+      stroke-width: 2px;
+    }
   }
 }

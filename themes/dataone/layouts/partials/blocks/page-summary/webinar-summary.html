@@ -39,9 +39,12 @@
   {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
 
   <!-- Get the image, if there is one -->
-  {{ $image := $webinar.image | default "" }}
-
-  {{ $cardBlock := dict "clickable" true "href" $href "image" (dict "src" $image) "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+  {{ $image := dict }}
+  <!-- Add max width to webinar summary images -->
+  {{ if $webinar.image }}
+    {{ $image = dict "src" $webinar.image "max_width" 1000 }}
+  {{ end }}
+  {{ $cardBlock := dict "clickable" true "href" $href "image" $image "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
 
   <div class="{{ $classes }}">
     {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}

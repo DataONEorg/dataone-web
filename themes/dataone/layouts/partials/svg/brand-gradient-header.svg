@@ -1,27 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="4745px" height="800px" viewBox="0 0 4745 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
-    <title>brand-gradient</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="25.2191452%" y1="51.2892888%" x2="78.1114989%" y2="51.2075589%" id="linearGradient-1">
-            <stop stop-color="#60AECA" offset="0%"></stop>
-            <stop stop-color="#C0DBFF" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="27.1970495%" y1="86.7207425%" x2="77.0169257%" y2="86.7207425%" id="linearGradient-2">
-            <stop stop-color="#2587AD" offset="0%"></stop>
-            <stop stop-color="#6A93C8" offset="100%"></stop>
-        </linearGradient>
-        <radialGradient cx="50.895918%" cy="11.9861256%" fx="50.895918%" fy="11.9861256%" r="107.498062%" gradientTransform="translate(0.508959,0.119861),scale(0.158082,1.000000),rotate(89.689028),scale(1.000000,2.967911),translate(-0.508959,-0.119861)" id="radialGradient-3">
-            <stop stop-color="#14A2A7" offset="0%"></stop>
-            <stop stop-color="#14A2A7" offset="0%"></stop>
-            <stop stop-color="#23678F" offset="76.6714683%"></stop>
-            <stop stop-color="#1B435D" offset="100%"></stop>
-        </radialGradient>
-    </defs>
-    <g id="brand-gradient" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M1167.76563,799 C1459.46799,801.467859 2000.72656,741.153477 2463.85156,769.637852 C2926.97656,798.122227 3079.66406,754.681188 3386.52344,737.578125 C3693.38281,720.475062 4237.82813,840.8125 4745,769.637852 C4745,523.212617 4745,266.666667 4745,0 L0,0 C0,292.52356 0,552.583456 0,780.179688 C217.609375,769.637852 876.063259,796.532141 1167.76563,799 Z" id="bkg" fill="url(#linearGradient-1)"></path>
-        <path d="M1149.58594,776.850749 C1438.6875,756.747686 1973.39063,724.179687 2425.89063,752.534789 C2878.39063,780.88989 3077.91406,741.282751 3384.77344,724.179687 C3691.63281,707.076624 4237.82813,823.709437 4745,752.534789 C4745,506.109554 4745,255.264624 4745,0 L0,0 C0,274.093628 0,524.938557 0,752.534789 C208.322607,772.637852 860.484375,796.953813 1149.58594,776.850749 Z" id="bkg-top" fill="url(#linearGradient-2)"></path>
-        <path d="M1263.72656,703.628906 C1693.0625,705.029875 1934.27344,702.227937 2443.01953,734.039063 C2951.76563,765.850188 3139.64063,728.812478 3446.5,712 C3753.35938,695.187522 4237.82813,781.965374 4745,712 C4745,469.761589 4745,232.278447 4745,-0.44942505 L0,-0.44942505 C0,245.206812 0,479.899589 0,703.628906 C336.742188,807.875 834.390625,702.227937 1263.72656,703.628906 Z" id="bkg-top-copy" fill="url(#radialGradient-3)"></path>
-    </g>
+<svg width="4745" height="800" viewBox="0 0 4745 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="25.219%" y1="51.289%" x2="78.111%" y2="51.208%" id="a"><stop stop-color="#60AECA" offset="0%"/><stop stop-color="#C0DBFF" offset="100%"/></linearGradient>
+    <linearGradient x1="27.197%" y1="86.721%" x2="77.017%" y2="86.721%" id="b"><stop stop-color="#2587AD" offset="0%"/><stop stop-color="#6A93C8" offset="100%"/></linearGradient>
+    <radialGradient cx="50.896%" cy="11.986%" fx="50.896%" fy="11.986%" r="107.498%" gradientTransform="matrix(.00086 .99999 -.46917 .0161 .565 -.391)" id="c"><stop stop-color="#14A2A7" offset="0%"/><stop stop-color="#14A2A7" offset="0%"/><stop stop-color="#23678F" offset="76.671%"/><stop stop-color="#1B435D" offset="100%"/></radialGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd"><path d="M1167.766 799c291.702 2.468 832.96-57.847 1296.086-29.362 463.125 28.484 615.812-14.957 922.671-32.06 306.86-17.103 851.305 103.235 1358.477 32.06V0H0v780.18c217.61-10.542 876.063 16.352 1167.766 18.82z" fill="url(#a)"/><path d="M1149.586 776.85c289.101-20.102 823.805-52.67 1276.305-24.315 452.5 28.355 652.023-11.252 958.882-28.355 306.86-17.103 853.055 99.53 1360.227 28.355V0H0v752.535c208.323 20.103 860.484 44.419 1149.586 24.316z" fill="url(#b)"/><path d="M1263.727 703.629c429.335 1.4 670.546-1.401 1179.293 30.41 508.746 31.811 696.62-5.227 1003.48-22.039s791.328 69.965 1298.5 0V-.45H0V703.63c336.742 104.246 834.39-1.401 1263.727 0z" fill="url(#c)"/></g>
 </svg>

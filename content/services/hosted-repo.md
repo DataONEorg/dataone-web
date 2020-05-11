@@ -8,9 +8,7 @@ weight: 3
 render_page: true
 description: A dedicated repository solution for your group or institution's data,
   managed by DataONE. Bring the products of your research lab, field station, or library
-  together in a centralized location for efficient sharing, access, and reuse. Accelerate
-  research activity, foster new collaborations, and build community with a repository
-  that meets your needs and reflects your brand.
+  together in a centralized location for efficient sharing, access, and reuse.
 header:
   intro: Bring the products of your research together in one centralized location
     for efficient sharing, access, and reuse.

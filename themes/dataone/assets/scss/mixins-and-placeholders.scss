@@ -84,7 +84,6 @@
   transition      : $transition;
 
   &:focus {
-    transform    : translateY(-0.4px);
     box-shadow   : .01rem .06rem .8rem -0.17rem var(--section-c-shadow-4, var(--c-shadow-4-on-default , rgba(1,1,1,0.08)));
     color        : var(--c-major-accent-on-default, black);
     filter: brightness(1.01);

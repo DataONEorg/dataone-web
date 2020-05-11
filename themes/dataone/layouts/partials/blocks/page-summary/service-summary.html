@@ -21,9 +21,18 @@
 <!-- Features of this service -->
 {{ $featuresOfService := partial "functions/getFeatures" (dict "Service" $servicePage "Site" $Site) }}
 
-<!-- Features available to this service, but not "lower-level" services -->
-<!-- Other services -->
+<!-- Other services (all services excluding this one) -->
 {{ $otherServices := where (where $Site.Pages "Type" "services") "Kind" "page" | complement (slice $servicePage)  }}
+
+<!-- Next lowest service -->
+{{ $lowerService := "" }}
+{{ range $otherService := $otherServices }}
+  {{ if eq $otherService.Params.weight (sub $weight 1) }}
+    {{ $lowerService = $otherService }}
+  {{ end }}
+{{ end }}
+
+<!-- Features available to this service, but not "lower-level" services -->
 <!-- Features that are included in services with a lower weight (order) -->
 {{ $featuresLowerServices := slice }}
 {{ range $otherService := $otherServices }}
@@ -33,22 +42,39 @@
   {{ end }}
 {{ end }}
 
+<!-- Features unique to this service level -->
 {{ $featuresUnique :=  $featuresOfService | complement $featuresLowerServices }}
 
-<div class="{{ $classes}}">
-  {{ with $icon }}
-    {{ $iconBlock := dict "icon" . "size" "large" "color" "inherit" }}
-    {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page )}}
-  {{ end }}
-  <h1>{{ $title }}</h1>
+<!-- Feature names as a lists of strings -->
+{{ $featuresToList := slice }}
+{{ range $featuresUnique }}
+  {{ $featuresToList = $featuresToList | append .Params.title }}
+{{ end }}
+
+<div class="{{ $classes }}">
+  <div class="{{ $bn }}__header">
+    <span class="{{ $bn }}__icon">
+      {{ with $icon }}
+        {{ $iconBlock := dict "icon" . "size" "medium" "color" "inherit" }}
+        {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page )}}
+      {{ end }}
+    </span>
+    <h3 class="{{ $bn }}__title">{{ $title }}</h3>
+  </div>
   <p>{{ $description }}</p>
-  <ul>
-    {{ range $featuresUnique }}
-      <li>
-        {{ .Params.title }}
-      </li>
+  <p>
+    <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
+    <!-- advertise that this feature includes everything in lower service as well -->
+    {{ if $lowerService.Params.render_page }}
+      <em>Everything in
+        {{$lowerService.Params.title }}, and...</em>
     {{ end }}
-  </ul>
-  {{ $buttonBlock := dict "text" (printf "%s in detail" $title) "type" "internal page" "internal_link" $servicePage.File.Path "color" "quaternary" }}
-  {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+  </p>
+  <div class="{{ $bn }}__buttons">
+    {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $featuresToList "num_cols" 1 "compact" true) "Page" $page) }}
+    {{ $buttonBlock := dict "text" (printf "%s in detail" $title) "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
+    {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+    {{ $buttonBlock2 := dict "text" "Join the waitlist" "type" "subscribe form" "internal_link" $servicePage.File.Path "color" "primary" }}
+    {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
+  </div>
 </div>

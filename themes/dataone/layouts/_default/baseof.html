@@ -4,6 +4,24 @@
   {{ if not (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) }}
     <body class="page">
 
+      <!-- Fade page in once loaded to avoid flash of unstyled content -->
+      <script>
+        document.body.classList.add('fade');
+        document.addEventListener("DOMContentLoaded", function (e) {
+          document.body.classList.remove('fade');
+        });
+      </script>
+      <style>
+        body {
+          opacity: 1;
+          transition: 0.2s opacity;
+        }
+        body.fade {
+          opacity: 0;
+          transition: none;
+        }
+      </style>
+
       <!-- define SVG gradients and the icon sprite at start of body -->
       {{- partialCached "svg-defs.html" . -}}
 

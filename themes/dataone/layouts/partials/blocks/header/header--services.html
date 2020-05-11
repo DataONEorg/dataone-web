@@ -1,0 +1,81 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+{{ $Site := $page.Site }}
+<!-- bn = block name -->
+{{ $bn := "header" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+
+<!-- All block options -->
+{{ $pill := .Block.pill | default dict  }}
+{{ $headline := .Block.title | default ""}}
+
+<!-- Svg background image -->
+{{ $svgBkg := "subtle-wave" }}
+
+<!-- The small title that goes at the top of the header (not the larger headline) -->
+{{ $mainTitle := "Services from DataONE" }}
+
+<!-- Use classes from text-only -->
+{{ with "text-only" }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<!-- Use classes from suble-wave -->
+{{ with $svgBkg }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<!-- Add services as a class -->
+{{ with "services" }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<!-- Summary of DataONE Plus -->
+<!-- All services for which there's a summary page -->
+{{ $services := where (where (where $Site.Pages "Type" "services") "Kind" "page") "Params.render_page" "==" true }}
+
+<!-- LAYOUT ===== -->
+<header class="{{ $classes }}">
+
+  <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
+  {{ with $svgBkg }}
+    <div class="{{ $bn }}__svg-background">
+      {{- partial (print "svg/" . ".svg" ) -}}
+    </div>
+  {{ end }}
+
+  <div class="{{ $bn }}__content">
+
+    <div class="{{ $bn }}__text">
+
+      <div class="{{ $bn }}__title-and-pill">
+        {{- with $mainTitle -}}
+          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
+        {{- end -}}
+
+        {{- with $pill -}}
+          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
+        {{- end -}}
+      </div>
+
+      <div class="{{ $bn }}__headline-and-intro">
+        {{ with $headline }}
+          <h1 class="{{ $bn }}__headline markdown">{{ . | markdownify }}</h1>
+        {{ end }}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="{{ $bn }}__service-summaries">
+    {{ range $service := $services }}
+      <div class="{{ $bn }}__service-summary">
+        {{ $path := $service.File.Path }}
+        {{ partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path) "Page" $page) }}
+      </div>
+    {{ end }}
+  </div>
+
+</header>

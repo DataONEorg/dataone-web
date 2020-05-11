@@ -69,7 +69,8 @@
   &__input:focus ~ #{$bn}__button {
     // transition to match the focus style of the input element
     @include desktop {
-      transform    : translateY(-1.5px);
+      transform    : translateY(-0.4px);
+      filter: brightness(1.01);
       border-bottom: 1.5px solid var(--section-c-accent, var(--c-major-accent-on-default, grey));
     }
   }
