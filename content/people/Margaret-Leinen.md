@@ -15,5 +15,6 @@ longbio: Courtney Soderberg is the Statistical and Methodological Consultant at 
   with a minor in Quantitative Psychology from UC Davis.
 email: courtney@cos.io
 title: ''
+draft: true
 
 ---
