@@ -28,5 +28,6 @@ speakers:
 - people/Cynthia-Hudson-Vitale.md
 slug: data-curation-primers-expanding-community-curation-toolkit
 image: "/uploads/cesar-carlevarino-aragon-NL_DF0Klepc-unsplash.jpg"
+draft: true
 
 ---
