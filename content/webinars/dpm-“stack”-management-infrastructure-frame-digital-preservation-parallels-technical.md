@@ -28,5 +28,6 @@ speakers:
 - people/heidi-imker.md
 - people/amanda-whitmire.md
 slug: analyzing-interpreting-and-implementing-data-management-plans
+draft: true
 
 ---
