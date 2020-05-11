@@ -58,6 +58,7 @@ fields:
   label: Email address
 pages:
 - content/people/Alison-Specht.md
+- content/people/Angela-Murillo.md
 - content/people/Anna-Liljedahl.md
 - content/people/Bertram-Ludäscher.md
 - content/people/Craig-Willis.md
@@ -94,7 +95,6 @@ pages:
 - content/people/debra-fagan.md
 - content/people/doug-fils.md
 - content/people/duane-costa.md
-- content/people/file.md
 - content/people/fiona-murphy.md
 - content/people/greg-wilson.md
 - content/people/heidi-imker.md
