@@ -1,38 +1,35 @@
 ---
 date: 2020-02-01
-title: 'Incentives, Challenges, Barriers: Exploring social, institutional and economic
-  reasons for sharing data'
+title: 'How not to collect data: organizing data for long-term use and re-use'
 webinar_datetime: 2016-09-13T09:00:00-07:00
 duration: 60
 status: past
 tags:
-- Plan
-- Describe
-- Collect
 - Assure
-- Discover
-vimeoID: 182771354
-image: "/uploads/markus-spiske-dMh1A35w_BE-unsplash.jpg"
+- Collect
+vimeoID: 186474460
+image: "/uploads/michael-aleo-OsdgZG1byTk-unsplash.jpg"
 registration_link: ''
-slides: "/uploads/dws13sep2016slides.pdf"
-disqus_shortname: incentive-challenges-barriers-for-sharing-data
-short_abstract: 'This webinar will be broadcast from SciDataCon during International
-  Data Week in Denver, Colorado, and will feature panelists who plan to discuss their
-  work in the areas of: data as social capital, giving researchers credit for data,
-  and the results of a case study on perceived versus actual risks of data sharing.'
-abstract: 'Crafting responsive tools for the sharing of data and knowledge requires
-  understanding the people who will use them. In particular, exploring and studying
-  how and why researchers perceive incentives, risks, and rewards for sharing research
-  data may provide additional approaches and paths towards increasing openness. This
-  webinar will be broadcast from SciDataCon during International Data Week in Denver,
-  Colorado, and will feature panelists who plan to discuss their work in the areas
-  of: data as social capital, giving researchers credit for data, and the results
-  of a case study on perceived versus actual risks of data sharing.'
+slides: "/uploads/hampton_d1_data_collection_20161011.pdf"
+disqus_shortname: organizing-data-for-long-term-use-and-re-use
+short_abstract: Most scientists have experienced the disappointment of opening an
+  old data file and not fully understanding the contents. During data collection,
+  we frequently optimize ease and efficiency of data entry, producing files that are
+  not well formatted or described for longer term uses, perhaps assuming in the moment
+  that the details of our experiments and observations would be impossible to forget.
+  We can make the best of our sometimes embarrassing data management errors by using
+  them as ‘teachable moments’, opening our dusty file drawers to explore the most
+  common errors, and some quick fixes to improve day-to-day approaches to data.
+abstract: Most scientists have experienced the disappointment of opening an old data
+  file and not fully understanding the contents. During data collection, we frequently
+  optimize ease and efficiency of data entry, producing files that are not well formatted
+  or described for longer term uses, perhaps assuming in the moment that the details
+  of our experiments and observations would be impossible to forget. We can make the
+  best of our sometimes embarrassing data management errors by using them as ‘teachable
+  moments’, opening our dusty file drawers to explore the most common errors, and
+  some quick fixes to improve day-to-day approaches to data.
 speakers:
-- people/fiona-murphy.md
-- people/heidi-laine.md
-- people/Jens-Klump.md
-slug: incentives-challenges-barriers-exploring-social-institutional-and-economic-reasons-sharing
-draft: true
+- people/stephanie-hampton.md
+slug: how-not-collect-data-organizing-data-long-term-use-and-re-use
 
 ---
