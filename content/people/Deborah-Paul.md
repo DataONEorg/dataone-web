@@ -1,23 +1,22 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/DebPaul.jpg"
+fullname: Deborah Paul
+firstname: Deborah
+role: 'Digitization and Technology Specialist '
+organization: iDigBio
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Debbie's current research for iDigBio is focused on biodiversity informatics
+  skills and workforce training services as they relate to best practices for biological
+  specimen digitization workflows, collection of and research use of field data.
+longbio: Debbie's current research for iDigBio is focused on biodiversity informatics
+  skills and workforce training services as they relate to best practices for biological
+  specimen digitization workflows, collection of and research use of field data. Prior
+  to the iDigBio Project, she worked for Morphbank as data analyst, technical writer,
+  and user services contact teaching contributors how to format their data for upload
+  to Morphbank. She earned her B.S. in biology and M.S. in education from Florida
+  State University. Some of her interests include economic botany, ceramics, fossils,
+  genealogy, and good food.
+email: dpaul@fsu.edu
 title: ''
-draft: true
 
 ---
