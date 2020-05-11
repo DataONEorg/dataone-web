@@ -1,23 +1,21 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/KatjaSeltmann.jpg"
+fullname: Katja Seltmann
+firstname: Katja
+role: Director
+organization: Cheadle Center for Biodiversity and Ecological Restoration
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: As Director of the Cheadle Center for Biodiversity and Ecological Restoration,
+  Katja directs the three main research and programmatic areas; collections management,
+  education, and restoration.
+longbio: As Director of the Cheadle Center for Biodiversity and Ecological Restoration,
+  Katja directs the three main research and programmatic areas; collections management,
+  education, and restoration. Her own research agenda is in the field of biodiversity
+  informatics, or data science research of digitized natural history collection records,
+  arthropod diversity in restoration habitats, and expanding the STEAM (Science, Technology,
+  Engineering, Art, and Math) educational impact of restoration natural areas and
+  natural history collections.
+email: seltmann@ccber.ucsb.edu
 title: ''
-draft: true
 
 ---
