@@ -25,5 +25,6 @@ speakers:
 - people/Daniella-Lowenberg.md
 slug: make-data-and-your-repository-count
 image: "/uploads/joshua-sortino-LqKhnDzSF-8-unsplash.jpg"
+draft: true
 
 ---
