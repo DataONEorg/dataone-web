@@ -27,5 +27,6 @@ speakers:
 - people/Jeanette-Clark.md
 slug: tidy-ing-your-data-simple-steps-reproducible-research
 image: "/uploads/kelly-sikkema-qxAxQW5CxP0-unsplash.jpg"
+draft: true
 
 ---
