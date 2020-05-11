@@ -3,31 +3,29 @@ date: 2020-05-01T21:25:10.000+00:00
 duration: 60
 status: past
 registration_link: ''
-title: Engaging with Data Creators and Users to Foster a Culture of Data Sharing and
-  Reuse
-webinar_datetime: 2017-04-11T09:00:00-07:00
+title: 'From Rolling Deck to Repository (R2R): Lessons Learned in Managing Data for
+  the US Research Fleet'
+webinar_datetime: 2017-03-14T09:00:00-07:00
 tags:
-- Collect
-- Discover
-disqus_shortname: engaging-data-creators-users-for-sharing-and-reuse
-vimeoID: 212828944
-slides: "/uploads/dataone_webinar_april2017.pdf"
-short_abstract: Researchers are increasingly attuned to the need to share and reuse
-  data, but often do not know where to start. This webinar brings together three panelists
-  to discuss a range of perspectives around how to think about, plan for, and engage
-  with research data users and contributors, with the intent of fostering a culture
-  of data sharing and data reuse.
-abstract: Researchers are increasingly attuned to the need to share and reuse data,
-  but often do not know where to start. This webinar brings together three panelists
-  to discuss a range of perspectives around how to think about, plan for, and engage
-  with research data users and contributors, with the intent of fostering a culture
-  of data sharing and data reuse.
+- Preserve
+disqus_shortname: rolling-deck-to-repository-r2r
+vimeoID: 208348914
+slides: "/uploads/arko_march2017slides_0.pdf"
+short_abstract: R2R is the NSF-supported repository for environmental sensor data
+  routinely acquired by U.S. oceanographic research vessels. The research fleet supports
+  hundreds of expeditions around the world each year, ranging from oceans to coasts
+  and estuaries to the Great Lakes. R2R works with an extensive network of partner
+  repositories to link original field data from both sensors and samples, post-field
+  products, global syntheses, and journal articles.
+abstract: R2R is the NSF-supported repository for environmental sensor data routinely
+  acquired by U.S. oceanographic research vessels. The research fleet supports hundreds
+  of expeditions around the world each year, ranging from oceans to coasts and estuaries
+  to the Great Lakes. R2R works with an extensive network of partner repositories
+  to link original field data from both sensors and samples, post-field products,
+  global syntheses, and journal articles.
 speakers:
-- people/Adam-Kriesberg.md
-- people/Angela-Murillo.md
-- people/Patricia-Condon.md
-slug: engaging-data-creators-and-users-foster-culture-data-sharing-and-reuse
-image: "/uploads/convertkit-Ky2YPCpnmK0-unsplash.jpg"
-draft: true
+- people/Robert-Arko.md
+slug: rolling-deck-repository-r2r-lessons-learned-managing-data-us-research-fleet
+image: "/uploads/sachin-dogra-zhubWCRUj28-unsplash.jpg"
 
 ---
