@@ -130,7 +130,6 @@ pages:
 - content/webinars/building-collaborative-bridges-opportunities-and-challenges-data-sharing-and-citation.md
 - content/webinars/collaboration-across-time-and-space-lter-network.md
 - content/webinars/communication-strategies-increase-your-impact.md
-- content/webinars/communication-strategies-to-increase-your-impact.md
 - content/webinars/community-resources-data-management.md
 - content/webinars/data-curation-network-cross-institutional-staffing-model-curating-research-data.md
 - content/webinars/data-curation-primers-expanding-community-curation-toolkit.md
@@ -151,6 +150,7 @@ pages:
 - content/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network.md
 - content/webinars/rdmla-five-months-post-launch.md
 - content/webinars/research-computing-skills-scientists-lessons-challenges-and-opportunities-software.md
+- content/webinars/ropensci-high-quality-research-software-reproducible-data-science.md
 - content/webinars/schemaorg-improving-access-data-through-standardized-language.md
 - content/webinars/tidy-ing-your-data-simple-steps-reproducible-research.md
 - content/webinars/what-it-means-be-dataone-member-node—member-nodes-share-their-views.md
