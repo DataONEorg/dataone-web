@@ -3,35 +3,42 @@ date: 2020-05-01T21:25:10.000+00:00
 duration: 60
 status: past
 registration_link: ''
-title: 'The Open Science Framework: Increasing Reproducibility Across the Entire Research
-  Lifecycle'
-webinar_datetime: 2015-10-13T09:00:00-07:00
+title: 'The data flood: Implications for data stewardship and the culture of discovery'
+webinar_datetime: 2015-09-08T09:00:00-07:00
 tags:
+- Preserve
+- Discover
+- Describe
+- Collect
 - Integrate
-- Analyze
-- Assure
-disqus_shortname: openscienceframework
-vimeoID: 142282216
-slides: "/uploads/dataone_webinar.pdf"
-short_abstract: This webinar will discuss how different points in the research lifecycle
-  can affect reproducibility and why tracking how research evolves over time is important
-  for reproducibility. The webinar will also introduce the Open Science Framework,
-  a free, open source webtool designed by the Center for Open Science to help researchers
-  manage, document, and share their entire research lifecycle.
-abstract: Over the past few years there has been a growing movement to make data and
-  code openly available to increase the reproducibility of scientific research. While
-  these steps are important, they leave out information about how research questions,
-  hypotheses, and analytical decisions may have changed over time. This type of information
-  can have important implications for the reproducibility and interpretation of scientific
-  findings. This webinar will discuss how different points in the research lifecycle
-  can affect reproducibility and why tracking how research evolves over time is important
-  for reproducibility. The webinar will also introduce the Open Science Framework,
-  a free, open source webtool designed by the Center for Open Science to help researchers
-  manage, document, and share their entire research lifecycle.
+disqus_shortname: the-data-flood
+vimeoID: 138659359
+slides: "/uploads/dataone_9-2015_small.pdf"
+short_abstract: 'A new focus on making research data publicly available is sweeping
+  through the research community and being highlighted in public discussions of research.
+  Several trends have come together to prompt this discussion: Most data generated
+  today begin as digital rather than analog data, whether they are collected automatically
+  by instruments connected to computers, or entered into computers for analysis after
+  collection.'
+abstract: 'A new focus on making research data publicly available is sweeping through
+  the research community and being highlighted in public discussions of research.
+  Several trends have come together to prompt this discussion: Most data generated
+  today begin as digital rather than analog data, whether they are collected automatically
+  by instruments connected to computers, or entered into computers for analysis after
+  collection. A new concern about ensuring that observations, experiments, and models
+  are reproducible requires access to original data. And the open access publication
+  movement is accompanied by a parallel demand for open access to the data on which
+  the publications are based. These developments challenge scientific publications
+  to find ways to ensure data availability. They challenge researchers who are used
+  to having exclusive access to their data for years, if not for their entire career.
+  They challenge researchers to be more forthcoming about the basis for research.
+  And they challenge all data repositories to accommodate and curate many more data
+  sets. The cost of such stewardship is a challenge to universities, to research consortia,
+  and to governments. Such open data access has the ability to change the demographics
+  of research and the style of discovery.'
 speakers:
-- people/Courtney-Soderberg.md
-slug: open-science-framework-increasing-reproducibility-across-entire-research-lifecycle
-image: "/uploads/cycle-2019530_960_720.webp"
-draft: true
+- people/Margaret-Leinen.md
+slug: data-flood-implications-data-stewardship-and-culture-discovery
+image: "/uploads/kelly-sikkema-_whs7FPfkwQ-unsplash.jpg"
 
 ---
