@@ -1,23 +1,24 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/Patricia-Cruse2.jpg"
+fullname: Trisha Cruse
+firstname: Trisha
+role: Director
+organization: DataCite
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Patricia (Trisha) Cruse comes to DataCite with a strong commitment and passion
+  for data sharing. As Director, her role is to advance DataCite’s mission, ensure
+  sound and trusted services, build strategic partnerships, work with a diverse community
+  of stakeholders, and oversee DataCite staff.
+longbio: Patricia (Trisha) Cruse comes to DataCite with a strong commitment and passion
+  for data sharing. As Director, her role is to advance DataCite’s mission, ensure
+  sound and trusted services, build strategic partnerships, work with a diverse community
+  of stakeholders, and oversee DataCite staff. Prior to joining DataCite, Trisha was
+  the Director of the University of California Curation Center (UC3) at the California
+  Digital Library where she oversaw the development of several user-facing data sharing
+  services. In addition, Trisha also is a co-PI on the DataONE initiative and co-leads
+  sustainability and governance activities. Trisha holds an MLIS from the University
+  of California, Berkeley.
+email: patricia.cruse@datacite.org
 title: ''
-draft: true
 
 ---
