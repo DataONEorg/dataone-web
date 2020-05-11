@@ -123,6 +123,7 @@ fields:
   description: To add to the list of speaker options, first add the speaker to the
     "People" section (see sidebar)
 pages:
+- content/webinars/academic-data-science-from-individuals-to-institutions.md
 - content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/collaboration-across-time-and-space-lter-network.md
 - content/webinars/community-resources-data-management.md
