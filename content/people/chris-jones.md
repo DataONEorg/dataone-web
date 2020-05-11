@@ -1,21 +1,24 @@
 ---
-avatar: "/uploads/AdamKriesberg.png"
-fullname: Adam Kriesberg
-firstname: Adam
-role: Postdoctoral Scholar
-organization: University of Maryland
+avatar: "/uploads/chris_jones.jpg"
+fullname: Chris Jones
+firstname: Chris
+role: Software Engineer
+organization: NCEAS
 d1_role: ''
-shortbio: Adam is a Postdoctoral Scholar at the University of Maryland College of
-  Information Studies, where he studies data curation and digital preservation at
-  the USDA- National Agricultural Library.
-longbio: Adam is a Postdoctoral Scholar at the University of Maryland College of Information
-  Studies, where he studies data curation and digital preservation at the USDA- National
-  Agricultural Library. He received his PhD from the University of Michigan School
-  of Information in 2015; his dissertation explored the public-private partnerships
-  involving state and territorial archives in the United States, and how these relationships
-  affect access to government records and information.
-email: ''
+shortbio: Chris Jones is a Software Engineer at the National Center for Ecological
+  Analysis and Synthesis (NCEAS), at the University of California, Santa Barbara.
+  He has worked on informatics projects for the last fifteen years, focusing on generic
+  solutions to common data management needs in the earth and ecological sciences.
+longbio: Chris Jones is a Software Engineer at the National Center for Ecological
+  Analysis and Synthesis (NCEAS), at the University of California, Santa Barbara.
+  He has worked on informatics projects for the last fifteen years, focusing on generic
+  solutions to common data management needs in the earth and ecological sciences.
+  Chris has built systems to document and archive data for regional and international
+  consortia, stream data in near real time from arrays of oceanographic sensors deployed
+  across the insular Pacific islands, and has been involved in metadata standards
+  development and ontology development. Chris tries to handle computer systems in
+  stride, despite their frequent tantrums. He lives in Colorado.
+email: cjones@nceas.ucsb.edu
 title: ''
-draft: true
 
 ---
