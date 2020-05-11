@@ -1,25 +1,23 @@
 ---
-avatar: "/uploads/CynthiaHudsonVitale.png"
-fullname: Cynthia Hudson Vitale
-firstname: Cynthia
-role: 'Head of Research Informatics and Publishing '
+avatar: "/uploads/hannahhadley.jpg"
+fullname: Hannah Hadley
+firstname: Hannah
+role: 'Project Manager '
 organization: 'Pennsylvania State University Libraries '
 d1_role: ''
-shortbio: Cynthia Hudson Vitale is the Head of Research Informatics and Publishing
-  at the Pennsylvania State University Libraries where she leads a department focused
-  on enhancing the technology-driven research capacity of faculty and students, particularly
-  in the areas of statistics, digital humanities, research data services, open-access
-  publishing, and maps & GIS.
-longbio: Cynthia Hudson Vitale is the Head of Research Informatics and Publishing
-  at the Pennsylvania State University Libraries where she leads a department focused
-  on enhancing the technology-driven research capacity of faculty and students, particularly
-  in the areas of statistics, digital humanities, research data services, open-access
-  publishing, and maps & GIS. She is a founding member of the[ Data Curation Network](http://datacurationnetwork.org/)
-  and the principal investigator on a project developing [specialized data curation
-  training](https://sites.psu.edu/dcnworkshops/). Her areas of expertise include information
-  architecture, data curation, and scholarly communication.
-email: cuv185@psu.edu
+shortbio: Hannah Hadley is the Project Manager for the IMLS DCN data curation training
+  grant at Pennsylvania State University Libraries, Research Informatics and Publishing
+  department. The two year grant funds three data curation education workshops between
+  2018 and 2019.
+longbio: Hannah Hadley is the Project Manager for the IMLS DCN data curation training
+  grant at Pennsylvania State University Libraries, Research Informatics and Publishing
+  department. The two year grant funds three data curation education workshops between
+  2018 and 2019. Hannah has a B.S. in Anthropology from Washington University in St.
+  Louis, and is currently a graduate student at Drexel University within the MSLIS
+  program. Her research interests include data curation and scientific research using
+  archival sources. She is pleased to serve the data librarian community in this effort
+  to educate and share curation experience.
+email: hlh83@psu.edu
 title: ''
-draft: true
 
 ---
