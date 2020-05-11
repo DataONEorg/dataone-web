@@ -73,4 +73,3 @@ fields:
       description: Configure how this page will appear in the navigation bar
 pages:
 - content/about/contact.md
-- content/services/_index.md
