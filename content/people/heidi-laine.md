@@ -1,23 +1,28 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/HeidiLane.jpg"
+fullname: Heidi Laine
+firstname: Heidi
+role: Doctoral Student
+organization: 'University of Helsinki '
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Heidi is a doctoral student at the University of Helsinki Doctoral Programme
+  in Political, Societal and Regional Change, working on a thesis dealing with the
+  history of research integrity regulation from the early 1990’s to the current open
+  science era.
+longbio: Heidi is a doctoral student at the University of Helsinki Doctoral Programme
+  in Political, Societal and Regional Change, working on a thesis dealing with the
+  history of research integrity regulation from the early 1990’s to the current open
+  science era. Her main methodological and theoretical influences come from social
+  science history, social psychology of science and science & technology studies.
+  Heidi is an open science advocate and coordinates the Open Knowledge Finland Open
+  Science Working Group. The Open Citizen Science project, commissioned by the Finnish
+  Ministry of Education, aims at mapping national stakeholders and infrastructures
+  for citizen science, recognizing development opportunities and even catalyzing a
+  national research agenda for “Citizen Science 2.0”. Heidi also has a background
+  in science policy; in 2012 she founded her role as the Science Secretary of the
+  Council of Finnish Academies what was to become the Finnish Committee for Research
+  Data, a national liaison for CODATA, RDA and WDS.
+email: ''
 title: ''
-draft: true
 
 ---
