@@ -24,5 +24,6 @@ longbio: Fernando Pérez (@fperez_org) is a staff scientist at Lawrence Berkeley
   of Free Software from the Free Software Foundation.
 email: fernando.perez@berkeley.edu
 title: ''
+draft: true
 
 ---
