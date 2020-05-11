@@ -31,5 +31,6 @@ speakers:
 - people/trisha-cruse.md
 - people/mark-parsons.md
 slug: building-collaborative-bridges-opportunities-and-challenges-data-sharing-and-citation
+draft: true
 
 ---
