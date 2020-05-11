@@ -1,23 +1,26 @@
 ---
-avatar: "/uploads/RanganathanSm.png"
-fullname: Jai Ranganathan
-firstname: Jai
-role: Senior Fellow
-organization: NCEAS
+avatar: "/uploads/MeyerSm.png"
+fullname: John Meyer
+firstname: John
+role: Associate Director of Science Communication
+organization: University of Washington
 d1_role: ''
-shortbio: Jai is a conservation biologist focused on closing the gap between science
-  and society. He is the Executive Director of SciFund Challenge, a scientist-based
-  nonprofit organization that trains and supports researchers in their science outreach.
-longbio: Jai is a conservation biologist focused on closing the gap between science
-  and society. He is the Executive Director of SciFund Challenge, a scientist-based
-  nonprofit organization that trains and supports researchers in their science outreach.
-  Through SciFund Challenge, Jai also investigates the role that science crowdfunding
-  can play in increasing the incentive structure for long-term science outreach by
-  researchers. Previously, Jai conducted research focused on understanding the role
-  that agricultural landscapes can play in conserving species in the tropics. He additionally
-  conducted research on the use of economically-focused methods for conservation planning.
-email: ranganathan@nceas.ucsb.edu
+shortbio: With a graduate degree in marine ecology, John has studied the shorelines
+  of the West Coast and the deep sea of New England’s Gulf of Maine, presenting his
+  research at professional conferences and publishing in the scientific literature.
+  John has spent his last six years as a member of the communications team at the
+  University of Washington’s College of the Environment.
+longbio: John has been an advocate for science in multiple sectors throughout his
+  career. With a graduate degree in marine ecology, John has studied the shorelines
+  of the West Coast and the deep sea of New England’s Gulf of Maine, presenting his
+  research at professional conferences and publishing in the scientific literature.
+  He has worked in policy-making settings focused primarily on natural resource issues
+  at the local, state and federal levels, including time as a staff member in the
+  U.S. House of Representatives. He has also worked on the communications front at
+  COMPASS, an organization dedicated to helping scientists communicate their work
+  to have broader impact. John has spent his last six years as a member of the communications
+  team at the University of Washington’s College of the Environment.
+email: jjmeyer@uw.edu
 title: ''
-draft: true
 
 ---
