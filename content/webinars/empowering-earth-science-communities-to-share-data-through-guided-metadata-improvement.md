@@ -31,5 +31,6 @@ speakers:
 - people/Lindsay-Powers.md
 - people/Ted-Habermann.md
 slug: empowering-earth-science-communities-share-data-through-guided-metadata-improvement
+draft: true
 
 ---
