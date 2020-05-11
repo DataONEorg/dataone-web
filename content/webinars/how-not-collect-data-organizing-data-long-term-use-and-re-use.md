@@ -33,5 +33,6 @@ speakers:
 - people/heidi-laine.md
 - people/Jens-Klump.md
 slug: incentives-challenges-barriers-exploring-social-institutional-and-economic-reasons-sharing
+draft: true
 
 ---
