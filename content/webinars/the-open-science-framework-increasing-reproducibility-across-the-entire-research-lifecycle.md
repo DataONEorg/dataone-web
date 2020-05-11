@@ -32,5 +32,6 @@ speakers:
 - people/Courtney-Soderberg.md
 slug: open-science-framework-increasing-reproducibility-across-entire-research-lifecycle
 image: "/uploads/cycle-2019530_960_720.webp"
+draft: true
 
 ---
