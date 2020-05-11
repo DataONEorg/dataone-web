@@ -1,23 +1,22 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
+avatar: "/uploads/MartinFenner.jpg"
+fullname: Martin Fenner
+firstname: Martin
 role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+organization: DataCite
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Martin Fenner is the DataCite Technical Director and envisions, develops,
+  implements and manages a robust technical architecture for Datacite as well as DataCite’s
+  technical contributions for the EU-funded THOR project.
+longbio: Martin Fenner is the DataCite Technical Director and envisions, develops,
+  implements and manages a robust technical architecture for Datacite as well as DataCite’s
+  technical contributions for the EU-funded THOR project. From 2012 to 2105 he was
+  technical lead for the PLOS Article-Level Metrics project. He served on the Board
+  of the Open Researcher and Contributor ID (ORCID) initiative from 2010-2012, and
+  worked for ORCID EU in the EU-funded ODIN project from 2012 to 2013. Martin has
+  a medical degree from the Free University of Berlin and is a Board-certified medical
+  oncologist.
+email: martin.fenner@datacite.org
 title: ''
-draft: true
 
 ---
