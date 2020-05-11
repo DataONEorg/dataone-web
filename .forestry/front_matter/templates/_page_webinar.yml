@@ -124,7 +124,6 @@ fields:
     "People" section (see sidebar)
 pages:
 - content/webinars/academic-data-science-individuals-institutions.md
-- content/webinars/an-introduction-to-community-engagement-within-science-supporting-the-human-infrastructure-for-collaboration.md
 - content/webinars/analyzing-interpreting-and-implementing-data-management-plans.md
 - content/webinars/assuring-quality-your-data-natural-history-collection-community-perspective.md
 - content/webinars/building-collaborative-bridges-opportunities-and-challenges-data-sharing-and-citation.md
@@ -134,6 +133,7 @@ pages:
 - content/webinars/data-management-plans-20-helping-you-manage-your-data.md
 - content/webinars/dataone-current-services-new-tools-and-future-developments.md
 - content/webinars/dataone-users-group-dug-supporting-and-connecting-dataone-user-community.md
+- content/webinars/developing-packaging-and-sharing-reproducible-research-objects-whole-tale-approach.md
 - content/webinars/dpm-“stack”-management-infrastructure-frame-digital-preservation-parallels-technical.md
 - content/webinars/empowering-earth-science-communities-share-data-through-guided-metadata-improvement.md
 - content/webinars/environmental-data-initiative-edi-supporting-curation-and-archiving-environmental-data.md
