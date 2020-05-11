@@ -1,24 +1,24 @@
 ---
-avatar: "/uploads/cameron_neylon_comp.jpg"
-fullname: Cameron Neylon
-firstname: Cameron
-role: Advocacy Director
-organization: PLOS
+avatar: "/uploads/dr-jean-composite.jpg"
+fullname: Jean-Claude Guédon
+firstname: Jean-Claude
+role: Professor
+organization: Université de Montréal
 d1_role: ''
-shortbio: Dr. Cameron Neylon is is a biophysicist who has always worked in interdisciplinary
-  areas and has become a dedicated advocate of open research practice and improved
-  data management. He received his Ph.D. from the Australian National University in
-  1999 and joined PLOS (Public Library of Science) in 2012 as its Advocacy Director.
-longbio: Dr. Cameron Neylon is is a biophysicist who has always worked in interdisciplinary
-  areas and has become a dedicated advocate of open research practice and improved
-  data management. He received his Ph.D. from the Australian National University in
-  1999 and joined PLOS (Public Library of Science) in 2012 as its Advocacy Director.
-  Cameron currently plays a key role in shaping the organization's organizing, educational
-  and outreach activities. As a respected leader on changes in Scholarly Communications,
-  he is involved in policy initiatives, technology development and implementation
-  around the world.
+shortbio: Dr. Jean-Claude Guédon holds a doctorate in the History of Science from
+  the University of Wisconsin, Madison and is currently a professor of comparative
+  literature at the Université de Montréal.
+longbio: Dr. Jean-Claude Guédon holds a doctorate in the History of Science from the
+  University of Wisconsin, Madison and is currently a professor of comparative literature
+  at the Université de Montréal. He specializes in digital culture, internet studies,
+  and electronic publishing and is a strong advocate of Open Access to scientific
+  research. He has served on the boards of numerous international organizations that
+  support openness and digital scholarship, including the Electronic Information for
+  Libraries and the Information Programme of the Open Society Foundations. He is presently
+  a trustee of the Nexa Center for Internet and Society studies at the Politecnico
+  of Turin (Italy). Well respected for his thoughtfulness and foresight in the field
+  of Open Access, Dr. Guédon regularly presents on this and related topics every year.
 email: ''
 title: ''
-draft: true
 
 ---
