@@ -30,5 +30,6 @@ speakers:
 - people/chris-jones.md
 slug: announcing-dataone-search-new-way-discover-data
 image: "/uploads/nine-kopfer-iPbwEiWkVMQ-unsplash.jpg"
+draft: true
 
 ---
