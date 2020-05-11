@@ -1,23 +1,20 @@
 ---
-avatar: "/uploads/Ludaescher.jpg"
-fullname: Bertram Ludäscher
-firstname: Bertram
-role: Director
-organization: University of Illinois, Urbana Champaign
+avatar: "/uploads/Willis.jpg"
+fullname: Craig Willis
+firstname: Craig
+role: Senior Research Programmer
+organization: National Center for Supercomputing Applications
 d1_role: ''
-shortbio: Bertram Ludäscher is Director of Center for Informatics Research in Science
-  and Scholarship, Professor at the School of Information Sciences, National Center
-  for Supercomputing Applications, and the Department of Computer Science, University
-  of Illinois, Urbana Champaign.
-longbio: Bertram Ludäscher is Director of Center for Informatics Research in Science
-  and Scholarship, Professor at the School of Information Sciences, National Center
-  for Supercomputing Applications, and the Department of Computer Science, University
-  of Illinois, Urbana Champaign. He conducts research in scientific data management,
-  scientific workflows, and data provenance. His research interests also include foundations
-  of databases, knowledge representation, and reasoning. Ludäscher applies this work
-  in a number of domains, e.g., biodiversity informatics and taxonomy.
-email: ludaesch@illinois.edu
+shortbio: Craig Willis is a senior research programmer at the National Center for
+  Supercomputing Applications (NCSA) where he works as part of the Whole Tale development
+  team. He is also a PhD candidate at the School of Information Sciences at the University
+  of Illinois at Urbana-Champaign.
+longbio: Craig Willis is a senior research programmer at the National Center for Supercomputing
+  Applications (NCSA) where he works as part of the Whole Tale development team. He
+  is also a PhD candidate at the School of Information Sciences at the University
+  of Illinois at Urbana-Champaign. His research focuses on methods of verification
+  and dissemination of computational research artifacts for transparency and reproducibility.
+email: willis8@illinois.edu
 title: ''
-draft: true
 
 ---
