@@ -1,20 +1,17 @@
 ---
-avatar: "/uploads/scott_chamberlain.png"
-fullname: Scott Chamberlain
-firstname: Scott
-role: Co-Founder
-organization: rOpenSci
+avatar: "/uploads/karthik.png"
+fullname: Karthik Ram
+firstname: Karthik
+role: Data Science Fellow
+organization: Berkeley Institute for Data Science
 d1_role: ''
-shortbio: Scott Chamberlain is co-founder of and software developer with rOpenSci.
-  He has a PhD in ecology and evolutionary biology from Rice University. Software
-  development work focuses on software that connects R users to data on the web, in
-  particular biological and taxonomic data.
-longbio: Scott Chamberlain is co-founder of and software developer with rOpenSci.
-  He has a PhD in ecology and evolutionary biology from Rice University. Software
-  development work focuses on software that connects R users to data on the web, in
-  particular biological and taxonomic data.
-email: myrmecocystus@gmail.com
+shortbio: Karthik Ram is a data science fellow at the Berkeley Institute for Data
+  Science, research faculty at the Berkeley Museum of Paleontology at UC Berkeley
+  and co-founder of the rOpenSci project.
+longbio: Karthik Ram is a data science fellow at the Berkeley Institute for Data Science,
+  research faculty at the Berkeley Museum of Paleontology at UC Berkeley and co-founder
+  of the rOpenSci project.
+email: karthik.ram@berkeley.edu
 title: ''
-draft: true
 
 ---
