@@ -1,22 +1,20 @@
 ---
-avatar: "/uploads/ShelleyStall.jpg"
-fullname: Shelley Stall
-firstname: Shelley
-role: Director
-organization: AGU
+avatar: "/uploads/JuliaLowndes.png"
+fullname: Julia Stewart Lowndes
+firstname: Julia
+role: Senior Fellow & Data Scientist
+organization: NCEAS
 d1_role: ''
-shortbio: Shelley Stall is the Director for AGU’s Data Programs. Shelley has more
-  than two decades of experience working in high-volume, complex data management environments.
-  She has helped organizations in not-for-profit, commercial, defense, and federal
-  civilian communities address implementation of regulation, interoperability, worldwide
-  data governance, metadata management, master data management, and organizational
-  change management.
+shortbio: Julia is a marine biologist working to bridge science and resource management.
+  In her role as project scientist for the Ocean Health Index, Julia facilitates the
+  adaptation of the OHI+ assessment framework to smaller spatial scales relevant to
+  marine policy. She leads trainings internationally and provides conceptual and technical
+  support for independent OHI assessments.
 longbio: |-
-  Shelley Stall is the Director for AGU’s Data Programs. Shelley has more than two decades of experience working in high-volume, complex data management environments. She has helped organizations in not-for-profit, commercial, defense, and federal civilian communities address implementation of regulation, interoperability, worldwide data governance, metadata management, master data management, and organizational change management.
+  Julia is a marine biologist working to bridge science and resource management. In her role as project scientist for the Ocean Health Index, Julia facilitates the adaptation of the OHI+ assessment framework to smaller spatial scales relevant to marine policy. She leads trainings internationally and provides conceptual and technical support for independent OHI assessments.
 
-  Shelley has diverse experience as a program and project manager, software architect, database architect, performance and optimization analyst, data product provider, and data integration analyst. This experience provides her with a core capability in development of practical and sustainable data management practices.
-email: ''
+  Prior to joining the Index team, Julie completed her Ph.D dissertation at Stanford University’s Hopkins Marine Station, researching potential effects of the Humboldt squid in the California Current System on coastal fisheries in a changing climate.
+email: lowndes@nceas.ucsb.edu
 title: ''
-draft: true
 
 ---
