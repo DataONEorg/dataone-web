@@ -26,5 +26,6 @@ speakers:
 - people/Jai-Ranganathan.md
 slug: communication-strategies-increase-your-impact
 image: "/uploads/volodymyr-hryshchenko-V5vqWC9gyEU-unsplash.jpg"
+draft: true
 
 ---
