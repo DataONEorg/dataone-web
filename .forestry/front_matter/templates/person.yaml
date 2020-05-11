@@ -57,6 +57,7 @@ fields:
   name: email
   label: Email address
 pages:
+- content/people/Alison-Specht.md
 - content/people/Anna-Liljedahl.md
 - content/people/Deborah-Paul.md
 - content/people/Jeanette-Clark.md
@@ -78,7 +79,6 @@ pages:
 - content/people/debra-fagan.md
 - content/people/doug-fils.md
 - content/people/duane-costa.md
-- content/people/file.md
 - content/people/fiona-murphy.md
 - content/people/greg-wilson.md
 - content/people/heidi-imker.md
