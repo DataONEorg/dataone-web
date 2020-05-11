@@ -10,12 +10,12 @@ tags:
 disqus_shortname: data-curation-network-1
 vimeoID: 359216962
 slides: "/uploads/dcnwebinarslides.pdf"
-short_abstract: Data curation primers were the direct output of an [IMLS-funded workshop](https://sites.psu.edu/dcnworkshops/)
-  series hosted by the partners in the [Data Curation Network (DCN)](https://nam01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdatacurationnetwork.org%2F&data=02%7C01%7Ccuv185%40psu.edu%7C917a8374976849a2fabe08d6fe72a398%7C7cf48d453ddb4389a9c1c115526eb52e%7C0%7C0%7C636976165656798728&sdata=nLeJiH6IDUN6oBH5QIDg7Lr8Iunew9BbqqQsqV7vAvA%3D&reserved=0)
-  and leverage the expertise of data curators nation-wide. Attend this webinar to
-  get an update on the DCN, a little history about the DCN Education initiative, a
-  demo of the newest releases of the curation primers, and some ideas of how you can
-  incorporate this resource into your workflows and share your own expertise.
+short_abstract: Data curation primers were the direct output of an IMLS-funded workshop
+  series hosted by the partners in the Data Curation Network (DCN) and leverage the
+  expertise of data curators nation-wide. Attend this webinar to get an update on
+  the DCN, a little history about the DCN Education initiative, a demo of the newest
+  releases of the curation primers, and some ideas of how you can incorporate this
+  resource into your workflows and share your own expertise.
 abstract: |-
   The Data Curation Network presents a new resource to add to your data curation toolkit. “Data curation primers” are a concise, actionable resource to assist data curators in adding value to a dataset. These evolving documents detail a specific subject, disciplinary area or curation task, and can be used as a reference or jump-start to curating research data.
 
