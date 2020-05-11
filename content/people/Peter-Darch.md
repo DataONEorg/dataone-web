@@ -15,5 +15,6 @@ longbio: |-
   She is a Fellow of the American Association for the Advancement of Science and of the Association for Computing Machinery; a recipient of the Paul Evan Peters Award from the Coalition for Networked Information, Association for Research Libraries, and EDUCAUSE; the Research in Information Science Award from ASIST; and a Legacy Laureate of the University of Pittsburgh. She is a member of the Board of Directors of the Electronic Privacy Information Center, U.S. Co-Chair of the CODATA-ICSTI Task Group on Data Citation and Attribution, and previously served on the U.S. National Academies’ Board on Research Data and Information and the U.S. National CODATA.
 email: christine.borgman@ucla.edu
 title: ''
+draft: true
 
 ---
