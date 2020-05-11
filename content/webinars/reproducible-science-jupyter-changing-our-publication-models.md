@@ -3,31 +3,26 @@ date: 2020-05-01T21:25:10.000+00:00
 duration: 60
 status: past
 registration_link: ''
-title: Engaging with Data Creators and Users to Foster a Culture of Data Sharing and
-  Reuse
-webinar_datetime: 2017-04-11T09:00:00-07:00
+title: 'Reproducible science with Jupyter: Changing our publication models'
+webinar_datetime: 2017-02-14T09:00:00-08:00
 tags:
-- Collect
-- Discover
-disqus_shortname: engaging-data-creators-users-for-sharing-and-reuse
-vimeoID: 212828944
-slides: "/uploads/dataone_webinar_april2017.pdf"
-short_abstract: Researchers are increasingly attuned to the need to share and reuse
-  data, but often do not know where to start. This webinar brings together three panelists
-  to discuss a range of perspectives around how to think about, plan for, and engage
-  with research data users and contributors, with the intent of fostering a culture
-  of data sharing and data reuse.
-abstract: Researchers are increasingly attuned to the need to share and reuse data,
-  but often do not know where to start. This webinar brings together three panelists
-  to discuss a range of perspectives around how to think about, plan for, and engage
-  with research data users and contributors, with the intent of fostering a culture
-  of data sharing and data reuse.
+- Analyze
+disqus_shortname: reproducible-science-with-jupyter
+vimeoID: 204075345
+slides: "/uploads/perez2017webinar_sm.pdf"
+short_abstract: In this talk, I will discuss what are the basic ideas that underpin
+  Jupyter, and how they can be used to tackle the problem of reproducibility in computational
+  research. In particular, I will discuss how the structures provided by Jupyter can
+  help us to simultaneously improve access to scientific knowledge and a more productive
+  relationship with the literature, by modifying our approach to scholarly publishing
+  of code, data and narratives.
+abstract: |-
+  Project Jupyter, evolved from the IPython environment, provides a platform for interactive computing that is widely used today in research, education, journalism and industry. The core premise of the Jupyter architecture is to design tools around the experience of interactive computing, building an environment, protocol, file format and libraries optimized for the computational process when there is a human in the loop, in a live iteration with ideas and data assisted by the computer.
+
+  In this talk, I will discuss what are the basic ideas that underpin Jupyter, and how they can be used to tackle the problem of reproducibility in computational research. In particular, I will discuss how the structures provided by Jupyter can help us to simultaneously improve access to scientific knowledge and a more productive relationship with the literature, by modifying our approach to scholarly publishing of code, data and narratives.
 speakers:
-- people/Adam-Kriesberg.md
-- people/Angela-Murillo.md
-- people/Patricia-Condon.md
-slug: engaging-data-creators-and-users-foster-culture-data-sharing-and-reuse
-image: "/uploads/convertkit-Ky2YPCpnmK0-unsplash.jpg"
-draft: true
+- people/Fernando-Pérez.md
+slug: reproducible-science-jupyter-changing-our-publication-models
+image: "/uploads/spacex-OHOU-5UVIYQ-unsplash.jpg"
 
 ---
