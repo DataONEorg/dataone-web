@@ -33,5 +33,6 @@ speakers:
 - people/matthew-jones.md
 slug: quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
 image: "/uploads/jungwoo-hong-cYUMaCqMYvI-unsplash.jpg"
+draft: true
 
 ---
