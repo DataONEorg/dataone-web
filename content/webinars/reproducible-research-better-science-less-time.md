@@ -25,5 +25,6 @@ speakers:
 - people/chris-jones.md
 slug: provenance-enabled-reproducibility-developments-dataone
 image: "/uploads/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
+draft: true
 
 ---
