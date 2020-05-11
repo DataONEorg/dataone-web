@@ -10,7 +10,7 @@ tags:
 - Discover
 disqus_shortname: provenance-enabled-reproducibility
 vimeoID: 244075806
-slides: "/uploads/20171212_mdc_webinar.pdf"
+slides: ''
 short_abstract: During this webinar we will describe the history to date, showcasing
   the tools developed and providing a demonstration of the new web-based provenance
   editor. We highlight the collaborative efforts in building a community around provenance,
