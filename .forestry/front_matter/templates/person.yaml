@@ -57,6 +57,7 @@ fields:
   name: email
   label: Email address
 pages:
+- content/people/Adam-Kriesberg.md
 - content/people/Alison-Specht.md
 - content/people/Angela-Murillo.md
 - content/people/Anna-Liljedahl.md
