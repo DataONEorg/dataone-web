@@ -142,7 +142,6 @@ pages:
 - content/webinars/empowering-earth-science-communities-share-data-through-guided-metadata-improvement.md
 - content/webinars/enabling-fair-data.md
 - content/webinars/engaging-data-creators-and-users-foster-culture-data-sharing-and-reuse.md
-- content/webinars/engaging-with-data-creators-and-users-to-foster-a-culture-of-data-sharing-and-reuse.md
 - content/webinars/environmental-data-initiative-edi-supporting-curation-and-archiving-environmental-data.md
 - content/webinars/fair’er-data-through-semantics-nsf’s-dataone-and-arctic-data-center.md
 - content/webinars/how-not-collect-data-organizing-data-long-term-use-and-re-use.md
@@ -156,6 +155,7 @@ pages:
 - content/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network.md
 - content/webinars/rdmla-five-months-post-launch.md
 - content/webinars/reproducible-research-better-science-less-time.md
+- content/webinars/reproducible-science-jupyter-changing-our-publication-models.md
 - content/webinars/research-computing-skills-scientists-lessons-challenges-and-opportunities-software.md
 - content/webinars/rolling-deck-repository-r2r-lessons-learned-managing-data-us-research-fleet.md
 - content/webinars/ropensci-high-quality-research-software-reproducible-data-science.md
