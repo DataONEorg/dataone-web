@@ -27,5 +27,6 @@ speakers:
 - people/Liz-Ferguson.md
 slug: how-and-why-researchers-share-data
 image: "/uploads/science-in-hd-N4-deIU3kQI-unsplash.jpg"
+draft: true
 
 ---
