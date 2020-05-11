@@ -1,31 +1,28 @@
 ---
-avatar: "/uploads/DavidBloom.jpg"
-fullname: David Bloom
-firstname: David
-role: Project Coordinator
-organization: VertNet
+avatar: "/uploads/Alison_ace_med_2017.jpg"
+fullname: Alison Specht
+firstname: Alison
+role: Director
+organization: Centre for the Synthesis and Analysis of Biodiversity
 d1_role: ''
-shortbio: David is a geographer by training, a museum geek by trade, and a perennial
-  student of the world with a penchant for making information, particularly museum
-  data, collections, and resources, available to anyone who is interested in learning
-  more about the place in which they live. In nearly all of his endeavors, professional
-  and avocational, David always winds up building bridges between people and creating
-  tools that help them get the information they need.
-longbio: David is a geographer by training, a museum geek by trade, and a perennial
-  student of the world with a penchant for making information, particularly museum
-  data, collections, and resources, available to anyone who is interested in learning
-  more about the place in which they live. In nearly all of his endeavors, professional
-  and avocational, David always winds up building bridges between people and creating
-  tools that help them get the information they need. His past professional experiences
-  include the founding of a grassroots, community-based nonprofit educational society
-  promoting cross-cultural appreciation, personal empowerment and creative and responsible
-  community development, in Dharamshala, India; serving multiple museums in positions
-  ranging from docent to senior administrator to board member, and building a highly
-  interactive web site and museum exhibition with Bill Nye the Science Guy. Currently,
-  David is coordinating VertNet, a global museum database of vertebrate natural history
-  collections.
-email: dbloom@vertnet.org
+shortbio: Alison Specht (BScHons, PhD UQ) is an environmental scientist with broad
+  expertise in research, teaching, and community engagement. Between September 2015
+  and the end of 2018 she was the Director of the Centre for the Synthesis and Analysis
+  of Biodiversity, [CESAB](http://cesab.org/index.php?lang=en), a facility of the
+  Foundation for Research on Biodiversity in France.
+longbio: Alison Specht (BScHons, PhD UQ) is an environmental scientist with broad
+  expertise in research, teaching, and community engagement. From 2009 to 2014 she
+  was the director of the [Australian Centre for Ecological Analysis and Synthesis](https://www.dataone.org/webinars/www.aceas.org.au),
+  a facility of the [Terrestrial Ecosystem Research Network](https://www.dataone.org/webinars/www.tern.org.au),
+  based at the University of Queensland. She has been a member of the DataONE Usability
+  and Assessment Working Group since its inception in 2010, and has interests and
+  expertise in data management and the preservation of archival data. She initiated
+  the formation of the [International Synthesis Consortium](https://www.dataone.org/webinars/www.synthesis-consortium.org),
+  whose mission is to increase the effectiveness and recognition of the value of synthesis
+  centres. Between September 2015 and the end of 2018 she was the Director of the
+  Centre for the Synthesis and Analysis of Biodiversity, [CESAB](http://cesab.org/index.php?lang=en),
+  a facility of the Foundation for Research on Biodiversity in France.
+email: a.specht@uq.edu.au
 title: ''
-draft: true
 
 ---
