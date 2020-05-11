@@ -1,23 +1,18 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/gregwilson.jpg"
+fullname: Greg Wilson
+firstname: Greg
+role: Co-Founder
+organization: Software Carpentry
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Greg Wilson is the co-founder of Software Carpentry, a crash course in computing
+  skills for scientists and engineers.
+longbio: Greg Wilson is the co-founder of Software Carpentry, a crash course in computing
+  skills for scientists and engineers. He has worked for 30 years in both industry
+  and academia, and is the author or editor of several books on computing and two
+  for children. Greg received a Ph.D. in Computer Science from the University of Edinburgh
+  in 1993.
+email: gvwilson@third-bit.com
 title: ''
-draft: true
 
 ---
