@@ -1,23 +1,21 @@
 ---
-avatar: "/uploads/AdamShepherd.png"
-fullname: Adam Shepherd
-firstname: Adam
-role: Technical Director
-organization: Biological and Chemical Oceanography Data Management Office (BCO-DMO)
+avatar: "/uploads/TedHabermann.jpg"
+fullname: Ted Habermann
+firstname: Ted
+role: Director of Earth Science
+organization: The HDF Group
 d1_role: ''
-shortbio: Adam Shepherd is the Technical Director for the Biological and Chemical
-  Oceanography Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic
-  Institution where he was worked as a software developer since 2000. He serves as
-  co-chair of the Vocabulary Services and Semantics Interest Group for the Research
-  Data Alliance. Currently, his work focuses on data semantics for improved discovery
-  and reuse.
-longbio: Adam Shepherd is the Technical Director for the Biological and Chemical Oceanography
-  Data Management Office (BCO-DMO) located at the Woods Hole Oceanographic Institution
-  where he was worked as a software developer since 2000. He serves as co-chair of
-  the Vocabulary Services and Semantics Interest Group for the Research Data Alliance.
-  Currently, his work focuses on data semantics for improved discovery and reuse.
-email: ashepherd@whoi.edu
+shortbio: Dr. Ted Habermann worked for years leading a variety of data management
+  and access projects at NOAA’s National Geophysical Data Center. He is now the Director
+  of Earth Science at The HDF Group.
+longbio: Dr. Ted Habermann worked for years leading a variety of data management and
+  access projects at NOAA’s National Geophysical Data Center. He is now the Director
+  of Earth Science at The HDF Group. Ted is a well-known advocate for integrated data
+  and metadata standards and leads several ISO development efforts. He works with
+  NASA’s Earth Science Data And Information Systems Project and many others on technical
+  and organizational adoption of data and metadata standards. Ted has been active
+  in ESIP for many years and currently co-leads the Documentation Cluster.
+email: ''
 title: ''
-draft: true
 
 ---
