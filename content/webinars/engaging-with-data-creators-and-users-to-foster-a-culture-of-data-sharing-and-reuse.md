@@ -28,5 +28,6 @@ speakers:
 - people/Patricia-Condon.md
 slug: engaging-data-creators-and-users-foster-culture-data-sharing-and-reuse
 image: "/uploads/convertkit-Ky2YPCpnmK0-unsplash.jpg"
+draft: true
 
 ---
