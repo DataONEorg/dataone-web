@@ -30,5 +30,6 @@ speakers:
 - people/Bertram-Ludäscher.md
 slug: provenance-and-dataone-facilitating-reproducible-science
 image: "/uploads/david-clode-75CxJTYeUYs-unsplash.jpg"
+draft: true
 
 ---
