@@ -4,7 +4,8 @@ title: DataONE
 languageCode: en-us
 metaDataFormat: yaml
 pygmentsCodeFences: true
-paginate: 9
+enableEmoji: true
+paginate: 10
 markup:
   highlight:
     codeFences: true

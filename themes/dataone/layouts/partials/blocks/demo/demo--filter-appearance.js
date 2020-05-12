@@ -1,3 +1,5 @@
+var intervalID = window.setInterval(switchIcon, 5000);
+
 // Switch the displayed icon
 function switchIcon() {
   // The ID of the SVG holding path elements for all available icons
@@ -7,6 +9,7 @@ function switchIcon() {
     // get all paths
     var paths = svg.querySelectorAll("path");
     var num = paths.length;
+    console.log(num);
     
     // The icon of the index to show (random number)
     var indexToShow = Math.round(Math.random() * num);

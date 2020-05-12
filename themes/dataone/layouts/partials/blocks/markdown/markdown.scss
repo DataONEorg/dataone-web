@@ -2,6 +2,9 @@
 // are automatically generated from markdown by hugo, and those generated
 // elements don't have classes.
 
+// IMPORTANT:
+// The markdown class without the standalone modifier is used for content
+// in other blocks that have been run through "markdownify".
 .markdown {
 
   // ==========================================================================
@@ -168,6 +171,12 @@
     }
   }
 
+  //
+  // Standalone: Styles specific for markdown blocks and markdown pages.
+  // The markdown class without the standalone modifier is used for content
+  // in other blocks that have been run through "markdownify".
+  // ==========================================================================
+
   &--standalone {
     @include f-common;
     max-width  : 100%;
@@ -188,4 +197,54 @@
       margin-top : 0;
     }
   }
+
+  //
+  // General styles for infoboxes
+  // ==========================================================================
+  &--infobox {
+    --infobox-c-background: var(--section-c-background-darker, white);
+    --infobox-c-foreground: var(--section-fc-body, black);
+    background-color      : var(--infobox-c-background);
+    color                 : var(--infobox-c-foreground);
+    padding               : .7rem;
+    border-radius         : var(--br-default, 0.25rem);
+    text-align            : center;
+  }
+
+  //
+  // Success: Makes the markdown block an info block indicating success
+  // ==========================================================================
+
+  &--success {
+    --infobox-c-background: var(--section-c-success-subtle);
+    --infobox-c-foreground: var(--section-c-success);
+  }
+
+  //
+  // Info: Makes the markdown block an info block indicating extra information
+  // ==========================================================================
+
+  &--info {
+    --infobox-c-background: var(--section-c-info-subtle);
+    --infobox-c-foreground: var(--section-c-info);
+  }
+
+  //
+  // Warning: Makes the markdown block an info block indicating a warning
+  // ==========================================================================
+
+  &--warning {
+    --infobox-c-background: var(--section-c-warning-subtle);
+    --infobox-c-foreground: var(--section-c-warning);
+  }
+
+  //
+  // Error: Makes the markdown block an info block indicating an error
+  // ==========================================================================
+
+  &--error {
+    --infobox-c-background: var(--section-c-error-subtle);
+    --infobox-c-foreground: var(--section-c-error);
+  }
+
 }

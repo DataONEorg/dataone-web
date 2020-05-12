@@ -17,11 +17,11 @@
 {{ $iconOptions := partial "blocks/demo/demo--filter-appearance_icon-options.svg" }}
 
 <div class="{{ $bn }}__label">
-  <button class="{{$bn}}__icon-button" onclick="switchIcon()" data-tooltip="Click here to preview icon options" data-position="center top">{{ $iconOptions }}</button>
-  <p class="{{$bn}}__label-text" contenteditable="true" data-tooltip="Click here to try changing the filter title" data-position="center top">Filter title</p>
+  <div class="{{$bn}}__icon-button" data-tooltip="Select from over 300 icons" data-position="center top">{{ $iconOptions }}</div>
+  <p class="{{$bn}}__label-text" data-tooltip="Name your filter anything you'd like" data-position="center top">Filter title</p>
 </div>
 <div class="{{ $bn }}__form-elements">
   <input class="{{ $bn }}__example-UI-field" type="text" disabled="true"></input>
   <button class="{{ $bn }}__search-button" disabled="true">{{ $searchIcon }}</button>
-  <p class="{{$bn}}__placeholder-text" contenteditable="true" data-tooltip="Click here to try changing the example text" data-position="center bottom">Placeholder text</p>
+  <p class="{{$bn}}__placeholder-text" data-tooltip="Set placeholder text to provide an example search term" data-position="center bottom">Placeholder text</p>
 </div>

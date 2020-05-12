@@ -332,9 +332,6 @@
   $all-colors     : map-merge($standard-colors, $theme);
   $alerts         : map-get($theme, alerts);
 
-  // $
-  // (success: $cn-green, info: $cn-blue, warning: $cn-yellow, error: $cn-red)
-
   @each $color-group, $value in $all-colors {
     @if type-of($value) == 'map' and $color-group != "alerts" {
       $base         : map-get($value, "base");
@@ -342,7 +339,7 @@
       @each $alert-type, $alert-color in $alerts {
 
         #{$prefix}-#{$alert-type}-on-#{$color-group}       : mix(emphasize($base-inverted), $alert-color, 18%);
-        #{$prefix}-#{$alert-type}-subtle-on-#{$color-group}: mix(emphasize($base), $alert-color, 60%);
+        #{$prefix}-#{$alert-type}-subtle-on-#{$color-group}: mix(emphasize($base), $alert-color, 82%);
       }
       @each $color-type, $color in $value {
         @if $color-type == "base" {

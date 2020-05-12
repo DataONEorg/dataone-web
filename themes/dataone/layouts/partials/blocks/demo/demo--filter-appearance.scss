@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn      : ".demo";
+  $bn                    : ".demo";
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix  : "--" + str-replace(#{$bn}, ".");
+  $prefix                : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -17,34 +17,32 @@
   // independence & modularity (a la BEM).
 
   // #{$prefix}- : var( , );
-  #{$prefix}-shadow: var(--section-c-shadow-1, rgba(30,50,93,.09));
+  #{$prefix}-shadow      : var(--section-c-shadow-1, rgba(30,50,93,.09));
   #{$prefix}-shadow-hover: var(--section-c-shadow-2, rgba(30,50,93,.1));
 
   // Common height for UI elements
-  $heightUI: 44px;
+  $heightUI              : 44px;
   // Height for the elements that are editable in this demo
-  $heightEditElements: $heightUI - 10px;
-  
+  $heightEditElements    : $heightUI - 10px;
+
   @include card;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-  
+  padding-top            : 1.5rem;
+  padding-bottom         : 1rem;
+
   // Appearance indicating "editable" element
-  @mixin editable{
-    border-radius: var(--br-default, 4px);
+  @mixin editable {
+    border-radius   : var(--br-default, 4px);
     background-color: var(--section-c-background-lighter, white);
-    border: 1.5px dashed var(--section-c-accent, var(--c-major-accent-5, blue));
-    transition: background-color 0.2s ease;
-      box-shadow           : 0 3px 5px var(#{$prefix}-shadow), 0 1px 3px var(#{$prefix}-shadow);
-    
-    &:focus{
-      outline: none;
-      background: var(--section-c-accent-very-subtle);
+    border          : 1.5px dashed var(--section-c-accent, var(--c-major-accent-5, blue));
+    transition      : background-color .2s ease;
+    box-shadow      : 0 3px 5px var(#{$prefix}-shadow), 0 1px 3px var(#{$prefix}-shadow);
+    cursor          : help;
+
+    &:hover {
+      box-shadow  : 0 6px 13px var(#{$prefix}-shadow-hover), 0 2px 5px var(#{$prefix}-shadow-hover);
+      outline     : none;
+      background  : var(--section-c-accent-very-subtle);
       border-color: var(--section-c-accent-subtle, var(--section-c-success, green));
-    }
-    
-    &:hover, &:focus{
-      box-shadow: 0 6px 13px var(#{$prefix}-shadow-hover), 0 2px 5px var(#{$prefix}-shadow-hover);
     }
   }
 
@@ -53,65 +51,67 @@
   // ==========================================================================
 
   @include f-common;
-  width    : 100%;
-  max-width: 100%;
-  min-width: 0;
-  
+  width                  : 100%;
+  max-width              : 100%;
+  min-width              : 0;
+
   // label contains icon-button and label-text
-  #{$bn}__label{
-    display: flex;
-    flex-wrap: nowrap;
-    margin-bottom: 0.5rem;
+  #{$bn}__label {
+    display      : flex;
+    flex-wrap    : nowrap;
+    margin-bottom: .5rem;
   }
-  
+
   #{$bn}__icon-button {
-    @include button-reset;
-    width: $heightEditElements;
-    height: $heightEditElements;
-    display: inline-flex;
-    align-items: center;
+    // @include button-reset;
+    width          : $heightEditElements;
+    height         : $heightEditElements;
+    display        : inline-flex;
+    align-items    : center;
     justify-content: center;
     @include editable;
-    margin-right: 0.8rem;
+    margin-right   : .8rem;
+    padding        : .35rem;
   }
-  
+
   // All icons is an SVG that contains one <path> for each icon
-  #{$bn}__all-icons{
+  #{$bn}__all-icons {
     pointer-events: none;
-    height: auto;
-    max-height: 100%;
-    width: 100%;
-    display: block;
-    margin-left: 3px;
+    height        : auto;
+    max-height    : 100%;
+    width         : 100%;
+    display       : block;
+    margin-left   : 3px;
     // Set all paths except one to hidden to start with. 
     path {
       display: none;
-      fill: var(--section-fc-body);
+      fill   : var(--section-fc-body);
     }
-    path:nth-of-type(8){
+
+    path:nth-of-type(8) {
       display: block;
     }
   }
-  
-  #{$bn}__label-text{
+
+  #{$bn}__label-text {
     @include editable;
-    margin: 0;
-    height: $heightEditElements;
-    line-height: $heightEditElements;
-    padding: 0 0.8rem;
-    min-width: 5rem;
-    width: calc(100% - #{$heightEditElements} - 1rem );
-    white-space: nowrap;
-    overflow: hidden;
+    margin       : 0;
+    height       : $heightEditElements;
+    line-height  : $heightEditElements;
+    padding      : 0 .8rem;
+    min-width    : 5rem;
+    width        : calc(100% - #{$heightEditElements} - 1rem);
+    white-space  : nowrap;
+    overflow     : hidden;
     text-overflow: ellipsis;
-    font-weight: var(--fw-bold, 500);
-    color: var(--section-fc-title, black);
+    font-weight  : var(--fw-bold, 500);
+    color        : var(--section-fc-title, black);
   }
 
   // form-elements contains the input, search button, and placeholder text
   #{$bn}__form-elements {
     position: relative;
-    display: flex;
+    display : flex;
   }
 
   #{$bn}__example-UI-field {
@@ -148,22 +148,22 @@
     height          : $heightUI;
     width           : $heightUI;
   }
-  
-  #{$bn}__placeholder-text{
-    position: absolute;
-    left: 0.5rem;
-    top: 5px;
-    height: $heightEditElements;
-    line-height: $heightEditElements;
-    padding: 0 0.8rem;
-    margin: 0;
-    min-width: 5rem;
+
+  #{$bn}__placeholder-text {
+    position     : absolute;
+    left         : .5rem;
+    top          : 5px;
+    height       : $heightEditElements;
+    line-height  : $heightEditElements;
+    padding      : 0 .8rem;
+    margin       : 0;
+    min-width    : 5rem;
     @include editable;
-    width: calc(100% - #{$heightEditElements} - 1.5rem );
-    white-space: nowrap;
-    overflow: hidden;
+    width        : calc(100% - #{$heightEditElements} - 1.5rem);
+    white-space  : nowrap;
+    overflow     : hidden;
     text-overflow: ellipsis;
-    color: var(--section-c-foreground-subtle, grey);
+    color        : var(--section-c-foreground-subtle, grey);
   }
 
 }

@@ -32,9 +32,13 @@
 
 <figure class="{{ $classes }}">
   {{ if $imageResource }}
-    {{ if eq $imageResource.MediaType.MainType "image" }}
-      {{ if gt $imageResource.Width $maxWidth }}
-        {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
+    {{ if and (eq $imageResource.MediaType.MainType "image")  }}
+      <!-- Hugo's resizing functionality throws error if WEBP format, -->
+      <!-- Even if we're just trying to look at width -->
+      {{ if (not (in $imageResource.MediaType "webp")) }}
+        {{ if gt $imageResource.Width $maxWidth }}
+          {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
+        {{ end }}
       {{ end }}
       <img class="{{ $bn }}__image" src="{{ $imageResource.RelPermalink }}" alt="{{ $alt }}"></img>
     {{ else if in ($imageResource.MediaType.MainType) "video" }}

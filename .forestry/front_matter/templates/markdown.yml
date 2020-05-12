@@ -8,6 +8,19 @@ fields:
   label: Template
   hidden: true
   default: markdown
+- type: select
+  label: Style
+  description: Optional style classes to add to the markdown block.
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - warning
+    - error
+    - success
+    - info
 - type: textarea
   label: Markdown content
   name: content

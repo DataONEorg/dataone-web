@@ -88,6 +88,7 @@
   #{$bn}__item:hover {
     color           : var(--section-fc-title);
     background-color: var(--section-c-icon-background); // TODO
+    cursor          : help;
   }
 
 }

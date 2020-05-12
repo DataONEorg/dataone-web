@@ -36,35 +36,15 @@ header:
     type: float
 page_sections:
 - template: section
-  background: topography
-  title: Geographic location search
-  icon: map
-  blocks:
-  - template: feature-detailed
-    type: left
-    text: Allow your community to search by geographic location using an interactive map. Zoom into the area where
-      your research is focused by setting a specific center point and zoom level for
-      the map. 
-    image:
-      template: image
-      type: tilt-right
-      src: /uploads/portals/portals-map-filter.png
-    details:
-    - name: Area search
-      text: Users can filter your data by a specific geographic area.
-      icon: map-pin
-    - name: Hide map
-      text: Want to turn off the map altogether? You can do that too.
-      icon: eye-off
-- template: section
   type: default
   title: How to create a filter
   intro: Creating a search filter for your portal is easy. Choose a metadata field and a filter type, then select a matching icon and text. Mix and match as many filters as you need, and arrange them into groups.  
   blocks:
   - template: markdown
-    content: "*These portal features will
-    soon be available in the portal editor, but until then, our team can configure
-    these portal features behind-the-scenes.*"
+    style: info
+    content: ":wrench: **The interface for creating and editing search filters is currently in the development stage** :wrench: <br>
+    Below is a representation of how it will work, the final interface might look a little different. Until this portal feature is ready, our team can configure
+    these portal features behind-the-scenes."
   - template: steps
     steps:
     - title: Choose a metadata field
@@ -95,6 +75,27 @@ page_sections:
       - template: image
         src: /uploads/portals/portals-grouped-filters.png
         type: card
+- template: section
+  background: topography
+  title: Geographic location search
+  icon: map
+  blocks:
+  - template: feature-detailed
+    type: left
+    text: Allow your community to search by geographic location using an interactive map. Zoom into the area where
+      your research is focused by setting a specific center point and zoom level for
+      the map. 
+    image:
+      template: image
+      type: tilt-right
+      src: /uploads/portals/portals-map-filter.png
+    details:
+    - name: Area search
+      text: Users can filter your data by a specific geographic area.
+      icon: map-pin
+    - name: Hide map
+      text: Want to turn off the map altogether? You can do that too.
+      icon: eye-off
 - template: section
   background: major-accent-color
   title: Interested in a DataONE Plus portal?
