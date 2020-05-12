@@ -29,5 +29,6 @@ speakers:
 - people/Cameron-Neylon.md
 slug: boyles-laws-networked-world-how-future-science-lies-understanding-our-past
 image: "/uploads/clint-adair-BW0vK-FA3eg-unsplash.jpg"
+draft: true
 
 ---
