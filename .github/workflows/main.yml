@@ -4,11 +4,22 @@ on:
     # Run at 1100 UTC on June 4th
     - cron: '00 11 4 6 *'
 jobs:
-  build:
+  update_preview:
     name: Request Netlify Webhook
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
+      - name: Count commits over last 24 hours
+        shell: bash
+        run: |
+              curl -sL -u username:${{ secrets.GITHUB_TOKEN }} "https://api.github.com/repos/$GITHUB_REPOSITORY/commits?sha=preview&since=`date -v -1d -u +'%FT%T.%2Z'`" > $HOME/commit.json
+              echo $(head -n 10 $HOME/commit.json)
+              numcommits="$(jq '. | length' $HOME/commit.json)"
+              echo "Number of commits : $numcommits"
+              if [ $numcommits -gt 0 ]; then
+                echo ::set-env name=UPDATES::true
+              fi
       - name: Trigger build of preview branch webhook on Netlify
+        if: env.UPDATES == 'true'
         run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
         env:
           TOKEN: ${{ secrets.NETLIFY_PREVIEW }}
