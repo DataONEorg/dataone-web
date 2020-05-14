@@ -29,19 +29,17 @@ header:
   background_color: default
   pill:
     template: pill
-    style: secondary
+    style: quaternary
     text: Coming soon
   title: Make your data FAIR
   intro: Evaluate your metadata with community established FAIR principles.
   buttons:
   - template: button
-    type: internal page
-    internal_link: "/services"
-    color: secondary
-    text: See all features
-    external_link: ''
+    type: subscribe form
+    color: primary
+    text: Join the waitlist
 page_sections:
-- background: subtle-emphasis
+- background: default
   title: |- 
     Researchers increasingly rely on<br>
     computational tools to find, access & use data.<br>
@@ -78,6 +76,7 @@ page_sections:
         text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
   id: aggregated-reports
+  background: subtle-emphasis
   icon: trending-up
   intro: Get aggretated FAIR scores for all data within your Hosted Repository or DataONE Plus portal
   blocks:
@@ -94,7 +93,7 @@ page_sections:
       name: Broken down into FAIR categories
       text: Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
 - type: default
-  background: subtle-emphasis
+  background: default
   id: individual-reports
   icon: file-plus
   template: section

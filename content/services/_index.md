@@ -14,6 +14,7 @@ header:
     text: New!
 page_sections:
 - template: section
+  id: feature-table
   title: Compare services in detail
   blocks:
   - template: feature-table

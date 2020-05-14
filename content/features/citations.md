@@ -30,16 +30,11 @@ header:
   background_color: default
   pill:
     template: pill
-    style: secondary
+    style: quaternary
     text: Coming soon
   title: Citation reports
   intro: Find out who is citing your data, and see citation trends over time.
   buttons:
-  - template: button
-    type: internal page
-    internal_link: /services
-    color: secondary
-    text: See all features
   - template: button
     type: subscribe form
     color: primary

@@ -1,0 +1,75 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "badge" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+
+<!-- Block parameters -->
+{{ $type := .Block.type }}
+{{ $badgePage := .Block.page }}
+
+<!-- Link when the badge is clicked -->
+{{ $href := "" }}
+<!-- Icon to use for the badge -->
+{{ $icon := "" }}
+<!-- Name to show with the badge -->
+{{ $name := "" }}
+<!-- Icon HTML -->
+{{ $iconHTML := "" }}
+<!-- Title that goes above the name -->
+{{ $title := "" }}
+
+<!-- Get badge parameters from service page if type == service -->
+{{ if $type := "service" }}
+  {{ $servicePage := $page.Site.GetPage $badgePage }}
+  {{ if $servicePage }}
+    {{ $service := $servicePage.Params }}
+    {{ $icon = $service.service_icon }}
+    {{ if $service.render_page }}
+      {{ $href = $servicePage.RelPermalink }}
+    {{ else }}
+      {{ $href = "/services/#feature-table" }}
+    {{ end }}
+    {{ $name = $service.title }}
+    {{ $title = "Available with" }}
+    {{ $varName := $name | urlize }}
+    {{ $themeClass := printf "theme--%s" $varName }}
+    <!-- Add service specific classess -->
+    {{ $classes = printf "%s %s--%s" $classes $bn "service" }}
+    {{ $classes = printf "%s %s" $classes $themeClass }}
+  {{ end }}
+{{ end }}
+
+<!-- The HTML tag to use for the badge element -->
+{{ $htmltag := "span" | safeHTMLAttr |safeHTML }}
+{{ if $href }}
+  {{ $htmltag = "a" | safeHTMLAttr |safeHTML }}
+{{ end }}
+
+<!-- HTML attr for the link -->
+{{ $link := "" | safeHTMLAttr}}
+{{ with $href }}
+  {{ $link = printf "href='%s'" . | safeHTMLAttr  }}
+{{ end }}
+
+<!-- Icon block -->
+{{ with $icon }}
+  {{ $iconBlock := dict "icon" . "size" "medium" "color" "inherit" }}
+  {{ $iconHTML = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) | safeHTML }}
+{{ end }}
+
+<!-- Layout -->
+{{ printf "<%s class='%s' %s>" $htmltag $classes $link | safeHTML }}
+{{- with $iconHTML -}}
+  <span class="{{ $bn }}__icon">{{ . }}</span>
+{{- end -}}
+
+<div class="{{ $bn }}__name">
+  {{- with $title -}}
+    <span class="{{ $bn }}__title">{{ . }}</span>{{- end -}}
+  {{- with $name -}}{{ . }}
+  {{- end -}}
+</div>
+
+{{ printf "</%s>" $htmltag | safeHTML }}

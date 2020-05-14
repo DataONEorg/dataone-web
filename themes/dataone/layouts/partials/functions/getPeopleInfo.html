@@ -28,6 +28,11 @@
     {{ with $bio }}
       {{ $personBiosString = print "\n\n" $personBiosString $person.Params.fullname ": " "\n\n" . "\n\n" }}
     {{ end }}
+  {{ else }}
+    <!-- If we couldn't find a resource match for a person, give a warning -->
+    <!-- That way we know if a page is missing some person content -->
+    <!-- This could happen if person files are re-named -->
+    {{ warnf "Could not find the person with the file path %q in page %q. Information about this person will not be displayed. Please check that the file name for that person is correct and that the file exists." . $page.File }}
   {{ end }}
   {{ with $personNames }}
     {{ $personListString = delimit . ", " " & " }}

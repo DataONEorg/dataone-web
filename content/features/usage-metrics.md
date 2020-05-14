@@ -30,17 +30,12 @@ header:
   background_color: default
   pill:
     template: pill
-    style: secondary
+    style: quaternary
     text: Coming soon
   title: Dataset usage metrics
   intro: Understand how your data are being used over time with view,
       download, and citation metrics.
   buttons:
-  - template: button
-    type: internal page
-    internal_link: /services
-    color: secondary
-    text: See all features
   - template: button
     type: subscribe form
     color: primary

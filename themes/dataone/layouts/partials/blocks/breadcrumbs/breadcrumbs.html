@@ -10,15 +10,17 @@
 {{ $backLink := .Block.back_link | default "/" }}
 
 <!-- Back arrow icon -->
-{{ $iconBlock := dict "icon" "arrow-left" "size" "medium" "color" "inherit" }}
+{{ $iconBlock := dict "icon" "list" "size" "medium" "color" "inherit" }}
 {{ $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" .)}}
 
 <!-- Layout -->
 <section class="{{ $classes }}">
-  <a class="{{ $bn }}__link" href="{{ $backLink }}">
-    <span class="{{ $bn }}__icon">{{- $backArrow }}</span>
-    <span class="{{ $bn }}__text">
-      {{- $backText -}}
-    </span>
-  </a>
+  <div class="{{ $bn }}__inner">
+    <a class="{{ $bn }}__link" href="{{ $backLink }}">
+      <span class="{{ $bn }}__icon">{{- $backArrow }}</span>
+      <span class="{{ $bn }}__text">
+        {{- $backText -}}
+      </span>
+    </a>
+  </div>
 </section>

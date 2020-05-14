@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                    : &;
+  $bn                             : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix                : "--" + str-replace(#{$bn}, ".");
+  $prefix                         : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,39 +16,55 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  #{$prefix}-c-background: var(--c-major-accent-6, grey);
-  #{$prefix}-fc          : var(--c-foreground-on-major-accent, white);
-  #{$prefix}-c-icon      : var(--c-foreground-subtle-on-major-accent, white);
-  #{$prefix}-fs          : var(--fs-large, 1.25rem);
-  --fc-link              : var(#{$prefix}-fc);
-  --fc-link-hover        : var(--c-accent-on-major-accent, white);
+  #{$prefix}-c-background         : var(--c-major-accent-6, grey);
+  #{$prefix}-c-background-features: var(--c-major-accent-2, white);
+  #{$prefix}-fc                   : var(--c-foreground-on-major-accent, white);
+  #{$prefix}-c-icon               : var(--c-foreground-subtle-on-major-accent, white);
+  #{$prefix}-fs                   : var(--fs-large, 1.25rem);
+  --fc-link                       : var(#{$prefix}-fc);
+  --fc-link-hover                 : var(--c-accent-on-major-accent, white);
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  position               : relative;
+  position                        : relative;
+  padding                         : .8rem 0 .7rem;
+  background-color                : var(#{$prefix}-c-background);
+
   @include desktop {
     margin-top: $nav-height;
   }
 
-  padding                : .8rem 0 .7rem;
-
-  background-color       : var(#{$prefix}-c-background);
+  &__inner {
+    @include limit-width;
+  }
 
   @include style-links("&__link");
 
+  &__feature-info {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    align-items    : center;
+  }
+
   &__link {
-    @include limit-width;
-    padding        : 0 $lr-padding;
+
+    color          : var(--fc-link, white);
+    padding        : 0 .35rem;
     display        : flex;
     flex-direction : row;
     align-items    : center;
     justify-content: left;
 
     &:hover {
+      color: var(--theme-c, var(--fc-link, white));
+      color: var(--fc-link-hover);
+
       #{$bn}__icon {
+        fill  : var(--fc-link-hover);
         stroke: var(--fc-link-hover);
       }
     }
@@ -56,14 +72,17 @@
 
   &__icon {
     stroke      : var(#{$prefix}-c-icon);
+    fill        : var(#{$prefix}-c-icon);
     height      : 100%;
-    margin-right: .7rem;
+    margin-right: .6rem;
+    margin-top  : .3rem;
   }
 
   &__text {
-    height       : 100%;
-    line-height  : 1;
-    font-size    : var(#{$prefix}-fs);
-    margin-bottom: .2rem;
+    height     : 100%;
+    line-height: 1;
+    font-size  : var(#{$prefix}-fs);
+    margin     : 0;
   }
+
 }

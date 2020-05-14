@@ -23,6 +23,8 @@
 <!-- Webinar header uses a different layout -->
 {{ if eq $type "webinar" }}
   {{ partial "blocks/header/header--webinar.html" (dict "Block" .Block "Page" $page) }}
+{{ else if eq $page.Type "features" }}
+  {{ partial "blocks/header/header--feature.html" (dict "Block" .Block "Page" $page) }}
 {{ else }}
 
   <!-- The small title that goes at the top of the header (not the larger headline) -->
@@ -47,7 +49,7 @@
 
   <!-- Extra modifiers, e.g. has-breadcrumb -->
   {{ with $extraModifiers }}
-    {{ range .}}
+    {{ range . }}
       {{ $classes = printf "%s %s--%s" $classes $bn . }}
     {{ end }}
   {{ end }}
@@ -55,7 +57,7 @@
   <!-- Svg or image to render for relevant block types -->
   {{ $svgBkg := "" }}
   {{ $svgFig := "" }}
-  {{ $bkgImg := "" }}
+  {{ $bkgImg := "" | safeHTMLAttr }}
   {{ $video := "" }}
   {{ if eq $type "dataone plus" }}
     {{ $svgFig = "d1-plus-header" }}

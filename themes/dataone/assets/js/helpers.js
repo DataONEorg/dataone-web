@@ -50,8 +50,6 @@ var throttle = function (callback, limit) {
  * @return {number}        The height of the tallest element in pixels
  */ 
 var getMaxHeight = function(elements){
-  console.log(elements);
-  console.log(typeof elements );
   var maxHeight = 0;
   for (i = 0; i < elements.length; ++i) {    
     var el, hidden, height;

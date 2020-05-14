@@ -15,17 +15,12 @@ header:
   background_color: light
   pill:
     template: pill
-    style: secondary
+    style: quaternary
     text: Coming soon
   title: Search tools designed for your data
   intro: Make finding the right data easy for your community of researchers with search
     fields focused on your science topics.
   buttons:
-  - template: button
-    type: internal page
-    internal_link: "/services"
-    color: secondary
-    text: See all features
   - template: button
     type: subscribe form
     color: primary

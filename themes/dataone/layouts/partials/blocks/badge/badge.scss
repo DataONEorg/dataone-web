@@ -1,0 +1,91 @@
+.badge {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn            : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix        : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  //
+  // Defaults
+  // ==========================================================================
+
+  // Color for text, icons, etc.
+  // #{$prefix}-c-foreground-default: var(--c-neutral-5, black);
+
+  @include f-common;
+  height         : 2.9rem;
+  border-radius  : 30rem;
+  padding        : .1rem;
+  text-decoration: none;
+  font-weight    : var(--fw-bolder, 500);
+  font-size      : var(--fs-medium, 0.9rem);
+  line-height    : 1;
+  display        : flex;
+  align-items    : center;
+  width          : fit-content;
+  padding        : .2rem .8rem;
+
+  &:hover {
+    filter: brightness(1.03);
+
+    #{$bn}__name {
+      width     : auto;
+      max-width : 300px;
+      margin    : 0 .3rem 0 .6rem;
+      transition: max-width .2s linear, margin .1s linear;
+    }
+
+    #{$bn}__icon {
+      transition: fill .2s linear, stroke .2s linear;
+      fill      : var(--c-neutral-1, white);
+      stroke    : var(--c-neutral-1, white);
+    }
+
+  }
+
+  &__icon {}
+
+  &__title {
+    display       : block;
+    font-size     : var(--fs-smallest, 0.7rem);
+    color         : var(--c-neutral-1, white);
+    text-transform: uppercase;
+    letter-spacing: .01em;
+    font-weight   : var(--fw-bolder, 500);
+    margin        : 0 0 .1rem;
+    line-height   : 1;
+  }
+
+  &__name {
+    display       : flex;
+    flex-direction: column;
+    // align-items   : center;
+    margin-left   : 0;
+    max-width     : 0;
+    width         : 0;
+    overflow      : hidden;
+    white-space   : nowrap;
+    line-height   : 1.1;
+  }
+
+  &--service {
+    background-color: var(--theme-c, transparent);
+    color           : var(--theme-c-light, white);
+
+    #{$bn}__icon {
+      fill  : var(--theme-c-light, white);
+      stroke: var(--theme-c-light, white);
+    }
+  }
+}

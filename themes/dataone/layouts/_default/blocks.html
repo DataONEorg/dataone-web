@@ -3,9 +3,27 @@
 {{- end -}}
 
 {{- define "main" -}}
+
+  {{ $page := $ }}
+
+  {{ $headerModifiers := "" }}
+
+  <!-- Features pages have a breadcrumb back to relevant services -->
+  {{ if eq $.Type "features" }}
+    {{ $servicesPage := ($page.Site.GetPage "/services").RelPermalink }}
+    {{ $breadcrumbsBlock := dict "back_text" "See all features" "back_link" $servicesPage }}
+    {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+    {{ $headerModifiers = "has-breadcrumb" }}
+  {{ end }}
+
   {{ with .Params.header }}
+    <!-- modifiers -->
+    {{ $headerParams := . }}
+    {{ with $headerModifiers }}
+      {{ $headerParams = merge $headerParams (dict "modifiers" (slice .)) }}
+    {{ end }}
     {{ $template := .template | default "header" }}
-    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" $headerParams "Page" $) }}
   {{ end }}
 
   {{- range .Params.page_sections -}}

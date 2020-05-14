@@ -9,7 +9,6 @@ function switchIcon() {
     // get all paths
     var paths = svg.querySelectorAll("path");
     var num = paths.length;
-    console.log(num);
     
     // The icon of the index to show (random number)
     var indexToShow = Math.round(Math.random() * num);
