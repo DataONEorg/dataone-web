@@ -10,7 +10,6 @@ fields:
   default: markdown
 - type: select
   label: Style
-  name: style
   description: Optional style classes to add to the markdown block.
   default: default
   config:

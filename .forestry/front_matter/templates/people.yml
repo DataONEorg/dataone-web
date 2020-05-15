@@ -33,7 +33,7 @@ fields:
       options: []
       source:
         type: pages
-        section: ''
+        section: people
         file: 
         path: 
     label: Person
