@@ -21,6 +21,7 @@ fields:
     - error
     - success
     - info
+  name: style
 - type: textarea
   label: Markdown content
   name: content
