@@ -81,7 +81,8 @@ fields:
   - type: textarea
     label: Page headline
     name: title
-    description: The title or headline to display at the top of the page in large text
+    description: The title or headline to display at the top of the page in large
+      text
     config:
       wysiwyg: true
       schema:
@@ -93,6 +94,8 @@ fields:
     config:
       wysiwyg: true
       schema:
+        format: markdown
+  label: Page Header
 - type: field_group_list
   name: page_sections
   showOnly:
