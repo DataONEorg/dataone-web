@@ -15,3 +15,7 @@ fields:
   source:
     type: pages
     section: services
+  config:
+    source:
+      type: pages
+      section: services
