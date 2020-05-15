@@ -1,0 +1,10 @@
+---
+label: Services & Feature table
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: feature-table

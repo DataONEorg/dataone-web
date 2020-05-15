@@ -6,8 +6,8 @@
 {{ $classes := $bn }}
 
 <!-- Block parameters -->
-{{ $type := .Block.type }}
-{{ $badgePage := .Block.page }}
+{{ $badgePagePath := .Block.page }}
+{{ $badgePage := $page.Site.GetPage $badgePagePath }}
 
 <!-- Link when the badge is clicked -->
 {{ $href := "" }}
@@ -21,13 +21,12 @@
 {{ $title := "" }}
 
 <!-- Get badge parameters from service page if type == service -->
-{{ if $type := "service" }}
-  {{ $servicePage := $page.Site.GetPage $badgePage }}
-  {{ if $servicePage }}
-    {{ $service := $servicePage.Params }}
+{{ if $badgePage }}
+  {{ if eq $badgePage.Type "services" }}
+    {{ $service := $badgePage.Params }}
     {{ $icon = $service.service_icon }}
     {{ if $service.render_page }}
-      {{ $href = $servicePage.RelPermalink }}
+      {{ $href = $badgePage.RelPermalink }}
     {{ else }}
       {{ $href = "/services/#feature-table" }}
     {{ end }}

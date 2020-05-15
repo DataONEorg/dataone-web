@@ -50,12 +50,49 @@ fields:
   type: field_group
   config: {}
   fields:
-  - name: header
-    type: include
+  - type: text
+    name: template
+    label: Template
+    hidden: true
+    default: header
+  - name: image
+    type: field_group
     config: {}
-    template: header
-    label: header
-  label: Page header
+    fields:
+    - name: image
+      type: include
+      config: {}
+      template: image
+      label: Image
+      description: The image to show in the header
+    label: Image
+    description: An optional image the depicts the feature to show in the headere
+  - name: pill
+    type: field_group
+    config: {}
+    fields:
+    - name: pill
+      type: include
+      config: {}
+      template: pill
+      label: Pill
+    label: Header Pill
+    description: An optional pill that will appear above the page title
+  - type: textarea
+    label: Page headline
+    name: title
+    description: The title or headline to display at the top of the page in large text
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: textarea
+    label: Page introduction
+    name: intro
+    description: Brief text that introduces the page
+    config:
+      wysiwyg: true
+      schema:
 - type: field_group_list
   name: page_sections
   showOnly:

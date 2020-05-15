@@ -1,0 +1,17 @@
+---
+label: Badge
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: badge
+- type: select
+  name: page
+  label: Page
+  description: The page to make a badge for (currently limited to Service pages)
+  source:
+    type: pages
+    section: services
