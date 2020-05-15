@@ -36,24 +36,6 @@
   width          : fit-content;
   padding        : .2rem .8rem;
 
-  &:hover {
-    filter: brightness(1.03);
-
-    #{$bn}__name {
-      width     : auto;
-      max-width : 300px;
-      margin    : 0 .3rem 0 .6rem;
-      transition: max-width .2s linear, margin .1s linear;
-    }
-
-    #{$bn}__icon {
-      transition: fill .2s linear, stroke .2s linear;
-      fill      : var(--c-neutral-1, white);
-      stroke    : var(--c-neutral-1, white);
-    }
-
-  }
-
   &__icon {}
 
   &__title {
@@ -70,7 +52,6 @@
   &__name {
     display       : flex;
     flex-direction: column;
-    // align-items   : center;
     margin-left   : 0;
     max-width     : 0;
     width         : 0;
@@ -78,6 +59,39 @@
     white-space   : nowrap;
     line-height   : 1.1;
   }
+
+  //
+  // Clickable - Make it clear that the badge can be clicked
+  // ==========================================================================
+  &--clickable {
+    &:hover {
+      filter: brightness(1.03);
+    }
+  }
+
+  //
+  // Expandable - If there's text for the badge, make it expand on hover
+  // ==========================================================================
+  &--expandable {
+    &:hover {
+      #{$bn}__name {
+        width     : auto;
+        max-width : 300px;
+        margin    : 0 .3rem 0 .6rem;
+        transition: max-width .2s linear, margin .1s linear;
+      }
+
+      #{$bn}__icon {
+        transition: fill .2s linear, stroke .2s linear;
+        fill      : var(--c-neutral-1, white);
+        stroke    : var(--c-neutral-1, white);
+      }
+    }
+  }
+
+  //
+  // Service Badges - use theme colors for badges for service pages
+  // ==========================================================================
 
   &--service {
     background-color: var(--theme-c, transparent);
@@ -88,4 +102,10 @@
       stroke: var(--theme-c-light, white);
     }
   }
+
+  //
+  // Icon Only - remove hover effects when icon is not clickable
+  // ==========================================================================
+
+  &--icon-only {}
 }

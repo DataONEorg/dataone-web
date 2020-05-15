@@ -43,6 +43,34 @@ fields:
   label: Service order
   description: This number will determine the order that services appear, for example
     in the feature table.
+- type: field_group
+  name: cta
+  label: Call to Action
+  description: The main action we want users to take when learning about this service
+  fields:
+    - name: type
+      label: Type of action
+      description: The type of action will create add appropriate link
+      type: select
+      config:
+        source:
+          type: simple
+        options:
+        - signin
+        - subscribe form
+        - contact
+        - external website
+    - type: text
+      label: Button text
+      name: text
+      description: The call to action text (e.g. "Sign up")
+    - type: text
+      label: Custom link
+      name: external_link
+      description: A link to which the Call to Action should navigate.
+      showOnly:
+        field: type
+        value: external website
 - type: boolean
   name: render_page
   label: Make service summary page

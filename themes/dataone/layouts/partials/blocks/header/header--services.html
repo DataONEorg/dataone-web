@@ -70,7 +70,7 @@
   </div>
 
   <div class="{{ $bn }}__service-summaries">
-    {{ range $service := $services }}
+    {{ range $index, $service := $services }}
       <div class="{{ $bn }}__service-summary">
         {{ $path := $service.File.Path }}
         {{ partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path) "Page" $page) }}

@@ -36,119 +36,128 @@
   <!-- Column headers --------------------------------------------------------->
   <thead>
     <tr>
-      <th class="{{ $bn }}__col-header {{ $bn }}__col-header--feature">DataONE Feature</th>
-      {{ range $service := $servicePages }}
-        <th class="{{ $bn }}__col-header theme--{{ $service.Params.title }}">
-          {{ $service.Params.title }}
-        </th>
-      {{ end }}
-    </tr>
-  </thead>
-
-  <tbody class="{{ $bn }}__body">
-
-    <!-- Category header ------------------------------------------------------>
-    {{ range $category := $featureCategories }}
-      {{ if ne $category "misc" }}
-        <tr class="{{ $bn }}__section-header-row">
-          <td class="{{ $bn }}__section-header-cell" colspan="{{ add $numServices 1 }}">
-            {{ $category }}
-          </td>
+      <th class="{{ $bn }}__col-header {{ $bn }}__col-header--feature">
+        <span class="{{ $bn }}__col-title">DataONE Feature<span></th>
+          {{ range $service := $servicePages }}
+            <th class="{{ $bn }}__col-header theme--{{ $service.Params.title | urlize }}">
+              <!-- Badge -->
+              {{ partial "blocks/badge/badge" (dict "Block" (dict "page" $service.File.Path "type" "icon-only") "Page" $page) }}
+              <!-- Title -->
+              <span class="{{ $bn }}__col-title">{{ $service.Params.title }}</span>
+              <!-- CTA -->
+              {{ $cta := $service.Params.cta }}
+              {{ with $cta }}
+                {{ partial "blocks/button/button" (dict "Block" (dict "text" .text "type" .type "external_link" .external_link "color" "quaternary") "Page" $page )}}
+              {{ end }}
+            </th>
+          {{ end }}
         </tr>
-      {{ end }}
+      </thead>
 
-      <!-- Feature sorting ---------------------------------------------------->
+      <tbody class="{{ $bn }}__body">
 
-      <!-- Group by category -->
-      {{ $featuresInCategory := where $features ".Params.category" "==" $category }}
+        <!-- Category header ------------------------------------------------------>
+        {{ range $category := $featureCategories }}
+          {{ if ne $category "misc" }}
+            <tr class="{{ $bn }}__section-header-row">
+              <td class="{{ $bn }}__section-header-cell" colspan="{{ add $numServices 1 }}">
+                {{ $category }}
+              </td>
+            </tr>
+          {{ end }}
 
-      <!-- Sort features by service, and then by whether or not they have a table annotation -->
+          <!-- Feature sorting ---------------------------------------------------->
 
-      <!-- This will be the final sorted list for the category -->
-      {{ $featuresInCategorySorted := slice }}
+          <!-- Group by category -->
+          {{ $featuresInCategory := where $features ".Params.category" "==" $category }}
 
-      <!-- First, sort by service. This maintains the serice order selected by user (i.e. weight parameter in service file )-->
-      {{ range $service := $servicePages }}
+          <!-- Sort features by service, and then by whether or not they have a table annotation -->
 
-        <!-- Secondarily, sort by whether there's a table annotation -->
-        {{ $featuresInServiceSorted := slice }}
-        {{ $featuresWithoutAnnotations := slice }}
-        {{ $featuresWithAnnotations := slice }}
+          <!-- This will be the final sorted list for the category -->
+          {{ $featuresInCategorySorted := slice }}
 
-        {{ range $categoryFeature := $featuresInCategory }}
+          <!-- First, sort by service. This maintains the serice order selected by user (i.e. weight parameter in service file )-->
+          {{ range $service := $servicePages }}
 
-          <!-- Don't add the feature twice! -->
-          {{ if and (not (in $featuresInCategorySorted $categoryFeature)) (not (in $featuresInServiceSorted $categoryFeature)) }}
-            {{ range $categoryFeature.Params.linked_services }}
-              {{ if .service_file }}
-                {{ if eq ($page.Site.GetPage .service_file) $service }}
-                  {{ if .table_annotation }}
-                    {{ $featuresWithAnnotations = $featuresWithAnnotations  | append $categoryFeature }}
-                  {{ else }}
-                    {{ $featuresWithoutAnnotations = $featuresWithoutAnnotations  | append $categoryFeature }}
+            <!-- Secondarily, sort by whether there's a table annotation -->
+            {{ $featuresInServiceSorted := slice }}
+            {{ $featuresWithoutAnnotations := slice }}
+            {{ $featuresWithAnnotations := slice }}
+
+            {{ range $categoryFeature := $featuresInCategory }}
+
+              <!-- Don't add the feature twice! -->
+              {{ if and (not (in $featuresInCategorySorted $categoryFeature)) (not (in $featuresInServiceSorted $categoryFeature)) }}
+                {{ range $categoryFeature.Params.linked_services }}
+                  {{ if .service_file }}
+                    {{ if eq ($page.Site.GetPage .service_file) $service }}
+                      {{ if .table_annotation }}
+                        {{ $featuresWithAnnotations = $featuresWithAnnotations  | append $categoryFeature }}
+                      {{ else }}
+                        {{ $featuresWithoutAnnotations = $featuresWithoutAnnotations  | append $categoryFeature }}
+                      {{ end }}
+                    {{ end }}
                   {{ end }}
                 {{ end }}
               {{ end }}
+              {{ $featuresInServiceSorted = $featuresWithoutAnnotations | append $featuresWithAnnotations }}
             {{ end }}
-          {{ end }}
-          {{ $featuresInServiceSorted = $featuresWithoutAnnotations | append $featuresWithAnnotations }}
-        {{ end }}
 
-        {{ $featuresInCategorySorted = $featuresInCategorySorted | append $featuresInServiceSorted }}
+            {{ $featuresInCategorySorted = $featuresInCategorySorted | append $featuresInServiceSorted }}
 
-      {{ end }}
-
-      <!-- Organize feature parameters ---------------------------------------->
-
-      {{ range $index, $featurePage := $featuresInCategorySorted }}
-
-        {{ $feature := $featurePage.Params }}
-
-        {{ $url := "" }}
-        {{ if or ($feature.custom_link) (eq $feature.render_page true) (eq $feature.render_page "true") }}
-          {{ $url = $feature.custom_link | default $featurePage.RelPermalink }}
-        {{ end }}
-
-        <!-- Determines if row will be stripe color or not. -->
-        <!-- Add stripe modifer as a variable so that sub-features are same -->
-        <!-- color as parent -->
-        {{ $striped := false }}
-        {{if modBool $index 2 }}
-          {{ $striped = true }}
-        {{ end }}
-
-        <!-- Make sure the feature is not set to be hidden from table -->
-        {{ if or (eq $feature.show_in_table true) (eq $feature.show_in_table "true") }}
-
-          <!-- Feature row layout --------------------------------------------->
-
-          <!-- Make a row for each feature... -->
-          {{ $featureBlock := merge $feature (dict "url" $url) }}
-          {{ $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped }}
-          {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $rowBlock "Page" $page ) }}
-
-          <!-- ... and each sub-feature -->
-          {{ with $feature.sub_features }}
-            {{ range . }}
-              {{ $subUrl := "" }}
-              <!-- Only create a url from the section ID if the parent feature has a url -->
-              {{ if and $url .section_id }}
-                {{ $subUrl = printf "%s#%s" (strings.TrimSuffix "/" $url ) .section_id }}
-              {{ end }}
-              <!-- Overwrite the url with the custom url if one is provided -->
-              {{ if .custom_link }}
-                {{ $subUrl = .custom_link }}
-              {{ end }}
-              {{ $subFeatureBlock := merge . (dict "url" $subUrl "subFeature" "true") }}
-              {{ $subRowBlock := dict "feature" $subFeatureBlock "service_pages" $servicePages "striped" $striped }}
-              {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $subRowBlock "Page" $page) }}
-            {{ end }}
           {{ end }}
 
+          <!-- Organize feature parameters ---------------------------------------->
+
+          {{ range $index, $featurePage := $featuresInCategorySorted }}
+
+            {{ $feature := $featurePage.Params }}
+
+            {{ $url := "" }}
+            {{ if or ($feature.custom_link) (eq $feature.render_page true) (eq $feature.render_page "true") }}
+              {{ $url = $feature.custom_link | default $featurePage.RelPermalink }}
+            {{ end }}
+
+            <!-- Determines if row will be stripe color or not. -->
+            <!-- Add stripe modifer as a variable so that sub-features are same -->
+            <!-- color as parent -->
+            {{ $striped := false }}
+            {{if modBool $index 2 }}
+              {{ $striped = true }}
+            {{ end }}
+
+            <!-- Make sure the feature is not set to be hidden from table -->
+            {{ if or (eq $feature.show_in_table true) (eq $feature.show_in_table "true") }}
+
+              <!-- Feature row layout --------------------------------------------->
+
+              <!-- Make a row for each feature... -->
+              {{ $featureBlock := merge $feature (dict "url" $url) }}
+              {{ $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped }}
+              {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $rowBlock "Page" $page ) }}
+
+              <!-- ... and each sub-feature -->
+              {{ with $feature.sub_features }}
+                {{ range . }}
+                  {{ $subUrl := "" }}
+                  <!-- Only create a url from the section ID if the parent feature has a url -->
+                  {{ if and $url .section_id }}
+                    {{ $subUrl = printf "%s#%s" (strings.TrimSuffix "/" $url ) .section_id }}
+                  {{ end }}
+                  <!-- Overwrite the url with the custom url if one is provided -->
+                  {{ if .custom_link }}
+                    {{ $subUrl = .custom_link }}
+                  {{ end }}
+                  {{ $subFeatureBlock := merge . (dict "url" $subUrl "subFeature" "true") }}
+                  {{ $subRowBlock := dict "feature" $subFeatureBlock "service_pages" $servicePages "striped" $striped }}
+                  {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $subRowBlock "Page" $page) }}
+                {{ end }}
+              {{ end }}
+
+            {{ end }}
+
+          {{ end }}
         {{ end }}
 
-      {{ end }}
-    {{ end }}
-
-  </tbody>
-</table>
+      </tbody>
+    </table>

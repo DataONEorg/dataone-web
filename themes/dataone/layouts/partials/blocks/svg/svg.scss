@@ -54,6 +54,14 @@
     }
   }
 
+  &__fill-theme {
+    fill: var(--theme-c, var(--c-major-accent-5, lightgray));
+  }
+
+  &__fill-theme-light {
+    fill: var(--theme-c-light, var(--c-major-accent-5, lightgray));
+  }
+
   // ==========================================================================
   // Modifiers
   // ==========================================================================

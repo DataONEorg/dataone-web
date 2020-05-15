@@ -24,6 +24,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+///
+/// Style an icon to have a rounded background with shadow
+///
+/// @param {Dimension} $icon-size The size of the icon, defaults to 1.5rem
+///
+@mixin floating-icon($icon-size: 1.5rem) {
+  $icon-color    : var(--theme-c, var(--section-c-icon-foreground, var(--c-major-accent-6, teal)));
+  $shadow-col    : var(--section-c-shadow-1, var(--c-shadow-1-on-default, rgba(0,0,0,0.07)));
+  $shadow-col-2  : var(--section-c-shadow-4, var(--c-shadow-4-on-default, rgba(0,0,0,0.07)));
+  display        : inline-block;
+  width          : $icon-size;
+  height         : $icon-size;
+  box-shadow     : 0 2px 4px -2px $shadow-col-2, 0 1px 3px -1px $shadow-col;
+  border-radius  : 50%;
+  padding        : .2rem;
+  display        : inline-flex;
+  align-items    : center;
+  justify-content: center;
+  stroke         : $icon-color;
+  fill           : $icon-color;
+  background     : var(--theme-c-light, var(--section-c-icon-background, var(--c-default-lighter-2, white)));
+}
+
 //
 // Style links: Common link styles
 // 
@@ -267,7 +290,7 @@
   padding         : .625rem 1.25rem;
   border-radius   : var(--br-default, 0.25rem);
   background      : white;
-  box-shadow      : .19rem .25rem 1.5rem -0.75rem var(--section-c-shadow-3, rgba(0, 0, 0, 0.4));
+  box-shadow      : .19rem .25rem 1.5rem -0.75rem var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0, 0, 0, 0.4)));
   max-width       : 100%;
   width           : auto;
   background-color: var(--section-c-background-lighter, white);

@@ -15,6 +15,11 @@ fields:
   name: items
   label: List items
   description: The text items to show in the checklist
+- type: boolean
+  name: compact
+  label: Compact
+  description: Option to reduce spacing between items
+  default: false
 - type: select
   name: check_col
   label: Checkmark colour

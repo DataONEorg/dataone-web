@@ -546,6 +546,11 @@
         height: 75%;
       }
 
+      &__headline {
+        margin-top   : 0;
+        margin-bottom: 1rem;
+      }
+
       &__service-summaries {
         @include limit-width;
         position             : relative;
@@ -559,8 +564,13 @@
 
       &__service-summary {
         &:first-of-type {
-          padding-right: 2rem;
-          margin       : 1.5rem -2rem 1.5rem 0;
+          padding-right: 1rem;
+          margin       : .5rem -1rem .5rem 0;
+        }
+
+        &:not(:first-of-type) {
+          filter: brightness(1.005);
+          box-shadow: -0.6rem 0 1rem -0.4rem var(--section-c-shadow-1, var(--c-shadow-1-on-default, rgba(0, 0, 0, 0.4)));
         }
       }
     }

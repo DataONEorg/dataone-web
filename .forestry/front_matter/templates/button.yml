@@ -23,6 +23,7 @@ fields:
     - subscribe form
     - contact
     - donate
+    - sign-in
 - type: select
   label: Style
   name: color

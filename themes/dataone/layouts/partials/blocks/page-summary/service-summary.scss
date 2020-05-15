@@ -20,7 +20,9 @@
   #{$prefix}-c-foreground: var(--c-foreground-on-always-dark, white);
   #{$prefix}-c-accent    : var(--theme-c, var(--section-c-accent, black));
 
-  #{$prefix}-fw-title    : var(--fw-bold, 500);
+  #{$prefix}-c-title     : var(--c-foreground-emphasis-on-default, black);
+  #{$prefix}-fw-title    : var(--fw-x-bold, 800);
+  #{$prefix}-ff-title    : var(--ff-title2, serif);
   #{$prefix}-fs-title    : var(--fs-x-large, 1.5rem);
 
   #{$prefix}-br          : var(--br-default, 0.25rem);
@@ -31,7 +33,9 @@
 
   @include f-common;
   @include card;
+
   background-color       : var(--c-default);
+
   // background-color       : var(--theme-c, #{$prefix}-c-accent);
   // color                  : var(#{$prefix}-c-foreground);
   // stroke                 : var(#{$prefix}-c-foreground);
@@ -41,30 +45,57 @@
 
   #{$bn} {
     &__icon {
-      display: inline-flex;
-      margin : 0 .8rem;
+      margin  : 0 .8rem 0 0;
+      position: relative;
+    }
+
+    &__title-text {
+      position: relative;
     }
 
     &__title {
       font-weight: var(#{$prefix}-fw-title);
       font-size  : var(#{$prefix}-fs-title);
+      color      : var(#{$prefix}-c-title);
+      font-family: var(#{$prefix}-ff-title);
       display    : inline-flex;
       margin     : .2rem 0;
+      position   : relative;
+
+      .svg {
+        margin-left: -7%;
+        height     : 90%;
+        top        : 35%;
+        width      : 150%;
+        position   : absolute;
+      }
+
     }
 
     &__header {
-      padding         : .2rem;
-      display         : flex;
-      align-items     : center;
-      // justify-content : center;
-      background-color: var(--theme-c-light, #{$prefix}-c-accent);
-      border-radius   : 2rem;
-      color           : var(--theme-c, #{$prefix}-c-accent);
-      stroke          : var(--theme-c, #{$prefix}-c-accent);
-      fill            : var(--theme-c, #{$prefix}-c-accent);
+      display    : flex;
+      align-items: center;
+      position   : relative;
+
+    }
+
+    &__description {
+      margin-top : 2rem;
+      line-height: 1.45;
+    }
+
+    &__includes-phrase {
+      font-weight: var(--fw-bold, 500);
+      color      : var(#{$prefix}-c-accent);
+    }
+
+    &__feature-list {
+      margin-top : 1.7rem;
+      margin-left: 2rem;
     }
 
     &__buttons {
+      margin-top     : 2rem;
       display        : flex;
       justify-items  : left;
       grid-auto-flow : column;
@@ -76,16 +107,6 @@
         margin-top  : .5em;
       }
     }
-  }
-
-  // overwrite button color (TODO: apply theme styles to button block instead)
-  .button--col-tertiary {
-    --button-foreground: var(#{$prefix}-c-accent);
-  }
-
-  .button--col-primary {
-    --button-background: var(#{$prefix}-c-accent);
-    --button-foreground: var(--c-foreground-on-always-dark, white);
   }
 
 }

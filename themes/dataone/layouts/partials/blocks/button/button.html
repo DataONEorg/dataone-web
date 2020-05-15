@@ -55,6 +55,8 @@
 		{{ $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId }}
 	{{ else if eq $type "donate" }}
 		{{ $href = $page.Site.Params.links.donate }}
+	{{ else if eq $type "sign-in" }}
+		{{ $href = $page.Site.Params.links.signin }}
 	{{ end }}
 
 	{{ $htmlTag := .Block.html_tag | default "a" }}

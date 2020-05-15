@@ -2,26 +2,42 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "checklist"}}
+<!-- Classes for the outer-most element -->
 {{ $classes := $bn }}
+
+<!-- An optional title to place above the checklist -->
+{{ $title := .Block.title | default "" }}
+<!-- The number of columns to use for the checklist -->
 {{ $numCols := .Block.num_cols | default 3 }}
+<!-- Option to reduce spacing -->
+{{ $compact := .Block.compact | default false }}
+
 {{ with $numCols }}
-  {{ $classes = print $classes " " $bn "--" . "cols" }}
+  {{ $classes = printf "%s %s--%dcols" $classes $bn . }}
 {{ end }}
-<!-- checkmark icon -->
+
+{{ if $compact }}
+  {{ $classes = printf "%s %s--compact" $classes $bn }}
+{{ end }}
+
+<!-- Get the checkmark icon -->
 {{ $checkCol := .Block.check_col | default "secondary" }}
-{{ $checkBlock := dict "icon" "check" "size" "small" "color" "secondary" "stroke" "thicker" }}
+{{ $checkBlock := dict "icon" "check" "size" "small" "color" "inherit" "stroke" "thicker" }}
 {{ $check := partial "blocks/icon/icon" (dict "Block" $checkBlock "Page" $page) }}
 
 <div class="{{ $classes }}">
-  {{ with .Block.title }}
+
+  {{ with $title }}
     <h3 class="{{ $bn }}__title">{{ . }}</h3>
   {{ end }}
+
   {{- with .Block.items -}}
     <ul class="{{ $bn }}__items">
       {{- range . -}}
         <li class="{{ $bn }}__item">
-          <div class="{{ $bn }}__checkmark">{{ $check }}</div>{{ . }}</li>
+          <div class="{{ $bn }}__icon">{{ $check }}</div>{{ . }}</li>
       {{- end -}}
     </ul>
   {{- end -}}
+
 </div>

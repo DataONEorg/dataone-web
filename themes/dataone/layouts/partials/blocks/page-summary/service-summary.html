@@ -8,8 +8,8 @@
 
 {{ $servicePage := $page.Site.GetPage .Block.service }}
 {{ $service := $servicePage.Params }}
-{{ $icon := $service.service_icon }}
 {{ $href := $servicePage.RelPermalink }}
+{{ $weight := $service.weight }}
 {{ $title := $service.title }}
 {{ $description := $service.description }}
 {{ $varName := $title | urlize }}
@@ -51,30 +51,49 @@
   {{ $featuresToList = $featuresToList | append .Params.title }}
 {{ end }}
 
+<!-- Brush stroke to use behind the title text -->
+<!-- Alternate the two brush stroke background styles between different services -->
+<!-- Check if weight is even or odd -->
+{{ $i := 2 }}
+{{ if (modBool $weight 2) }}
+  {{ $i = 1 }}
+{{ end }}
+{{ $brushStrokeBkg := partial "blocks/svg/svg" (dict "Block" (dict "name" (printf "brush-stroke-%d" $i)) "Page" $page) }}
+
 <div class="{{ $classes }}">
+
   <div class="{{ $bn }}__header">
+
     <span class="{{ $bn }}__icon">
-      {{ with $icon }}
-        {{ $iconBlock := dict "icon" . "size" "medium" "color" "inherit" }}
-        {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page )}}
-      {{ end }}
+      {{ partial "blocks/badge/badge" (dict "Block" (dict "page" $servicePage.File.Path "type" "icon-only") "Page" $page) }}
     </span>
-    <h3 class="{{ $bn }}__title">{{ $title }}</h3>
+    <h3 class="{{ $bn }}__title">
+      {{ $brushStrokeBkg }}
+      <span class="{{ $bn }}__title-text">{{ $title }}</span>
+    </h3>
   </div>
-  <p>{{ $description }}</p>
-  <p>
-    <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
-    <!-- advertise that this feature includes everything in lower service as well -->
-    {{ if $lowerService.Params.render_page }}
-      <em>Everything in
-        {{$lowerService.Params.title }}, and...</em>
-    {{ end }}
-  </p>
-  <div class="{{ $bn }}__buttons">
+
+  <p class="{{ $bn }}__description">{{ $description }}</p>
+  <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
+  <!-- advertise that this feature includes everything in lower service as well -->
+  {{- if $lowerService.Params.render_page -}}
+    <p class="{{ $bn }}__includes-phrase">Everything in
+      {{$lowerService.Params.title }}, and...
+    </p>
+  {{- end -}}
+  <div class="{{ $bn }}__feature-list">
     {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $featuresToList "num_cols" 1 "compact" true) "Page" $page) }}
-    {{ $buttonBlock := dict "text" (printf "%s in detail" $title) "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
+  </div>
+  <div class="{{ $bn }}__buttons">
+
+    {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
     {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
-    {{ $buttonBlock2 := dict "text" "Join the waitlist" "type" "subscribe form" "internal_link" $servicePage.File.Path "color" "primary" }}
-    {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
+
+    {{ $cta := $service.cta }}
+    {{ with $cta }}
+      {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link  "color" "primary")  }}
+      {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
+    {{ end }}
+
   </div>
 </div>

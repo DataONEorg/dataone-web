@@ -18,9 +18,9 @@
 
   // Column headers, e.g. the names of the servives
   // #{$prefix}-fc-header           : var(--section-fc-title, gray);
-  #{$prefix}-fs-header           : var(--fs-medium, 1rem);
+  #{$prefix}-fs-header           : var(--fs-larger, 1rem);
   #{$prefix}-fs-header-mobile    : var(--fs-small, 0.8rem);
-  #{$prefix}-fw-header           : var(--fw-bold, 500);
+  #{$prefix}-fw-header           : var(--fw-bolder, 500);
 
   // Section (category) headers, e.g. rows that span all columns
   #{$prefix}-c-bkg-section-header: var(--section-c-background-darker-2, gray);
@@ -57,25 +57,41 @@
   border-spacing                 : 0;
 
   &__col-header {
-    font-weight: var(#{$prefix}-fw-header);
-    font-size  : var(#{$prefix}-fs-header-mobile);
-    // color      : var(-#{$prefix}-fc-header);
-    text-align : center;
-    padding    : 2rem .5rem 1.6rem;
-    width      : auto;
-    color      : var(--theme-c, var(--section-fc-body, grey));
+
+    text-align: center;
+    text-align: -webkit-center;
+    padding   : 1.7rem .5rem 1.6rem;
+    width     : auto;
 
     @include desktop {
-      width    : 22%;
-      padding  : 2rem .1 1.6rem;
-      font-size: var(#{$prefix}-fs-header);
+      width  : 22%;
+      padding: 2rem .1 1.6rem;
     }
 
     &--feature {
-      font-weight : normal;
-      text-align  : left;
-      padding-left: 1rem;
-      width       : auto;
+
+      vertical-align: bottom;
+      text-align    : left;
+      padding-left  : 1rem;
+      width         : auto;
+
+      #{$bn}__col-title {
+        font-weight: normal;
+        color      : #{$prefix}-fc-section-header;
+      }
+
+    }
+
+  }
+
+  &__col-title {
+    display    : block;
+    margin     : .8rem 0;
+    font-weight: var(#{$prefix}-fw-header);
+    font-size  : var(#{$prefix}-fs-header-mobile);
+    color      : var(-#{$prefix}-fc-header);
+    @include desktop {
+      font-size: var(#{$prefix}-fs-header);
     }
 
   }
@@ -143,15 +159,17 @@
   }
 
   &__checkmark {
-    background     : var(--theme-c, var(--section-fc-body, grey));
-    opacity        : .9;
-    display        : inline-flex;
-    align-items    : center;
-    justify-content: center;
-    width          : 1.5rem;
-    height         : 1.5rem;
-    border-radius  : 50%;
-    stroke         : var(#{$prefix}-c-bkg);
+    // background     : var(--theme-c, var(--section-fc-body, grey));
+    // opacity        : .9;
+    // display        : inline-flex;
+    // align-items    : center;
+    // justify-content: center;
+    // width          : 1.5rem;
+    // height         : 1.5rem;
+    // border-radius  : 50%;
+    // stroke         : var(#{$prefix}-c-bkg);
+    @include floating-icon;
+    margin-top: .19rem;
   }
 
   // The icon that has the description tooltip

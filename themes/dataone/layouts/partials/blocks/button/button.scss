@@ -43,7 +43,7 @@
   width                  : -moz-fit-content;
   max-width              : calc(100vw - 2.5em);
   border-radius          : var(--br-default, 0.2rem);
-  height                 : 50px;
+  height                 : 3rem;
   text-decoration        : none;
   box-shadow             : 0 3px 5px var(#{$prefix}-shadow), 0 1px 3px var(#{$prefix}-shadow);
   cursor                 : pointer;
@@ -83,8 +83,8 @@
   }
 
   &--col-primary {
-    #{$prefix}-background: var(--c-minor-accent);
-    #{$prefix}-foreground: var(--c-foreground-on-minor-accent);
+    #{$prefix}-background: var(--theme-c, var(--c-minor-accent));
+    #{$prefix}-foreground: var(--theme-c-light, var(--c-foreground-on-minor-accent));
   }
 
   &--col-secondary {
@@ -94,12 +94,12 @@
 
   &--col-tertiary {
     #{$prefix}-background: var(--section-c-background-lighter, var(--c-default-lighter, white));
-    #{$prefix}-foreground: var(--section-c--accent, var(--c-major-accent, black));
+    #{$prefix}-foreground: var(--theme-c, var(--section-c--accent, var(--c-major-accent, black)));
   }
 
   &--col-quaternary {
     #{$prefix}-background: transparent;
-    #{$prefix}-foreground: var(--section-c-accent, var(--c-major-accent, black));
+    #{$prefix}-foreground: var(--theme-c, var(--section-c-accent, var(--c-major-accent, black)));
     text-shadow          : inherit;
     white-space          : normal;
     font-size            : var(--fs-medium, 1.1rem);
