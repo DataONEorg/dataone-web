@@ -34,7 +34,12 @@
 
     {{ if $content }}
       {{ if reflect.IsSlice $content }}
-        {{ $checklist := dict "template" "checklist" "num_cols" 1 "title" $value "items" $content }}
+        <!-- Put content in the correct format for the checklist block -->
+        {{ $checklistItems := slice }}
+        {{ range $content }}
+          {{ $checklistItems = $checklistItems | append ( dict "text" . ) }}
+        {{ end }}
+        {{ $checklist := dict "template" "checklist" "num_cols" 1 "title" $value "items" $checklistItems }}
         {{ $checklists = $checklists | append $checklist }}
       {{ else }}
         {{ $detail := dict "template" "feature-detailed" "type" "top" "headline" $value "text" $content }}

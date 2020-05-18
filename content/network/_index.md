@@ -30,11 +30,11 @@ page_sections:
   - template: checklist
     num_cols: 2
     items:
-    - Reach a wider audience
-    - Leverage our infrastructure
-    - Receive recognition
-    - Maintain high availability
-    - Enhance collaboration
+    - text: Reach a wider audience
+    - text: Leverage our infrastructure
+    - text: Receive recognition
+    - text: Maintain high availability
+    - text: Enhance collaboration
   button:
     template: button
     color: primary

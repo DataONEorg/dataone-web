@@ -294,7 +294,6 @@ page_sections:
       text: Take advantage of discounted pricing for data science and data management
         training courses
 - template: section
-  type: card
   background: subtle-emphasis
   title: Need more? **Add a dedicated hosted repository**
   intro: Do you need data preservation services in addition to a data portal? DataONE
@@ -302,13 +301,9 @@ page_sections:
     server and MetacatUI search and metadata management web clients. Trusted by many
     repositories within the DataONE network, we can deploy this respository infrastructure
     to meet your communities’ needs.
-  button:
-    template: button
-    type: internal page
-    color: quaternary
-    text: More about hosted repositories
-    internal_link: services/hosted-repo.md
-    external_link: ''
+  blocks:
+      - template: page-summary
+        service: services/hosted-repo.md
 - template: section
   background: major-accent-color
   title: Interested in a becoming a DataONE Plus member?

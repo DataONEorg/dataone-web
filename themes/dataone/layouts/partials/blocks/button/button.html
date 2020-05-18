@@ -18,7 +18,7 @@
 
 <!-- icon -->
 {{ $icon := "" }}
-{{ if eq (printf "%T" .Block.icon) "string" }}
+{{ if $icon }}
 	{{ $iconBlock := dict "icon" .Block.icon "color" "inherit" }}
 	{{ $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
 	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}

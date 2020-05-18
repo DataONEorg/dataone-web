@@ -11,29 +11,31 @@ fields:
   name: title
   label: Title
   description: an optional title to show at the top of the checklist
-- type: list
+- type: field_group_list
   name: items
   label: List items
   description: The text items to show in the checklist
+  config:
+    labelField: text
+  fields:
+    - name: text
+      label: Text
+      description: The text to display for the item.
+      type: text
+    - name: description
+      label: Tooltip description
+      description: Optional. More details about the item that will appear on hover (or on click for touch devices).
+      type: text
+    - name: icon
+      type: include
+      label: Icon
+      description: Optional. Select an icon for the checklist item. Defaults to a checkmark.
+      template: icon-names
 - type: boolean
   name: compact
   label: Compact
   description: Option to reduce spacing between items
   default: false
-- type: select
-  name: check_col
-  label: Checkmark colour
-  description: Which colour should the checkmark be?
-  default: secondary
-  config:
-    source:
-      type: simple
-    options:
-    - white
-    - primary
-    - secondary
-    - tertiary
-    - quaternary
 - type: select
   name: num_cols
   label: Number of Columns

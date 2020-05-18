@@ -5,10 +5,10 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                    : ".page-summary";
+  $bn                     : ".page-summary";
 
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix                : "--" + str-replace(#{$bn}, ".");
+  $prefix                 : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -17,15 +17,17 @@
   // independence & modularity (a la BEM).
 
   // Important tags are so that these variables take precedence over the regular  
-  #{$prefix}-c-foreground: var(--c-foreground-on-always-dark, white);
-  #{$prefix}-c-accent    : var(--theme-c, var(--section-c-accent, black));
+  #{$prefix}-c-accent     : var(--theme-c, var(--section-c-accent, black));
 
-  #{$prefix}-c-title     : var(--c-foreground-emphasis-on-default, black);
-  #{$prefix}-fw-title    : var(--fw-x-bold, 800);
-  #{$prefix}-ff-title    : var(--ff-title2, serif);
-  #{$prefix}-fs-title    : var(--fs-x-large, 1.5rem);
+  #{$prefix}-c-title      : var(--c-foreground-emphasis-on-default, black);
+  #{$prefix}-fw-title     : var(--fw-x-bold, 800);
+  #{$prefix}-ff-title     : var(--ff-title2, serif);
+  #{$prefix}-fs-title     : var(--fs-x-large, 1.5rem);
 
-  #{$prefix}-br          : var(--br-default, 0.25rem);
+  #{$prefix}-fs-annotation: var(--fs-small, 0.9rem);
+  #{$prefix}-c-annotation : var(--c-foreground-subtle-on-default, black);
+
+  #{$prefix}-br           : var(--br-default, 0.25rem);
 
   // ==========================================================================
   //    Styles
@@ -34,14 +36,9 @@
   @include f-common;
   @include card;
 
-  background-color       : var(--c-default);
+  background-color        : var(--c-default);
 
-  // background-color       : var(--theme-c, #{$prefix}-c-accent);
-  // color                  : var(#{$prefix}-c-foreground);
-  // stroke                 : var(#{$prefix}-c-foreground);
-  // fill                   : var(#{$prefix}-c-foreground);
-
-  padding                : 2rem;
+  padding                 : 2rem;
 
   #{$bn} {
     &__icon {
@@ -92,6 +89,11 @@
     &__feature-list {
       margin-top : 1.7rem;
       margin-left: 2rem;
+    }
+
+    &__annotation {
+      font-size: var(#{$prefix}-fs-annotation);
+      color    : var(#{$prefix}-c-annotation);
     }
 
     &__buttons {

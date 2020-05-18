@@ -247,28 +247,11 @@ page_sections:
       color: tertiary
       type: external website
 - template: section
-  type: card
   background: subtle-emphasis
   title: Includes all the DataONE Plus features
   blocks:
-  - template: checklist
-    num_cols: 2
-    items:
-    - Branded portals
-    - Custom portal search filters
-    - Aggregated FAIR assessments
-    - Aggregated usage metrics
-    - Aggregated citations
-    - Online portal editor
-    - Discounted training
-    - Consulting services
-    - Individualized support
-  button:
-    template: button
-    color: secondary
-    type: internal page
-    text: Learn more about DataONE Plus
-    internal_link: services/plus.md
+    - template: page-summary
+      service: services/plus.md
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?

@@ -11,14 +11,14 @@ linked_services:
 - service_file: services/hosted-repo.md
 sub_features:
 - title: Aggreated FAIR report
-  description: Aggreate FAIR scores for each portal or for each hosted repository
+  description: Aggreate FAIR scores for your collection of datasets
   linked_services:
     - service_file: services/plus.md
     - service_file: services/hosted-repo.md
   show_in_table: true
   section_id: aggregated-reports
 - title: Per-dataset FAIR report
-  description: Individual FAIR report for each individual dataset
+  description: Individual FAIR report for each dataset in your repository
   linked_services:
     - service_file: services/hosted-repo.md
   show_in_table: true

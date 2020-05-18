@@ -41,7 +41,7 @@
 {{ end }}
 
 <!-- Service pages that include this feature -->
-{{ $services := partial "functions/getServices" $page }}
+{{ $services := partial "functions/getLinkedServices" (dict "feature" $page) }}
 
 <!-- ===== -->
 <header class="{{ $classes }}">

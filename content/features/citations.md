@@ -19,7 +19,7 @@ sub_features:
   - service_file: services/hosted-repo.md
   show_in_table: true
 - title: Aggregated citations
-  description: See aggregated citations over time for your datasets in each portal or hosted repository
+  description: See aggregated citations over time for your collection of datasets
   linked_services:
   - service_file: services/plus.md
   - service_file: services/hosted-repo.md

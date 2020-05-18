@@ -159,15 +159,6 @@
   }
 
   &__checkmark {
-    // background     : var(--theme-c, var(--section-fc-body, grey));
-    // opacity        : .9;
-    // display        : inline-flex;
-    // align-items    : center;
-    // justify-content: center;
-    // width          : 1.5rem;
-    // height         : 1.5rem;
-    // border-radius  : 50%;
-    // stroke         : var(#{$prefix}-c-bkg);
     @include floating-icon;
     margin-top: .19rem;
   }

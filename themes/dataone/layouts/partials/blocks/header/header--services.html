@@ -1,6 +1,6 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
-{{ $Site := $page.Site }}
+{{ $site := $page.Site }}
 <!-- bn = block name -->
 {{ $bn := "header" }}
 <!-- classes to add to the outer element -->
@@ -33,7 +33,7 @@
 
 <!-- Summary of DataONE Plus -->
 <!-- All services for which there's a summary page -->
-{{ $services := where (where (where $Site.Pages "Type" "services") "Kind" "page") "Params.render_page" "==" true }}
+{{ $services := where (where (where $site.Pages "Type" "services") "Kind" "page") "Params.render_page" "==" true }}
 
 <!-- LAYOUT ===== -->
 <header class="{{ $classes }}">
@@ -73,7 +73,7 @@
     {{ range $index, $service := $services }}
       <div class="{{ $bn }}__service-summary">
         {{ $path := $service.File.Path }}
-        {{ partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path) "Page" $page) }}
+        {{ partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path "num_cols" 1 "show_cta" true) "Page" $page) }}
       </div>
     {{ end }}
   </div>

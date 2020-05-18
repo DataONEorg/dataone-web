@@ -1,15 +1,15 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
-{{ $Site := .Page.Site }}
+{{ $site := .Page.Site }}
 <div class="member-nodes">
 
   <div class="member-nodes__nav-container">
     <nav class="member-nodes__nav">
 
       <ol class="member-nodes__toc" id="member-nodes-toc" aria-hidden="false">
-        {{- range $Site.Data.membernodes.categories -}}
+        {{- range $site.Data.membernodes.categories -}}
           {{ $category := .category }}
-          {{ $nodeCount := len (where $Site.Data.membernodes.nodes "category" "==" $category) }}
+          {{ $nodeCount := len (where $site.Data.membernodes.nodes "category" "==" $category) }}
           <li class="member-nodes__toc-item" aria-controls="section__{{urlize $category}}" id="item__{{urlize $category}}">
             {{ if .category }}
               <a class="member-nodes__toc-link" href="{{$page.RelPermalink}}#section__{{urlize $category}}">
@@ -31,9 +31,9 @@
   </div>
 
   <section class="member-nodes__categories">
-    {{- range $Site.Data.membernodes.categories -}}
+    {{- range $site.Data.membernodes.categories -}}
       {{ $category := .category }}
-      {{ $categoryMembers := where $Site.Data.membernodes.nodes "category" "==" $category }}
+      {{ $categoryMembers := where $site.Data.membernodes.nodes "category" "==" $category }}
       <div class="member-nodes__category" id="section__{{urlize $category}}">
         <h3 class="member-nodes__category-title">{{ .category }}</h3>
         {{ with .description }}

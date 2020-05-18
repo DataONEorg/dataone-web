@@ -28,8 +28,10 @@
   {{ $classes = printf "%s %s--%s" $classes $bn "fill-icon" }}
 {{ end }}
 
-<svg class="{{ $classes }}">
-  <title>{{ .Block.icon | humanize }}
-    icon</title>
-  <use xlink:href="#{{ .Block.icon }}"/>
-</svg>
+{{ with .Block.icon }}
+  <svg class="{{ $classes }}">
+    <title>{{ . | humanize }}
+      icon</title>
+    <use xlink:href="#{{ . }}"/>
+  </svg>
+{{ end }}

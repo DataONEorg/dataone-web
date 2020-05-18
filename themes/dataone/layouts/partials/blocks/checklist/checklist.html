@@ -11,6 +11,8 @@
 {{ $numCols := .Block.num_cols | default 3 }}
 <!-- Option to reduce spacing -->
 {{ $compact := .Block.compact | default false }}
+<!-- The items to list, each with some text, an icon, and an optional description -->
+{{ $items := .Block.items }}
 
 {{ with $numCols }}
   {{ $classes = printf "%s %s--%dcols" $classes $bn . }}
@@ -20,10 +22,8 @@
   {{ $classes = printf "%s %s--compact" $classes $bn }}
 {{ end }}
 
-<!-- Get the checkmark icon -->
-{{ $checkCol := .Block.check_col | default "secondary" }}
-{{ $checkBlock := dict "icon" "check" "size" "small" "color" "inherit" "stroke" "thicker" }}
-{{ $check := partial "blocks/icon/icon" (dict "Block" $checkBlock "Page" $page) }}
+<!-- General style options for checklist icons -->
+{{ $iconStyle := dict "size" "small" "color" "inherit" "stroke" "thicker" }}
 
 <div class="{{ $classes }}">
 
@@ -31,11 +31,26 @@
     <h3 class="{{ $bn }}__title">{{ . }}</h3>
   {{ end }}
 
-  {{- with .Block.items -}}
+  {{- with $items -}}
     <ul class="{{ $bn }}__items">
-      {{- range . -}}
-        <li class="{{ $bn }}__item">
-          <div class="{{ $bn }}__icon">{{ $check }}</div>{{ . }}</li>
+      {{- range $item :=  . -}}
+        <!-- Parameters for each item -->
+        {{ $text := $item.text | default "" }}
+        {{ $description := $item.description | default "" }}
+        {{ $icon := $item.icon | default "check" }}
+        <!-- Get the icon, default to checkmark -->
+        {{ $iconBlock := merge (dict "icon" $icon) $iconStyle }}
+        {{ $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+        <!-- Make the tooltip description. Add a class to add styless to items with tooltips -->
+        {{ $classes := printf "%s__item" $bn }}
+        {{ $tooltip := "" | safeHTMLAttr }}
+        {{ with $description }}
+          {{ $tooltip = printf "data-tooltip='%s' data-position='right center'" . | safeHTMLAttr }}
+          {{ $classes = printf "%s %s--tooltip" $classes $classes }}
+        {{ end }}
+        <li class="{{ $classes }}" {{ $tooltip }}>
+          <div class="{{ $bn }}__icon">{{ $iconHTML }}</div>{{ $text }}
+        </li>
       {{- end -}}
     </ul>
   {{- end -}}

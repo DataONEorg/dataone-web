@@ -1,5 +1,5 @@
 {{ $page := .Page }}
-{{ $Site := .Page.Site }}
+{{ $site := .Page.Site }}
 <!-- bn = block name -->
 {{ $bn := "page-summary" }}
 
@@ -7,6 +7,9 @@
 {{ $classes := printf "%s %s--service" $bn $bn }}
 
 {{ $servicePage := $page.Site.GetPage .Block.service }}
+{{ $numCols := .Block.num_cols | default 2 }}
+{{ $showCTA := .Block.show_cta | default false }}
+
 {{ $service := $servicePage.Params }}
 {{ $href := $servicePage.RelPermalink }}
 {{ $weight := $service.weight }}
@@ -18,37 +21,25 @@
 <!-- Add theme -->
 {{ $classes = printf "%s theme--%s" $classes $varName }}
 
-<!-- Features of this service -->
-{{ $featuresOfService := partial "functions/getFeatures" (dict "Service" $servicePage "Site" $Site) }}
-
-<!-- Other services (all services excluding this one) -->
-{{ $otherServices := where (where $Site.Pages "Type" "services") "Kind" "page" | complement (slice $servicePage)  }}
-
-<!-- Next lowest service -->
-{{ $lowerService := "" }}
-{{ range $otherService := $otherServices }}
-  {{ if eq $otherService.Params.weight (sub $weight 1) }}
-    {{ $lowerService = $otherService }}
-  {{ end }}
-{{ end }}
-
-<!-- Features available to this service, but not "lower-level" services -->
-<!-- Features that are included in services with a lower weight (order) -->
-{{ $featuresLowerServices := slice }}
-{{ range $otherService := $otherServices }}
-  {{ if lt $otherService.Params.weight $weight }}
-    {{ $featuresLowerService := partial "functions/getFeatures" (dict "Service" $otherService "Site" $Site) }}
-    {{ $featuresLowerServices = $featuresLowerServices | append $featuresLowerService }}
-  {{ end }}
-{{ end }}
-
 <!-- Features unique to this service level -->
-{{ $featuresUnique :=  $featuresOfService | complement $featuresLowerServices }}
+{{ $featuresUnique :=  partial "functions/getUniqueFeatures" (dict "service" $servicePage) }}
 
-<!-- Feature names as a lists of strings -->
-{{ $featuresToList := slice }}
+<!-- Organize for checklist block -->
+<!-- Feature names as a list of strings -->
+{{ $checklistItems := slice }}
 {{ range $featuresUnique }}
-  {{ $featuresToList = $featuresToList | append .Params.title }}
+  {{ $text := .title }}
+  {{ with .annotation }}
+    {{ $text = printf "<span>%s&nbsp;<span class='%s__annotation'>(%s)</span></span>" $text $bn . | safeHTML }}
+  {{ end }}
+  {{ $checklistItems = $checklistItems | append (dict "text" $text "description" .description ) }}
+{{ end }}
+
+<!-- Get info about the service that is one step "down" from this service -->
+{{ $lowerService := where (where $site.Pages "Type" "services") "Params.weight" (sub $weight 1) }}
+<!-- "unlist" lower service -->
+{{ range $lowerService }}
+  {{ $lowerService = . }}
 {{ end }}
 
 <!-- Brush stroke to use behind the title text -->
@@ -67,6 +58,7 @@
     <span class="{{ $bn }}__icon">
       {{ partial "blocks/badge/badge" (dict "Block" (dict "page" $servicePage.File.Path "type" "icon-only") "Page" $page) }}
     </span>
+
     <h3 class="{{ $bn }}__title">
       {{ $brushStrokeBkg }}
       <span class="{{ $bn }}__title-text">{{ $title }}</span>
@@ -81,18 +73,22 @@
       {{$lowerService.Params.title }}, and...
     </p>
   {{- end -}}
+
   <div class="{{ $bn }}__feature-list">
-    {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $featuresToList "num_cols" 1 "compact" true) "Page" $page) }}
+    {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $checklistItems  "num_cols" $numCols "compact" true) "Page" $page) }}
   </div>
+
   <div class="{{ $bn }}__buttons">
 
     {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
     {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
 
-    {{ $cta := $service.cta }}
-    {{ with $cta }}
-      {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link  "color" "primary")  }}
-      {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
+    {{ if $showCTA }}
+      {{ $cta := $service.cta }}
+      {{ with $cta }}
+        {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link  "color" "primary")  }}
+        {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
+      {{ end }}
     {{ end }}
 
   </div>

@@ -13,6 +13,7 @@ menu:
   primary_nav:
     parent: About
     weight: 3
+    pre: coffee
   footer:
     parent: About
     weight: 13

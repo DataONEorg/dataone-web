@@ -41,12 +41,12 @@
     <div class="{{ $bn }}__inner">
       <!-- ICON -->
 
-      {{ if eq (printf "%T" .Block.icon) "string" }}
+      {{ if .Block.icon }}
         <div class="{{ $bn }}__icon">
           {{ $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "large"}}
           {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
         </div>
-      {{ end}}
+      {{ end }}
 
       <!-- TITLE -->
       {{- with .Block.title -}}
