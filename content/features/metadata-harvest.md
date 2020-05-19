@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Metadata harvest, indexing, and audit
+title: Metadata harvest, indexing, & audit
 description: DataONE harvests your metadata, performs integrity checks, and indexes for discovery
 linked_services:
 - service_file: services/free.md

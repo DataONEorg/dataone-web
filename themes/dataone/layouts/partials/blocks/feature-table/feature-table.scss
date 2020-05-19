@@ -175,7 +175,8 @@
 
   // The icon that has the description tooltip
   &__details {
-    cursor: help;
+    position: relative;
+    cursor  : help;
 
     .icon {
       pointer-events: none;
