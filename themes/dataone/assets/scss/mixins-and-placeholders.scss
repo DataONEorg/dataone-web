@@ -409,18 +409,29 @@
   $accent-fallback                   : mediumorchid;
   $accent-light-fallback             : thistle;
 
+  @if($background-color == "major-accent") {
+    // Default background
+    #{$prefix}-c-background-lighter : var(--theme-c-lighter, var(#{$root-color-prefix}-#{$background-color}-lighter, $background-fallback-light));
+    #{$prefix}-c-background         : var(--theme-c-darker, var(#{$root-color-prefix}-#{$background-color}, $background-fallback-light));
+    #{$prefix}-c-background-darker  : var(--theme-c-darker-2, var(#{$root-color-prefix}-#{$background-color}-darker, $background-fallback-dark));
+    #{$prefix}-c-background-darker-2: var(--theme-c-darker-2, var(#{$root-color-prefix}-#{$background-color}-darker-2, $background-fallback-dark));
+
+  } @else {
+
+    // Default background
+    #{$prefix}-c-background-lighter : var(#{$root-color-prefix}-#{$background-color}-lighter, $background-fallback-light);
+    #{$prefix}-c-background         : var(#{$root-color-prefix}-#{$background-color}, $background-fallback-light);
+    #{$prefix}-c-background-darker  : var(#{$root-color-prefix}-#{$background-color}-darker, $background-fallback-dark);
+    #{$prefix}-c-background-darker-2: var(#{$root-color-prefix}-#{$background-color}-darker-2, $background-fallback-dark);
+
+  }
+
   #{$prefix}-fc-body                 : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-fallback);
   #{$prefix}-fc-title                : var(#{$root-color-prefix}-foreground-emphasis-on-#{$background-color}, $foreground-emphasis-fallback);
 
   // Default foreground
   #{$prefix}-c-foreground-very-subtle: var(#{$root-color-prefix}-foreground-very-subtle-on-#{$background-color}, $foreground-light-fallback);
   #{$prefix}-c-foreground-subtle     : var(#{$root-color-prefix}-foreground-subtle-on-#{$background-color}, $foreground-light-fallback);
-
-  // Default background
-  #{$prefix}-c-background-lighter    : var(#{$root-color-prefix}-#{$background-color}-lighter, $background-fallback-light);
-  #{$prefix}-c-background            : var(#{$root-color-prefix}-#{$background-color}, $background-fallback-light);
-  #{$prefix}-c-background-darker     : var(#{$root-color-prefix}-#{$background-color}-darker, $background-fallback-dark);
-  #{$prefix}-c-background-darker-2   : var(#{$root-color-prefix}-#{$background-color}-darker-2, $background-fallback-dark);
 
   // Alert colors
   @each $alert-type, $default in $alerts-fallback {
@@ -433,20 +444,21 @@
     --fc-link                      : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $link-fallback);
     --fc-link-hover                : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $link-fallback);
 
-    #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $foreground-light-fallback);
-    #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $foreground-fallback);
+    #{$prefix}-c-icon-background   : var(--theme-c-light, var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $foreground-light-fallback));
+    #{$prefix}-c-icon-foreground   : var(--theme-c, var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $foreground-fallback));
 
     #{$prefix}-c-accent-emphasis   : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $accent-fallback);
     #{$prefix}-c-accent            : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $accent-fallback);
     #{$prefix}-c-accent-subtle     : var(#{$root-color-prefix}-major-accent-subtle-on-#{$background-color}, $accent-light-fallback);
     #{$prefix}-c-accent-very-subtle: var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $accent-light-fallback);
+
   } @else {
 
     --fc-link                      : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
     --fc-link-hover                : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
 
-    #{$prefix}-c-icon-background   : var(#{$root-color-prefix}-#{$background-color}-lighter-2, $foreground-fallback);
-    #{$prefix}-c-icon-foreground   : var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-light-fallback);
+    #{$prefix}-c-icon-background   : var(--theme-c-light, var(#{$root-color-prefix}-#{$background-color}-lighter-2, $foreground-fallback));
+    #{$prefix}-c-icon-foreground   : var(--theme-c, var(#{$root-color-prefix}-foreground-on-#{$background-color}, $foreground-light-fallback));
 
     #{$prefix}-c-accent-emphasis   : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $accent-fallback);
     #{$prefix}-c-accent            : var(#{$root-color-prefix}-accent-on-#{$background-color}, $accent-fallback);

@@ -41,7 +41,7 @@
   <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
   {{ with $svgBkg }}
     <div class="{{ $bn }}__svg-background">
-      {{- partial (print "svg/" . ".svg" ) -}}
+      {{- partial "blocks/svg/svg" (dict "Block" (dict "name" .) "Page" $page) -}}
     </div>
   {{ end }}
 

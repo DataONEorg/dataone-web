@@ -3,9 +3,12 @@
 <!-- bn = block name -->
 {{ $bn := "button" }}
 
-<!-- what type of button -->
+<!-- The type of button -->
 <!-- Options: internal page, external page, contact, subscribe form, donate-->
 {{ $type := .Block.type | default "external website" }}
+
+<!-- Text to display within the button -->
+{{ $text := (.Block.text | markdownify) | default "" }}
 
 <!-- classes to add to the button based on user choices -->
 {{ $classes := $bn }}
@@ -18,7 +21,7 @@
 
 <!-- icon -->
 {{ $icon := "" }}
-{{ if $icon }}
+{{ if .Block.icon }}
 	{{ $iconBlock := dict "icon" .Block.icon "color" "inherit" }}
 	{{ $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
 	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}
@@ -57,6 +60,15 @@
 		{{ $href = $page.Site.Params.links.donate }}
 	{{ else if eq $type "sign-in" }}
 		{{ $href = $page.Site.Params.links.signin }}
+	{{ else if and (eq $type "service cta") (eq $page.Type "services") }}
+		{{ with $page.Params.cta }}
+			{{ with .external_link }}
+				{{ $href = . }}
+			{{ end }}
+			{{ with .text }}
+				{{ $text = . }}
+			{{ end }}
+		{{ end }}
 	{{ end }}
 
 	{{ $htmlTag := .Block.html_tag | default "a" }}
@@ -83,8 +95,8 @@
 	{{ printf "<%s href='%s' class='%s' %s %s>" $htmlTag $href $classes $typeAttr $id | safeHTML }}
 
 	{{ $icon }}
-	{{- if .Block.text -}}
-		<span class="{{ $textClasses }}">{{ .Block.text | markdownify }}</span>
+	{{- if $text -}}
+		<span class="{{ $textClasses }}">{{ $text }}</span>
 	{{- end -}}
 	{{ $iconRight }}
 

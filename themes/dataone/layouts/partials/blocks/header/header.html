@@ -73,13 +73,20 @@
     {{ end }}
   {{ end }}
 
+  <!-- Badge to add with the title for service pages -->
+  {{ $badge := "" }}
+  {{ if eq $page.Type "services" }}
+    <!-- TODO: check that page exists -->
+    {{ $badge = partial "blocks/badge/badge" (dict "Block" (dict "page" $page.File.Path "type" "icon-only" "style" "light") "Page" $page) }}
+  {{ end }}
+
   <!-- ===== -->
   <header class="{{ $classes }}" {{ $bkgImg }}>
 
     <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
     {{ with $svgBkg }}
       <div class="{{ $bn }}__svg-background">
-        {{- partial (print "svg/" . ".svg" ) -}}
+        {{- partial "blocks/svg/svg" (dict "Block" (dict "name" .) "Page" $page) -}}
       </div>
     {{ end }}
 
@@ -88,6 +95,9 @@
       <div class="{{ $bn }}__text">
 
         <div class="{{ $bn }}__title-and-pill">
+
+          {{- $badge -}}
+
           {{- with $mainTitle -}}
             <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
           {{- end -}}

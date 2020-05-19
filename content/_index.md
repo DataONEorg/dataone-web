@@ -151,6 +151,7 @@ page_sections:
 - template: section
   type: default
   background: default
+  title: About DataONE
   blocks:
   - template: feature-detailed
     headline: The dataone federation

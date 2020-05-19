@@ -22,13 +22,31 @@
   {{ $classes = print $classes " " $bn "--no-image" }}
 {{ end }}
 
+{{ $badge := "" }}
+{{ with .Block.related_page }}
+  {{ $badgePage := $page.Site.GetPage . }}
+  {{ if $badgePage }}
+    {{ $badge = partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) }}
+    {{ if eq $badgePage.Type "services" }}
+      {{ $serviceVar := $badgePage.Params.title | urlize }}
+      {{ $classes = printf "%s theme--%s" $classes $serviceVar }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 <!-- Don't add a class for the default type -->
 <div class="{{ $classes }}">
   <div class="{{ $bn }}__description">
     <div class="{{ $bn }}__title-and-intro">
-      {{ with .Block.headline }}
-        <h3 class="{{ $bn }}__title">{{ . }}</h3>
-      {{ end }}
+      <span class="{{ $bn }}__badge-and-title">
+        {{ with $badge }}
+          <span class="{{ $bn }}__badge">{{ . }}</span>
+        {{ end }}
+        {{ with .Block.headline }}
+          <h3 class="{{ $bn }}__title">{{ . }}</h3>
+        {{ end }}
+      </span>
+
       {{ with .Block.text }}
         <p class="{{ $bn }}__intro markdown">{{ . | markdownify }}</p>
       {{ end }}

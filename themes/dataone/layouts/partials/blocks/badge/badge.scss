@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn            : &;
+  $bn                    : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix        : "--" + str-replace(#{$bn}, ".");
+  $prefix                : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,37 +16,39 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  //
-  // Defaults
-  // ==========================================================================
-
   // Color for text, icons, etc.
-  // #{$prefix}-c-foreground-default: var(--c-neutral-5, black);
+  #{$prefix}-c-background: var(--theme-c, transparent);
+  #{$prefix}-c-foreground: var(--theme-c-light, black);
 
   @include f-common;
-  height         : 2.9rem;
-  border-radius  : 30rem;
-  padding        : .1rem;
-  text-decoration: none;
-  font-weight    : var(--fw-bolder, 500);
-  font-size      : var(--fs-medium, 0.9rem);
-  line-height    : 1;
-  display        : flex;
-  align-items    : center;
-  width          : fit-content;
-  padding        : .2rem .8rem;
+  height                 : 2.9rem;
+  border-radius          : 30rem;
+  padding                : .1rem;
+  text-decoration        : none;
+  font-weight            : var(--fw-bolder, 500);
+  font-size              : var(--fs-medium, 0.9rem);
+  line-height            : 1;
+  display                : flex;
+  align-items            : center;
+  width                  : fit-content;
+  padding                : .2rem .8rem;
+  background-color       : var(#{$prefix}-c-background);
 
-  &__icon {}
+  &__icon {
+    fill  : var(#{$prefix}-c-foreground);
+    stroke: var(#{$prefix}-c-foreground);
+  }
 
   &__title {
     display       : block;
+    font-weight   : var(--fw-bolder, 500);
     font-size     : var(--fs-smallest, 0.7rem);
-    color         : var(--c-neutral-1, white);
+    color         : var(#{$prefix}-c-foreground);
     text-transform: uppercase;
     letter-spacing: .01em;
-    font-weight   : var(--fw-bolder, 500);
     margin        : 0 0 .1rem;
     line-height   : 1;
+    filter: brightness(1.1);
   }
 
   &__name {
@@ -58,6 +60,7 @@
     overflow      : hidden;
     white-space   : nowrap;
     line-height   : 1.1;
+    color         : var(#{$prefix}-c-foreground);
   }
 
   //
@@ -82,30 +85,34 @@
       }
 
       #{$bn}__icon {
-        transition: fill .2s linear, stroke .2s linear;
-        fill      : var(--c-neutral-1, white);
-        stroke    : var(--c-neutral-1, white);
+        transition: filter .2s linear;
+        filter: brightness(1.03);
       }
     }
   }
 
   //
-  // Service Badges - use theme colors for badges for service pages
+  // Service Badges - Badges that link to service pages
   // ==========================================================================
 
-  &--service {
-    background-color: var(--theme-c, transparent);
-    color           : var(--theme-c-light, white);
-
-    #{$bn}__icon {
-      fill  : var(--theme-c-light, white);
-      stroke: var(--theme-c-light, white);
-    }
-  }
+  &--service {}
 
   //
   // Icon Only - remove hover effects when icon is not clickable
   // ==========================================================================
 
   &--icon-only {}
+
+  //
+  // Light - for badges that reverse the dark and light colors
+  // ==========================================================================
+
+  &--light {
+    $shadow-c-1            : var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0,0,0,0.1)));
+    $shadow-c-2            : var(--section-c-shadow-2, var(--c-shadow-2-on-default, rgba(0,0,0,0.1)));
+    #{$prefix}-c-background: var(--theme-c-light, transparent);
+    #{$prefix}-c-foreground: var(--theme-c, black);
+    box-shadow             : 0 1px 9px -2px $shadow-c-1, 0 1px 3px -2px $shadow-c-2;
+  }
+
 }

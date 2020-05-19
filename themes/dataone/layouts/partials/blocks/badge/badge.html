@@ -7,12 +7,14 @@
 
 <!-- Block parameters -->
 {{ $badgePagePath := .Block.page }}
+<!-- The page to show a badge for -->
+{{ $badgePage := $page.Site.GetPage $badgePagePath }}
 
 <!-- The type or style of badge -->
 {{ $type := .Block.type | default "" }}
 
-<!-- The page to show a badge for -->
-{{ $badgePage := $page.Site.GetPage $badgePagePath }}
+<!-- A style option for the badge (options: default, light) -->
+{{ $style := .Block.style | default "" }}
 
 <!-- Link when the badge is clicked -->
 {{ $href := "" }}
@@ -50,6 +52,10 @@
   {{ $name = "" }}
   {{ $title = "" }}
   {{ $classes = printf "%s %s--%s" $classes $bn "icon-only" }}
+{{ end }}
+
+{{ with $style }}
+  {{ $classes = printf "%s %s--%s" $classes $bn . }}
 {{ end }}
 
 <!-- The HTML tag to use for the badge element -->

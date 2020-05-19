@@ -54,6 +54,10 @@
     }
   }
 
+  &__fill-skin-tone-5 {
+    fill: #c0b19c;
+  }
+
   &__fill-theme {
     fill: var(--theme-c, var(--c-major-accent-5, lightgray));
   }
@@ -73,17 +77,31 @@
 
   &--wave-section {
     #{$bn}__stop-color-1 {
-      stop-color: var(--section-c-background-darker, lightgray);
+      stop-color: var(--theme-c-neutral-light,var(--section-c-background-darker, lightgray));
     }
 
     #{$bn}__stop-color-2 {
-      stop-color: var(--section-c-background-darker-2, white);
+      stop-color: var(--theme-c-neutral-light,var(--section-c-background-darker-2, white));
     }
   }
 
   &--topography {
     #{$bn}__topo-lines {
       fill: var(--section-c-background-darker-2, lightgray);
+    }
+  }
+
+  &--hosted-repo-header {
+    #{$bn}__stop-color-background-lighter {
+      stop-color: var(--c-major-accent-1, #cdf5fa);
+    }
+
+    #{$bn}__stop-color-background-light {
+      stop-color: var(--c-major-accent-2, #e6fdfd);
+    }
+
+    #{$bn}__fill-shirt {
+      fill: var(--theme-c, var(--c-minor-accent-5, #EED268));
     }
   }
 }

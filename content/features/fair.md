@@ -40,6 +40,7 @@ header:
     text: Join the waitlist
 page_sections:
 - background: default
+  small_title: FAIR products
   title: |- 
     Researchers increasingly rely on<br>
     computational tools to find, access & use data.<br>
@@ -50,6 +51,7 @@ page_sections:
     num_cols: 2
     columns:
     - template: feature-detailed
+      related_page: services/plus.md 
       type: top
       image:
         src: /uploads/fair_reports/fair-for-portals.png
@@ -61,6 +63,7 @@ page_sections:
         name: "Aggregate FAIR scores for your portal"
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
     - template: feature-detailed
+      related_page: services/hosted-repo.md
       type: top
       image:
         src: uploads/fair_reports/fair-for-hosted-repos.png
@@ -75,6 +78,7 @@ page_sections:
         name: "Individual FAIR assessments for every dataset"
         text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
+  small_title: Aggreated FAIR reports
   id: aggregated-reports
   background: subtle-emphasis
   icon: trending-up
@@ -98,6 +102,7 @@ page_sections:
   icon: file-plus
   template: section
   title: Guide your community toward creating better metadata
+  small_title: Individual FAIR reports
   intro: Provide detailed FAIR reports for each dataset and give researchers the power to discover
     exactly which metadata fields are missing or incomplete.
   blocks:

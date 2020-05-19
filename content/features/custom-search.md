@@ -47,6 +47,7 @@ header:
 page_sections:
 - template: section
   type: default
+  small_title: Search filters
   title: How to create a filter
   intro: Creating a search filter for your portal is easy. Choose a metadata field
     and a filter type, then select a matching icon and text. Mix and match as many
@@ -104,7 +105,8 @@ page_sections:
   id: ''
 - template: section
   background: topography
-  title: Geographic location search
+  small_title: Geographic search
+  title: Search for data by location
   icon: map
   blocks:
   - template: feature-detailed

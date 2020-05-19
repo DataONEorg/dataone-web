@@ -33,8 +33,14 @@
       <!-- main content -->
       <!-- Classes to add to the acticle element -->
       {{ $classes := "article" }}
-      {{ with .Page.Params.theme }}
-        {{ $classes = print $classes " " "theme-" . }}
+      <!-- {{ with .Page.Params.theme }} {{ $classes = print $classes " " "theme-" . }} {{ end }} -->
+      <!-- Service pages need theme -->
+      {{ if eq $.Type "services" }}
+        {{ with $.Params.title }}
+          {{ $varName := . | urlize }}
+          <!-- Add theme -->
+          {{ $classes = printf "%s theme--%s" $classes $varName }}
+        {{ end }}
       {{ end }}
       <article class="{{ $classes }}">
         {{- block "main" . }}{{- end }}

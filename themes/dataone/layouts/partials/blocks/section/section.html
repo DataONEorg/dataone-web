@@ -3,6 +3,8 @@
 <!-- bn - block name -->
 {{ $bn := "section" }}
 
+{{ $id := .Block.id  | default "" }}
+
 {{ $classes := $bn }}
 {{ with .Block.type }}
   {{ if ne . "default" }}
@@ -31,7 +33,29 @@
     {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "topography") "Page" $page) }}
   {{ end }}
 
-  <section class="{{ $classes }}" {{ with .Block.id }} id="{{ . }}" {{ end }}>
+  <!-- Badge for related pages -->
+  {{ $badges := "" }}
+  {{ if eq $page.Type "features" }}
+    {{ range $page.Params.sub_features }}
+      {{ if eq .section_id $id }}
+        {{ range .linked_services }}
+          {{ with .service_file }}
+            {{ $badge := partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) }}
+            {{ $badges = printf "%s%s" $badges $badge | safeHTML }}
+          {{ end }}
+        {{ end }}
+        {{ if eq (len .linked_services) 1 }}
+          {{ range first 1 .linked_services}}
+            {{ $badgePage := $page.Site.GetPage .service_file }}
+            {{ $serviceVar := $badgePage.Params.title | urlize }}
+            {{ $classes = printf "%s theme--%s" $classes $serviceVar }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }}>
     <!-- SVG-BACKGROUND -->
     {{ with $svg }}
       <div class="{{ $bn }}__svg-background">
@@ -39,14 +63,26 @@
       </div>
     {{ end }}
     <div class="{{ $bn }}__inner">
-      <!-- ICON -->
+      <!-- ICON ORR BADGES -->
+      <!-- Both a section icon and badges look bad together -->
 
-      {{ if .Block.icon }}
+      {{ if $badges }}
+        <span class="{{ $bn }}__badges">
+          {{- $badges -}}
+        </span>
+      {{ else if .Block.icon }}
         <div class="{{ $bn }}__icon">
-          {{ $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "large"}}
+          {{ $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "medium"}}
           {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
         </div>
       {{ end }}
+
+      <!-- SMALL TITLE -->
+      {{- with .Block.small_title -}}
+        <span class="{{ $bn }}__small-title">
+          {{- . -}}
+        </span>
+      {{- end -}}
 
       <!-- TITLE -->
       {{- with .Block.title -}}

@@ -12,9 +12,6 @@ fields:
   name: page
   label: Page
   description: The page to make a badge for (currently limited to Service pages)
-  source:
-    type: pages
-    section: services
   config:
     source:
       type: pages

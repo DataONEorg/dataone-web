@@ -24,6 +24,7 @@ fields:
     - contact
     - donate
     - sign-in
+    - service cta
 - type: select
   label: Style
   name: color

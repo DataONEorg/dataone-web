@@ -22,6 +22,8 @@
 
   // Color for text, icons, etc.
   #{$prefix}-c-foreground-default: var(--c-neutral-5, black);
+  // Color for the title
+  #{$prefix}-fc-title            : var(#{$prefix}-c-foreground-default);
   // Font size of the title
   #{$prefix}-fs-title            : var(--fs-large, 1.25rem);
   // Font weight for the title element
@@ -99,6 +101,7 @@
     flex-direction : row;
     flex-wrap      : wrap;
     justify-content: center;
+    align-items    : center;
     @include desktop {
       justify-content: left;
     }
@@ -106,11 +109,12 @@
 
   &__title {
     display       : block;
+    color         : var(#{$prefix}-fc-title);
     font-size     : var(#{$prefix}-fs-title);
     font-weight   : var(#{$prefix}-fw-title);
     text-transform: uppercase;
     letter-spacing: .05em;
-    margin        : 0 .8rem 1rem 0;
+    margin        : .8rem;
   }
 
   &__headline {
@@ -205,10 +209,6 @@
       justify-content: center;
     }
 
-    #{$bn}__title {
-      margin: 0 .8rem 1rem;
-    }
-
     #{$bn}__buttons {
       justify-content: center;
     }
@@ -269,8 +269,7 @@
     }
 
     #{$bn}__text {
-      position      : relative;
-      padding-bottom: 9rem;
+      position: relative;
     }
 
     #{$bn}__content {
@@ -370,6 +369,10 @@
     @extend .header--dark-bkg;
     // TODO
     text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.3);
+
+    #{$bn}__text {
+      padding-bottom: 5rem;
+    }
   }
 
   //
@@ -403,6 +406,7 @@
       @include desktop {
         grid-template-columns: .6fr .4fr;
         grid-gap             : 0 1.4rem;
+        min-height           : 500px;
       }
 
     }

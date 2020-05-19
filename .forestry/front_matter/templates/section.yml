@@ -66,10 +66,14 @@ fields:
   label: Icon
   description: An optional icon to display at the top of the section
   template: icon-names
+- type: text
+  label: Small title
+  name: small_title
+  description: A title for the section in small font above the headline
 - type: textarea
-  label: Title
+  label: Headline
   name: title
-  description: A title or headline for the section
+  description: A larger headline for the section
   config:
     wysiwyg: true
     schema:

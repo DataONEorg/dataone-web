@@ -27,9 +27,13 @@
   // Font sizes
   #{$prefix}-fs-intro            : var(--fs-larger, 1.5rem);
   #{$prefix}-fs-title            : var(--fs-xx-large, 2.8rem);
+  #{$prefix}-fs-small-title      : var(--fs-large, 1.25rem);
   // Font weights
   #{$prefix}-fw-title            : var(--fw-bolder, 700);
   #{$prefix}-fw-intro            : var(--fw-normal, 400);
+  #{$prefix}-fw-small-title      : var(--fw-bold, 500);
+  // Font colors
+  #{$prefix}-fc-small-title      : var(--theme-c, var(--section-c-accent, black));
 
   // Font colours
   @include set-section-colors("default");
@@ -66,6 +70,27 @@
     border-radius   : 50%;
     background-color: var(#{$prefix}-c-icon-background);
     stroke          : var(#{$prefix}-c-icon-foreground);
+  }
+
+  // A title or headline for the section
+  &__small-title {
+    text-align    : center;
+    display       : block;
+    color         : var(#{$prefix}-fc-small-title);
+    font-size     : var(#{$prefix}-fs-small-title);
+    font-weight   : var(#{$prefix}-fw-small-title);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top    : .5rem;
+    margin-bottom : 1.5rem;
+  }
+
+  &__badges {
+    display        : grid;
+    grid-auto-flow : column;
+    grid-gap       : .5rem .5rem;
+    align-items    : center;
+    justify-content: center;
   }
 
   // A title or headline for the section
@@ -129,7 +154,7 @@
   // ==========================================================================
 
   &--bkg-subtle-emphasis {
-    #{$prefix}-c-background: var(--c-default-darker, lightgray);
+    #{$prefix}-c-background: var(--theme-c-neutral-light, var(--c-default-darker, lightgray));
   }
 
   //

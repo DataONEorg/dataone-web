@@ -5,9 +5,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn                  : &;
+  $bn                         : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix              : "--" + str-replace(#{$bn}, ".");
+  $prefix                     : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -15,19 +15,19 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-icon-foreground: var(--theme-c, var(--section-c-icon-foreground, black));
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  display              : grid;
-  grid-gap             : .7rem;
-  grid-template-columns: min-content 1fr;
-  color                : var(--section-fc-body, black);
-  margin               : .9rem 0;
-  font-size            : var(--fs-medum, 1rem);
+  display                     : grid;
+  grid-gap                    : .7rem;
+  grid-template-columns       : min-content 1fr;
+  color                       : var(--section-fc-body, black);
+  margin                      : .9rem 0;
+  font-size                   : var(--fs-medum, 1rem);
 
   &__icon {
     height         : calc(var(--fs-large, 1.22rem) * 1.6);
@@ -35,6 +35,9 @@
     align-items    : center;
     justify-content: center;
     margin-top     : 4%;
+    fill           : var(#{$prefix}-c-icon-foreground);
+    stroke         : var(#{$prefix}-c-icon-foreground);
+
   }
 
   &__paragraph {

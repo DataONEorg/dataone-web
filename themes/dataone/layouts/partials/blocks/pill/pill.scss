@@ -32,8 +32,8 @@
   // ==========================================================================
 
   @include f-common;
-  font-size : var(--fs-smaller, .9rem);
-  font-weight : var(--fw-bold, 500);
+  font-size              : var(--fs-smaller, .9rem);
+  font-weight            : var(--fw-bold, 500);
   text-transform         : uppercase;
   letter-spacing         : .03em;
   display                : inline-flex;
@@ -49,7 +49,7 @@
   max-width              : calc(100vw - 2.5em);
   padding                : 0 1.2em;
   white-space            : nowrap;
-  text-shadow: none;
+  text-shadow            : none;
 
   &__icon {
     padding-right: .4em;
@@ -75,7 +75,7 @@
   }
 
   &--quaternary {
-    #{$prefix}-c-background: var(--c-major-accent-3);
+    #{$prefix}-c-background: var(--c-major-accent-2);
     #{$prefix}-c-foreground: var(--c-major-accent-6);
   }
 
@@ -97,13 +97,13 @@
     line-height: 20px;
     width      : fit-content;
     padding    : 0 .6em;
-    font-size : var(--fs-smallest, .8rem);
+    font-size  : var(--fs-smallest, .8rem);
   }
 
   &--on-air {
     #{$prefix}-c-background: transparent;
     #{$prefix}-c-foreground: var(--c-minor-accent);
-    font-size : var(--fs-small, 1rem);
+    font-size              : var(--fs-small, 1rem);
     line-height            : 1;
     padding                : 0;
     border-radius          : 0;

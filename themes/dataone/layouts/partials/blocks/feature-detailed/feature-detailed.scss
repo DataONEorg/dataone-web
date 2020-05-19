@@ -50,6 +50,17 @@
     }
   }
 
+  &__badge {
+    margin-right: 1rem;
+  }
+
+  &__badge-and-title {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    margin-bottom : 1rem;
+  }
+
   &__description {
     padding-top   : 0;
     display       : flex;
@@ -77,7 +88,8 @@
 
   &__title {
     @include fs-h3;
-    color: var(--section-fc-title, black);
+    color : var(--section-fc-title, black);
+    margin: 0;
   }
 
   &--figleft {

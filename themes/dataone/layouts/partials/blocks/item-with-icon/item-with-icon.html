@@ -7,7 +7,7 @@
 
 {{ $icon := "" }}
 {{ if eq (printf "%T" .Block.icon) "string" }}
-  {{ $iconBlock := dict "icon" .Block.icon "size" "medium"}}
+  {{ $iconBlock := dict "icon" .Block.icon "size" "medium" "color" "inherit" }}
   {{ $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
 {{ end}}
 

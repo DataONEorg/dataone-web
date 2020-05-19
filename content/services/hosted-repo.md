@@ -3,7 +3,7 @@ layout: blocks
 date: 2020-01-09T17:19:25.000+00:00
 title: Hosted Repository
 service_icon: database
-service_color: "#0688d2"
+service_color: "#52ace0"
 weight: 3
 render_page: true
 description: A dedicated repository solution for your group or institution's data,
@@ -21,15 +21,14 @@ header:
   pill:
     template: pill
     text: Coming soon
-    style: secondary
+    style: quaternary
   buttons:
   - template: button
-    type: subscribe form
+    type: service cta
     color: primary
-    text: Join the waitlist
   - template: button
     type: contact
-    color: secondary
+    color: tertiary
     text: Contact us
 page_sections:
 - intro: Let the experts behind DataONE manage and preserve your data, software, and
@@ -37,6 +36,7 @@ page_sections:
     foster new collaborations, and build community with a repository that meets your
     needs and reflects your brand.
   template: section
+  small_title: Introducing DataONE Hosted Repos
   title: Focus on your research, leave your data infrastructure to us
   type: default
   blocks:
@@ -102,6 +102,7 @@ page_sections:
     type: right
 - template: section
   background: data-wave
+  small_title: Analytics
   title: Get a complete assessment of your data & metadata
   intro: With access to information about the datasets in your repository, you can
     monitor how your data is being used and assess its quality based on community
@@ -163,6 +164,7 @@ page_sections:
         internal_link: "/features/citations"
 - template: section
   type: default
+  small_title: Repository tools
   title: For users & developers
   intro: Open source, user friendly tools for working with DataONE across multiple
     levels of expertise. DataONE tools and services undergo extensive usability testing

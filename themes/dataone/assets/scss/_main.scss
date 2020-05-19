@@ -6,10 +6,20 @@
 {{range $service := $services}}
   {{$color := $service.Params.service_color}};
   {{$serviceVarName := $service.Params.title | urlize}}
-  $lightercol: mix({{ $color }}, white, 12%);
+  $lightercol: lighten({{ $color }}, 5%);
+  $darkercol: darken({{ $color }}, 2.5%);
+  $darkercol2: darken({{ $color }}, 5%);
+  $lightcol: mix({{ $color }}, white, 13%);
+  $lightcolsat: saturate($lightcol, 37%);
+  $lightcoldesat: desaturate(lighten($lightcol, 1%), 5%);
+
   .theme--{{$serviceVarName}}{
-    --theme-c      : {{$color}};
-    --theme-c-light: #{$lightercol};
+    --theme-c              : {{$color}};
+    --theme-c-lighter      : #{$lightercol};
+    --theme-c-darker-2     : #{$darkercol2};
+    --theme-c-darker       : #{$darkercol};
+    --theme-c-light        : #{$lightcolsat};
+    --theme-c-neutral-light: #{$lightcoldesat};
   }
 {{end}}
 

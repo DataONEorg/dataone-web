@@ -86,7 +86,7 @@
     {{ if $showCTA }}
       {{ $cta := $service.cta }}
       {{ with $cta }}
-        {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link  "color" "primary")  }}
+        {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link "color" "primary")  }}
         {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
       {{ end }}
     {{ end }}

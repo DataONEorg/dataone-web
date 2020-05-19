@@ -31,16 +31,16 @@ header:
     overlay_effect: ''
   buttons:
   - template: button
-    type: subscribe form
+    type: service cta
     color: primary
-    text: Join the waitlist
   - template: button
     type: contact
-    color: secondary
+    color: tertiary
     text: Contact us
 page_sections:
 - template: section
   type: default
+  small_title: Introducing Portals
   title: "Showcase your team's goals & results with  \n **branded portals**"
   intro: Create a custom, branded portal for your research topic or lab group that
     spans repositories in the DataONE network. Branded portals provide a convenient,
@@ -98,6 +98,7 @@ page_sections:
     text: Explore all features
 - template: section
   background: data-wave
+  small_title: Introducing Portals
   title: Maximize the value of your data
   intro: With access to information about the datasets in your portal, you can monitor
     how your data is being used and assess its quality based on community established
@@ -157,6 +158,7 @@ page_sections:
       details: []
   id: ''
 - template: section
+  small_title: Content & Branding
   title: Customized to match your project
   type: default
   blocks:
@@ -182,6 +184,7 @@ page_sections:
       icon: file-text
 - template: section
   background: wave
+  small_title: Showcase
   title: Built with DataONE Plus
   intro: See what others are doing with DataONE Plus portals
   blocks:
@@ -278,6 +281,7 @@ page_sections:
 - template: section
   type: default
   icon: book-open
+  small_title: Support
   title: Access to DataONE expertise
   blocks:
   - template: columns
