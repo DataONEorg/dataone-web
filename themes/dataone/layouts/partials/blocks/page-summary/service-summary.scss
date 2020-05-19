@@ -37,8 +37,7 @@
   @include card;
 
   background-color        : var(--c-default);
-
-  padding                 : 2rem;
+  padding                 : 1.5rem;
 
   #{$bn} {
     &__icon {
@@ -59,11 +58,12 @@
       margin     : .2rem 0;
       position   : relative;
 
+      // brush stroke
       .svg {
         margin-left: -7%;
         height     : 90%;
         top        : 35%;
-        width      : 150%;
+        width      : 120%;
         position   : absolute;
       }
 
@@ -88,7 +88,10 @@
 
     &__feature-list {
       margin-top : 1.7rem;
-      margin-left: 2rem;
+      margin-left: 1.5rem;
+      @include desktop {
+        margin-left: 0;
+      }
     }
 
     &__annotation {

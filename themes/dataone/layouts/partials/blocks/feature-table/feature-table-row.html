@@ -12,10 +12,15 @@
 {{ $feature := .Block.feature }}
 {{ $servicePages := .Block.service_pages }}
 {{ $subFeature := $feature.subFeature | default false }}
+{{ $hasSubfeatures := .Block.has_sub_features }}
 {{ $striped := .Block.striped }}
 
 {{ if $subFeature }}
   {{ $classes = printf "%s %s--sub-feature" $classes $en }}
+{{ end }}
+
+{{ if $hasSubfeatures }}
+  {{ $classes = printf "%s %s--has-sub-features" $classes $en }}
 {{ end }}
 
 {{ if $striped }}
@@ -38,6 +43,11 @@
 {{ $subfeatureIconBlock := dict "icon" "corner-down-right" "size" "tiny" "color" "inherit"}}
 {{ $subfeatureIcon := partial "blocks/icon/icon" (dict "Block" $subfeatureIconBlock "Page" $page) }}
 {{ $subfeatureIcon = printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $subfeatureIcon  | safeHTML }}
+
+<!-- has Subfeatures icon -->
+{{ $hasSubfeatureIconBlock := dict "icon" "minus" "size" "tiny" "color" "inherit"}}
+{{ $hasSubfeatureIcon := partial "blocks/icon/icon" (dict "Block" $hasSubfeatureIconBlock "Page" $page) }}
+{{ $hasSubfeatureIcon := printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $hasSubfeatureIcon  | safeHTML }}
 
 <!-- Feature Params ----------------------------------------------------------->
 
@@ -74,8 +84,11 @@
     <!-- Use the service title to make a theme class. -->
     <!-- Selector is used in the css files that set the service theme colors -->
     <td class="{{ $bn }}__cell theme--{{ $service.Params.title | urlize }}">
-      <!-- Check whether this feature has a map of associates services -->
-      {{ if $feature.linked_services }}
+      <!-- Don't show checks for row with subfeatures, show placeholder icon instead -->
+      {{ if $hasSubfeatures }}
+        {{ $hasSubfeatureIcon }}
+        <!-- Check whether this feature has a map of associates services -->
+      {{ else if $feature.linked_services }}
         <!-- Given path to the service page ($feature.linked_services.service_file), -->
         <!-- Get the associated service page and see if it matches the service -->
         <!-- that we're making a table cell for. If it matches, put a checkmark. -->

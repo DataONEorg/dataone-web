@@ -8,7 +8,6 @@ categories:
 - dataone tools
 - data search
 - data management
-- access control
 - analytics
 - branding
 - support

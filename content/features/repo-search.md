@@ -1,32 +1,13 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Developer tools
-description: Use R, Python, Matlab, Javascript, and Java to interact with DataONE services
+title: Repository search
+description: Search your repository by numerous properties including space, time, taxa, authors, and others
 linked_services:
-- service_file: services/free.md
-- service_file: services/plus.md
-- service_file: services/hosted-repo.md
+  - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
-category: dataone tools
-sub_features:
-- title: Open source tools
-  description: Use R, Python, Matlab, Javascript, and Java to interact with DataONE services
-  linked_services:
-  - service_file: services/free.md
-  - service_file: services/plus.md
-  - service_file: services/hosted-repo.md
-  show_in_table: true
-- title: API access
-  description: Access metrics services programmatically
-  free: limited
-  linked_services:
-  - service_file: services/free.md
-    table_annotation: Limited
-  - service_file: services/plus.md
-  - service_file: services/hosted-repo.md
-  show_in_table: true
+category: data search
 header:
   template: header
   type: text only
@@ -35,9 +16,9 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: API access
-  intro: Programmatically work with your repository through the DataONE
-      tools in R, Python, Matlab, and Java.
+  title: Comprehensive search
+  intro: Quickly find data with detailed search filters, or by navigating the
+      interactive map.
   buttons:
   - template: button
     type: internal page

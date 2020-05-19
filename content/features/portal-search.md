@@ -1,13 +1,11 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Cross-repository search
-description: Quickly find data across the DataONE network with detailed search filters, or by navigating the
-    interactive map.
+title: Portal search
+description: Search for datasets within your portal
 linked_services:
-- service_file: services/free.md
-- service_file: services/plus.md
-- service_file: services/hosted-repo.md
+  - service_file: services/plus.md
+  - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
 category: data search

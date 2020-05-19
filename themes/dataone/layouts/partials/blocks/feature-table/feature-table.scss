@@ -130,6 +130,16 @@
     }
   }
 
+  &__row--has-sub-features {
+
+    border-top-width: 3px;
+
+    #{$bn}__feature-link,
+    #{$bn}__feature-name {
+      font-weight: var(--fw-x-bold);
+    }
+  }
+
   &__sub-feature-icon {
     stroke: var(#{$prefix}-c-sub-feature-icon);
   }
@@ -204,17 +214,5 @@
   tr:last-child > td:last-child {
     border-bottom-right-radius: var(#{$prefix}-br);
   }
-
-  // Add vertical borders
-  // tr td:first-child {
-  //   border-left-width: 1px;
-  // }
-  // 
-  // tr td:last-child {
-  //   border-right-width: 1px;
-  // }
-  // 
-  // tr:first-child > td {
-  //   border-top-width: 1px;
 
 }

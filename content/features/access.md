@@ -2,20 +2,12 @@
 layout: blocks
 date: '2020-03-16T09:49:58.000+00:00'
 title: Access control
-description: Manage access to your data with rules and groups you define
+description: Manage access to your data with rules and groups you define. Keep your dataset private while you document it thoroughly, then publish when you're ready.
 linked_services:
 - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
-category: access control
-sub_features:
-- title: Share when ready
-  description: Keep your dataset private while you document it thoroughly, then share
-    it with the world when you're ready.
-  linked_services:
-  - service_file: services/hosted-repo.md
-  show_in_table: true
-  render_page: true
+category: data management
 header:
   template: header
   type: text only

@@ -32,8 +32,8 @@
 {{ end }}
 
 <!-- Summary of DataONE Plus -->
-<!-- All services for which there's a summary page -->
-{{ $services := where (where (where $site.Pages "Type" "services") "Kind" "page") "Params.render_page" "==" true }}
+<!-- All services -->
+{{ $services := (where (where $site.Pages "Type" "services") "Kind" "page")}}
 
 <!-- LAYOUT ===== -->
 <header class="{{ $classes }}">

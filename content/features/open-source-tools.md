@@ -1,16 +1,15 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Cross-repository search
-description: Quickly find data across the DataONE network with detailed search filters, or by navigating the
-    interactive map.
+title: Open source tools
+description: Use R, Python, Matlab, Javascript, and Java to interact with DataONE services
 linked_services:
 - service_file: services/free.md
 - service_file: services/plus.md
 - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
-category: data search
+category: dataone tools
 header:
   template: header
   type: text only
@@ -19,9 +18,9 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Comprehensive search
-  intro: Quickly find data with detailed search filters, or by navigating the
-      interactive map.
+  title: API access
+  intro: Programmatically work with your repository through the DataONE
+      tools in R, Python, Matlab, and Java.
   buttons:
   - template: button
     type: internal page

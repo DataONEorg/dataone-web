@@ -68,7 +68,7 @@
   <p class="{{ $bn }}__description">{{ $description }}</p>
   <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
   <!-- advertise that this feature includes everything in lower service as well -->
-  {{- if $lowerService.Params.render_page -}}
+  {{- if $lowerService -}}
     <p class="{{ $bn }}__includes-phrase">Everything in
       {{$lowerService.Params.title }}, and...
     </p>
@@ -80,8 +80,10 @@
 
   <div class="{{ $bn }}__buttons">
 
-    {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
-    {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+    {{ if $service.render_page }}
+      {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
+      {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+    {{ end }}
 
     {{ if $showCTA }}
       {{ $cta := $service.cta }}

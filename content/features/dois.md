@@ -1,16 +1,16 @@
 ---
 layout: blocks
-date: 2020-03-16T09:49:58.000+00:00
-title: Cross-repository search
-description: Quickly find data across the DataONE network with detailed search filters, or by navigating the
-    interactive map.
+date: '2020-03-16T09:49:58.000+00:00'
+title: Custom DOI prefix
+description: A DOI prefix is configured exclusively for your datasets, products,
+  and code
 linked_services:
-- service_file: services/free.md
-- service_file: services/plus.md
 - service_file: services/hosted-repo.md
+  service: ''
+  table_annotation: ''
 show_in_table: true
 render_page: false
-category: data search
+category: branding
 header:
   template: header
   type: text only
@@ -19,13 +19,12 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Comprehensive search
-  intro: Quickly find data with detailed search filters, or by navigating the
-      interactive map.
+  title: Custom DOIs and domains
+  intro: A custom DOI prefix and domain name for your repository
   buttons:
   - template: button
     type: internal page
-    internal_link: /services
+    internal_link: "/services"
     color: secondary
     text: See all features
   - template: button
@@ -35,6 +34,7 @@ header:
 page_sections:
 - type: default
   template: section
+  id: ''
 - template: section
   background: major-accent-color
   title: Interested in a hosted repository?
@@ -46,4 +46,6 @@ page_sections:
     precheck_hostedrepo: true
     precheck_plus: false
     precheck_newsletter: false
+    style: ''
+    newsletter_only: false
 ---

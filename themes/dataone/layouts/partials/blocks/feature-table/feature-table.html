@@ -85,9 +85,17 @@
 
               <!-- Feature row layout --------------------------------------------->
 
+              <!-- Check if there are subfeatures -->
+              {{ $hasSubfeatures := false }}
+              {{ if $feature.sub_features }}
+                {{ if gt (len $feature.sub_features) 0 }}
+                  {{ $hasSubfeatures = true }}
+                {{ end }}
+              {{ end }}
+
               <!-- Make a row for each feature... -->
               {{ $featureBlock := merge $feature (dict "url" $url) }}
-              {{ $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped }}
+              {{ $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped "has_sub_features" $hasSubfeatures }}
               {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $rowBlock "Page" $page ) }}
 
               <!-- ... and each sub-feature -->

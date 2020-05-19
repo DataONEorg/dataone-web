@@ -79,7 +79,11 @@
 
   &--compact {
     #{$bn}__items {
-      grid-gap: .6em .6em;
+      grid-gap: .45em .45em;
+    }
+
+    #{$bn}__item {
+      font-size: var(--fs-medium);
     }
   }
 
