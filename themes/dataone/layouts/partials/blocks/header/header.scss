@@ -477,8 +477,9 @@
   // ==========================================================================
 
   &--homepage {
-    padding-bottom: 12rem;
-    // --section-c-accent: var(--c-minor-accent-5, yellow);
+    padding-bottom  : 12rem;
+    // backup background color incase background image doesn't load for some reason
+    background-color: var(--c-major-accent-6, teal);
 
     #{$bn}__content {
       margin-top           : 0;

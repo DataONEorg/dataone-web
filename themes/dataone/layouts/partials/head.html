@@ -30,8 +30,8 @@
     <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff` | relURL}}" crossorigin="crossorigin">
     <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff2` | relURL}}" crossorigin="crossorigin">
 
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL}}" crossorigin="crossorigin">
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL}}" crossorigin="crossorigin">
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL }}" crossorigin="crossorigin">
+    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL }}" crossorigin="crossorigin">
 
     {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
     {{ $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" . | toCSS $options | minify }}

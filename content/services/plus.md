@@ -98,7 +98,7 @@ page_sections:
     text: Explore all features
 - template: section
   background: data-wave
-  small_title: Introducing Portals
+  small_title: Analytics
   title: Maximize the value of your data
   intro: With access to information about the datasets in your portal, you can monitor
     how your data is being used and assess its quality based on community established
@@ -328,7 +328,5 @@ menu:
     post: Portals, custom search, metrics & more
     icon: ''
     name: ''
-  footer:
-    weight: 1
 
 ---

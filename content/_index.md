@@ -9,7 +9,17 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
   data.
 header:
   tagline: Making earth & environmental data more discoverable, accessible, and usable
-  image: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
+  images:
+  - "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
+  - "/uploads/hero_images/jordan-sanchez-GXV2uVv1DrE-unsplash.jpg"
+  - "/uploads/hero_images/ursula-krapf-qIfVW72mAxk-unsplash.jpg"
+  - "/uploads/hero_images/joe-pregadio-Vkqyz0hu9h0-unsplash.jpg"
+  - "/uploads/hero_images/rick-l-tOZAiC3hZgM-unsplash.jpg"
+  - "/uploads/hero_images/rural-explorer-oWS_3i0Y5sI-unsplash.jpg"
+  - "/uploads/hero_images/sean-stratton-KzYeP16sQ6Q-unsplash.jpg"
+  - "/uploads/hero_images/sven-scheuermeier-saGbrA6s8g0-unsplash.jpg"
+  - "/uploads/hero_images/willian-justen-de-vasconcellos-_MMP5j_fCqw-unsplash.jpg"
+  - "/uploads/hero_images/chuttersnap-UmncJq4KPcA-unsplash.jpg"
 page_sections:
 - template: section
   background: default

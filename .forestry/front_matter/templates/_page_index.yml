@@ -26,12 +26,12 @@ fields:
     label: Tagline
     name: tagline
     description: The tagline to display in the header
-  - name: image
-    type: file
+  - name: images
+    type: image_gallery
     config:
       maxSize: 250
     label: Header hero image
-    description: The image file to display behind the header content
+    description: The images to display behind the header content (will change on page refresh)
 - type: field_group_list
   name: page_sections
   label: Page sections

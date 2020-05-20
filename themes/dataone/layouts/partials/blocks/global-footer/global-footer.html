@@ -20,11 +20,11 @@
           <span class="{{ $bn }}__sitemap-header">
             <!-- Name with no link if this is just a header -->
             {{ if $hasSubmenu }}
-              {{ .Name }}
+              {{ .Name | default .Title }}
             {{ else}}
               <!-- Otherwise add a link -->
               <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
-                {{ .Name }}
+                {{ .Name | default .Title }}
               </a>
             {{ end }}
           </span>
@@ -34,7 +34,7 @@
               {{ range .Children }}
                 <li class="{{ $bn }}__sitemap-item">
                   <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
-                    {{ .Name }}
+                    {{ .Name | default .Title }}
                   </a>
                 </li>
               {{ end }}

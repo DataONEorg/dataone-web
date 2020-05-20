@@ -5,8 +5,11 @@
 
 {{ $tagline := .Block.tagline | default "Data Observation Network for Earth" }}
 
+{{ $bkgImgs := .Block.images | default slice }}
+
+<!-- Pick a random image from the image gallery to start with -->
+{{ $src := index (shuffle $bkgImgs) 1 | default ""  }}
 {{ $bkgImg := "" }}
-{{ $src := .Block.image }}
 {{ with $src }}
   {{ $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) }}
   {{ if gt $imageResource.Width 4000 }}
@@ -15,7 +18,7 @@
   {{ $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  }}
 {{ end }}
 
-<header class="header header--hero-image header--overlay-subtle header--homepage" {{ $bkgImg }}>
+<header id="homepage_header" class="header header--hero-image header--overlay-subtle header--homepage" {{ $bkgImg }}>
   <div class="header__content">
     <div class="header__logo">
 
