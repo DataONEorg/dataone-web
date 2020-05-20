@@ -5,6 +5,11 @@
 <!-- Classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
+<!-- Block variables -->
+{{ $button := .Block.button | default dict }}
+{{ $logos := .Block.logos | default slice }}
+{{ $useMemberNodes := .Block.use_member_nodes }}
+
 <!-- Optional style class to add to the outer most element -->
 {{ $style := .Block.style | default ""}}
 
@@ -12,32 +17,58 @@
   {{ $classes = printf "%s %s--%s" $classes $bn (. | urlize) }}
 {{ end }}
 
+<!-- Nodes -->
+{{ if $useMemberNodes }}
+  {{ $logos = ($page.Site.Data.membernodes.nodes | shuffle) }}
+{{ end }}
+
+<!-- max dimensions of logo images -->
+{{ $maxWidth := 300 }}
+{{ $maxHeight := 150 }}
+
+<!-- The margin to add to the right of each image logo, in pixels -->
+{{ $margin := 30 }}
+
+<!-- Get total width of images, used for css scrolling animation -->
+{{ $totalWidth := 0 }}
+
+<!-- Process images -->
+{{ $imageResources := slice }}
+{{- range $logos -}}
+  {{ if .logo }}
+    {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
+    {{ if gt $imageResource.Width $maxWidth }}
+      {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
+    {{ end }}
+    {{ if gt $imageResource.Height $maxHeight }}
+      {{ $imageResource = $imageResource.Resize (printf "%dx" $maxHeight) }}
+    {{ end }}
+    {{ $totalWidth = add (add $totalWidth $imageResource.Width) $margin }}
+    {{ $imageResources = $imageResources | append $imageResource }}
+  {{ end }}
+{{ end }}
+
+<!-- Calculate animation time based on width of images together -->
+{{ $animationTime := mul $totalWidth 0.04 }}
+
 <!-- button include -->
 <!-- logo selection -->
-<div class="{{ $classes }}">
-  <div class="{{ $bn }}__hover-area">
+<div class="{{ $classes }}" style="--total-width:-{{ $totalWidth }}px;--animation-time:{{ $animationTime }}s">
 
-    <div class="{{ $bn }}__button-container">
-      {{- with .Block.button -}}
-        {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
-      {{ end }}
-    </div>
-    <!-- logos list -->
-    <ul class="{{ $bn }}__logos">
-      {{- range .Block.logos -}}
-        {{ if .logo }}
-          <li class="{{ $bn }}__logo">
-            {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
-            {{ if gt $imageResource.Width 400 }}
-              {{ $imageResource = $imageResource.Resize "400x" }}
-            {{ end }}
-            {{ if gt $imageResource.Height 200 }}
-              {{ $imageResource = $imageResource.Resize "200x" }}
-            {{ end }}
-            <img class="{{ $bn }}__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with .name }} alt="{{ .}} logo" title="{{ .}}" {{ end }}/>
-          </li>
-        {{ end }}
-      {{ end }}
-    </ul>
+  <!-- logos list -->
+  <ul class="{{ $bn }}__logos">
+    {{ range $index, $imageResource := $imageResources }}
+      {{ $logo := index $logos $index }}
+      <li class="{{ $bn }}__logo" style="margin-right:{{ $margin }}px">
+        <img class="{{ $bn }}__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with $logo.name }} alt="{{ . }} logo" title="{{ . }}" {{ end }}/>
+      </li>
+    {{ end }}
+  </ul>
+  <!-- button -->
+  <div class="{{ $bn }}__button-container">
+    {{- with $button -}}
+      {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
+    {{ end }}
   </div>
+
 </div>

@@ -77,17 +77,18 @@
     }
 
     &__description {
-      margin-top : 2rem;
-      line-height: 1.45;
+      margin-top : 1.5rem;
+      line-height: 1.35;
     }
 
     &__includes-phrase {
       font-weight: var(--fw-bold, 500);
       color      : var(#{$prefix}-c-accent);
+      margin     : .2rem 0;
     }
 
     &__feature-list {
-      margin-top : 1.7rem;
+      margin-top : 0;
       margin-left: 1.5rem;
       @include desktop {
         margin-left: 0;
@@ -100,17 +101,12 @@
     }
 
     &__buttons {
-      margin-top     : 2rem;
-      display        : flex;
-      justify-items  : left;
-      grid-auto-flow : column;
-      justify-content: center;
-      flex-wrap      : wrap;
-
-      .button {
-        margin-right: 1em;
-        margin-top  : .5em;
-      }
+      margin-top    : 1.3rem;
+      display       : grid;
+      grid-auto-flow: row;
+      justify-items : center;
+      justify-self  : flex-end;
+      grid-gap      : .8rem .8rem;
     }
   }
 

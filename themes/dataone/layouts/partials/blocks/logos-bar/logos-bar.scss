@@ -6,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn            : &;
+  $bn                    : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix        : "--" + str-replace(#{$bn}, ".");
+  $prefix                : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -16,99 +16,81 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-background: var(--section-c-background, var(--c-default-lighter, white));
+  // 
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  display        : flex;
-  justify-content: center;
+  display                : flex;
+  overflow               : hidden;
+  border-bottom          : 1px solid var(--c-neutral-1);
+  position               : relative;
+  background-color       : var(#{$prefix}-c-background);
 
-  &__logos {
-    list-style     : none;
-    display        : flex;
-    flex-wrap      : nowrap;
-    align-items    : center;
-    justify-content: center;
-    align-self     : center;
-    transition     : 1s cubic-bezier(.19,1,.22,1);
-    will-change    : transform;
-    filter: blur(0);
-    overflow       : hidden;
-    width          : fit-content;
+  &::after {
+    content       : "";
+    position      : absolute;
+    height        : 100%;
+    width         : 100%;
+    top           : 0;
+    left          : 0;
+    pointer-events: none;
+    background    : linear-gradient(to right,var(#{$prefix}-c-background) 0,transparent 20%,transparent 80%,var(#{$prefix}-c-background) 100%);
   }
 
-  &__logo {
-    margin: 0 1rem;
-
-    // fade effect to indicate there are other logos
-    &:first-of-type {
-      opacity: .4;
+  &:hover {
+    #{$bn}__logos {
+      animation-play-state: paused;
+      transform           : scale(.95);
+      filter: blur(8px) brightness(1.05);
     }
 
-    &:last-of-type {
-      opacity: .4;
+    #{$bn}__button-container {
+      opacity  : 1;
+      transform: translate(-50%,50%) scale(1.05);
+    }
+  }
+
+  @keyframes animatedBackground {
+    0% {
+      transform: translateX(0);
     }
 
-    &:nth-last-of-type(2) {
-      opacity: .8;
+    100% {
+      // --total-width is passed to the out element by logo-bar.html
+      transform: translateX(var(--total-width, 12000px));
     }
+  }
 
-    &:nth-of-type(2) {
-      opacity: .8;
-    }
+  &__logos {
+    list-style: none;
+    display   : flex;
+    flex-wrap : nowrap;
+    width     : 100%;
+    transition: 1s cubic-bezier(.19,1,.22,1);
+    animation : animatedBackground var(--animation-time, 500s) linear;
 
   }
 
   &__logo-image {
-    height        : 40px;
+    height        : 45px;
     vertical-align: middle;
-    filter: invert(28%) sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(1.55);
+    filter: sepia(100%) hue-rotate(160deg) saturate(2.5) contrast(0.09) brightness(1.2);
+    opacity       : .5;
+    // Note: margin-right for logo is calculated & added in logos-bar.html
+    // This is so that we can calculate animation properties (scroll time, transform width) using hugo's image resource functions.
   }
 
   &__button-container {
-    white-space: nowrap;
-    display    : block;
-    transition : all .15s ease;
-    position   : absolute;
-    z-index    : 1;
-    left       : 50%;
-    bottom     : 50%;
-    transform  : translate(-50%,50%) scale(.95);
-    opacity    : 0;
-    transition : .7s cubic-bezier(.19,1,.22,1);
-  }
-
-  &__hover-area {
-    display : block;
-    padding : 1rem 0;
-    position: relative;
-
-    &:hover {
-      // show button when the bar is hovered
-      .logos-bar__button-container {
-        opacity  : 1;
-        transform: translate(-50%,25%);
-      }
-      // blur logos when the bar is hovered
-      .logos-bar__logos {
-        opacity  : .7;
-        transform: scale(.95);
-        filter: blur(10px) brightness(1.07);
-      }
-    }
-    // add a horizontal line below logos
-    // &:after {
-    // content: "";
-    // position: absolute;
-    // left: 20px;
-    // right: 20px;
-    // bottom: 0;
-    // border-bottom: 2px solid #f6f9fc;
-    // pointer-events: none;
-    // }
+    position  : absolute;
+    left      : 50%;
+    bottom    : 50%;
+    transform : translate(-50%,50%) scale(.95);
+    opacity   : 0;
+    transition: .7s cubic-bezier(.19,1,.22,1);
   }
 
   // ==========================================================================
@@ -122,7 +104,7 @@
     background-color: rgba(col($cn-teal,5),0.2);
 
     #{$bn}__logo-image {
-      filter: invert(28%) sepia(100%) hue-rotate(160deg) saturate(10) contrast(0.045) brightness(2.5);
+      filter: sepia(70%) hue-rotate(160deg) contrast(0.3) saturate(1.4) brightness(2.35);
       opacity: .9;
     }
   }

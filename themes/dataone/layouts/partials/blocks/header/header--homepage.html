@@ -41,23 +41,9 @@
 
   </div>
 
-  <div class="{{ $bn }}__logos">
-    <!-- Logos -->
-    {{ $buttonBlock := dict "type" "internal page" "color" "quaternary" "text" "See our entire network" "internal_link" "/network/_index.md" }}
-    {{ $logosBlock := slice }}
-    <!-- The nodes with the most data -->
-    {{ $topNodes := slice "IEDA: Marine-Geo Digital Library" "NOAA NCEI Environmental Data Archive" "PANGAEA Data Publisher for Earth and Environmental Science" "PISCO MN" "TERN Australia" "USGS Science Data Catalog" "the Digital Archaeological Record" "Dryad Digital Repository" "National Ecological Observatory Network" "Merritt Repository" "LTER Network Member Node" }}
-
-    {{ $nodeData := $page.Site.Data.membernodes.nodes }}
-
-    {{ range $node := $nodeData }}
-      {{ if in $topNodes $node.name }}
-        {{ $logosBlock = $logosBlock | append $node }}
-      {{ end }}
-    {{ end }}
-
-    {{ $logosBarBlock := dict "button" $buttonBlock "logos" $logosBlock "style" "dark-background" }}
-    {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBarBlock "Page" $page) }}
-  </div>
-
 </header>
+<section class="{{ $bn }}__logos">
+  {{ $buttonBlock := dict "type" "internal page" "color" "quaternary" "text" "See our entire network" "internal_link" "/network/_index.md" }}
+  {{ $logosBarBlock := dict "button" $buttonBlock "use_member_nodes" true }}
+  {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBarBlock "Page" $page) }}
+</section>

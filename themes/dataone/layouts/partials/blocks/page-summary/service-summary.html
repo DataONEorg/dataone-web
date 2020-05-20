@@ -81,10 +81,9 @@
   <div class="{{ $bn }}__buttons">
 
     {{ if $service.render_page }}
-      {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "tertiary" }}
+      {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "quaternary" }}
       {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
     {{ end }}
-
     {{ if $showCTA }}
       {{ $cta := $service.cta }}
       {{ with $cta }}
