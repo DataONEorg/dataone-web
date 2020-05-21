@@ -2,7 +2,7 @@
 {{ $page := .Page }}
 
 <!-- whether or not to show photos for each person -->
-{{ $show_avatars := .Block.show_avatars }}
+{{ $show_avatars := .Block.show_avatars | default true }}
 
 <!-- don't show organization for team members -->
 {{ $show_organization := not .Block.team_members }}
@@ -26,16 +26,11 @@
 {{ end }}
 
 <!-- type -->
-{{ $type := "" }}
-{{ if and (.Block.type) (ne .Block.type "default") }}
-  {{ $type = .Block.type }}
-{{ end }}
+{{ $type := .Block.type | default "default" }}
 
-<!-- Simplified people blocks have only an image and full name -->
-{{ $simple := false }}
-{{ if eq $type "simplified" }}
-  {{ $simple = true }}
-{{ end }}
+<!-- Type options: -->
+<!-- simple: Simplified people blocks have only an image and full name -->
+<!-- accordion: expandable region with full bio -->
 
 <!-- Extra classses -->
 {{ $classes := "" }}
@@ -109,6 +104,7 @@
     <!-- Start person layout -->
     <div class="person">
 
+      <!---------------------------------------------------------->
       <!-- accordion layout -->
       {{ if eq $type "accordion" }}
 
@@ -116,14 +112,16 @@
         {{ $content := print $HTMLbio $contact | safeHTML}}
         {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" $color)) }}
 
+        <!---------------------------------------------------------->
         <!-- simple layout -->
       {{ else if eq $type "simple" }}
 
-        {{ $img  }}
+        {{ $img }}
         <div class="person__info">
           {{ $name }}
         </div>
 
+        <!---------------------------------------------------------->
         <!-- default layout -->
       {{ else }}
 

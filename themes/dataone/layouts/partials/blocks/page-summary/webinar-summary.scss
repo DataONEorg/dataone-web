@@ -1,0 +1,125 @@
+.page-summary--webinar {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                : ".page-summary";
+
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix            : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // Important tags are so that these variables take precedence over the regular  
+  #{$prefix}-fc-title: var(--section-fc-title, var(--c-foreground-emphasis-on-default, black));
+  #{$prefix}-fw-title: var(--fw-xx-bold, 600);
+  #{$prefix}-fs-title: var(--fs-x-large, 1.5rem);
+  #{$prefix}-ff-title: var(--ff-title2, serif);
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+
+  &#{$bn}--detailed-webinar {
+    @include card;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    padding        : 1.2rem;
+    height         : auto;
+
+    #{$bn}__title {
+      color      : var(#{$prefix}-fc-title);
+      font-weight: var(#{$prefix}-fw-title);
+      font-size  : var(#{$prefix}-fs-title);
+      font-family: var(#{$prefix}-ff-title);
+      line-height: 1.3;
+      margin     : .8rem 0 1rem;
+    }
+
+    #{$bn}__speakers {
+      background   : linear-gradient(to bottom right, var(--c-neutral-1) 0%, var(--c-neutral-2) 40%, var(--c-neutral-2) 60%, var(--c-neutral-1) 100%);
+      border-radius: var(--br-default);
+      padding      : .8rem 1rem .6rem;
+      margin       : .5rem 0;
+    }
+
+    #{$bn}__datetime-items {
+      margin         : 1.5rem .5rem .8rem;
+      display        : flex;
+      align-items    : center;
+      flex-wrap      : wrap;
+      flex-direction : row;
+      justify-content: space-around;
+
+    }
+
+    #{$bn}__buttons {
+      margin-left   : 3rem;
+      display       : flex;
+      flex-wrap     : wrap;
+      flex-direction: column;
+
+      .button {
+        margin-right: 1rem;
+        margin-top  : 1rem;
+      }
+    }
+
+    //
+    // Detailed webinars with just one speaker
+    // ==========================================================================
+
+    &#{$bn}--one-speaker {
+
+      display              : grid;
+      grid-template-columns: min-content auto;
+      grid-template-rows   : min-content min-content;
+      gap                  : 0 1.2rem;
+      grid-template-areas  : "speaker title" "datetime-items datetime-items";
+      align-content        : center;
+      align-items          : center;
+
+      #{$bn}__speakers {
+        grid-area : speaker;
+        background: transparent;
+      }
+
+      #{$bn}__title {
+        grid-area: title;
+      }
+
+      #{$bn}__datetime-items {
+        grid-area: datetime-items;
+      }
+    }
+  }
+
+  //
+  // What to show when there's no webinar
+  // ==========================================================================
+  &#{$bn}--tbd-webinar {
+    @extend #{$bn}--detailed-webinar;
+
+    #{$bn}__intro {
+      margin-bottom: 2rem;
+    }
+
+    #{$bn}__buttons {
+      margin-top: 2rem;
+    }
+    // TODO: BEM-ize
+    .join-form--newsletter-only .ml-block-form {
+      grid-template-columns: unset;
+    }
+  }
+
+}

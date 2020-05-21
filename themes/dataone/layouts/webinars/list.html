@@ -1,9 +1,14 @@
 {{- define "main" -}}
+
+  <!-- The current page, to pass along to children templates -->
   {{ $page := $ }}
-  {{ with .Params.header }}
-    {{ if .template }}
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
-    {{ end }}
+
+  <!-- Get upcoming webinar -->
+  {{ $upcomingWebinarPage := partial "functions/getUpcomingWebinar" (dict "webinars" $page.Pages) }}
+
+  {{ with $headerBlock := .Params.header }}
+    {{ $headerBlock = merge $headerBlock (dict "next_webinar" $upcomingWebinarPage) }}
+    {{ partial "blocks/header/header--webinars.html" (dict "Block" $headerBlock "Page" $page) }}
   {{ end }}
 
   {{- range .Params.page_sections -}}
@@ -15,7 +20,14 @@
   {{ $webinarBlocks := slice }}
 
   <!-- TODO: add paginator for webinars -->
-  {{- range (.Pages.ByParam "webinar_datetime").Reverse -}}
+
+  <!-- Get webinars, excluding the upcoming webinar advertised in header -->
+  {{ $webinarPages := $page.Pages }}
+  {{ if $upcomingWebinarPage }}
+    {{ $webinarPages = $webinarPages | complement (slice $upcomingWebinarPage) }}
+  {{ end }}
+
+  {{- range ($webinarPages.ByParam "webinar_datetime").Reverse -}}
     {{ $pageFilePath := .File.Path }}
     <!-- use the webinar summary block -->
     {{ $webinarBlock := (dict "template" "page-summary" "type" "webinar" "webinar" $pageFilePath) }}
@@ -24,7 +36,7 @@
 
   {{ $pastWebinarsLink := printf "%s/previous-webinars" $page.Site.Params.links.old_website }}
   {{ $columnsBlock := dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks }}
-  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock) "background" "subtle-emphasis" }}
+  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock)  "title" "Past webinars" "id" "past-webinars"}}
 
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
 

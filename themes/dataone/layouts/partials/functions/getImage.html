@@ -9,5 +9,7 @@
 
   {{ $site := .Page.Site }}
   {{ $imageResource = ($site.GetPage "/uploads").Resources.GetMatch (strings.TrimPrefix $prefix .image ) }}
-  {{ return $imageResource }}
+
 {{ end }}
+
+{{ return $imageResource }}

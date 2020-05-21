@@ -27,7 +27,6 @@ sections:
   create: all
   match: "**/*"
   templates:
-  - features-page
   - _page_feature
 - type: directory
   path: content/network
@@ -59,7 +58,7 @@ sections:
   create: all
   match: "**/*"
   templates:
-  - _page_blocks
+  - _page_webinars
   - _page_webinar
 - type: directory
   path: content/news

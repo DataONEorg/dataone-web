@@ -1,5 +1,16 @@
 ---
 date: 2020-02-12
+webinar_tags:
+  - Plan
+  - Collect
+  - Assure
+  - Describe
+  - Preserve
+  - Discover
+  - Integrate
+  - Analyze
+webinar_defaults:
+  past_webinar_section_id: past-webinars
 description: Cutting edge earth and environmental science topics
 title: The DataONE Webinar Series
 header:
@@ -13,6 +24,7 @@ header:
 page_sections:
 - template: section
   title: Quick webinar series facts
+  background: major-accent-color
   blocks:
   - template: columns
     num_cols: 2

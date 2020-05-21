@@ -64,21 +64,7 @@
   }
 
   #{$bn}__datetime-items {
-    margin        : 1.5rem 0;
-    color         : var(#{$prefix}-c-forground-subtle);
-    stroke        : var(#{$prefix}-c-forground-subtle);
-    display       : flex;
-    flex-direction: column;
-    text-align    : left;
+    margin: 1.5rem 0;
   }
 
-  #{$bn}__datetime-item {
-    margin-bottom: .6rem;
-    height       : 20px;
-    max-height   : 20px;
-  }
-
-  #{$bn}__datetime-icon {
-    margin-right: 6px;
-  }
 }

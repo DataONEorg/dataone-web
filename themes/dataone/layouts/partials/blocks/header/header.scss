@@ -74,7 +74,7 @@
     flex-direction: column;
     @include desktop {
       display              : grid;
-      grid-template-columns: .4fr .6fr;
+      grid-template-columns: minmax(0, .4fr) minmax(0, .6fr);
       grid-gap             : 0 3rem;
     }
   }
@@ -285,21 +285,21 @@
   &--hero-image {
     #{$prefix}-fw-intro: var(#{$prefix}-fw-bolder);
     #{$prefix}-fw-title: var(#{$prefix}-fw-bolder);
-    @extend #{$bn}--text-only;
     @include bkg-img;
     position           : relative;
 
     &::before {
-      content        : '';
-      background     : var(--background-image);
-      background-size: cover;
-      position       : absolute;
-      top            : 0;
-      left           : 0;
-      height         : 100%;
-      width          : 100%;
-      z-index        : -1;
-      overflow       : hidden;
+      content            : '';
+      background         : var(--background-image);
+      background-size    : cover;
+      background-position: center;
+      position           : absolute;
+      top                : 0;
+      left               : 0;
+      height             : 100%;
+      width              : 100%;
+      z-index            : -1;
+      overflow           : hidden;
     }
 
   }
@@ -324,6 +324,19 @@
     #{$bn}__title {
       text-shadow: 0 0 2em var(#{$prefix}-accent), 0 0 1em var(#{$prefix}-accent), 0 0 .2em var(#{$prefix}-accent);
     }
+  }
+
+  &--overlay-darken {
+    @extend #{$bn}--dark-bkg;
+    text-shadow: 0 0 3.7em var(--c-neutral-7), 0 0 .25em var(--c-neutral-6);
+
+    &::before {
+      background           : var(--background-image), linear-gradient(var(--c-shadow-1-on-default), var(--c-shadow-4-on-default)), var(--c-shadow-4-on-major-accent);
+      background-blend-mode: darken, soft-light;
+      background-size      : cover;
+      background-position  : center;
+    }
+
   }
 
   &--overlay-subtle {

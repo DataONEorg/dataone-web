@@ -17,9 +17,6 @@
 <!-- "Secret" block options not shown in forestry -->
 {{ $extraModifiers := .Block.modifiers | default "" }}
 
-<!-- Header types that should have a background color set -->
-{{ $typesWithBackgrounds := slice "image on right" "hero image" "text only" "center image" }}
-
 <!-- Webinar header uses a different layout -->
 {{ if eq $type "webinar" }}
   {{ partial "blocks/header/header--webinar.html" (dict "Block" .Block "Page" $page) }}
@@ -34,6 +31,9 @@
   {{ with $type }}
     {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
   {{ end }}
+
+  <!-- Header types that should have a background color set -->
+  {{ $typesWithBackgrounds := slice "image on right" "hero image" "text only" "center image" }}
 
   <!-- Add a class for background colours for relevant block types -->
   {{ if (in $typesWithBackgrounds $type) }}
@@ -70,6 +70,7 @@
   {{ else if eq $type "hero image" }}
     {{ with $image.src }}
       {{ $bkgImg = print ` style="--background-image:url('/` . `');"` | safeHTMLAttr }}
+      {{ $classes = printf "%s %s--%s" $classes $bn "text-only" }}
     {{ end }}
   {{ end }}
 
@@ -123,7 +124,7 @@
           </div>
         {{- end -}}
       </div>
-      {{- if or (eq $type `image on right`) (eq $type `center image`) -}}
+      {{- if in (slice "image on right" "center image") $type -}}
         {{ with $image }}
           <div class="{{ $bn }}__figure">
             {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
@@ -141,4 +142,5 @@
     </div>
 
   </header>
+
 {{ end }}

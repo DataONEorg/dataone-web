@@ -86,7 +86,7 @@
       {{ partial "blocks/disqus/disqus" (dict "Block" $disqusBlock "Page" $page) }}
 
     </div>
-    <!-- show registration button when status is upcoming -->
+
   {{ else if eq $status "upcoming"}}
 
     {{ with .Block.image }}

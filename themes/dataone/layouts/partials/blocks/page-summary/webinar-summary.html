@@ -4,27 +4,48 @@
 <!-- Classes to add to the outer element -->
 {{ $classes := printf "%s %s--webinar" $bn $bn }}
 
-{{ $webinar := dict }}
-{{ $href := "" }}
+<!-- Boolean - if true, will find the upcoming webinar to summarize -->
+{{ $autoSelect := .Block.auto_select | default false }}
+<!-- If auto select is false, the relative path to the webinar page file (md) -->
+{{ $webinarFile := .Block.webinar | default ""  }}
+<!-- Optional layout/style. Options: "default" or "detailed". -->
+<!-- Detailed = show more details for the webinar, e.g. in the Webinar Index header -->
+{{ $layout := .Block.layout | default "default" }}
+
+{{ $webinarPage := dict }}
 
 <!-- get the most recent webinar if auto select -->
-{{ if .Block.auto_select }}
+{{ if $autoSelect }}
   <!-- get all webinars in order of webinar_datetime, with most recent listed first -->
-  {{ $all_webinars := where ($page.Site.RegularPages.ByParam "webinar_datetime").Reverse "Section" "webinars" }}
-  {{ range first 1 $all_webinars }}
-    {{ $webinar = .Params }}
-    {{ $href = .Permalink }}
+  {{ $all_webinars := where ($page.Site.RegularPages.ByParam "webinar_datetime") "Section" "webinars" }}
+  {{ $webinarPage = partial "functions/getUpcomingWebinar" (dict "webinars" $all_webinars) }}
+  <!-- If no upcoming webinar was found, use the webinar most in the future -->
+  {{ if not $webinarPage }}
+    {{ range $webinar := first 1 ($all_webinars.ByParam "webinar_datetime").Reverse }}
+      {{ $webinarPage = $webinar }}
+    {{ end }}
   {{ end }}
   <!-- Otherwise, use the given webinar -->
-{{ else if .Block.webinar }}
-  {{ $webinarPage := $page.Site.GetPage .Block.webinar }}
-  {{ with $webinarPage }}
-    {{ $webinar = .Params }}
-    {{ $href = $webinarPage.RelPermalink }}
+{{ else if $webinarFile }}
+  {{ $webinarPage = $page.Site.GetPage $webinarFile }}
+{{ end }}
+
+<!-- If no webinar page -->
+{{ if not $webinarPage }}
+  {{ $layout = "tbd" }}
+{{ end }}
+
+<!-- Add layout as a class -->
+{{ with $layout }}
+  {{ if not (eq . "default") }}
+    {{ $classes = printf "%s %s--%s-webinar" $classes $bn . }}
   {{ end }}
 {{ end }}
 
-{{ if $webinar }}
+{{ if $webinarPage }}
+
+  {{ $webinar := $webinarPage.Params }}
+  {{ $href := $webinarPage.RelPermalink }}
 
   {{ $status := partial "functions/getWebinarStatus" $webinar }}
   {{ $pillBlock := partial "functions/getWebinarPill" $status }}
@@ -38,16 +59,85 @@
   <!-- Get the speaker names -->
   {{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $webinar.speakers "Page" $page )}}
 
-  <!-- Get the image, if there is one -->
-  {{ $image := dict }}
-  <!-- Add max width to webinar summary images -->
-  {{ if $webinar.image }}
-    {{ $image = dict "src" $webinar.image "max_width" 1000 }}
+  <!-- The detailed webinar layout has too much white space with just one speaker. -->
+  <!-- Add a class so we can tweak the layout in this case -->
+  {{ if eq (len $webinar.speakers) 1 }}
+    {{ $classes = printf "%s %s--one-speaker" $classes $bn }}
   {{ end }}
-  {{ $cardBlock := dict "clickable" true "href" $href "image" $image "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
 
+  <!-- ==================================================================== -->
+  <!-- START OF LAYOUTS -->
   <div class="{{ $classes }}">
-    {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+
+    <!---------------------------------------------------------------------->
+    <!-- DEFAULT CARD LAYOUT -->
+    {{ if eq $layout "default" }}
+      <!-- Add max width to webinar summary images -->
+      <!-- Get the image, if there is one -->
+      {{ $image := dict }}
+      {{ if $webinar.image }}
+        {{ $image = dict "src" $webinar.image "max_width" 1000 }}
+      {{ end }}
+      {{ $cardBlock := dict "clickable" true "href" $href "image" $image "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+
+      {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+
+      <!---------------------------------------------------------------------->
+      <!-- DETAILED WEBINAR LAYOUT-->
+    {{ else if eq $layout "detailed" }}
+
+      <!-- title -->
+      <h3 class="{{ $bn }}__title">
+        {{- $webinar.title -}}
+      </h3>
+
+      <!-- speakers -->
+      <div class="{{ $bn }}__speakers">
+        <!-- {{ $speakers := $webinar.speakers }} {{ $speakersTitle := "Speaker" }} {{ if gt (len $speakers) 1 }} {{ $speakersTitle = $speakersTitle | pluralize }} {{ end }} -->
+        <!-- <h4 class="{{ $bn }}__speakers-title">{{ $speakersTitle }}</h4> -->
+        {{ partial "blocks/people/people" (dict "Block" (dict "people" $speakers "type" "simple") "Page" $page ) }}
+      </div>
+
+      <!-- abstract -->
+      <!-- <p class="{{ $bn }}__intro">{{ $webinar.short_abstract }}</p> -->
+
+      <!-- details -->
+      <div class="{{ $bn }}__datetime-items">
+        {{ $eventDetailsBlock := dict "datetime" $webinar.webinar_datetime "duration" $webinar.duration }}
+        {{ partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) }}
+
+        <div class="{{ $bn }}__buttons">
+          {{ $buttonBlockDetails := dict "text" "Read More" "type" "internal page" "external_link" $href "color" "tertiary" }}
+          {{ partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) }}
+
+          {{ with $webinar.registration_link }}
+            {{ $buttonBlock := dict "text" "Register" "external_link" . "color" "primary" }}
+            {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+          {{ end }}
+        </div>
+
+      </div>
+
+    {{ end }}
+  </div>
+{{ else }}
+  <div class="{{ $classes }}">
+    <h3 class="{{ $bn }}__title">To be determined</h3>
+    <p class="{{ $bn }}__intro">
+      Sign up for our newsletter to be the first to hear about the next DataONE webinar</p>
+    {{ $newsletterBlock := dict "precheck_newsletter" true "newsletter_only" true "precheck_hostedrepo" false "precheck_plus" false }}
+    {{ partial "blocks/join-form/join-form" (dict "Block" $newsletterBlock "Page" $page) }}
+    <div class="{{ $bn }}__buttons">
+      <!-- Get the webinars index page -->
+      {{ $href := "" }}
+      {{ range where (where (where ($page.Site.Pages) "Section" "webinars") "Kind" "section") ".Params.webinar_defaults.past_webinar_section_id" "!=" nil }}
+        {{ $id := printf "#%s" .Params.webinar_defaults.past_webinar_section_id }}
+        {{ $href = path.Join .RelPermalink $id }}
+      {{ end }}
+
+      {{ $buttonBlockDetails := dict "text" "See past webinars" "type" "internal page" "external_link" $href "color" "quaternary" }}
+      {{ partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) }}
+    </div>
   </div>
 
 {{ end }}

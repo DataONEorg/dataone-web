@@ -69,6 +69,10 @@
 
   @include floating-label(".ml-field-group", ".form-control", "#{$bn}__label");
 
+  .ml-field-group {
+    min-height: 70px;
+  }
+
   // the button
 
   .ml-subscribe-form .primary {

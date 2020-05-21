@@ -1,0 +1,54 @@
+<!-- Given a list of webinar pages, will return the upcoming webinar -->
+
+<!-- A list of webinar pages (type: Pages) -->
+{{ $webinars := .webinars }}
+
+<!-- The webinar that we'll return at the end of the function -->
+{{ $upcomingWebinar := dict }}
+
+{{ if $webinars }}
+
+  <!-- Select webinars that are upcoming or happening now (according to status) -->
+  {{ $filter_a := where $webinars ".Params.status" "upcoming" }}
+  {{ $filter_b := where $webinars ".Params.status" "happening-now" }}
+  {{ $filter1 := union $filter_a $filter_b }}
+
+  <!-- Select webinars that have a date & time in the future -->
+  {{ $filter2 := slice }}
+  {{ range $webinar := $webinars }}
+    {{ if (time .Params.webinar_datetime).After now }}
+      {{ $filter2 = $filter2 | append $webinar }}
+    {{ end }}
+  {{ end }}
+
+  <!-- Combined: Webinars have a status of upcoming or happening-now OR are set in the future -->
+  {{ $upcomingWebinars := union $filter1 $filter2 }}
+
+  <!-- Just return the empty map if no webinars were found -->
+  {{ if gt (len $upcomingWebinars) 0 }}
+
+    <!-- Otherwise, handle the case where >1 webinar found -->
+    <!-- If for some reason, the above filters yield multiple webinars, -->
+    <!-- then take the webinar that has both a upcoming/happening-now status AND is set to the future -->
+    {{ $filtersIntersected := intersect $filter1 $filter2 }}
+    {{ if and (gt (len $upcomingWebinars) 1) ($filtersIntersected) }}
+      {{ $upcomingWebinars = $filtersIntersected }}
+    {{ end }}
+
+    <!-- If this still yeilds multiple results, then select the webinar that has the date most in the future -->
+    {{ if gt (len $upcomingWebinars) 1 }}
+      {{ range $webinar := first 1 ($upcomingWebinars.ByParam "webinar_datetime").Reverse }}
+        {{ $upcomingWebinars = (slice $webinar ) }}
+      {{ end }}
+    {{ end }}
+
+    <!-- "unlist" the upcoming Webinars slice -->
+    {{ range $webinar := $upcomingWebinars }}
+      {{ $upcomingWebinar = $webinar }}
+    {{ end }}
+
+  {{ end }}
+
+{{ end }}
+
+{{ return $upcomingWebinar }}

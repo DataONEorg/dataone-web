@@ -1,35 +1,11 @@
 <!-- in order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 
-{{ $headerClass := .Block.type }}
-
 {{ $bn := "header" }}
 
-{{ $tstamp := $page.Params.webinar_datetime }}
-{{ $t := time $tstamp }}
 {{ $mainTitle := "Webinar" }}
 
-<!-- Icons -->
-{{ $dateIconBlock := dict "icon" "calendar" "size" "small" "color" "inherit" }}
-{{ $dateIcon := partial "blocks/icon/icon" (dict "Block" $dateIconBlock "Page" $page) }}
-
-{{ $timeIconBlock := dict "icon" "clock" "size" "small" "color" "inherit" }}
-{{ $timeIcon := partial "blocks/icon/icon" (dict "Block" $timeIconBlock "Page" $page) }}
-
-{{ $durationIconBlock := dict "icon" "watch" "size" "small" "color" "inherit" }}
-{{ $durationIcon := partial "blocks/icon/icon" (dict "Block" $durationIconBlock "Page" $page) }}
-
-<!-- Date/Time blocks -->
-{{ $dateBlock := dict "time" $t "change_timezone" false "format" "Mon 02 Jan 2006" }}
-{{ $date := partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page ) }}
-
-{{ $timeBlock := dict "time" $t "change_timezone" true "format" "03:04PM" }}
-{{ $time := partial "blocks/datetime/datetime" (dict "Block" $timeBlock "Page" $page) }}
-
-{{ $durationBlock := dict "duration" .Block.duration }}
-{{ $duration :=  partial "blocks/datetime/datetime" (dict "Block" $durationBlock "Page" $page) }}
-
-<header class="{{ $bn }} header--webinar">
+<header class="{{ $bn }} {{ $bn }}--webinar">
 
   <div class="{{ $bn }}__content">
 
@@ -48,18 +24,9 @@
 
       <!-- date, time, duration -->
       <div class="{{ $bn }}__datetime-items">
-        <div class="{{ $bn }}__datetime-item">
-          <span class="{{ $bn }}__datetime-icon">{{ $dateIcon }}</span>
-          {{ $date }}
-        </div>
-        <div class="{{ $bn }}__datetime-item">
-          <span class="{{ $bn }}__datetime-icon">{{ $timeIcon }}</span>
-          {{ $time }}
-        </div>
-        <div class="{{ $bn }}__datetime-item">
-          <span class="{{ $bn }}__datetime-icon">{{ $durationIcon }}</span>
-          {{ $duration }}
-        </div>
+        {{ $tstamp := $page.Params.webinar_datetime }}
+        {{ $eventDetailsBlock := dict "datetime" $tstamp "duration" .Block.duration }}
+        {{ partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) }}
       </div>
 
       <!-- registration link -->
@@ -73,8 +40,13 @@
 
       <!-- expandable speakers -->
       <div class="{{ $bn }}__speakers">
-        <h4 class="{{ $bn }}__speakers-title">Speakers</h4>
-        {{ $peopleBlock := dict "people" .Block.speakers "show_avatars" "true" "type" "accordion" "show_longbio" true }}
+        {{ $speakers := .Block.speakers }}
+        {{ $speakersTitle := "Speaker" }}
+        {{ if gt (len $speakers) 1 }}
+          {{ $speakersTitle = $speakersTitle | pluralize }}
+        {{ end }}
+        <h4 class="{{ $bn }}__speakers-title">{{ $speakersTitle }}</h4>
+        {{ $peopleBlock := dict "people" $speakers "show_avatars" "true" "type" "accordion" "show_longbio" true }}
         {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
       </div>
 

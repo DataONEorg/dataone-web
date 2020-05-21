@@ -1,0 +1,88 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "header" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+{{ $classes = printf "%s %s--%s" $classes $bn "webinars" }}
+
+<!-- All block options -->
+{{ $pill := .Block.pill | default dict  }}
+{{ $headline := .Block.title | default ""}}
+{{ $intro := .Block.intro | default "" }}
+{{ $nextWebinarPage := .Block.next_webinar | default "" }}
+
+<!-- The small title that goes at the top of the header (not the larger headline) -->
+{{ $mainTitle := $page.Params.title }}
+
+<!-- Background image when there is an upcoming webinar -->
+{{ $imageSrc := "" }}
+{{ $bkgImg := "" | safeHTMLAttr }}
+
+{{ with $nextWebinarPage }}
+  {{ $classes = printf "%s %s--%s" $classes $bn "has-upcoming-webinar" }}
+  {{ $webinar := .Params }}
+  {{ $imageSrc = $webinar.image }}
+{{ else }}
+  <!-- Set a default background if no webinar -->
+  {{ with .Block.image.src }}
+    {{ $imageSrc = . }}
+  {{ end }}
+{{ end }}
+
+{{ with $imageSrc }}
+  {{ $classes = printf "%s %s--%s" $classes $bn "hero-image" }}
+  {{ $classes = printf "%s %s--%s" $classes $bn "overlay-darken" }}
+  {{ $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) }}
+  {{ if gt $imageResource.Width 4000 }}
+    {{ $imageResource = $imageResource.Resize "4000x" }}
+  {{ end }}
+  {{ $bkgImg = print ` style="--background-image:url('` $imageResource.RelPermalink `');"` | safeHTMLAttr }}
+{{ end }}
+
+<!-- ===== -->
+<header class="{{ $classes }}" {{ $bkgImg }}>
+
+  <div class="{{ $bn }}__content">
+
+    <div class="{{ $bn }}__text">
+
+      <div class="{{ $bn }}__title-and-pill">
+
+        {{- with $mainTitle -}}
+          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
+        {{- end -}}
+
+        {{- with $pill -}}
+          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
+        {{- end -}}
+      </div>
+
+      <div class="{{ $bn }}__headline-and-intro">
+        {{ with $headline }}
+          <h1 class="{{ $bn }}__headline markdown">{{ . | markdownify }}</h1>
+        {{ end }}
+        {{ with $intro }}
+          <p class="{{ $bn }}__intro markdown">{{ . | markdownify }}</p>
+        {{ end }}
+      </div>
+
+    </div>
+
+    <div class="{{ $bn }}__figure">
+      <h2 class="{{ $bn }}__next-webinar-title">Next webinar</h2>
+      {{ if $nextWebinarPage }}
+        {{ with $nextWebinarPage }}
+          {{ $summaryBlock := dict "webinar" $nextWebinarPage.File.Path "layout" "detailed" }}
+          {{ partial "blocks/page-summary/webinar-summary" (dict "Block" $summaryBlock "Page" $page) }}
+        {{ end }}
+      {{ else }}
+        {{ $summaryBlockNoWebinar := dict "layout" "detailed" }}
+        {{ partial "blocks/page-summary/webinar-summary" (dict "Block" $summaryBlockNoWebinar "Page" $page) }}
+
+      {{ end }}
+    </div>
+
+  </div>
+
+</header>

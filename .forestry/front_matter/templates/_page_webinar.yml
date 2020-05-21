@@ -60,20 +60,14 @@ fields:
 - type: list
   name: tags
   label: Tags
+  description: Which stages of the data life cycle does this webinar cover? To add tags this list, edit the [Webinars index page](#/pages/webinars-_index-md/).
   config:
     use_select: true
     source:
-      type: simple
-    options:
-    - Plan
-    - Collect
-    - Assure
-    - Describe
-    - Preserve
-    - Discover
-    - Integrate
-    - Analyze
-  description: General topic tags used to group webinars together
+      type: documents
+      section: features
+      file: content/webinars/_index.md
+      path: webinar_tags
 - type: text
   name: registration_link
   label: Zoom Registration Link
