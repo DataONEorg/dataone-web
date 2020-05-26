@@ -4,3 +4,29 @@
 
 [context.preview]
   command = "hugo --baseUrl=\"/\""
+
+# Webinars slugs encoded differently by Hugo
+
+[[ redirects ]]  
+  from = "advancing-research-data-publishing-dryad%E2%80%99s-next-steps"                                       
+  to = "advancing-research-data-publishing-dryads-next-steps"
+
+[[ redirects ]]  
+  from = "/webinars/dpm-%E2%80%9Cstack%E2%80%9D-management-infrastructure-frame-digital-preservation-parallels-technical"
+  to = "/webinars/dpm-stack-management-infrastructure-frame-digital-preservation-parallels-technical"
+
+[[ redirects ]]  
+  from = "/webinars/fair%E2%80%99er-data-through-semantics-nsf%E2%80%99s-dataone-and-arctic-data-center"                 
+  to = "/webinars/fairer-data-through-semantics-nsfs-dataone-and-arctic-data-center"
+
+[[ redirects ]]  
+  from = "/webinars/introduction-community-engagement-within-science-%E2%80%93-supporting-human-infrastructure"          
+  to = "/webinars/introduction-community-engagement-within-science-supporting-human-infrastructure"
+
+[[ redirects ]]  
+  from = "/webinars/open-science-movement-mozilla%E2%80%99s-efforts-build-community-and-open-leadership-science"         
+  to = "/webinars/open-science-movement-mozillas-efforts-build-community-and-open-leadership-science"
+
+[[ redirects ]]  
+  from = "/webinars/what-it-means-be-dataone-member-node%E2%80%94member-nodes-share-their-views" 
+  to = "/webinars/what-it-means-be-dataone-member-nodemember-nodes-share-their-views"
