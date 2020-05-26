@@ -5,7 +5,10 @@
 <!-- classes to add to the outer-most element -->
 {{ $classes := $bn }}
 
-{{ if eq .Block.clickable "true" }}
+<!-- Is the entire card clickable? -->
+{{ $isClickable := and (or (eq .Block.clickable true) (eq .Block.clickable "true")) .Block.href }}
+
+{{ if $isClickable }}
   {{ $classes = print $classes " " $bn "--clickable" }}
 {{ end }}
 
@@ -27,9 +30,6 @@
 {{ if $hasImage}}
   {{ $classes = print $classes " " $bn "--image-header" }}
 {{ end }}
-
-<!-- Is the entire card clickable? -->
-{{ $isClickable := and (or (eq .Block.clickable true) (eq .Block.clickable "true")) .Block.href }}
 
 {{ if $isClickable }}
   <a class="{{ $classes }} " href="{{ .Block.href }}">
@@ -77,8 +77,12 @@
       <div class="{{ $bn }}__description">{{ . }}</div>
     {{ end }}
 
-    {{ range .Block.tags }}
-      {{ partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page )}}
+    {{ with .Block.tags }}
+      <div class="{{ $bn }}__tags">
+        {{ range . }}
+          {{ partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page )}}
+        {{ end }}
+      </div>
     {{ end }}
 
     <!-- Button (optional). Don't show if entire block is clickable -->

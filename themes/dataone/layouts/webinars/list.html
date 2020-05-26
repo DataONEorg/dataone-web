@@ -3,43 +3,36 @@
   <!-- The current page, to pass along to children templates -->
   {{ $page := $ }}
 
-  <!-- Get upcoming webinar -->
-  {{ $upcomingWebinarPage := partial "functions/getUpcomingWebinar" (dict "webinars" $page.Pages) }}
+  <!-- Get webinars, excluding the upcoming webinar advertised in header -->
+  {{ $webinarPages := where $page.Pages "Kind" "page" }}
 
+  <!-- Get upcoming webinar -->
+  {{ $upcomingWebinarPage := partial "functions/getUpcomingWebinar" (dict "webinars" $webinarPages) }}
+
+  <!-- Make the header Block -->
   {{ with $headerBlock := .Params.header }}
     {{ $headerBlock = merge $headerBlock (dict "next_webinar" $upcomingWebinarPage) }}
     {{ partial "blocks/header/header--webinars.html" (dict "Block" $headerBlock "Page" $page) }}
   {{ end }}
 
+  <!-- If there are sections in the index page content, generated them -->
   {{- range .Params.page_sections -}}
     {{ if .template }}
       {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     {{ end }}
   {{- end -}}
 
-  {{ $webinarBlocks := slice }}
+  <!-- PAST WEBINARS LIST -->
 
-  <!-- TODO: add paginator for webinars -->
-
-  <!-- Get webinars, excluding the upcoming webinar advertised in header -->
-  {{ $webinarPages := $page.Pages }}
+  <!-- Don't list the upcoming webinar shown in the header -->
   {{ if $upcomingWebinarPage }}
     {{ $webinarPages = $webinarPages | complement (slice $upcomingWebinarPage) }}
   {{ end }}
 
-  {{- range ($webinarPages.ByParam "webinar_datetime").Reverse -}}
-    {{ $pageFilePath := .File.Path }}
-    <!-- use the webinar summary block -->
-    {{ $webinarBlock := (dict "template" "page-summary" "type" "webinar" "webinar" $pageFilePath) }}
-    {{ $webinarBlocks = $webinarBlocks | append $webinarBlock }}
-  {{- end -}}
+  {{ $webinarPages = ($webinarPages.ByParam "webinar_datetime").Reverse }}
+  {{ $webinarsBlock := dict "template" "webinar-list" "webinars" $webinarPages }}
 
-  {{ $pastWebinarsLink := printf "%s/previous-webinars" $page.Site.Params.links.old_website }}
-  {{ $columnsBlock := dict "template" "columns" "num_cols" "2" "columns" $webinarBlocks }}
-  {{ $sectionBlock := dict "template" "section" "blocks" (slice $columnsBlock)  "title" "Past webinars" "id" "past-webinars"}}
-
+  {{ $sectionBlock := dict "template" "section" "blocks" (slice $webinarsBlock) "title" "Past webinars" "id" "past-webinars"}}
   {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
-
-  <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 
 {{- end -}}

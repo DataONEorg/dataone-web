@@ -1,0 +1,162 @@
+.webinar-list {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: &. 
+  $bn                          : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                      : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  #{$prefix}-c-accent          : var(--section-c-accent, var(--c-major-accent-on-default, blue));
+  #{$prefix}-c-accent-subtle   : var(--section-c-accent-very-subtle, var(--c-major-accent-very-subtle-on-default, lightblue));
+  #{$prefix}-fw-filter-titles  : var(--fw-bold, 500);
+  #{$prefix}-c-shadow          : var(--section-c-shadow-2, var(--c-shadow-2-on-default, rgba(1,1,1,0.08)));
+  #{$prefix}-c-shadow-darket   : var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(1,1,1,0.1)));
+  #{$prefix}-c-icon            : var(--section-fc-body, var(--c-foreground-on-default, black));
+
+  $padding-above-input         : 1.2rem;
+  $padding-field-top-and-bottom: .4rem;
+  $padding-field-left-right    : 2.1rem;
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  display                      : grid;
+
+  @include desktop {
+    grid-template-columns: 15rem auto;
+    grid-gap             : 0 2rem;
+  }
+
+  // Filters - contains the filter chips and the search box
+  &__filters {
+    margin-bottom: 1rem;
+  }
+
+  // Contains the webinar list, filter feedback text, and "show more" button
+  &__results {}
+
+  &__filter {
+    // reset fieldset styles
+    margin              : 0;
+    padding-block-start : 0;
+    padding-inline-end  : 0;
+    padding-block-end   : 0;
+    margin-inline-end   : 0;
+    min-inline-size     : 0;
+    padding-inline-start: 0;
+    border              : none;
+    // set styles
+    padding             : .5rem;
+    margin-top          : 1.5rem;
+  }
+
+  &__filter-legend {
+    display    : block;
+    font-weight: var(#{$prefix}-fw-filter-titles);
+    margin     : 0 0 .5rem;
+  }
+
+  // contains label and checkbox
+  &__filter-chip {
+    position: relative;
+    display : inline-block;
+    margin  : 0 .5rem .5rem 0;
+  }
+
+  // hide the checkbox and use the label as the UI
+  &__filter-checkbox {
+    position: absolute;
+    opacity : 0;
+  }
+
+  &__filter-label {
+    background-color: var(--c-default-darker-2);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow);
+    border-radius   : var(--br-default, 0.25rem);
+    cursor          : pointer;
+    padding         : .17rem .38rem;
+    width           : min-content;
+    display         : block;
+    position        : relative;
+  }
+
+  &__filter-checkbox:checked + #{$bn}__filter-label {
+    background-color: var(#{$prefix}-c-accent-subtle);
+    color           : var(#{$prefix}-c-accent);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow-darker);
+  }
+
+  &__input {
+    @include form-field-styles;
+    // change background reduce box shadow from default vals
+    background-color: var(--c-default-darker-2);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow);
+
+    &:focus {
+      box-shadow: .01rem .06rem .8rem -0.17rem var(#{$prefix}-c-shadow-darker);
+    }
+  }
+
+  &__search-area {
+    @include floating-label("this", ".webinar-list__input", ".webinar-list__label", $label-size:0.9rem, $padding-field-top-and-bottom: $padding-field-top-and-bottom, $padding-field-left-right: $padding-field-left-right, $top-padding: $padding-above-input);
+    margin-bottom: .5rem;
+    min-height   : 55px;
+  }
+
+  &__label {
+    width: 80%;
+  }
+
+  &__search-icon {
+    position      : absolute;
+    left          : $padding-field-left-right * 0.5;
+    transform     : translate(-50%,-1px);
+    top           : $padding-above-input + $padding-field-top-and-bottom;
+    pointer-events: none;
+    stroke        : var(#{$prefix}-c-icon);
+  }
+
+  // hover the icon along with the input (it's a sibling of input; not a child)
+  &__input:focus ~ &__search-icon svg {
+    transform: translateY(-.5px);
+  }
+
+  // The class added to the checkbox and text input when a filter is applied.
+  // The checkbox is hidden so this is only used to indicate an active search
+  // term filter (for the seach input text box)
+  &__filter--active {
+    background-color: var(#{$prefix}-c-accent-subtle) !important;
+    color           : var(#{$prefix}-c-accent) !important;
+  }
+
+  &__webinars {
+    list-style    : none;
+    margin        : 0;
+    padding       : 0;
+    display       : grid;
+    grid-auto-flow: row;
+    grid-gap      : .8rem 0;
+  }
+
+  &__webinar {
+    list-style: none;
+    display   : block;
+  }
+
+  &__paginate-text {
+    margin-top: 2rem;
+  }
+
+}

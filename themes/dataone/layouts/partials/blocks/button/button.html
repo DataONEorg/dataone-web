@@ -78,9 +78,16 @@
 		{{ $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML }}
 	{{ end }}
 
-	{{ $id := "" }}
+	<!-- ID for button -->
+	{{ $id := "" | safeHTMLAttr }}
 	{{ with .Block.id }}
-		{{ $id = print "id=" . | safeHTML }}
+		{{ $id = print "id=" . | safeHTMLAttr  }}
+	{{ end }}
+
+	<!-- Function for button -->
+	{{ $function := "" | safeHTMLAttr }}
+	{{ with .Block.function }}
+		{{ $function = . | safeHTMLAttr  }}
 	{{ end }}
 
 	<!-- class for the button text span element -->
@@ -92,7 +99,7 @@
 
 	<!-- start of button layout -->
 
-	{{ printf "<%s href='%s' class='%s' %s %s>" $htmlTag $href $classes $typeAttr $id | safeHTML }}
+	{{ printf "<%s href='%s' class='%s' %s %s %s>" $htmlTag $href $classes $typeAttr $id $function | safeHTML }}
 
 	{{ $icon }}
 	{{- if $text -}}

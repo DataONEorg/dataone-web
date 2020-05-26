@@ -1,21 +1,20 @@
 // Filter the list of query-able metadata fields
-function filterQueryFields() {
+function filterQueryFields(input) {
   // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById("queryFieldsSearch");
-  filter = input.value.toUpperCase();
+  var searchTerm, ul, li, i, fieldName, fieldDescription, txtValue;
+  searchTerm = input.value.toUpperCase();
   ul = document.getElementById("queryFieldList");
   li = ul.getElementsByClassName('demo__item');
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
     // Get the displayed field name
-    var fieldName = li[i].textContent || li[i].innerText;
+    fieldName = li[i].textContent || li[i].innerText;
     // Get the field description, which is stored in the data-tooltip attr
-    var fieldDescription = li[i].getAttribute("data-tooltip") || "";
+    fieldDescription = li[i].getAttribute("data-tooltip") || "";
     // Combine them so they are both searchable
     var txtValue = fieldName + " " + fieldDescription;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    if (txtValue.toUpperCase().indexOf(searchTerm) > -1) {
       li[i].style.display = "";
     } else {
       li[i].style.display = "none";

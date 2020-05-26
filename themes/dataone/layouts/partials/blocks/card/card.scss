@@ -30,13 +30,13 @@
   height         : 100%;
   width          : 100%;
 
-  .pill {
+  &__pill {
     margin-top: 2rem;
   }
 
   &__date {
-    background   : var(--section-c-accent-very-subtle, lightgrey);
-    color        : var(--section-c-accent, black);
+    background   : var(--section-c-icon-background, lightgrey);
+    color        : var(--section-c-icon-foreground, black);
     display      : inline-block;
     padding      : 10px;
     position     : absolute;
@@ -44,29 +44,33 @@
     right        : 0;
     z-index      : 4;
     border-radius: var(--br-default, .25rem);
+
+    .datetime__displaydate {
+      font-weight: var(--fw-bold);
+    }
   }
 
   &__title {
     margin-top   : 40px;
     margin-bottom: 10px;
-    font-size : var(--fs-larger, 1.48rem);
-    font-weight : var(--fw-bold, 500);
+    font-size    : var(--fs-larger, 1.48rem);
+    font-weight  : var(--fw-bolder, 500);
   }
 
   &__subtitle {
     margin        : 0 0 1.5rem;
-    font-weight : var(--fw-normal, 400);
+    font-weight   : var(--fw-normal, 400);
     color         : var(--section-c-accent, black);
-    font-size : var(--fs-medium, 1.1rem);
+    font-size     : var(--fs-medium, 1.1rem);
     letter-spacing: .01em;
-    font-weight : var(--fw-bold, 500);
+    font-weight   : var(--fw-bold, 500);
   }
 
   &__description {
     margin     : 0 0 20px;
     padding    : 0;
     line-height: 1.4;
-    font-size : var(--fs-medium, 1.1rem);
+    font-size  : var(--fs-medium, 1.1rem);
   }
 
   &__button {
@@ -76,11 +80,19 @@
     display      : block;
     max-width    : 100%;
   }
+
+  &__tags {
+    margin-top: .3rem;
+  }
+
 }
 
 .card--image-header {
+
+  $imageHeight: 11rem;
+
   .card__image {
-    height       : 200px;
+    height       : $imageHeight;
     position     : absolute;
     margin-bottom: 20px;
     top          : 0;
@@ -94,14 +106,14 @@
   }
 
   .card__image-gradient {
-    background     : linear-gradient(rgba(0,0,0,0),rgba(51, 51, 58, 0.8));
+    background     : linear-gradient(var(--c-shadow-1-on-default) 0%, var(--c-shadow-4-on-default) 50%, rgba(0,0,0,0.6));
     background-size: cover;
     position       : absolute;
     margin-bottom  : 20px;
     top            : 0;
     left           : 0;
     z-index        : 1;
-    height         : 200px;
+    height         : $imageHeight;
     width          : 100%;
   }
 
@@ -111,7 +123,8 @@
 
   .card__subtitle,
   .card__title {
-    color: white;
+    color      : white;
+    text-shadow: 0 0 3.7em var(--c-neutral-7), 0 0 .25em var(--c-neutral-6);
   }
 
   .card__titles {
@@ -123,7 +136,7 @@
   }
 
   .card__description {
-    margin-top: 210px;
+    margin-top: $imageHeight + 0.6rem;
   }
 }
 

@@ -46,6 +46,7 @@
 
   {{ $webinar := $webinarPage.Params }}
   {{ $href := $webinarPage.RelPermalink }}
+  {{ $tags := $webinar.tags }}
 
   {{ $status := partial "functions/getWebinarStatus" $webinar }}
   {{ $pillBlock := partial "functions/getWebinarPill" $status }}
@@ -78,7 +79,7 @@
       {{ if $webinar.image }}
         {{ $image = dict "src" $webinar.image "max_width" 1000 }}
       {{ end }}
-      {{ $cardBlock := dict "clickable" true "href" $href "image" $image "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
+      {{ $cardBlock := dict "clickable" true "href" $href "image" $image "title" $webinar.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $webinar.short_abstract "tags" $tags "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) }}
 
       {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
 
