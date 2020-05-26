@@ -4,7 +4,7 @@ fullname: James Duncan
 firstname: James
 role: Director
 organization: Forest Ecosystem Monitoring Cooperative
-d1_role: ''
+
 shortbio: 'Jim Duncan serves as the director of the Forest Ecosystem Monitoring Cooperative,
   where he strives to improve access to information and monitoring of forested ecosystems
   in the northeast. '
@@ -20,6 +20,6 @@ longbio: Jim Duncan serves as the director of the Forest Ecosystem Monitoring Co
   transparency in the oil, gas and mining sectors by giving decision makers and citizens
   tools to map and interact with data, including in Mongolia and Ghana.
 email: james.duncan@uvm.edu
-title: ''
+
 
 ---

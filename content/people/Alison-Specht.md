@@ -4,7 +4,7 @@ fullname: Alison Specht
 firstname: Alison
 role: Director
 organization: Centre for the Synthesis and Analysis of Biodiversity
-d1_role: ''
+
 shortbio: Alison Specht (BScHons, PhD UQ) is an environmental scientist with broad
   expertise in research, teaching, and community engagement. Between September 2015
   and the end of 2018 she was the Director of the Centre for the Synthesis and Analysis
@@ -23,6 +23,6 @@ longbio: Alison Specht (BScHons, PhD UQ) is an environmental scientist with broa
   Centre for the Synthesis and Analysis of Biodiversity, [CESAB](http://cesab.org/index.php?lang=en),
   a facility of the Foundation for Research on Biodiversity in France.
 email: a.specht@uq.edu.au
-title: ''
+
 
 ---

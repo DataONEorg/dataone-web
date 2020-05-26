@@ -4,7 +4,7 @@ fullname: Stephanie Hampton
 firstname: Stephanie
 role: Professor
 organization: Washington State University
-d1_role: ''
+
 shortbio: Stephanie Hampton is a Professor in the School of the Environment and Director
   of the Center for Environmental Research, Education and Outreach at Washington State
   University. Hampton's research ranges from basic investigations in aquatic science
@@ -22,6 +22,6 @@ longbio: Stephanie Hampton is a Professor in the School of the Environment and D
   of scientific collaboration, and accessibility of robust cyberinfrastructure in
   the environmental sciences. For more, follow her on Twitter [@se_hampton](https://twitter.com/se_hampton)
 email: s.hampton@wsu.edu
-title: ''
+
 
 ---

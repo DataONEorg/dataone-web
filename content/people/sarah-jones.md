@@ -4,7 +4,7 @@ fullname: Sarah Jones
 firstname: Sarah
 role: Coordinator
 organization: Digital Curation Centre
-d1_role: ''
+
 shortbio: Sarah works at the Digital Curation Centre, a UK national service to support
   the higher education sector with research data management. She coordinates work
   on the DCC’s Data Management Planning tool - DMPonline - and undertakes research
@@ -20,6 +20,6 @@ longbio: 'Sarah works at the Digital Curation Centre, a UK national service to s
   data management planning to facilitate open science and compliance with Horizon
   2020 requirements. For more, follow her on twitter @sjDCC'
 email: sarah.jones@glasgow.ac.uk
-title: ''
+
 
 ---

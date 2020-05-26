@@ -4,7 +4,7 @@ fullname: Amanda Whitmire
 firstname: Amanda
 role: Librarian and Bibliographer
 organization: Hopkins Marine Station of Stanford University
-d1_role: ''
+
 shortbio: Amanda is an oceanographer by training and a librarian by chance. She is
   Head Librarian and Bibliographer at the Hopkins Marine Station of Stanford University.
 longbio: 'Amanda is an oceanographer by training and a librarian by chance. She is
@@ -19,6 +19,6 @@ longbio: 'Amanda is an oceanographer by training and a librarian by chance. She 
   time-series that started in the 1950s. She is looking forward to participating in
   Software Carpentry instructor training this fall. Find her on Twitter: @AWhitTwit'
 email: thalassa@stanford.edu
-title: ''
+
 
 ---

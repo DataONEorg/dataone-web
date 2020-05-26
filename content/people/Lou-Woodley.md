@@ -4,7 +4,7 @@ fullname: Lou Woodley
 firstname: Lou
 role: Director
 organization: Center for Scientific Collaboration and Community Engagement
-d1_role: ''
+
 shortbio: Lou Woodley is Director of the Center for Scientific Collaboration and Community
   Engagement (CSCCE) – a research and training center to support community-building
   in STEM. Lou is a trained molecular biologist with research experience at Cambridge
@@ -28,6 +28,6 @@ longbio: "Lou Woodley is Director of the Center for Scientific Collaboration and
   her blog, [Social in Silico](https://socialinsilico.wordpress.com/), and you can
   also follow her on Twitter, where she’s [@LouWoodley](https://twitter.com/LouWoodley)."
 email: 'louwoodley@cscce.org '
-title: ''
+
 
 ---

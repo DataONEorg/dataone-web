@@ -4,7 +4,7 @@ fullname: Peter Darch
 firstname: Peter
 role: Assistant Professor
 organization: University of Illinois, Urbana-Champaign
-d1_role: ''
+
 shortbio: Peter Darch is an assistant professor in the School of Information Sciences
   at the University of Illinois at Urbana-Champaign. Prior to joining the iSchool
   at Illinois, Darch worked as a postdoctoral researcher in the UCLA Department of
@@ -23,6 +23,6 @@ longbio: "Peter Darch is an assistant professor in the School of Information Sci
   of science and medicine (Durham University, 2006) and an MMath in mathematics from
   the University of Oxford (2004)."
 email: ptdarch@illinois.edu
-title: ''
+
 
 ---

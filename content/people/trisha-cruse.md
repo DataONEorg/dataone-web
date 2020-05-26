@@ -4,7 +4,7 @@ fullname: Trisha Cruse
 firstname: Trisha
 role: Director
 organization: DataCite
-d1_role: ''
+
 shortbio: Patricia (Trisha) Cruse comes to DataCite with a strong commitment and passion
   for data sharing. As Director, her role is to advance DataCite’s mission, ensure
   sound and trusted services, build strategic partnerships, work with a diverse community
@@ -19,6 +19,6 @@ longbio: Patricia (Trisha) Cruse comes to DataCite with a strong commitment and 
   sustainability and governance activities. Trisha holds an MLIS from the University
   of California, Berkeley.
 email: patricia.cruse@datacite.org
-title: ''
+
 
 ---

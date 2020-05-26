@@ -14,7 +14,10 @@
 <!-- Unless team_members option is set to true, then use every person whose organization matches DataONE -->
 {{ $people := slice }}
 {{ if .Block.team_members }}
-  {{ $teamPages := where ($page.Site.GetPage "/people").Resources "Params.organization" "DataONE" }}
+  {{ $teamFilter1 := where ($page.Site.GetPage "/people").Resources "Params.d1_team" "!=" "" }}
+  {{ $teamFilter2 := where ($page.Site.GetPage "/people").Resources "Params.d1_team" "!=" " " }}
+  {{ $teamFilter3 := where ($page.Site.GetPage "/people").Resources "Params.d1_team" "!=" nil }}
+  {{ $teamPages := intersect $teamFilter1 $teamFilter2 | intersect $teamFilter3 }}
   {{ range $teamPages }}
     {{ $people = $people | append .Params }}
   {{ end }}

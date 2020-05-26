@@ -4,7 +4,7 @@ fullname: Mark Parsons
 firstname: Mark
 role: Associate Director
 organization: Rensselaer Institute for Data Exploration and Applications
-d1_role: ''
+
 shortbio: Mark Parsons is the first Secretary General of the Research Data Alliance
   (RDA) and an Associate Director of the Rensselaer Institute for Data Exploration
   and Applications. Before being appointed Secretary General, Mark was the Managing
@@ -24,6 +24,6 @@ longbio: Mark Parsons is the first Secretary General of the Research Data Allian
   and Interest Groups to develop both the adopted socio-technical solutions and the
   engaged professional community necessary for a functional data sharing.
 email: parsom3@rpi.edu
-title: ''
+
 
 ---

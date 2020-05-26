@@ -4,7 +4,7 @@ fullname: Nancy Hoebelheinrich
 firstname: Nancy
 role: Founder and Co-owner
 organization: Knowledge Motifs LLC
-d1_role: ''
+
 shortbio: 'Nancy J. Hoebelheinrich is a digital library, archives, and data repository
   consultant specializing in geospatial and cultural heritage resources. Nancy is
   currently founder and co-owner of Knowledge Motifs LLC ([www.kmotifs.com](http://www.kmotifs.com/))
@@ -23,6 +23,6 @@ longbio: Nancy J. Hoebelheinrich is a digital library, archives, and data reposi
   Semantic Technologies, and Product and Services Committees, and the Agriculture
   and Climate Cluster.
 email: nhoebel@kmotifs.com
-title: ''
+
 
 ---

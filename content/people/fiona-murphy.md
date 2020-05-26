@@ -4,7 +4,7 @@ fullname: Fiona Murphy
 firstname: Fiona
 role: Publishing and Research Data Specialist
 organization: University of Reading
-d1_role: ''
+
 shortbio: Fiona is a Publishing and Research Data Specialist at the University of
   Reading, and Project Manager for the Data2Paper Project. After completing a DPhil
   in English Literature, Fiona Murphy held a range of scholarly publishing roles.
@@ -21,6 +21,6 @@ longbio: Fiona is a Publishing and Research Data Specialist at the University of
   data article submission process) and a number of Research Data Alliance and Force11
   Working Groups.
 email: fionalm27@gmail.com
-title: ''
+
 
 ---

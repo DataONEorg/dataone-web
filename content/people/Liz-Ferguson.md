@@ -1,10 +1,10 @@
 ---
 avatar: "/uploads/lf.jpg"
-fullname: " Liz Ferguson"
-firstname: " Liz"
+fullname: "Liz Ferguson"
+firstname: "Liz"
 role: Vice President, Editorial Development
 organization: Wiley
-d1_role: Advisory Board
+d1_team: Advisory Board
 shortbio: As Vice President, Editorial Development, Liz is responsible for growing
   and supporting the development of Wiley’s global journal programs, both subscription
   and open access. She also has a strong focus on data sharing policies and workflows
@@ -20,6 +20,6 @@ longbio: As Vice President, Editorial Development, Liz is responsible for growin
   on the Board of Directors of Dryad and is a member of the External Advisory Board
   of DataONE.
 email: ''
-title: ''
+
 
 ---

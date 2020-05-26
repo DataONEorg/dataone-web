@@ -4,7 +4,7 @@ fullname: Deborah Paul
 firstname: Deborah
 role: 'Digitization and Technology Specialist '
 organization: iDigBio
-d1_role: ''
+
 shortbio: Debbie's current research for iDigBio is focused on biodiversity informatics
   skills and workforce training services as they relate to best practices for biological
   specimen digitization workflows, collection of and research use of field data.
@@ -17,6 +17,6 @@ longbio: Debbie's current research for iDigBio is focused on biodiversity inform
   State University. Some of her interests include economic botany, ceramics, fossils,
   genealogy, and good food.
 email: dpaul@fsu.edu
-title: ''
+
 
 ---

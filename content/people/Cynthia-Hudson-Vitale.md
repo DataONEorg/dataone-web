@@ -4,7 +4,7 @@ fullname: Cynthia Hudson Vitale
 firstname: Cynthia
 role: 'Head of Research Informatics and Publishing '
 organization: 'Pennsylvania State University Libraries '
-d1_role: ''
+
 shortbio: Cynthia Hudson Vitale is the Head of Research Informatics and Publishing
   at the Pennsylvania State University Libraries where she leads a department focused
   on enhancing the technology-driven research capacity of faculty and students, particularly
@@ -19,6 +19,6 @@ longbio: Cynthia Hudson Vitale is the Head of Research Informatics and Publishin
   training](https://sites.psu.edu/dcnworkshops/). Her areas of expertise include information
   architecture, data curation, and scholarly communication.
 email: cuv185@psu.edu
-title: ''
+
 
 ---

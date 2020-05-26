@@ -4,7 +4,7 @@ fullname: Fernando Pérez
 firstname: Fernando
 role: Staff Scientist
 organization: Lawrence Berkeley National Laboratory
-d1_role: ''
+
 shortbio: Fernando Pérez (@fperez_org) is a staff scientist at Lawrence Berkeley National
   Laboratory and and a founding investigator of the Berkeley Institute for Data Science
   at UC Berkeley, created in 2013.
@@ -23,6 +23,6 @@ longbio: Fernando Pérez (@fperez_org) is a staff scientist at Lawrence Berkeley
   Frontiers of Science Fellow. He is the recipient of the 2012 Award for the Advancement
   of Free Software from the Free Software Foundation.
 email: fernando.perez@berkeley.edu
-title: ''
+
 
 ---

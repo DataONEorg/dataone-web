@@ -4,7 +4,7 @@ fullname: David Bloom
 firstname: David
 role: Project Coordinator
 organization: VertNet
-d1_role: ''
+
 shortbio: David is a geographer by training, a museum geek by trade, and a perennial
   student of the world with a penchant for making information, particularly museum
   data, collections, and resources, available to anyone who is interested in learning
@@ -25,6 +25,6 @@ longbio: David is a geographer by training, a museum geek by trade, and a perenn
   David is coordinating VertNet, a global museum database of vertebrate natural history
   collections.
 email: dbloom@vertnet.org
-title: ''
+
 
 ---

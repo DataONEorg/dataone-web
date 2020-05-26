@@ -2,8 +2,8 @@
 avatar: "/uploads/Matt-Jones.png"
 fullname: Matthew Jones
 firstname: Matthew
-title: Director
 organization: NCEAS
+d1_team: Leadership
 shortbio: Matt directs the Informatics program at NCEAS, which focuses on both supporting
   efficient synthesis through scientific computing and on building new advanced infrastructure
   to support data sharing, preservation, analysis, and modeling. Matt is the Director
@@ -17,6 +17,5 @@ longbio: |-
   Matt has a M.S. in Zoology from the University of Florida that focused on the ecology of plant-animal interactions, and a B.A. from Dartmouth College.
 email: jones@nceas.ucsb.edu
 role: Director of Research and Development, Informatics
-d1_role: Director
 
 ---

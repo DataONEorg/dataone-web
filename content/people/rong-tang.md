@@ -2,7 +2,6 @@
 avatar: "/uploads/rong_tang.png"
 fullname: Rong Tang
 firstname: Rong
-title: Associate Professor
 organization: School of Library and Information Science (SLIS), Simmons University
 shortbio: Rong Tang received her doctorate from the School of Information and Library
   Science, University of North Carolina Chapel Hill. She has taught evaluation of

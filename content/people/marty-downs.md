@@ -4,7 +4,7 @@ fullname: Marty Downs
 firstname: Marty
 role: Director
 organization: Long Term Ecological Research (LTER) Network Office
-d1_role: ''
+
 shortbio: Marty manages the Network Office of the Long Term Ecological Research Network,
   coordinating scientific synthesis, education, and engagement activities for 28 research
   sites in every major U.S. biome.
@@ -15,6 +15,6 @@ longbio: |-
 
   Marty earned her B.S. in Natural Resources from Cornell University and her M.S. in Science Journalism from Boston University.
 email: downs@nceas.ucsb.edu
-title: ''
+
 
 ---

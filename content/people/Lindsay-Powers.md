@@ -4,7 +4,7 @@ fullname: Lindsay Powers
 firstname: Lindsay
 role: Deputy Director
 organization: The HDF Group
-d1_role: ''
+
 shortbio: Lindsay Powers is Deputy Director of Earth Science at the HDF Group Boulder
   office.
 longbio: Lindsay Powers is Deputy Director of Earth Science at the HDF Group Boulder
@@ -13,6 +13,6 @@ longbio: Lindsay Powers is Deputy Director of Earth Science at the HDF Group Bou
   research and project management background, and extensive experience in national
   and international scientific collaborations.
 email: lpowers@usgs.gov
-title: ''
+
 
 ---

@@ -4,7 +4,7 @@ fullname: Bob Sandusky
 firstname: Bob
 role: Associate Professor and Associate Dean
 organization: University of Illinois Chicago
-d1_role: ''
+
 shortbio: Robert was the founding chair of the DUG and returned as co-chair of the
   DUG with Karl Benedict in 2018. He also participated in the DataONE cyberinfrastructure
   working group and was a co-Investigator on Phase I of DataONE.
@@ -20,6 +20,6 @@ longbio: 'Robert Sandusky held a Ph.D. in Library and Information Science and wa
   as co-chair of the DUG with Karl Benedict in 2018. He also participated in the DataONE
   cyberinfrastructure working group and was a co-Investigator on Phase I of DataONE.'
 email: ''
-title: ''
+
 
 ---

@@ -4,7 +4,7 @@ fullname: Patricia Condon
 firstname: Patricia
 role: Research Data Services Librarian
 organization: University of New Hampshire
-d1_role: ''
+
 shortbio: Patricia Condon is the Research Data Services Librarian at the University
   of New Hampshire. In this role, Patti supports library services that accommodate
   the growing data management needs of the UNH research community, and collaborates
@@ -19,6 +19,6 @@ longbio: Patricia Condon is the Research Data Services Librarian at the Universi
   committee for the New England Research Data Management Roundtables, and is a member
   of the eScience Advisory Board.
 email: patricia.condon@unh.edu
-title: ''
+
 
 ---

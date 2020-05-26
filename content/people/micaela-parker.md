@@ -4,7 +4,7 @@ fullname: Micaela Parker
 firstname: Micaela
 role: Executive Director
 organization: Academic Data Science Alliance
-d1_role: ''
+
 shortbio: Micaela Parker is Executive Director of the Academic Data Science Alliance
   (ADSA). Before launching ADSA, Dr. Parker served as Program Coordinator for the
   Moore-Sloan Data Science Environments and Executive Director for the University
@@ -21,6 +21,6 @@ longbio: Micaela Parker is Executive Director of the Academic Data Science Allia
   UW’s School of Oceanography, where she also earned her PhD. She has been involved
   in many large, interdisciplinary projects bridging oceanography and genomics.
 email: micaela@uw.edu
-title: ''
+
 
 ---

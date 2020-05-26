@@ -4,7 +4,7 @@ fullname: Bertram Ludäscher
 firstname: Bertram
 role: Director
 organization: University of Illinois, Urbana Champaign
-d1_role: ''
+
 shortbio: Bertram Ludäscher is Director of Center for Informatics Research in Science
   and Scholarship, Professor at the School of Information Sciences, National Center
   for Supercomputing Applications, and the Department of Computer Science, University
@@ -17,6 +17,6 @@ longbio: Bertram Ludäscher is Director of Center for Informatics Research in Sc
   of databases, knowledge representation, and reasoning. Ludäscher applies this work
   in a number of domains, e.g., biodiversity informatics and taxonomy.
 email: ludaesch@illinois.edu
-title: ''
+
 
 ---

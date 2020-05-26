@@ -4,7 +4,7 @@ fullname: Jean-Claude Guédon
 firstname: Jean-Claude
 role: Professor
 organization: Université de Montréal
-d1_role: ''
+
 shortbio: Dr. Jean-Claude Guédon holds a doctorate in the History of Science from
   the University of Wisconsin, Madison and is currently a professor of comparative
   literature at the Université de Montréal.
@@ -19,6 +19,6 @@ longbio: Dr. Jean-Claude Guédon holds a doctorate in the History of Science fro
   of Turin (Italy). Well respected for his thoughtfulness and foresight in the field
   of Open Access, Dr. Guédon regularly presents on this and related topics every year.
 email: ''
-title: ''
+
 
 ---

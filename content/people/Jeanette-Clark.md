@@ -4,7 +4,7 @@ fullname: Jeanette Clark
 firstname: Jeanette
 role: 'Projects Data Coordinator '
 organization: National Center for Ecological Analysis and Synthesis
-d1_role: ''
+
 shortbio: 'Jeanette Clark is a Projects Data Coordinator at the National Center for
   Ecological Analysis and Synthesis, UCSB. Jeanette provides support in data management
   and data processing to the synthesis working groups, supports data submission and

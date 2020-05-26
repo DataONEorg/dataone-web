@@ -4,11 +4,11 @@ fullname: Megan Mach
 firstname: Megan
 role: Communication and Outreach postdoctoral scholar
 organization: DataONE
-d1_role: ''
+d1_team: 'Post-Doc'
 shortbio: 'Megan Mach is DataONE’s Communication and Outreach postdoctoral scholar,
   working with Dr. Amber Budden and the Community Engagement and Outreach (CEO) Working
   Group. Megan is here to help get the word out about DataONE and the importance of
-  responsible data management. '
+  responsible data management.'
 longbio: Megan Mach is DataONE’s Communication and Outreach postdoctoral scholar,
   working with Dr. Amber Budden and the Community Engagement and Outreach (CEO) Working
   Group. Megan is here to help get the word out about DataONE and the importance of
@@ -21,6 +21,6 @@ longbio: Megan Mach is DataONE’s Communication and Outreach postdoctoral schol
   in Resource Management and Environmental Studies from the University of British
   Columbia.
 email: ''
-title: ''
+
 
 ---

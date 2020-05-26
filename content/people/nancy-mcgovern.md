@@ -4,7 +4,7 @@ fullname: Nancy McGovern
 firstname: Nancy
 role: Director of Digital Preservation
 organization: MIT Libraries
-d1_role: ''
+
 shortbio: Since 2012, Nancy Y. McGovern has been responsible for digital preservation
   at MIT Libraries. She directs the Digital Preservation Management (DPM) workshop
   series, offered more than fifty times since 2003.
@@ -18,6 +18,6 @@ longbio: Since 2012, Nancy Y. McGovern has been responsible for digital preserva
   of SAA. She completed her PhD on digital preservation at University College London
   in 2009.
 email: nancymcg@umich.edu
-title: ''
+
 
 ---

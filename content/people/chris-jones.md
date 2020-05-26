@@ -4,7 +4,7 @@ fullname: Chris Jones
 firstname: Chris
 role: Software Engineer
 organization: NCEAS
-d1_role: ''
+d1_team: Software Designer
 shortbio: Chris Jones is a Software Engineer at the National Center for Ecological
   Analysis and Synthesis (NCEAS), at the University of California, Santa Barbara.
   He has worked on informatics projects for the last fifteen years, focusing on generic
@@ -19,6 +19,6 @@ longbio: Chris Jones is a Software Engineer at the National Center for Ecologica
   development and ontology development. Chris tries to handle computer systems in
   stride, despite their frequent tantrums. He lives in Colorado.
 email: cjones@nceas.ucsb.edu
-title: ''
+
 
 ---

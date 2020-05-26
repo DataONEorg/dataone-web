@@ -12,6 +12,17 @@ fields:
   label: Show avatars
   description: Choose whether or not to show a picture for each person
   default: true
+- name: type
+  label: Layout style
+  type: select
+  description: Select the layout to display people, determines the level of detail shown.
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - simple
+    - accordion
 - name: team_members
   type: boolean
   label: Show DataONE team members

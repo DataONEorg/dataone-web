@@ -4,7 +4,7 @@ fullname: Greg Wilson
 firstname: Greg
 role: Co-Founder
 organization: Software Carpentry
-d1_role: ''
+
 shortbio: Greg Wilson is the co-founder of Software Carpentry, a crash course in computing
   skills for scientists and engineers.
 longbio: Greg Wilson is the co-founder of Software Carpentry, a crash course in computing
@@ -13,6 +13,6 @@ longbio: Greg Wilson is the co-founder of Software Carpentry, a crash course in 
   for children. Greg received a Ph.D. in Computer Science from the University of Edinburgh
   in 1993.
 email: gvwilson@third-bit.com
-title: ''
+
 
 ---

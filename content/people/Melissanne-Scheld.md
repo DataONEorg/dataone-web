@@ -4,7 +4,7 @@ fullname: Melissanne Scheld
 firstname: Melissanne
 role: 'Executive Director '
 organization: Dryad
-d1_role: ''
+
 shortbio: Melissanne Scheld is Executive Director of Dryad, the digital repository
   promoting discoverability, freely usable and citable research data.
 longbio: Melissanne Scheld is Executive Director of Dryad, the digital repository
@@ -17,6 +17,6 @@ longbio: Melissanne Scheld is Executive Director of Dryad, the digital repositor
   senior roles at the university presses of Columbia, NYU, and Cambridge where she
   helped navigate the transition from print to digital.
 email: director@datadryad.org
-title: ''
+
 
 ---

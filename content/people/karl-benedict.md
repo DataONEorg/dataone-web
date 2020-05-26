@@ -4,7 +4,7 @@ fullname: Karl Benedict
 firstname: Karl
 role: Director of Research Data Services
 organization: University of New Mexico
-d1_role: ''
+
 shortbio: 'As Director of Research Data Services at UNM, Karl works to support effective
   research data management through instruction, training, consultation, and infrastructure
   support. His current research foci include the development of open standards-based
@@ -35,6 +35,6 @@ longbio: "Dr. Karl Benedict has worked since 1986 in parallel tracks of informat
   value of those data beyond the projects in which they are collected or generated.
   Karl is currently a co-chair of the DataONE Users Group."
 email: kbene@unm.edu
-title: ''
+
 
 ---

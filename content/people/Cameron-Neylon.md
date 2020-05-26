@@ -4,7 +4,7 @@ fullname: Cameron Neylon
 firstname: Cameron
 role: Advocacy Director
 organization: PLOS
-d1_role: ''
+
 shortbio: Dr. Cameron Neylon is is a biophysicist who has always worked in interdisciplinary
   areas and has become a dedicated advocate of open research practice and improved
   data management. He received his Ph.D. from the Australian National University in
@@ -18,6 +18,6 @@ longbio: Dr. Cameron Neylon is is a biophysicist who has always worked in interd
   he is involved in policy initiatives, technology development and implementation
   around the world.
 email: ''
-title: ''
+
 
 ---

@@ -5,7 +5,7 @@ firstname: Lisa
 role: Research Data Management/Curation Lead
 organization: Data Repository for the University of Minnesota (DRUM) at the University
   of Minnesota Twin Cities Libraries
-d1_role: ''
+
 shortbio: 'Lisa R. Johnston is the Research Data Management/Curation Lead and director
   of the Data Repository for the [University of Minnesota (DRUM)](http://z.umn.edu/drum)
   at the University of Minnesota Twin Cities Libraries. '
@@ -21,6 +21,6 @@ longbio: 'Lisa R. Johnston is the Research Data Management/Curation Lead and dir
   Press) and editor of Curating Research Data: Practical Strategies for your Digital
   Repository (2017, ACRL Press).'
 email: ljohnsto@umn.edu
-title: ''
+
 
 ---

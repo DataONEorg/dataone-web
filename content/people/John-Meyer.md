@@ -4,7 +4,7 @@ fullname: John Meyer
 firstname: John
 role: Associate Director of Science Communication
 organization: University of Washington
-d1_role: ''
+
 shortbio: With a graduate degree in marine ecology, John has studied the shorelines
   of the West Coast and the deep sea of New England’s Gulf of Maine, presenting his
   research at professional conferences and publishing in the scientific literature.
@@ -21,6 +21,6 @@ longbio: John has been an advocate for science in multiple sectors throughout hi
   to have broader impact. John has spent his last six years as a member of the communications
   team at the University of Washington’s College of the Environment.
 email: jjmeyer@uw.edu
-title: ''
+
 
 ---

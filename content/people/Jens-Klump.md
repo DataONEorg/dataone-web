@@ -4,7 +4,7 @@ fullname: Jens Klump
 firstname: Jens
 role: Science Leader Earth Science Informatics
 organization: CSIRO Mineral Resources
-d1_role: ''
+
 shortbio: Jens Klump is a geochemist by training and Science Leader Earth Science
   Informatics in CSIRO Mineral Resources. Jens' field of research is data driven science.
   Research topics in this field are numerical methods in minerals exploration, virtual
@@ -21,6 +21,6 @@ longbio: Jens Klump is a geochemist by training and Science Leader Earth Science
   encountered very different attitudes and practices around use and dissemination
   of research data. Follow him on Twitter at @snet_jklump.
 email: jens.klump@csiro.au
-title: ''
+
 
 ---

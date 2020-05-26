@@ -4,7 +4,7 @@ fullname: Anna Liljedahl
 firstname: Anna
 role: Associate Scientist
 organization: Woods Hole Research Center
-d1_role: ''
+
 shortbio: Anna is an Associate Scientist at Woods Hole Research Center and PI of the
   Permafrost Discovery Gateway. She describes herself as a scientist that enjoys science
   that spans multiple disciplines and approaches, while her main "currency" is water.

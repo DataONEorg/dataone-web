@@ -4,7 +4,7 @@ fullname: Ted Habermann
 firstname: Ted
 role: Director of Earth Science
 organization: The HDF Group
-d1_role: ''
+
 shortbio: Dr. Ted Habermann worked for years leading a variety of data management
   and access projects at NOAA’s National Geophysical Data Center. He is now the Director
   of Earth Science at The HDF Group.
@@ -16,6 +16,6 @@ longbio: Dr. Ted Habermann worked for years leading a variety of data management
   and organizational adoption of data and metadata standards. Ted has been active
   in ESIP for many years and currently co-leads the Documentation Cluster.
 email: ''
-title: ''
+
 
 ---

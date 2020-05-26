@@ -4,7 +4,7 @@ fullname: Heidi Laine
 firstname: Heidi
 role: Doctoral Student
 organization: 'University of Helsinki '
-d1_role: ''
+
 shortbio: Heidi is a doctoral student at the University of Helsinki Doctoral Programme
   in Political, Societal and Regional Change, working on a thesis dealing with the
   history of research integrity regulation from the early 1990’s to the current open
@@ -23,6 +23,6 @@ longbio: Heidi is a doctoral student at the University of Helsinki Doctoral Prog
   Council of Finnish Academies what was to become the Finnish Committee for Research
   Data, a national liaison for CODATA, RDA and WDS.
 email: ''
-title: ''
+
 
 ---

@@ -4,7 +4,7 @@ fullname: Laura Russell
 firstname: Laura
 role: Programmer
 organization: VertNet
-d1_role: ''
+
 shortbio: Laura helps biodiversity institutions publish their occurrence and taxonomic
   data online for VertNet, an NSF-funded collaborative project that makes biodiversity
   data free and available on the web.
@@ -19,6 +19,6 @@ longbio: Laura helps biodiversity institutions publish their occurrence and taxo
   knowledge with other communities in the interest of growing the content and quality
   of biodiversity data available online.
 email: larussell@vertnet.org
-title: ''
+
 
 ---

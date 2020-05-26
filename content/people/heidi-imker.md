@@ -4,7 +4,7 @@ fullname: Heidi Imker
 firstname: Heidi
 role: Director of the Research Data Service and Associate Professor
 organization: University of Illinois, Urbana-Champaign
-d1_role: ''
+
 shortbio: Heidi is the Director of the Research Data Service and Associate Professor
   at the University of Illinois, Urbana-Champaign. Heidi leads the Research Data Service
   (RDS), a campus-wide service headquartered in the University Library that provides
@@ -23,6 +23,6 @@ longbio: 'Heidi is the Director of the Research Data Service and Associate Profe
   the ways in which enzymes function, using computational analysis of genomic sequencing
   data. Find her on Twitter: @imkerinfo'
 email: imker@illinois.edu
-title: ''
+
 
 ---

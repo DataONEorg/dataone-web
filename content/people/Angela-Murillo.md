@@ -4,7 +4,7 @@ fullname: Angela Murillo
 firstname: Angela
 role: Doctoral Student
 organization: 'University of North Carolina at Chapel Hill '
-d1_role: ''
+
 shortbio: 'Angela Murillo received her doctorate from the University of North Carolina
   at Chapel Hill – School of Information and Library Science. Her dissertation is
   titled: “Data Sharing And Data Reuse: An Investigation Of Descriptive Information
@@ -20,6 +20,6 @@ longbio: 'Angela Murillo received her doctorate from the University of North Car
   include: scientific data management, data sharing, data reuse, metadata and scientific
   data cyberinfrastructures.'
 email: ''
-title: ''
+
 
 ---
