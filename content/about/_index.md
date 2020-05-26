@@ -76,15 +76,6 @@ page_sections:
         text: Learn more
         external_link: https://www.nsf.gov/awardsearch/showAward?AWD_ID=0830944&HistoricalAwards=false
 - template: section
-  background: subtle-emphasis
-  title: Meet our team
-  intro: ''
-  blocks:
-  - template: people
-    type: simple
-    show_avatars: true
-    team_members: true
-- template: section
   background: major-accent-color
   title: Contribute
   intro: Help DataONE provide and maintain a distributed framework and sustainable

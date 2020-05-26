@@ -4,7 +4,6 @@ date: 2020-03-16T09:49:58.000+00:00
 title: Upload any file format
 description: Use the scientific file formats for your community - image, tabular, text, audio, video, and others.
 linked_services:
-- service_file: services/free.md
 - service_file: services/plus.md
 - service_file: services/hosted-repo.md
 show_in_table: true

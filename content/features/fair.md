@@ -10,7 +10,7 @@ linked_services:
 - service_file: services/plus.md
 - service_file: services/hosted-repo.md
 sub_features:
-- title: Aggreated FAIR report
+- title: Aggregated FAIR report
   description: Aggreate FAIR scores for your collection of datasets
   linked_services:
     - service_file: services/plus.md
@@ -78,7 +78,7 @@ page_sections:
         name: "Individual FAIR assessments for every dataset"
         text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
-  small_title: Aggreated FAIR reports
+  small_title: Aggregated FAIR reports
   id: aggregated-reports
   background: subtle-emphasis
   icon: trending-up

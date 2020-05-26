@@ -7,7 +7,7 @@ fields:
   name: webinar_tags
   label: Webinar Tags
   description: Data lifecycle stages used to categorize webinars
-- type: includes
+- type: include
   template: _page_blocks
 pages:
 - content/webinars/_index.md
