@@ -90,19 +90,6 @@ page_sections:
       - template: image
         src: "/uploads/portals/portals-grouped-filters.png"
         type: card
-    content: []
-  background: ''
-  background2: ''
-  icon: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
 - template: section
   background: topography
   small_title: Geographic search
@@ -128,28 +115,6 @@ page_sections:
     - name: Hide map
       text: Want to turn off the map altogether? You can do that too.
       icon: eye-off
-      template: ''
-    headline: ''
-    button:
-      template: ''
-      type: ''
-      color: ''
-      text: ''
-      external_link: ''
-      internal_link: ''
-      icon: ''
-  type: ''
-  background2: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
 - template: section
   background: major-accent-color
   title: Interested in a DataONE Plus portal?
@@ -163,19 +128,4 @@ page_sections:
     precheck_newsletter: false
     newsletter_only: false
     style: ''
-  type: ''
-  background2: ''
-  icon: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
-custom_link: ''
-sub_features: []
-
 ---

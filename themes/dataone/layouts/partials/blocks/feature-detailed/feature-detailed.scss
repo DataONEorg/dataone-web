@@ -44,9 +44,11 @@
     justify-content: center;
     margin-left    : auto;
     margin-right   : auto;
+    
 
     .figure__image {
       margin: auto;
+      max-height: 350px;
     }
   }
 
@@ -66,6 +68,7 @@
     display       : flex;
     height        : 100%;
     flex-direction: column;
+    justify-content: center;
   }
 
   &__title-and-intro {

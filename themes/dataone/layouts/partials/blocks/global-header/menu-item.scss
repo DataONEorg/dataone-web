@@ -59,6 +59,9 @@
   #{$prefix}-c-sub-menu-bkg-darker: var(--c-default-darker, silver);
 
   #{$prefix}-c-foreground-on-dark : var(--c-foreground-on-always-dark, white);
+  
+  // transition used for hover of menu items and icons
+  $hover-transition: .1s 0s ease-in-out;
 
   // ==========================================================================
   //    Styles
@@ -81,13 +84,13 @@
     // Change the font color
     #{$bn}__top-item-name {
       color     : var(#{$prefix}-fc-top-hover);
-      transition: color .1s 0s ease-in-out;
+      transition: color $hover-transition;
     }
 
     // Animate & change color of drop down icon (chevron)
     #{$bn}__dropdown-icon {
       transform : translateY(1px);
-      transition: transform .1s 0s ease-in-out;
+      transition: transform $hover-transition;
       stroke    : var(#{$prefix}-fc-top-hover);
     }
 
@@ -126,6 +129,24 @@
       display    : flex;
       align-items: center;
     }
+    
+    &:hover {
+      #{$bn}__icon {
+        fill: var(#{$prefix}-fc-top-hover);
+        stroke: var(#{$prefix}-fc-top-hover);
+        transition: fill $hover-transition, stroke $hover-transition;
+      }
+    }
+  }
+  
+  &__icon{
+    
+    margin-right: 4px;
+    fill        : var(#{$prefix}-fc-top);
+    stroke:     var(#{$prefix}-fc-top);
+    // height      : 15px;
+    // width       : 18px;
+    
   }
 
   &__sub-menu-arrow {
@@ -297,20 +318,15 @@
       cursor: default;
     }
   }
+  
+  // Add a little extra padding on right of items that don't have the dropdown icon in that spot
+  &--no-dropdown {
+    #{$bn}__top-item {
+      margin-right: 0.5rem;
+    }
+  }
 
   &--dataone-plus-ad {
-    #{$bn}__logo-icon {
-      margin-right: 3px;
-      fill        : white;
-      height      : 15px;
-      width       : 18px;
-    }
-
-    &:hover {
-      #{$bn}__logo-icon {
-        fill: var(#{$prefix}-fc-top-hover);
-      }
-    }
 
     .pill {
       margin-left: 3px;

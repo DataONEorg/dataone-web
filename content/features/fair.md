@@ -7,9 +7,18 @@ show_in_table: true
 render_page: true
 category: analytics
 linked_services:
+- service_file: services/free.md
 - service_file: services/plus.md
 - service_file: services/hosted-repo.md
 sub_features:
+- title: Per-dataset FAIR report
+  description: Individual FAIR report for each dataset in your repository
+  linked_services:
+    - service_file: services/free.md
+    - service_file: services/plus.md
+    - service_file: services/hosted-repo.md
+  show_in_table: true
+  section_id: individual-reports
 - title: Aggregated FAIR report
   description: Aggreate FAIR scores for your collection of datasets
   linked_services:
@@ -17,12 +26,6 @@ sub_features:
     - service_file: services/hosted-repo.md
   show_in_table: true
   section_id: aggregated-reports
-- title: Per-dataset FAIR report
-  description: Individual FAIR report for each dataset in your repository
-  linked_services:
-    - service_file: services/hosted-repo.md
-  show_in_table: true
-  section_id: individual-reports
 header:
   template: header
   type: text only
@@ -54,14 +57,17 @@ page_sections:
       related_page: services/plus.md 
       type: top
       image:
-        src: /uploads/fair_reports/fair-for-portals.png
+        src: uploads/fair_reports/fair-for-hosted-repos.png
         alttext: An example line chart with one line for each of the four FAIR metrics (Findability, Accessibility, Interoperability, and Reusability) showing changes in scores per month
       headline: DataONE Plus Portals
-      text: A FAIR scores chart is included in each DataONE Plus portal with scores only for that dataset collection.
+      text: A FAIR scores chart is included in each DataONE Plus portal with scores that summarize the dataset collection. Additionally, access assessments for each and each dataset in your portal.
       details:
       - icon: trending-up
         name: "Aggregate FAIR scores for your portal"
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
+      - icon: file-plus
+        name: "Individual FAIR scores for each dataset in your portal"
+        text: "<br>[Read more about individual reports](#individual-reports)"
     - template: feature-detailed
       related_page: services/hosted-repo.md
       type: top
@@ -75,8 +81,21 @@ page_sections:
         name: "Aggregate FAIR scores for your repository"
         text: "<br>[Learn about aggregated scores](#aggregated-reports)"
       - icon: file-plus
-        name: "Individual FAIR assessments for every dataset"
+        name: "Individual FAIR scores for each dataset in your repo"
         text: "<br>[Read more about individual reports](#individual-reports)"
+  - template: feature-detailed
+    related_page: services/free.md 
+    type: left
+    image:
+      src: uploads/fair_reports/metadata-assessment-report.png
+      type: float
+      alttext: A example metadata report for one dataset. There is a percentage score for each of the four FAIR metrics, a donut chart giving a summary of the 38 metadata checks completed, and section headings showing which checks passed or failed. These sections indicate 31 checks out of 37 passed, 1 check had a warning, 3 checks failed, and there were 4 informational checks. Text at the top of the report says 'After running your metadata against our standard set of metadata, data, and congruency checks, we have found the following potential issues. Please assist us in improving the discoverability and reusability of your research data by addressing the issues below.' 
+    headline: Free
+    text: A FAIR scores chart is included in each DataONE Plus portal with scores that summarize the dataset collection. Additionally, access assessments for each and each dataset in your portal.
+    details:
+    - icon: file-plus
+      name: "Individual FAIR scores for your dataset"
+      text: "<br>[Read more about individual reports](#individual-reports)"
 - title: Quantify your metadata improvement efforts
   small_title: Aggregated FAIR reports
   id: aggregated-reports

@@ -73,14 +73,14 @@
         <span class="{{ $bn }}__mission">Enabling new science and knowledge creation through universal access to data about life on earth and the environment that sustains it</span>
       </div>
       <!-- socials -->
-      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "hide_location" true "hide_email" true "email_as_social" true) "Page" $page ) }}
+      {{ partial "blocks/contact-info/contact-info" (dict "Block" (dict "layout" "minimal") "Page" $page ) }}
     </section>
 
   </div>
   <!-- ==== Newsletter ==== -->
   <section class="{{ $bn }}__newsletter">
     <div class="{{ $bn }}__newsletter-inner">
-      <h5 class="{{ $bn }}__newsletter-title">Subscribe to our monthly newsletter</h5>
+      <h5 class="{{ $bn }}__newsletter-title">Subscribe to our newsletter</h5>
       {{ partial "blocks/join-form/join-form" (dict "Block" (dict "newsletter_only" true) "Page" $page )}}
       <!-- <small class="global-footer__fine-print">{{ $.Site.Params.footerText }}</small> -->
     </div>

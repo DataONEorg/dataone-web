@@ -1,6 +1,7 @@
 $mobile-nav-height: 63px;
 $secondary-nav-height: 3rem; // height on desktop;
 $icon-color: var(--c-neutral-1, white);
+$nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
 
 .global-header {
 
@@ -21,6 +22,7 @@ $icon-color: var(--c-neutral-1, white);
   // independence & modularity (a la BEM).
 
   // #{$prefix}- : var( , );
+  // 
 
   // ==========================================================================
   //    Styles
@@ -42,7 +44,7 @@ $icon-color: var(--c-neutral-1, white);
     height       : $nav-height;
     position     : absolute;
     top          : 0;
-    box-shadow   : -1px 1px 20px 1px rgba(28,29,30,.2);
+    box-shadow   : $nav-box-shadow;
   }
 }
 
@@ -290,11 +292,12 @@ $icon-color: var(--c-neutral-1, white);
   &__secondary-nav {
     background-color: var(--c-major-accent-6, darkgrey);
     @include desktop {
-      width   : 100%;
-      position: absolute;
-      top     : 0;
-      left    : 0;
-      height  : $secondary-nav-height;
+      width     : 100%;
+      position  : absolute;
+      top       : 0;
+      left      : 0;
+      height    : $secondary-nav-height;
+      box-shadow: inset $nav-box-shadow;
     }
 
     .menu-item__link {

@@ -77,11 +77,11 @@
 
   &--wave-section {
     #{$bn}__stop-color-1 {
-      stop-color: var(--theme-c-neutral-light,var(--section-c-background-darker, lightgray));
+      stop-color: var(--section-c-background-darker, lightgray);
     }
 
     #{$bn}__stop-color-2 {
-      stop-color: var(--theme-c-neutral-light,var(--section-c-background-darker-2, white));
+      stop-color: var(--section-c-background-darker-2, white);
     }
   }
 

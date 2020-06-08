@@ -193,6 +193,12 @@
   // ==========================================================================
 
   &--text-only {
+
+    padding: 2.5rem 0 3rem;
+    @include desktop {
+      padding-top: 2rem;
+    }
+
     #{$bn}__content {
       display: block;
     }
@@ -463,7 +469,7 @@
 
   &--col-secondary {
     @extend #{$bn}--dark-bkg;
-    background-color: var(--c-major-accent-5);
+    background-color: var(--c-major-accent-6);
 
     #{$bn}__title {
       color: var(--c-major-accent-1);

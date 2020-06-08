@@ -17,6 +17,7 @@
 {{ $description := $service.description }}
 {{ $varName := $title | urlize }}
 {{ $weight := $service.weight }}
+{{ $price := $service.price }}
 
 <!-- Add theme -->
 {{ $classes = printf "%s theme--%s" $classes $varName }}
@@ -65,7 +66,7 @@
     </h3>
   </div>
 
-  <p class="{{ $bn }}__description">{{ $description }}</p>
+  <p class="{{ $bn }}__description markdown">{{ $description | markdownify }}</p>
   <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
   <!-- advertise that this feature includes everything in lower service as well -->
   {{- if $lowerService -}}
@@ -77,6 +78,16 @@
   <div class="{{ $bn }}__feature-list">
     {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $checklistItems  "num_cols" $numCols "compact" true) "Page" $page) }}
   </div>
+  
+  <!-- make price a string so that with won't result in negative if price is zero -->
+  {{ with $p := (string $price) }}
+  {{ if eq $p "0" }}
+  {{ $p = "free" }}
+  {{ end }}
+  <div class="{{ $bn }}__price">
+    {{ $p }}
+  </div>
+  {{ end }}
 
   <div class="{{ $bn }}__buttons">
 
@@ -93,4 +104,5 @@
     {{ end }}
 
   </div>
+  
 </div>

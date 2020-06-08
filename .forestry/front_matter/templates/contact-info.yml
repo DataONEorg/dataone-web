@@ -7,15 +7,24 @@ fields:
   label: Template
   hidden: true
   default: contact-info
-- type: boolean
-  name: hide_location
-  label: Hide address
-  description: If set to true, the mailing address will not be shown
-- type: boolean
-  name: hide_email
-  label: Hide email
-  description: If set to true, the email address will not be shown
-- type: boolean
-  name: hide_socials
-  label: Hide
-  description: If set to true, the social media links will not be shown
+- type: select
+  name: layout
+  label: Layout
+  description: When style is set to "minimal", the contact information will be shown as simple buttons, just like the social links.
+  default: show all info
+  config:
+    source:
+      type: simple
+    options:
+    - show all info
+    - minimal
+- type: text
+  name: socials_title
+  label: Social media title
+  description: The text to show above the social media links
+  default: Find us online
+- type: text
+  name: join_slack_text
+  label: Join slack text
+  description: The text for the link to join DataONE's slack community
+  default: Join us on Slack

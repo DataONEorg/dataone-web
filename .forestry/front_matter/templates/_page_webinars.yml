@@ -8,6 +8,8 @@ fields:
   label: Webinar Tags
   description: Data lifecycle stages used to categorize webinars
 - type: include
+  name: blocks
+  label: Blocks
   template: _page_blocks
 pages:
 - content/webinars/_index.md

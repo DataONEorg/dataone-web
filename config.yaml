@@ -44,27 +44,23 @@ params:
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 699
-  dateFormat: January 2, 2006
-  dateFormatShort: 2 Jan 2006
-  datetimeFormat: January 2, 2006 15:04 MST
-  datetimeFormatShort: 2 Jan 2006 15:04 MST
-  zoom:
-    phone_numbers:
-    - city: New York, USA
-      number: "+1 646 558 8656"
-    - city: San Jose, USA
-      number: "+1 408 638 0968"
-    URL_local_number: https://us04web.zoom.us/u/fcD9Evl80t
-  emailAddress: support@dataone.org
-  mailingAddress:
-    delivery_points:
-    - '735 State St #300'
-    city: Santa Barbara
-    administrative_area: California
-    postal_code: '93101'
-    country: United States
-    longitude: ''
-    latitude: ''
+  dateFormat:
+    default: January 2, 2006
+    short: 2 Jan 2006
+    time: January 2, 2006 15:04 MST
+    time_short: 2 Jan 2006 15:04 MST
+  contact:
+    email: support@dataone.org
+    slack: "https://slack.dataone.org"
+    address:
+      delivery_points:
+      - '735 State St #300'
+      city: Santa Barbara
+      administrative_area: California
+      postal_code: '93101'
+      country: United States
+      longitude: ''
+      latitude: ''
   social:
     vimeo: https://vimeo.com/channels/dataone
     twitter: https://twitter.com/DataONEorg
@@ -81,6 +77,7 @@ menu:
   secondary_nav:
   - name: Get DataONE Plus
     title: Get DataONE Plus
+    pre: "d1-plus-logo"
     weight: 1
     url: /plus/
     post: DataONE Plus Ad
@@ -93,14 +90,18 @@ menu:
     weight: 3
     url: signin
   primary_nav:
-  - name: Services
+  - name: Find Data
+    pre: search
+    url: https://search.dataone.org/data
     weight: 1
-  - name: Network
+  - name: Services
     weight: 2
-  - name: Community
+  - name: Network
     weight: 3
-  - name: About
+  - name: Community
     weight: 4
+  - name: About
+    weight: 5
   - url: https://dataoneorg.github.io/Education/
     name: Skillbuilding
     title: Skillbuilding Hub

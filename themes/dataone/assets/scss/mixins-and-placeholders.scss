@@ -116,6 +116,11 @@
 
   }
 
+  &:disabled {
+    opacity: .6;
+    cursor : not-allowed;
+  }
+
   &::placeholder {
     @include f-common;
     color: var(--c-foreground-very-subtle-on-default, white);
@@ -314,13 +319,13 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
-  box-shadow     : 0 1px 9px -2px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 1px 3px -2px var(--section-c-shadow-1, rgba(0,0,0,0.05));
+  box-shadow     : 0 1px 9px -2px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 1px 3px -2px var(--section-c-shadow-1, rgba(0,0,0,0.02));
   filter: brightness(1.07);
 
   &:hover {
     transform : translateY(-0.5px);
-    filter: brightness(1.01);
-    box-shadow: 0 2px 15px -1px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 3px 5px -1px var(--section-c-shadow-1, rgba(0,0,0,0.05));
+    filter: brightness(1.1);
+    box-shadow: 0 2px 12px -1.5px var(--section-c-shadow-2, rgba(0,0,0,0.01)), 0 2px 3px -1.5px var(--section-c-shadow-1, rgba(0,0,0,0.02));
   }
 }
 

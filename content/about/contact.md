@@ -18,9 +18,9 @@ page_sections:
   background2: subtle-emphasis
   blocks:
   - template: contact-info
-    hide_location: false
-    hide_email: false
-    hide_socials: false
+    layout: show full info
+    join_slack_text: Join us on Slack
+    socials_title: Find us online
   - template: contact-form
 menu:
   primary_nav:

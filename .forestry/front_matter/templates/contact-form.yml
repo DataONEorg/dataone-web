@@ -7,3 +7,27 @@ fields:
   label: Template
   hidden: true
   default: contact-form
+- type: textarea
+  name: preform_text
+  label: Form description
+  description: This text will appear above the form. Leave blank to use default text.
+- type: text
+  name: button_text
+  label: Submit button text
+  description: The text to show in the submit button. Leave blank to use default text.
+- type: textarea
+  name: success_text
+  label: Success message
+  description: The text to show after the messsage has been successfully sent. Leave blank to use default text.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
+  name: error_text
+  label: Error message
+  description: The text to show if there was a problem sending the message. Leave blank to use default text.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown

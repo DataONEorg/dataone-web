@@ -1,4 +1,4 @@
-<!-- in order to pass on page parameters from within loops -->
+<!-- In order to pass on page parameters from within loops -->
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "contact-info" }}
@@ -6,45 +6,69 @@
 {{ $classes := $bn }}
 
 <!-- Block options and their default values -->
-{{ $hide_location := .Block.hide_location | default false }}
-{{ $hide_email := .Block.hide_email | default false }}
-{{ $hide_socials := .Block.hide_socials | default false }}
-{{ $email_as_social := .Block.email_as_social | default false }}
+{{ $layout := .Block.layout | default "show all info" }}
+{{ $socialsTitle := .Block.socials_title | default "Find us online" }}
+{{ $slackText := .Block.join_slack_text | default "Join us on Slack" }}
 
 <!-- Other variables -->
-{{ $emailAddress := $page.Site.Params.emailAddress }}
+{{ $emailAddress := $page.Site.Params.contact.email }}
+{{ $slackAddress := $page.Site.Params.contact.slack }}
+{{ $address := partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
+
+{{ $slackIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "slack" "color" "inherit")) }}
+{{ $emailIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) }}
+{{ $locationIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
+{{ $contactLink := $page.Site.Params.links.contact }}
 
 <div class="{{ $classes }}">
-  {{ if not $hide_location }}
-    <div class="{{ $bn }}__address {{ $bn }}__address--mailing">
+  <!-- In the minimal layout, we hide the full contact information and show simplified links (below) -->
+  {{ if ne $layout "minimal" }}
+    <!-- email -->
+    <div class="{{ $bn }}__contact {{ $bn }}__contact--email">
       <div class="{{ $bn }}__icon">
-        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) }}
+        {{ $emailIcon }}
       </div>
-      {{ partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) }}
-    </div>
-  {{ end }}
-  {{ if not $hide_email }}
-    <div class="{{ $bn }}__address {{ $bn }}__address--email">
-      <div class="{{ $bn }}__icon">
-        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) }}
-      </div>
-      <address>
-        <a class="{{ $bn }}__email" href="mailto:{{ $emailAddress }}">{{ $emailAddress }}</a>
+      <address class="{{ $bn }}__detail">
+        <a class="{{ $bn }}__link" href="mailto:{{ $emailAddress }}" title="Email DataONE">{{ $emailAddress }}</a>
       </address>
     </div>
-  {{ end }}
-  {{ if not $hide_socials }}
-    <div class="{{ $bn }}__socials">
-      {{ range $name, $link := $page.Site.Params.social }}
-        <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">
-          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
-        </a>
-      {{ end }}
-      {{ if $email_as_social }}
-        <a class="{{ $bn }}__social-link" href="mailto:{{ $emailAddress }}" title="Email DataONE">
-          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) }}
-        </a>
-      {{ end }}
+    <!-- slack -->
+    <div class="{{ $bn }}__contact {{ $bn }}__contact--slack">
+      <div class="{{ $bn }}__icon">
+        {{ $slackIcon }}
+      </div>
+      <div class="{{ $bn }}__detail">
+        <a class="{{ $bn }}__link" href="{{ $slackAddress }}" title="Link to join DataONE's community on Slack">{{ $slackText }}</a>
+      </div>
     </div>
+    <!-- address/location -->
+    <div class="{{ $bn }}__contact {{ $bn }}__contact--location">
+      <div class="{{ $bn }}__icon">
+        {{ $locationIcon }}
+      </div>
+      <div class="{{ $bn }}__detail">
+        {{ $address}}
+      </div>
+    </div>
+    <h3 class="{{ $bn }}__socials-title">{{ $socialsTitle }}</h3>
   {{ end }}
+  <div class="{{ $bn }}__socials">
+    {{ range $name, $link := $page.Site.Params.social }}
+      <a class="{{ $bn }}__social-link" href="{{ $link }}" title="DataONE on {{ $name }}">
+        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" $name "color" "inherit")) }}
+      </a>
+    {{ end }}
+    <!-- These are the simplified links that we show in place of full contact info in the minimal layout -->
+    {{ if eq $layout "minimal" }}
+      <a class="{{ $bn }}__social-link" href="mailto:{{ $emailAddress }}" title="Email DataONE">
+        {{ $emailIcon }}
+      </a>
+      <a class="{{ $bn }}__social-link" href="{{ $slackAddress }}" title="Email DataONE">
+        {{ $slackIcon }}
+      </a>
+      <a class="{{ $bn }}__social-link" href="{{ $contactLink }}" title="See DataONE's mailing address">
+        {{ $locationIcon }}
+      </a>
+    {{ end }}
+  </div>
 </div>

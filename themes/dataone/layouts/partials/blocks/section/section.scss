@@ -154,7 +154,7 @@
   // ==========================================================================
 
   &--bkg-subtle-emphasis {
-    #{$prefix}-c-background: var(--theme-c-neutral-light, var(--c-default-darker, lightgray));
+    #{$prefix}-c-background: var(--c-default-darker, lightgray);
   }
 
   //
@@ -229,15 +229,22 @@
   // ==========================================================================
 
   &--bkg-map {
+    @extend .header--overlay-darken;
     @include --dark-bkg;
+    @include bkg-img;
+    position                        : relative;
+
     #{$prefix}-c-background-lighter : var(--c-always-dark-lighter, slategray);
     #{$prefix}-c-background         : var(--c-always-dark, darkslategray);
     #{$prefix}-c-background-darker  : var(--c-always-dark-darker, black);
     #{$prefix}-c-background-darker-2: var(--c-always-dark-darker-2, black);
+    --fc-link                       : var(--c-major-accent-4);
 
-    position                        : relative;
-    @include bkg-img;
-    background-image                : linear-gradient(var(--c-shadow-5-on-major-accent, rgba(darkslategray, 0.9)), var(--c-shadow-4-on-major-accent, rgba(darkslategray, 0.8))), url("/images/santa_barbara__NASA.jpg");
+    background                      : url("/images/santa_barbara__NASA.jpg"), linear-gradient(var(--c-shadow-5-on-default), var(--c-shadow-1-on-default)), var(--c-shadow-4-on-major-accent);
+    background-blend-mode           : darken, soft-light;
+
+    background-size                 : cover;
+    background-position             : center;
   }
 
   //

@@ -12,6 +12,10 @@
 <!-- classes to add to the outer element -->
 {{ $classes := $bn }}
 
+<!-- The icon name -->
+<!-- Make sure it's a string otherwise the "in" function doesn't work as expected -->
+{{ $name := string .Block.icon }}
+
 {{ with .Block.size }}
   {{ $classes = printf "%s %s--sz-%s" $classes $bn . }}
 {{ end }}
@@ -24,14 +28,13 @@
 
 <!-- Add a class for the icons that require fill instead of line, e.g. the DataONE Plus logo -->
 {{ $fillIcons := slice "d1-plus-logo" }}
-{{ if in $fillIcons .Block.icon }}
+{{ if (in $fillIcons $name) }}
   {{ $classes = printf "%s %s--%s" $classes $bn "fill-icon" }}
 {{ end }}
 
-{{ with .Block.icon }}
+{{ with $name }}
   <svg class="{{ $classes }}">
-    <title>{{ . | humanize }}
-      icon</title>
+    <title>{{- . | humanize -}}</title>
     <use xlink:href="#{{ . }}"/>
   </svg>
 {{ end }}

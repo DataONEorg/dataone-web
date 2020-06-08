@@ -6,38 +6,58 @@
 {{ $classes := $bn }}
 
 <!-- Block options and their default values -->
-{{ $thanksText := .Block.thanks_text | default "Thanks for your message! We'll get back to you as soon as possible." }}
 
-<!-- TODO: -->
+{{ $toEmail := "" }}
+{{ with $page.Site.Params.contact.email }}
+  {{ $toEmail = printf " to %s" . }}
+{{ end }}
 
-<form class="{{ $classes }}" name="contact" action="/thank-you/" method="POST" data-netlify="true">
+{{ $preFormText := .Block.preform_text | default (print "Send a message" $toEmail) }}
+{{ $successText := .Block.success_text | default ":wave: Thanks for getting in touch! We'll get back to you as soon as possible." }}
+{{ $errorText := .Block.error_text | default (print ":grimacing: Looks like there was a problem sending your messasge. Please try again or send an email directly" $toEmail)  }}
+{{ $buttonText := .Block.button_text | default "Send message" }}
 
+<!-- Markdown blocks used for error/success messages -->
+{{ $errorMd := partial "blocks/markdown/markdown" (dict "Block" (dict "style" "error" "content" $errorText) "Page" $page) }}
+{{ $successMd := partial "blocks/markdown/markdown" (dict "Block" (dict "style" "success" "content" $successText) "Page" $page) }}
+
+<!-- The submit button at the end of the form -->
+{{ $buttonParams := dict "color" "primary" "html_tag" "button" "id" "contact-form-button" "type_attr" "submit" "text" $buttonText "icon" "send" }}
+{{ $submitButton := partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) }}
+
+<form class="{{ $classes }}" method="POST" action="/" id="contact-form" data-netlify="true">
+  <p class="{{ $bn }}__description">{{ $preFormText }}</p>
   <input type="hidden" name="form-name" value="contact"/>
   <!-- Text input-->
 
   <div class="{{ $bn }}__field-and-label">
-    <input class="{{ $bn }}__field" id="contact-form-name" name="Name" type="text" placeholder="Ada Lovelace" required="true" aria-required="true" autocomplete="on">
+    <input class="{{ $bn }}__field" id="contact-form-name" name="name" type="text" placeholder="Ada Lovelace" required="true" aria-required="true" autocomplete="on">
     <label class="{{ $bn }}__label" for="Name">Your name (required)</label>
   </div>
   <!-- Text input-->
   <div class="{{ $bn }}__field-and-label">
-    <input class="{{ $bn }}__field" id="contact-form-email" name="Email" type="email" placeholder="ada.lovelace@example.com" required="true" aria-required="true" autocomplete="on" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <input class="{{ $bn }}__field" id="contact-form-email" name="email" type="email" placeholder="ada.lovelace@example.com" required="true" aria-required="true" autocomplete="on" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
     <label class="{{ $bn }}__label" for="Email">Your e-mail address (required)</label>
   </div>
   <!-- Text input-->
   <div class="{{ $bn }}__field-and-label">
-    <input class="{{ $bn }}__field" id="contact-form-subject" name="Subject" type="text" placeholder="Question about DataONE" required="true" aria-required="true" autocomplete="off">
+    <input class="{{ $bn }}__field" id="contact-form-subject" name="subject" type="text" placeholder="Question about DataONE" required="true" aria-required="true" autocomplete="off">
     <label class="{{ $bn }}__label" for="Subject">Subject (required)</label>
   </div>
   <!-- Textarea -->
   <div class="{{ $bn }}__field-and-label">
-    <textarea class="{{ $bn }}__field {{ $bn }}__field--textarea" id="contact-form-message" name="Message" placeholder="How can we help?" rows="8" autocomplete="off" required="true" aria-required="true"></textarea>
+    <textarea class="{{ $bn }}__field {{ $bn }}__field--textarea" id="contact-form-message" name="message" placeholder="How can we help?" rows="8" autocomplete="off" required="true" aria-required="true"></textarea>
     <label class="{{ $bn }}__label" for="Message">Your message (required)</label>
   </div>
+  <!-- Feedback messages -->
+  <div class="{{ $bn }}__feedback {{ $bn }}__feedback--success" aria-hidden="true">
+    {{ $successMd }}
+  </div>
+  <div class="{{ $bn }}__feedback {{ $bn }}__feedback--error" aria-hidden="true">
+    {{ $errorMd }}
+  </div>
   <!-- Button -->
-
   <div class="{{ $bn }}__button">
-    {{ $buttonParams := dict "color" "primary" "html_tag" "button" "id" "Form-submit" "type_attr" "submit" "text" "Contact DataONE" "icon" "send" }}
-    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) }}
+    {{ $submitButton }}
   </div>
 </form>

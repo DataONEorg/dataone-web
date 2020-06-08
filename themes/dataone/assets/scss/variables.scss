@@ -1,6 +1,6 @@
 // ==== COLORS ====
 // -- Color names (-cn)
-$cn-teal: #17bdcf;
+$cn-teal: #16acc0;
 $cn-yellow: #EED268;
 $cn-blue-grey: #507d8f;
 $cn-green: #34bb96;
@@ -14,7 +14,7 @@ $cn-purple: #4f5bb5;
     neutral     : col($cn-blue-grey, 5),
     background  : col($cn-blue-grey, 1),
     foreground  : col($cn-blue-grey, 5),
-    major-accent: (base: col($cn-teal, 5), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
+    major-accent: (base: col($cn-teal, 5), foreground: col($cn-blue-grey, 1), accent: lighten(col($cn-yellow, 5),6%)),
     minor-accent: (base: col($cn-yellow, 5), foreground: col($cn-yellow, 8), accent: col($cn-blue, 5)),
     rare-accent : (base: col($cn-green, 6), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
     alerts      : (success: $cn-green, info: $cn-blue, warning: col($cn-yellow,6), error: $cn-red)

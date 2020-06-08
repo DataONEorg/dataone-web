@@ -12,7 +12,7 @@
 {{ $classes = print $classes " address--" $format }}
 
 {{ if eq $addressParams.type "DataONE" }}
-  {{ $addressParams = merge $addressParams $page.Site.Params.mailingAddress }}
+  {{ $addressParams = merge $addressParams $page.Site.Params.contact.address }}
   {{ $classes = print $classes " address--d1" }}
 {{ end }}
 

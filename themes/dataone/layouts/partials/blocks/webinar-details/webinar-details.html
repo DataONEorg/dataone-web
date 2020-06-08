@@ -67,6 +67,7 @@
   </div>
 
   {{ if eq $status "past" }}
+
     <div class="{{ $bn }}__video">
 
       <!-- VIDEO ... =============== -->
@@ -75,39 +76,43 @@
       {{ $videoBlock := dict "ID" $video "type" "vimeo" }}
 
       <span class="{{ $bn }}__video-title"><span class="{{ $bn }}__video-icon">{{ $videoIcon }}</span>
-        Watch previously recorded video</span>
-      {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $page) }}
-
-      <!-- SLIDES =============== -->
-      {{ $slidesHTML }}
-
-      <!-- DISQUS =============== -->
-      {{ $disqusBlock := dict "shortname" $disqusShortname }}
-      {{ partial "blocks/disqus/disqus" (dict "Block" $disqusBlock "Page" $page) }}
-
-    </div>
-
-  {{ else if eq $status "upcoming"}}
-
-    {{ with .Block.image }}
-      {{ partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page)}}
-    {{ else }}
-      <figure class="{{ $bn }}__figure" title="Add to calendar">
-        {{ partial "svg/add2cal.svg" }}
-      </figure>
+        {{ if $video }}
+          Watch previously recorded video</span>
+        {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $page) }}
+      {{ else }}
+        Video coming soon</span>
     {{ end }}
 
-    <!-- If happening now -->
-  {{ else if eq $status "happening-now" }}
+    <!-- SLIDES =============== -->
+    {{ $slidesHTML }}
 
-    <figure class="{{ $bn }}__figure" title="Join the webinar">
-      {{ partial "svg/join-webinar.svg" }}
+    <!-- DISQUS =============== -->
+    {{ $disqusBlock := dict "shortname" $disqusShortname }}
+    {{ partial "blocks/disqus/disqus" (dict "Block" $disqusBlock "Page" $page) }}
+
+  </div>
+
+{{ else if eq $status "upcoming"}}
+
+  {{ with .Block.image }}
+    {{ partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page)}}
+  {{ else }}
+    <figure class="{{ $bn }}__figure" title="Add to calendar">
+      {{ partial "svg/add2cal.svg" }}
     </figure>
-
-    <!-- Show slides in case they've already been posted -->
-    {{ if eq "status" "happening-now"}}
-      {{ $slidesHTML }}
-    {{ end }}
-
   {{ end }}
+
+  <!-- If happening now -->
+{{ else if eq $status "happening-now" }}
+
+  <figure class="{{ $bn }}__figure" title="Join the webinar">
+    {{ partial "svg/join-webinar.svg" }}
+  </figure>
+
+  <!-- Show slides in case they've already been posted -->
+  {{ if eq "status" "happening-now"}}
+    {{ $slidesHTML }}
+  {{ end }}
+
+{{ end }}
 </div>

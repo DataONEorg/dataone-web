@@ -117,6 +117,76 @@
     }
   }
 
+  &--sending {
+    #{$bn}__icon {
+      animation-timing-function: linear;
+      animation                : scoping 1.5s alternate infinite;
+    }
+
+    .icon {
+      animation-timing-function: ease-in-out;
+      animation                : soaring 3s forwards infinite;
+    }
+
+    @keyframes scoping {
+      0% {
+        transform: translateY(0px);
+      }
+
+      100% {
+        transform: translateY(5px);
+      }
+    }
+
+    @keyframes soaring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      40% {
+        transform: rotate(10deg);
+      }
+
+      50% {
+        transform: rotate(10deg);
+      }
+
+      60% {
+        transform: rotate(-5deg);
+      }
+
+      70% {
+        transform: rotate(-5deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &--error {
+    #{$prefix}-background: var(--section-c-error, var(--c-error-on-default, red));
+    #{$prefix}-foreground: var(--section-c-error-subtle, var(--c-error-subtle-on-default, white));
+  }
+
+  &--success {
+    #{$prefix}-background: var(--section-c-success, var(--c-success-on-default, green));
+    #{$prefix}-foreground: var(--section-c-success-subtle, var(--c-success-subtle-on-default, white));
+  }
+
+  &:disabled {
+    opacity       : .85;
+    pointer-events: none;
+
+    &:focus,
+    &:hover {
+      filter: inherit;
+      transform : inherit;
+      box-shadow: inherit;
+    }
+  }
+
 }
 
 // BUTTONS USED AS TABS (TABS BLOCK)

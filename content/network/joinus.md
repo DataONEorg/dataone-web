@@ -1,12 +1,12 @@
 ---
 title: Join the network
 date: 2020-02-10
-description: Become a member node
+description: Information about joining the DataONE network as a member node
 layout: blocks
 header:
   template: header
   type: hero image
-  title: Become a network repository
+  title: Become a member repository
   intro: DataONE's flexible architecture and software products allow practically any
     organization wishing to join our network to do so. Get in touch to start the onboarding
     process, or to find out more.
@@ -33,6 +33,11 @@ page_sections:
     the open data movement. In addition, your data is more discoverable, your infrastructure
     is more reliable, and your citation and collaboration opportunities are bolstered.
   blocks:
+  - template: markdown
+    style: info
+    content: " :bulb: **Joining our network as a member repository is free** :bulb: <br>
+      If you'd like us to host your data for you, you might be more interested in a [DataONE hosted repository](/hosted-repo). <br>
+      If you want to summarize the data you already have across the DataONE network, check out [DataONE Plus](/plus)."
   - template: feature-detailed
     headline: Reach a wider audience
     text: Data collections exposed through the DataONE API are discoverable by a wider
@@ -103,7 +108,7 @@ page_sections:
   button:
     type: contact
     template: button
-    text: Request membership
+    text: Get in touch & learn more
     color: primary
 menu:
   primary_nav:

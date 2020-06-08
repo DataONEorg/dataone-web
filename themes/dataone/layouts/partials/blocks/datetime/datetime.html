@@ -47,21 +47,24 @@
     {{ $classes = print $classes " " $bn "--localize" }}
   {{ end }}
 
-  <!-- .Block.format OPTIONS: Any format string, or: Date Long dateFormat: "January 2, 2006" Date Short dateFormatShort: "2 Jan 2006" Date & Time Long datetimeFormat: "January 2, 2006 15:04 MST" Date & Time Short datetimeFormatShort: "Mon 2 Jan 2006
-  15:04 MST" -->
+  <!-- .Block.format OPTIONS: Any format string, or: -->
+  <!-- Date Long dateFormat: "January 2, 2006" -->
+  <!-- Date Short dateFormatShort: "2 Jan 2006" -->
+  <!-- Date & Time Long datetimeFormat: "January 2, 2006 15:04 MST" -->
+  <!-- Date & Time Short datetimeFormatShort: "Mon 2 Jan 2006 15:04 MST"-->
 
-  {{ $format := $page.Site.Params.dateFormat }}
+  {{ $format := $page.Site.Params.dateFormat.default }}
   <!-- set default -->
   {{ with .Block.format }}
     {{ if eq "Date Short" . }}
-      {{ $format = $page.Site.Params.dateFormatShort }}
+      {{ $format = $page.Site.Params.dateFormat.short }}
     {{ else if eq "Date & Time Long" . }}
-      {{ $format = $page.Site.Params.datetimeFormat }}
+      {{ $format = $page.Site.Params.dateFormat.time }}
     {{ else if eq "Date & Time Short" . }}
-      {{ $format = $page.Site.Params.datetimeFormatShort }}
+      {{ $format = $page.Site.Params.dateFormat.time_short }}
     {{ else }}
-      {{ $format = . }}
       <!-- custom format -->
+      {{ $format = . }}
     {{ end }}
   {{ end }}
 

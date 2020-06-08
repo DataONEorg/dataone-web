@@ -25,15 +25,15 @@
   @include f-common;
   display                       : grid;
   grid-auto-flow                : row;
-  grid-gap                      : 3rem;
-  max-width                     : 290px;
+  grid-gap                      : 2rem;
+  max-width                     : 19rem;
 
-  &__address {
+  &__contact {
     font-size            : var(--fs-large, 1.22rem);
     line-height          : 1.4;
     font-weight          : var(--fw-bold, 500);
     display              : grid;
-    grid-template-columns: 30px auto;
+    grid-template-columns: 1.5rem auto;
     grid-gap             : 1rem;
     stroke               : var(#{$prefix}-c-icon);
 
@@ -43,18 +43,25 @@
 
   }
 
-  @include style-links("&__email");
+  @include style-links("&__link");
 
-  &__icon {
-    margin-top: .25rem;
+  &__socials-title {
+    margin     : .7rem 0 -0.7rem;
+    font-size  : var(--fs-larger);
+    font-weight: var(--fw-bolder);
   }
 
   &__socials {
     display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(3.13rem, 1fr));
-    grid-gap             : .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(3.1rem, 3.7rem));
+    grid-gap             : .1rem;
     width                : 100%;
     justify-items        : center;
+
+    svg {
+      // So that titles show for the links instead of the icons
+      pointer-events: none;
+    }
   }
 
   &__social-link {

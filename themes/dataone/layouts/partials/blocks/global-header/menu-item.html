@@ -10,14 +10,21 @@
 
 <!-- Settings for menu icons -->
 {{ $iconSettings := dict "color" "inherit" "stroke" "thicker" }}
-<!-- Content before the link name -->
-{{ $pre := "" }}
+<!-- Menu setting for content before the link name, use icon name here -->
+{{ $pre := .Block.Pre | default "" }}
 <!-- Content after the link name -->
 {{ $post := "" }}
 <!-- Custom content for the dropdown menu. Replaces child links -->
 {{ $submenuContent := "" }}
 <!-- Top level navigation URL (does not apply to children ) -->
 {{ $url := .Block.URL }}
+
+<!-- Construct the HTML for the the icon that goes to the left of some top-level menu items -->
+{{ with $pre }}
+  {{ $iconBlock := dict "icon" . "size" "small" "color" "inherit" }}
+  {{ $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+  {{ $pre = printf "<span class='menu-item__icon'>%s</span>" $iconHTML | safeHTML }}
+{{ end }}
 
 <!-- Whether the menu has a sub-menu -->
 {{ $hasSubmenu := false }}
@@ -38,27 +45,23 @@
 
 <!-- Special layout options for the DataONE Plus Ad -->
 {{ if eq .Block.Post "DataONE Plus Ad"}}
-  {{ $iconBlock := dict "icon" "d1-plus-logo" "size" "small" "color" "inherit" }}
-  {{ $pre = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
-  {{ $pre = printf "<span class='menu-item__logo-icon'>%s</span>" $pre | safeHTML }}
   {{ $hasSubmenu = true }}
   {{ $post = partial "blocks/pill/pill" (dict "Block" (dict "text" "New" "style" "primary" "size" "smaller") "Page" $page) }}
-
   {{ $classes = printf "%s %s--dataone-plus-ad" $classes $bn }}
-  <!-- TODO: -->
   {{ $submenuContent = partial "blocks/global-header/d1plus-menu-ad" (dict "Page" $page) }}
 {{ end }}
 
 <!-- Add a class for items that are the active/current page -->
-<!-- TODO -->
 {{ $isActive := false }}
 {{ if $isActive }}
   {{ $classes = printf "%s %s--active" $classes $bn }}
 {{ end }}
 
-<!-- Add a class for menu items that have a submenu -->
+<!-- Add a class for menu items that have a submenu or that don't -->
 {{ if $hasSubmenu }}
   {{ $classes = printf "%s %s--dropdown" $classes $bn }}
+{{ else }}
+  {{ $classes = printf "%s %s--no-dropdown" $classes $bn }}
 {{ end }}
 
 <!-- Add the link name as a modifier class -->

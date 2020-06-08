@@ -25,6 +25,10 @@ fields:
   name: description
   description: A few sentences that describe the highlights of this feature. Used
     in page summaries and search results.
+- type: number
+  label: Price
+  name: price
+  description: The cost of the service
 - type: color
   config:
     color_format: Hex
