@@ -10,9 +10,6 @@ jobs:
     runs-on: macos-latest
     name: Request Netlify Webhook
     steps:
-      - name: Test step
-        shell: bash
-        run: echo "The first step was run"
       - name: Count commits over last 24 hours
         shell: bash
         run: |
@@ -25,6 +22,4 @@ jobs:
               fi
       - name: Trigger build of preview branch webhook on Netlify
         if: env.UPDATES == 'true'
-        run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
-        env:
-          TOKEN: ${{ secrets.NETLIFY_PREVIEW }}
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_PREVIEW }}"
