@@ -4,7 +4,7 @@ on:
     branches: [ preview ]
 jobs:
   say_hello:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     steps:
     - name: Run a one-line script
       run: echo Hello, world!
