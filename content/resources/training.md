@@ -1,6 +1,6 @@
 ---
 title: Data Science Training
-date: '2020-01-26T16:39:58.000+00:00'
+date: 2020-06-09T13:00:11-07:00
 description: ''
 layout: blocks
 header:
@@ -45,11 +45,15 @@ linked_services: []
 show_in_table: false
 sub_features: []
 render_page: false
+theme: ''
 menu:
   primary_nav:
-    parent: Community
-    pre: briefcase
     weight: 5
+    parent: Community
+    post: ''
+    icon: ''
+    name: ''
+    pre: briefcase
   footer:
     parent: Community
     weight: 9
