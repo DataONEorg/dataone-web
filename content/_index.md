@@ -20,6 +20,17 @@ header:
   - "/uploads/hero_images/sven-scheuermeier-saGbrA6s8g0-unsplash.jpg"
   - "/uploads/hero_images/willian-justen-de-vasconcellos-_MMP5j_fCqw-unsplash.jpg"
   - "/uploads/hero_images/chuttersnap-UmncJq4KPcA-unsplash.jpg"
+  show_logos: true
+  logos_bar:
+    template: logos-bar
+    title: A network of NUMBER data repositories
+    use_member_nodes: true
+    button:
+      template: button
+      type: "internal page"
+      color: "quaternary"
+      text: "Learn about our network"
+      internal_link: "/network/_index.md"
 page_sections:
 - template: section
   background: default

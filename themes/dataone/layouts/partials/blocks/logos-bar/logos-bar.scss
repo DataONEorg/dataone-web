@@ -17,7 +17,9 @@
   // independence & modularity (a la BEM).
 
   #{$prefix}-c-background: var(--section-c-background, var(--c-default-lighter, white));
-  // 
+
+  // height and width of the next/prev buttons
+  $button-size           : 2.5rem;
 
   // ==========================================================================
   //    Styles
@@ -25,72 +27,101 @@
 
   @include f-common;
   display                : flex;
+  flex-direction         : column;
+  align-items            : center;
   overflow               : hidden;
-  border-bottom          : 1px solid var(--c-neutral-1);
   position               : relative;
+  width                  : 100vw;
+  min-width              : 0;
+  max-width              : calc(100vw - #{$button-size} + (#{2 * $lr-padding}));
+  border-bottom          : 1px solid var(--c-neutral-1);
   background-color       : var(#{$prefix}-c-background);
 
-  &::after {
-    content       : "";
-    position      : absolute;
-    height        : 100%;
-    width         : 100%;
-    top           : 0;
-    left          : 0;
-    pointer-events: none;
-    background    : linear-gradient(to right,var(#{$prefix}-c-background) 0,transparent 20%,transparent 80%,var(#{$prefix}-c-background) 100%);
-  }
-
-  &:hover {
-    #{$bn}__logos {
-      animation-play-state: paused;
-      transform           : scale(.95);
-      filter: blur(8px) brightness(1.05);
-    }
-
-    #{$bn}__button-container {
-      opacity  : 1;
-      transform: translate(-50%,50%) scale(1.05);
-    }
-  }
-
-  @keyframes animatedBackground {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      // --total-width is passed to the out element by logo-bar.html
-      transform: translateX(var(--total-width, 12000px));
-    }
+  &__title {
+    font-size     : var(--fs-x-large, 1.45rem);
+    color         : var(--c-neutral-5);
+    // text-transform: uppercase;
+    letter-spacing: .01em;
+    font-weight   : var(--fw-bold);
+    margin        : 1rem 0;
+    line-height   : 1.32;
   }
 
   &__logos {
     list-style: none;
     display   : flex;
     flex-wrap : nowrap;
-    width     : 100%;
+    width     : calc(100% - #{3.5 * $button-size});
     transition: 1s cubic-bezier(.19,1,.22,1);
-    animation : animatedBackground var(--animation-time, 500s) linear;
+    overflow  : hidden;
+    margin    : 1rem auto;
+    padding   : 0;
+
+    &::after {
+      // Doesn't display properly on safari:
+      // content       : "";
+      // position      : absolute;
+      // height        : 100%;
+      // width         : 100%;
+      // top           : 0;
+      // left          : 0;
+      // pointer-events: none;
+      // margin        : 1rem auto;
+      // background    : linear-gradient(to right,var(#{$prefix}-c-background) 0, transparent 10%,transparent 90%,var(#{$prefix}-c-background) 100%);
+    }
 
   }
 
   &__logo-image {
     height        : 45px;
     vertical-align: middle;
-    filter: sepia(100%) hue-rotate(160deg) saturate(2.5) contrast(0.09) brightness(1.2);
-    opacity       : .5;
-    // Note: margin-right for logo is calculated & added in logos-bar.html
-    // This is so that we can calculate animation properties (scroll time, transform width) using hugo's image resource functions.
+    // filter: sepia(100%) hue-rotate(160deg) saturate(2.5) contrast(0.09) brightness(1.2);
+    filter: contrast(0.5) brightness(1.25) saturate(0.8);
+    opacity       : .75;
+    margin-right  : 2rem;
+    transition    : all .2s linear;
+  }
+
+  &__logo:hover {
+    #{$bn}__logo-image {
+
+      filter: none;
+      opacity: .9;
+    }
   }
 
   &__button-container {
-    position  : absolute;
-    left      : 50%;
-    bottom    : 50%;
-    transform : translate(-50%,50%) scale(.95);
-    opacity   : 0;
-    transition: .7s cubic-bezier(.19,1,.22,1);
+    margin: 1rem 0;
+  }
+
+  &__scroll-button {
+    @include button-reset;
+    @include circle-link;
+    position        : absolute;
+    z-index         : 1;
+    top             : calc(50% - #{0.5 * $button-size});
+    padding         : 0;
+    height          : $button-size;
+    width           : $button-size;
+    background-color: var(--section-c-background-lighter, white);
+    stroke          : var(--section-fc-body, gray);
+    box-shadow      : 0 5px 10px rgba(30,50,93,.02), 0 1px 3px rgba(17,32,39,.15);
+    transition      : all .2s ease;
+
+    &:focus {}
+
+    &:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 3px 5px var(--section-c-shadow-1, rgba(0,0,0,.07)), 0 1px 3px var(--section-c-shadow-1, rgba(0,0,0,.07));
+    }
+
+    &--next {
+      right: .2 * $button-size;
+    }
+
+    &--prev {
+      left: .2 * $button-size;
+    }
   }
 
   // ==========================================================================

@@ -9,6 +9,7 @@
 {{ $button := .Block.button | default dict }}
 {{ $logos := .Block.logos | default slice }}
 {{ $useMemberNodes := .Block.use_member_nodes }}
+{{ $titleText := .Block.title | default "" }}
 
 <!-- Optional style class to add to the outer most element -->
 {{ $style := .Block.style | default ""}}
@@ -17,53 +18,69 @@
   {{ $classes = printf "%s %s--%s" $classes $bn (. | urlize) }}
 {{ end }}
 
+<!-- Icons to use for the previous and next icons -->
+{{ $iconSettings := dict "size" "mediuim" "color" "inherit" "stroke" "thicker" }}
+{{ $nextIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-right")) "Page" $page) }}
+{{ $prevIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-left")) "Page" $page) }}
+
 <!-- Nodes -->
 {{ if $useMemberNodes }}
   {{ $logos = ($page.Site.Data.membernodes.nodes | shuffle) }}
+{{ end }}
+
+{{ $num := len $logos }}
+
+{{ $logos = where $logos "logo" "!=" "" }}
+
+{{ if $num }}
+  {{ $titleText = replace $titleText "NUMBER" (string $num) }}
 {{ end }}
 
 <!-- max dimensions of logo images -->
 {{ $maxWidth := 300 }}
 {{ $maxHeight := 150 }}
 
-<!-- The margin to add to the right of each image logo, in pixels -->
-{{ $margin := 30 }}
-
-<!-- Get total width of images, used for css scrolling animation -->
-{{ $totalWidth := 0 }}
-
 <!-- Process images -->
 {{ $imageResources := slice }}
-{{- range $logos -}}
-  {{ if .logo }}
-    {{ $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) }}
+{{- range $index, $node := $logos -}}
+  {{ if $node.logo }}
+    {{ $imageResource := partial "functions/getImage" (dict "image" $node.logo "Page" $page) }}
     {{ if gt $imageResource.Width $maxWidth }}
       {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
     {{ end }}
     {{ if gt $imageResource.Height $maxHeight }}
       {{ $imageResource = $imageResource.Resize (printf "%dx" $maxHeight) }}
     {{ end }}
-    {{ $totalWidth = add (add $totalWidth $imageResource.Width) $margin }}
     {{ $imageResources = $imageResources | append $imageResource }}
   {{ end }}
 {{ end }}
 
-<!-- Calculate animation time based on width of images together -->
-{{ $animationTime := mul $totalWidth 0.04 }}
+<!-- Make a unique ID for part of the block that should scroll -->
+{{ $blockID := printf "scroll-me-%s" (delimit (shuffle (seq 1 9)) "") }}
 
 <!-- button include -->
 <!-- logo selection -->
-<div class="{{ $classes }}" style="--total-width:-{{ $totalWidth }}px;--animation-time:{{ $animationTime }}s">
-
+<div class="{{ $classes }}">
+  {{ with $titleText }}
+    <h5 class="{{ $bn }}__title">{{ . }}</h5>
+  {{ end }}
   <!-- logos list -->
-  <ul class="{{ $bn }}__logos">
+  <ul class="{{ $bn }}__logos" id="{{ $blockID }}">
     {{ range $index, $imageResource := $imageResources }}
       {{ $logo := index $logos $index }}
-      <li class="{{ $bn }}__logo" style="margin-right:{{ $margin }}px">
+      <li class="{{ $bn }}__logo">
         <img class="{{ $bn }}__logo-image" src="{{ $imageResource.RelPermalink }}" {{ with $logo.name }} alt="{{ . }} logo" title="{{ . }}" {{ end }}/>
       </li>
     {{ end }}
   </ul>
+  <!-- prev/next buttons -->
+  <button class="{{ $bn }}__scroll-button {{ $bn }}__scroll-button--prev" type="button" title="Show previous logos" onclick="logosBar.scrollEls('#{{ $blockID }}','prev')">
+    {{ $prevIcon }}
+  </button>
+  <button class="{{ $bn }}__scroll-button {{ $bn }}__scroll-button--next" type="button" title="Show next logos" onclick="logosBar.scrollEls('#{{ $blockID }}', 'next')">
+    {{ $nextIcon }}
+  </button>
+
   <!-- button -->
   <div class="{{ $bn }}__button-container">
     {{- with $button -}}

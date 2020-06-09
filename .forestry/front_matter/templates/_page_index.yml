@@ -32,6 +32,24 @@ fields:
       maxSize: 250
     label: Header hero image
     description: The images to display behind the header content (will change on page refresh)
+  - name: show_logos
+    label: Show logos bar
+    type: boolean
+    description: Set to false to hide the row of member repository logos
+  - type: field_group
+    name: logos_bar
+    label: Logos bar
+    config: {}
+    description: Options for the logos bar below the header
+    showOnly:
+      field: show_logos
+      value: true
+    fields:
+    - type: include
+      template: logos-bar
+      label: Logos Bar
+      name: logosbar
+      label: logosbar
 - type: field_group_list
   name: page_sections
   label: Page sections

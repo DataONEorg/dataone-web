@@ -6,6 +6,8 @@
 {{ $tagline := .Block.tagline | default "Data Observation Network for Earth" }}
 
 {{ $bkgImgs := .Block.images | default slice }}
+{{ $showLogos := .Block.show_logos }}
+{{ $logosBar := .Block.logos_bar }}
 
 <!-- Pick a random image from the image gallery to start with -->
 {{ $src := index (shuffle $bkgImgs) 1 | default ""  }}
@@ -42,8 +44,8 @@
   </div>
 
 </header>
-<section class="{{ $bn }}__logos">
-  {{ $buttonBlock := dict "type" "internal page" "color" "quaternary" "text" "See our entire network" "internal_link" "/network/_index.md" }}
-  {{ $logosBarBlock := dict "button" $buttonBlock "use_member_nodes" true }}
-  {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBarBlock "Page" $page) }}
-</section>
+{{ if (and $showLogos $logosBar) }}
+  <section class="{{ $bn }}__logos">
+    {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBar "Page" $page) }}
+  </section>
+{{ end }}

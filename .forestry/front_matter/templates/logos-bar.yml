@@ -2,6 +2,15 @@
 label: Logos bar
 hide_body: true
 fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: logos-bar
+- type: text
+  name: title
+  label: Title
+  description: The text to show above the logos. If the title contains the key word NUMBER (all in caps), this number will be replaced with the number of logos.
 - type: field_group
   name: button
   label: Button
