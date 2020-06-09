@@ -10,52 +10,15 @@ header:
   title: In-Person Training
   intro: Learn directly from DataONE experts
   buttons: []
-  image:
-    template: ''
-    src: ''
-    alttext: ''
-    type: ''
-    overlay_effect: ''
-  pill:
-    template: ''
-    style: ''
-    text: ''
 page_sections:
 - template: section
   type: default
-  title: ''
-  intro: ''
-  blocks: []
-  background: ''
-  background2: ''
-  icon: ''
-  small_title: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
-category: ''
-custom_link: ''
-linked_services: []
-show_in_table: false
-sub_features: []
-render_page: false
-theme: ''
 menu:
   primary_nav:
     weight: 5
     parent: Community
-    post: ''
-    icon: ''
-    name: ''
     pre: briefcase
   footer:
     parent: Community
     weight: 9
-
 ---

@@ -326,7 +326,5 @@ menu:
     weight: 2
     parent: Services
     post: Portals, custom search, metrics & more
-    icon: ''
-    name: ''
 
 ---
