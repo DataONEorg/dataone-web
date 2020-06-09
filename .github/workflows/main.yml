@@ -8,8 +8,11 @@ on:
 jobs:
   update_preview:
     name: Request Netlify Webhook
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
+      - name: Test step
+        shell: bash
+        run: echo "The first step was run"
       - name: Count commits over last 24 hours
         shell: bash
         run: |
