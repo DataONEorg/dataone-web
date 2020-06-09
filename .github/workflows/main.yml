@@ -26,4 +26,4 @@ jobs:
         if: env.UPDATES == 'true'
         env:
           NETLIFY_PREVIEW: ${{ secrets.NETLIFY_PREVIEW }}
-        run: curl -s -X POST "https://api.netlify.com/build_hooks/$NETLIFY_PREVIEW"
+        run: curl -X POST https://api.netlify.com/build_hooks/$NETLIFY_PREVIEW
