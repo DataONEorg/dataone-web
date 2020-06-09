@@ -7,8 +7,8 @@ on:
     - cron: '00 11 * * *'
 jobs:
   update_preview:
+    runs-on: macos-latest
     name: Request Netlify Webhook
-    runs-on: ubuntu-latest
     steps:
       - name: Test step
         shell: bash
