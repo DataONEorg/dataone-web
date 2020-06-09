@@ -1,8 +1,10 @@
 name: Trigger Netlify Build
 on:
+  push:
+    branches:
+    - preview
   schedule:
-    # Run at 1100 UTC on June 4th
-    - cron: '00 11 4 6 *'
+    - cron: '00 11 * * *'
 jobs:
   update_preview:
     name: Request Netlify Webhook
