@@ -18,7 +18,8 @@ fields:
 - type: textarea
   name: success_text
   label: Success message
-  description: The text to show after the messsage has been successfully sent. Leave blank to use default text.
+  description: The text to show after the messsage has been successfully sent. Leave
+    blank to use default text.
   config:
     wysiwyg: true
     schema:
@@ -26,7 +27,8 @@ fields:
 - type: textarea
   name: error_text
   label: Error message
-  description: The text to show if there was a problem sending the message. Leave blank to use default text.
+  description: The text to show if there was a problem sending the message. Leave
+    blank to use default text.
   config:
     wysiwyg: true
     schema:

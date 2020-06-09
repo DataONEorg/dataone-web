@@ -14,7 +14,8 @@ fields:
   description: The name of the feature or a headline that introduces it
 - name: related_page
   label: Related Page (Services only)
-  description: Select a page to include a badge with a link to the page. (Currently only configured for service pages.)
+  description: Select a page to include a badge with a link to the page. (Currently
+    only configured for service pages.)
   type: select
   config:
     source:

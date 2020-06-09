@@ -10,7 +10,8 @@ fields:
 - type: select
   name: layout
   label: Layout
-  description: When style is set to "minimal", the contact information will be shown as simple buttons, just like the social links.
+  description: When style is set to "minimal", the contact information will be shown
+    as simple buttons, just like the social links.
   default: show all info
   config:
     source:

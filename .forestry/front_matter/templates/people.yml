@@ -15,7 +15,8 @@ fields:
 - name: type
   label: Layout style
   type: select
-  description: Select the layout to display people, determines the level of detail shown.
+  description: Select the layout to display people, determines the level of detail
+    shown.
   config:
     source:
       type: simple

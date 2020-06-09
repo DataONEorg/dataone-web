@@ -60,7 +60,8 @@ fields:
 - type: list
   name: tags
   label: Tags
-  description: Which stages of the data life cycle does this webinar cover? To add tags this list, edit the [Webinars index page](#/pages/webinars-_index-md/).
+  description: Which stages of the data life cycle does this webinar cover? To add
+    tags this list, edit the [Webinars index page](#/pages/webinars-_index-md/).
   config:
     use_select: true
     source:

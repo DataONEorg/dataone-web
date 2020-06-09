@@ -18,19 +18,20 @@ fields:
   config:
     labelField: text
   fields:
-    - name: text
-      label: Text
-      description: The text to display for the item.
-      type: text
-    - name: description
-      label: Tooltip description
-      description: Optional. More details about the item that will appear on hover (or on click for touch devices).
-      type: text
-    - name: icon
-      type: include
-      label: Icon
-      description: Optional. Select an icon for the checklist item. Defaults to a checkmark.
-      template: icon-names
+  - name: text
+    label: Text
+    description: The text to display for the item.
+    type: text
+  - name: description
+    label: Tooltip description
+    description: Optional. More details about the item that will appear on hover (or
+      on click for touch devices).
+    type: text
+  - name: icon
+    type: include
+    label: Icon
+    description: Optional. Select an icon for the checklist item. Defaults to a checkmark.
+    template: icon-names
 - type: boolean
   name: compact
   label: Compact

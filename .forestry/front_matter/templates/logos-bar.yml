@@ -10,7 +10,8 @@ fields:
 - type: text
   name: title
   label: Title
-  description: The text to show above the logos. If the title contains the key word NUMBER (all in caps), this number will be replaced with the number of logos.
+  description: The text to show above the logos. If the title contains the key word
+    NUMBER (all in caps), this number will be replaced with the number of logos.
 - type: field_group
   name: button
   label: Button
@@ -25,7 +26,8 @@ fields:
   name: use_member_nodes
   label: Use member node logos
   default: true
-  description: If set to true, the member node logos will be used for the logo bar. Otherwise, set logos manually with the Logos field group.
+  description: If set to true, the member node logos will be used for the logo bar.
+    Otherwise, set logos manually with the Logos field group.
 - name: logos
   type: field_group_list
   label: Logos
