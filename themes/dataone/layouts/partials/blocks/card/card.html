@@ -15,7 +15,7 @@
 <!-- Make a variable that indicates whether there's an image -->
 {{ $hasImage := false }}
 {{ if .Block.image }}
-  {{ if (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
+  {{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
     {{ $hasImage = true }}
   {{ end }}
 {{ end }}
@@ -66,7 +66,7 @@
     {{ end }}
 
     {{ with .Block.datetime }}
-      {{ if (partial "functions/hasValues" .) (ne .time "") (ne .time " ") }}
+      {{ if and (partial "functions/hasValues" .) (ne .time "") (ne .time " ") }}
         <div class="{{ $bn }}__date">
           {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
         </div>
