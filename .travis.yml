@@ -23,6 +23,6 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: ssh -p22 $DEPLOY_USER@$DEPLOY_HOST "mkdir -p $DEPLOY_DIRECTORY" && rsync -rav -e ssh ./docs $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIRECTORY
+    script: bash scripts/deploy.sh
     on:
       branch: preview
