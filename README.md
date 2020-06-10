@@ -135,6 +135,33 @@ We use inline SVG for some imagery on the website, like the header image on the 
 - Adding a `<base href="...">` tag to the head of a page might break SVGs in Safari if any part of the svg uses `url()`, e.g. `fill="url(#linearGradient`)`.
 - In some cases (e.g. for our logo gradient), it's better to include definitions at the start of the html body, outside of the svg that uses it. If needed, add these definitions to `layouts/partials/svg-defs.html`.
 
+## Continuous Integration
+
+The site is built using Travis, and deployed via rsync using an encrypted ssh key that is only decryptable by the travis build system.
+
+To configure Travis, I generated an ssh key and encrypted it for travis.  The private key is dedicated for just this application, 
+and is not shared or commited to git.  To update the key in the future, you'll need to use the [Travis CLI](https://github.com/travis-ci/travis.rb) 
+tool to encrypt the key, so install it first with `gem install travis`.
+
+```sh
+$ ssh-keygen -t rsa -b 4096 -C 'build@travis-ci.org' -f ./deploy_rsa
+$ travis login --org
+$ travis encrypt-file deploy_rsa --add
+$ ssh-copy-id -i deploy_rsa.pub user@deployhost
+```
+
+Set up environment variables pointing at the deploy location. 
+Create secure env variables in the Travis config settings so that these values are not leaked in the script in the .travis.yml:
+
+```
+$ travis encrypt DEPLOY_HOST=<web-server-host> --add
+$ travis encrypt DEPLOY_USER=<deploy-user> --add
+$ travis encrypt DEPLOY_DIRECTORY=<deploy-directory> --add
+```
+
+These can be created specifically for one branch, or be shared across branches. The `deploy` script in the .travis.yml is
+configured to rync the files from the Travis build to the `$DEPLOY_HOST` into the `$DEPLOY_DIRECTORY` and can be used to 
+atomically move these files into their web location once the rsync is successful.
 
 # Credits
 - Photo of the Santa Barbara, California, metropolitan area (santa_barbara__NASA.jpg): NASA
