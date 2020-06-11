@@ -10,6 +10,11 @@
 
 {{ $webinarPages := .Block.webinars }}
 
+{{ if not $webinarPages }}
+  {{ $webinarPages = intersect (where $page.Site.Pages "Kind" "page") (where $page.Site.Pages "Type" "webinars") }}
+  {{ $webinarPages = ($webinarPages.ByParam "webinar_datetime").Reverse }}
+{{ end }}
+
 <!-- Search Icon -->
 {{ $iconBlock := dict "size" "small" "stroke" "thinner"  "icon" "search" "color" "inherit" }}
 {{ $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}

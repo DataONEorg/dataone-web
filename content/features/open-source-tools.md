@@ -44,5 +44,5 @@ page_sections:
   - template: join-form
     precheck_hostedrepo: true
     precheck_plus: false
-    precheck_newsletter: false
+    precheck_mailing_list: false
 ---

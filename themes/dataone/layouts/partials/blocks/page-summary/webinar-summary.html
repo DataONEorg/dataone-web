@@ -125,14 +125,14 @@
   <div class="{{ $classes }}">
     <h3 class="{{ $bn }}__title">To be determined</h3>
     <p class="{{ $bn }}__intro">
-      Sign up for our newsletter to be the first to hear about the next DataONE webinar</p>
-    {{ $newsletterBlock := dict "precheck_newsletter" true "newsletter_only" true "precheck_hostedrepo" false "precheck_plus" false }}
+      Sign up for our mailing list to be the first to hear about the next DataONE webinar</p>
+    {{ $newsletterBlock := dict "precheck_mailing_list" true "mailing_list_only" true "precheck_hostedrepo" false "precheck_plus" false }}
     {{ partial "blocks/join-form/join-form" (dict "Block" $newsletterBlock "Page" $page) }}
     <div class="{{ $bn }}__buttons">
       <!-- Get the webinars index page -->
       {{ $href := "" }}
-      {{ range where (where (where ($page.Site.Pages) "Section" "webinars") "Kind" "section") ".Params.webinar_defaults.past_webinar_section_id" "!=" nil }}
-        {{ $id := printf "#%s" .Params.webinar_defaults.past_webinar_section_id }}
+      {{ range (where (where ($page.Site.Pages) "Section" "webinars") "Kind" "section") }}
+        {{ $id := printf "#%s" "past-webinars" }}
         {{ $href = path.Join .RelPermalink $id }}
       {{ end }}
 

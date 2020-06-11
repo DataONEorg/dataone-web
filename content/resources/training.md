@@ -20,5 +20,5 @@ menu:
     pre: briefcase
   footer:
     parent: Community
-    weight: 9
+    weight: 5
 ---

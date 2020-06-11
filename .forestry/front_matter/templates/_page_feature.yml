@@ -114,11 +114,25 @@ fields:
 pages:
 - content/features/access.md
 - content/features/any-file-format.md
+- content/features/api-access.md
+- content/features/branding.md
+- content/features/citations.md
+- content/features/community-participation.md
+- content/features/consulting.md
 - content/features/custom-search.md
+- content/features/discounted-training.md
+- content/features/dois.md
+- content/features/domains.md
+- content/features/education.md
 - content/features/fair.md
+- content/features/features.txt
+- content/features/metadata-harvest.md
+- content/features/open-source-tools.md
+- content/features/portal-content.md
 - content/features/portal-editor.md
 - content/features/provenance.md
 - content/features/replicas.md
+- content/features/repo-search.md
 - content/features/search.md
 - content/features/storage.md
 - content/features/submission.md

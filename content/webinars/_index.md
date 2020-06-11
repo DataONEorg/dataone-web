@@ -9,13 +9,8 @@ webinar_tags:
   - Discover
   - Integrate
   - Analyze
-webinar_defaults:
-  past_webinar_section_id: past-webinars
-description: Cutting edge earth and environmental science topics
 title: The DataONE Webinar Series
 header:
-  template: header
-  type: hero image
   image:
     src: uploads/hero_images/rick-l-tOZAiC3hZgM-unsplash.jpg
     overlay_effect: major accent color
@@ -55,6 +50,10 @@ page_sections:
       name: Post-webinar open forum
       text: Open for 24 hours to allow further discussion with the speaker
       icon: message-circle
+- template: section
+  title: Past webinars
+  blocks:
+  - template: webinar-list
 menu:
   primary_nav:
     weight: 1

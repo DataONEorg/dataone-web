@@ -13,18 +13,32 @@
 
     <!-- ==== SITE MAP ==== -->
     <ul class="{{ $bn }}__sitemap" id="footer-sitemap">
-      {{ range .Site.Menus.primary_nav }}
+      {{ range .Site.Menus.footer }}
         {{ $hasSubmenu := and .Children (gt (len .Children) 1) }}
-        <li class="{{ $bn }}__sitemap-group">
+        {{ $pre := "" }}
+        {{ with .Pre }}
+          {{ $iconBlock := dict "icon" . "size" "small" "color" "inherit" }}
+          {{ $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+          {{ $pre = printf "<span class='%s__icon'>%s</span>" $bn $iconHTML | safeHTML }}
+        {{ end }}
+        {{ $url := .URL }}
+        {{ range $key, $value := $page.Site.Params.links }}
+          {{ if eq $key $url }}
+            {{ $url = $value }}
+          {{ end }}
+        {{ end }}
+        {{ $title := .Name | default .Title }}
+        <li class="{{ $bn }}__sitemap-group {{ $bn }}__sitemap-group--{{ $title | urlize }}">
           <!-- Site map section header -->
           <span class="{{ $bn }}__sitemap-header">
+            {{ $pre }}
             <!-- Name with no link if this is just a header -->
             {{ if $hasSubmenu }}
-              {{ .Name | default .Title }}
+              {{ $title }}
             {{ else}}
               <!-- Otherwise add a link -->
-              <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
-                {{ .Name | default .Title }}
+              <a class="{{ $bn }}__sitemap-link" href="{{ $url }}" title="{{ .Title }}">
+                {{  $title }}
               </a>
             {{ end }}
           </span>
@@ -32,8 +46,14 @@
           {{ if $hasSubmenu }}
             <ul class="{{ $bn }}__sitemap-list" aria-hidden="true" id="{{urlize .Name }}">
               {{ range .Children }}
+                {{ $url := .URL }}
+                {{ range $key, $value := $page.Site.Params.links }}
+                  {{ if eq $key $url }}
+                    {{ $url = $value }}
+                  {{ end }}
+                {{ end }}
                 <li class="{{ $bn }}__sitemap-item">
-                  <a class="{{ $bn }}__sitemap-link" href="{{ .URL }}" title="{{ .Title }}">
+                  <a class="{{ $bn }}__sitemap-link" href="{{ $url }}" title="{{ .Title }}">
                     {{ .Name | default .Title }}
                   </a>
                 </li>
@@ -42,27 +62,8 @@
           {{ end }}
         </li>
       {{ end }}
-      <!-- old website link -->
-      <li class="{{ $bn }}__sitemap-group {{ $bn }}__old-site-link">
-        <span class="{{ $bn }}__sitemap-header">
-          <a class="{{ $bn }}__sitemap-link" href="https://www.dataone.org" title="Archived content from the old version of the DataONE website">
-            Old Website
-            {{ $iconBlock := dict "icon" "external-link" "color" "inherit" "size" "small" "stroke" "thicker"}}
-            {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
-          </a>
-        </span>
-      </li>
-      <!-- Search link -->
-      <li class="{{ $bn }}__sitemap-group  {{ $bn }}__search-link">
-        <span class="{{ $bn }}__sitemap-header">
-          <a class="{{ $bn }}__sitemap-link" href="https://search.dataone.org" title="Search for or browse environmental data on the DataONE network">
-            {{ $iconBlock := dict "icon" "search" "color" "inherit" "size" "small" "stroke" "thicker"}}
-            {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
-            Find Data
-          </a>
-        </span>
-      </li>
     </ul>
+    <!-- TODO: old site/search link were here -->
 
     <!-- ==== Organization Information ==== -->
     <section class="{{ $bn }}__organization">
@@ -77,11 +78,11 @@
     </section>
 
   </div>
-  <!-- ==== Newsletter ==== -->
-  <section class="{{ $bn }}__newsletter">
-    <div class="{{ $bn }}__newsletter-inner">
-      <h5 class="{{ $bn }}__newsletter-title">Subscribe to our newsletter</h5>
-      {{ partial "blocks/join-form/join-form" (dict "Block" (dict "newsletter_only" true) "Page" $page )}}
+  <!-- ==== Mailing list ==== -->
+  <section class="{{ $bn }}__mailing-list">
+    <div class="{{ $bn }}__mailing-list-inner">
+      <h5 class="{{ $bn }}__mailing-list-title">Join our mailing list</h5>
+      {{ partial "blocks/join-form/join-form" (dict "Block" (dict "mailing_list_only" true) "Page" $page )}}
       <!-- <small class="global-footer__fine-print">{{ $.Site.Params.footerText }}</small> -->
     </div>
   </section>

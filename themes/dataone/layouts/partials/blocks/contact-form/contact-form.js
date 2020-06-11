@@ -130,7 +130,6 @@
           }
           
           // If the message is sent successfully
-          console.log(response);
           contactButton.classList.add(buttonSuccessClass);
           contactButtonTextEl.innerHTML = "Message sent!";
           contactButtonIconEl.setAttributeNS('http://www.w3.org/1999/xlink', 'href', successIconXlink);

@@ -116,6 +116,7 @@ menu:
     parent: Network
     pre: users
   footer:
-    weight: 6
+    weight: 2
+    parent: Network
 
 ---

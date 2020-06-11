@@ -4,18 +4,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1202 428" class="{{ $classes }}">
   <defs>
     <radialGradient id="data-wave-bkg-b" cx="125.32%" cy="23.89%" r="125.519%" fx="125.32%" fy="23.89%" gradientTransform="scale(-1 -.75787) rotate(-19.741 -1.592 7.164)">
-      <stop offset="0%" class="{{ $bn }}__stop-color-neutral-5"/>
-      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-7"/>
+      <stop offset="0%" class="{{ $bn }}__stop-color-major-accent-6"/>
+      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-6"/>
     </radialGradient>
     <radialGradient id="data-wave-bkg-c" cx="-35.21%" cy="7.544%" r="122.81%" fx="-35.21%" fy="7.544%" gradientTransform="matrix(.69384 .56699 -.69016 .52355 -.056 .236)">
-      <stop offset="0%" class="{{ $bn }}__stop-color-neutral-5"/>
-      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-7"/>
+      <stop offset="0%" class="{{ $bn }}__stop-color-major-accent-6"/>
+      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-6"/>
     </radialGradient>
     <linearGradient id="data-wave-bkg-a" x1="-6.194%" x2="104.972%" y1="51.217%" y2="51.217%">
-      <stop offset="0%" class="{{ $bn }}__stop-color-neutral-6"/>
-      <stop offset="20.155%" class="{{ $bn }}__stop-color-neutral-7"/>
-      <stop offset="78.367%" class="{{ $bn }}__stop-color-neutral-7"/>
-      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-6"/>
+      <stop offset="0%" class="{{ $bn }}__stop-color-neutral-5"/>
+      <stop offset="20%" class="{{ $bn }}__stop-color-neutral-6"/>
+      <stop offset="78%" class="{{ $bn }}__stop-color-neutral-6"/>
+      <stop offset="100%" class="{{ $bn }}__stop-color-neutral-5"/>
     </linearGradient>
   </defs>
   <g fill="none" fill-rule="nonzero">

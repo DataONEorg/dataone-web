@@ -23,7 +23,7 @@
 {{ with $pre }}
   {{ $iconBlock := dict "icon" . "size" "small" "color" "inherit" }}
   {{ $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
-  {{ $pre = printf "<span class='menu-item__icon'>%s</span>" $iconHTML | safeHTML }}
+  {{ $pre = printf "<span class='%s__icon'>%s</span>" $bn $iconHTML | safeHTML }}
 {{ end }}
 
 <!-- Whether the menu has a sub-menu -->

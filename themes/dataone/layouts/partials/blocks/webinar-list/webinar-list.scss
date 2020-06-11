@@ -20,8 +20,9 @@
   #{$prefix}-c-accent-subtle   : var(--section-c-accent-very-subtle, var(--c-major-accent-very-subtle-on-default, lightblue));
   #{$prefix}-fw-filter-titles  : var(--fw-bold, 500);
   #{$prefix}-c-shadow          : var(--section-c-shadow-2, var(--c-shadow-2-on-default, rgba(1,1,1,0.08)));
-  #{$prefix}-c-shadow-darket   : var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(1,1,1,0.1)));
+  #{$prefix}-c-shadow-darker   : var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(1,1,1,0.1)));
   #{$prefix}-c-icon            : var(--section-fc-body, var(--c-foreground-on-default, black));
+  #{$prefix}-c-ui-elements     : var(--section-c-background-darker-2, var(--c-default-darker-2, grey));
 
   $padding-above-input         : 1.2rem;
   $padding-field-top-and-bottom: .4rem;
@@ -82,7 +83,7 @@
   }
 
   &__filter-label {
-    background-color: var(--c-default-darker-2);
+    background-color: var(#{$prefix}-c-ui-elements);
     box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow);
     border-radius   : var(--br-default, 0.25rem);
     cursor          : pointer;
@@ -101,7 +102,8 @@
   &__input {
     @include form-field-styles;
     // change background reduce box shadow from default vals
-    background-color: var(--c-default-darker-2);
+    background-color: var(#{$prefix}-c-ui-elements);
+
     box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow);
 
     &:focus {

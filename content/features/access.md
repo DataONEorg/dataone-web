@@ -42,7 +42,7 @@ page_sections:
   - template: join-form
     precheck_hostedrepo: true
     precheck_plus: false
-    precheck_newsletter: false
-    newsletter_only: false
+    precheck_mailing_list: false
+    mailing_list_only: false
 
 ---

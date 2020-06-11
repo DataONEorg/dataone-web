@@ -15,24 +15,11 @@
     {{ partial "blocks/header/header--webinars.html" (dict "Block" $headerBlock "Page" $page) }}
   {{ end }}
 
-  <!-- If there are sections in the index page content, generated them -->
+  <!-- If there are sections in the webinar index page content, generate them -->
   {{- range .Params.page_sections -}}
     {{ if .template }}
       {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
     {{ end }}
   {{- end -}}
-
-  <!-- PAST WEBINARS LIST -->
-
-  <!-- Don't list the upcoming webinar shown in the header -->
-  {{ if $upcomingWebinarPage }}
-    {{ $webinarPages = $webinarPages | complement (slice $upcomingWebinarPage) }}
-  {{ end }}
-
-  {{ $webinarPages = ($webinarPages.ByParam "webinar_datetime").Reverse }}
-  {{ $webinarsBlock := dict "template" "webinar-list" "webinars" $webinarPages }}
-
-  {{ $sectionBlock := dict "template" "section" "blocks" (slice $webinarsBlock) "title" "Past webinars" "id" "past-webinars"}}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $) }}
 
 {{- end -}}

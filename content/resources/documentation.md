@@ -23,6 +23,6 @@ menu:
     weight: 4
   footer:
     parent: Community
-    weight: 7
+    weight: 4
 
 ---

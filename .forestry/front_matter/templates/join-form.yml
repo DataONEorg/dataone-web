@@ -10,7 +10,7 @@ fields:
 - type: select
   name: style
   label: Style
-  description: Optional style to add to the newsletter
+  description: Optional style to add to the mailing list
   default: default
   config:
     source:
@@ -18,9 +18,9 @@ fields:
     options:
     - default
     - card
-- name: newsletter_only
+- name: mailing_list_only
   type: boolean
-  label: Simple newsletter sign up
+  label: Simple mailing list sign up
   description: If set to true, create a form for newletter sign up only. In this case,
     justs an email input and sign up button will be shown, and checkboxes will be
     hidden.
@@ -31,7 +31,7 @@ fields:
     checkbox
   default: false
   showOnly:
-    field: newsletter_only
+    field: mailing_list_only
     value: false
 - name: precheck_plus
   type: boolean
@@ -39,13 +39,13 @@ fields:
   description: Set to true to have a checkmark already placed in the "dataONE plus"
     checkbox
   showOnly:
-    field: newsletter_only
+    field: mailing_list_only
     value: false
-- name: precheck_newsletter
+- name: precheck_mailing_list
   type: boolean
-  label: Pre-check Newsletter subscription box
-  description: Set to true to have a checkmark already placed in the newsletter subscription
+  label: Pre-check mailing list subscription box
+  description: Set to true to have a checkmark already placed in the mailing list subscription
     checkbox
   showOnly:
-    field: newsletter_only
+    field: mailing_list_only
     value: false

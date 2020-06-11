@@ -264,12 +264,13 @@ page_sections:
   - template: join-form
     precheck_hostedrepo: true
     precheck_plus: false
-    precheck_newsletter: false
+    precheck_mailing_list: false
 menu:
   primary_nav:
     weight: 3
     parent: Services
     post: A dedicated repository for your data
   footer:
-    weight: 2
+    weight: 3
+    parent: Services
 ---

@@ -19,15 +19,15 @@
 {{ if eq .Block.precheck_plus true }}
   {{ $checkPlus = "checked" }}
 {{ end }}
-{{ if eq .Block.precheck_newsletter true }}
+{{ if eq .Block.precheck_mailing_list true }}
   {{ $checkNL = "checked" }}
 {{ end }}
 <!-- if the block should just be a simple newsletter signup -->
-{{ if .Block.newsletter_only }}
+{{ if .Block.mailing_list_only }}
   {{ $checkHR = "" }}
   {{ $checkPlus = "" }}
   {{ $checkNL = "checked" }}
-  {{ $classes = print $classes " " $bn "--newsletter-only" }}
+  {{ $classes = print $classes " " $bn "--mailing-list-only" }}
 {{ end }}
 
 {{ with .Block.style }}
@@ -65,7 +65,7 @@
               <div class="ml-form-interestGroupsRowCheckbox group" style="">
                 <label>
                   <input type="checkbox" name="groups[]" value="9902726" {{ $checkNL }}>
-                  <div class="label-description">Subscribe to the DataONE Newsletter</div>
+                  <div class="label-description">Subscribe to the community mailing list</div>
                 </label>
               </div>
             </div>

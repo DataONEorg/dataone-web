@@ -55,6 +55,7 @@ menu:
     parent: Network
     pre: server
   footer:
-    weight: 5
+    weight: 1
+    parent: Network
 
 ---

@@ -16,6 +16,5 @@ menu:
     pre: coffee
   footer:
     parent: About
-    weight: 13
-    name: Employment
+    weight: 3
 ---

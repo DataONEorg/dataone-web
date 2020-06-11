@@ -59,9 +59,9 @@
   #{$prefix}-c-sub-menu-bkg-darker: var(--c-default-darker, silver);
 
   #{$prefix}-c-foreground-on-dark : var(--c-foreground-on-always-dark, white);
-  
+
   // transition used for hover of menu items and icons
-  $hover-transition: .1s 0s ease-in-out;
+  $hover-transition               : .1s 0s ease-in-out;
 
   // ==========================================================================
   //    Styles
@@ -116,6 +116,7 @@
   // dropdown menu
   &__top-item {
     @include button-reset;
+    text-align     : center;
     text-decoration: none;
     white-space    : nowrap;
     width          : 100%;
@@ -129,24 +130,24 @@
       display    : flex;
       align-items: center;
     }
-    
+
     &:hover {
       #{$bn}__icon {
-        fill: var(#{$prefix}-fc-top-hover);
-        stroke: var(#{$prefix}-fc-top-hover);
+        fill      : var(#{$prefix}-fc-top-hover);
+        stroke    : var(#{$prefix}-fc-top-hover);
         transition: fill $hover-transition, stroke $hover-transition;
       }
     }
   }
-  
-  &__icon{
-    
+
+  &__icon {
+
     margin-right: 4px;
     fill        : var(#{$prefix}-fc-top);
-    stroke:     var(#{$prefix}-fc-top);
+    stroke      : var(#{$prefix}-fc-top);
     // height      : 15px;
     // width       : 18px;
-    
+
   }
 
   &__sub-menu-arrow {
@@ -318,16 +319,20 @@
       cursor: default;
     }
   }
-  
+
   // Add a little extra padding on right of items that don't have the dropdown icon in that spot
   &--no-dropdown {
     #{$bn}__top-item {
-      margin-right: 0.5rem;
+      padding-right: 2rem;
+      @include desktop {
+        padding-right: unset;
+        margin-right : .8rem !important;
+      }
     }
+
   }
 
   &--dataone-plus-ad {
-
     .pill {
       margin-left: 3px;
     }

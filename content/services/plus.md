@@ -186,7 +186,7 @@ page_sections:
   background: wave
   small_title: Showcase
   title: Built with DataONE Plus
-  intro: See what others are doing with DataONE Plus portals
+  intro: See what others are creating with DataONE Plus portals
   blocks:
   - template: carousel
     slides:
@@ -318,13 +318,16 @@ page_sections:
   - template: join-form
     precheck_hostedrepo: false
     precheck_plus: true
-    precheck_newsletter: false
+    precheck_mailing_list: false
     style: ''
-    newsletter_only: false
+    mailing_list_only: false
 menu:
   primary_nav:
     weight: 2
     parent: Services
     post: Portals, custom search, metrics & more
+  footer:
+    weight: 2
+    parent: Services
 
 ---

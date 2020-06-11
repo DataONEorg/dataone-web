@@ -147,14 +147,14 @@ page_sections:
           overlay_effect: ''
         tags: []
     - title: Hear it first
-      annotation: Subscribe to our newsletter to get the updates directly in your
+      annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
       icon: mail
       content:
       - template: join-form
-        precheck_newsletter: true
+        precheck_mailing_list: true
         style: card
-        newsletter_only: false
+        mailing_list_only: false
         precheck_hostedrepo: false
         precheck_plus: false
     position: ''

@@ -15,7 +15,7 @@ categories:
 - category: Contributing repositories
   description: These organizations contribute to the network in other capacities.
 - category: Upcoming member nodes
-  description: These organizations will be joining our network soon! Join our newsletter for updates.
+  description: These organizations will be joining our network soon! Join our mailing list for updates.
 nodes:
 - name: CyVerse
   logo: "/uploads/member_node_logos/cyverse.png"

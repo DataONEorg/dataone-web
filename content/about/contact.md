@@ -29,6 +29,6 @@ menu:
     weight: 4
   footer:
     parent: About
-    weight: 10
+    weight: 4
 
 ---

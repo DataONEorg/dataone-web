@@ -93,6 +93,7 @@ menu:
     pre: globe
     weight: 1
   footer:
-    weight: 11
+    parent: About
+    weight: 1
 
 ---

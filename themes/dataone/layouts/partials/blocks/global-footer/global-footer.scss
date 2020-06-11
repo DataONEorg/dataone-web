@@ -28,11 +28,11 @@
 
   @include f-common;
 
-  // so that newsletter is stacked above svg bkg
+  // so that mailing-list is stacked above svg bkg
   //(positioned elements will display on top of unpositioned elements)
   position                      : relative;
   margin                        : 0;
-  padding-top                   : 10rem;
+  padding-top                   : 7.5rem;
   margin-top                    : -15rem;
   overflow                      : hidden;
 
@@ -43,29 +43,32 @@
     grid-template-columns: 1fr;
     grid-template-rows   : auto;
     grid-gap             : 0 1rem;
-    grid-template-areas  : "sitemap" "organization" "newsletter";
-    position             : relative; // so that newsletter is stacked above svg bkg
+    grid-template-areas  : "sitemap" "organization" "mailing-list";
+    position             : relative; // so that mailing-list is stacked above svg bkg
     //(positioned elements will display on top of unpositioned elements)
     @include desktop {
       grid-template-columns: .66fr .34fr;
       grid-template-rows   : auto auto;
       grid-gap             : 1rem 2rem;
-      grid-template-areas  : "sitemap organization" "newsletter newsletter";
+      grid-template-areas  : "sitemap organization" "mailing-list mailing-list";
       grid-template-rows   : max-content max-content max-content;
     }
   }
 
   &__sitemap {
-    list-style-type      : none;
+    grid-area            : sitemap;
+    display              : grid;
+    width                : 100%;
+    // 
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    // grid-template-rows  : min-content;
+    /* sizes the first two columns */
+    grid-gap             : 1.8rem 1.8rem;
     margin               : 0;
     padding              : 0;
     padding-inline-start : 0;
     margin-top           : 1.5rem;
-    grid-area            : sitemap;
-    display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    grid-template-rows   : min-content;
-    grid-gap             : 2rem 2rem;
+    list-style-type      : none;
   }
 
   &__sitemap-list {
@@ -80,6 +83,22 @@
 
   &__sitemap-group {
     display: block;
+
+    @include desktop {
+      &--old-website {
+        grid-column: span 2;
+      }
+
+      &--find-data {
+        grid-column: span 2;
+      }
+    }
+
+  }
+
+  &__icon {
+    fill  : var(--section-fc-title, black);
+    stroke: var(--section-fc-title, black);
   }
 
   &__sitemap-header {
@@ -131,14 +150,6 @@
     }
   }
 
-  &__old-site-link {
-    grid-column: span 2;
-  }
-
-  &__search-link {
-    grid-column: span 2;
-  }
-
   &__organization {
     grid-area         : organization;
     display           : grid;
@@ -180,15 +191,15 @@
     margin-bottom : 1rem;
   }
 
-  &__newsletter {
-    grid-area       : newsletter;
+  &__mailing-list {
+    grid-area       : mailing-list;
     background-color: rgba(7,38,51,.4); // Matched to theme gradient background
     width           : 100%;
-    position        : relative; // so that newsletter is stacked above svg bkg
+    position        : relative; // so that mailing-list is stacked above svg bkg
     //(positioned elements will display on top of unpositioned elements)
   }
 
-  &__newsletter-inner {
+  &__mailing-list-inner {
     @include limit-width;
     padding              : 3rem $lr-padding;
     display              : grid;
@@ -198,7 +209,7 @@
     width                : 100%;
   }
 
-  &__newsletter-title {
+  &__mailing-list-title {
     font-size   : var(--fs-large, 1.22rem);
     font-family : Martel;
     color       : var(--section-fc-title, black);

@@ -11,6 +11,6 @@ menu:
     weight: 2
   footer:
     parent: About
-    weight: 12
+    weight: 2
 
 ---

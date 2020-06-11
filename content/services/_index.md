@@ -41,16 +41,18 @@ page_sections:
   - template: join-form
     precheck_hostedrepo: true
     precheck_plus: true
-    precheck_newsletter: false
+    precheck_mailing_list: false
     style: ''
-    newsletter_only: false
+    mailing_list_only: false
 date: 2020-05-08T00:32:17.000+00:00
 menu:
   primary_nav:
     weight: 100
     parent: Services
-    post: ''
-    icon: ''
     name: All services & features
+  footer:
+    weight: 1
+    parent: Services
+    name: Overview of services
 
 ---

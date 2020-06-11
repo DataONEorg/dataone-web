@@ -66,14 +66,28 @@ params:
     twitter: https://twitter.com/DataONEorg
 menu:
   footer:
-  - url: https://dataoneorg.github.io/Education/
-    name: Skillbuilding Hub
-    title: Skillbuilding Hub
-    weight: 8
-  - url: https://www.dataone.org/
-    name: Archived content
-    title: Old DataONE website
-    weight: 14
+    - name: Services
+      weight: 1
+    - name: Network
+      weight: 2
+    - name: Community
+      weight: 3
+    - name: About
+      weight: 4
+    - url: https://dataoneorg.github.io/Education/
+      name: Skillbuilding
+      title: Skillbuilding Hub
+      parent: Community
+      pre: award
+      weight: 3
+    - name: Find Data
+      pre: search
+      url: https://search.dataone.org/data
+      weight: 5
+    - name: Old Website
+      pre: globe
+      url: old_website
+      weight: 6
   secondary_nav:
   - name: Get DataONE Plus
     title: Get DataONE Plus

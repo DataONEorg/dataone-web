@@ -23,7 +23,7 @@
       {{ $otherNewsBlocks = $otherNewsBlocks | append $newsBlock }}
     {{ end }}
   {{ else }}
-    {{ $noNewsBlock := (dict "template" "markdown" "content" "No news to share yet! Sign up for our newsletter to be the first to hear DataONE news." ) }}
+    {{ $noNewsBlock := (dict "template" "markdown" "content" "No news to share yet! Sign up for our mailing list to be the first to hear DataONE news." ) }}
     {{ $subblocks = $subblocks | append $noNewsBlock }}
   {{- end -}}
 

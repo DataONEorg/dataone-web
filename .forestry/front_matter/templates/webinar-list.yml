@@ -1,0 +1,10 @@
+---
+label: "Webinar list"
+hide_body: true
+display_field: title
+fields:
+- type: text
+  name: template
+  label: Template
+  hidden: true
+  default: webinar-list
