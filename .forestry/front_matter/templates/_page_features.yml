@@ -6,6 +6,7 @@ fields:
 - type: list
   name: categories
   label: Feature categories
-  description: The categories used to organize the features, for example, the sections in the features table
+  description: The categories used to organize the features, for example, the sections
+    in the features table
 pages:
 - content/features/_index.md

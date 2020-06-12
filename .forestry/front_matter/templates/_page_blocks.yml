@@ -55,13 +55,59 @@ fields:
     label: Primary navigation Menu
     type: field_group
     fields:
-    - type: include
-      template: menu-options
-      name: menu
-      label: Menu options
-      description: Configure how this page will appear in the navigation bar
+    - name: weight
+      type: number
+      label: Order
+      description: This integer is used to order the item in the menu. If the number
+        is    &gt; 99, it will be displayed in the grey portion at the bottom of the
+        submenu.
+      default: 0
+      required: true
+      config:
+        min: 
+        max: 
+        step: 
+    - name: name
+      type: text
+      config:
+        required: false
+      label: Menu name
+      description: An alternative name to display in the menu. Otherwise defaults
+        to the page title.
+    - name: pre
+      type: include
+      config: {}
+      template: icon-names
+      label: Icon
+      description: An optional icon to display in the menu. For sub-menu items only.
+        For    the service pages, the service icon will replace whatever is selected
+        here.
+    - name: parent
+      type: select
+      default: []
+      config:
+        required: false
+        options:
+        - Services
+        - Network
+        - Community
+        - About
+        source:
+          type: simple
+          section: 
+          file: 
+          path: 
+      label: Parent
+      description: To make this page a sub-menu item, select the parent item under
+        which it should be placed
+    - name: post
+      type: text
+      config:
+        required: false
+      label: Description
+      description: An optional description to show. Displayed for sub-menu items only.
 pages:
 - content/about/contact.md
-- content/resources/training.md
 - content/resources/documentation.md
 - content/resources/tools.md
+- content/resources/training.md

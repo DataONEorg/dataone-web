@@ -44,8 +44,8 @@ fields:
 - name: precheck_mailing_list
   type: boolean
   label: Pre-check mailing list subscription box
-  description: Set to true to have a checkmark already placed in the mailing list subscription
-    checkbox
+  description: Set to true to have a checkmark already placed in the mailing list
+    subscription checkbox
   showOnly:
     field: mailing_list_only
     value: false

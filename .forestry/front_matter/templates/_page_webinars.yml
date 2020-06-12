@@ -21,45 +21,48 @@ fields:
   type: field_group
   config: {}
   fields:
+  - name: image
+    type: field_group
+    config: {}
+    fields:
     - name: image
-      type: field_group
+      type: include
       config: {}
-      fields:
-      - name: image
-        type: include
-        config: {}
-        template: image
-        label: Image
-        description: The image that will be displayed as a background image if there isn't one for the upcoming webinar
-      label: Default background image
-      description: The image that will be displayed as a background image if there isn't one for the upcoming webinar
-    - type: textarea
-      label: Page headline
-      name: title
-      description: The title or headline to display at the top of the page in large text
-      config:
-        wysiwyg: true
-        schema:
-          format: markdown
-    - type: textarea
-      label: Page introduction
-      name: intro
-      description: Brief text that introduces the page
-      config:
-        wysiwyg: true
-        schema:
-          format: markdown
+      template: image
+      label: Image
+      description: The image that will be displayed as a background image if there
+        isn't one for the upcoming webinar
+    label: Default background image
+    description: The image that will be displayed as a background image if there isn't
+      one for the upcoming webinar
+  - type: textarea
+    label: Page headline
+    name: title
+    description: The title or headline to display at the top of the page in large
+      text
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: textarea
+    label: Page introduction
+    name: intro
+    description: Brief text that introduces the page
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - name: pill
+    type: field_group
+    config: {}
+    fields:
     - name: pill
-      type: field_group
+      type: include
       config: {}
-      fields:
-      - name: pill
-        type: include
-        config: {}
-        template: pill
-        label: Pill
-      label: Header Pill
-      description: An optional pill that will appear above the page title
+      template: pill
+      label: Pill
+    label: Header Pill
+    description: An optional pill that will appear above the page title
 - type: field_group_list
   name: page_sections
   label: Page sections
