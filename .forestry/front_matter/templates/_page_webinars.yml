@@ -63,6 +63,7 @@ fields:
       label: Pill
     label: Header Pill
     description: An optional pill that will appear above the page title
+  label: Webinar Header
 - type: field_group_list
   name: page_sections
   label: Page sections
