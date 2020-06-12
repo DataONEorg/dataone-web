@@ -20,7 +20,7 @@ enableRobotsTXT: true
 publishDir: docs
 permalinks:
   about: "/:filename"
-  resources: "/:filename"
+  community: "/:filename"
   network: "/:filename"
   services: "/:filename"
   features: "/:filename"

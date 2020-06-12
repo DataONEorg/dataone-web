@@ -41,6 +41,7 @@ fields:
 - type: field_group
   name: menu
   label: Menu options
+  hidden: true
   description: Configure how this page will appear in the navigation bar
   fields:
   - name: primary_nav

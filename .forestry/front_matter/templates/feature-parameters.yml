@@ -20,7 +20,7 @@ fields:
   description: By default, the feature table will include a link to this page (unless
     the `Make feature page` option is turned off). Set a custom URL here to have the
     feature table lead to another page (e.g. for the training discount feature, we
-    link to the `/resources/traning` page).
+    link to the `/community/traning` page).
 - type: field_group_list
   label: Associated services
   name: linked_services

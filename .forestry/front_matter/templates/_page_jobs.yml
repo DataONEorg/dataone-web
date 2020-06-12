@@ -47,9 +47,10 @@ fields:
   config:
     labelField: title
 - type: field_group
+  hidden: true
   name: menu
   label: Menu options
-  description: Configure how this page will appear in the navigation bar
+  description: Configure how this page will appear in the navigation bar.
   fields:
   - name: primary_nav
     label: Primary navigation Menu

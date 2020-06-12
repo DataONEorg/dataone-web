@@ -19,12 +19,15 @@ fields:
   description: A description of the page. This description will appear in search results.
 - name: header
   type: field_group
-  config: {}
+  label: Webinar Header
   fields:
   - name: image
     type: field_group
     config: {}
     fields:
+    label: Default background image
+    description: The image that will be displayed as a background image if there isn't
+      one for the upcoming webinar
     - name: image
       type: include
       config: {}
@@ -32,9 +35,6 @@ fields:
       label: Image
       description: The image that will be displayed as a background image if there
         isn't one for the upcoming webinar
-    label: Default background image
-    description: The image that will be displayed as a background image if there isn't
-      one for the upcoming webinar
   - type: textarea
     label: Page headline
     name: title
@@ -55,15 +55,14 @@ fields:
   - name: pill
     type: field_group
     config: {}
+    label: Header Pill
+    description: An optional pill that will appear above the page title
     fields:
     - name: pill
       type: include
       config: {}
       template: pill
       label: Pill
-    label: Header Pill
-    description: An optional pill that will appear above the page title
-  label: Webinar Header
 - type: field_group_list
   name: page_sections
   label: Page sections

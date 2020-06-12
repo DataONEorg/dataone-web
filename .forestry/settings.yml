@@ -37,7 +37,7 @@ sections:
   - _page_blocks
   - markdown
 - type: directory
-  path: content/resources
+  path: content/community
   label: Community
   create: all
   match: "*"

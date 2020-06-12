@@ -114,6 +114,7 @@ fields:
 - type: field_group
   name: menu
   label: Menu options
+  hidden: true
   showOnly:
     field: render_page
     value: true
@@ -142,23 +143,6 @@ fields:
         - Network
         - Community
         - About
-    - name: post
-      label: Description
-      description: An optional description to show. Displayed for sub-menu items only.
-      type: text
-    - name: pre
-      type: include
-      label: Icon
-      description: An optional icon to display in the menu. For sub-menu items only.
-        For the service pages, the service icon will replace whatever is selected
-        here.
-      config: {}
-      template: icon-names
-    - name: name
-      label: Menu name
-      description: An alternative name to display in the menu. Otherwise defaults
-        to the page title.
-      type: text
 pages:
 - content/services/free.md
 - content/services/hosted-repo.md
