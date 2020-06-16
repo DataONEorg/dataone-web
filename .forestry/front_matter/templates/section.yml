@@ -21,10 +21,11 @@ fields:
     - default
     - card
     - split
-- type: select
-  label: Background style
-  name: background
-  description: The background color, style, or image to use for the section
+- type: file
+  label: Background image
+  name: background_image
+  description: The image file to use as the full-width background. Select a high quality
+    image.
   default: default
   config:
     source:
@@ -40,10 +41,6 @@ fields:
     - map
     - topography
     - image
-  type: file
-  name: background_image
-  label: Background image
-  description: The image file to use as the full-width background. Select a high quality image.
   showOnly:
     field: background
     value: image
