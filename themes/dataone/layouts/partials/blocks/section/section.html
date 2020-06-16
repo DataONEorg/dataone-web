@@ -22,6 +22,16 @@
     {{ end }}
   {{ end }}
 
+  <!-- For the section style with a background image -->
+  {{ $bkgImg := "" }}
+  {{ with .Block.image }}
+    {{ $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) }}
+    {{ if gt $imageResource.Width 4000 }}
+      {{ $imageResource = $imageResource.Resize "4000x" }}
+    {{ end }}
+    {{ $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  }}
+  {{ end }}
+
   <!-- SVG background for some section types -->
   {{ $svg := "" }}
 
@@ -55,7 +65,7 @@
     {{ end }}
   {{ end }}
 
-  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }}>
+  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }} {{ $bkgImg }}>
     <!-- SVG-BACKGROUND -->
     {{ with $svg }}
       <div class="{{ $bn }}__svg-background">

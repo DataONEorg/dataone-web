@@ -1,0 +1,28 @@
+{{ $page := .Page }}
+{{ $bn := "four-o-four" }}
+{{ $classes := $bn }}
+
+<!-- Variables -->
+
+{{ $title := .Block.title  | default "Page not found" }}
+{{ $intro := .Block.intro  | default "Sorry, the page you were looking for isn't here." }}
+{{ $body  := .Block.body   | default "You could return to our [home page](/), look around the [old website](http://www.dataone.org), or [drop us a line](/contact) if you can't find what you're looking for." }}
+
+<div class="{{ $classes }}">
+
+  <div class="{{ $bn }}__inner">
+    <div class="{{ $bn }}__404-svg">
+      {{ partial "blocks/svg/svg" (dict "Block" (dict "name" "404") "Page" $page) }}
+    </div>
+    <h1 class="{{ $bn }}__title markdown">
+      {{ $title | markdownify }}
+    </h1>
+    <h2 class="{{ $bn }}__intro markdown">
+      {{ $intro | markdownify }}
+    </h2>
+    <p class="{{ $bn }}__body markdown">
+      {{ $body | markdownify }}
+    </p>
+  </div>
+
+</div>

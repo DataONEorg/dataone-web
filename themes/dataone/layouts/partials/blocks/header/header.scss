@@ -63,7 +63,7 @@
   padding                        : 4rem 0 5rem;
   color                          : var(#{$prefix}-c-foreground-default);
   @include desktop {
-    margin-top : $nav-height;
+    margin-top : $nav-height - 0.05rem;
     padding-top: 5rem;
   }
 

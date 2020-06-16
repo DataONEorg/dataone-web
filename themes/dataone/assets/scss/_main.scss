@@ -32,6 +32,9 @@ $default-border-radius: .25rem;
 $content-width: 1040px; // max width of desktop content
 $nav-height: 7rem; // navigation bar height on desktop
 $lr-padding: .8rem; // padding on the left and right for full-width elements
+$z-max                 : 100; // The maximum z-index of any element
+$footer-section-overlap: 20rem;
+$header-section-overlap: 3rem;
 
 @import "colors.scss"; // Sass colour definitions
 @import "fonts.scss"; // Import font families

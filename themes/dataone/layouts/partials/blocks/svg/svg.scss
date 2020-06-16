@@ -104,4 +104,8 @@
       fill: var(--theme-c, var(--c-minor-accent-5, #EED268));
     }
   }
+  
+  &--404{
+    fill: inherit;
+  }
 }

@@ -31,7 +31,7 @@ abstract: "The Permafrost Discovery Gateway is a new NSF Navigating the New Arct
   our website ([permafrost.arcticdata.io](permafrost.arcticdata.io)) to learn more
   and to join our mailing list for future updates and opportunities to contribute."
 speakers:
-- people/Anna-Liljedahl.md
+- people/anna-liljedahl.md
 slug: permafrost-discovery-gateway-geospatial-data-and-community-needs
 image: "/uploads/francesca-hotchin-FN-cedy6NHA-unsplash.jpg"
 

@@ -1,0 +1,73 @@
+.four-o-four {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix            : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // Color for text, icons, etc.
+  #{$prefix}-c-svg   : var(--section-fc-body, var(--c-neutral-1, white));
+  #{$prefix}-fs-title: var(--fs-largest);
+  #{$prefix}-fs-intro: var(--fs-xx-large);
+  #{$prefix}-fs-body : var(--fs-large);
+  #{$prefix}-fw-title: var(--fw-xx-bold);
+  #{$prefix}-fw-intro: var(--fw-bold);
+  #{$prefix}-fw-body : var(--fw-bold);
+  #{$prefix}-ff-title: var(--section-ff-title, var(--ff-title, "serif"));
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  display            : flex;
+  flex-direction     : column;
+  text-align         : center;
+  justify-content    : center;
+  padding            : 1rem 0 0;
+
+  &__404-svg {
+    fill          : var(#{$prefix}-c-svg);
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+
+    svg {
+      max-width: 22rem;
+      filter: drop-shadow(0 0 2em var(--c-shadow-3-on-major-accent)) drop-shadow(0 0 5em var(--c-shadow-3-on-major-accent));
+    }
+
+  }
+
+  &__title {
+    font-size  : var(#{$prefix}-fs-title);
+    font-weight: var(#{$prefix}-fw-title);
+    font-family: var(#{$prefix}-ff-title);
+    text-align : center;
+    margin     : .3rem 0 2rem;
+  }
+
+  &__intro {
+    font-size  : var(#{$prefix}-fs-intro);
+    font-weight: var(#{$prefix}-fw-intro);
+    margin     : .2rem 0;
+  }
+
+  &__body {
+    font-size  : var(#{$prefix}-fs-body);
+    font-weight: var(#{$prefix}-fw-body);
+    margin     : .5rem auto 0;
+    max-width  : 37rem;
+  }
+
+}

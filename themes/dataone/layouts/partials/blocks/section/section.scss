@@ -196,6 +196,32 @@
       }
     }
   }
+  
+  //
+  // Background Image: A custom full-width & full-height background image
+  // ==========================================================================
+
+  &--bkg-image {
+    @include --dark-bkg;
+    --fc-link                       : var(--c-minor-accent-5);
+    text-shadow: 0 0 3.5em var(--c-shadow-5-on-major-accent),0 0 .18em var(--c-shadow-5-on-major-accent);
+    &::before {
+      content            : '';
+      background         : var(--background-image),
+                            linear-gradient(var(--c-major-accent-4), var(--c-shadow-5-on-major-accent)),
+                            var(--c-shadow-4-on-major-accent);
+      background-blend-mode: soft-light, darken;
+      background-size    : cover;
+      background-position: 0;
+      position           : absolute;
+      top                : 0;
+      left               : 0;
+      height             : 100%;
+      width              : 100%;
+      z-index            : -1;
+      overflow           : hidden;
+    }
+  }
 
   //
   // Data wave: A dark background gradient with subtle wave and various shapes

@@ -34,7 +34,7 @@
   background-color                : var(#{$prefix}-c-background);
 
   @include desktop {
-    margin-top: $nav-height;
+    margin-top: $nav-height -0.05rem;
   }
 
   &__inner {

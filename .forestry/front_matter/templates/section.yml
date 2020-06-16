@@ -39,6 +39,14 @@ fields:
     - wave
     - map
     - topography
+    - image
+  type: file
+  name: background_image
+  label: Background image
+  description: The image file to use as the full-width background. Select a high quality image.
+  showOnly:
+    field: background
+    value: image
 - type: select
   label: Background style for second half of section
   name: background2

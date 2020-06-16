@@ -16,11 +16,6 @@
 
   // Z-index positioning of page elements
   // (global header -> header -> sections -> global footer)
-  // 
-  $z-max                 : 100; // The maximum z-index of any element
-
-  $footer-section-overlap: 20rem;
-  $header-section-overlap: 3rem;
 
   .global-header {
     z-index: $z-max;
@@ -29,9 +24,10 @@
   .header {
     z-index: $z-max - 1;
   }
+  
+  
 
   .section {
-
     // The first section needs extra padding at top for the header.
     &:first-of-type {
       .section__inner {

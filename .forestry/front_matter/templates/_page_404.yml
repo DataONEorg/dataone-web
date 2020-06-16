@@ -1,0 +1,63 @@
+---
+label: "\U0001F4C4 404 Page"
+hide_body: true
+display_field: title
+fields:
+- type: textarea
+  label: Title
+  name: title
+  description: The biggest heading on the 404 page.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
+  label: Introduction
+  name: intro
+  description: Large font just below the heading.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
+  label: Body paragraph
+  name: body
+  description: A brief paragraph with suggested actions about what the user can do to find the page they are looking for.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: file
+  name: background_image
+  label: Background image
+  description: The image file to use as the background. Select a high quality image.
+- type: blocks
+  name: blocks
+  description: Optionally include extra content blocks
+  label: Sub-section blocks
+  template_types:
+  - markdown
+  - feature-detailed
+  - image
+  - card
+  - job-summary
+  - news-summary
+  - webinar-summary
+  - join-form
+  - columns
+  - checklist
+  - timeline
+  - metrics
+  - people
+  - item-with-icon
+  - card
+  - accordion
+  - carousel
+  - tabs
+  - contact-info
+  - contact-form
+  - demo
+  - steps
+  - faq
+pages:
+- 404.md
