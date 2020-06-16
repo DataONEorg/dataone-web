@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
   {{- partial "head.html" . -}}
-  {{ if not (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) }}
+
+  <!-- Decision rules for whether to render the page -->
+  {{ $renderPage := true }}
+  <!-- If the page has a render_page parameter set to false, do not render -->
+  <!-- EG. some feature pages serve as "headless bundles". We use data in -->
+  <!-- the page for the feature table, but we don't want to make a page for it. -->
+  {{ if (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) }}
+    {{ $renderPage = false }}
+    <!-- For people pages, only make a page for people with a value set in the -->
+    <!-- d1_team parameter -->
+  {{ else if and (eq $.Type "people") (eq $.Kind "page") (not (partial "functions/isD1member" $)) }}
+    {{ $renderPage = false }}
+  {{ end }}
+
+  {{ if $renderPage }}
     <body class="page">
 
       <!-- Fade page in once loaded to avoid flash of unstyled content -->

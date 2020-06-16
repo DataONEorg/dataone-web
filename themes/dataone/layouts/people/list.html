@@ -1,0 +1,30 @@
+{{- define "main" -}}
+  {{ $page := $ }}
+  {{ $site := $page.Site }}
+
+  {{ $headline := .Params.headline | default "Meet our team" }}
+  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default") "Page" $)}}
+
+  {{- range .Params.page_sections -}}
+    {{ $template := .template | default "section" }}
+    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $page $) }}
+  {{- end -}}
+
+  {{ $subblocks := slice }}
+  {{ $latestNewsBlock := dict }}
+  {{ $otherNewsBlocks := slice }}
+
+  <section class="section" style="height:2000px; min-height:2000px; padding-left:200px;">
+
+    {{- range $index, $personPage := .Pages -}}
+      {{ if partial "functions/isD1member" $personPage }}
+        <h5>
+          {{ $personPage.RelPermalink }}
+          <a href="{{ $personPage.RelPermalink }}">{{ $personPage.Params.fullname }}</a>
+        </h5>
+
+      {{ end }}
+    {{- end -}}
+  </section>
+
+{{- end -}}

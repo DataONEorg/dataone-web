@@ -11,9 +11,19 @@
 {{ $personListString := ""}}
 
 {{ $page := .Page }}
+{{ $site := $page.Site }}
 <!-- fill in the person variables by ranging through the person resource pages -->
 {{ range .People }}
-  {{ $person := ($page.Site.GetPage "/people").Resources.GetMatch (strings.TrimPrefix "people/" . ) }}
+
+  {{ $inputFileName := strings.TrimPrefix "/" . }}
+  {{ $person := "" }}
+  {{ $allPeoplePages := where $site.Pages "Type" "people" }}
+  {{range $allPeoplePages }}
+    {{ if eq $inputFileName .File.Path }}
+      {{ $person = . }}
+    {{ end }}
+  {{ end }}
+
   {{ if $person }}
     {{ $people = $people | append $person.Params }}
     {{ $personNames = $personNames | append $person.Params.fullname }}

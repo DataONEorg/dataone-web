@@ -1,0 +1,13 @@
+{{- define "main" -}}
+  {{ $page := $ }}
+  {{ $person := .Params }}
+
+  <!-- Breadcrumb nav -->
+  {{ $breadcrumbsBlock := dict "back_text" "See entire team" "back_link" $page.Parent.RelPermalink }}
+  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+
+  <!-- Header -->
+  {{ $headerBlock := dict "type" "text only" "modifiers" (slice "has-breadcrumb") "background_color" "default" "title" $person.full_name "intro" $person.short_bio }}
+  {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
+
+{{- end -}}

@@ -25,7 +25,7 @@ permalinks:
   services: "/:filename"
   features: "/:filename"
   news: "/:section/:filename"
-  people: "/:section/:title"
+  people: "/:section/:filename"
   webinars: "/webinars/:slug"
 params:
   description: DataONE's products and services.
