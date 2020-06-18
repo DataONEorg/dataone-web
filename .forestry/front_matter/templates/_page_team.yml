@@ -4,11 +4,11 @@ hide_body: true
 display_field: title
 fields:
 - type: list
-  name: categories
+  name: d1_teams
   label: DataONE team names
   description: The categories used to organize the people on the summary page.
 - type: include
-  template: _page_blocks.yml
+  template: _page_blocks
   name: include_blocks_temp
   label: Blocks page layout
   description: Use the blocks template to layout this page
