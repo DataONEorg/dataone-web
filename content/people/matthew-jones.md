@@ -1,9 +1,9 @@
 ---
 avatar: "/uploads/Matt-Jones.png"
 fullname: Matthew Jones
-firstname: Matthew
+firstname: Matt
 organization: NCEAS
-d1_team: Leadership
+d1_team: Leadership team
 shortbio: Matt directs the Informatics program at NCEAS, which focuses on both supporting
   efficient synthesis through scientific computing and on building new advanced infrastructure
   to support data sharing, preservation, analysis, and modeling. Matt is the Director

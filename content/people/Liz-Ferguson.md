@@ -4,7 +4,7 @@ fullname: "Liz Ferguson"
 firstname: "Liz"
 role: Vice President, Editorial Development
 organization: Wiley
-d1_team: Advisory Board
+d1_team: Advisory board
 shortbio: As Vice President, Editorial Development, Liz is responsible for growing
   and supporting the development of Wiley’s global journal programs, both subscription
   and open access. She also has a strong focus on data sharing policies and workflows

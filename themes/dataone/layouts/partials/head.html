@@ -1,5 +1,13 @@
 <head>
 
+  {{ $pageTitle := .Title }}
+  {{ if not $pageTitle }}
+    {{ $pageTitle = .Params.header.title }}
+  {{ end }}
+  {{ if not $pageTitle }}
+    {{ $pageTitle = .Params.fullname }}
+  {{ end }}
+
   {{ if or (eq $.Params.render_page false) (eq $.Params.render_page "false") (and (eq $.Type "people") (eq $.Kind "page") (not (partial "functions/isD1member" $))) }}
     <meta name="robots" content="noindex">
     <meta http-equiv="refresh" content="0; url=/"/>
@@ -20,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
     <title>
-      {{ .Title }}
+      {{ $pageTitle }}
       | DataONE
     </title>
     {{- partial "favicon.html" . -}}

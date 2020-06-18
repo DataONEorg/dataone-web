@@ -30,26 +30,30 @@ fields:
   description: Set to true to automatically select all the people whose organization
     is set to DataONE
   default: false
-- type: field_group_list
-  name: people
-  label: People
+- type: select
+  name: grouping
+  label: Grouping option
+  description: Optionally group DataONE people by their team
+  showOnly:
+    field: team_members
+    value: true
+  default: none
+  config:
+    source:
+      type: simple
+    options:
+    - none
+    - filters
+    - "team-headers"
+- type: list
   showOnly:
     field: team_members
     value: false
-  fields:
-  - name: person
-    type: select
-    default: []
-    config:
-      required: false
-      options: []
-      source:
-        type: pages
-        section: people
-        file: 
-        path: 
-    label: Person
-    description: Person to show in the block
-  description: The people to display in this block
   config:
-    labelField: name
+    use_select: true
+    source:
+      type: pages
+      section: people
+  label: People
+  description: The people to display in this block. To add to the list of people, first add the person to the
+    [People](#/pages/content-people-)

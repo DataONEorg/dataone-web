@@ -6,7 +6,7 @@
 
 <!-- Boolean - if true, will find the upcoming webinar to summarize -->
 {{ $autoSelect := .Block.auto_select | default false }}
-<!-- If auto select is false, the relative path to the webinar page file (md) -->
+<!-- If auto select is false, the path to the webinar page file (e.g. webinars/webinar-title.md) -->
 {{ $webinarFile := .Block.webinar | default ""  }}
 <!-- Optional layout/style. Options: "default" or "detailed". -->
 <!-- Detailed = show more details for the webinar, e.g. in the Webinar Index header -->

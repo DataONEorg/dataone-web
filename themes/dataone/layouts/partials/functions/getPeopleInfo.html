@@ -1,4 +1,8 @@
-<!-- All the person information -->
+{{ $page := .Page }}
+{{ $site := $page.Site }}
+{{ $peopleIn := .People }}
+
+<!-- All the person parameters -->
 {{ $people := slice }}
 
 <!-- Speaker full names in an array (for calendar) -->
@@ -10,33 +14,26 @@
 <!-- Speaker full names in a comma delimited string -->
 {{ $personListString := ""}}
 
-{{ $page := .Page }}
-{{ $site := $page.Site }}
+<!-- All the people pages -->
+{{ $peoplePages := slice }}
+
 <!-- fill in the person variables by ranging through the person resource pages -->
-{{ range .People }}
+{{ range $peopleIn }}
 
-  {{ $inputFileName := strings.TrimPrefix "/" . }}
-  {{ $person := "" }}
-  {{ $allPeoplePages := where $site.Pages "Type" "people" }}
-  {{range $allPeoplePages }}
-    {{ if eq $inputFileName .File.Path }}
-      {{ $person = . }}
-    {{ end }}
-  {{ end }}
+  {{ $personPage := $page.Site.GetPage . }}
 
-  {{ if $person }}
-    {{ $people = $people | append $person.Params }}
-    {{ $personNames = $personNames | append $person.Params.fullname }}
-    <!-- prefer full bio for calendar description -->
+  {{ if $personPage }}
+    {{ $peoplePages = $peoplePages | append $personPage }}
+    {{ $personParams := $personPage.Params }}
+    {{ $people = $people | append $personParams }}
+    <!-- names -->
+    {{ $personNames = $personNames | append $personPage.Params.fullname }}
+    <!-- Biography with "Full name:" appended to start of string -->
+    <!-- Originally used for calendar descriptions of events. -->
     {{ $bio := "" }}
-    {{ with $person.Params.shortbio }}
-      {{$bio = . }}
-    {{ end }}
-    {{ with $person.Params.longbio }}
-      {{$bio = . }}
-    {{ end }}
+    {{ $bio = $personPage.Params.shortbio | default $personPage.Params.longbio }}
     {{ with $bio }}
-      {{ $personBiosString = print "\n\n" $personBiosString $person.Params.fullname ": " "\n\n" . "\n\n" }}
+      {{ $personBiosString = print "\n\n" $personBiosString $personPage.Params.fullname ": " "\n\n" . "\n\n" }}
     {{ end }}
   {{ else }}
     <!-- If we couldn't find a resource match for a person, give a warning -->
@@ -48,4 +45,4 @@
     {{ $personListString = delimit . ", " " & " }}
   {{ end }}
 {{ end }}
-{{ return (dict "params" $people "names" $personNames "bios_string" $personBiosString "names_string" $personListString )}}
+{{ return (dict "params" $people "pages" $peoplePages "names" $personNames "bios_string" $personBiosString "names_string" $personListString )}}

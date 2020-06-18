@@ -1,12 +1,4 @@
 .people {
-  @include f-common;
-  display              : grid;
-  justify-content      : center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap             : 1em;
-}
-
-.person {
 
   // ==========================================================================
   //    Variables
@@ -14,9 +6,9 @@
 
   // Allow the block's base class to be used at all scopes within the block.
   // (bn = block name), use as: #{$bn}. 
-  $bn            : &;
+  $bn                        : &;
   // Use the block's base class as a variable prefix (remove class selector . )
-  $prefix        : "--" + str-replace(#{$bn}, ".");
+  $prefix                    : "--" + str-replace(#{$bn}, ".");
 
   // Variables specific to this block, based on varibles set at higher scope
   // (e.g. .section), such that blocks can be themed from a higher level.
@@ -24,27 +16,72 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-accent        : var(--section-c-accent, var(--c-major-accent-on-default, blue));
+  #{$prefix}-c-accent-subtle : var(--section-c-accent-very-subtle, var(--c-major-accent-very-subtle-on-default, lightblue));
+  #{$prefix}-fw-filter-titles: var(--fw-bold, 500);
+  #{$prefix}-c-shadow        : var(--section-c-shadow-2, var(--c-shadow-2-on-default, rgba(1,1,1,0.08)));
+  #{$prefix}-c-shadow-darker : var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(1,1,1,0.1)));
+  #{$prefix}-c-ui-elements   : var(--section-c-background-darker-2, var(--c-default-darker-2, grey));
+
+  // Not used:
+  // #{$prefix}-c-icon          : var(--section-fc-body, var(--c-foreground-on-default, black));
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
 
   @include f-common;
-  margin-top     : 50px;
-  @include card;
-  @include f-common;
-  padding-bottom : 1.5rem;
-  display        : flex;
-  flex-direction : column;
-  justify-content: start;
-  height         : min-content;
 
-  &:hover {
-    #{$bn}__avatar {
-      -webkit-filter: none;
-      /* Safari 6.0 - 9.0 */
-      filter: none;
+  &__group-header {
+    text-align : center;
+    width      : 100%;
+    font-weight: var(--fw-normal);
+    color      : var(--section-fc-title);
+    margin     : 1.5rem 0;
+    padding-top: 1.5rem;
+    border-top : 1px solid var(--section-c-shadow-2);
+    font-size  : var(--fs-x-large);
+  }
+
+  &__group {
+    display              : grid;
+    justify-content      : center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap             : 1em;
+  }
+
+  &__person {
+    @include f-common;
+    margin-top     : 50px;
+    @include card;
+    @include f-common;
+    padding-bottom : 1.5rem;
+    display        : flex;
+    flex-direction : column;
+    justify-content: start;
+    height         : min-content;
+
+    &:hover {
+      #{$bn}__avatar {
+        filter: none;
+      }
+    }
+  }
+
+  // When there is a link (e.g. 'simple' type will link to d1 member page if
+  // there is one)
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      #{$bn}__avatar {
+        transform : translateY(-1px);
+        box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6), 0 5px 26px 0 rgba(0, 0, 0, 0.15), 0 9px 11px -5px rgba(0, 0, 0, 0.25);
+      }
+
+      #{$bn}__fullname {
+        font-weight: var(--fw-bolder);
+      }
     }
   }
 
@@ -60,9 +97,8 @@
     border-radius: 50%;
     object-fit   : cover;
     display      : block;
-    -webkit-filter: grayscale(70%);
-    /* Safari 6.0 - 9.0 */
-    filter: grayscale(70%);
+    filter : grayscale(65%);
+    transition   : .15s filter linear, .15s box-shadow linear, .15s transform linear;
   }
 
   &__fullname {
@@ -121,143 +157,248 @@
       filter: brightness(1.03);
     }
   }
-}
 
-.people--long-bio {
-  // grid-template-columns: 1fr;
-  display: block;
+  &__button {
+    display   : block;
+    text-align: center;
+    margin    : 1rem auto 0;
+  }
 
-  .person {
-    display       : grid;
-    display       : flex;
-    flex-direction: column;
-    @include desktop {
-      margin : 0 5rem 3rem;
-      padding: 3rem;
+  //
+  // ------ Filters ------
+  //
+
+  &__filters {
+    margin-bottom: 1rem;
+  }
+
+  &__filter {
+    // reset fieldset styles
+    margin              : 0;
+    padding-block-start : 0;
+    padding-inline-end  : 0;
+    padding-block-end   : 0;
+    margin-inline-end   : 0;
+    min-inline-size     : 0;
+    padding-inline-start: 0;
+    border              : none;
+    // set styles
+    padding             : .5rem;
+    margin-top          : 1.5rem;
+  }
+
+  &__filter-legend {
+    display    : block;
+    font-weight: var(#{$prefix}-fw-filter-titles);
+    font-size  : var(--fs-small);
+    margin     : 0 0 .3rem;
+  }
+
+  // contains label and checkbox
+  &__filter-chip {
+    position  : relative;
+    display   : inline-block;
+    margin    : 0 .5rem .5rem 0;
+    transition: all .1s linear;
+  }
+
+  // hide the checkbox and use the label as the UI
+  &__filter-checkbox {
+    position: absolute;
+    opacity : 0;
+  }
+
+  &__filter-label {
+    background-color: var(#{$prefix}-c-ui-elements);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow);
+    border-radius   : var(--br-default, 0.25rem);
+    cursor          : pointer;
+    padding         : .17rem .38rem;
+    width           : min-content;
+    display         : block;
+    position        : relative;
+    white-space     : nowrap;
+  }
+
+  &__filter-checkbox:checked + #{$bn}__filter-label {
+    background-color: var(#{$prefix}-c-accent-subtle);
+    color           : var(#{$prefix}-c-accent);
+    box-shadow      : 0 .03rem .5rem -0.2rem var(#{$prefix}-c-shadow-darker);
+  }
+
+  // The class added to the checkbox and text input when a filter is applied.
+  // The checkbox is hidden so this is only used to indicate an active search
+  // term filter (for the seach input text box)
+  &__filter--active {
+    background-color: var(#{$prefix}-c-accent-subtle) !important;
+    color           : var(#{$prefix}-c-accent) !important;
+  }
+
+  &__filter--matching {
+    box-shadow     : 0 .03rem .5rem -0.1rem var(#{$prefix}-c-shadow-darker);
+    transform      : translateY(-1px);
+    font-weight    : var(--fw-bold);
+    text-decoration: underline;
+  }
+
+  //
+  // Long bio - for blocks showing the long biography
+  // ==========================================================================
+
+  &--long-bio {
+    #{$bn}__group {
+      display: block;
+    }
+
+    #{$bn}__person {
+      display       : flex;
+      flex-direction: column;
+      @include desktop {
+        margin : 0 5rem 3rem;
+        padding: 3rem;
+      }
+    }
+
+    #{$bn}__person:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    #{$bn}__heading {
+      display              : grid;
+      grid-template-columns: 130px 1fr;
+      grid-template-rows   : auto;
+    }
+
+    #{$bn}__avatar {
+      margin    : auto .3rem;
+      box-shadow: none;
+    }
+
+    #{$bn}__info {
+      display        : flex;
+      flex-direction : column;
+      justify-content: center;
+    }
+
+    #{$bn}__contact {}
+
+    #{$bn}__bio {
+      margin     : 1.5rem 0;
+      font-size  : var(--fs-medium, 1.1rem);
+      line-height: 1.5;
+      font-weight: var(--fw-normal, 400);
+      color      : var(--section-fc-title);
+    }
+
+    #{$bn}__fullname {
+      margin: .5rem 0 0;
+    }
+
+    #{$bn}__fullname,
+    #{$bn}__organization,
+    #{$bn}__title {
+      text-align: left;
+    }
+
+    #{$bn}__email {
+      font-size: var(--fs-small, 1rem);
     }
   }
 
-  .person:not(:last-child) {
-    margin-bottom: 1.5rem;
+  //
+  // Accordion: For the people blocks with expandable regions for the bio
+  // ==========================================================================
+
+  &--accordion {
+
+    @extend #{$bn}--long-bio;
+
+    #{$bn}__person {
+      margin : 0;
+      padding: 0;
+    }
+
+    #{$bn}__bio {
+      font-size  : var(--fs-small, 1rem);
+      line-height: 1.4;
+    }
+
+    #{$bn}__title {
+      font-size: var(--fs-smallest, .8rem);
+    }
+
+    #{$bn}__organization {
+      font-size: var(--fs-small, 1rem);
+    }
   }
 
-  .person__heading {
-    display              : grid;
-    grid-template-columns: 130px 1fr;
-    grid-template-rows   : auto;
-  }
+  //
+  // Simple: Shows only the image and full name
+  // ==========================================================================
 
-  .person__avatar {
-    margin    : auto .3rem;
-    box-shadow: none;
-  }
+  &--simple {
+    // variables specific to this modifier
+    $grid-gap      : 10px;
+    $person-width  : 83px;
+    // keep gap from getting too large
+    $max-grid-width: ($person-width + $grid-gap) * 1.1;
+    // allow a tiny bit of overlap
+    $min-grid-width: $person-width - $grid-gap - 5px;
 
-  .person__info {
-    display        : flex;
-    flex-direction : column;
-    justify-content: center;
-  }
+    #{$bn}__group {
+      margin               : 0;
+      padding              : 0;
+      display              : grid;
+      grid-template-columns: repeat(auto-fit, minmax($min-grid-width, $max-grid-width));
+      grid-gap             : $grid-gap $grid-gap;
+      justify-items        : center;
+      // justify-content      : left;
+    }
 
-  .person__contact {
-    grid-area: contact;
-  }
+    #{$bn}__link {
+      &:hover {
+        #{$bn}__avatar {
+          box-shadow: 0 3px 8px -4px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.13), 0 3px 4px -3px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
 
-  .person__bio {
-    margin     : 1.5rem 0;
-    grid-area  : bio;
-    font-size  : var(--fs-medium, 1.1rem);
-    line-height: 1.5;
-    font-weight: var(--fw-normal, 400);
-    color      : var(--section-fc-title);
-  }
+    #{$bn}__person {
+      margin        : 0;
+      padding       : 0;
+      background    : transparent;
+      box-shadow    : none;
+      display       : flex;
+      flex-direction: column;
+      align-items   : center;
+      max-width     : $person-width;
+    }
 
-  .person__fullname {
-    margin: .5rem 0 0;
-  }
+    #{$bn}__avatar {
+      box-shadow: none;
+      min-width : $person-width;
+      width     : $person-width;
+      min-height: $person-width;
+      height    : $person-width;
+      margin    : 0;
+    }
 
-  .person__fullname,
-  .person__organization,
-  .person__title {
-    text-align: left;
-  }
+    #{$bn}__info {
+      border-radius: 1rem;
+      margin-top   : .4rem;
+      width        : fit-content;
+      height       : 100%;
+      display      : flex;
+      align-items  : center;
 
-  .person__email {
-    font-size: var(--fs-small, 1rem);
-  }
-}
+    }
 
-.people--simple {
-  $grid-gap            : 10px;
-  $person-width        : 83px;
-  // keep gap from getting too large
-  $max-grid-width      : ($person-width + $grid-gap) * 1.4;
-  // allow a tiny bit of overlap
-  $min-grid-width      : $person-width - $grid-gap - 5px;
-
-  margin               : 0;
-  padding              : 0;
-  display              : grid;
-  grid-template-columns: repeat(auto-fit, minmax($min-grid-width, $max-grid-width));
-  grid-gap             : $grid-gap $grid-gap;
-  justify-items        : center;
-
-  .person {
-    margin        : 0;
-    padding       : 0;
-    background    : transparent;
-    box-shadow    : none;
-    display       : flex;
-    flex-direction: column;
-    align-items   : center;
-    max-width     : $person-width;
-  }
-
-  .person__avatar {
-    box-shadow: none;
-    min-width : $person-width;
-    width     : $person-width;
-    min-height: $person-width;
-    height    : $person-width;
-    margin    : 0;
-  }
-
-  .person__info {
-    border-radius: 1rem;
-    margin-top   : .4rem;
-    width        : fit-content;
-    height       : 100%;
-    display      : flex;
-    align-items  : center;
-
-  }
-
-  .person__fullname {
-    margin     : 0;
-    line-height: 1.1;
-    padding    : 0;
-    font-weight: var(--fw-bold, 500);
-    font-size  : var(--fs-x-small, .85rem);
-  }
-}
-
-.people--accordion {
-  @extend .people--long-bio;
-
-  .person {
-    margin : 0;
-    padding: 0;
-  }
-
-  .person__bio {
-    font-size  : var(--fs-small, 1rem);
-    line-height: 1.4;
-  }
-
-  .person__title {
-    font-size: var(--fs-smallest, .8rem);
-  }
-
-  .person__organization {
-    font-size: var(--fs-small, 1rem);
+    #{$bn}__fullname {
+      margin     : 0;
+      line-height: 1.1;
+      padding    : 0;
+      font-weight: var(--fw-bold, 500);
+      font-size  : var(--fs-x-small, .85rem);
+    }
   }
 }

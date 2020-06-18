@@ -9,6 +9,11 @@
 {{ $nextIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-right")) "Page" $page) }}
 {{ $prevIcon := partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "arrow-left")) "Page" $page) }}
 
+<!-- Optional style class to add to the carousel -->
+{{ with .Block.style }}
+  {{ $classes = printf "%s %s--%s" $classes $bn . }}
+{{ end }}
+
 <!-- The position of the control buttons / logos -->
 {{ $positionControls := .Block.position_controls | default "top" }}
 

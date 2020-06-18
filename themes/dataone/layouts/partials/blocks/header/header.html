@@ -47,7 +47,7 @@
     {{ $classes = printf "%s %s--overlay-%s" $classes $bn ( $overlay | urlize) }}
   {{ end }}
 
-  <!-- Extra modifiers, e.g. has-breadcrumb -->
+  <!-- Extra modifiers -->
   {{ with $extraModifiers }}
     {{ range . }}
       {{ $classes = printf "%s %s--%s" $classes $bn . }}

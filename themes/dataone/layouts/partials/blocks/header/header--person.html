@@ -1,0 +1,88 @@
+<!-- in order to pass on page parameters from within loops -->
+{{ $page := .Page }}
+<!-- bn = block name -->
+{{ $bn := "header" }}
+<!-- classes to add to the outer element -->
+{{ $classes := $bn }}
+
+<!-- All block options -->
+{{ $image := .Block.image | default $page.Params.avatar }}
+{{ $headline := .Block.title | default $page.Params.fullname }}
+{{ $email := .Block.email | default $page.Params.email }}
+{{ $role := .Block.role | default $page.Params.role }}
+{{ $organization := .Block.role | default $page.Params.organization }}
+{{ $mainTitle := .Block.title | default (printf "%s  •  %s" $page.Parent.Title $page.Params.d1_team) }}
+{{ $type := "wave with dataone gradient" }}
+{{ $svgBkg := "brand-gradient-header" }}
+
+<!-- Add type as a class -->
+{{ with $type }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<!-- Make an email button -->
+{{ $button := dict }}
+{{ with $email }}
+  {{ $button = dict "template" "button" "type" "email" "color" "quaternary" "text" (printf "email %s" $page.Params.firstname) "external_link" (printf "mailto:%s" $email) "icon" "mail" }}
+{{ end }}
+
+<!-- Use classes from text-only -->
+{{ with "text-only" }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<!-- Add services as a class -->
+{{ with "person" }}
+  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
+{{ end }}
+
+<header class="{{ $classes }} bkg--half-light-half-transparent">
+
+  <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
+  {{ with $svgBkg }}
+    <div class="{{ $bn }}__svg-background">
+      {{- partial "blocks/svg/svg" (dict "Block" (dict "name" .) "Page" $page) -}}
+    </div>
+  {{ end }}
+
+  <div class="{{ $bn }}__content">
+
+    <div class="{{ $bn }}__text">
+
+      <div class="{{ $bn }}__title-and-pill">
+
+        {{- with $mainTitle -}}
+          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
+        {{- end -}}
+
+      </div>
+
+      {{ with $image }}
+        <div class="{{ $bn }}__figure">
+          {{- partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page ) -}}
+        </div>
+      {{ end }}
+
+      <div class="{{ $bn }}__headline-and-intro">
+        {{ with $headline }}
+          <h1 class="{{ $bn }}__headline markdown">{{ . | markdownify }}</h1>
+        {{ end }}
+        {{- with $role -}}
+          {{ $intro := . }}
+          {{ with $organization }}
+            {{ $intro = printf "%s<br>*%s*" $intro . }}
+          {{ end }}
+          <span class="{{ $bn }}__intro">{{ $intro | markdownify | safeHTML}}</span>
+        {{- end -}}
+
+      </div>
+      {{- with $button -}}
+        <div class="{{ $bn }}__buttons">
+          {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}
+        </div>
+      {{- end -}}
+    </div>
+
+  </div>
+
+</header>

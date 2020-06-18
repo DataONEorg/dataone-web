@@ -65,7 +65,7 @@
     {{ end }}
   {{ end }}
 
-  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }} {{ $bkgImg }}>
+  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }} {{ $bkgImg | safeHTMLAttr }}>
     <!-- SVG-BACKGROUND -->
     {{ with $svg }}
       <div class="{{ $bn }}__svg-background">

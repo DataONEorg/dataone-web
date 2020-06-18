@@ -60,12 +60,8 @@
 
   @include f-common;
   position                       : relative;
-  padding                        : 4rem 0 5rem;
+  padding                        : 4.5rem 0 5rem;
   color                          : var(#{$prefix}-c-foreground-default);
-  @include desktop {
-    margin-top : $nav-height - 0.05rem;
-    padding-top: 5rem;
-  }
 
   &__content {
     @include limit-width;
@@ -174,17 +170,6 @@
       #{$bn}__figure {
         margin-right: -12rem;
       }
-    }
-  }
-
-  //
-  // Has breadcrumb: For headers on pages where the navigation includes
-  //  breadcrumb block
-  // ==========================================================================
-
-  &--has-breadcrumb {
-    @include desktop {
-      margin-top: 0;
     }
   }
 
@@ -383,11 +368,11 @@
   // ==========================================================================
 
   &--wave-with-dataone-gradient {
+    --section-c-accent: var(--c-minor-accent);
     @extend .header--svg-background;
     @extend .header--text-only;
     @extend .header--dark-bkg;
-    // TODO
-    text-shadow: .01em .01em 1em rgba(0, 5, 25, 0.3);
+    text-shadow       : .01em .01em 1em rgba(0, 5, 25, 0.27);
 
     #{$bn}__text {
       padding-bottom: 5rem;

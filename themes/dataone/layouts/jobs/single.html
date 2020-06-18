@@ -20,7 +20,7 @@
   {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
 
   <!-- Header -->
-  {{ $headerBlock := dict "type" "text only" "modifiers" (slice "has-breadcrumb") "background_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
+  {{ $headerBlock := dict "type" "text only" "background_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
   {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
 
   <!-- Job details -->

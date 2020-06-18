@@ -46,6 +46,8 @@ fields:
     options:
     - none
     - major accent color
+    - subtle
+    - darken
   showOnly:
     field: type
     value: cover

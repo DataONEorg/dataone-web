@@ -4,7 +4,7 @@ fullname: Megan Mach
 firstname: Megan
 role: Communication and Outreach postdoctoral scholar
 organization: DataONE
-d1_team: 'Post-Doc'
+d1_team: 'Post-docs'
 shortbio: 'Megan Mach is DataONE’s Communication and Outreach postdoctoral scholar,
   working with Dr. Amber Budden and the Community Engagement and Outreach (CEO) Working
   Group. Megan is here to help get the word out about DataONE and the importance of

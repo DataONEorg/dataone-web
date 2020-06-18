@@ -33,7 +33,7 @@
   {{ $classes = printf "%s %s--%s" $classes $bn "text-only" }}
 {{ end }}
 
-<!-- Extra modifiers, e.g. has-breadcrumb -->
+<!-- Extra modifiers -->
 {{ with $extraModifiers }}
   {{ range . }}
     {{ $classes = printf "%s %s--%s" $classes $bn . }}

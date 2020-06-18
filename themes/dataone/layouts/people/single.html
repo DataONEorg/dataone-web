@@ -1,13 +1,96 @@
 {{- define "main" -}}
-  {{ $page := $ }}
-  {{ $person := .Params }}
 
+  {{ $page := $ }}
+  {{ $person := $page.Params }}
+
+  <!-- ===================================================================== -->
   <!-- Breadcrumb nav -->
   {{ $breadcrumbsBlock := dict "back_text" "See entire team" "back_link" $page.Parent.RelPermalink }}
   {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
 
+  <!-- ===================================================================== -->
   <!-- Header -->
-  {{ $headerBlock := dict "type" "text only" "modifiers" (slice "has-breadcrumb") "background_color" "default" "title" $person.full_name "intro" $person.short_bio }}
-  {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
+  <!-- Send an empty block because the person header uses the page parameters as defaults -->
+  {{ partial "blocks/header/header--person" (dict "Block" (dict) "Page" $page)}}
+
+  <!-- ===================================================================== -->
+  <!-- Biography -->
+
+  {{ $bioTitle := (printf "A little about %s" ( $person.firstname | humanize )) }}
+  {{ $bioIntro := $person.longbio | default $person.shortbio }}
+  {{ $bioSectionBlock := dict "small_title" $bioTitle "intro" $bioIntro }}
+  {{ partial "blocks/section/section" (dict "Block" $bioSectionBlock "Page" $page) }}
+
+  <!-- ===================================================================== -->
+  <!-- Webinars -->
+
+  <!-- Get webinars that this person has given -->
+  {{ $webinarPages := slice }}
+  {{ range $webinarPage := where $page.Site.RegularPages "Section" "webinars" }}
+    {{ range $speakerPath := $webinarPage.Params.speakers }}
+      {{ if eq (trim $speakerPath "/") (trim $page.File.Path "/") }}
+        {{ $webinarPages = $webinarPages | append $webinarPage }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if gt (len $webinarPages) 0 }}
+
+    <!-- When there's just one webinar -->
+    {{ $webinarWord := "webinar" }}
+    {{ $webPath := "" }}
+    {{ range  $webinarPages }}
+      {{ $webPath = .File.Path }}
+    {{ end }}
+    {{ $blocks := slice (dict "template" "page-summary" "webinar" $webPath) }}
+
+    <!-- If at least 2 webinars... -->
+    {{ if gt (len $webinarPages) 1 }}
+      <!-- puralize -->
+      {{ $webinarWord = "webinars" }}
+      <!-- present webinars in a carousel -->
+      {{ $webinarSummaries := slice }}
+      {{ range $webinarPage := $webinarPages }}
+        {{ $webinarSummaries = $webinarSummaries | append ( dict "content" (slice (dict "template" "page-summary" "webinar" $webinarPage.File.Path)) ) }}
+      {{ end }}
+      {{ $blocks = slice (dict "template" "carousel" "style" "simple" "slides" $webinarSummaries "position_controls" "top") }}
+    {{ else }}
+
+    {{ end }}
+
+    <!-- Make the webinar section -->
+    {{ $webTitle := (printf "Watch %s's %s" ($person.firstname | humanize ) $webinarWord)  }}
+    {{ $webSectionBlock := dict "small_title" $webTitle "background" "wave" "blocks" $blocks }}
+    {{ partial "blocks/section/section" (dict "Block" $webSectionBlock "Page" $page) }}
+  {{ end }}
+
+  <!-- ===================================================================== -->
+  <!-- Same team -->
+
+  <!-- Get other people in the same dataONE team/group -->
+  <!-- Get pages ... -->
+  {{ $allPages := $page.Site.RegularPages }}
+  <!-- ... which are people pages... -->
+  {{ $filter1 := where $allPages "Section" "people" }}
+  <!-- ... that have a matching d1 team ... -->
+  {{ $filter2 := where $allPages ".Params.d1_team" $person.d1_team }}
+  <!-- ... but are not this page. -->
+  {{ $filter3 := complement (slice $page) $allPages }}
+  {{ $d1TeamPages := $filter1 | intersect $filter2 | intersect $filter3 }}
+
+  <!-- Get the team pages as file paths and also -->
+  <!-- double check that the pages are for DataONE team members only -->
+  {{ $d1TeamPagePaths := slice }}
+  {{ range $personPage := $d1TeamPages }}
+    {{ if (partial "functions/isD1member" $personPage)  }}
+      {{ $d1TeamPagePaths = $d1TeamPagePaths | append $personPage.File.Path }}
+    {{ end }}
+  {{ end }}
+
+  {{ if gt (len $d1TeamPages) 0 }}
+    {{ $teamBlock := dict "template" "people" "people" $d1TeamPagePaths "type" "simple" }}
+    {{ $teamTitle := printf "Meet the rest of the %s" $person.d1_team }}
+    {{ $teamSectionBlock := dict "background" "" "small_title" $teamTitle "blocks" (slice $teamBlock) }}
+    {{ partial "blocks/section/section" (dict "Block" $teamSectionBlock "Page" $page) }}
+  {{ end }}
 
 {{- end -}}

@@ -40,14 +40,13 @@
   }
   // aka slides, contains the header and main content divs
   &__content {
-    display         : inline-block; // make content blocks side by side for slide effect
-    vertical-align  : middle;
-    width           : 100%;
-    height          : 100%;
-    white-space     : normal;
-    margin          : 0;
-    padding         : 0;
-    background-color: var(--section-c-background-lighter, white);
+    display       : inline-block; // make content blocks side by side for slide effect
+    vertical-align: middle;
+    width         : 100%;
+    height        : 100%;
+    white-space   : normal;
+    margin        : 0;
+    padding       : 0;
   }
   // ==== SLIDE HEADER ==== //
   &__headers {
@@ -162,15 +161,14 @@
   /* ------------------ Controls & Buttons ------------------ */
   //
   &__controls {
-    position       : absolute;
-    list-style-type: none;
-    top            : 100%;
-    right          : 0;
-    left           : 0;
-    margin-top     : 2rem;
-    padding-left   : 0;
-    text-align     : center;
-    white-space    : nowrap;
+    position     : relative;
+    margin       : 0;
+    padding      : 0;
+    margin-top   : 0;
+    margin-bottom: .5rem;
+    top          : auto;
+    left         : auto;
+    text-align   : center;
   }
 
   &__control-item {
@@ -296,6 +294,32 @@
       margin-bottom: 1rem;
       padding-left : 0;
       text-align   : center;
+    }
+  }
+
+  //
+  //  Simple: No carousel header & no background
+  // ==========================================================================
+
+  &--simple {
+    #{$bn}__container {
+      // padding         : .625rem 1.25rem;
+      border-radius   : unset;
+      box-shadow      : unset;
+      background      : transparent;
+      background-color: transparent;
+    }
+
+    #{$bn}__header,
+    #{$bn}__headers {
+      display: none;
+      height : 0 !important;
+      padding: 0 !important;
+      margin : 0 !important;
+    }
+
+    #{$bn}__main {
+      padding: 0 2rem;
     }
   }
 

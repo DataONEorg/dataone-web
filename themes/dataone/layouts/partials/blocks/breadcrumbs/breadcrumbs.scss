@@ -33,10 +33,6 @@
   padding                         : .8rem 0 .7rem;
   background-color                : var(#{$prefix}-c-background);
 
-  @include desktop {
-    margin-top: $nav-height -0.05rem;
-  }
-
   &__inner {
     @include limit-width;
   }

@@ -13,7 +13,6 @@
     {{ $servicesPage := ($page.Site.GetPage "/services").RelPermalink }}
     {{ $breadcrumbsBlock := dict "back_text" "See all features" "back_link" $servicesPage }}
     {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
-    {{ $headerModifiers = "has-breadcrumb" }}
   {{ end }}
 
   {{ with .Params.header }}

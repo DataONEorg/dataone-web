@@ -2,6 +2,8 @@
 {{ $page := .Page }}
 <!-- bn = block name -->
 {{ $bn := "accordion" }}
+<!-- classes: classes for the outer element of the accordion -->
+{{ $classes := $bn }}
 <!-- heading: the part of the accordion that's always shown -->
 {{ $heading := "" }}
 {{ with .Block.heading }}
@@ -28,12 +30,6 @@
   {{ else }}
     {{ $content = . }}
   {{ end }}
-{{ end }}
-
-<!-- classes: classes to conditionally add to the accordion -->
-{{ $classes := "" }}
-{{ with .Block.color }}
-  {{ $classes = print $classes "accordion--col-" . }}
 {{ end }}
 
 <div data-aria-accordion="true" class="{{ $classes }}">
