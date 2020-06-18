@@ -14,14 +14,6 @@ sections:
   path: content/_index.md
   label: Homepage
 - type: directory
-  path: content/services
-  label: Services
-  create: all
-  match: "**/*"
-  templates:
-  - _page_service
-  - _page_services
-- type: directory
   path: content/network
   label: Network
   create: all
@@ -49,11 +41,24 @@ sections:
   path: content/404.md
   label: 404 Page
 - type: heading
+  label: Services
+- type: document
+  path: content/services/_index.md
+  label: Services Summary
+  match: "**/*"
+- type: directory
+  path: content/services
+  label: Services
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_service
+- type: heading
   label: Features
 - type: document
   path: content/features/_index.md
-  label: Feature Page Options
-  match: "**/*"
+  label: Feature Options
 - type: directory
   path: content/features
   label: Features
@@ -66,8 +71,7 @@ sections:
   label: Webinars
 - type: document
   path: content/webinars/_index.md
-  label: Webinars Overview Page
-  match: "**/*"
+  label: Webinars Overview
 - type: directory
   path: content/webinars
   label: Webinars
@@ -93,8 +97,7 @@ sections:
   label: Jobs
 - type: document
   path: content/jobs/_index.md
-  label: Jobs Overview Page
-  match: "**/*"
+  label: Jobs Overview
 - type: directory
   path: content/jobs
   label: Jobs
@@ -107,8 +110,7 @@ sections:
   label: News
 - type: document
   path: content/news/_index.md
-  label: News Overview Page
-  match: "**/*"
+  label: News Overview
 - type: directory
   path: content/news
   label: News
