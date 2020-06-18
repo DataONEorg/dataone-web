@@ -80,15 +80,21 @@ sections:
   path: content/404.md
   label: 404 Page
 - type: heading
-  label: Data
+  label: People
+- type: document
+  path: content/people/_index.md
+  label: "\U0001F469‍\U0001F469‍\U0001F467‍\U0001F466 People Overview"
+  match: "**/*"
 - type: directory
   path: content/people
   label: People
   create: all
   match: "**/*"
-  exclude: index.md
+  exclude: _index.md
   templates:
   - person
+- type: heading
+  label: Data
 - type: document
   path: data/membernodes.yaml
   label: Member Nodes
