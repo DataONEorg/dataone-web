@@ -22,13 +22,6 @@ sections:
   - _page_service
   - _page_services
 - type: directory
-  path: content/features
-  label: Features
-  create: all
-  match: "**/*"
-  templates:
-  - _page_feature
-- type: directory
   path: content/network
   label: Network
   create: all
@@ -52,38 +45,42 @@ sections:
   templates:
   - _page_blocks
   - markdown
+- type: document
+  path: content/404.md
+  label: 404 Page
+- type: heading
+  label: Features
+- type: document
+  path: content/features/_index.md
+  label: Feature Page Options
+  match: "**/*"
+- type: directory
+  path: content/features
+  label: Features
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_feature
+- type: heading
+  label: Webinars
+- type: document
+  path: content/webinars/_index.md
+  label: Webinars Overview Page
+  match: "**/*"
 - type: directory
   path: content/webinars
   label: Webinars
   create: all
   match: "**/*"
+  exclude: _index.md
   templates:
-  - _page_webinars
   - _page_webinar
-- type: directory
-  path: content/news
-  label: News
-  create: all
-  match: "**/*"
-  templates:
-  - _page_news-items
-  - _page_news-item
-- type: directory
-  path: content/jobs
-  label: Jobs
-  create: all
-  match: "**/*"
-  templates:
-  - _page_job
-  - _page_jobs
-- type: document
-  path: content/404.md
-  label: 404 Page
 - type: heading
   label: People
 - type: document
   path: content/people/_index.md
-  label: "\U0001F469‍\U0001F469‍\U0001F467‍\U0001F466 People Overview"
+  label: People Overview
 - type: directory
   path: content/people
   label: People
@@ -93,13 +90,38 @@ sections:
   templates:
   - person
 - type: heading
+  label: Jobs
+- type: document
+  path: content/jobs/_index.md
+  label: Jobs Overview Page
+  match: "**/*"
+- type: directory
+  path: content/jobs
+  label: Jobs
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_job
+- type: heading
+  label: News
+- type: document
+  path: content/news/_index.md
+  label: News Overview Page
+  match: "**/*"
+- type: directory
+  path: content/news
+  label: News
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_news-item
+- type: heading
   label: Data
 - type: document
   path: data/membernodes.yaml
   label: Member Nodes
-- type: document
-  path: data/features.yaml
-  label: Features list
 upload_dir: content/uploads
 public_path: "/uploads"
 front_matter_path: ''
