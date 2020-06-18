@@ -84,7 +84,6 @@ sections:
 - type: document
   path: content/people/_index.md
   label: "\U0001F469‍\U0001F469‍\U0001F467‍\U0001F466 People Overview"
-  match: "**/*"
 - type: directory
   path: content/people
   label: People
