@@ -31,10 +31,10 @@ fields:
   type: text
   label: DataONE Team
   description: For people who are a part of the DataONE team, which team are they
-    part of? This will be used to group team members by role. Leave this blank 
-    if a person is not part of DataONE. To change the available
-      categories, edit the [People index page](#/pages/content-people-_index-md/).
-  default: ""
+    part of? This will be used to group team members by role. Leave this blank if
+    a person is not part of DataONE. To change the available categories, edit the
+    [People index page](#/pages/content-people-_index-md/).
+  default: ''
   config:
     source:
       type: documents

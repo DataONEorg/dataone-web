@@ -79,7 +79,6 @@ sections:
 - type: document
   path: content/404.md
   label: 404 Page
-  match: "**/*"
 - type: heading
   label: Data
 - type: directory

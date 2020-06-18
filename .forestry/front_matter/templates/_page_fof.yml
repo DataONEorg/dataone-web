@@ -1,5 +1,5 @@
 ---
-label: "404 Page"
+label: 404 Page
 hide_body: true
 fields:
 - type: textarea
@@ -21,7 +21,8 @@ fields:
 - type: textarea
   label: Body paragraph
   name: body
-  description: A brief paragraph with suggested actions about what the user can do to find the page they are looking for.
+  description: A brief paragraph with suggested actions about what the user can do
+    to find the page they are looking for.
   config:
     wysiwyg: true
     schema:
@@ -59,5 +60,4 @@ fields:
   - steps
   - faq
 pages:
-- 404.md
----
+- content/404.md

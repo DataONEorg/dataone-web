@@ -44,7 +44,7 @@ fields:
     options:
     - none
     - filters
-    - "team-headers"
+    - team-headers
 - type: list
   showOnly:
     field: team_members
@@ -55,5 +55,6 @@ fields:
       type: pages
       section: people
   label: People
-  description: The people to display in this block. To add to the list of people, first add the person to the
-    [People](#/pages/content-people-)
+  description: The people to display in this block. To add to the list of people,
+    first add the person to the [People](#/pages/content-people-)
+  name: people
