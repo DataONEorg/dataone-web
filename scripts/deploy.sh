@@ -13,4 +13,4 @@
 
 ssh -p22 $DEPLOY_USER@$DEPLOY_HOST "mkdir -p $DEPLOY_DIRECTORY" && \
     rsync -rav -e ssh ./docs/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DIRECTORY && \
-    ssh -p22 $DEPLOY_USER@$DEPLOY_HOST "if [ -d ${PUBLISH_DIRECTORY}_old ]; then rm -r ${PUBLISH_DIRECTORY}_old; fi; if [ -f ${PUBLISH_DIRECTORY} ]; then mv ${PUBLISH_DIRECTORY} ${PUBLISH_DIRECTORY}_old; fi; mv ${DEPLOY_DIRECTORY} ${PUBLISH_DIRECTORY}; chgrp -R web-dev ${PUBLISH_DIRECTORY}; chmod -R g+rwx ${PUBLISH_DIRECTORY}"
+    ssh -p22 $DEPLOY_USER@$DEPLOY_HOST "if [ -d ${PUBLISH_DIRECTORY}_old ]; then rm -r ${PUBLISH_DIRECTORY}_old; fi; if [ -d ${PUBLISH_DIRECTORY} ]; then mv ${PUBLISH_DIRECTORY} ${PUBLISH_DIRECTORY}_old; fi; mv ${DEPLOY_DIRECTORY} ${PUBLISH_DIRECTORY}; chgrp -R web-dev ${PUBLISH_DIRECTORY}; chmod -R g+rwx ${PUBLISH_DIRECTORY}"
