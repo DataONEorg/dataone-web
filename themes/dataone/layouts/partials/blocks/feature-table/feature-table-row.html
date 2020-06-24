@@ -1,110 +1,110 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
-{{ $site := .Page.Site }}
+{{- $page := .Page -}}
+{{- $site := .Page.Site -}}
 <!-- Block name -->
-{{ $bn := "feature-table" }}
+{{- $bn := "feature-table" -}}
 <!-- Element name -->
-{{ $en := printf "%s__row" $bn }}
+{{- $en := printf "%s__row" $bn -}}
 <!-- Classes for the element -->
-{{ $classes := $en }}
+{{- $classes := $en -}}
 
 <!-- Parameters passed from table block -->
-{{ $feature := .Block.feature }}
-{{ $servicePages := .Block.service_pages }}
-{{ $subFeature := $feature.subFeature | default false }}
-{{ $hasSubfeatures := .Block.has_sub_features }}
-{{ $striped := .Block.striped }}
+{{- $feature := .Block.feature -}}
+{{- $servicePages := .Block.service_pages -}}
+{{- $subFeature := $feature.subFeature | default false -}}
+{{- $hasSubfeatures := .Block.has_sub_features -}}
+{{- $striped := .Block.striped -}}
 
-{{ if $subFeature }}
-  {{ $classes = printf "%s %s--sub-feature" $classes $en }}
-{{ end }}
+{{- if $subFeature -}}
+  {{- $classes = printf "%s %s--sub-feature" $classes $en -}}
+{{- end -}}
 
-{{ if $hasSubfeatures }}
-  {{ $classes = printf "%s %s--has-sub-features" $classes $en }}
-{{ end }}
+{{- if $hasSubfeatures -}}
+  {{- $classes = printf "%s %s--has-sub-features" $classes $en -}}
+{{- end -}}
 
-{{ if $striped }}
-  {{ $classes = printf "%s %s--striped" $classes $en }}
-{{ end }}
+{{- if $striped -}}
+  {{- $classes = printf "%s %s--striped" $classes $en -}}
+{{- end -}}
 
 <!-- Icons -------------------------------------------------------------------->
 <!-- Icons used in the row -->
 
 <!-- Checkmark icon -->
-{{ $iconBlock := dict "icon" "check" "color" "inherit" "stroke" "thicker" "size" "small" }}
-{{ $checkmark := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
-{{ $checkmark = printf "<span class='%s__checkmark'>%s</span>" $bn $checkmark  | safeHTML }}
+{{- $iconBlock := dict "icon" "check" "color" "inherit" "stroke" "thicker" "size" "small" -}}
+{{- $checkmark := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
+{{- $checkmark = printf "<span class='%s__checkmark'>%s</span>" $bn $checkmark  | safeHTML -}}
 
 <!-- Info icon -->
-{{ $infoIconBlock := dict "icon" "info" "size" "small" }}
-{{ $infoIcon := partial "blocks/icon/icon" (dict "Block" $infoIconBlock "Page" $page) }}
+{{- $infoIconBlock := dict "icon" "info" "size" "small" -}}
+{{- $infoIcon := partial "blocks/icon/icon" (dict "Block" $infoIconBlock "Page" $page) -}}
 
 <!-- Subfeature icon -->
-{{ $subfeatureIconBlock := dict "icon" "corner-down-right" "size" "tiny" "color" "inherit"}}
-{{ $subfeatureIcon := partial "blocks/icon/icon" (dict "Block" $subfeatureIconBlock "Page" $page) }}
-{{ $subfeatureIcon = printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $subfeatureIcon  | safeHTML }}
+{{- $subfeatureIconBlock := dict "icon" "corner-down-right" "size" "tiny" "color" "inherit" -}}
+{{- $subfeatureIcon := partial "blocks/icon/icon" (dict "Block" $subfeatureIconBlock "Page" $page) -}}
+{{- $subfeatureIcon = printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $subfeatureIcon  | safeHTML -}}
 
 <!-- has Subfeatures icon -->
-{{ $hasSubfeatureIconBlock := dict "icon" "minus" "size" "tiny" "color" "inherit"}}
-{{ $hasSubfeatureIcon := partial "blocks/icon/icon" (dict "Block" $hasSubfeatureIconBlock "Page" $page) }}
-{{ $hasSubfeatureIcon := printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $hasSubfeatureIcon  | safeHTML }}
+{{- $hasSubfeatureIconBlock := dict "icon" "minus" "size" "tiny" "color" "inherit" -}}
+{{- $hasSubfeatureIcon := partial "blocks/icon/icon" (dict "Block" $hasSubfeatureIconBlock "Page" $page) -}}
+{{- $hasSubfeatureIcon := printf "<span class='%s__sub-feature-icon'>%s</span>" $bn $hasSubfeatureIcon  | safeHTML -}}
 
 <!-- Feature Params ----------------------------------------------------------->
 
 <!-- Name of the feature to use in the table -->
-{{ $name := $feature.title | default "" }}
+{{- $name := $feature.title | default "" -}}
 
 <!-- Wrap name in anchor tag if feature has an associated page -->
-{{ with $feature.url }}
-  {{ $name = printf "<a class='%s__feature-link' href='%s'>%s</a>" $bn . $name | safeHTML }}
-{{ end }}
+{{- with $feature.url -}}
+  {{- $name = printf "<a class='%s__feature-link' href='%s'>%s</a>" $bn . $name | safeHTML -}}
+{{- end -}}
 
 <!-- Icon with tool tip for description -->
-{{ $description := $feature.description | default "" }}
-{{ $detail := "" }}
-{{ with $description }}
-  {{ $detail = printf "<span class='%s__details' data-tooltip='%s' data-position='right center'>%s</span>" $bn . $infoIcon | safeHTML }}
-{{ end }}
+{{- $description := $feature.description | default "" -}}
+{{- $detail := "" -}}
+{{- with $description -}}
+  {{- $detail = printf "<span class='%s__details' data-tooltip='%s' data-position='right center'>%s</span>" $bn . $infoIcon | safeHTML -}}
+{{- end -}}
 
-<tr class="{{ $classes }}">
-
-  <td class="{{ $bn }}__cell {{ $bn }}__cell--feature">
-    <h4 class="{{ $bn }}__feature-name">
-      {{ if $subFeature }}
-        {{ $subfeatureIcon }}
-      {{ end }}
-      {{ $name }}
-      {{ $detail }}
+<tr class="{{- $classes -}}">
+  
+  <td class="{{- printf `%s__cell %s__cell--feature` $bn $bn -}}">
+    <h4 class="{{- $bn -}}__feature-name">
+      {{- if $subFeature -}}
+        {{- $subfeatureIcon -}}
+      {{- end -}}
+      {{- $name -}}
+      {{- $detail -}}
 
     </h4>
   </td>
 
   <!-- Make a cell for each of the service pages -->
-  {{ range $service := $servicePages }}
+  {{- range $service := $servicePages -}}
     <!-- Use the service title to make a theme class. -->
     <!-- Selector is used in the css files that set the service theme colors -->
-    <td class="{{ $bn }}__cell theme--{{ $service.Params.title | urlize }}">
+    <td class="{{- $bn -}}__cell theme--{{- $service.Params.title | urlize -}}">
       <!-- Don't show checks for row with subfeatures, show placeholder icon instead -->
-      {{ if $hasSubfeatures }}
-        {{ $hasSubfeatureIcon }}
+      {{- if $hasSubfeatures -}}
+        {{- $hasSubfeatureIcon -}}
         <!-- Check whether this feature has a map of associates services -->
-      {{ else if $feature.linked_services }}
+      {{- else if $feature.linked_services -}}
         <!-- Given path to the service page ($feature.linked_services.service_file), -->
         <!-- Get the associated service page and see if it matches the service -->
         <!-- that we're making a table cell for. If it matches, put a checkmark. -->
         <!-- If there's a table annotation set, use that instead of the checkmark. -->
-        {{ range $feature.linked_services }}
-          {{ if .service_file }}
-            {{ if eq ($page.Site.GetPage .service_file ) $service }}
-              {{ with .table_annotation }}
-                {{ . }}
-              {{ else }}
-                {{ $checkmark }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
+        {{- range $feature.linked_services -}}
+          {{- if .service_file -}}
+            {{- if eq ($page.Site.GetPage .service_file ) $service -}}
+              {{- with .table_annotation -}}
+                {{- . -}}
+              {{- else -}}
+                {{- $checkmark -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
     </td>
-  {{ end }}
+  {{- end -}}
 </tr>

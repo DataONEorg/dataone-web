@@ -3,96 +3,96 @@
 
 <!-- Variables required: -->
 <!-- .Service = type Page -->
-{{ $servicePage := .service }}
+{{- $servicePage := .service -}}
 
 <!-- the site parameter so we can access Pages -->
-{{ $site := $servicePage.Site }}
+{{- $site := $servicePage.Site -}}
 
 <!-- The list of features we will return -->
-{{ $featuresUnique := slice }}
+{{- $featuresUnique := slice -}}
 
-{{ if and $servicePage $site }}
+{{- if and $servicePage $site -}}
 
   <!-- Weight of the given service (to determine "lower" service) -->
-  {{ $weight := $servicePage.Params.weight }}
+  {{- $weight := $servicePage.Params.weight -}}
 
   <!-- Get all features for this service, then sort -->
-  {{ $features := partial "functions/getFeatures" (dict "Service" $servicePage) }}
-  {{ $features = partial "functions/sortFeatures" (dict "features" $features) }}
+  {{- $features := partial "functions/getFeatures" (dict "Service" $servicePage) -}}
+  {{- $features = partial "functions/sortFeatures" (dict "features" $features) -}}
 
   <!-- Other services (all services excluding this one) -->
-  {{ $otherServices := where (where $site.Pages "Type" "services") "Kind" "page" | complement (slice $servicePage)  }}
+  {{- $otherServices := where (where $site.Pages "Type" "services") "Kind" "page" | complement (slice $servicePage)  -}}
 
   <!-- Next lowest service -->
-  {{ $lowerService := where $otherServices "Params.weight" (sub $weight 1) }}
+  {{- $lowerService := where $otherServices "Params.weight" (sub $weight 1) -}}
   <!-- "unlist" lower service -->
-  {{ range $lowerService }}
-    {{ $lowerService = . }}
-  {{ end }}
+  {{- range $lowerService -}}
+    {{- $lowerService = . -}}
+  {{- end -}}
 
   <!-- For each of the features that exist... -->
-  {{ range $feature := $features }}
+  {{- range $feature := $features -}}
 
     <!-- Flag to indicate whether a subfeature was added to the list -->
-    {{ $subfeatureAdded := false }}
+    {{- $subfeatureAdded := false -}}
     <!-- Loop through subfeatures -->
-    {{ range $subfeature := $feature.Params.sub_features }}
+    {{- range $subfeature := $feature.Params.sub_features -}}
 
-      {{ $matchedSubfeature := slice }}
+      {{- $matchedSubfeature := slice -}}
       <!-- All the services that this sub-feature belongs to -->
-      {{ $linkedServicesSub := partial "functions/getLinkedServices" (dict "feature" $feature "subfeature" $subfeature) }}
+      {{- $linkedServicesSub := partial "functions/getLinkedServices" (dict "feature" $feature "subfeature" $subfeature) -}}
       <!-- The annotation relevant to the given service for this subfeature, if there is one -->
-      {{ $subAnnotation := partial "functions/getFeatureAnnotation" (dict "feature" $feature "subfeature" $subfeature "service" $servicePage) }}
+      {{- $subAnnotation := partial "functions/getFeatureAnnotation" (dict "feature" $feature "subfeature" $subfeature "service" $servicePage) -}}
 
       <!-- Check if this subfeature is unique at this service level -->
-      {{ if and (not (in $linkedServicesSub $lowerService)) (in $linkedServicesSub $servicePage) }}
-        {{ $matchedSubfeature = $subfeature }}
+      {{- if and (not (in $linkedServicesSub $lowerService)) (in $linkedServicesSub $servicePage) -}}
+        {{- $matchedSubfeature = $subfeature -}}
         <!-- Check for a different in annotations between given service level and lower service level -->
 
-      {{ else if (in $linkedServicesSub $servicePage) }}
+      {{- else if (in $linkedServicesSub $servicePage) -}}
         <!-- Get annoation for lower service -->
-        {{ $subAnnotationLower := partial "functions/getFeatureAnnotation" (dict "feature" $feature "subfeature" $subfeature "service" $lowerService) }}
-        {{ if ne $subAnnotation $subAnnotationLower }}
-          {{ $matchedSubfeature = $subfeature }}
-        {{ end }}
-      {{ end }}
+        {{- $subAnnotationLower := partial "functions/getFeatureAnnotation" (dict "feature" $feature "subfeature" $subfeature "service" $lowerService) -}}
+        {{- if ne $subAnnotation $subAnnotationLower -}}
+          {{- $matchedSubfeature = $subfeature -}}
+        {{- end -}}
+      {{- end -}}
 
       <!-- Add information from the matched subfeature to the list the function will return -->
-      {{ with $matchedSubfeature }}
-        {{ $subfeatureAdded = true }}
+      {{- with $matchedSubfeature -}}
+        {{- $subfeatureAdded = true -}}
         <!-- sub feature parameters -->
-        {{ $subUrl := partial "functions/getFeatureUrl" (dict "feature" $feature "subfeature" . ) }}
-        {{ $featuresUnique = $featuresUnique | append (dict "title" .title "description" .description "annotation" $subAnnotation "url" $subUrl) }}
-      {{ end}}
-    {{ end }}
+        {{- $subUrl := partial "functions/getFeatureUrl" (dict "feature" $feature "subfeature" . ) -}}
+        {{- $featuresUnique = $featuresUnique | append (dict "title" .title "description" .description "annotation" $subAnnotation "url" $subUrl) -}}
+      {{- end -}}
+    {{- end -}}
 
     <!-- Don't include the parent feature in the list if we already included a subfeature -->
     <!-- because listing both e.g. "Custom DOIs and domains" (feature) and "Custom DOI prefix" (subfeature) is redundant -->
-    {{ if not $subfeatureAdded }}
-      {{ $matchedFeature := slice }}
+    {{- if not $subfeatureAdded -}}
+      {{- $matchedFeature := slice -}}
       <!-- Check if feature is included in the lower service level -->
       <!-- If NOT, then append information about the service to the return list -->
-      {{ $linkedServices := partial "functions/getLinkedServices" (dict "feature" $feature) }}
-      {{ $annotation := partial "functions/getFeatureAnnotation" (dict "feature" $feature "service" $servicePage) }}
+      {{- $linkedServices := partial "functions/getLinkedServices" (dict "feature" $feature) -}}
+      {{- $annotation := partial "functions/getFeatureAnnotation" (dict "feature" $feature "service" $servicePage) -}}
       <!-- Feature to add to the list -->
-      {{ $matchedFeature := false }}
-      {{ if and (not (in $linkedServices $lowerService)) (in $linkedServices $servicePage) }}
-        {{ $matchedFeature = $feature.Params }}
-      {{ else }}
+      {{- $matchedFeature := false -}}
+      {{- if and (not (in $linkedServices $lowerService)) (in $linkedServices $servicePage) -}}
+        {{- $matchedFeature = $feature.Params -}}
+      {{- else -}}
         <!-- Get annoation for lower service -->
-        {{ $annotationLower := partial "functions/getFeatureAnnotation" (dict "feature" $feature "service" $lowerService) }}
-        {{ if ne $annotation $annotationLower }}
-          {{ $matchedFeature = $feature.Params }}
-        {{ end }}
-      {{ end }}
-      {{ with $matchedFeature }}
-        {{ $url := partial "functions/getFeatureUrl" (dict "feature" $feature) }}
-        {{ $featuresUnique = $featuresUnique | append (dict "title" .title "description" .description "annotation" $annotation "url" $url) }}
-      {{ end }}
-    {{ end }}
+        {{- $annotationLower := partial "functions/getFeatureAnnotation" (dict "feature" $feature "service" $lowerService) -}}
+        {{- if ne $annotation $annotationLower -}}
+          {{- $matchedFeature = $feature.Params -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with $matchedFeature -}}
+        {{- $url := partial "functions/getFeatureUrl" (dict "feature" $feature) -}}
+        {{- $featuresUnique = $featuresUnique | append (dict "title" .title "description" .description "annotation" $annotation "url" $url) -}}
+      {{- end -}}
+    {{- end -}}
 
-  {{ end }}
+  {{- end -}}
 
-{{ end }}
+{{- end -}}
 
-{{ return $featuresUnique }}
+{{- return $featuresUnique -}}

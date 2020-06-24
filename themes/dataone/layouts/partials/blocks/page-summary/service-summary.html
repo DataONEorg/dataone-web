@@ -1,107 +1,107 @@
-{{ $page := .Page }}
-{{ $site := .Page.Site }}
+{{- $page := .Page -}}
+{{- $site := .Page.Site -}}
 <!-- bn = block name -->
-{{ $bn := "page-summary" }}
+{{- $bn := "page-summary" -}}
 
 <!-- Classes to add to the outer element -->
-{{ $classes := printf "%s %s--service" $bn $bn }}
+{{- $classes := printf "%s %s--service" $bn $bn -}}
 
-{{ $servicePage := $page.Site.GetPage .Block.service }}
-{{ $numCols := .Block.num_cols | default 2 }}
-{{ $showCTA := .Block.show_cta | default false }}
+{{- $servicePage := $page.Site.GetPage .Block.service -}}
+{{- $numCols := .Block.num_cols | default 2 -}}
+{{- $showCTA := .Block.show_cta | default false -}}
 
-{{ $service := $servicePage.Params }}
-{{ $href := $servicePage.RelPermalink }}
-{{ $weight := $service.weight }}
-{{ $title := $service.title }}
-{{ $description := $service.description }}
-{{ $varName := $title | urlize }}
-{{ $weight := $service.weight }}
-{{ $price := $service.price }}
+{{- $service := $servicePage.Params -}}
+{{- $href := $servicePage.RelPermalink -}}
+{{- $weight := $service.weight -}}
+{{- $title := $service.title -}}
+{{- $description := $service.description -}}
+{{- $varName := $title | urlize -}}
+{{- $weight := $service.weight -}}
+{{- $price := $service.price -}}
 
 <!-- Add theme -->
-{{ $classes = printf "%s theme--%s" $classes $varName }}
+{{- $classes = printf "%s theme--%s" $classes $varName -}}
 
 <!-- Features unique to this service level -->
-{{ $featuresUnique :=  partial "functions/getUniqueFeatures" (dict "service" $servicePage) }}
+{{- $featuresUnique :=  partial "functions/getUniqueFeatures" (dict "service" $servicePage) -}}
 
 <!-- Organize for checklist block -->
 <!-- Feature names as a list of strings -->
-{{ $checklistItems := slice }}
-{{ range $featuresUnique }}
-  {{ $text := .title }}
-  {{ with .annotation }}
-    {{ $text = printf "<span>%s&nbsp;<span class='%s__annotation'>(%s)</span></span>" $text $bn . | safeHTML }}
-  {{ end }}
-  {{ $checklistItems = $checklistItems | append (dict "text" $text "description" .description ) }}
-{{ end }}
+{{- $checklistItems := slice -}}
+{{- range $featuresUnique -}}
+  {{- $text := .title -}}
+  {{- with .annotation -}}
+    {{- $text = printf "<span>%s&nbsp;<span class='%s__annotation'>(%s)</span></span>" $text $bn . | safeHTML -}}
+  {{- end -}}
+  {{- $checklistItems = $checklistItems | append (dict "text" $text "description" .description ) -}}
+{{- end -}}
 
 <!-- Get info about the service that is one step "down" from this service -->
-{{ $lowerService := where (where $site.Pages "Type" "services") "Params.weight" (sub $weight 1) }}
+{{- $lowerService := where (where $site.Pages "Type" "services") "Params.weight" (sub $weight 1) -}}
 <!-- "unlist" lower service -->
-{{ range $lowerService }}
-  {{ $lowerService = . }}
-{{ end }}
+{{- range $lowerService -}}
+  {{- $lowerService = . -}}
+{{- end -}}
 
 <!-- Brush stroke to use behind the title text -->
 <!-- Alternate the two brush stroke background styles between different services -->
 <!-- Check if weight is even or odd -->
-{{ $i := 2 }}
-{{ if (modBool $weight 2) }}
-  {{ $i = 1 }}
-{{ end }}
-{{ $brushStrokeBkg := partial "blocks/svg/svg" (dict "Block" (dict "name" (printf "brush-stroke-%d" $i)) "Page" $page) }}
+{{- $i := 2 -}}
+{{- if (modBool $weight 2) -}}
+  {{- $i = 1 -}}
+{{- end -}}
+{{- $brushStrokeBkg := partial "blocks/svg/svg" (dict "Block" (dict "name" (printf "brush-stroke-%d" $i)) "Page" $page) -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
 
-  <div class="{{ $bn }}__header">
+  <div class="{{- $bn -}}__header">
 
-    <span class="{{ $bn }}__icon">
-      {{ partial "blocks/badge/badge" (dict "Block" (dict "page" $servicePage.File.Path "type" "icon-only") "Page" $page) }}
+    <span class="{{- $bn -}}__icon">
+      {{- partial "blocks/badge/badge" (dict "Block" (dict "page" $servicePage.File.Path "type" "icon-only") "Page" $page) -}}
     </span>
 
-    <h3 class="{{ $bn }}__title">
-      {{ $brushStrokeBkg }}
-      <span class="{{ $bn }}__title-text">{{ $title }}</span>
+    <h3 class="{{- $bn -}}__title">
+      {{- $brushStrokeBkg -}}
+      <span class="{{- $bn -}}__title-text">{{- $title -}}</span>
     </h3>
   </div>
 
-  <p class="{{ $bn }}__description markdown">{{ $description | markdownify }}</p>
+  <p class="{{- $bn -}}__description markdown">{{- $description | markdownify -}}</p>
   <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
   <!-- advertise that this feature includes everything in lower service as well -->
   {{- if $lowerService -}}
-    <p class="{{ $bn }}__includes-phrase">Everything in
-      {{$lowerService.Params.title }}, and...
+    <p class="{{- $bn -}}__includes-phrase">Everything in
+      {{- $lowerService.Params.title -}}, and...
     </p>
   {{- end -}}
 
-  <div class="{{ $bn }}__feature-list">
-    {{ partial "blocks/checklist/checklist" (dict "Block" (dict "items" $checklistItems  "num_cols" $numCols "compact" true) "Page" $page) }}
+  <div class="{{- $bn -}}__feature-list">
+    {{- partial "blocks/checklist/checklist" (dict "Block" (dict "items" $checklistItems  "num_cols" $numCols "compact" true) "Page" $page) -}}
   </div>
   
   <!-- make price a string so that with won't result in negative if price is zero -->
-  {{ with $p := (string $price) }}
-  {{ if eq $p "0" }}
-  {{ $p = "free" }}
-  {{ end }}
-  <div class="{{ $bn }}__price">
-    {{ $p }}
+  {{- with $p := (string $price) -}}
+  {{- if eq $p "0" -}}
+  {{- $p = "free" -}}
+  {{- end -}}
+  <div class="{{- $bn -}}__price">
+    {{- $p -}}
   </div>
-  {{ end }}
+  {{- end -}}
 
-  <div class="{{ $bn }}__buttons">
+  <div class="{{- $bn -}}__buttons">
 
-    {{ if $service.render_page }}
-      {{ $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "quaternary" }}
-      {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
-    {{ end }}
-    {{ if $showCTA }}
-      {{ $cta := $service.cta }}
-      {{ with $cta }}
-        {{ $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link "color" "primary")  }}
-        {{ partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) }}
-      {{ end }}
-    {{ end }}
+    {{- if $service.render_page -}}
+      {{- $buttonBlock := dict "text" "Learn more" "type" "internal page" "internal_link" $servicePage.File.Path "color" "quaternary" -}}
+      {{- partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) -}}
+    {{- end -}}
+    {{- if $showCTA -}}
+      {{- $cta := $service.cta -}}
+      {{- with $cta -}}
+        {{- $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link "color" "primary")  -}}
+        {{- partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) -}}
+      {{- end -}}
+    {{- end -}}
 
   </div>
   

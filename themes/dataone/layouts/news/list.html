@@ -1,42 +1,42 @@
 {{- define "main" -}}
-  {{ $page:= $ }}
-  {{ $headline := .Params.headline | default "The Latest from DataONE" }}
-  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default") "Page" $)}}
+  {{- $page:= $ -}}
+  {{- $headline := .Params.headline | default "The Latest from DataONE" -}}
+  {{- partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default") "Page" $) -}}
 
   {{- range .Params.page_sections -}}
-    {{ $template := .template | default "section" }}
-    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $page $) }}
+    {{- $template := .template | default "section" -}}
+    {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $page $) -}}
   {{- end -}}
 
-  {{ $subblocks := slice }}
-  {{ $latestNewsBlock := dict }}
-  {{ $otherNewsBlocks := slice }}
+  {{- $subblocks := slice -}}
+  {{- $latestNewsBlock := dict -}}
+  {{- $otherNewsBlocks := slice -}}
 
   {{- range $index, $page := .Paginator.Pages -}}
     <!-- remove trailing slash in link -->
-    {{ $pageLink := replaceRE "/$" "" $page.RelPermalink }}
-    {{ $newsBlock := (dict "template" "page-summary" "type" "news" "news" $pageLink) }}
+    {{- $pageLink := replaceRE "/$" "" $page.RelPermalink -}}
+    {{- $newsBlock := (dict "template" "page-summary" "type" "news" "news" $pageLink) -}}
 
-    {{ if eq $index 0 }}
-      {{ $latestNewsBlock = $newsBlock }}
-    {{ else }}
-      {{ $otherNewsBlocks = $otherNewsBlocks | append $newsBlock }}
-    {{ end }}
-  {{ else }}
-    {{ $noNewsBlock := (dict "template" "markdown" "content" "No news to share yet! Sign up for our mailing list to be the first to hear DataONE news." ) }}
-    {{ $subblocks = $subblocks | append $noNewsBlock }}
+    {{- if eq $index 0 -}}
+      {{- $latestNewsBlock = $newsBlock -}}
+    {{- else -}}
+      {{- $otherNewsBlocks = $otherNewsBlocks | append $newsBlock -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $noNewsBlock := (dict "template" "markdown" "content" "No news to share yet! Sign up for our mailing list to be the first to hear DataONE news." ) -}}
+    {{- $subblocks = $subblocks | append $noNewsBlock -}}
   {{- end -}}
 
-  {{ $subblocks = $subblocks | append $latestNewsBlock }}
-  {{ if $otherNewsBlocks }}
-    {{ $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) }}
-  {{ end }}
+  {{- $subblocks = $subblocks | append $latestNewsBlock -}}
+  {{- if $otherNewsBlocks -}}
+    {{- $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) -}}
+  {{- end -}}
 
-  {{ $pastNewsLink := printf "%s/news" $page.Site.Params.links.old_website }}
-  {{ $buttonBlock := dict "template" "button" "text" "See all news" "type" "external website" "color" "secondary" "external_link" $pastNewsLink }}
+  {{- $pastNewsLink := printf "%s/news" $page.Site.Params.links.old_website -}}
+  {{- $buttonBlock := dict "template" "button" "text" "See all news" "type" "external website" "color" "secondary" "external_link" $pastNewsLink -}}
 
-  {{ $sectionBlock := dict "blocks" $subblocks "button" $buttonBlock }}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )  }}
+  {{- $sectionBlock := dict "blocks" $subblocks "button" $buttonBlock -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )  -}}
 
   <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 

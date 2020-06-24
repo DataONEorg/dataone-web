@@ -1,36 +1,36 @@
 {{- define "main" -}}
 
-  {{ $page := . }}
+  {{- $page := . -}}
 
   <!-- Variables -->
-  {{ $bkgImage := "uploads/hero_images/martin-reisch-pEb-Xf_qM0s-unsplash.jpg" }}
-  {{ $title := "" }}
-  {{ $intro := "" }}
-  {{ $body := "" }}
-  {{ $moreBlocks := slice }}
+  {{- $bkgImage := "uploads/hero_images/martin-reisch-pEb-Xf_qM0s-unsplash.jpg" -}}
+  {{- $title := "" -}}
+  {{- $intro := "" -}}
+  {{- $body := "" -}}
+  {{- $moreBlocks := slice -}}
 
   <!-- If there is content in the 404.md page, use those variables instead -->
-  {{ with $page.Site.GetPage "/404" }}
-    {{ with .Params }}
-      {{ $title = .title }}
-      {{ $intro = .intro }}
-      {{ $body = .body }}
-      {{ $moreBlocks = .blocks }}
-      {{ with .background_image }}
-        {{ $bkgImage = . }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{- with $page.Site.GetPage "/404" -}}
+    {{- with .Params -}}
+      {{- $title = .title -}}
+      {{- $intro = .intro -}}
+      {{- $body = .body -}}
+      {{- $moreBlocks = .blocks -}}
+      {{- with .background_image -}}
+        {{- $bkgImage = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 
   <!-- Organize the content into layout blocks -->
-  {{ $block404 := dict "template" "four-o-four" "title" $title "intro" $intro "body" $body }}
-  {{ $subBlocks := (slice $block404) }}
-  {{ with $moreBlocks }}
-    {{ $subBlocks = $subBlocks | append . }}
-  {{ end }}
-  {{ $sectionBlock := dict "background" "image" "image" $bkgImage "blocks" $subBlocks }}
+  {{- $block404 := dict "template" "four-o-four" "title" $title "intro" $intro "body" $body -}}
+  {{- $subBlocks := (slice $block404) -}}
+  {{- with $moreBlocks -}}
+    {{- $subBlocks = $subBlocks | append . -}}
+  {{- end -}}
+  {{- $sectionBlock := dict "background" "image" "image" $bkgImage "blocks" $subBlocks -}}
 
   <!-- Render the section which contains the 404 block and any other blocks added in 404.md -->
-  {{ partial "blocks/section/section" ( dict "Block" $sectionBlock "Page" $page )  }}
+  {{- partial "blocks/section/section" ( dict "Block" $sectionBlock "Page" $page )  -}}
 
 {{- end -}}

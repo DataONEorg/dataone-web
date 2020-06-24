@@ -1,56 +1,56 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- The name of the block -->
-{{ $bn := "figure" }}
+{{- $bn := "figure" -}}
 <!-- The classes to add to the outermost element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- The source of the image or video -->
-{{ $src := .Block.src | default "" }}
+{{- $src := .Block.src | default "" -}}
 <!-- The type, used to determine the display style -->
-{{ $type := .Block.type | default "default"  }}
+{{- $type := .Block.type | default "default"  -}}
 <!-- Alternative description of image -->
-{{ $alt := .Block.alttext | default "" }}
+{{- $alt := .Block.alttext | default "" -}}
 <!-- An optional caption [WIP - may need styling] -->
-{{ $caption := .Block.caption | default ""}}
+{{- $caption := .Block.caption | default "" -}}
 
 <!-- Max width for images -->
-{{ $maxWidth := .Block.max_width | default 4000 }}
+{{- $maxWidth := .Block.max_width | default 4000 -}}
 
 <!-- Add type as a modifier class -->
-{{ with $type }}
-  {{ if not (eq . "default") }}
-    {{ $classes = printf "%s %s--%s" $classes $bn . }}
-  {{ end }}
-{{ end }}
+{{- with $type -}}
+  {{- if not (eq . "default") -}}
+    {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Get the image as a resource so that we can get file information and -->
 <!-- resize or crop when needed -->
-{{ $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) }}
+{{- $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) -}}
 
 <!-- Make sure no image is larger than the specified maximum -->
 
-<figure class="{{ $classes }}">
-  {{ if $imageResource }}
-    {{ if and (eq $imageResource.MediaType.MainType "image")  }}
+<figure class="{{- $classes -}}">
+  {{- if $imageResource -}}
+    {{- if and (eq $imageResource.MediaType.MainType "image")  -}}
       <!-- Hugo's resizing functionality throws error if WEBP format, -->
       <!-- Even if we're just trying to look at width -->
-      {{ if (not (in $imageResource.MediaType "webp")) }}
-        {{ if gt $imageResource.Width $maxWidth }}
-          {{ $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) }}
-        {{ end }}
-      {{ end }}
-      <img class="{{ $bn }}__image" src="{{ $imageResource.RelPermalink }}" alt="{{ $alt }}"></img>
-    {{ else if in ($imageResource.MediaType.MainType) "video" }}
-      <div class="{{ $bn }}__image">
-        {{ $videoBlock := merge .Block (dict "type" "uploaded") }}
-        {{ partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) }}
+      {{- if (not (in $imageResource.MediaType "webp")) -}}
+        {{- if gt $imageResource.Width $maxWidth -}}
+          {{- $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) -}}
+        {{- end -}}
+      {{- end -}}
+      <img class="{{- $bn -}}__image" src="{{- $imageResource.RelPermalink -}}" alt="{{- $alt -}}"></img>
+    {{- else if in ($imageResource.MediaType.MainType) "video" -}}
+      <div class="{{- $bn -}}__image">
+        {{- $videoBlock := merge .Block (dict "type" "uploaded") -}}
+        {{- partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) -}}
       </div>
-    {{ end }}
-  {{ end }}
+    {{- end -}}
+  {{- end -}}
 
-  {{ with $caption }}
-    <figcaption class="{{ $bn }}__caption">{{ . }}</figcaption>
-  {{ end }}
+  {{- with $caption -}}
+    <figcaption class="{{- $bn -}}__caption">{{- . -}}</figcaption>
+  {{- end -}}
 
 </figure>

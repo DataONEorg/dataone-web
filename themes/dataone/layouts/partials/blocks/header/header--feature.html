@@ -1,70 +1,70 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "header" }}
+{{- $bn := "header" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- All block options -->
-{{ $type := "features" }}
-{{ $backgroundColor := "light" }}
-{{ $image := .Block.image | default dict }}
-{{ $pill := .Block.pill | default dict  }}
-{{ $headline := .Block.title | default ""}}
-{{ $intro := .Block.intro | default "" }}
-{{ $buttons := .Block.buttons | default dict }}
+{{- $type := "features" -}}
+{{- $backgroundColor := "light" -}}
+{{- $image := .Block.image | default dict -}}
+{{- $pill := .Block.pill | default dict  -}}
+{{- $headline := .Block.title | default "" -}}
+{{- $intro := .Block.intro | default "" -}}
+{{- $buttons := .Block.buttons | default dict -}}
 <!-- "Secret" block options not shown in forestry -->
-{{ $extraModifiers := .Block.modifiers | default "" }}
+{{- $extraModifiers := .Block.modifiers | default "" -}}
 
 <!-- The small title that goes at the top of the header (not the larger headline) -->
-{{ $mainTitle := printf "<span class='%s__feature-title'>Feature</span> %s" $bn $page.Params.title | safeHTML }}
+{{- $mainTitle := printf "<span class='%s__feature-title'>Feature</span> %s" $bn $page.Params.title | safeHTML -}}
 
 <!-- Add type as a class -->
-{{ with $type }}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
-{{ end }}
+{{- with $type -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
 
 <!-- Add a class for background colour -->
-{{ with $backgroundColor }}
-  {{ $classes = printf "%s %s--col-%s" $classes $bn ( . | urlize) }}
-{{ end }}
+{{- with $backgroundColor -}}
+  {{- $classes = printf "%s %s--col-%s" $classes $bn ( . | urlize) -}}
+{{- end -}}
 
-{{ if not $image }}
-  {{ $classes = printf "%s %s--%s" $classes $bn "text-only" }}
-{{ end }}
+{{- if not $image -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "text-only" -}}
+{{- end -}}
 
 <!-- Extra modifiers -->
-{{ with $extraModifiers }}
-  {{ range . }}
-    {{ $classes = printf "%s %s--%s" $classes $bn . }}
-  {{ end }}
-{{ end }}
+{{- with $extraModifiers -}}
+  {{- range . -}}
+    {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Service pages that include this feature -->
-{{ $services := partial "functions/getLinkedServices" (dict "feature" $page) }}
+{{- $services := partial "functions/getLinkedServices" (dict "feature" $page) -}}
 
 <!-- ===== -->
-<header class="{{ $classes }}">
+<header class="{{- $classes -}}">
 
-  <div class="{{ $bn }}__content">
+  <div class="{{- $bn -}}__content">
 
-    <div class="{{ $bn }}__service-summary">
+    <div class="{{- $bn -}}__service-summary">
 
-      {{ if gt (len $services) 0 }}
-        <!-- <h5 class="{{ $bn }}__services-title">available with:</h5> -->
-        <div class="{{ $bn }}__services">
-          {{ range $servicePage := $services }}
-            {{ $badgeBlock := dict "type" "service" "page" $servicePage.File.Path }}
-            {{ partial "blocks/badge/badge" (dict "Block" $badgeBlock "Page" $page) }}
-          {{ end }}
+      {{- if gt (len $services) 0 -}}
+        <!-- <h5 class="{{- $bn -}}__services-title">available with:</h5> -->
+        <div class="{{- $bn -}}__services">
+          {{- range $servicePage := $services -}}
+            {{- $badgeBlock := dict "type" "service" "page" $servicePage.File.Path -}}
+            {{- partial "blocks/badge/badge" (dict "Block" $badgeBlock "Page" $page) -}}
+          {{- end -}}
 
         </div>
-      {{ end }}
+      {{- end -}}
 
-      <div class="{{ $bn }}__title-and-pill">
+      <div class="{{- $bn -}}__title-and-pill">
 
         {{- with $mainTitle -}}
-          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
+          <span class="{{- $bn -}}__title">{{- . | safeHTML -}}</span>
         {{- end -}}
         {{- with $pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
@@ -73,18 +73,18 @@
 
     </div>
 
-    <div class="{{ $bn }}__text">
+    <div class="{{- $bn -}}__text">
 
-      <div class="{{ $bn }}__headline-and-intro">
-        {{ with $headline }}
-          <h1 class="{{ $bn }}__headline markdown">{{ . | markdownify }}</h1>
-        {{ end }}
-        {{ with $intro }}
-          <p class="{{ $bn }}__intro markdown">{{ . | markdownify }}</p>
-        {{ end }}
+      <div class="{{- $bn -}}__headline-and-intro">
+        {{- with $headline -}}
+          <h1 class="{{- $bn -}}__headline markdown">{{- . | markdownify -}}</h1>
+        {{- end -}}
+        {{- with $intro -}}
+          <p class="{{- $bn -}}__intro markdown">{{- . | markdownify -}}</p>
+        {{- end -}}
       </div>
       {{- if $buttons -}}
-        <div class="{{ $bn }}__buttons">
+        <div class="{{- $bn -}}__buttons">
           {{- range first 2 $buttons -}}
             {{- partial "blocks/button/button" (dict "Block" . "Page" $page ) -}}
           {{- end -}}
@@ -93,7 +93,7 @@
     </div>
 
     {{- with $image -}}
-      <div class="{{ $bn }}__figure">
+      <div class="{{- $bn -}}__figure">
         {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}
       </div>
     {{- end -}}

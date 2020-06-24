@@ -7,7 +7,7 @@ install:
 - sudo dpkg -i hugo*.deb
 script:
 - hugo version
-- hugo
+- hugo --minify
 env:
   global:
   - PRODUCTION=true

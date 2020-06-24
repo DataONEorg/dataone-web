@@ -1,40 +1,40 @@
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "page-summary" }}
+{{- $bn := "page-summary" -}}
 
-{{ $news := dict }}
-{{ $href := "" }}
+{{- $news := dict -}}
+{{- $href := "" -}}
 
 <!-- get the most recent news if auto select -->
-{{ if .Block.auto_select }}
+{{- if .Block.auto_select -}}
   <!-- get all news in order of news_datetime, with most recent listed first -->
-  {{ $all_news := where ($page.Site.RegularPages.ByParam "date").Reverse "Section" "news" }}
-  {{ range first 1 $all_news }}
-    {{ $news = .Params }}
-    {{ $href = .Permalink }}
-  {{ end }}
+  {{- $all_news := where ($page.Site.RegularPages.ByParam "date").Reverse "Section" "news" -}}
+  {{- range first 1 $all_news -}}
+    {{- $news = .Params -}}
+    {{- $href = .Permalink -}}
+  {{- end -}}
   <!-- Otherwise, use the given news -->
-{{ else if .Block.news }}
-  {{ $newsPage := $page.Site.GetPage .Block.news }}
-  {{ with $newsPage }}
-    {{ $news = .Params }}
-    {{ $href = $newsPage.Permalink }}
-  {{ end }}
-{{ end }}
+{{- else if .Block.news -}}
+  {{- $newsPage := $page.Site.GetPage .Block.news -}}
+  {{- with $newsPage -}}
+    {{- $news = .Params -}}
+    {{- $href = $newsPage.Permalink -}}
+  {{- end -}}
+{{- end -}}
 
-{{ if $news }}
+{{- if $news -}}
 
-  {{ $classes := printf "%s %s--news" $bn $bn }}
+  {{- $classes := printf "%s %s--news" $bn $bn -}}
 
-  {{ $datetime := (time $news.date).UTC }}
-  {{ $datetimeBlock := dict "time" $datetime "format" "January 2, 2006"  }}
+  {{- $datetime := (time $news.date).UTC -}}
+  {{- $datetimeBlock := dict "time" $datetime "format" "January 2, 2006"  -}}
 
-  {{ $pillBlock := dict "text" "DataONE News" "style" "secondary" }}
+  {{- $pillBlock := dict "text" "DataONE News" "style" "secondary" -}}
 
-  {{ $cardBlock := dict "clickable" true "href" $href "title" $news.headline "description" $news.summary "datetime" $datetimeBlock "tags" $news.tags "image" $news.image "pill" $pillBlock}}
+  {{- $cardBlock := dict "clickable" true "href" $href "title" $news.headline "description" $news.summary "datetime" $datetimeBlock "tags" $news.tags "image" $news.image "pill" $pillBlock -}}
 
-  <div class="{{ $classes }}">
-    {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+  <div class="{{- $classes -}}">
+    {{- partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page ) -}}
   </div>
 
-{{ end }}
+{{- end -}}

@@ -1,32 +1,32 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "item-with-icon" }}
+{{- $bn := "item-with-icon" -}}
 <!-- classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
-{{ $icon := "" }}
-{{ if eq (printf "%T" .Block.icon) "string" }}
-  {{ $iconBlock := dict "icon" .Block.icon "size" "medium" "color" "inherit" }}
-  {{ $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
-{{ end}}
+{{- $icon := "" -}}
+{{- if eq (printf "%T" .Block.icon) "string" -}}
+  {{- $iconBlock := dict "icon" .Block.icon "size" "medium" "color" "inherit" -}}
+  {{- $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
+{{- end -}}
 
-<div class="{{ $classes }}">
-  <div class="{{ $bn }}__icon">
+<div class="{{- $classes -}}">
+  <div class="{{- $bn -}}__icon">
     {{- with $icon -}}
 
-      {{ . }}
+      {{- . -}}
 
     {{- end -}}
   </div>
-  <p class="{{ $bn }}__paragraph">
-    {{ if .Block.name }}
-      <em class="{{ $bn }}__emphasis">{{ .Block.name }}
+  <p class="{{- $bn -}}__paragraph">
+    {{- if .Block.name -}}
+      <em class="{{- $bn -}}__emphasis">{{- .Block.name -}}
         -
       </em>
-    {{ end }}
+    {{- end -}}
     <span class="markdown">
-      {{ .Block.text | markdownify }}
+      {{- .Block.text | markdownify -}}
     </span>
   </p>
 </div>

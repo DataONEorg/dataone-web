@@ -36,7 +36,6 @@ $z-max                 : 100; // The maximum z-index of any element
 $footer-section-overlap: 20rem;
 $header-section-overlap: 3rem;
 
-@import "colors.scss"; // Sass colour definitions
 @import "fonts.scss"; // Import font families
 @import "functions.scss"; // Custom sass functions
 @import "mixins-and-placeholders.scss"; // mixins used in various blocks

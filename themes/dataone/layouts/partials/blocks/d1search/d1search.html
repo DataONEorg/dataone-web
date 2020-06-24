@@ -1,27 +1,27 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- The name of this block -->
-{{ $bn := "d1search" }}
+{{- $bn := "d1search" -}}
 <!-- The classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Add classes based on type -->
-{{ with .Block.type }}
-  {{ $classes = printf  "%s d1search--%s" $classes . }}
-{{end}}
+{{- with .Block.type -}}
+  {{- $classes = printf  "%s d1search--%s" $classes . -}}
+{{- end -}}
 
 <!-- Parameters for the search button -->
-{{ $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" "search" "color" "secondary" "html_tag" "button" "type_attr" "submit"}}
+{{- $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" "search" "color" "secondary" "html_tag" "button" "type_attr" "submit" -}}
 
-<form class="{{ $classes }}" role="search" onsubmit="searchD1()">
-  <input class="{{ $bn }}__input" type="text" id="search-term" placeholder="Search 44 data repositories at once"/>
-  <label class="{{ $bn }}__label" for="search-term">
+<form class="{{- $classes -}}" role="search" onsubmit="searchD1()">
+  <input class="{{- $bn -}}__input" type="text" id="search-term" placeholder="Search 44 data repositories at once"/>
+  <label class="{{- $bn -}}__label" for="search-term">
     <!-- Hide part of text on mobile where the phrase is too long -->
     What
     <span class="utility__visually-hidden-on-mobile">environmental
     </span>data are you looking for?
   </label>
-  <div class="{{ $bn }}__button">
-    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page)}}
+  <div class="{{- $bn -}}__button">
+    {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) -}}
   </div>
 </form>

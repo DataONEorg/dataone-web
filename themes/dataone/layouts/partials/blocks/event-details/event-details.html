@@ -1,48 +1,48 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 
-{{ $bn := "event-details" }}
-{{ $classes := $bn }}
+{{- $bn := "event-details" -}}
+{{- $classes := $bn -}}
 
 <!-- Block options -->
 <!-- time stamp as a string -->
-{{ $dateTime := .Block.datetime }}
+{{- $dateTime := .Block.datetime -}}
 <!-- duration of event in minutes -->
-{{ $durationMins := .Block.duration }}
+{{- $durationMins := .Block.duration -}}
 
-{{ $t := time $dateTime }}
+{{- $t := time $dateTime -}}
 
 <!-- Icons -->
-{{ $dateIconBlock := dict "icon" "calendar" "size" "small" "color" "inherit" }}
-{{ $dateIcon := partial "blocks/icon/icon" (dict "Block" $dateIconBlock "Page" $page) }}
+{{- $dateIconBlock := dict "icon" "calendar" "size" "small" "color" "inherit" -}}
+{{- $dateIcon := partial "blocks/icon/icon" (dict "Block" $dateIconBlock "Page" $page) -}}
 
-{{ $timeIconBlock := dict "icon" "clock" "size" "small" "color" "inherit" }}
-{{ $timeIcon := partial "blocks/icon/icon" (dict "Block" $timeIconBlock "Page" $page) }}
+{{- $timeIconBlock := dict "icon" "clock" "size" "small" "color" "inherit" -}}
+{{- $timeIcon := partial "blocks/icon/icon" (dict "Block" $timeIconBlock "Page" $page) -}}
 
-{{ $durationIconBlock := dict "icon" "watch" "size" "small" "color" "inherit" }}
-{{ $durationIcon := partial "blocks/icon/icon" (dict "Block" $durationIconBlock "Page" $page) }}
+{{- $durationIconBlock := dict "icon" "watch" "size" "small" "color" "inherit" -}}
+{{- $durationIcon := partial "blocks/icon/icon" (dict "Block" $durationIconBlock "Page" $page) -}}
 
 <!-- Date/Time blocks -->
-{{ $dateBlock := dict "time" $t "change_timezone" false "format" "Mon 02 Jan 2006" }}
-{{ $date := partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page ) }}
+{{- $dateBlock := dict "time" $t "change_timezone" false "format" "Mon 02 Jan 2006" -}}
+{{- $date := partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page ) -}}
 
-{{ $timeBlock := dict "time" $t "change_timezone" true "format" "03:04PM" }}
-{{ $time := partial "blocks/datetime/datetime" (dict "Block" $timeBlock "Page" $page) }}
+{{- $timeBlock := dict "time" $t "change_timezone" true "format" "03:04PM" -}}
+{{- $time := partial "blocks/datetime/datetime" (dict "Block" $timeBlock "Page" $page) -}}
 
-{{ $durationBlock := dict "duration" $durationMins }}
-{{ $duration :=  partial "blocks/datetime/datetime" (dict "Block" $durationBlock "Page" $page) }}
+{{- $durationBlock := dict "duration" $durationMins -}}
+{{- $duration :=  partial "blocks/datetime/datetime" (dict "Block" $durationBlock "Page" $page) -}}
 
-<div class="{{ $classes }}">
-  <div class="{{ $bn }}__datetime-item">
-    <span class="{{ $bn }}__datetime-icon">{{ $dateIcon }}</span>
-    {{ $date }}
+<div class="{{- $classes -}}">
+  <div class="{{- $bn -}}__datetime-item">
+    <span class="{{- $bn -}}__datetime-icon">{{- $dateIcon -}}</span>
+    {{- $date -}}
   </div>
-  <div class="{{ $bn }}__datetime-item">
-    <span class="{{ $bn }}__datetime-icon">{{ $timeIcon }}</span>
-    {{ $time }}
+  <div class="{{- $bn -}}__datetime-item">
+    <span class="{{- $bn -}}__datetime-icon">{{- $timeIcon -}}</span>
+    {{- $time -}}
   </div>
-  <div class="{{ $bn }}__datetime-item">
-    <span class="{{ $bn }}__datetime-icon">{{ $durationIcon }}</span>
-    {{ $duration }}
+  <div class="{{- $bn -}}__datetime-item">
+    <span class="{{- $bn -}}__datetime-icon">{{- $durationIcon -}}</span>
+    {{- $duration -}}
   </div>
 </div>

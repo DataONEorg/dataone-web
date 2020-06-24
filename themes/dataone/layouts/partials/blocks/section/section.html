@@ -1,167 +1,167 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn - block name -->
-{{ $bn := "section" }}
+{{- $bn := "section" -}}
 
-{{ $id := .Block.id  | default "" }}
+{{- $id := .Block.id  | default "" -}}
 
-{{ $classes := $bn }}
-{{ with .Block.type }}
-  {{ if ne . "default" }}
-    {{ $classes = printf "%s %s--%s" $classes $bn . }}
-  {{ end }}
-{{ end }}
+{{- $classes := $bn -}}
+{{- with .Block.type -}}
+  {{- if ne . "default" -}}
+    {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- split has a special layout, all others follow the standard layout -->
-{{ if ne .Block.type "split" }}
+{{- if ne .Block.type "split" -}}
 
   <!-- background colour classess -->
-  {{ with .Block.background }}
-    {{ if ne . "default" }}
-      {{ $classes = printf "%s %s--bkg-%s" $classes $bn . }}
-    {{ end }}
-  {{ end }}
+  {{- with .Block.background -}}
+    {{- if ne . "default" -}}
+      {{- $classes = printf "%s %s--bkg-%s" $classes $bn . -}}
+    {{- end -}}
+  {{- end -}}
 
   <!-- For the section style with a background image -->
-  {{ $bkgImg := "" }}
-  {{ with .Block.image }}
-    {{ $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) }}
-    {{ if gt $imageResource.Width 4000 }}
-      {{ $imageResource = $imageResource.Resize "4000x" }}
-    {{ end }}
-    {{ $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  }}
-  {{ end }}
+  {{- $bkgImg := "" -}}
+  {{- with .Block.image -}}
+    {{- $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) -}}
+    {{- if gt $imageResource.Width 4000 -}}
+      {{- $imageResource = $imageResource.Resize "4000x" -}}
+    {{- end -}}
+    {{- $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  -}}
+  {{- end -}}
 
   <!-- SVG background for some section types -->
-  {{ $svg := "" }}
+  {{- $svg := "" -}}
 
-  {{ if eq .Block.background "wave" }}
-    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "wave-section") "Page" $page) }}
-  {{ else if eq .Block.background "data-wave" }}
-    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "data-wave") "Page" $page) }}
-  {{ else if eq .Block.background "topography" }}
-    {{ $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "topography") "Page" $page) }}
-  {{ end }}
+  {{- if eq .Block.background "wave" -}}
+    {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "wave-section") "Page" $page) -}}
+  {{- else if eq .Block.background "data-wave" -}}
+    {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "data-wave") "Page" $page) -}}
+  {{- else if eq .Block.background "topography" -}}
+    {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "topography") "Page" $page) -}}
+  {{- end -}}
 
   <!-- Badge for related pages -->
-  {{ $badges := "" }}
-  {{ if eq $page.Type "features" }}
-    {{ range $page.Params.sub_features }}
-      {{ if eq .section_id $id }}
-        {{ range .linked_services }}
-          {{ with .service_file }}
-            {{ $badge := partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) }}
-            {{ $badges = printf "%s%s" $badges $badge | safeHTML }}
-          {{ end }}
-        {{ end }}
-        {{ if eq (len .linked_services) 1 }}
-          {{ range first 1 .linked_services}}
-            {{ $badgePage := $page.Site.GetPage .service_file }}
-            {{ $serviceVar := $badgePage.Params.title | urlize }}
-            {{ $classes = printf "%s theme--%s" $classes $serviceVar }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{- $badges := "" -}}
+  {{- if eq $page.Type "features" -}}
+    {{- range $page.Params.sub_features -}}
+      {{- if eq .section_id $id -}}
+        {{- range .linked_services -}}
+          {{- with .service_file -}}
+            {{- $badge := partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) -}}
+            {{- $badges = printf "%s%s" $badges $badge | safeHTML -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if eq (len .linked_services) 1 -}}
+          {{- range first 1 .linked_services -}}
+            {{- $badgePage := $page.Site.GetPage .service_file -}}
+            {{- $serviceVar := $badgePage.Params.title | urlize -}}
+            {{- $classes = printf "%s theme--%s" $classes $serviceVar -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 
-  <section class="{{ $classes }}" {{ with $id }} id="{{ . }}" {{ end }} {{ $bkgImg | safeHTMLAttr }}>
+  <section class="{{- $classes -}}" {{- with $id -}} id="{{- . -}}" {{- end -}} {{- $bkgImg | safeHTMLAttr -}}>
     <!-- SVG-BACKGROUND -->
-    {{ with $svg }}
-      <div class="{{ $bn }}__svg-background">
-        {{ . }}
+    {{- with $svg -}}
+      <div class="{{- $bn -}}__svg-background">
+        {{- . -}}
       </div>
-    {{ end }}
-    <div class="{{ $bn }}__inner">
+    {{- end -}}
+    <div class="{{- $bn -}}__inner">
       <!-- ICON ORR BADGES -->
       <!-- Both a section icon and badges look bad together -->
 
-      {{ if $badges }}
-        <span class="{{ $bn }}__badges">
+      {{- if $badges -}}
+        <span class="{{- $bn -}}__badges">
           {{- $badges -}}
         </span>
-      {{ else if .Block.icon }}
-        <div class="{{ $bn }}__icon">
-          {{ $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "medium"}}
-          {{ partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
+      {{- else if .Block.icon -}}
+        <div class="{{- $bn -}}__icon">
+          {{- $iconBlock := dict "icon" .Block.icon "color" "inherit" "size" "medium" -}}
+          {{- partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
         </div>
-      {{ end }}
+      {{- end -}}
 
       <!-- SMALL TITLE -->
       {{- with .Block.small_title -}}
-        <span class="{{ $bn }}__small-title">
+        <span class="{{- $bn -}}__small-title">
           {{- . -}}
         </span>
       {{- end -}}
 
       <!-- TITLE -->
       {{- with .Block.title -}}
-        <h2 class="{{ $bn }}__title markdown">
+        <h2 class="{{- $bn -}}__title markdown">
           {{- . | markdownify  -}}
         </h2>
       {{- end -}}
       <!-- INTRO -->
       {{- with .Block.intro -}}
-        <div class="{{ $bn }}__intro markdown">
+        <div class="{{- $bn -}}__intro markdown">
           {{- . | markdownify -}}
         </div>
       {{- end -}}
       <!-- SUB-SECTION BLOCKS -->
-      {{ if  partial "functions/hasValues" .Block.blocks }}
-        <div class="{{ $bn }}__blocks">
+      {{- if  partial "functions/hasValues" .Block.blocks -}}
+        <div class="{{- $bn -}}__blocks">
           {{- range .Block.blocks -}}
-            {{ if .template }}
+            {{- if .template -}}
 
               <!-- The regular path to the partial template -->
-              {{ $partialPath := printf "blocks/%s/%s.html" .template .template }}
+              {{- $partialPath := printf "blocks/%s/%s.html" .template .template -}}
 
               <!-- Check and only build if the template exists -->
-              {{ if templates.Exists ( printf "partials/%s" $partialPath ) }}
-                {{ partial $partialPath (dict "Block" . "Page" $page) }}
-              {{ end }}
+              {{- if templates.Exists ( printf "partials/%s" $partialPath ) -}}
+                {{- partial $partialPath (dict "Block" . "Page" $page) -}}
+              {{- end -}}
 
-            {{ end }}
+            {{- end -}}
           {{- end -}}
         </div>
-      {{ end }}
-      {{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
-        <div class="{{ $bn }}__button">
+      {{- end -}}
+      {{- if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") -}}
+        <div class="{{- $bn -}}__button">
           {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
         </div>
-      {{ end }}
+      {{- end -}}
     </div>
   </section>
 
-{{ else }}
+{{- else -}}
   <!-- split section layout -->
 
   <!-- background for the first half of the split layout -->
-  {{ $half1Bkg := "" }}
-  {{ with .Block.background }}
-    {{ if ne . "default" }}
-      {{ $half1Bkg = print $half1Bkg " section--bkg-" . }}
-    {{ end }}
-  {{ end }}
+  {{- $half1Bkg := "" -}}
+  {{- with .Block.background -}}
+    {{- if ne . "default" -}}
+      {{- $half1Bkg = print $half1Bkg " section--bkg-" . -}}
+    {{- end -}}
+  {{- end -}}
   <!-- background class for the second half of the split layout -->
-  {{ $half2Bkg := "" }}
-  {{ with .Block.background2 }}
-    {{ $half2Bkg = print $half2Bkg " section section--bkg-" . }}
-  {{ end }}
+  {{- $half2Bkg := "" -}}
+  {{- with .Block.background2 -}}
+    {{- $half2Bkg = print $half2Bkg " section section--bkg-" . -}}
+  {{- end -}}
 
-  <section class="section section--split{{ $half1Bkg }}">
+  <section class="section section--split{{- $half1Bkg -}}">
     {{- range  $index, $block := first 2 .Block.blocks -}}
-      {{ if $block.template }}
+      {{- if $block.template -}}
         <!-- because go starts counting at zero -->
-        {{ $index = add $index 1 }}
+        {{- $index = add $index 1 -}}
         <!-- add background class for second half -->
-        <div class="{{ $bn }}__half{{ $index }}{{ if eq $index 2 }}{{ $half2Bkg }}{{ end }}">
-          <div class="{{ $bn }}__half{{ $index }}-inner">
-            {{ partial (printf "blocks/%s/%s.html" $block.template $block.template) (dict "Block" $block "Page" $page) }}
+        <div class="{{- $bn -}}__half{{- $index -}}{{- if eq $index 2 -}}{{- $half2Bkg -}}{{- end -}}">
+          <div class="{{- $bn -}}__half{{- $index -}}-inner">
+            {{- partial (printf "blocks/%s/%s.html" $block.template $block.template) (dict "Block" $block "Page" $page) -}}
           </div>
         </div>
-      {{ end }}
+      {{- end -}}
     {{- end -}}
 
   </section>
 
-{{ end }}
+{{- end -}}

@@ -1,6 +1,6 @@
-{{ $bn := "svg" }}
-{{ $classes := printf "%s %s--%s" $bn $bn . }}
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4745 1750" class="{{ $classes }}">
+{{- $bn := "svg" -}}
+{{- $classes := printf "%s %s--%s" $bn $bn . -}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4745 1750" class="{{- $classes -}}">
   <defs>
     <filter id="hr_h_d" width="87" height="87" x="2820.543" y="1089.857" filterUnits="userSpaceOnUse">
       <feOffset dy="1"/>
@@ -86,9 +86,9 @@
       <feComposite in2="blur-12" operator="in"/>
       <feComposite in="SourceGraphic"/>
     </filter>
-    <linearGradient id="hr_h_b" x1=".525" x2=".524" y1=".961" y2=".023" gradientUnits="objectBoundingBox" class="{{ $bn }}__background">
-      <stop offset="0" class="{{ $bn }}__stop-color-background-light"/>
-      <stop offset="1" class="{{ $bn }}__stop-color-background-lighter"/>
+    <linearGradient id="hr_h_b" x1=".525" x2=".524" y1=".961" y2=".023" gradientUnits="objectBoundingBox" class="{{- $bn -}}__background">
+      <stop offset="0" class="{{- $bn -}}__stop-color-background-light"/>
+      <stop offset="1" class="{{- $bn -}}__stop-color-background-lighter"/>
     </linearGradient>
     <linearGradient id="hr_h_e" x1=".043" x2=".841" y2=".363" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#fff" stop-opacity=".086"/>
@@ -162,58 +162,58 @@
     <g clip-path="url(#hr_h_c)" transform="translate(3083 1056)">
       <path
         id="leaf2"
-        class="{{ $bn }}__fill-major-accent-3"
+        class="{{- $bn -}}__fill-major-accent-3"
         d="M-739 445a47 47 0 014-10 66 66 0 0142-34c15-4 30 0 45 5l4 2h1a2 2 0 012 0 100 100 0 0113 2c12 1 24 3 34 11a174 174 0 00-19-6 32 32 0 00-1-1h-1a45 45 0 00-6-1h-1a51 51 0 00-1 0h-1l-9-1-2-1a85 85 0 00-6 0 6 6 0 01-2 0 12 12 0 01-2 0l-3 1v-1l-3 1h-2l-10 1h-4a64 64 0 00-19 6h4l5-2a89 89 0 0110-2 145 145 0 0118-2h7l-10 9a104 104 0 01-10 9 135 135 0 01-16 9 61 61 0 01-18 8c-8 1-15 3-23 2a57 57 0 01-11-2 36 36 0 01-5 0c-2-1-5 0-4-3"/>
       <path
         id="leaf3"
-        class="{{ $bn }}__fill-major-accent-3"
+        class="{{- $bn -}}__fill-major-accent-3"
         d="M-714 372a64 64 0 0112 1 227 227 0 0134 9c7 2 15 8 23 7 13-2 26 1 37 8 10 7 17 17 20 28l2 12 1 2 1 7v4a63 63 0 012 8c2 9-1 14-3 1-2-8-6-16-10-23a57 57 0 00-14-16 256 256 0 00-21-15l-15-9-5-2c-2-1-7 0-10 1-9 0-19 2-28 1a39 39 0 01-17-5 17 17 0 01-3-1 41 41 0 01-10-8 45 45 0 01-4-7 3 3 0 01-1-2c0-2 3-2 6-1a12 12 0 013 0z"/>
       <path fill="none" stroke="rgba(255,255,255,0.07)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4" d="M-572 418c-4-2-36-17-51-15"/>
-      <path class="{{ $bn }}__fill-major-accent-2" d="M-188 103c0-32-26-58-58-58l-2 59 41 42a59 59 0 0019-43z"/>
-      <path class="{{ $bn }}__fill-major-accent-4" d="M-247 104h-58a58 58 0 0016 40 59 59 0 0042 18 59 59 0 0040-16z"/>
-      <path class="{{ $bn }}__fill-major-accent-3" d="M-246 45l-1 59h-58c0-32 27-59 59-59z"/>
+      <path class="{{- $bn -}}__fill-major-accent-2" d="M-188 103c0-32-26-58-58-58l-2 59 41 42a59 59 0 0019-43z"/>
+      <path class="{{- $bn -}}__fill-major-accent-4" d="M-247 104h-58a58 58 0 0016 40 59 59 0 0042 18 59 59 0 0040-16z"/>
+      <path class="{{- $bn -}}__fill-major-accent-3" d="M-246 45l-1 59h-58c0-32 27-59 59-59z"/>
       <g filter="url(#hr_h_d)" transform="translate(-3083 -1056)">
-        <path class="{{ $bn }}__fill-major-accent-1" d="M2861 1104c13 5 26 16 31 31l1 1-57 25z"/>
+        <path class="{{- $bn -}}__fill-major-accent-1" d="M2861 1104c13 5 26 16 31 31l1 1-57 25z"/>
       </g>
-      <path id="leaf1" class="{{ $bn }}__fill-major-accent-3" d="M-549 469c-2 2-70-29-80-45l-1-1c-10-17-15-30-18-35-7-8-36-20-30-49 1-8 11-25 38-22 9 1 23 2 39 25 11 16 3 31 14 50 9 13 24 16 35 29 9 11 19 36 3 48z"/>
+      <path id="leaf1" class="{{- $bn -}}__fill-major-accent-3" d="M-549 469c-2 2-70-29-80-45l-1-1c-10-17-15-30-18-35-7-8-36-20-30-49 1-8 11-25 38-22 9 1 23 2 39 25 11 16 3 31 14 50 9 13 24 16 35 29 9 11 19 36 3 48z"/>
       <path fill="none" d="M-549 469c-2 2-70-29-80-45l-1-1c-10-17-15-30-18-35-7-8-36-20-30-49 1-8 11-25 38-22 9 1 23 2 39 25 11 16 3 31 14 50 9 13 24 16 35 29 9 11 19 36 3 48z"/>
       <path fill="none" stroke="rgba(255,255,255,0.15)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="M-551 461c-17-4-89-77-97-103"/>
       <path
         id="leaf4"
-        class="{{ $bn }}__fill-major-accent-3"
+        class="{{- $bn -}}__fill-major-accent-3"
         d="M-442 364a8 8 0 002-3 22 22 0 01-2 3zm2-3a46 46 0 003-17 92 92 0 00-1-18 83 83 0 00-9-27c0-2 3-3 5-4 4-2 7-4 7-7 1-1 0-2-1-3a6 6 0 00-6-2 9 9 0 00-5 5c-2 2-2 5-1 9a132 132 0 00-12-18 23 23 0 007-6l3-9a5 5 0 00-2-4 5 5 0 00-4-1c-5 1-5 13-5 17v2a1232 1232 0 00-5-6l-9-14a8 8 0 001-1l2-1a31 31 0 005-4v-1c1-1 3-4 3-7a5 5 0 00-2-3 4 4 0 00-3-1c-3 1-5 4-5 7a25 25 0 00-1 4v3a8 8 0 010 1l-1 2a1 1 0 001 0 7 7 0 000 1 261 261 0 01-3-4 1 1 0 000-1 1 1 0 00-1-1 195 195 0 01-3-5 597 597 0 01-6-10 2 2 0 000-1 2 2 0 011-1 3 3 0 011 0h1a3 3 0 001-1 17 17 0 005-4c2-2 4-5 4-8a4 4 0 00-2-3 5 5 0 00-4 0 8 8 0 00-4 2 15 15 0 00-2 5 101 101 0 00-2 10l-11-21a6 6 0 003 0 26 26 0 004-2h1c1-1 4-3 4-5a3 3 0 00-1-3 5 5 0 00-5-1 9 9 0 00-4 3 40 40 0 00-3 6 156 156 0 01-3-8 76 76 0 01-2-6 2 2 0 001-1 9 9 0 003 0 13 13 0 004-2 7 7 0 003-4 4 4 0 00-2-4 5 5 0 00-4 0 10 10 0 00-4 2 26 26 0 00-2 4 98 98 0 01-3-19 1 1 0 001 0 1 1 0 000-1h1a15 15 0 007-4c1-1 3-3 3-5a2 2 0 00-2-1 4 4 0 00-3-1l-6 7v2a1 1 0 00-1 0l1-12 3-3 2-11-3-2c-2 1-4 3-4 5a19 19 0 001 10v0a1 1 0 000 1v1a33 33 0 00-1 4 122 122 0 00-2 14 66 66 0 000 3 27 27 0 00-4-5c-2-1-6-3-8-2a5 5 0 00-1 0 4 4 0 00-2 2 4 4 0 000 4c1 2 5 3 8 4h7v2a61 61 0 003 16 15 15 0 00-3-2 11 11 0 00-6 0 4 4 0 00-3 2 4 4 0 001 3 5 5 0 004 3 19 19 0 005 0 20 20 0 014 0 198 198 0 0010 19 1 1 0 00-1 0l-2-1a16 16 0 00-3-3c-2 0-6-2-9-1a4 4 0 00-1 0 3 3 0 00-1 3 5 5 0 003 4h13a1 1 0 001 0h1l9 17 1 2a14 14 0 00-3-3 17 17 0 00-5-2 10 10 0 00-4 0 8 8 0 00-2 1 8 8 0 00-4 5 6 6 0 001 4c1 2 4 3 7 2a33 33 0 006-3h1a24 24 0 014-2 2 2 0 011 0l12 18a10 10 0 00-2-1h-9a14 14 0 00-3 2 6 6 0 00-3 2 5 5 0 001 5c1 2 3 3 6 2l8-4a41 41 0 015-3l3 5 8 12a15 15 0 00-8-2 16 16 0 00-4 0 7 7 0 00-3 2 4 4 0 000 3c0 5 6 5 10 4a16 16 0 002 0l1-1h1a27 27 0 015-1 100 100 0 0113 30 87 87 0 013 19v3l-1 15zm-71-196l-1-3a17 17 0 000-3 15 15 0 00-4-5 5 5 0 00-5-2 3 3 0 00-2 2 4 4 0 00-1 3c1 2 2 4 5 6a33 33 0 008 2z"/>
       <path
         fill="url(#hr_h_e)"
         d="M-28 229a8 8 0 003-2 22 22 0 01-3 2zm2-2a46 46 0 008-16 92 92 0 004-17 83 83 0 00-2-29l7-3c4 0 8-1 9-4l-1-4a6 6 0 00-5-3 9 9 0 00-6 3c-2 2-3 5-4 9a133 133 0 00-6-20 23 23 0 008-5l6-7a5 5 0 00-1-5 5 5 0 00-4-2c-5 0-8 11-9 15l-1 1a1 1 0 001 0l-1 1a1232 1232 0 00-8-23 8 8 0 002 0l1-1a31 31 0 007-3l5-6a5 5 0 00-1-4 4 4 0 00-3-2c-3 0-6 3-7 5a25 25 0 00-2 5l-1 2a8 8 0 010 1l-1 2a7 7 0 000 1l-1-4a1 1 0 000-1 1 1 0 000-1 1 1 0 00-1-1 195 195 0 01-2-5 597 597 0 01-3-12 2 2 0 001-1 2 2 0 011 0 3 3 0 011 0h1a3 3 0 001 0 17 17 0 006-3c3-1 6-4 6-7a4 4 0 00-1-3 5 5 0 00-4-1 8 8 0 00-4 1 15 15 0 00-4 4 101 101 0 00-4 9l-5-23a6 6 0 003 1 26 26 0 005-1c1 0 5-1 6-4a3 3 0 00-1-2 5 5 0 00-4-3 9 9 0 00-5 2 40 40 0 00-4 5l-1-9a76 76 0 010-6 2 2 0 001-1 9 9 0 003 1 13 13 0 005-1 7 7 0 003-3 4 4 0 00-1-4 5 5 0 00-3-2 10 10 0 00-5 1 26 26 0 00-3 3v1a98 98 0 013-20 1 1 0 001 0h1a15 15 0 007-2h1l3-3a2 2 0 000-2 4 4 0 00-3-2c-3 0-6 3-8 5l-1 2a136 136 0 013-11 1 1 0 001 0l3-3 5-9c-1-2-1-3-3-3l-5 4a19 19 0 00-1 9v1l-1 1a33 33 0 00-2 4 122 122 0 00-5 12 66 66 0 00-1 4 27 27 0 00-3-6c-2-2-4-5-7-5a5 5 0 00-1 0 4 4 0 00-3 2 4 4 0 000 3c0 3 3 5 6 6l1 1 5 2 1-1c1 0 0 0 0 0a5 5 0 010 1 80 80 0 000 1h-1 1a61 61 0 00-2 17 15 15 0 00-3-3 11 11 0 00-5-2 4 4 0 00-3 2 4 4 0 00-1 3 5 5 0 003 4 19 19 0 005 1 20 20 0 014 1 198 198 0 004 21 1 1 0 00-1 0l-1-2a16 16 0 00-3-3c-1-2-5-4-7-4a4 4 0 00-2 0 3 3 0 00-2 2 5 5 0 002 4c3 3 8 4 12 5h1a1 1 0 001 0l5 19 1 2a14 14 0 00-3-4 17 17 0 00-4-3 10 10 0 00-4-1 8 8 0 00-2 0 8 8 0 00-5 4 6 6 0 00-1 4c1 3 3 4 7 4a33 33 0 006-1h1a24 24 0 015-1l7 21a10 10 0 00-2-2l-8-2a14 14 0 00-4 1 6 6 0 00-3 2 5 5 0 00-1 4c1 3 3 4 6 4l9-1a41 41 0 015-2l2 6 4 13a15 15 0 00-7-4 16 16 0 00-4 0 7 7 0 00-3 0 4 4 0 00-2 3c0 5 6 6 9 7a16 16 0 002 0h2a27 27 0 015 0 100 100 0 015 32 87 87 0 01-3 20v2c-2 5-3 11-6 15zM-40 19l1-3a17 17 0 000-3 15 15 0 00-3-7 5 5 0 00-4-2 3 3 0 00-2 1 4 4 0 00-2 2c0 3 1 5 4 7a33 33 0 006 5z"
         transform="rotate(-16 245 1769)"/>
       <g id="line-chart" transform="translate(-275 126)">
-        <rect width="6" height="31" class="{{ $bn }}__fill-major-accent-3" rx="3" transform="translate(-6 40)"/>
-        <rect width="6" height="51" class="{{ $bn }}__fill-major-accent-3" rx="3" transform="translate(-20 20)"/>
-        <rect width="6" height="61" class="{{ $bn }}__fill-major-accent-3" rx="3" transform="translate(-34 10)"/>
-        <rect width="6" height="51" class="{{ $bn }}__fill-major-accent-4" rx="3" transform="translate(-47 20)"/>
-        <rect width="6" height="71" class="{{ $bn }}__fill-major-accent-3" rx="3" transform="translate(-61)"/>
+        <rect width="6" height="31" class="{{- $bn -}}__fill-major-accent-3" rx="3" transform="translate(-6 40)"/>
+        <rect width="6" height="51" class="{{- $bn -}}__fill-major-accent-3" rx="3" transform="translate(-20 20)"/>
+        <rect width="6" height="61" class="{{- $bn -}}__fill-major-accent-3" rx="3" transform="translate(-34 10)"/>
+        <rect width="6" height="51" class="{{- $bn -}}__fill-major-accent-4" rx="3" transform="translate(-47 20)"/>
+        <rect width="6" height="71" class="{{- $bn -}}__fill-major-accent-3" rx="3" transform="translate(-61)"/>
       </g>
       <g>
         <path
           id="leaf5"
-          class="{{ $bn }}__fill-major-accent-3"
+          class="{{- $bn -}}__fill-major-accent-3"
           d="M-190 494a18 18 0 00-4 6 77 77 0 00-8 6c-21 22-9 59 3 82a196 196 0 0013 19c3 4 10 19 15 21 8 1-2-11-3-12l-14-22c-13-22-29-60-10-83l17-12h7c5 2-11 6-12 7-8 4-11 9-5 16 5 5 12 5 19 5 4 0 8-2 12-1 19 4 30 13 42 26 8 10 23 28 37 16 11-9 8-28 4-40-7-18-19-36-37-44-22-9-57-7-76 10z"/>
         <path
           id="leaf10"
-          class="{{ $bn }}__fill-major-accent-3"
+          class="{{- $bn -}}__fill-major-accent-3"
           d="M-123 455h10l8 1c2 2 2 5 2 7-1 12-5 23-14 32a87 87 0 01-48 24c-13 3-25 0-35-9a145 145 0 00-14 43 101 101 0 00-1 22l2 14v7a3 3 0 01-5 1l-2-7a228 228 0 01-2-25c-1-12 2-23 5-34 6-22 16-41 33-56 10-9 22-14 36-16l25-4"/>
         <path
           id="leaf6"
-          class="{{ $bn }}__fill-major-accent-3"
+          class="{{- $bn -}}__fill-major-accent-3"
           d="M-289 526c-1-7 2-15 3-21v-1l1-3a121 121 0 0110-25c7-13 16-24 28-35a45 45 0 017 3 36 36 0 004 2 24 24 0 009 2c3 0 5-1 6-3a5 5 0 000-4c-1-3-6-5-8-6h-1a19 19 0 00-5-1 22 22 0 00-6 1l16-14 5-4a57 57 0 015 5c4 4 9 9 13 9a7 7 0 005-2 8 8 0 003-4 6 6 0 00-1-3c-1-3-3-5-7-7a22 22 0 00-9-3h-1a13 13 0 00-3 1l22-20 6 4c4 4 9 9 13 9a7 7 0 005-2 8 8 0 002-6 11 11 0 00-3-8 13 13 0 00-9-3 23 23 0 00-6 1 19 19 0 00-5 3h-1l21-22a2 2 0 001 1 2 2 0 001 0h1c4 2 10 4 14 4a15 15 0 003-1c3 0 5-1 5-3a4 4 0 00-1-4c-2-2-5-3-8-3a27 27 0 00-5 1 21 21 0 00-6 2l-2 2a2 2 0 00-1-1 272 272 0 0018-23 28 28 0 016 2l8 2a7 7 0 006-3l1-5a8 8 0 00-4-3 15 15 0 00-6-1 9 9 0 00-1 0 20 20 0 00-5 1 85 85 0 0010-21v-2a8 8 0 011 0l3 1 5 1h1a38 38 0 003 0c4 0 7-1 9-3a6 6 0 001-5 6 6 0 00-2-4 7 7 0 00-5-1 20 20 0 00-7 2 37 37 0 00-8 5 93 93 0 001-5 170 170 0 002-19 46 46 0 000-5v-2a1 1 0 000-1l1 1c1 0 0 0 0 0v-1a35 35 0 003-6 21 21 0 002-7 11 11 0 00-3-7 3 3 0 00-2-1 4 4 0 00-3 2l-1 7a39 39 0 001 10c0 2 1 3 2 3l-4 16v-3a20 20 0 00-3-7c-1-2-3-5-6-5a5 5 0 00-1 1 3 3 0 00-2 1c-1 3 0 6 1 7l1 1a20 20 0 007 7h1a2 2 0 001 2 136 136 0 01-9 25 36 36 0 00-2-6 15 15 0 00-3-4 8 8 0 00-5-2 5 5 0 00-2 1c-2 1-4 3-3 5 0 5 6 10 11 11a3 3 0 001 1 104 104 0 01-5 7l-7 11a56 56 0 00-2-10 12 12 0 00-3-4 8 8 0 00-5-2 6 6 0 00-3 1 4 4 0 00-2 3c-1 4 3 7 4 9l9 5-21 24 1-14a20 20 0 00-3-8c-1-2-3-5-6-5a7 7 0 00-2 1 5 5 0 00-4 3c-1 3 0 8 2 12a23 23 0 006 7 9 9 0 002 1 7 7 0 012 1 3 3 0 010 2 2 2 0 001 1 813 813 0 01-12 12 261 261 0 01-6 6 2 2 0 00-2 0 2 2 0 000 1 2 2 0 000 1 368 368 0 01-4 4 8 8 0 000-1v-1-2-1h1v-4a35 35 0 001-7 16 16 0 00-2-7c-1-1-3-4-5-4a7 7 0 00-3 1 6 6 0 00-3 4 10 10 0 00-1 5 23 23 0 002 5l1 1a42 42 0 005 8l1 1a10 10 0 002 3l-17 15-8 6v-1l1-2a96 96 0 002-12l-2-11a5 5 0 00-4-2 10 10 0 00-3 0 7 7 0 00-5 6 17 17 0 000 6 33 33 0 002 6 32 32 0 007 12l-13 11a183 183 0 00-9 9c2-6 3-10 2-13a13 13 0 00-3-7 9 9 0 00-6-2 8 8 0 00-4 1c-2 1-4 2-4 4 0 3 4 7 8 11l6 8a134 134 0 00-13 16 103 103 0 00-9 17 127 127 0 00-7 23c-2 10-2 18-1 25zm161-239a37 37 0 0011-1c3-1 6-3 7-6v-5a6 6 0 00-5-3 8 8 0 00-4 1 21 21 0 00-8 7 24 24 0 00-1 3l-2 4a93 93 0 002 0z"/>
         <path
           id="leaf7"
-          class="{{ $bn }}__fill-major-accent-3"
+          class="{{- $bn -}}__fill-major-accent-3"
           d="M-277 461v-3a121 121 0 011-27c2-15 7-29 14-43l12 2c4 0 13 0 13-6 1-6-6-7-11-7a20 20 0 00-10 4l8-15 5-9c8 3 21 14 26 4 6-12-14-14-20-11a13 13 0 00-3 1l14-26 9 3c6 3 14 5 17-1 3-5-1-10-5-12-5-2-11 0-15 3a19 19 0 00-4 4l11-27h1a2 2 0 002 0c5 0 13 0 18-3 3-2 6-6 1-8-3-3-10 0-13 2l-6 6a2 2 0 00-1 0 274 274 0 009-28 28 28 0 016 0c5 0 11 0 13-5 3-8-8-8-13-6a20 20 0 00-4 3 84 84 0 002-23v-2a8 8 0 011-1c-2 2 5 1 8 0l2-1c3-1 7-2 9-6a6 6 0 00-4-8c-4-1-8 2-11 5a37 37 0 00-5 7l-1-5a169 169 0 00-5-18 72 72 0 00-2-7 1 1 0 000-1s0 1 0 0c1-5 2-9 0-14-1-4-7-10-9-3-1 3 5 18 8 18l3 17a2 2 0 00-1 0l-1-3c-2-4-8-11-13-8-4 3 0 7 2 9h1c3 3 6 3 10 4a2 2 0 002 1 135 135 0 010 27 42 42 0 00-4-5c-3-3-8-5-11-2-7 7 5 14 13 13a3 3 0 001 1l-2 8-4 12a55 55 0 00-4-8c-3-3-10-5-13-1-3 5 3 9 7 10v1c1 0 8 2 10 1l-12 30-4-13v-1c-2-5-8-12-14-7-6 4 0 11 3 15h1a23 23 0 007 5h4l2 2a801 801 0 01-7 16 263 263 0 01-3 7 2 2 0 00-2 2 2 2 0 000 1l-2 5a10 10 0 00-1-1c2 1 0-3 0-4l-2-10c-2-5-8-12-13-7s-1 11 3 14v1a42 42 0 008 5l4 3-16 29a27 27 0 01-1-1 1 1 0 001 0c-1-5-3-32-15-23-8 6 5 22 14 26l-8 15-5 11c0-4-1-9-3-13-3-5-11-8-16-3-8 10 13 13 18 19-5 12-9 25-9 39-1 14 0 34 8 47-3-6-3-16-4-22zm89-270c0-7-7-8-11-4a21 21 0 00-5 9l-1 8c6-2 16-6 17-13z"/>
-        <path id="leaf9" class="{{ $bn }}__fill-major-accent-3" d="M-257 527c44 0 119-67 119-122 0-4-2-12-7-12-24 0-112 71-112 134z"/>
+        <path id="leaf9" class="{{- $bn -}}__fill-major-accent-3" d="M-257 527c44 0 119-67 119-122 0-4-2-12-7-12-24 0-112 71-112 134z"/>
       </g>
       <g>
-        <path id="leaf8" class="{{ $bn }}__fill-major-accent-3" d="M-292 547c-4 0-13-14-13-42 0-21 15-34 19-55 7-31 40-124 91-124 6 0 14 13 14 38 0 31-30 63-30 70 0 75-67 113-81 113z"/>
+        <path id="leaf8" class="{{- $bn -}}__fill-major-accent-3" d="M-292 547c-4 0-13-14-13-42 0-21 15-34 19-55 7-31 40-124 91-124 6 0 14 13 14 38 0 31-30 63-30 70 0 75-67 113-81 113z"/>
         <path
           fill="none"
           stroke="rgba(255,255,255,0.14)"
@@ -224,86 +224,86 @@
           d="M-271 500l41-3-41 3 4-9 45-9-45 9 21-46 33-10-33 10 50-114c-13 9-26 30-38 52l-14-18 14 18a415 415 0 00-5 9l-15-18 15 18a533 533 0 00-25 58h0a77 77 0 00-2 8l-11 35h-1 1l-6 17c-4 7-10 34-10 39zm-14-44l16 11z"/>
       </g>
       <g transform="translate(-270 180)">
-        <rect width="222" height="329" class="{{ $bn }}__fill-major-accent-6" rx="2" transform="translate(-223 1)"/>
+        <rect width="222" height="329" class="{{- $bn -}}__fill-major-accent-6" rx="2" transform="translate(-223 1)"/>
         <g filter="url(#hr_h_f)" transform="translate(-2813 -1236)">
-          <rect width="39.6" height="329" class="{{ $bn }}__fill-major-accent-5" rx="2" transform="translate(2773 1236)"/>
+          <rect width="39.6" height="329" class="{{- $bn -}}__fill-major-accent-5" rx="2" transform="translate(2773 1236)"/>
         </g>
         <g filter="url(#hr_h_g)" transform="translate(-2813 -1236)">
-          <rect width="137" height="27.9" class="{{ $bn }}__fill-major-accent-5" rx="3" transform="translate(2617 1258)"/>
+          <rect width="137" height="27.9" class="{{- $bn -}}__fill-major-accent-5" rx="3" transform="translate(2617 1258)"/>
         </g>
         <g filter="url(#hr_h_h)" transform="translate(-2813 -1236)">
-          <rect width="137" height="27.9" class="{{ $bn }}__fill-major-accent-5" rx="3" transform="translate(2617 1304)"/>
+          <rect width="137" height="27.9" class="{{- $bn -}}__fill-major-accent-5" rx="3" transform="translate(2617 1304)"/>
         </g>
         <g filter="url(#hr_h_i)" transform="translate(-2813 -1236)">
-          <rect width="137" height="27.9" class="{{ $bn }}__fill-major-accent-5" rx="3" transform="translate(2617 1351)"/>
+          <rect width="137" height="27.9" class="{{- $bn -}}__fill-major-accent-5" rx="3" transform="translate(2617 1351)"/>
         </g>
         <g filter="url(#hr_h_j)" transform="translate(-2813 -1236)">
-          <rect width="137" height="27.9" class="{{ $bn }}__fill-major-accent-5" rx="3" transform="translate(2617 1398)"/>
+          <rect width="137" height="27.9" class="{{- $bn -}}__fill-major-accent-5" rx="3" transform="translate(2617 1398)"/>
         </g>
         <g filter="url(#hr_h_k)" transform="translate(-2813 -1236)">
-          <rect width="137" height="27.9" class="{{ $bn }}__fill-major-accent-5" rx="3" transform="translate(2617 1444)"/>
+          <rect width="137" height="27.9" class="{{- $bn -}}__fill-major-accent-5" rx="3" transform="translate(2617 1444)"/>
         </g>
-        <g id="group-server-lights" class="{{ $bn }}__fill-major-accent-3" transform="translate(-180 27)">
+        <g id="group-server-lights" class="{{- $bn -}}__fill-major-accent-3" transform="translate(-180 27)">
           <circle cx="5" cy="5" transform="translate(-10)" r="5"/>
           <circle cx="5" cy="5" transform="translate(-10 47)" r="5"/>
           <circle cx="5" cy="5" transform="translate(-10 93)" r="5"/>
           <circle cx="5" cy="5" transform="translate(-10 140)" r="5"/>
           <circle cx="5" cy="5" transform="translate(-10 186)" r="5"/>
         </g>
-        <path d="M-102 32h-74m74 46h-74m74 47h-74m74 47h-74m74 46h-74" fill="none" class="{{ $bn }}__stroke-major-accent-3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
+        <path d="M-102 32h-74m74 46h-74m74 47h-74m74 47h-74m74 46h-74" fill="none" class="{{- $bn -}}__stroke-major-accent-3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/>
         <path
           id="server-lines-right"
           d="M-10 41h-21m21 6h-21m21 32h-21m21 6h-21m21 40h-21m21 6h-21m21 38h-21m21 6h-21"
           fill="none"
-          class="{{ $bn }}__stroke-major-accent-3"
+          class="{{- $bn -}}__stroke-major-accent-3"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-miterlimit="10"
           stroke-width="2"/>
       </g>
     </g>
-    <path id="hair" class="{{ $bn }}__fill-neutral-8" d="M2528 1263c-11 0-27 9-27 25s16 21 30 24c-9 11-13 13-12 18s10 19 10 35 44 103 52 105-8 19 48 21c15 0 42-23 42-51 1-64-64-76-101-146-17-32-37-32-42-31z"/>
-    <path class="{{ $bn }}__fill-skin-tone-5" d="M2392 1616l-13-8-10 17 14 8z"/>
+    <path id="hair" class="{{- $bn -}}__fill-neutral-8" d="M2528 1263c-11 0-27 9-27 25s16 21 30 24c-9 11-13 13-12 18s10 19 10 35 44 103 52 105-8 19 48 21c15 0 42-23 42-51 1-64-64-76-101-146-17-32-37-32-42-31z"/>
+    <path class="{{- $bn -}}__fill-skin-tone-5" d="M2392 1616l-13-8-10 17 14 8z"/>
     <path fill="url(#hr_h_l)" d="M0 8l-13-8-10 17 14 8z" transform="translate(2392 1608)"/>
-    <path class="{{ $bn }}__fill-skin-tone-5" d="M2493 1648l-14 6 8 17 15-6z"/>
+    <path class="{{- $bn -}}__fill-skin-tone-5" d="M2493 1648l-14 6 8 17 15-6z"/>
     <path fill="url(#hr_h_m)" d="M-8 0l-15 7 9 17 14-7z" transform="translate(2502 1648)"/>
-    <path class="{{ $bn }}__fill-neutral-7" d="M2415 1499c-14 0-34 83-43 108 2 5 13 13 18 13l40-64c3-5-1-57-15-57z"/>
+    <path class="{{- $bn -}}__fill-neutral-7" d="M2415 1499c-14 0-34 83-43 108 2 5 13 13 18 13l40-64c3-5-1-57-15-57z"/>
     <path fill="url(#hr_h_n)" d="M-16 0c-14 0-34 83-43 107 2 6 12 13 18 13l40-64C2 51-2 0-16 0z" transform="translate(2431 1499)"/>
-    <path class="{{ $bn }}__fill-neutral-7" d="M2573 1484c12 0 22-2 22 26s-31 52-67 52-53-1-56-2c-1 9 21 73 23 90-2 4-12 9-17 9s-64-97-63-158c0-9 35-12 57-12l74 3"/>
+    <path class="{{- $bn -}}__fill-neutral-7" d="M2573 1484c12 0 22-2 22 26s-31 52-67 52-53-1-56-2c-1 9 21 73 23 90-2 4-12 9-17 9s-64-97-63-158c0-9 35-12 57-12l74 3"/>
     <g filter="url(#hr_h_o)">
       <path fill="url(#hr_h_p)" d="M-22 0C-10 0 0-3 0 26s-31 51-67 51-53-1-56-1c-1 9 20 73 23 89-2 5-13 10-17 10s-64-97-63-158c0-9 35-12 56-12l75 3" transform="translate(2595 1484)"/>
     </g>
     <path fill="url(#hr_h_q)" d="M-22 0C-10 0 0-3 0 26s-31 51-67 51-53-1-56-1c-1 9 20 73 23 89-2 5-13 10-17 10s-64-97-63-158c0-9 35-12 56-12l75 3" transform="translate(2595 1484)"/>
-    <path id="shirt" class="{{ $bn }}__fill-shirt" d="M2591 1487c1-6 9-141-40-138s-48 122-43 141c23 10 81 4 83-3z"/>
+    <path id="shirt" class="{{- $bn -}}__fill-shirt" d="M2591 1487c1-6 9-141-40-138s-48 122-43 141c23 10 81 4 83-3z"/>
     <g filter="url(#hr_h_r)">
       <path fill="url(#hr_h_s)" d="M-1 138C0 132 8-2-41 0s-49 122-43 141c22 10 81 4 83-3z" transform="translate(2592 1349)"/>
     </g>
     <path fill="url(#hr_h_u)" d="M-1 138C0 132 8-2-41 0s-49 122-43 141c22 10 81 4 83-3z" transform="translate(2592 1349)"/>
-    <path class="{{ $bn }}__fill-skin-tone-5" d="M2534 1339l6 15c1 4 21-1 20-3-7-12-8-24-9-30s-22 5-17 18z"/>
+    <path class="{{- $bn -}}__fill-skin-tone-5" d="M2534 1339l6 15c1 4 21-1 20-3-7-12-8-24-9-30s-22 5-17 18z"/>
     <path fill="url(#hr_h_v)" d="M-26 20l6 15c1 4 21-1 20-3C-7 20-8 8-9 2s-22 5-17 18z" transform="translate(2560 1319)"/>
-    <path id="laptop" class="{{ $bn }}__fill-neutral-5" d="M2450 1487l-16-55s0-5-3-7-8-2-8-2h-8s-8 0-10 4 2 12 2 12l15 56h84v-8z"/>
+    <path id="laptop" class="{{- $bn -}}__fill-neutral-5" d="M2450 1487l-16-55s0-5-3-7-8-2-8-2h-8s-8 0-10 4 2 12 2 12l15 56h84v-8z"/>
     <g filter="url(#hr_h_w)">
       <path fill="url(#hr_h_x)" d="M-55 64L-72 8s0-4-3-6-8-2-8-2h-8s-8 0-9 3 1 13 1 13l15 56H0v-8z" transform="translate(2506 1423)"/>
     </g>
-    <path id="laptop-light" class="{{ $bn }}__fill-neutral-1" d="M2424 1467c-1 0-3-2-3-4s0-6 1-6 3 2 3 4 0 6-1 6z"/>
+    <path id="laptop-light" class="{{- $bn -}}__fill-neutral-1" d="M2424 1467c-1 0-3-2-3-4s0-6 1-6 3 2 3 4 0 6-1 6z"/>
     <path fill="url(#hr_h_y)" d="M0 0h-56v3L0 5z" transform="translate(2506 1487)"/>
-    <path class="{{ $bn }}__fill-skin-tone-5" d="M2541 1418l30 3c2 2 1 8 1 11 0 12 0 25-7 34-3 4-7 8-12 8l-18 6-17 3s-29 6-43 5h-24l-1-3 5-5c5-2 7-1 12-1 4 0 9-2 15-4l26-10 27-10 6-2a99 99 0 01-1-15 90 90 0 010-16l1-4z"/>
+    <path class="{{- $bn -}}__fill-skin-tone-5" d="M2541 1418l30 3c2 2 1 8 1 11 0 12 0 25-7 34-3 4-7 8-12 8l-18 6-17 3s-29 6-43 5h-24l-1-3 5-5c5-2 7-1 12-1 4 0 9-2 15-4l26-10 27-10 6-2a99 99 0 01-1-15 90 90 0 010-16l1-4z"/>
     <path fill="url(#hr_h_z)" d="M-32 0l31 3c2 3 1 9 1 12 0 11-1 24-7 34-3 4-8 7-12 7l-18 6-17 4s-29 5-44 5l-14-1h-10v-2c0-3 3-4 5-5 4-3 7-1 12-1 4 0 8-2 15-5l25-9 28-11 6-2a99 99 0 01-2-14 90 90 0 011-17V0z" transform="translate(2572 1418)"/>
-    <path id="sleeve" class="{{ $bn }}__fill-shirt" d="M2579 1422c5-14 1-57-16-60-23-4-30 51-28 57 4 3 27 11 44 3z"/>
+    <path id="sleeve" class="{{- $bn -}}__fill-shirt" d="M2579 1422c5-14 1-57-16-60-23-4-30 51-28 57 4 3 27 11 44 3z"/>
     <g filter="url(#hr_h_A)" style="mix-blend-mode:saturation;isolation:isolate">
       <path fill="rgba(255,0,0,0.01)" d="M2579 1422c5-14 1-57-16-60-23-4-30 51-28 57 4 3 27 11 44 3z"/>
     </g>
     <path fill="url(#hr_h_B)" d="M-2 60C3 46-1 3-18 0c-24-3-31 51-28 58 4 2 27 10 44 2z" transform="translate(2581 1362)"/>
-    <path class="{{ $bn }}__fill-skin-tone-5" d="M2510 1292a71 71 0 0046 19 6 6 0 011 4 6 6 0 01-5 6c-1 9-6 16-13 18-12 4-25-7-30-24-2-8-2-16 0-23z"/>
-    <path id="shoes" class="{{ $bn }}__fill-neutral-7" d="M2499 1660l10 18-47 24-3-5 23-28zM2386 1628l-10 17-45-28 3-4 36 5z"/>
+    <path class="{{- $bn -}}__fill-skin-tone-5" d="M2510 1292a71 71 0 0046 19 6 6 0 011 4 6 6 0 01-5 6c-1 9-6 16-13 18-12 4-25-7-30-24-2-8-2-16 0-23z"/>
+    <path id="shoes" class="{{- $bn -}}__fill-neutral-7" d="M2499 1660l10 18-47 24-3-5 23-28zM2386 1628l-10 17-45-28 3-4 36 5z"/>
     <path fill="rgba(0,0,0,0.11)" d="M2386 1628l-10 17-45-28 3-4 36 5z"/>
     <g>
-      <path class="{{ $bn }}__fill-major-accent-3" d="M2674 1164a15 15 0 000 12 14 14 0 0019 8 14 14 0 007-19l24-10c9 21 0 45-21 54s-44-2-53-23a42 42 0 010-33z"/>
-      <path class="{{ $bn }}__fill-major-accent-2" d="M2724 1155l-24 10a14 14 0 00-19-7l-10-25a41 41 0 0153 22z"/>
+      <path class="{{- $bn -}}__fill-major-accent-3" d="M2674 1164a15 15 0 000 12 14 14 0 0019 8 14 14 0 007-19l24-10c9 21 0 45-21 54s-44-2-53-23a42 42 0 010-33z"/>
+      <path class="{{- $bn -}}__fill-major-accent-2" d="M2724 1155l-24 10a14 14 0 00-19-7l-10-25a41 41 0 0153 22z"/>
       <g filter="url(#hr_h_C)" transform="translate(-2 -1)">
-        <path class="{{ $bn }}__fill-major-accent-1" d="M2686 1157c-5 2-10 7-12 12l-27-12c4-14 12-22 26-27z"/>
+        <path class="{{- $bn -}}__fill-major-accent-1" d="M2686 1157c-5 2-10 7-12 12l-27-12c4-14 12-22 26-27z"/>
       </g>
     </g>
-    <path class="animated-line {{ $bn }}__stroke-major-accent-5" fill="none" stroke-dasharray="1 7" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="M2420 1419v-257h212v72"/>
+    <path class="animated-line {{- $bn -}}__stroke-major-accent-5" fill="none" stroke-dasharray="1 7" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" d="M2420 1419v-257h212v72"/>
   </g>
 </svg>

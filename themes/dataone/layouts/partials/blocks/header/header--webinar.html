@@ -1,53 +1,53 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 
-{{ $bn := "header" }}
+{{- $bn := "header" -}}
 
-{{ $mainTitle := "Webinar" }}
+{{- $mainTitle := "Webinar" -}}
 
-<header class="{{ $bn }} {{ $bn }}--webinar">
+<header class="{{- $bn -}} {{- $bn -}}--webinar">
 
-  <div class="{{ $bn }}__content">
+  <div class="{{- $bn -}}__content">
 
-    <div class="{{ $bn }}__text">
+    <div class="{{- $bn -}}__text">
 
-      <div class="{{ $bn }}__title-and-pill">
+      <div class="{{- $bn -}}__title-and-pill">
         {{- with $mainTitle -}}
-          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>{{- end -}}
+          <span class="{{- $bn -}}__title">{{- . | safeHTML -}}</span>{{- end -}}
 
         {{- with .Block.pill -}}
           {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page) -}}
         {{- end -}}
       </div>
 
-      <h1 class="{{ $bn }}__headline markdown">{{ .Block.title | markdownify }}</h1>
+      <h1 class="{{- $bn -}}__headline markdown">{{- .Block.title | markdownify -}}</h1>
 
       <!-- date, time, duration -->
-      <div class="{{ $bn }}__datetime-items">
-        {{ $tstamp := $page.Params.webinar_datetime }}
-        {{ $eventDetailsBlock := dict "datetime" $tstamp "duration" .Block.duration }}
-        {{ partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) }}
+      <div class="{{- $bn -}}__datetime-items">
+        {{- $tstamp := $page.Params.webinar_datetime -}}
+        {{- $eventDetailsBlock := dict "datetime" $tstamp "duration" .Block.duration -}}
+        {{- partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) -}}
       </div>
 
       <!-- registration link -->
-      {{ with .Block.button }}
-        {{ if .external_link }}
-          <div class="{{ $bn }}__registration-button">
-            {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
+      {{- with .Block.button -}}
+        {{- if .external_link -}}
+          <div class="{{- $bn -}}__registration-button">
+            {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
           </div>
-        {{ end }}
-      {{ end }}
+        {{- end -}}
+      {{- end -}}
 
       <!-- expandable speakers -->
-      <div class="{{ $bn }}__speakers">
-        {{ $speakers := .Block.speakers }}
-        {{ $speakersTitle := "Speaker" }}
-        {{ if gt (len $speakers) 1 }}
-          {{ $speakersTitle = $speakersTitle | pluralize }}
-        {{ end }}
-        <h4 class="{{ $bn }}__speakers-title">{{ $speakersTitle }}</h4>
-        {{ $peopleBlock := dict "people" $speakers "show_avatars" "true" "type" "accordion" "show_longbio" true }}
-        {{ partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) }}
+      <div class="{{- $bn -}}__speakers">
+        {{- $speakers := .Block.speakers -}}
+        {{- $speakersTitle := "Speaker" -}}
+        {{- if gt (len $speakers) 1 -}}
+          {{- $speakersTitle = $speakersTitle | pluralize -}}
+        {{- end -}}
+        <h4 class="{{- $bn -}}__speakers-title">{{- $speakersTitle -}}</h4>
+        {{- $peopleBlock := dict "people" $speakers "show_avatars" "true" "type" "accordion" "show_longbio" true -}}
+        {{- partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) -}}
       </div>
 
     </div>

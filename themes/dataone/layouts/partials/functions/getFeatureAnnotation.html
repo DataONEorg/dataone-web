@@ -4,34 +4,34 @@
 
 <!-- Variables required: -->
 <!-- .Service = type Page -->
-{{ $service := .service }}
+{{- $service := .service -}}
 <!-- .Feature = type Page -->
-{{ $feature := .feature }}
+{{- $feature := .feature -}}
 <!-- subfeature-->
-{{ $subfeature := .subfeature }}
+{{- $subfeature := .subfeature -}}
 
 <!-- the site parameter so we can access Pages -->
-{{ $site := $service.Site }}
+{{- $site := $service.Site -}}
 
 <!-- The annoation this function will return -->
-{{ $annotation := "" }}
+{{- $annotation := "" -}}
 
-{{ if and $service $feature $site }}
-  {{ $servicesToCheck := slice }}
-  {{ if $subfeature }}
-    {{ $servicesToCheck = $subfeature.linked_services }}
-  {{ else }}
-    {{ $servicesToCheck = $feature.Params.linked_services }}
-  {{ end }}
+{{- if and $service $feature $site -}}
+  {{- $servicesToCheck := slice -}}
+  {{- if $subfeature -}}
+    {{- $servicesToCheck = $subfeature.linked_services -}}
+  {{- else -}}
+    {{- $servicesToCheck = $feature.Params.linked_services -}}
+  {{- end -}}
   <!-- Find the service in the feature page's list of linked services -->
-  {{ range $linked_service := $servicesToCheck }}
-    {{ if $linked_service.table_annotation }}
-      {{ if eq ($site.GetPage $linked_service.service_file) $service }}
+  {{- range $linked_service := $servicesToCheck -}}
+    {{- if $linked_service.table_annotation -}}
+      {{- if eq ($site.GetPage $linked_service.service_file) $service -}}
         <!--Update the annotation -->
-        {{ $annotation = $linked_service.table_annotation }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+        {{- $annotation = $linked_service.table_annotation -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
-{{ return $annotation }}
+{{- return $annotation -}}

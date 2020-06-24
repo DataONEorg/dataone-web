@@ -1,18 +1,18 @@
 <!-- Get the categories for features set by the user (in features index page) -->
 
 <!-- Need to access the Site parameter to get Pages -->
-{{ $site := .Site }}
+{{- $site := .Site -}}
 
 <!-- The categories to return (type Slice) -->
-{{ $featureCategories := slice }}
-{{ if $site }}
+{{- $featureCategories := slice -}}
+{{- if $site -}}
   <!-- Get feature section page -->
-  {{ $sectionPage := dict }}
-  {{ range first 1 (where (where $site.Pages "Type" "features") "Kind" "section") }}
-    {{ $sectionPage = .Params }}
-  {{ end }}
+  {{- $sectionPage := dict -}}
+  {{- range first 1 (where (where $site.Pages "Type" "features") "Kind" "section") -}}
+    {{- $sectionPage = .Params -}}
+  {{- end -}}
   <!-- Get categories -->
-  {{ $featureCategories = $sectionPage.categories }}
-{{ end }}
+  {{- $featureCategories = $sectionPage.categories -}}
+{{- end -}}
 
-{{ return $featureCategories }}
+{{- return $featureCategories -}}

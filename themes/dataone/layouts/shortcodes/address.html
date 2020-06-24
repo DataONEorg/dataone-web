@@ -1,6 +1,6 @@
-{{ $params :=  (dict "Page" $.Page.Params) }}
-{{ if .Params }}
-  {{ $params_formatted := merge .Params (dict "delivery_points" (slice .Params.delivery_points) ) }}
-  {{ $params = merge $params (dict "Block" $params_formatted) }}
-{{ end }}
-{{ partial "blocks/address/address" $params }}
+{{- $params :=  (dict "Page" $.Page.Params) -}}
+{{- if .Params -}}
+  {{- $params_formatted := merge .Params (dict "delivery_points" (slice .Params.delivery_points) ) -}}
+  {{- $params = merge $params (dict "Block" $params_formatted) -}}
+{{- end -}}
+{{- partial "blocks/address/address" $params -}}

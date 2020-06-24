@@ -3,36 +3,36 @@
   <!-- ========================================== VARIABLES ========================================== -->
 
   <!-- in order to pass on page parameters from within loops -->
-  {{ $page := $.Page }}
+  {{- $page := $.Page -}}
 
   <!-- webinar parameters -->
-  {{ $webinar := $.Page.Params }}
+  {{- $webinar := $.Page.Params -}}
 
   <!-- status defines whether this webinar is upcoming, happening now, or past -->
-  {{ $status := partial "functions/getWebinarStatus" $webinar }}
+  {{- $status := partial "functions/getWebinarStatus" $webinar -}}
   <!-- Set the pill text based on status -->
-  {{ $pillBlock := partial "functions/getWebinarPill" $status }}
+  {{- $pillBlock := partial "functions/getWebinarPill" $status -}}
   <!-- add status as a modifier class -->
-  {{ $classes := "" }}
-  {{ with $status }}
-    {{ $classes = print $classes " webinar--st-" $status }}
-  {{ end }}
+  {{- $classes := "" -}}
+  {{- with $status -}}
+    {{- $classes = print $classes " webinar--st-" $status -}}
+  {{- end -}}
 
   <!-- ========================================== BLOCKS ========================================== -->
 
   <!-- Registration link -->
-  {{ $buttonBlock := dict }}
-  {{ if or (eq $status "upcoming") (eq $status "happening-now") }}
-    {{ $buttonBlock = dict "text" "Register now" "external_link" ($webinar.registration_link | default "") "color" "primary" }}
-  {{ end }}
+  {{- $buttonBlock := dict -}}
+  {{- if or (eq $status "upcoming") (eq $status "happening-now") -}}
+    {{- $buttonBlock = dict "text" "Register now" "external_link" ($webinar.registration_link | default "") "color" "primary" -}}
+  {{- end -}}
   <!-- Header -->
-  {{ $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock "button" $buttonBlock}}
+  {{- $headerBlock := dict "template" "header" "type" "webinar" "title" $webinar.title "abstract" $webinar.abstract "speakers" $webinar.speakers "duration" $webinar.duration "pill" $pillBlock "button" $buttonBlock -}}
   <!-- Breadcrumb navigation -->
-  {{ $breadcrumbsBlock := dict "back_text" "See all webinars" "back_link" $page.Parent.RelPermalink }}
-  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+  {{- $breadcrumbsBlock := dict "back_text" "See all webinars" "back_link" $page.Parent.RelPermalink -}}
+  {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
   <!-- Webinar sections -->
-  {{ $webinarBlock := merge (dict "template" "webinar-details") $webinar }}
-  {{ $sectionBlock:= dict "template" "section" "type" "split" "background" "subtle-emphasis" "background2" "default" "blocks" (slice $headerBlock $webinarBlock) }}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) }}
+  {{- $webinarBlock := merge (dict "template" "webinar-details") $webinar -}}
+  {{- $sectionBlock:= dict "template" "section" "type" "split" "background" "subtle-emphasis" "background2" "default" "blocks" (slice $headerBlock $webinarBlock) -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) -}}
 
 {{- end -}}

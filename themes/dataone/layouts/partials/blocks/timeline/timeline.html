@@ -1,49 +1,49 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "timeline" }}
+{{- $bn := "timeline" -}}
 <!-- classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Each event comprises a date, title, description, image (optional), and button (optional) -->
-{{ $events := .Block.event | default slice }}
+{{- $events := .Block.event | default slice -}}
 
 <!-- Date format -->
-{{ $format := .Block.format | default "January 2, 2006" }}
+{{- $format := .Block.format | default "January 2, 2006" -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
   {{- range $events -}}
 
     <!-- Variables within Events -->
 
     <!-- Date of event in ISO format YYY-MM-DD -->
-    {{ $date := .date | default "" }}
+    {{- $date := .date | default "" -}}
     <!-- Title of eveent -->
-    {{ $title := .title | default "" }}
+    {{- $title := .title | default "" -}}
     <!-- Description of event -->
-    {{ $description := .description | default ""}}
+    {{- $description := .description | default "" -}}
     <!-- SRC for image -->
-    {{ $image := .image | default "" }}
+    {{- $image := .image | default "" -}}
     <!-- Button block parameters -->
-    {{ $buttonBlock := .button | default dict }}
+    {{- $buttonBlock := .button | default dict -}}
 
-    {{ $imageBlock := dict }}
-    {{ if $image }}
-      {{ $imageBlock = dict "src" $image "alt" "" "type" "default" }}
-    {{ end }}
+    {{- $imageBlock := dict -}}
+    {{- if $image -}}
+      {{- $imageBlock = dict "src" $image "alt" "" "type" "default" -}}
+    {{- end -}}
 
-    {{ $dateTimeParams := dict "change_timezone" false "localize" false "format" $format "time" $date }}
-    {{ $cardBlock := dict "clickable" "false" "datetime" $dateTimeParams "image" $imageBlock "button" $buttonBlock "title" $title "description" $description }}
+    {{- $dateTimeParams := dict "change_timezone" false "localize" false "format" $format "time" $date -}}
+    {{- $cardBlock := dict "clickable" "false" "datetime" $dateTimeParams "image" $imageBlock "button" $buttonBlock "title" $title "description" $description -}}
 
     <!-- Don't render a block without a date -->
-    {{ if $date }}
+    {{- if $date -}}
 
-      <div class="{{ $bn }}__event">
-        <div class="{{ $bn }}__circle"></div>
+      <div class="{{- $bn -}}__event">
+        <div class="{{- $bn -}}__circle"></div>
 
-        {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page) }}
+        {{- partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page) -}}
 
       </div>
-    {{ end }}
+    {{- end -}}
   {{- end -}}
 </div>

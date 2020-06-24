@@ -166,7 +166,7 @@ var updateTOC = function(){
     
     // If on desktop, make sure that all of TOC is shown
     var winWidth = window.innerWidth || document.documentElement.clientWidth;
-    var mobileDesktopBreakpoint = {{ .Site.Params.mobileDesktopBreakpoint }} || 700;
+    var mobileDesktopBreakpoint = {{- .Site.Params.mobileDesktopBreakpoint -}} || 700;
     if(
       winWidth >= mobileDesktopBreakpoint ||
       !hasClass(navEl, "member-nodes__nav--mobile-affixed")

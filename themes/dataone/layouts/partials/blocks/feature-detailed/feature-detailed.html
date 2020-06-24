@@ -1,58 +1,58 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "feature-detailed" }}
+{{- $bn := "feature-detailed" -}}
 <!-- classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Add a modifier for each possible figure position (right is default) -->
-{{ with .Block.type }}
-  {{ $classes = print $classes " " $bn "--fig" . }}
-{{ end }}
+{{- with .Block.type -}}
+  {{- $classes = print $classes " " $bn "--fig" . -}}
+{{- end -}}
 
 <!-- Add a modifier class if a section modifier was passed on from parent section block -->
 <!-- e.g. in the case that the section dark backgrounds -->
-{{ with $page.Scratch.Get "section_modifier"}}
-  {{ $classes = print $classes " " $bn "--" .}}
-{{ end }}
+{{- with $page.Scratch.Get "section_modifier" -}}
+  {{- $classes = print $classes " " $bn "--" . -}}
+{{- end -}}
 
 <!-- Check if there's an image. Add a class if not -->
-{{ $hasImage := and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
-{{ if not $hasImage }}
-  {{ $classes = print $classes " " $bn "--no-image" }}
-{{ end }}
+{{- $hasImage := and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") -}}
+{{- if not $hasImage -}}
+  {{- $classes = print $classes " " $bn "--no-image" -}}
+{{- end -}}
 
-{{ $badge := "" }}
-{{ with .Block.related_page }}
-  {{ $badgePage := $page.Site.GetPage . }}
-  {{ if $badgePage }}
-    {{ $badge = partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) }}
-    {{ if eq $badgePage.Type "services" }}
-      {{ $serviceVar := $badgePage.Params.title | urlize }}
-      {{ $classes = printf "%s theme--%s" $classes $serviceVar }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{- $badge := "" -}}
+{{- with .Block.related_page -}}
+  {{- $badgePage := $page.Site.GetPage . -}}
+  {{- if $badgePage -}}
+    {{- $badge = partial "blocks/badge/badge" (dict "Block" (dict "page" . "style" "light") "Page" $page) -}}
+    {{- if eq $badgePage.Type "services" -}}
+      {{- $serviceVar := $badgePage.Params.title | urlize -}}
+      {{- $classes = printf "%s theme--%s" $classes $serviceVar -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Don't add a class for the default type -->
-<div class="{{ $classes }}">
-  <div class="{{ $bn }}__description">
-    <div class="{{ $bn }}__title-and-intro">
-      <span class="{{ $bn }}__badge-and-title">
-        {{ with $badge }}
-          <span class="{{ $bn }}__badge">{{ . }}</span>
-        {{ end }}
-        {{ with .Block.headline }}
-          <h3 class="{{ $bn }}__title">{{ . }}</h3>
-        {{ end }}
+<div class="{{- $classes -}}">
+  <div class="{{- $bn -}}__description">
+    <div class="{{- $bn -}}__title-and-intro">
+      <span class="{{- $bn -}}__badge-and-title">
+        {{- with $badge -}}
+          <span class="{{- $bn -}}__badge">{{- . -}}</span>
+        {{- end -}}
+        {{- with .Block.headline -}}
+          <h3 class="{{- $bn -}}__title">{{- . -}}</h3>
+        {{- end -}}
       </span>
 
-      {{ with .Block.text }}
-        <p class="{{ $bn }}__intro markdown">{{ . | markdownify }}</p>
-      {{ end }}
+      {{- with .Block.text -}}
+        <p class="{{- $bn -}}__intro markdown">{{- . | markdownify -}}</p>
+      {{- end -}}
     </div>
     {{- with .Block.details -}}
-      <div class="{{ $bn }}__details">
+      <div class="{{- $bn -}}__details">
         {{- range . -}}
           {{- if and .name .text -}}
             {{- partial "blocks/item-with-icon/item-with-icon" (dict "Block" . "Page" $page) -}}
@@ -60,16 +60,16 @@
         {{- end -}}
       </div>
     {{- end -}}
-    {{ if and (partial "functions/hasValues" .Block.button) (.Block.button.text) }}
-      <div class="{{ $bn }}__button">
+    {{- if and (partial "functions/hasValues" .Block.button) (.Block.button.text) -}}
+      <div class="{{- $bn -}}__button">
         {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>
     {{- end -}}
   </div>
-  {{ if $hasImage }}
-    <div class="{{ $bn }}__figure">
+  {{- if $hasImage -}}
+    <div class="{{- $bn -}}__figure">
       {{- partial "blocks/image/image" (dict "Block" .Block.image "Page" $page) -}}
     </div>
-  {{ end }}
+  {{- end -}}
 
 </div>

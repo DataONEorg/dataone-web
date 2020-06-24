@@ -2,70 +2,70 @@
 
 <!-- Variables required: -->
 <!-- .Features = a slice of feature Pages -->
-{{ $features := .features }}
-{{ $site := (index $features 1).Site }}
+{{- $features := .features -}}
+{{- $site := (index $features 1).Site -}}
 <!-- This will be the final sorted list of features to return -->
-{{ $featuresSorted := slice }}
+{{- $featuresSorted := slice -}}
 
-{{ if and $features $site }}
+{{- if and $features $site -}}
 
-  {{ if le (len $features) 1 }}
-    {{ $featuresSorted = $features}}
-  {{ else }}
+  {{- if le (len $features) 1 -}}
+    {{- $featuresSorted = $features -}}
+  {{- else -}}
 
-    {{ $servicePages := partial "functions/getServicePages" (dict "Site" $site) }}
+    {{- $servicePages := partial "functions/getServicePages" (dict "Site" $site) -}}
 
-    {{ $featureCategories := partial "functions/getFeatureCategories" (dict "Site" $site) }}
+    {{- $featureCategories := partial "functions/getFeatureCategories" (dict "Site" $site) -}}
 
-    {{ range $category := $featureCategories }}
+    {{- range $category := $featureCategories -}}
 
       <!-- This will be the final sorted list for the category -->
-      {{ $featuresInCategorySorted := slice }}
+      {{- $featuresInCategorySorted := slice -}}
 
       <!-- First group by category -->
-      {{ $featuresInCategory := where $features ".Params.category" $category }}
+      {{- $featuresInCategory := where $features ".Params.category" $category -}}
 
       <!-- Sort features by service, and then by whether or not they have a table annotation -->
 
       <!-- First, sort by service. This maintains the service order selected by user (i.e. weight parameter in service file )-->
-      {{ range $servicePage := $servicePages }}
+      {{- range $servicePage := $servicePages -}}
 
         <!-- Secondarily, sort by whether there's a table annotation -->
-        {{ $featuresInServiceSorted := slice }}
-        {{ $featuresWithoutAnnotations := slice }}
-        {{ $featuresWithAnnotations := slice }}
+        {{- $featuresInServiceSorted := slice -}}
+        {{- $featuresWithoutAnnotations := slice -}}
+        {{- $featuresWithAnnotations := slice -}}
 
-        {{ range $categoryFeature := $featuresInCategory }}
+        {{- range $categoryFeature := $featuresInCategory -}}
 
           <!-- Don't add the feature twice! -->
-          {{ if and (not (in $featuresInCategorySorted $categoryFeature)) (not (in $featuresInServiceSorted $categoryFeature)) }}
-            {{ range $categoryFeature.Params.linked_services }}
-              {{ if .service_file }}
-                {{ if eq ($site.GetPage .service_file) $servicePage }}
+          {{- if and (not (in $featuresInCategorySorted $categoryFeature)) (not (in $featuresInServiceSorted $categoryFeature)) -}}
+            {{- range $categoryFeature.Params.linked_services -}}
+              {{- if .service_file -}}
+                {{- if eq ($site.GetPage .service_file) $servicePage -}}
 
-                  {{ if .table_annotation }}
+                  {{- if .table_annotation -}}
 
-                    {{ $featuresWithAnnotations = $featuresWithAnnotations  | append $categoryFeature }}
-                  {{ else }}
+                    {{- $featuresWithAnnotations = $featuresWithAnnotations  | append $categoryFeature -}}
+                  {{- else -}}
 
-                    {{ $featuresWithoutAnnotations = $featuresWithoutAnnotations  | append $categoryFeature }}
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          {{ $featuresInServiceSorted = $featuresWithoutAnnotations | append $featuresWithAnnotations }}
-        {{ end }}
+                    {{- $featuresWithoutAnnotations = $featuresWithoutAnnotations  | append $categoryFeature -}}
+                  {{- end -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $featuresInServiceSorted = $featuresWithoutAnnotations | append $featuresWithAnnotations -}}
+        {{- end -}}
 
-        {{ $featuresInCategorySorted = $featuresInCategorySorted | append $featuresInServiceSorted }}
+        {{- $featuresInCategorySorted = $featuresInCategorySorted | append $featuresInServiceSorted -}}
 
-      {{ end }}
+      {{- end -}}
 
-      {{ $featuresSorted =  $featuresSorted | append $featuresInCategorySorted }}
+      {{- $featuresSorted =  $featuresSorted | append $featuresInCategorySorted -}}
 
-    {{ end }}
+    {{- end -}}
 
-  {{ end }}
-{{ end }}
+  {{- end -}}
+{{- end -}}
 
-{{ return $featuresSorted }}
+{{- return $featuresSorted -}}

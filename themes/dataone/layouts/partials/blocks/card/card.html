@@ -1,98 +1,98 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "card" }}
+{{- $bn := "card" -}}
 <!-- classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Is the entire card clickable? -->
-{{ $isClickable := and (or (eq .Block.clickable true) (eq .Block.clickable "true")) .Block.href }}
+{{- $isClickable := and (or (eq .Block.clickable true) (eq .Block.clickable "true")) .Block.href -}}
 
-{{ if $isClickable }}
-  {{ $classes = print $classes " " $bn "--clickable" }}
-{{ end }}
+{{- if $isClickable -}}
+  {{- $classes = print $classes " " $bn "--clickable" -}}
+{{- end -}}
 
 <!-- Make a variable that indicates whether there's an image -->
-{{ $hasImage := false }}
-{{ if .Block.image }}
-  {{ if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") }}
-    {{ $hasImage = true }}
-  {{ end }}
-{{ end }}
+{{- $hasImage := false -}}
+{{- if .Block.image -}}
+  {{- if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") -}}
+    {{- $hasImage = true -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Make a variable that indicates whether there's a button -->
-{{ $hasButton := false }}
-{{ if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") }}
-  {{ $hasButton = true }}
-{{ end }}
+{{- $hasButton := false -}}
+{{- if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") -}}
+  {{- $hasButton = true -}}
+{{- end -}}
 
 <!-- modifier class for cards with images -->
-{{ if $hasImage}}
-  {{ $classes = print $classes " " $bn "--image-header" }}
-{{ end }}
+{{- if $hasImage -}}
+  {{- $classes = print $classes " " $bn "--image-header" -}}
+{{- end -}}
 
-{{ if $isClickable }}
-  <a class="{{ $classes }} " href="{{ .Block.href }}">
-  {{ else }}
-    <div class="{{ $classes }} ">
-    {{ end }}
+{{- if $isClickable -}}
+  <a class="{{- $classes -}} " href="{{- .Block.href -}}">
+  {{- else -}}
+    <div class="{{- $classes -}} ">
+    {{- end -}}
     <!-- Image (optional) -->
-    {{ if $hasImage }}
-      <div class="{{ $bn }}__image">
-        {{ $imageType := (dict "type" "cover") }}
-        {{ $imageParams :=  merge .Block.image $imageType }}
+    {{- if $hasImage -}}
+      <div class="{{- $bn -}}__image">
+        {{- $imageType := (dict "type" "cover") -}}
+        {{- $imageParams :=  merge .Block.image $imageType -}}
         {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
       </div>
-      <div class="{{ $bn }}__image-gradient">
-      {{ end }}
+      <div class="{{- $bn -}}__image-gradient">
+      {{- end -}}
 
-      <div class="{{ $bn }}__pill">
-        {{ with .Block.pill }}
-          {{ partial "blocks/pill/pill" (dict "Block" . "Page" $page )}}
-        {{ end }}
+      <div class="{{- $bn -}}__pill">
+        {{- with .Block.pill -}}
+          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page ) -}}
+        {{- end -}}
       </div>
 
-      <div class="{{ $bn }}__titles">
-        {{ with .Block.title }}
-          <h3 class="{{ $bn }}__title">{{ . }}</h3>
-        {{ end }}
-        {{ with .Block.subtitle }}
-          <h4 class="{{ $bn }}__subtitle">{{ . }}</h3>
-        {{ end }}
+      <div class="{{- $bn -}}__titles">
+        {{- with .Block.title -}}
+          <h3 class="{{- $bn -}}__title">{{- . -}}</h3>
+        {{- end -}}
+        {{- with .Block.subtitle -}}
+          <h4 class="{{- $bn -}}__subtitle">{{- . -}}</h3>
+        {{- end -}}
       </div>
       <!-- close the __image-gradient div -->
-      {{ if $hasImage }}
+      {{- if $hasImage -}}
       </div>
-    {{ end }}
+    {{- end -}}
 
-    {{ with .Block.datetime }}
-      {{ if and (partial "functions/hasValues" .) (ne .time "") (ne .time " ") }}
-        <div class="{{ $bn }}__date">
-          {{ partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) }}
+    {{- with .Block.datetime -}}
+      {{- if and (partial "functions/hasValues" .) (ne .time "") (ne .time " ") -}}
+        <div class="{{- $bn -}}__date">
+          {{- partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) -}}
         </div>
-      {{ end }}
-    {{ end }}
+      {{- end -}}
+    {{- end -}}
 
-    {{ with .Block.description }}
-      <div class="{{ $bn }}__description">{{ . }}</div>
-    {{ end }}
+    {{- with .Block.description -}}
+      <div class="{{- $bn -}}__description">{{- . -}}</div>
+    {{- end -}}
 
-    {{ with .Block.tags }}
-      <div class="{{ $bn }}__tags">
-        {{ range . }}
-          {{ partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page )}}
-        {{ end }}
+    {{- with .Block.tags -}}
+      <div class="{{- $bn -}}__tags">
+        {{- range . -}}
+          {{- partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page ) -}}
+        {{- end -}}
       </div>
-    {{ end }}
+    {{- end -}}
 
     <!-- Button (optional). Don't show if entire block is clickable -->
-    {{ if and $hasButton (not $isClickable) }}
-      <div class="{{ $bn }}__button">
+    {{- if and $hasButton (not $isClickable) -}}
+      <div class="{{- $bn -}}__button">
         {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
       </div>
-    {{ end }}
-    {{ if $isClickable }}
+    {{- end -}}
+    {{- if $isClickable -}}
     </a>
-  {{ else }}
+  {{- else -}}
   </div>
-{{ end }}
+{{- end -}}

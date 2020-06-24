@@ -1,43 +1,43 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "accordion" }}
+{{- $bn := "accordion" -}}
 <!-- classes: classes for the outer element of the accordion -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 <!-- heading: the part of the accordion that's always shown -->
-{{ $heading := "" }}
-{{ with .Block.heading }}
+{{- $heading := "" -}}
+{{- with .Block.heading -}}
   <!-- if the heading is a block, render the block -->
-  {{ if reflect.IsMap . }}
-    {{ if .template }}
-      {{ $heading = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
-    {{ end }}
+  {{- if reflect.IsMap . -}}
+    {{- if .template -}}
+      {{- $heading = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+    {{- end -}}
     <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
-  {{ else }}
-    {{ $heading = . }}
-  {{ end }}
-{{ end }}
+  {{- else -}}
+    {{- $heading = . -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- content: the part of the accordion that can be hidden or shown -->
-{{ $content := "content" }}
-{{ with .Block.content }}
+{{- $content := "content" -}}
+{{- with .Block.content -}}
   <!-- if the content is a block, render the block -->
-  {{ if reflect.IsMap . }}
-    {{ if .template }}
-      {{ $content = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
-    {{ end }}
+  {{- if reflect.IsMap . -}}
+    {{- if .template -}}
+      {{- $content = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+    {{- end -}}
     <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
-  {{ else }}
-    {{ $content = . }}
-  {{ end }}
-{{ end }}
+  {{- else -}}
+    {{- $content = . -}}
+  {{- end -}}
+{{- end -}}
 
-<div data-aria-accordion="true" class="{{ $classes }}">
+<div data-aria-accordion="true" class="{{- $classes -}}">
   <div data-aria-accordion-heading="true">
-    {{ $heading }}
+    {{- $heading -}}
   </div>
   <div data-aria-accordion-panel="true">
-    {{ $content }}
+    {{- $content -}}
   </div>
   <!-- TODO: if needed, the pattern above could be repeated for to add multiple accordion panels -->
 </div>

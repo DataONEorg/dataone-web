@@ -1,19 +1,19 @@
 {{- define "main" -}}
-  {{ $page := $ }}
+  {{- $page := $ -}}
   <!-- Breadcrumb nav -->
 
-  {{ $breadcrumbsBlock := dict "back_text" "Back to all news" "back_link" $page.Parent.RelPermalink }}
-  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+  {{- $breadcrumbsBlock := dict "back_text" "Back to all news" "back_link" $page.Parent.RelPermalink -}}
+  {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
 
   <!-- Header -->
-  {{ $headerBlock := dict "title" .Params.headline "type" "text only" "background_color" "default" }}
-  {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ )}}
+  {{- $headerBlock := dict "title" .Params.headline "type" "text only" "background_color" "default" -}}
+  {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $ ) -}}
 
   <!-- News -->
-  {{ $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold"}}
+  {{- $dateBlock := dict "template" "datetime" "time" .Params.date "format" "January 2, 2006" "change_timezone" false "localize" false "style" "bold" -}}
 
-  {{ $markdownBlock := dict "template" "markdown" "content" .Content "pre_rendered" true }}
-  {{ $sectionBlock := dict "blocks" (slice $dateBlock $markdownBlock) }}
-  {{ partial "blocks/section/section"  (dict "Block" $sectionBlock "Page" $) }}
+  {{- $markdownBlock := dict "template" "markdown" "content" .Content "pre_rendered" true -}}
+  {{- $sectionBlock := dict "blocks" (slice $dateBlock $markdownBlock) -}}
+  {{- partial "blocks/section/section"  (dict "Block" $sectionBlock "Page" $) -}}
 
 {{- end -}}

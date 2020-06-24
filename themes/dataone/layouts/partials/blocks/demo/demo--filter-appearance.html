@@ -2,26 +2,26 @@
 <!-- Common variables -->
 
 <!-- In order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- Block name -->
-{{ $bn := "demo" }}
+{{- $bn := "demo" -}}
 
-{{ $iconBlock := dict "size" "small" "stroke" "thinner"  "icon" "search" "stroke" "thicker" }}
+{{- $iconBlock := dict "size" "small" "stroke" "thinner"  "icon" "search" "stroke" "thicker" -}}
 
-{{ $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+{{- $searchIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
 
 <!-- ================================================================= -->
 <!-- Layout -->
 
 <!-- All relevant bootstrap 3.2.1 icons combined into one svg, each icon with it's own path -->
-{{ $iconOptions := partial "blocks/demo/demo--filter-appearance_icon-options.svg" }}
+{{- $iconOptions := partial "blocks/demo/demo--filter-appearance_icon-options.svg" -}}
 
-<div class="{{ $bn }}__label">
-  <div class="{{$bn}}__icon-button" data-tooltip="Select from over 300 icons" data-position="center top">{{ $iconOptions }}</div>
-  <p class="{{$bn}}__label-text" data-tooltip="Name your filter anything you'd like" data-position="center top">Filter title</p>
+<div class="{{- $bn -}}__label">
+  <div class="{{- $bn -}}__icon-button" data-tooltip="Select from over 300 icons" data-position="center top">{{- $iconOptions -}}</div>
+  <p class="{{- $bn -}}__label-text" data-tooltip="Name your filter anything you'd like" data-position="center top">Filter title</p>
 </div>
-<div class="{{ $bn }}__form-elements">
-  <input class="{{ $bn }}__example-UI-field" type="text" disabled="true"></input>
-  <button class="{{ $bn }}__search-button" disabled="true">{{ $searchIcon }}</button>
-  <p class="{{$bn}}__placeholder-text" data-tooltip="Set placeholder text to provide an example search term" data-position="center bottom">Placeholder text</p>
+<div class="{{- $bn -}}__form-elements">
+  <input class="{{- $bn -}}__example-UI-field" type="text" disabled="true"></input>
+  <button class="{{- $bn -}}__search-button" disabled="true">{{- $searchIcon -}}</button>
+  <p class="{{- $bn -}}__placeholder-text" data-tooltip="Set placeholder text to provide an example search term" data-position="center bottom">Placeholder text</p>
 </div>

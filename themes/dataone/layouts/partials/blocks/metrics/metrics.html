@@ -1,67 +1,67 @@
-{{ $page := .Page }}
-{{ $metrics := .Page.Site.Data.metrics }}
+{{- $page := .Page -}}
+{{- $metrics := .Page.Site.Data.metrics -}}
 <!-- bn = block name -->
-{{ $bn := "metrics" }}
+{{- $bn := "metrics" -}}
 
-{{ $classes := $bn }}
-{{ with .Block.type }}
-  {{ if ne . "default" }}
-    {{ $classes = print $classes " metrics--" . }}
-  {{ end }}
-{{ end }}
+{{- $classes := $bn -}}
+{{- with .Block.type -}}
+  {{- if ne . "default" -}}
+    {{- $classes = print $classes " metrics--" . -}}
+  {{- end -}}
+{{- end -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
 
   <!-- DOWNLOADS -->
-  <div class="{{ $bn }}__metric metrics__downloads">
+  <div class="{{- $bn -}}__metric metrics__downloads">
 
-    <div class="{{ $bn }}__name">
-      <span class="{{ $bn }}__icon">
+    <div class="{{- $bn -}}__name">
+      <span class="{{- $bn -}}__icon">
         {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}
       </span>
       Downloads
     </div>
-    <div class="{{ $bn }}__integer">
-      {{ partial "functions/roundMillsOrThous" $metrics.downloads }}
+    <div class="{{- $bn -}}__integer">
+      {{- partial "functions/roundMillsOrThous" $metrics.downloads -}}
     </div>
   </div>
 
   <!-- VIEWS -->
-  <div class="{{ $bn }}__metric metrics__views">
+  <div class="{{- $bn -}}__metric metrics__views">
 
-    <div class="{{ $bn }}__name">
-      <span class="{{ $bn }}__icon">
+    <div class="{{- $bn -}}__name">
+      <span class="{{- $bn -}}__icon">
         {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "eye" "color" "inherit" "size" "small")) -}}
       </span>
       Dataset views
     </div>
-    <div class="{{ $bn }}__integer">
-      {{ partial "functions/roundMillsOrThous" $metrics.views }}
+    <div class="{{- $bn -}}__integer">
+      {{- partial "functions/roundMillsOrThous" $metrics.views -}}
     </div>
   </div>
 
   <!-- NUMBER OF DATASETS -->
-  <div class="{{ $bn }}__metric metrics__datasets">
+  <div class="{{- $bn -}}__metric metrics__datasets">
 
-    <div class="{{ $bn }}__name">
-      <span class="{{ $bn }}__icon">
+    <div class="{{- $bn -}}__name">
+      <span class="{{- $bn -}}__icon">
         {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "database" "color" "inherit" "size" "small")) -}}
       </span>
       Datasets in the network
     </div>
-    <div class="{{ $bn }}__integer">
-      {{ partial "functions/roundMillsOrThous" $metrics.datasets }}
+    <div class="{{- $bn -}}__integer">
+      {{- partial "functions/roundMillsOrThous" $metrics.datasets -}}
     </div>
   </div>
 
-  <span class="{{ $bn }}__as-of-date">as of
+  <span class="{{- $bn -}}__as-of-date">as of
     {{- $dateBlock := dict "change_timezone" false "localize" false "format" "January 2, 2006" "time" "2020-04-20" -}}
     {{- partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page) -}}
   </span>
 
-  <div class="{{ $bn }}__more-metrics-link" href="">
-    {{ $buttonBlock := dict "text" "See more metrics" "color" "quaternary" "type" "external website" "external_link" "https://search.dataone.org/profile"}}
-    {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+  <div class="{{- $bn -}}__more-metrics-link" href="">
+    {{- $buttonBlock := dict "text" "See more metrics" "color" "quaternary" "type" "external website" "external_link" "https://search.dataone.org/profile" -}}
+    {{- partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) -}}
   </div>
 
 </div>

@@ -1,36 +1,36 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- block name -->
-{{ $bn := "people" }}
+{{- $bn := "people" -}}
 <!-- outer element classes -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- ======================================================================= -->
 <!-- Block options -->
 
 <!-- Booleans -->
 <!-- Whether or not to show photos for each person -->
-{{ $showAvatars := .Block.show_avatars | default true }}
+{{- $showAvatars := .Block.show_avatars | default true -}}
 <!-- Whether to use the long or short bio for types where bio is shown. -->
-{{ $showLongbio := .Block.show_longbio | default false }}
+{{- $showLongbio := .Block.show_longbio | default false -}}
 <!-- If set to true, then the block will ignore whatever is set in .people. -->
 <!-- It will list all the dataone team members instead. -->
-{{ $showTeamMembers := .Block.team_members | default false }}
+{{- $showTeamMembers := .Block.team_members | default false -}}
 <!-- String -->
 <!-- The layout of the block to use -->
 <!-- * default: A card with all information -->
 <!-- * accordion: A compact card that expands to show bio -->
 <!-- * simple: Just an image & name, no other info -->
-{{ $type := .Block.type | default "default" }}
+{{- $type := .Block.type | default "default" -}}
 <!-- Organize list of people by role in D1, when $showTeamMembers is true -->
 <!-- * team-headers: show a header for each team -->
 <!-- * filters: allow user to filter the list by team -->
 <!-- * none : just show a list without any categorization -->
-{{ $grouping := .Block.grouping | default "none" }}
+{{- $grouping := .Block.grouping | default "none" -}}
 
 <!-- Array -->
 <!-- The people to list, listed as file paths. This is ignored if .Block.team_members is true -->
-{{ $peoplePaths := .Block.people | default slice }}
+{{- $peoplePaths := .Block.people | default slice -}}
 
 <!-- ======================================================================= -->
 <!-- Organize content -->
@@ -38,225 +38,227 @@
 <!-- Get people pages -->
 
 <!-- Will hold all the people pages that we will list -->
-{{ $peoplePages := slice }}
+{{- $peoplePages := slice -}}
 <!-- Use the people list in the people parameter -->
 <!-- Unless team_members option is set to true, then use every person whose organization matches DataONE -->
-{{ if $showTeamMembers }}
-  {{ $allPeople := where $page.Site.RegularPages "Section" "people" }}
+{{- if $showTeamMembers -}}
+  {{- $allPeople := where $page.Site.RegularPages "Section" "people" -}}
   {{- range $i, $personPage := $allPeople -}}
-    {{ if partial "functions/isD1member" $personPage }}
-      {{ $peoplePages = $peoplePages | append $personPage }}
-    {{ end }}
+    {{- if partial "functions/isD1member" $personPage -}}
+      {{- $peoplePages = $peoplePages | append $personPage -}}
+    {{- end -}}
   {{- end -}}
-{{ else }}
-  {{ with $peoplePaths }}
-    {{ $peopleInfo := partial "functions/getPeopleInfo" (dict "People" . "Page" $page )}}
-    {{ $peoplePages = $peopleInfo.pages }}
-  {{ end }}
-{{ end }}
+{{- else -}}
+  {{- with $peoplePaths -}}
+    {{- $peopleInfo := partial "functions/getPeopleInfo" (dict "People" . "Page" $page ) -}}
+    {{- $peoplePages = $peopleInfo.pages -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Grouping -->
 
 <!-- Explicitly state keys so that we can use the grouping order selected by user -->
 <!-- in people/_index.md. Otherwise groups are alphabetical and there's no way to sort it. -->
 <!-- Empty key is just a placeholder for non-grouped layouts. The string won't be shown. -->
-{{ $emptyKey := "placeholderKey" }}
-{{ $keys := slice $emptyKey }}
+{{- $emptyKey := "placeholderKey" -}}
+{{- $keys := slice $emptyKey -}}
 
 <!-- Grouping for team headers type -->
-{{ if and ($showTeamMembers) (eq $grouping "team-headers") }}
-  {{ $peoplePages = $peoplePages.GroupByParam "d1_team" }}
-  {{ $keys = ($page.Site.GetPage "people/_index.md").Params.d1_teams }}
-{{ else }}
+{{- if and ($showTeamMembers) (eq $grouping "team-headers") -}}
+  {{- $peoplePages = $peoplePages.GroupByParam "d1_team" -}}
+  {{- $keys = ($page.Site.GetPage "people/_index.md").Params.d1_teams -}}
+{{- else -}}
   <!-- Organize non-grouped pages in the same way as Hugo organizes grouped pages. -->
   <!-- This way we can range through non-grouped pages in the same was a grouped -->
-  {{ $peoplePages = slice (dict "Key" $emptyKey "Pages" $peoplePages) }}
-{{ end }}
+  {{- $peoplePages = slice (dict "Key" $emptyKey "Pages" $peoplePages) -}}
+{{- end -}}
 
 <!-- Extra classses -->
 
-{{ if $showLongbio }}
-  {{ $classes = print $classes " people--long-bio" }}
-{{ end }}
-{{ with $type }}
-  {{ $classes = print $classes " people--" . }}
-{{ end }}
+{{- if $showLongbio -}}
+  {{- $classes = print $classes " people--long-bio" -}}
+{{- end -}}
+{{- with $type -}}
+  {{- $classes = print $classes " people--" . -}}
+{{- end -}}
 
 <!-- ======================================================================= -->
 <!-- Layout -->
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
 
   <!-- For filter grouping layout -->
-  {{ if and ($showTeamMembers) (eq $grouping "filters") }}
-    {{ $filters := slice (dict "name" "d1team" "label" "team" "options" ($page.Site.GetPage "people/_index.md").Params.d1_teams)  }}
+  {{- if and ($showTeamMembers) (eq $grouping "filters") -}}
+    {{- $filters := slice (dict "name" "d1team" "label" "team" "options" ($page.Site.GetPage "people/_index.md").Params.d1_teams)  -}}
 
     <!-- FILTERS -->
-    <form class="{{ $bn }}__filters">
+    <form class="{{- $bn -}}__filters">
 
       <!-- FILTER CHIPS -->
-      {{ range $filter := $filters }}
-        {{ $id := printf "filter-%s" $filter.name }}
-        <fieldset class="{{ $bn }}__filter" id="{{ $id }}">
-          <legend class="{{ $bn }}__filter-legend">
+      {{- range $filter := $filters -}}
+        {{- $id := printf "filter-%s" $filter.name -}}
+        <fieldset class="{{- $bn -}}__filter" id="{{- $id -}}">
+          <legend class="{{- $bn -}}__filter-legend">
             Filter by
-            {{ $filter.label }}
+            {{- $filter.label -}}
           </legend>
 
-          {{ range $filter.options }}
-            {{ $cb_id := printf "cb_%s_%s"  ( $filter.name | urlize) ( . | urlize ) }}
-            <div class="{{ $bn }}__filter-chip">
-              <input class="{{ $bn }}__filter-checkbox" id="{{ $cb_id }}" type="checkbox" name="{{ $filter.name }}" value="{{ . }}" onchange="peopleList.toggleFilter(filter = '{{ $filter.name }}', option = '{{ . }}', element = this)">
-              <label class="{{ $bn }}__filter-label" for="{{ $cb_id }}">{{ . }}</label>
-            </div>
-          {{ end }}
+          {{- range $filter.options -}}
+            {{- if and (not (eq . "")) (not (eq . " ")) -}}
+            {{- $cb_id := printf "cb_%s_%s"  ( $filter.name | urlize) ( . | urlize ) -}}
+              <div class="{{- $bn -}}__filter-chip">
+                <input class="{{- $bn -}}__filter-checkbox" id="{{- $cb_id -}}" type="checkbox" name="{{- $filter.name -}}" value="{{- . -}}" onchange="peopleList.toggleFilter(filter = '{{- $filter.name -}}', option = '{{- . -}}', element = this)">
+                <label class="{{- $bn -}}__filter-label" for="{{- $cb_id -}}">{{- . -}}</label>
+              </div>
+            {{- end -}}
+          {{- end -}}
 
         </fieldset>
-      {{ end }}
+      {{- end -}}
 
     </form>
-  {{ end }}
+  {{- end -}}
 
-  {{ range $key := $keys }}
-    {{ range where $peoplePages "Key" $key }}
+  {{- range $key := $keys -}}
+    {{- range where $peoplePages "Key" $key -}}
 
       <!-- Headers for the grouped people list -->
-      {{ if and (.Key) (ne .Key $emptyKey) }}
-        <h3 class="{{ $bn }}__group-header">{{ .Key }}</h3>
-      {{ end }}
+      {{- if and (.Key) (ne .Key $emptyKey) -}}
+        <h3 class="{{- $bn -}}__group-header">{{- .Key -}}</h3>
+      {{- end -}}
 
       <!-- List the people -->
-      <div class="{{ $bn }}__group">
-        {{ range $personPage := .Pages }}
+      <div class="{{- $bn -}}__group">
+        {{- range $personPage := .Pages -}}
 
           <!------------------------------------------------------------------------->
           <!-- Organize for each person -->
 
           <!-- Only add a URL for people that are part of the DataONE team, because -->
           <!-- we don't actually render pages for non-team members -->
-          {{ $url := "" }}
-          {{ $moreInfoButton := "" }}
-          {{ if partial "functions/isD1member" $personPage }}
-            {{ $moreInfoBlock := dict "template" "button" "type" "internal page" "color" "quaternary" "text" "More info" "internal_link" $personPage.File.Path }}
-            {{ $moreInfoButton = partial "blocks/button/button" (dict "Block" $moreInfoBlock "Page" $page ) }}
-            {{ $moreInfoButton = printf `<span class="%s__button">%s</span>` $bn $moreInfoButton | safeHTML }}
-            {{ $url = ref $page $personPage.File.Path }}
-          {{ end }}
+          {{- $url := "" -}}
+          {{- $moreInfoButton := "" -}}
+          {{- if partial "functions/isD1member" $personPage -}}
+            {{- $moreInfoBlock := dict "template" "button" "type" "internal page" "color" "quaternary" "text" "More info" "internal_link" $personPage.File.Path -}}
+            {{- $moreInfoButton = partial "blocks/button/button" (dict "Block" $moreInfoBlock "Page" $page ) -}}
+            {{- $moreInfoButton = printf `<span class="%s__button">%s</span>` $bn $moreInfoButton | safeHTML -}}
+            {{- $url = ref $page $personPage.File.Path -}}
+          {{- end -}}
 
-          {{ with $personPage.Params }}
+          {{- with $personPage.Params -}}
 
             <!-- Get the desired biography length for each person -->
-            {{ $bio := .shortbio }}
+            {{- $bio := .shortbio -}}
             <!-- If long bio is preferred, use the long_bio but default to short_bio -->
-            {{ if $showLongbio }}
-              {{ with .longbio}}
-                {{ $bio = . }}
-              {{ end }}
-            {{ else }}
+            {{- if $showLongbio -}}
+              {{- with .longbio -}}
+                {{- $bio = . -}}
+              {{- end -}}
+            {{- else -}}
               <!-- If short bio is preferred but there isn't one, then truncate long bio -->
-              {{ if not .shortbio }}
-                {{ $split := split .shortbio ". " }}
+              {{- if not .shortbio -}}
+                {{- $split := split .shortbio ". " -}}
                 <!-- limit absolute length to 250 characters -->
                 <!-- Get the first one to three full sentences -->
-                {{ $truncBio := .longbio | truncate 250 | findRE "(.*?[\\.\\!\\?]\\B){1,3}"}}
-                {{ $bio =  index $truncBio 0 }}
-              {{ end }}
-            {{ end }}
+                {{- $truncBio := .longbio | truncate 250 | findRE "(.*?[\\.\\!\\?]\\B){1,3}" -}}
+                {{- $bio =  index $truncBio 0 -}}
+              {{- end -}}
+            {{- end -}}
 
             <!-- Generate HTML in parts so we can adjust the arrangement of elements for each type -->
-            {{ $img := "" }}
-            {{ if and ($showAvatars) (ne .avatar "") (ne .avatar " ") }}
-              {{ $img = printf "<img class='%s__avatar' src = '%s' alt='%s' title='%s'>" $bn .avatar .fullname .fullname | safeHTML }}
-            {{ end }}
+            {{- $img := "" -}}
+            {{- if and ($showAvatars) (ne .avatar "") (ne .avatar " ") -}}
+              {{- $img = printf "<img class='%s__avatar' src = '%s' alt='%s' title='%s'>" $bn .avatar .fullname .fullname | safeHTML -}}
+            {{- end -}}
 
-            {{ $name := "" }}
-            {{ with .fullname }}
-              {{ $name = printf "<h3 class='%s__fullname'>%s</h3>" $bn . | safeHTML }}
-            {{ end }}
+            {{- $name := "" -}}
+            {{- with .fullname -}}
+              {{- $name = printf "<h3 class='%s__fullname'>%s</h3>" $bn . | safeHTML -}}
+            {{- end -}}
 
-            {{ $title := "" }}
-            {{ with .title }}
-              {{ $title = printf "<h4 class='%s__title'>%s</h4>" $bn . | safeHTML }}
-            {{ end }}
+            {{- $title := "" -}}
+            {{- with .title -}}
+              {{- $title = printf "<h4 class='%s__title'>%s</h4>" $bn . | safeHTML -}}
+            {{- end -}}
 
-            {{ $organization := "" }}
-            {{ if .organization }}
-              {{ $organization = printf "<h4 class='%s__organization'>%s</h4>" $bn .organization | safeHTML }}
-            {{ end }}
+            {{- $organization := "" -}}
+            {{- if .organization -}}
+              {{- $organization = printf "<h4 class='%s__organization'>%s</h4>" $bn .organization | safeHTML -}}
+            {{- end -}}
 
-            {{ $HTMLbio := "" }}
-            {{ with $bio }}
-              {{ $HTMLbio = printf `<div class="%s__bio markdown">%s</div>` $bn ( . | markdownify ) | safeHTML }}
-            {{ end }}
+            {{- $HTMLbio := "" -}}
+            {{- with $bio -}}
+              {{- $HTMLbio = printf `<div class="%s__bio markdown">%s</div>` $bn ( . | markdownify ) | safeHTML -}}
+            {{- end -}}
 
-            {{ $contact := "" }}
-            {{ with .email }}
-              {{ $contact = printf `<div class="%s__contact"><address><a class="%s__email" href="mailto:%s">%s</a></address></div>` $bn $bn . . | safeHTML }}
-            {{ end }}
+            {{- $contact := "" -}}
+            {{- with .email -}}
+              {{- $contact = printf `<div class="%s__contact"><address><a class="%s__email" href="mailto:%s">%s</a></address></div>` $bn $bn . . | safeHTML -}}
+            {{- end -}}
 
             <!-- Start person layout -->
 
             <!-- Add d1 role as data for filtering layouts -->
             <!-- Also add event listener so we can highlight the filter on hover -->
-            {{ $teamData := "" | safeHTMLAttr }}
-            {{ $hoverEvent := "" | safeHTMLAttr }}
-            {{ if eq $grouping "filters" }}
-              {{ with .d1_team }}
-                {{ $teamData = printf "data-d1team='%s'" . | safeHTMLAttr  }}
-                {{ $hoverEvent = printf `onmouseenter="peopleList.showTeam(element = this, event='mouseenter', team='%s')" onfocus="peopleList.showTeam(element = this, event='focus', team='%s')"` . . | safeHTMLAttr }}
-              {{ end }}
-            {{ end }}
-            <div class="{{ $bn }}__person" {{ $teamData }}>
+            {{- $teamData := "" | safeHTMLAttr -}}
+            {{- $hoverEvent := "" | safeHTMLAttr -}}
+            {{- if eq $grouping "filters" -}}
+              {{- with .d1_team -}}
+                {{- $teamData = printf "data-d1team='%s'" . | safeHTMLAttr  -}}
+                {{- $hoverEvent = printf `onmouseenter="peopleList.showTeam(element = this, event='mouseenter', team='%s')" onfocus="peopleList.showTeam(element = this, event='focus', team='%s')"` . . | safeHTMLAttr -}}
+              {{- end -}}
+            {{- end -}}
+            <div class="{{- $bn -}}__person" {{- $teamData -}}>
 
               <!---------------------------------------------------------->
               <!-- accordion layout -->
-              {{ if eq $type "accordion" }}
+              {{- if eq $type "accordion" -}}
 
-                {{ $heading := printf `<div class = "%s__heading">%s<div class="%s__info">%s%s%s</div></div>` $bn $img $bn $name $title $organization | safeHTML}}
-                {{ $content := print $HTMLbio $contact $moreInfoButton | safeHTML}}
-                {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content)) }}
+                {{- $heading := printf `<div class = "%s__heading">%s<div class="%s__info">%s%s%s</div></div>` $bn $img $bn $name $title $organization | safeHTML -}}
+                {{- $content := print $HTMLbio $contact $moreInfoButton | safeHTML -}}
+                {{- partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content)) -}}
 
                 <!---------------------------------------------------------->
                 <!-- simple layout -->
-              {{ else if eq $type "simple" }}
+              {{- else if eq $type "simple" -}}
 
-                {{ with $url }}
-                  <a href="{{ $url }}" class="{{ $bn }}__link" {{ $hoverEvent }}>
-                  {{ end }}
-                  {{ $img }}
-                  <div class="{{ $bn }}__info">
-                    {{ $name }}
+                {{- with $url -}}
+                  <a href="{{- $url -}}" class="{{- $bn -}}__link" {{- $hoverEvent -}}>
+                  {{- end -}}
+                  {{- $img -}}
+                  <div class="{{- $bn -}}__info">
+                    {{- $name -}}
                   </div>
-                  {{ with $url }}
+                  {{- with $url -}}
                   </a>
-                {{ end }}
+                {{- end -}}
 
                 <!---------------------------------------------------------->
                 <!-- default layout -->
-              {{ else }}
+              {{- else -}}
 
-                <div class="{{ $bn }}__heading">
-                  {{ $img  }}
-                  <div class="{{ $bn }}__info">
-                    {{ $name }}
-                    {{ $title }}
-                    {{ $organization }}
+                <div class="{{- $bn -}}__heading">
+                  {{- $img  -}}
+                  <div class="{{- $bn -}}__info">
+                    {{- $name -}}
+                    {{- $title -}}
+                    {{- $organization -}}
                   </div>
                 </div>
-                {{ $HTMLbio }}
-                {{ $contact }}
-                {{ $moreInfoButton }}
+                {{- $HTMLbio -}}
+                {{- $contact -}}
+                {{- $moreInfoButton -}}
 
-              {{ end }}
+              {{- end -}}
 
               <!-- end of person div -->
             </div>
 
-          {{ end }}
+          {{- end -}}
 
-        {{ end }}
+        {{- end -}}
       </div>
-    {{ end }}
-  {{ end }}
+    {{- end -}}
+  {{- end -}}
   <!-- end of people div -->
 </div>

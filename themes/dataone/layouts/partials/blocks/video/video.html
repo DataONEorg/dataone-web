@@ -1,41 +1,41 @@
 <!-- Block name -->
-{{ $bn := "video" }}
+{{- $bn := "video" -}}
 <!-- Classes to add to the out-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 <!-- The type of video. Options: uploaded, vimeo -->
-{{ $type := .Block.type | default "uploaded" }}
+{{- $type := .Block.type | default "uploaded" -}}
 <!-- The source of the uploaded video -->
-{{ $src := .Block.src | default "" }}
+{{- $src := .Block.src | default "" -}}
 <!-- The ID of a vimeo video -->
-{{ $id := .Block.ID | default "" }}
+{{- $id := .Block.ID | default "" -}}
 
 <!-- Add type as a modifier class -->
-{{ with $type }}
-  {{ $classes = printf "%s %s--%s" $classes $bn . }}
-{{ end }}
+{{- with $type -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+{{- end -}}
 
-<div class="{{ $classes }}">
-  {{ if eq $type "uploaded" }}
+<div class="{{- $classes -}}">
+  {{- if eq $type "uploaded" -}}
 
     <!-- Layout for uploaded videos -->
 
-    {{ with $src }}
-      <video class="{{ $bn }}__html5video" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" src="{{ . }}"></video>
-    {{ end }}
+    {{- with $src -}}
+      <video class="{{- $bn -}}__html5video" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" src="{{- . -}}"></video>
+    {{- end -}}
 
     <!-- Layout for Vimeo videos -->
 
-  {{ else if eq $type "vimeo" }}
-    {{ with $id }}
+  {{- else if eq $type "vimeo" -}}
+    {{- with $id -}}
       <iframe
         class="video__iframe"
-        src="https://player.vimeo.com/video/{{ . }}?color=14abba&title=0&byline=0&portrait=0"
+        src="https://player.vimeo.com/video/{{- . -}}?color=14abba&title=0&byline=0&portrait=0"
         frameborder="0"
         allow="autoplay; fullscreen"
         webkitallowfullscreen="webkitallowfullscreen"
         mozallowfullscreen="mozallowfullscreen"
         allowfullscreen="allowfullscreen"></iframe>
 
-    {{ end }}
-  {{ end }}
+    {{- end -}}
+  {{- end -}}
 </div>

@@ -1,37 +1,37 @@
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "page-summary" }}
+{{- $bn := "page-summary" -}}
 
-{{ $job := dict }}
-{{ $href := "" }}
+{{- $job := dict -}}
+{{- $href := "" -}}
 
 <!-- get the most recent job if auto select -->
-{{ if .Block.auto_select }}
+{{- if .Block.auto_select -}}
   <!-- get all jobs in order of job_datetime, with most recent listed first -->
-  {{ $all_jobs := where ($page.Site.RegularPages.ByParam "date").Reverse "Section" "jobs" }}
-  {{ range first 1 $all_jobs }}
-    {{ $job = .Params }}
-    {{ $href = .Permalink }}
-  {{ end }}
+  {{- $all_jobs := where ($page.Site.RegularPages.ByParam "date").Reverse "Section" "jobs" -}}
+  {{- range first 1 $all_jobs -}}
+    {{- $job = .Params -}}
+    {{- $href = .Permalink -}}
+  {{- end -}}
   <!-- Otherwise, use the given job -->
-{{ else if .Block.job }}
-  {{ $jobPage := $page.Site.GetPage .Block.job }}
-  {{ with $jobPage }}
-    {{ $job = .Params }}
-    {{ $href = $jobPage.Permalink }}
-  {{ end }}
-{{ end }}
+{{- else if .Block.job -}}
+  {{- $jobPage := $page.Site.GetPage .Block.job -}}
+  {{- with $jobPage -}}
+    {{- $job = .Params -}}
+    {{- $href = $jobPage.Permalink -}}
+  {{- end -}}
+{{- end -}}
 
-{{ if $job }}
+{{- if $job -}}
 
-  {{ $classes := printf "%s %s--jobs" $bn $bn }}
+  {{- $classes := printf "%s %s--jobs" $bn $bn -}}
 
-  {{ $datetime := (time $job.open_date).UTC }}
+  {{- $datetime := (time $job.open_date).UTC -}}
 
-  {{ $cardBlock := dict "clickable" true "href" $href "title" $job.job_title "subtitle" $job.location "description" $job.summary "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "tags" $job.tags }}
+  {{- $cardBlock := dict "clickable" true "href" $href "title" $job.job_title "subtitle" $job.location "description" $job.summary "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) "tags" $job.tags -}}
 
-  <div class="{{ $classes }}">
-    {{ partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page )}}
+  <div class="{{- $classes -}}">
+    {{- partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page ) -}}
   </div>
 
-{{ end }}
+{{- end -}}

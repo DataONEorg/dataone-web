@@ -1,48 +1,48 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- Name of the block -->
-{{ $bn := "markdown" }}
+{{- $bn := "markdown" -}}
 <!-- Classes to add to the markdown container -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- The standalone modifier adds extra classes like font size and color. -->
 <!-- The markdown class without the standalone modifier is used for content -->
 <!-- in other blocks that have been run through "markdownify" -->
-{{ with "standalone" }}
-  {{ $classes = printf "%s %s--%s" $classes $bn . }}
-{{ end }}
+{{- with "standalone" -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+{{- end -}}
 
 <!-- Optional style selected for markdown blocks. e.g warning, error, info, success -->
-{{ $style := .Block.style | default "default" }}
-{{ with $style }}
+{{- $style := .Block.style | default "default" -}}
+{{- with $style -}}
   <!-- If it's an info box class, add the general infobox modifier -->
-  {{ if in (slice "info" "warning" "error" "success") . }}
-    {{ with "infobox"}}
-      {{ $classes = printf "%s %s--%s" $classes $bn . }}
-    {{ end }}
-  {{ end }}
+  {{- if in (slice "info" "warning" "error" "success") . -}}
+    {{- with "infobox" -}}
+      {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+    {{- end -}}
+  {{- end -}}
   <!-- Add the style as a modifier long as it's not default -->
-  {{ if ne . "default" }}
-    {{ $classes = printf "%s %s--%s" $classes $bn . }}
-  {{ end }}
-{{ end }}
+  {{- if ne . "default" -}}
+    {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- the content is the markdown we will render -->
-{{ $content := "" }}
+{{- $content := "" -}}
 
 <!-- If the content is already rendered (e.g. it is .Page.Content)... -->
-{{ if .Block.pre_rendered }}
-  {{ with .Block.content }}
-    {{ $content = . | safeHTML }}
-  {{ end }}
-{{ else }}
+{{- if .Block.pre_rendered -}}
+  {{- with .Block.content -}}
+    {{- $content = . | safeHTML -}}
+  {{- end -}}
+{{- else -}}
   <!-- Otherwise we must add the markdownify function -->
-  {{ with .Block.content }}
-    {{ $content = . | markdownify | emojify }}
-  {{ end }}
-{{ end }}
+  {{- with .Block.content -}}
+    {{- $content = . | markdownify | emojify -}}
+  {{- end -}}
+{{- end -}}
 
 <!-- Show the rendered the markdown -->
-<div class="{{ $classes }}">
-  {{ $content }}
+<div class="{{- $classes -}}">
+  {{- $content -}}
 </div>

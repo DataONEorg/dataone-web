@@ -1,48 +1,48 @@
-{{ $page := .Page }}
-{{ $site := $page.Site }}
-{{ $peopleIn := .People }}
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+{{- $peopleIn := .People -}}
 
 <!-- All the person parameters -->
-{{ $people := slice }}
+{{- $people := slice -}}
 
 <!-- Speaker full names in an array (for calendar) -->
-{{ $personNames := slice }}
+{{- $personNames := slice -}}
 
 <!-- Speaker names and biographies as a single string (for calendar) -->
-{{ $personBiosString := "" }}
+{{- $personBiosString := "" -}}
 
 <!-- Speaker full names in a comma delimited string -->
-{{ $personListString := ""}}
+{{- $personListString := "" -}}
 
 <!-- All the people pages -->
-{{ $peoplePages := slice }}
+{{- $peoplePages := slice -}}
 
 <!-- fill in the person variables by ranging through the person resource pages -->
-{{ range $peopleIn }}
+{{- range $peopleIn -}}
 
-  {{ $personPage := $page.Site.GetPage . }}
+  {{- $personPage := $page.Site.GetPage . -}}
 
-  {{ if $personPage }}
-    {{ $peoplePages = $peoplePages | append $personPage }}
-    {{ $personParams := $personPage.Params }}
-    {{ $people = $people | append $personParams }}
+  {{- if $personPage -}}
+    {{- $peoplePages = $peoplePages | append $personPage -}}
+    {{- $personParams := $personPage.Params -}}
+    {{- $people = $people | append $personParams -}}
     <!-- names -->
-    {{ $personNames = $personNames | append $personPage.Params.fullname }}
+    {{- $personNames = $personNames | append $personPage.Params.fullname -}}
     <!-- Biography with "Full name:" appended to start of string -->
     <!-- Originally used for calendar descriptions of events. -->
-    {{ $bio := "" }}
-    {{ $bio = $personPage.Params.shortbio | default $personPage.Params.longbio }}
-    {{ with $bio }}
-      {{ $personBiosString = print "\n\n" $personBiosString $personPage.Params.fullname ": " "\n\n" . "\n\n" }}
-    {{ end }}
-  {{ else }}
+    {{- $bio := "" -}}
+    {{- $bio = $personPage.Params.shortbio | default $personPage.Params.longbio -}}
+    {{- with $bio -}}
+      {{- $personBiosString = print "\n\n" $personBiosString $personPage.Params.fullname ": " "\n\n" . "\n\n" -}}
+    {{- end -}}
+  {{- else -}}
     <!-- If we couldn't find a resource match for a person, give a warning -->
     <!-- That way we know if a page is missing some person content -->
     <!-- This could happen if person files are re-named -->
-    {{ warnf "Could not find the person with the file path %q in page %q. Information about this person will not be displayed. Please check that the file name for that person is correct and that the file exists." . $page.File }}
-  {{ end }}
-  {{ with $personNames }}
-    {{ $personListString = delimit . ", " " & " }}
-  {{ end }}
-{{ end }}
-{{ return (dict "params" $people "pages" $peoplePages "names" $personNames "bios_string" $personBiosString "names_string" $personListString )}}
+    {{- warnf "Could not find the person with the file path %q in page %q. Information about this person will not be displayed. Please check that the file name for that person is correct and that the file exists." . $page.File -}}
+  {{- end -}}
+  {{- with $personNames -}}
+    {{- $personListString = delimit . ", " " & " -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "params" $people "pages" $peoplePages "names" $personNames "bios_string" $personBiosString "names_string" $personListString ) -}}

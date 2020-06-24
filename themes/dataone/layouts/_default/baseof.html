@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
-  {{- block "head" . }}
+  {{- block "head" . -}}
     {{- partial "head.html" . -}}
   {{- end -}}
-
   <!-- Decision rules for whether to render the page -->
-  {{ $renderPage := true }}
+  {{- $renderPage := true -}}
   <!-- If the page has a render_page parameter set to false, do not render -->
   <!-- EG. some feature pages serve as "headless bundles". We use data in -->
   <!-- the page for the feature table, but we don't want to make a page for it. -->
-  {{ if (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) }}
-    {{ $renderPage = false }}
+  {{- if (or (eq $.Params.render_page false) (eq $.Params.render_page "false")) -}}
+    {{- $renderPage = false -}}
     <!-- For people pages, only make a page for people with a value set in the -->
     <!-- d1_team parameter -->
-  {{ else if and (eq $.Type "people") (eq $.Kind "page") (not (partial "functions/isD1member" $)) }}
-    {{ $renderPage = false }}
-  {{ end }}
-
-  {{ if $renderPage }}
+  {{- else if and (eq $.Type "people") (eq $.Kind "page") (not (partial "functions/isD1member" $)) -}}
+    {{- $renderPage = false -}}
+  {{- end -}}
+  {{- if $renderPage -}}
     <body class="page">
 
       <!-- Fade page in once loaded to avoid flash of unstyled content -->
@@ -42,37 +40,37 @@
       {{- partialCached "svg-defs.html" . -}}
 
       <!-- header/navigation -->
-      {{- block "nav" . }}
+      {{- block "nav" . -}}
         {{- partial "blocks/global-header/global-header.html" . -}}
       {{- end -}}
 
       <!-- main content -->
       <!-- Classes to add to the acticle element -->
-      {{ $classes := "article" }}
-      <!-- {{ with .Page.Params.theme }} {{ $classes = print $classes " " "theme-" . }} {{ end }} -->
+      {{- $classes := "article" -}}
+      <!-- {{- with .Page.Params.theme -}} {{- $classes = print $classes " " "theme-" . -}} {{- end -}} -->
       <!-- Service pages need theme -->
-      {{ if eq $.Type "services" }}
-        {{ with $.Params.title }}
-          {{ $varName := . | urlize }}
+      {{- if eq $.Type "services" -}}
+        {{- with $.Params.title -}}
+          {{- $varName := . | urlize -}}
           <!-- Add theme -->
-          {{ $classes = printf "%s theme--%s" $classes $varName }}
-        {{ end }}
-      {{ end }}
-      <article class="{{ $classes }}">
-        {{- block "main" . }}{{- end }}
+          {{- $classes = printf "%s theme--%s" $classes $varName -}}
+        {{- end -}}
+      {{- end -}}
+      <article class="{{- $classes -}}">
+        {{- block "main" . -}}{{- end -}}
       </article>
 
       <!-- footer -->
       {{- partialCached "blocks/global-footer/global-footer.html" . -}}
 
       <!-- Get the bundled javascript resources -->
-      {{ $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify  }}
-      <script src="{{ $js.Permalink }}"></script>
+      {{- $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify  -}}
+      <script src="{{- $js.Permalink -}}"></script>
 
       <!-- For debugging CSS: -->
       <!-- find elements that expand past screen width (esp. on mobile) -->
       <!-- <script> var docWidth = document.documentElement.offsetWidth; [].forEach.call( document.querySelectorAll('*'), function(el) { if (el.offsetWidth > docWidth) { console.log(el); console.log(el.offsetWidth); } } ); </script> -->
 
     </body>
-  {{ end }}
+  {{- end -}}
 </html>

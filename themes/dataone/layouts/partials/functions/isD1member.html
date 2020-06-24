@@ -2,21 +2,21 @@
 <!-- Checks whether the page has a d1_team parameter set -->
 
 <!-- Need to access the Site parameter to get Pages -->
-{{ $page := . }}
+{{- $page := . -}}
 
 <!-- The boolean to return -->
-{{ $decision := false }}
-{{ if $page }}
-  {{ if and (eq $page.Type "people") (eq $page.Kind "page") }}
-    {{ $team := $page.Params.d1_team }}
-    {{ if $team }}
-      {{ if not ( and (eq $team "") (eq $team " ") )   }}
-        {{ $decision = true }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ else }}
-  {{ $decision = "NO PAGE" }}
-{{ end }}
+{{- $decision := false -}}
+{{- if $page -}}
+  {{- if and (eq $page.Type "people") (eq $page.Kind "page") -}}
+    {{- $team := $page.Params.d1_team -}}
+    {{- if $team -}}
+      {{- if not ( and (eq $team "") (eq $team " ") )   -}}
+        {{- $decision = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- $decision = "NO PAGE" -}}
+{{- end -}}
 
-{{ return $decision }}
+{{- return $decision -}}

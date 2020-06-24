@@ -6,35 +6,35 @@
 <!-- partials/svg/feather-sprite-extras -->
 
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "icon" }}
+{{- $bn := "icon" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- The icon name -->
 <!-- Make sure it's a string otherwise the "in" function doesn't work as expected -->
-{{ $name := string .Block.icon }}
+{{- $name := string .Block.icon -}}
 
-{{ with .Block.size }}
-  {{ $classes = printf "%s %s--sz-%s" $classes $bn . }}
-{{ end }}
-{{ with .Block.color }}
-  {{ $classes = printf "%s %s--col-%s" $classes $bn . }}
-{{ end }}
-{{ with .Block.stroke }}
-  {{ $classes = printf "%s %s--str-%s" $classes $bn . }}
-{{ end }}
+{{- with .Block.size -}}
+  {{- $classes = printf "%s %s--sz-%s" $classes $bn . -}}
+{{- end -}}
+{{- with .Block.color -}}
+  {{- $classes = printf "%s %s--col-%s" $classes $bn . -}}
+{{- end -}}
+{{- with .Block.stroke -}}
+  {{- $classes = printf "%s %s--str-%s" $classes $bn . -}}
+{{- end -}}
 
 <!-- Add a class for the icons that require fill instead of line, e.g. the DataONE Plus logo -->
-{{ $fillIcons := slice "d1-plus-logo" }}
-{{ if (in $fillIcons $name) }}
-  {{ $classes = printf "%s %s--%s" $classes $bn "fill-icon" }}
-{{ end }}
+{{- $fillIcons := slice "d1-plus-logo" -}}
+{{- if (in $fillIcons $name) -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "fill-icon" -}}
+{{- end -}}
 
-{{ with $name }}
-  <svg class="{{ $classes }}">
+{{- with $name -}}
+  <svg class="{{- $classes -}}">
     <title>{{- . | humanize -}}</title>
-    <use xlink:href="#{{ . }}"/>
+    <use xlink:href="#{{- . -}}"/>
   </svg>
-{{ end }}
+{{- end -}}

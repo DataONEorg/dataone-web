@@ -1,117 +1,117 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
-{{ $site := .Page.Site }}
+{{- $page := .Page -}}
+{{- $site := .Page.Site -}}
 <!-- block name -->
-{{ $bn := "feature-table" }}
+{{- $bn := "feature-table" -}}
 <!-- classes for the outermost element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Feature parameters ------------------------------------------------------->
 
 <!-- Get all the features that we should show in this feature table, then sort -->
-{{ $features := where $site.Pages "Type" "features" }}
-{{ $features := where $features "Params.show_in_table" true }}
-{{ $features := partial "functions/sortFeatures" (dict "features" $features) }}
+{{- $features := where $site.Pages "Type" "features" -}}
+{{- $features := where $features "Params.show_in_table" true -}}
+{{- $features := partial "functions/sortFeatures" (dict "features" $features) -}}
 
 <!-- Feature categories ------------------------------------------------------->
 
-{{ $featureCategories := partial "functions/getFeatureCategories" (dict "Site" $page.Site) }}
+{{- $featureCategories := partial "functions/getFeatureCategories" (dict "Site" $page.Site) -}}
 
 <!-- Services ----------------------------------------------------------------->
 
-{{ $servicePages := partial "functions/getServicePages" (dict "Site" $page.Site) }}
-{{ $numServices := len $servicePages }}
+{{- $servicePages := partial "functions/getServicePages" (dict "Site" $page.Site) -}}
+{{- $numServices := len $servicePages -}}
 
 <!-- Start table layout ------------------------------------------------------->
 
-<table class="{{ $classes }}">
+<table class="{{- $classes -}}">
 
   <!-- Column headers --------------------------------------------------------->
   <thead>
     <tr>
-      <th class="{{ $bn }}__col-header {{ $bn }}__col-header--feature">
-        <span class="{{ $bn }}__col-title">DataONE Feature<span></th>
-          {{ range $service := $servicePages }}
-            <th class="{{ $bn }}__col-header theme--{{ $service.Params.title | urlize }}">
+      <th class="{{- $bn -}}__col-header {{- $bn -}}__col-header--feature">
+        <span class="{{- $bn -}}__col-title">DataONE Feature<span></th>
+          {{- range $service := $servicePages -}}
+            <th class="{{- $bn -}}__col-header theme--{{- $service.Params.title | urlize -}}">
               <!-- Badge -->
-              {{ partial "blocks/badge/badge" (dict "Block" (dict "page" $service.File.Path "type" "icon-only") "Page" $page) }}
+              {{- partial "blocks/badge/badge" (dict "Block" (dict "page" $service.File.Path "type" "icon-only") "Page" $page) -}}
               <!-- Title -->
-              <span class="{{ $bn }}__col-title">{{ $service.Params.title }}</span>
+              <span class="{{- $bn -}}__col-title">{{- $service.Params.title -}}</span>
               <!-- CTA -->
-              {{ $cta := $service.Params.cta }}
-              {{ with $cta }}
-                {{ partial "blocks/button/button" (dict "Block" (dict "text" .text "type" .type "external_link" .external_link "color" "quaternary") "Page" $page )}}
-              {{ end }}
+              {{- $cta := $service.Params.cta -}}
+              {{- with $cta -}}
+                {{- partial "blocks/button/button" (dict "Block" (dict "text" .text "type" .type "external_link" .external_link "color" "quaternary") "Page" $page ) -}}
+              {{- end -}}
             </th>
-          {{ end }}
+          {{- end -}}
         </tr>
       </thead>
 
-      <tbody class="{{ $bn }}__body">
+      <tbody class="{{- $bn -}}__body">
 
         <!-- Category header ------------------------------------------------------>
-        {{ range $category := $featureCategories }}
+        {{- range $category := $featureCategories -}}
 
           <!-- Get features for this category -->
-          {{ $featuresInCategory := where $features ".Params.category" "==" $category }}
+          {{- $featuresInCategory := where $features ".Params.category" "==" $category -}}
 
-          {{ if and (ne $category "misc") (gt (len $featuresInCategory) 0) }}
+          {{- if and (ne $category "misc") (gt (len $featuresInCategory) 0) -}}
 
-            <tr class="{{ $bn }}__section-header-row">
-              <td class="{{ $bn }}__section-header-cell" colspan="{{ add $numServices 1 }}">
-                {{ $category }}
+            <tr class="{{- $bn -}}__section-header-row">
+              <td class="{{- $bn -}}__section-header-cell" colspan="{{- add $numServices 1 -}}">
+                {{- $category -}}
               </td>
             </tr>
-          {{ end }}
+          {{- end -}}
 
           <!-- Organize feature parameters ---------------------------------------->
 
-          {{ range $index, $featurePage := $featuresInCategory }}
+          {{- range $index, $featurePage := $featuresInCategory -}}
 
-            {{ $feature := $featurePage.Params }}
+            {{- $feature := $featurePage.Params -}}
 
-            {{ $url := partial "functions/getFeatureUrl" (dict "feature" $featurePage) }}
+            {{- $url := partial "functions/getFeatureUrl" (dict "feature" $featurePage) -}}
 
             <!-- Determines if row will be stripe color or not. -->
             <!-- Add stripe modifer as a variable so that sub-features are same -->
             <!-- color as parent -->
-            {{ $striped := false }}
-            {{if modBool $index 2 }}
-              {{ $striped = true }}
-            {{ end }}
+            {{- $striped := false -}}
+            {{- if modBool $index 2 -}}
+              {{- $striped = true -}}
+            {{- end -}}
 
             <!-- Make sure the feature is not set to be hidden from table -->
-            {{ if or (eq $feature.show_in_table true) (eq $feature.show_in_table "true") }}
+            {{- if or (eq $feature.show_in_table true) (eq $feature.show_in_table "true") -}}
 
               <!-- Feature row layout --------------------------------------------->
 
               <!-- Check if there are subfeatures -->
-              {{ $hasSubfeatures := false }}
-              {{ if $feature.sub_features }}
-                {{ if gt (len $feature.sub_features) 0 }}
-                  {{ $hasSubfeatures = true }}
-                {{ end }}
-              {{ end }}
+              {{- $hasSubfeatures := false -}}
+              {{- if $feature.sub_features -}}
+                {{- if gt (len $feature.sub_features) 0 -}}
+                  {{- $hasSubfeatures = true -}}
+                {{- end -}}
+              {{- end -}}
 
               <!-- Make a row for each feature... -->
-              {{ $featureBlock := merge $feature (dict "url" $url) }}
-              {{ $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped "has_sub_features" $hasSubfeatures }}
-              {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $rowBlock "Page" $page ) }}
+              {{- $featureBlock := merge $feature (dict "url" $url) -}}
+              {{- $rowBlock := dict "feature" $featureBlock "service_pages" $servicePages "striped" $striped "has_sub_features" $hasSubfeatures -}}
+              {{- partial "blocks/feature-table/feature-table-row" (dict "Block" $rowBlock "Page" $page ) -}}
 
               <!-- ... and each sub-feature -->
-              {{ with $feature.sub_features }}
-                {{ range . }}
-                  {{ $subUrl := partial "functions/getFeatureUrl" (dict "feature" $featurePage "subfeature" . ) }}
-                  {{ $subFeatureBlock := merge . (dict "url" $subUrl "subFeature" "true") }}
-                  {{ $subRowBlock := dict "feature" $subFeatureBlock "service_pages" $servicePages "striped" $striped }}
-                  {{ partial "blocks/feature-table/feature-table-row" (dict "Block" $subRowBlock "Page" $page) }}
-                {{ end }}
-              {{ end }}
+              {{- with $feature.sub_features -}}
+                {{- range . -}}
+                  {{- $subUrl := partial "functions/getFeatureUrl" (dict "feature" $featurePage "subfeature" . ) -}}
+                  {{- $subFeatureBlock := merge . (dict "url" $subUrl "subFeature" "true") -}}
+                  {{- $subRowBlock := dict "feature" $subFeatureBlock "service_pages" $servicePages "striped" $striped -}}
+                  {{- partial "blocks/feature-table/feature-table-row" (dict "Block" $subRowBlock "Page" $page) -}}
+                {{- end -}}
+              {{- end -}}
 
-            {{ end }}
+            {{- end -}}
 
-          {{ end }}
-        {{ end }}
+          {{- end -}}
+        {{- end -}}
 
       </tbody>
     </table>

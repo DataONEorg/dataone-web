@@ -1,28 +1,28 @@
 {{- define "main" -}}
 
-  {{ $jobSectionId := "current-openings" }}
-  {{ $headline := .Params.headline | default "Join the DataONE team" }}
-  {{ $buttonBlock := dict "template" "button" "color" "primary" "type" "internal page" "internal_link" (print "#" $jobSectionId) "text" "See current openings" }}
-  {{ partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default" "buttons" (slice $buttonBlock)) "Page" $)}}
+  {{- $jobSectionId := "current-openings" -}}
+  {{- $headline := .Params.headline | default "Join the DataONE team" -}}
+  {{- $buttonBlock := dict "template" "button" "color" "primary" "type" "internal page" "internal_link" (print "#" $jobSectionId) "text" "See current openings" -}}
+  {{- partial "blocks/header/header" (dict "Block" (dict "title" $headline "type" "text only" "background_color" "default" "buttons" (slice $buttonBlock)) "Page" $) -}}
 
   {{- range .Params.page_sections -}}
-    {{ $template := .template | default "section" }}
-    {{ partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) }}
+    {{- $template := .template | default "section" -}}
+    {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) -}}
   {{- end -}}
 
-  {{ $subblocks := slice }}
+  {{- $subblocks := slice -}}
   {{- range .Paginator.Pages -}}
     <!-- remove trailing slash in link -->
-    {{ $pageLink := replaceRE "/$" "" .RelPermalink }}
+    {{- $pageLink := replaceRE "/$" "" .RelPermalink -}}
     <!-- use the webinar summary block -->
-    {{ $jobBlock := (dict "template" "page-summary" "job" $pageLink) }}
-    {{ $subblocks = $subblocks | append $jobBlock }}
-  {{ else }}
-    {{ $noJobBlock := (dict "template" "markdown" "content" ( .Params.no_job_message | default "We're not hiring at the moment, check back soon." )) }}
-    {{ $subblocks = $subblocks | append $noJobBlock }}
+    {{- $jobBlock := (dict "template" "page-summary" "job" $pageLink) -}}
+    {{- $subblocks = $subblocks | append $jobBlock -}}
+  {{- else -}}
+    {{- $noJobBlock := (dict "template" "markdown" "content" ( .Params.no_job_message | default "We're not hiring at the moment, check back soon." )) -}}
+    {{- $subblocks = $subblocks | append $noJobBlock -}}
   {{- end -}}
 
-  {{ $sectionBlock := dict "title" "Current openings" "blocks" $subblocks "id" $jobSectionId }}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )}}
+  {{- $sectionBlock := dict "title" "Current openings" "blocks" $subblocks "id" $jobSectionId -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ ) -}}
   {{- partial "blocks/paginator/paginator" . -}}
 {{- end -}}

@@ -5,35 +5,35 @@
 <!-- Variables required: -->
 
 <!-- .feature = type Page -->
-{{ $feature := .feature }}
+{{- $feature := .feature -}}
 <!-- .subfeature = type dict -->
-{{ $subfeature := .subfeature }}
+{{- $subfeature := .subfeature -}}
 
 <!-- .Site = the site parameter so we can access Pages -->
-{{ $site := $feature.Site }}
+{{- $site := $feature.Site -}}
 
 <!-- The list of features we will return -->
-{{ $url := "" }}
+{{- $url := "" -}}
 
-{{ if $feature }}
+{{- if $feature -}}
   <!-- feature params -->
-  {{ $fp := $feature.Params }}
-  {{ if or ($fp.custom_link) (eq $fp.render_page true) (eq $fp.render_page "true") }}
-    {{ $url = $fp.custom_link | default $feature.RelPermalink }}
-  {{ end }}
-  {{ if $subfeature }}
-    {{ $subUrl := "" }}
+  {{- $fp := $feature.Params -}}
+  {{- if or ($fp.custom_link) (eq $fp.render_page true) (eq $fp.render_page "true") -}}
+    {{- $url = $fp.custom_link | default $feature.RelPermalink -}}
+  {{- end -}}
+  {{- if $subfeature -}}
+    {{- $subUrl := "" -}}
     <!-- Only create a url from the section ID if the parent feature has a url -->
-    {{ if and $url $subfeature.section_id }}
-      {{ $subUrl = printf "%s#%s" (strings.TrimSuffix "/" $url ) $subfeature.section_id }}
-    {{ end }}
+    {{- if and $url $subfeature.section_id -}}
+      {{- $subUrl = printf "%s#%s" (strings.TrimSuffix "/" $url ) $subfeature.section_id -}}
+    {{- end -}}
     <!-- Overwrite the url with the custom url if one is provided -->
-    {{ if $subfeature.custom_link }}
-      {{ $subUrl = .custom_link }}
-    {{ end }}
+    {{- if $subfeature.custom_link -}}
+      {{- $subUrl = .custom_link -}}
+    {{- end -}}
     <!-- Don't return a URL if subfeature doesn't have one -->
-    {{ $url = $subUrl }}
-  {{ end }}
-{{ end }}
+    {{- $url = $subUrl -}}
+  {{- end -}}
+{{- end -}}
 
-{{ return $url }}
+{{- return $url -}}

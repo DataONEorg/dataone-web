@@ -1,12 +1,12 @@
 <!-- Checks whether an array has values -->
 <!-- Source & discussion: https://discourse.gohugo.io/t/check-if-empty-front-matter-array/16738/9  -->
-{{ $return := false }}
-{{ with . }}
-  {{ range $key, $value := . }}
-    {{ with $value }}
-      {{ $return = true }}
-    {{ end }}
-   {{ end }}
-{{ end }}
+{{- $return := false -}}
+{{- with . -}}
+  {{- range $key, $value := . -}}
+    {{- with $value -}}
+      {{- $return = true -}}
+    {{- end -}}
+   {{- end -}}
+{{- end -}}
 
-{{ return $return }}
+{{- return $return -}}

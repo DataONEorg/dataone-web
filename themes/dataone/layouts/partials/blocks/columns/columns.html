@@ -1,32 +1,32 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "columns" }}
+{{- $bn := "columns" -}}
 <!-- classess to add to this block -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
-{{ $numCols := .Block.num_cols | default 2 }}
-{{ $alignment := .Block.alignment | default "center" }}
-{{ $layout := .Block.layout | default "default" }}
+{{- $numCols := .Block.num_cols | default 2 -}}
+{{- $alignment := .Block.alignment | default "center" -}}
+{{- $layout := .Block.layout | default "default" -}}
 
-{{ with $numCols }}
-  {{ $classes = print $classes " " $bn "--" . "cols" }}
-{{ end }}
+{{- with $numCols -}}
+  {{- $classes = print $classes " " $bn "--" . "cols" -}}
+{{- end -}}
 
-{{ with $alignment }}
-  {{ $classes = print $classes " " $bn "--align-" . }}
-{{ end }}
+{{- with $alignment -}}
+  {{- $classes = print $classes " " $bn "--align-" . -}}
+{{- end -}}
 
-{{ with $layout }}
-  {{ if not (eq . "default") }}
-    {{ $classes = printf "%s %s--%s" $classes $bn . }}
-  {{ end }}
-{{ end }}
+{{- with $layout -}}
+  {{- if not (eq . "default") -}}
+    {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
   {{- range .Block.columns -}}
-    <div class="{{ $bn }}__column">
-      {{ partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) }}
+    <div class="{{- $bn -}}__column">
+      {{- partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
     </div>
   {{- end -}}
 </div>

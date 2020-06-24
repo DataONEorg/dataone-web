@@ -1,51 +1,51 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- blockname -->
-{{ $bn := "header" }}
+{{- $bn := "header" -}}
 
-{{ $tagline := .Block.tagline | default "Data Observation Network for Earth" }}
+{{- $tagline := .Block.tagline | default "Data Observation Network for Earth" -}}
 
-{{ $bkgImgs := .Block.images | default slice }}
-{{ $showLogos := .Block.show_logos }}
-{{ $logosBar := .Block.logos_bar }}
+{{- $bkgImgs := .Block.images | default slice -}}
+{{- $showLogos := .Block.show_logos -}}
+{{- $logosBar := .Block.logos_bar -}}
 
 <!-- Pick a random image from the image gallery to start with -->
-{{ $src := index (shuffle $bkgImgs) 1 | default ""  }}
-{{ $bkgImg := "" }}
-{{ with $src }}
-  {{ $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) }}
-  {{ if gt $imageResource.Width 4000 }}
-    {{ $imageResource = $imageResource.Resize "4000x" }}
-  {{ end }}
-  {{ $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  }}
-{{ end }}
+{{- $src := index (shuffle $bkgImgs) 1 | default ""  -}}
+{{- $bkgImg := "" -}}
+{{- with $src -}}
+  {{- $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) -}}
+  {{- if gt $imageResource.Width 4000 -}}
+    {{- $imageResource = $imageResource.Resize "4000x" -}}
+  {{- end -}}
+  {{- $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  -}}
+{{- end -}}
 
-<header id="homepage_header" class="header header--hero-image header--overlay-subtle header--homepage" {{ $bkgImg }}>
+<header id="homepage_header" class="header header--hero-image header--overlay-subtle header--homepage" {{- $bkgImg -}}>
   <div class="header__content">
     <div class="header__logo">
 
       {{- partial "blocks/logo/logo" (dict "Block" (dict "type" "homepage") "Page" $page ) -}}
     </div>
 
-    {{ with $tagline}}
+    {{- with $tagline -}}
       <div class="header__tagline">
-        {{ $tagline }}
+        {{- $tagline -}}
       </div>
-    {{ end }}
+    {{- end -}}
 
     <div class="header__search">
       {{- partial "blocks/d1search/d1search" (dict "Block" .Block "Page" $page ) -}}
     </div>
 
     <!-- Parameters for the advanced search button -->
-    {{ $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" }}
-    {{ partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page )}}
+    {{- $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" -}}
+    {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page ) -}}
 
   </div>
 
 </header>
-{{ if (and $showLogos $logosBar) }}
-  <section class="{{ $bn }}__logos">
-    {{ partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBar "Page" $page) }}
+{{- if (and $showLogos $logosBar) -}}
+  <section class="{{- $bn -}}__logos">
+    {{- partial "blocks/logos-bar/logos-bar" (dict "Block" $logosBar "Page" $page) -}}
   </section>
-{{ end }}
+{{- end -}}

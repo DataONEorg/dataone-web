@@ -1,24 +1,24 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "breadcrumbs" }}
+{{- $bn := "breadcrumbs" -}}
 <!-- classess to add to this block -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Block options -->
-{{ $backText := .Block.back_text | default "Back" }}
-{{ $backLink := .Block.back_link | default "/" }}
+{{- $backText := .Block.back_text | default "Back" -}}
+{{- $backLink := .Block.back_link | default "/" -}}
 
 <!-- Back arrow icon -->
-{{ $iconBlock := dict "icon" "list" "size" "medium" "color" "inherit" }}
-{{ $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" .)}}
+{{- $iconBlock := dict "icon" "list" "size" "medium" "color" "inherit" -}}
+{{- $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" .) -}}
 
 <!-- Layout -->
-<section class="{{ $classes }}">
-  <div class="{{ $bn }}__inner">
-    <a class="{{ $bn }}__link" href="{{ $backLink }}">
-      <span class="{{ $bn }}__icon">{{- $backArrow }}</span>
-      <span class="{{ $bn }}__text">
+<section class="{{- $classes -}}">
+  <div class="{{- $bn -}}__inner">
+    <a class="{{- $bn -}}__link" href="{{- $backLink -}}">
+      <span class="{{- $bn -}}__icon">{{- $backArrow -}}</span>
+      <span class="{{- $bn -}}__text">
         {{- $backText -}}
       </span>
     </a>

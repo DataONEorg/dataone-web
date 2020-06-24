@@ -2,27 +2,27 @@
 
 <!-- Variables required: -->
 <!-- .Service = type Page -->
-{{ $service := .Service }}
+{{- $service := .Service -}}
 
 <!-- the site parameter so we can access Pages -->
-{{ $site := $service.Site }}
+{{- $site := $service.Site -}}
 
 <!-- The list of features we will return -->
-{{ $featuresOfService := slice }}
+{{- $featuresOfService := slice -}}
 
-{{ if and $service $site }}
+{{- if and $service $site -}}
 
-  {{ $allFeaturePages := where (where $site.Pages "Type" "features") "Kind" "page" }}
-  {{ range $featurePage := $allFeaturePages }}
+  {{- $allFeaturePages := where (where $site.Pages "Type" "features") "Kind" "page" -}}
+  {{- range $featurePage := $allFeaturePages -}}
     <!-- For every feature page, check the linked services -->
-    {{ range $linked_service := $featurePage.Params.linked_services }}
+    {{- range $linked_service := $featurePage.Params.linked_services -}}
       <!-- If there's a match between the given service page and the linked service ... -->
-      {{ if eq ($site.GetPage $linked_service.service_file) $service }}
+      {{- if eq ($site.GetPage $linked_service.service_file) $service -}}
         <!-- Append the service page to the list that this function will return -->
-        {{ $featuresOfService = $featuresOfService | append $featurePage }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+        {{- $featuresOfService = $featuresOfService | append $featurePage -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
-{{ return $featuresOfService }}
+{{- return $featuresOfService -}}

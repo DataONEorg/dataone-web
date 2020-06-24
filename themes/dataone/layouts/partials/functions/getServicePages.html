@@ -2,15 +2,15 @@
 
 <!-- Variables required: -->
 <!-- .Site = to access Pages -->
-{{ $site := .Site }}
+{{- $site := .Site -}}
 
 <!-- The collection of service pages to return -->
-{{ $servicePages := slice }}
+{{- $servicePages := slice -}}
 
-{{ if $site }}
-  {{ $filter1 := where $site.Pages "Type" "services" }}
-  {{ $filter2 := where $site.Pages "Kind" "page" }}
-  {{ $servicePages = intersect $filter1 $filter2  }}
-{{ end }}
+{{- if $site -}}
+  {{- $filter1 := where $site.Pages "Type" "services" -}}
+  {{- $filter2 := where $site.Pages "Kind" "page" -}}
+  {{- $servicePages = intersect $filter1 $filter2  -}}
+{{- end -}}
 
-{{ return $servicePages }}
+{{- return $servicePages -}}

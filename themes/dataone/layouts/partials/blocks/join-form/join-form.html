@@ -1,40 +1,40 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn - block name -->
-{{ $bn := "join-form" }}
+{{- $bn := "join-form" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- === Newsletter & service sign up form === -->
 <!-- HTML taken from MaielrLite with most <style></style> content removed, -->
 <!-- and some hugo templating options added. -->
 <!-- Note that the .classes are required for the MailerLite javascript to work. -->
 
-{{ $checkHR := "" }}
-{{ $checkPlus := "" }}
-{{ $checkNL := "" }}
-{{ if eq .Block.precheck_hostedrepo true }}
-  {{ $checkHR = "checked" }}
-{{ end }}
-{{ if eq .Block.precheck_plus true }}
-  {{ $checkPlus = "checked" }}
-{{ end }}
-{{ if eq .Block.precheck_mailing_list true }}
-  {{ $checkNL = "checked" }}
-{{ end }}
+{{- $checkHR := "" -}}
+{{- $checkPlus := "" -}}
+{{- $checkNL := "" -}}
+{{- if eq .Block.precheck_hostedrepo true -}}
+  {{- $checkHR = "checked" -}}
+{{- end -}}
+{{- if eq .Block.precheck_plus true -}}
+  {{- $checkPlus = "checked" -}}
+{{- end -}}
+{{- if eq .Block.precheck_mailing_list true -}}
+  {{- $checkNL = "checked" -}}
+{{- end -}}
 <!-- if the block should just be a simple newsletter signup -->
-{{ if .Block.mailing_list_only }}
-  {{ $checkHR = "" }}
-  {{ $checkPlus = "" }}
-  {{ $checkNL = "checked" }}
-  {{ $classes = print $classes " " $bn "--mailing-list-only" }}
-{{ end }}
+{{- if .Block.mailing_list_only -}}
+  {{- $checkHR = "" -}}
+  {{- $checkPlus = "" -}}
+  {{- $checkNL = "checked" -}}
+  {{- $classes = print $classes " " $bn "--mailing-list-only" -}}
+{{- end -}}
 
-{{ with .Block.style }}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
-{{ end }}
+{{- with .Block.style -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
 
-<div id="join-form" class="{{ $classes }}">
+<div id="join-form" class="{{- $classes -}}">
   <div id="mlb2-1647596" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1647596">
     <div class="ml-form-align-center">
       <div class="ml-form-embedWrapper embedForm">
@@ -45,26 +45,26 @@
               <div class="ml-form-fieldRow ml-last-item">
                 <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
                   <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="ada.lovelace@example.com" autocomplete="email" id="newsletter-email" required="true" aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                  <label class="{{ $bn }}__label" for="newsletter-email">E-mail address (required)</label>
+                  <label class="{{- $bn -}}__label" for="newsletter-email">E-mail address (required)</label>
                 </div>
               </div>
             </div>
             <div class="ml-form-interestGroupsRow ml-block-groups">
               <div class="ml-form-interestGroupsRowCheckbox last-group" style="">
                 <label>
-                  <input type="checkbox" name="groups[]" value="76427432" {{ $checkHR }}>
+                  <input type="checkbox" name="groups[]" value="76427432" {{- $checkHR -}}>
                   <div class="label-description">Join the waitlist for a Hosted Repository from DataONE</div>
                 </label>
               </div>
               <div class="ml-form-interestGroupsRowCheckbox group" style="">
                 <label>
-                  <input type="checkbox" name="groups[]" value="76427356" {{ $checkPlus }}>
+                  <input type="checkbox" name="groups[]" value="76427356" {{- $checkPlus -}}>
                   <div class="label-description">Join the waitlist for a DataONE Plus membership</div>
                 </label>
               </div>
               <div class="ml-form-interestGroupsRowCheckbox group" style="">
                 <label>
-                  <input type="checkbox" name="groups[]" value="9902726" {{ $checkNL }}>
+                  <input type="checkbox" name="groups[]" value="9902726" {{- $checkNL -}}>
                   <div class="label-description">Subscribe to the community mailing list</div>
                 </label>
               </div>

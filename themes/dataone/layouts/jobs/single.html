@@ -1,55 +1,55 @@
 {{- define "main" -}}
-  {{ $page := $ }}
-  {{ $job := .Params }}
+  {{- $page := $ -}}
+  {{- $job := .Params -}}
 
   <!-- the number is used to keep sort order, otherwise maps are alphabetical -->
-  {{ $jobVocab := dict "0open_date" "Opening Date" "1close_date" "Closing Date"  "2job_type" "Type" "3location" "Job location" "4salary" "Salary" "5min_quals" "Minimum qualifications"  "6prefer_quals" "Preferred qualifications" "7docs" "Documents required"}}
+  {{- $jobVocab := dict "0open_date" "Opening Date" "1close_date" "Closing Date"  "2job_type" "Type" "3location" "Job location" "4salary" "Salary" "5min_quals" "Minimum qualifications"  "6prefer_quals" "Preferred qualifications" "7docs" "Documents required" -}}
 
-  {{ $applyButton := dict }}
-  {{ with $job.apply_url }}
-    {{ $applyButton = dict "type" "external website" "color" "primary" "external_link" . "text" "Apply now" }}
-  {{ end }}
-  {{ $detailsButton := dict }}
-  {{ with $job.details_url  }}
-    {{ $detailsButton = dict "type" "external website" "color" "secondary" "external_link" . "text" "More details" }}
-  {{ end }}
-  {{ $buttons := slice $applyButton $detailsButton }}
+  {{- $applyButton := dict -}}
+  {{- with $job.apply_url -}}
+    {{- $applyButton = dict "type" "external website" "color" "primary" "external_link" . "text" "Apply now" -}}
+  {{- end -}}
+  {{- $detailsButton := dict -}}
+  {{- with $job.details_url  -}}
+    {{- $detailsButton = dict "type" "external website" "color" "secondary" "external_link" . "text" "More details" -}}
+  {{- end -}}
+  {{- $buttons := slice $applyButton $detailsButton -}}
   <!-- Breadcrumb nav -->
 
-  {{ $breadcrumbsBlock := dict "back_text" "Back to all careers" "back_link" $page.Parent.RelPermalink }}
-  {{ partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) }}
+  {{- $breadcrumbsBlock := dict "back_text" "Back to all careers" "back_link" $page.Parent.RelPermalink -}}
+  {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
 
   <!-- Header -->
-  {{ $headerBlock := dict "type" "text only" "background_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons }}
-  {{ partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) }}
+  {{- $headerBlock := dict "type" "text only" "background_color" "default" "title" $job.job_title "intro" $job.summary "buttons" $buttons -}}
+  {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) -}}
 
   <!-- Job details -->
-  {{ $details := slice }}
-  {{ $checklists := slice }}
+  {{- $details := slice -}}
+  {{- $checklists := slice -}}
 
-  {{ range $key, $value := $jobVocab }}
+  {{- range $key, $value := $jobVocab -}}
 
-    {{ $key := replaceRE "\\d" "" $key }}
-    {{ $content := ($.Param $key) }}
+    {{- $key := replaceRE "\\d" "" $key -}}
+    {{- $content := ($.Param $key) -}}
 
-    {{ if $content }}
-      {{ if reflect.IsSlice $content }}
+    {{- if $content -}}
+      {{- if reflect.IsSlice $content -}}
         <!-- Put content in the correct format for the checklist block -->
-        {{ $checklistItems := slice }}
-        {{ range $content }}
-          {{ $checklistItems = $checklistItems | append ( dict "text" . ) }}
-        {{ end }}
-        {{ $checklist := dict "template" "checklist" "num_cols" 1 "title" $value "items" $checklistItems }}
-        {{ $checklists = $checklists | append $checklist }}
-      {{ else }}
-        {{ $detail := dict "template" "feature-detailed" "type" "top" "headline" $value "text" $content }}
-        {{ $details = $details | append $detail }}
-      {{ end }}
-    {{ end }}
+        {{- $checklistItems := slice -}}
+        {{- range $content -}}
+          {{- $checklistItems = $checklistItems | append ( dict "text" . ) -}}
+        {{- end -}}
+        {{- $checklist := dict "template" "checklist" "num_cols" 1 "title" $value "items" $checklistItems -}}
+        {{- $checklists = $checklists | append $checklist -}}
+      {{- else -}}
+        {{- $detail := dict "template" "feature-detailed" "type" "top" "headline" $value "text" $content -}}
+        {{- $details = $details | append $detail -}}
+      {{- end -}}
+    {{- end -}}
 
-  {{ end }}
+  {{- end -}}
 
-  {{ $blocks := append $checklists (slice (dict "template" "columns" "num_cols" 3 "alignment" "left" "columns" $details)) }}
-  {{ $sectionBlock := dict "template" "section" "intro" $job.description "blocks" $blocks }}
-  {{ partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page ) }}
+  {{- $blocks := append $checklists (slice (dict "template" "columns" "num_cols" 3 "alignment" "left" "columns" $details)) -}}
+  {{- $sectionBlock := dict "template" "section" "intro" $job.description "blocks" $blocks -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page ) -}}
 {{- end -}}

@@ -1,55 +1,55 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "checklist"}}
+{{- $bn := "checklist" -}}
 <!-- Classes for the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- An optional title to place above the checklist -->
-{{ $title := .Block.title | default "" }}
+{{- $title := .Block.title | default "" -}}
 <!-- The number of columns to use for the checklist -->
-{{ $numCols := .Block.num_cols | default 3 }}
+{{- $numCols := .Block.num_cols | default 3 -}}
 <!-- Option to reduce spacing -->
-{{ $compact := .Block.compact | default false }}
+{{- $compact := .Block.compact | default false -}}
 <!-- The items to list, each with some text, an icon, and an optional description -->
-{{ $items := .Block.items }}
+{{- $items := .Block.items -}}
 
-{{ with $numCols }}
-  {{ $classes = printf "%s %s--%dcols" $classes $bn . }}
-{{ end }}
+{{- with $numCols -}}
+  {{- $classes = printf "%s %s--%dcols" $classes $bn . -}}
+{{- end -}}
 
-{{ if $compact }}
-  {{ $classes = printf "%s %s--compact" $classes $bn }}
-{{ end }}
+{{- if $compact -}}
+  {{- $classes = printf "%s %s--compact" $classes $bn -}}
+{{- end -}}
 
 <!-- General style options for checklist icons -->
-{{ $iconStyle := dict "size" "small" "color" "inherit" "stroke" "thicker" }}
+{{- $iconStyle := dict "size" "small" "color" "inherit" "stroke" "thicker" -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
 
-  {{ with $title }}
-    <h3 class="{{ $bn }}__title">{{ . }}</h3>
-  {{ end }}
+  {{- with $title -}}
+    <h3 class="{{- $bn -}}__title">{{- . -}}</h3>
+  {{- end -}}
 
   {{- with $items -}}
-    <ul class="{{ $bn }}__items">
+    <ul class="{{- $bn -}}__items">
       {{- range $item :=  . -}}
         <!-- Parameters for each item -->
-        {{ $text := $item.text | default "" }}
-        {{ $description := $item.description | default "" }}
-        {{ $icon := $item.icon | default "check" }}
+        {{- $text := $item.text | default "" -}}
+        {{- $description := $item.description | default "" -}}
+        {{- $icon := $item.icon | default "check" -}}
         <!-- Get the icon, default to checkmark -->
-        {{ $iconBlock := merge (dict "icon" $icon) $iconStyle }}
-        {{ $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) }}
+        {{- $iconBlock := merge (dict "icon" $icon) $iconStyle -}}
+        {{- $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
         <!-- Make the tooltip description. Add a class to add styless to items with tooltips -->
-        {{ $classes := printf "%s__item" $bn }}
-        {{ $tooltip := "" | safeHTMLAttr }}
-        {{ with $description }}
-          {{ $tooltip = printf "data-tooltip='%s' data-position='right center'" . | safeHTMLAttr }}
-          {{ $classes = printf "%s %s--tooltip" $classes $classes }}
-        {{ end }}
-        <li class="{{ $classes }}" {{ $tooltip }}>
-          <div class="{{ $bn }}__icon">{{ $iconHTML }}</div>{{ $text }}
+        {{- $classes := printf "%s__item" $bn -}}
+        {{- $tooltip := "" | safeHTMLAttr -}}
+        {{- with $description -}}
+          {{- $tooltip = printf "data-tooltip='%s' data-position='right center'" . | safeHTMLAttr -}}
+          {{- $classes = printf "%s %s--tooltip" $classes $classes -}}
+        {{- end -}}
+        <li class="{{- $classes -}}" {{- $tooltip -}}>
+          <div class="{{- $bn -}}__icon">{{- $iconHTML -}}</div>{{- $text -}}
         </li>
       {{- end -}}
     </ul>

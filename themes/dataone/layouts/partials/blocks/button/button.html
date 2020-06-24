@@ -1,112 +1,112 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "button" }}
+{{- $bn := "button" -}}
 
 <!-- The type of button -->
 <!-- Options: internal page, external page, contact, subscribe form, donate-->
-{{ $type := .Block.type | default "external website" }}
+{{- $type := .Block.type | default "external website" -}}
 
 <!-- Text to display within the button -->
-{{ $text := (.Block.text | markdownify) | default "" }}
+{{- $text := (.Block.text | markdownify) | default "" -}}
 
 <!-- classes to add to the button based on user choices -->
-{{ $classes := $bn }}
-{{ with .Block.color }}
-	{{ $classes = print $classes " " $bn "--col-" . }}
-{{ end }}
-{{ with $type }}
-	{{ $classes = print $classes " " $bn "--" ( . | urlize ) }}
-{{ end }}
+{{- $classes := $bn -}}
+{{- with .Block.color -}}
+	{{- $classes = print $classes " " $bn "--col-" . -}}
+{{- end -}}
+{{- with $type -}}
+	{{- $classes = print $classes " " $bn "--" ( . | urlize ) -}}
+{{- end -}}
 
 <!-- icon -->
-{{ $icon := "" }}
-{{ if .Block.icon }}
-	{{ $iconBlock := dict "icon" .Block.icon "color" "inherit" }}
-	{{ $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) }}
-	{{ $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML }}
-{{ end}}
+{{- $icon := "" -}}
+{{- if .Block.icon -}}
+	{{- $iconBlock := dict "icon" .Block.icon "color" "inherit" -}}
+	{{- $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
+	{{- $icon = print `<span class="button__icon">` $svg `</span>` | safeHTML -}}
+{{- end -}}
 
 <!-- Icon on the right -->
-{{ $iconRight := "" }}
-{{ if and (eq .Block.color "quaternary") (eq $type "internal page") }}
-	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
-	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
-{{ end }}
-{{ if and (or (eq $type "external website") (eq $type "donate")) (not .Block.type_attr) }}
-	{{ $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) }}
-	{{ $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML }}
-{{ end }}
+{{- $iconRight := "" -}}
+{{- if and (eq .Block.color "quaternary") (eq $type "internal page") -}}
+	{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "arrow-right" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
+	{{- $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML -}}
+{{- end -}}
+{{- if and (or (eq $type "external website") (eq $type "donate")) (not .Block.type_attr) -}}
+	{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" "external-link" "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
+	{{- $iconRight = print `<span class="button__icon button__icon--right">` $svg `</span>` | safeHTML -}}
+{{- end -}}
 
 <!-- 'add to calendar' button type uses a very different layout -->
-{{ if eq $type "add to calendar" }}
-	{{ $buttonBlock := merge .Block (dict "classes" $classes "icon" $icon ) }}
-	{{ partial "blocks/button/button--add2cal.html" (dict "Block" $buttonBlock "Page" $page ) }}
-{{ else }}
+{{- if eq $type "add to calendar" -}}
+	{{- $buttonBlock := merge .Block (dict "classes" $classes "icon" $icon ) -}}
+	{{- partial "blocks/button/button--add2cal.html" (dict "Block" $buttonBlock "Page" $page ) -}}
+{{- else -}}
 
 	<!-- all other types of buttons use a similar layout -->
 
 	<!-- href link -->
-	{{ $href := .Block.external_link | default "#" }}
-	{{ if eq $type "internal page" }}
-		{{ with .Block.internal_link }}
-			{{ $href = ref $page . }}
-		{{ end }}
-	{{ else if eq $type "contact" }}
-		{{ $href = $page.Site.Params.links.contact }}
-	{{ else if eq $type "subscribe form" }}
-		{{ $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId }}
-	{{ else if eq $type "donate" }}
-		{{ $href = $page.Site.Params.links.donate }}
-	{{ else if eq $type "sign-in" }}
-		{{ $href = $page.Site.Params.links.signin }}
-	{{ else if and (eq $type "service cta") (eq $page.Type "services") }}
-		{{ with $page.Params.cta }}
-			{{ with .external_link }}
-				{{ $href = . }}
-			{{ end }}
-			{{ with .text }}
-				{{ $text = . }}
-			{{ end }}
-		{{ end }}
-	{{ end }}
+	{{- $href := .Block.external_link | default "#" -}}
+	{{- if eq $type "internal page" -}}
+		{{- with .Block.internal_link -}}
+			{{- $href = ref $page . -}}
+		{{- end -}}
+	{{- else if eq $type "contact" -}}
+		{{- $href = $page.Site.Params.links.contact -}}
+	{{- else if eq $type "subscribe form" -}}
+		{{- $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId -}}
+	{{- else if eq $type "donate" -}}
+		{{- $href = $page.Site.Params.links.donate -}}
+	{{- else if eq $type "sign-in" -}}
+		{{- $href = $page.Site.Params.links.signin -}}
+	{{- else if and (eq $type "service cta") (eq $page.Type "services") -}}
+		{{- with $page.Params.cta -}}
+			{{- with .external_link -}}
+				{{- $href = . -}}
+			{{- end -}}
+			{{- with .text -}}
+				{{- $text = . -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
 
-	{{ $htmlTag := .Block.html_tag | default "a" }}
+	{{- $htmlTag := .Block.html_tag | default "a" -}}
 
-	{{ $typeAttr := "" }}
-	{{ if eq $htmlTag "button" }}
-		{{ $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML }}
-	{{ end }}
+	{{- $typeAttr := "" -}}
+	{{- if eq $htmlTag "button" -}}
+		{{- $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML -}}
+	{{- end -}}
 
 	<!-- ID for button -->
-	{{ $id := "" | safeHTMLAttr }}
-	{{ with .Block.id }}
-		{{ $id = print "id=" . | safeHTMLAttr  }}
-	{{ end }}
+	{{- $id := "" | safeHTMLAttr -}}
+	{{- with .Block.id -}}
+		{{- $id = print "id=" . | safeHTMLAttr  -}}
+	{{- end -}}
 
 	<!-- Function for button -->
-	{{ $function := "" | safeHTMLAttr }}
-	{{ with .Block.function }}
-		{{ $function = . | safeHTMLAttr  }}
-	{{ end }}
+	{{- $function := "" | safeHTMLAttr -}}
+	{{- with .Block.function -}}
+		{{- $function = . | safeHTMLAttr  -}}
+	{{- end -}}
 
 	<!-- class for the button text span element -->
-	{{ $textClasses := print $bn "__text" }}
+	{{- $textClasses := print $bn "__text" -}}
 	<!-- option to hide button text on desktop -->
-	{{ if eq .Block.hideTextDesktop "true" }}
-		{{ $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses }}
-	{{ end }}
+	{{- if eq .Block.hideTextDesktop "true" -}}
+		{{- $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses -}}
+	{{- end -}}
 
 	<!-- start of button layout -->
 
-	{{ printf "<%s href='%s' class='%s' %s %s %s>" $htmlTag $href $classes $typeAttr $id $function | safeHTML }}
+	{{- printf "<%s href='%s' class='%s' %s %s %s>" $htmlTag $href $classes $typeAttr $id $function | safeHTML -}}
 
-	{{ $icon }}
+	{{- $icon -}}
 	{{- if $text -}}
-		<span class="{{ $textClasses }}">{{ $text }}</span>
+		<span class="{{- $textClasses -}}">{{- $text -}}</span>
 	{{- end -}}
-	{{ $iconRight }}
+	{{- $iconRight -}}
 
-	{{ printf "</%s>" $htmlTag  | safeHTML }}
+	{{- printf "</%s>" $htmlTag  | safeHTML -}}
 
-{{ end }}
+{{- end -}}

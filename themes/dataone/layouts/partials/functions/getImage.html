@@ -1,15 +1,15 @@
-{{ $imageResource := false }}
-{{ with . }}
-  {{ $prefix := "" }}
-  {{ if in .image "/uploads/" }}
-    {{ $prefix = "/uploads/" }}
-  {{ else if in .image "uploads/" }}
-    {{ $prefix = "uploads/" }}
-  {{ end }}
+{{- $imageResource := false -}}
+{{- with . -}}
+  {{- $prefix := "" -}}
+  {{- if in .image "/uploads/" -}}
+    {{- $prefix = "/uploads/" -}}
+  {{- else if in .image "uploads/" -}}
+    {{- $prefix = "uploads/" -}}
+  {{- end -}}
 
-  {{ $site := .Page.Site }}
-  {{ $imageResource = ($site.GetPage "/uploads").Resources.GetMatch (strings.TrimPrefix $prefix .image ) }}
+  {{- $site := .Page.Site -}}
+  {{- $imageResource = ($site.GetPage "/uploads").Resources.GetMatch (strings.TrimPrefix $prefix .image ) -}}
 
-{{ end }}
+{{- end -}}
 
-{{ return $imageResource }}
+{{- return $imageResource -}}

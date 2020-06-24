@@ -1,17 +1,17 @@
-{{ $status := . }}
+{{- $status := . -}}
 <!-- default -->
-{{ $pillText := "webinar" }}
-{{ $pillType := "secondary" }}
+{{- $pillText := "webinar" -}}
+{{- $pillType := "secondary" -}}
 <!-- based on status -->
-{{ if eq $status "upcoming" }}
-  {{ $pillText = "Upcoming webinar" }}
-{{ end }}
-{{ if eq $status "happening-now" }}
-  {{ $pillText = "Happening now!" }}
-  {{ $pillType = "on-air" }}
-{{ end }}
-{{ if eq $status "past" }}
-  {{ $pillText = "Watch on demand" }}
-  {{ $pillType = "subtle" }}
-{{ end }}
-{{ return (dict "text" $pillText "style" $pillType) }}
+{{- if eq $status "upcoming" -}}
+  {{- $pillText = "Upcoming webinar" -}}
+{{- end -}}
+{{- if eq $status "happening-now" -}}
+  {{- $pillText = "Happening now!" -}}
+  {{- $pillType = "on-air" -}}
+{{- end -}}
+{{- if eq $status "past" -}}
+  {{- $pillText = "Watch on demand" -}}
+  {{- $pillType = "subtle" -}}
+{{- end -}}
+{{- return (dict "text" $pillText "style" $pillType) -}}

@@ -4,26 +4,26 @@
 <!-- Variables required: -->
 
 <!-- .feature = type Page -->
-{{ $feature := .feature }}
+{{- $feature := .feature -}}
 <!-- .subfeature = type dict -->
-{{ $subfeature := .subfeature }}
+{{- $subfeature := .subfeature -}}
 
 <!-- .Site = the site parameter so we can access Pages -->
-{{ $site := $feature.Site }}
+{{- $site := $feature.Site -}}
 
 <!-- The list of features we will return -->
-{{ $servicesOfFeature := slice }}
+{{- $servicesOfFeature := slice -}}
 
-{{ if $subfeature }}
-  {{ range $linked_service := $subfeature.linked_services }}
-    {{ $servicePage := $site.GetPage $linked_service.service_file }}
-    {{ $servicesOfFeature = $servicesOfFeature | append $servicePage }}
-  {{ end }}
-{{ else if $feature }}
-  {{ range $linked_service := $feature.Params.linked_services }}
-    {{ $servicePage := $site.GetPage $linked_service.service_file }}
-    {{ $servicesOfFeature = $servicesOfFeature | append $servicePage }}
-  {{ end }}
-{{ end }}
+{{- if $subfeature -}}
+  {{- range $linked_service := $subfeature.linked_services -}}
+    {{- $servicePage := $site.GetPage $linked_service.service_file -}}
+    {{- $servicesOfFeature = $servicesOfFeature | append $servicePage -}}
+  {{- end -}}
+{{- else if $feature -}}
+  {{- range $linked_service := $feature.Params.linked_services -}}
+    {{- $servicePage := $site.GetPage $linked_service.service_file -}}
+    {{- $servicesOfFeature = $servicesOfFeature | append $servicePage -}}
+  {{- end -}}
+{{- end -}}
 
-{{ return $servicesOfFeature }}
+{{- return $servicesOfFeature -}}

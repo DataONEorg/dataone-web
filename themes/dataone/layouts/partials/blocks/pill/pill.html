@@ -1,26 +1,26 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "pill" }}
+{{- $bn := "pill" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
-{{ $icon := "none" }}
-{{ if eq .Block.style "success" }}
-  {{ $icon = "check" }}
-{{ else if eq .Block.style "info" }}
-  {{ $icon = "info" }}
-{{ else if eq .Block.style "warning" }}
-  {{ $icon = "alert-triangle" }}
-{{ end }}
-{{ with .Block.style }}
-  {{ $classes = print $classes " " $bn "--" . }}
-{{ end }}
-{{ with .Block.size }}
-  {{ $classes = print $classes " " $bn "--sz-" . }}
-{{ end }}
-{{ if .Block.text }}
+{{- $classes := $bn -}}
+{{- $icon := "none" -}}
+{{- if eq .Block.style "success" -}}
+  {{- $icon = "check" -}}
+{{- else if eq .Block.style "info" -}}
+  {{- $icon = "info" -}}
+{{- else if eq .Block.style "warning" -}}
+  {{- $icon = "alert-triangle" -}}
+{{- end -}}
+{{- with .Block.style -}}
+  {{- $classes = print $classes " " $bn "--" . -}}
+{{- end -}}
+{{- with .Block.size -}}
+  {{- $classes = print $classes " " $bn "--sz-" . -}}
+{{- end -}}
+{{- if .Block.text -}}
   {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
-    <span class="{{ $classes }}">
+    <span class="{{- $classes -}}">
       {{- if ne $icon "none" -}}
         <span class="pill__icon">
           {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit" "stroke" "thicker")) -}}
@@ -29,4 +29,4 @@
       {{- .Block.text -}}
     </span>
   {{- end -}}
-{{ end }}
+{{- end -}}

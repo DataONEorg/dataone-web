@@ -1,57 +1,57 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
-{{ $site := $page.Site }}
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
 <!-- bn = block name -->
-{{ $bn := "header" }}
+{{- $bn := "header" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- All block options -->
-{{ $pill := .Block.pill | default dict  }}
-{{ $headline := .Block.title | default ""}}
+{{- $pill := .Block.pill | default dict  -}}
+{{- $headline := .Block.title | default "" -}}
 
 <!-- Svg background image -->
-{{ $svgBkg := "subtle-wave" }}
+{{- $svgBkg := "subtle-wave" -}}
 
 <!-- The small title that goes at the top of the header (not the larger headline) -->
-{{ $mainTitle := "Services from DataONE" }}
+{{- $mainTitle := "Services from DataONE" -}}
 
 <!-- Use classes from text-only -->
-{{ with "text-only" }}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
-{{ end }}
+{{- with "text-only" -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
 
 <!-- Use classes from suble-wave -->
-{{ with $svgBkg }}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
-{{ end }}
+{{- with $svgBkg -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
 
 <!-- Add services as a class -->
-{{ with "services" }}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) }}
-{{ end }}
+{{- with "services" -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
 
 <!-- Summary of DataONE Plus -->
 <!-- All services -->
-{{ $services := (where (where $site.Pages "Type" "services") "Kind" "page")}}
+{{- $services := (where (where $site.Pages "Type" "services") "Kind" "page") -}}
 
 <!-- LAYOUT ===== -->
-<header class="{{ $classes }}">
+<header class="{{- $classes -}}">
 
   <!-- for svg background images (e.g. DataONE wave with gradient and Hosted repository) -->
-  {{ with $svgBkg }}
-    <div class="{{ $bn }}__svg-background">
+  {{- with $svgBkg -}}
+    <div class="{{- $bn -}}__svg-background">
       {{- partial "blocks/svg/svg" (dict "Block" (dict "name" .) "Page" $page) -}}
     </div>
-  {{ end }}
+  {{- end -}}
 
-  <div class="{{ $bn }}__content">
+  <div class="{{- $bn -}}__content">
 
-    <div class="{{ $bn }}__text">
+    <div class="{{- $bn -}}__text">
 
-      <div class="{{ $bn }}__title-and-pill">
+      <div class="{{- $bn -}}__title-and-pill">
         {{- with $mainTitle -}}
-          <span class="{{ $bn }}__title">{{ . | safeHTML}}</span>
+          <span class="{{- $bn -}}__title">{{- . | safeHTML -}}</span>
         {{- end -}}
 
         {{- with $pill -}}
@@ -59,23 +59,23 @@
         {{- end -}}
       </div>
 
-      <div class="{{ $bn }}__headline-and-intro">
-        {{ with $headline }}
-          <h1 class="{{ $bn }}__headline markdown">{{ . | markdownify }}</h1>
-        {{ end }}
+      <div class="{{- $bn -}}__headline-and-intro">
+        {{- with $headline -}}
+          <h1 class="{{- $bn -}}__headline markdown">{{- . | markdownify -}}</h1>
+        {{- end -}}
       </div>
 
     </div>
 
   </div>
 
-  <div class="{{ $bn }}__service-summaries">
-    {{ range $index, $service := $services }}
-      <div class="{{ $bn }}__service-summary">
-        {{ $path := $service.File.Path }}
-        {{ partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path "num_cols" 1 "show_cta" true) "Page" $page) }}
+  <div class="{{- $bn -}}__service-summaries">
+    {{- range $index, $service := $services -}}
+      <div class="{{- $bn -}}__service-summary">
+        {{- $path := $service.File.Path -}}
+        {{- partial "blocks/page-summary/service-summary" (dict "Block" (dict "service" $path "num_cols" 1 "show_cta" true) "Page" $page) -}}
       </div>
-    {{ end }}
+    {{- end -}}
   </div>
 
 </header>

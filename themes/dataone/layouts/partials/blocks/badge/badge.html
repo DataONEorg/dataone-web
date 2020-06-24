@@ -1,104 +1,104 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "badge" }}
+{{- $bn := "badge" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- Block parameters -->
-{{ $badgePagePath := .Block.page }}
+{{- $badgePagePath := .Block.page -}}
 <!-- The page to show a badge for -->
-{{ $badgePage := $page.Site.GetPage $badgePagePath }}
+{{- $badgePage := $page.Site.GetPage $badgePagePath -}}
 
 <!-- The type or style of badge -->
-{{ $type := .Block.type | default "" }}
+{{- $type := .Block.type | default "" -}}
 
 <!-- A style option for the badge (options: default, light) -->
-{{ $style := .Block.style | default "" }}
+{{- $style := .Block.style | default "" -}}
 
 <!-- Link when the badge is clicked -->
-{{ $href := "" }}
+{{- $href := "" -}}
 <!-- Icon to use for the badge -->
-{{ $icon := "" }}
+{{- $icon := "" -}}
 <!-- Name to show with the badge -->
-{{ $name := "" }}
+{{- $name := "" -}}
 <!-- Icon HTML -->
-{{ $iconHTML := "" }}
+{{- $iconHTML := "" -}}
 <!-- Title that goes above the name -->
-{{ $title := "" }}
+{{- $title := "" -}}
 
 <!-- Get badge parameters from service page if type == service -->
-{{ if $badgePage }}
-  {{ if eq $badgePage.Type "services" }}
-    {{ $service := $badgePage.Params }}
-    {{ $icon = $service.service_icon }}
-    {{ if $service.render_page }}
-      {{ $href = $badgePage.RelPermalink }}
-    {{ else }}
-      {{ $href = "/services/#feature-table" }}
-    {{ end }}
-    {{ $name = $service.title }}
-    {{ $title = "Available with" }}
-    {{ $varName := $name | urlize }}
-    {{ $themeClass := printf "theme--%s" $varName }}
+{{- if $badgePage -}}
+  {{- if eq $badgePage.Type "services" -}}
+    {{- $service := $badgePage.Params -}}
+    {{- $icon = $service.service_icon -}}
+    {{- if $service.render_page -}}
+      {{- $href = $badgePage.RelPermalink -}}
+    {{- else -}}
+      {{- $href = "/services/#feature-table" -}}
+    {{- end -}}
+    {{- $name = $service.title -}}
+    {{- $title = "Available with" -}}
+    {{- $varName := $name | urlize -}}
+    {{- $themeClass := printf "theme--%s" $varName -}}
     <!-- Add service specific classess -->
-    {{ $classes = printf "%s %s--%s" $classes $bn "service" }}
-    {{ $classes = printf "%s %s" $classes $themeClass }}
-  {{ end }}
-{{ end }}
-
-{{ if eq $type "icon-only" }}
-  {{ $href = "" }}
-  {{ $name = "" }}
-  {{ $title = "" }}
-  {{ $classes = printf "%s %s--%s" $classes $bn "icon-only" }}
-{{ end }}
-
-{{ with $style }}
-  {{ $classes = printf "%s %s--%s" $classes $bn . }}
-{{ end }}
-
-<!-- The HTML tag to use for the badge element -->
-{{ $htmltag := "span" | safeHTMLAttr |safeHTML }}
-{{ if $href }}
-  {{ $htmltag = "a" | safeHTMLAttr |safeHTML }}
-{{ end }}
-
-<!-- Add a class if the badge is clickable -->
-{{ if $href }}
-  {{ $classes = printf "%s %s--%s" $classes $bn "clickable" }}
-{{ end }}
-
-<!-- Add a class if the badge is expandable -->
-{{ if or $title $name }}
-  {{ $classes = printf "%s %s--%s" $classes $bn "expandable" }}
-{{ end }}
-
-<!-- HTML attr for the link -->
-{{ $link := "" | safeHTMLAttr}}
-{{ with $href }}
-  {{ $link = printf "href='%s'" . | safeHTMLAttr  }}
-{{ end }}
-
-<!-- Icon block -->
-{{ with $icon }}
-  {{ $iconBlock := dict "icon" . "size" "medium" "color" "inherit" }}
-  {{ $iconHTML = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) | safeHTML }}
-{{ end }}
-
-<!-- Layout -->
-{{ printf "<%s class='%s' %s>" $htmltag $classes $link | safeHTML }}
-{{- with $iconHTML -}}
-  <span class="{{ $bn }}__icon">{{ . }}</span>
+    {{- $classes = printf "%s %s--%s" $classes $bn "service" -}}
+    {{- $classes = printf "%s %s" $classes $themeClass -}}
+  {{- end -}}
 {{- end -}}
 
-<div class="{{ $bn }}__name">
+{{- if eq $type "icon-only" -}}
+  {{- $href = "" -}}
+  {{- $name = "" -}}
+  {{- $title = "" -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "icon-only" -}}
+{{- end -}}
+
+{{- with $style -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+{{- end -}}
+
+<!-- The HTML tag to use for the badge element -->
+{{- $htmltag := "span" | safeHTMLAttr |safeHTML -}}
+{{- if $href -}}
+  {{- $htmltag = "a" | safeHTMLAttr |safeHTML -}}
+{{- end -}}
+
+<!-- Add a class if the badge is clickable -->
+{{- if $href -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "clickable" -}}
+{{- end -}}
+
+<!-- Add a class if the badge is expandable -->
+{{- if or $title $name -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "expandable" -}}
+{{- end -}}
+
+<!-- HTML attr for the link -->
+{{- $link := "" | safeHTMLAttr -}}
+{{- with $href -}}
+  {{- $link = printf "href='%s'" . | safeHTMLAttr  -}}
+{{- end -}}
+
+<!-- Icon block -->
+{{- with $icon -}}
+  {{- $iconBlock := dict "icon" . "size" "medium" "color" "inherit" -}}
+  {{- $iconHTML = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) | safeHTML -}}
+{{- end -}}
+
+<!-- Layout -->
+{{- printf "<%s class='%s' %s>" $htmltag $classes $link | safeHTML -}}
+{{- with $iconHTML -}}
+  <span class="{{- $bn -}}__icon">{{- . -}}</span>
+{{- end -}}
+
+<div class="{{- $bn -}}__name">
   {{- with $title -}}
-    <span class="{{ $bn }}__title">{{ . }}</span>
+    <span class="{{- $bn -}}__title">{{- . -}}</span>
   {{- end -}}
   {{- with $name -}}
-    {{ . }}
+    {{- . -}}
   {{- end -}}
 </div>
 
-{{ printf "</%s>" $htmltag | safeHTML }}
+{{- printf "</%s>" $htmltag | safeHTML -}}

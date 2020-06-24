@@ -1,118 +1,118 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "webinar-details" }}
+{{- $bn := "webinar-details" -}}
 <!-- classes to add to the outer element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- status defines whether this webinar is upcoming, happening now, or past -->
-{{ $status := partial "functions/getWebinarStatus" .Block }}
+{{- $status := partial "functions/getWebinarStatus" .Block -}}
 
-{{ with $status }}
-  {{ $classes = printf "%s %s--st-%s" $classes $bn . }}
-{{ end }}
+{{- with $status -}}
+  {{- $classes = printf "%s %s--st-%s" $classes $bn . -}}
+{{- end -}}
 
 <!-- the date and time of the webinar -->
-{{ $datetime := (time .Block.webinar_datetime).UTC }}
+{{- $datetime := (time .Block.webinar_datetime).UTC -}}
 
 <!-- the duration of the webinar -->
-{{ $duration := .Block.duration }}
+{{- $duration := .Block.duration -}}
 
 <!-- the date and time the webinar ends -->
-{{ $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) }}
+{{- $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) -}}
 
-{{ $speakerInfo := partial "functions/getPeopleInfo" (dict "People" .Block.speakers "Page" $page )}}
+{{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" .Block.speakers "Page" $page ) -}}
 
 <!-- All the speaker information -->
-{{ $speakers := $speakerInfo.params }}
+{{- $speakers := $speakerInfo.params -}}
 
 <!-- Speaker full names in an array (for calendar) -->
-<!-- {{ $speakerNames := $speakerInfo.names }} -->
+<!-- {{- $speakerNames := $speakerInfo.names -}} -->
 
 <!-- Speaker names and biographies as a single string (for calendar) -->
-<!-- {{ $speakerBiosString := $speakerInfo.bios_string }} -->
+<!-- {{- $speakerBiosString := $speakerInfo.bios_string -}} -->
 
 <!-- Speaker full names in a comma delimited string -->
-{{ $speakerListString := $speakerInfo.names_string }}
+{{- $speakerListString := $speakerInfo.names_string -}}
 
 <!-- URL for this page (used in calendar) -->
-{{ $URL := $page.Permalink }}
+{{- $URL := $page.Permalink -}}
 
 <!-- A link to the slides -->
-{{ $slidesLink := ""}}
-{{ with .Block.slides }}
-  {{ $slidesLink = . }}
-{{ end }}
-{{ $slidesHTML := "" }}
-{{ if $slidesLink }}
-  {{ $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" }}
-  {{ $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) }}
-  {{ $slidesHTML = printf `<div class="%s__slides">%s</div>` $bn $slidesButton | safeHTML }}
-{{ end }}
+{{- $slidesLink := "" -}}
+{{- with .Block.slides -}}
+  {{- $slidesLink = . -}}
+{{- end -}}
+{{- $slidesHTML := "" -}}
+{{- if $slidesLink -}}
+  {{- $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" -}}
+  {{- $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) -}}
+  {{- $slidesHTML = printf `<div class="%s__slides">%s</div>` $bn $slidesButton | safeHTML -}}
+{{- end -}}
 
 <!-- Video ID -->
-{{ $video := .Block.vimeoID | default "" }}
+{{- $video := .Block.vimeoID | default "" -}}
 
 <!-- Disqus shortname -->
-{{ $disqusShortname := .Block.disqus_shortname | default "" }}
+{{- $disqusShortname := .Block.disqus_shortname | default "" -}}
 
-<div class="{{ $classes }}">
+<div class="{{- $classes -}}">
 
   <!-- intro with expandable abstract -->
-  {{ $readMore := printf ` <span class="%s__read-more">Read more</span>` $bn }}
-  {{ $heading := print (.Block.short_abstract | markdownify) $readMore | safeHTML}}
-  {{ $content := printf `<div class="%s__abstract">%s</div>` $bn (.Block.abstract | markdownify) | safeHTML }}
-  <div class="{{ $bn }}__intro markdown">
-    {{ partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) }}
+  {{- $readMore := printf ` <span class="%s__read-more">Read more</span>` $bn -}}
+  {{- $heading := print (.Block.short_abstract | markdownify) $readMore | safeHTML -}}
+  {{- $content := printf `<div class="%s__abstract">%s</div>` $bn (.Block.abstract | markdownify) | safeHTML -}}
+  <div class="{{- $bn -}}__intro markdown">
+    {{- partial "blocks/accordion/accordion" (dict "Block" (dict "heading" $heading "content" $content "color" "tertiary")) -}}
   </div>
 
-  {{ if eq $status "past" }}
+  {{- if eq $status "past" -}}
 
-    <div class="{{ $bn }}__video">
+    <div class="{{- $bn -}}__video">
 
       <!-- VIDEO ... =============== -->
-      {{ $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" }}
-      {{ $videoIcon := partial "blocks/icon/icon" (dict "Block" $videoIconBlock "Page" $page) }}
-      {{ $videoBlock := dict "ID" $video "type" "vimeo" }}
+      {{- $videoIconBlock := dict "icon" "video" "size" "small" "color" "inherit" -}}
+      {{- $videoIcon := partial "blocks/icon/icon" (dict "Block" $videoIconBlock "Page" $page) -}}
+      {{- $videoBlock := dict "ID" $video "type" "vimeo" -}}
 
-      <span class="{{ $bn }}__video-title"><span class="{{ $bn }}__video-icon">{{ $videoIcon }}</span>
-        {{ if $video }}
+      <span class="{{- $bn -}}__video-title"><span class="{{- $bn -}}__video-icon">{{- $videoIcon -}}</span>
+        {{- if $video -}}
           Watch previously recorded video</span>
-        {{ partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $page) }}
-      {{ else }}
+        {{- partial "blocks/video/video.html" (dict "Block" $videoBlock "Page" $page) -}}
+      {{- else -}}
         Video coming soon</span>
-    {{ end }}
+    {{- end -}}
 
     <!-- SLIDES =============== -->
-    {{ $slidesHTML }}
+    {{- $slidesHTML -}}
 
     <!-- DISQUS =============== -->
-    {{ $disqusBlock := dict "shortname" $disqusShortname }}
-    {{ partial "blocks/disqus/disqus" (dict "Block" $disqusBlock "Page" $page) }}
+    {{- $disqusBlock := dict "shortname" $disqusShortname -}}
+    {{- partial "blocks/disqus/disqus" (dict "Block" $disqusBlock "Page" $page) -}}
 
   </div>
 
-{{ else if eq $status "upcoming"}}
+{{- else if eq $status "upcoming" -}}
 
-  {{ with .Block.image }}
-    {{ partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page)}}
-  {{ else }}
-    <figure class="{{ $bn }}__figure" title="Add to calendar">
-      {{ partial "svg/add2cal.svg" }}
+  {{- with .Block.image -}}
+    {{- partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page) -}}
+  {{- else -}}
+    <figure class="{{- $bn -}}__figure" title="Add to calendar">
+      {{- partial "svg/add2cal.svg" -}}
     </figure>
-  {{ end }}
+  {{- end -}}
 
   <!-- If happening now -->
-{{ else if eq $status "happening-now" }}
+{{- else if eq $status "happening-now" -}}
 
-  <figure class="{{ $bn }}__figure" title="Join the webinar">
-    {{ partial "svg/join-webinar.svg" }}
+  <figure class="{{- $bn -}}__figure" title="Join the webinar">
+    {{- partial "svg/join-webinar.svg" -}}
   </figure>
 
   <!-- Show slides in case they've already been posted -->
-  {{ if eq "status" "happening-now"}}
-    {{ $slidesHTML }}
-  {{ end }}
+  {{- if eq "status" "happening-now" -}}
+    {{- $slidesHTML -}}
+  {{- end -}}
 
-{{ end }}
+{{- end -}}
 </div>

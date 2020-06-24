@@ -2,31 +2,31 @@
 <!-- Common variables -->
 
 <!-- In order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- Block name -->
-{{ $bn := "demo" }}
+{{- $bn := "demo" -}}
 <!-- Classes to add to the outer-most element -->
-{{ $classes := $bn }}
+{{- $classes := $bn -}}
 
 <!-- ================================================================= -->
 <!-- All block options -->
 
 <!-- The type of block -->
-{{ $type := .Block.type | default "" }}
+{{- $type := .Block.type | default "" -}}
 
 <!-- ================================================================= -->
 <!-- Other variables -->
 
 <!-- Add type as a modifier class -->
-{{ with $type}}
-  {{ $classes = printf "%s %s--%s" $classes $bn ( . | urlize) }}
-{{ end }}
+{{- with $type -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize) -}}
+{{- end -}}
 
 <!-- ================================================================= -->
 <!-- Layout -->
 
-<div class="{{ $classes }}">
-  {{ with $type }}
-    {{ partial (printf "blocks/demo/demo--%s" ( . | urlize )) (dict "Page" $page) }}
-  {{ end }}
+<div class="{{- $classes -}}">
+  {{- with $type -}}
+    {{- partial (printf "blocks/demo/demo--%s" ( . | urlize )) (dict "Page" $page) -}}
+  {{- end -}}
 </div>

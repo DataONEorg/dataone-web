@@ -1,96 +1,96 @@
 <!-- in order to pass on page parameters from within loops -->
-{{ $page := .Page }}
+{{- $page := .Page -}}
 <!-- bn = block name -->
-{{ $bn := "add2cal" }}
+{{- $bn := "add2cal" -}}
 
 <!-- BLOCK VARIABLES -->
-{{ $event := .Block.event }}
+{{- $event := .Block.event -}}
 
 <!-- The event title (STRING) -->
-{{ $title := $event.title | default "DataONE Event"}}
+{{- $title := $event.title | default "DataONE Event" -}}
 
 <!-- A description of the event (STRING) -->
-{{ $description := $event.description | default "" }}
+{{- $description := $event.description | default "" -}}
 
 <!-- The start time of the event (TIME.time) -->
-{{ $start := $event.start }}
+{{- $start := $event.start -}}
 
 <!-- The end time of the event (TIME.time) -->
-{{ $end := $event.end }}
+{{- $end := $event.end -}}
 
 <!-- A URL to add to the calendar (STRING) -->
-{{ $URL := $event.URL | default "" }}
+{{- $URL := $event.URL | default "" -}}
 
 <!-- duration for yahoo calendar -->
-{{ $duration := div (sub $end.Unix $start.Unix) 3600 }}
+{{- $duration := div (sub $end.Unix $start.Unix) 3600 -}}
 
 <!-- duration in hours, rounded -->
-{{ $duration = math.Round $duration }}
-{{ $duration = printf "%02d00" (int $duration) }}
+{{- $duration = math.Round $duration -}}
+{{- $duration = printf "%02d00" (int $duration) -}}
 
 <!-- dates for all other calendar formats -->
-{{ $start = dateFormat "20060102T150405Z" $start.UTC }}
-{{ $end = dateFormat "20060102T150405Z" $end.UTC }}
+{{- $start = dateFormat "20060102T150405Z" $start.UTC -}}
+{{- $end = dateFormat "20060102T150405Z" $end.UTC -}}
 
 <!-- add literal \n for newlines for ICS links -->
-{{ $descriptionICS := replaceRE "\\n" "\\n" $description }}
+{{- $descriptionICS := replaceRE "\\n" "\\n" $description -}}
 
-{{ $classes := .Block.classes | default "" }}
+{{- $classes := .Block.classes | default "" -}}
 
-<div class="{{ $bn }}">
-  <button class="{{ $classes }} {{ $bn }}__button" id="calendar-toggle" aria-label="Add the webinar to your calendar" aria-expanded="false" aria-controls="calendar-menu" onclick="toggleCalendarMenu(this)">
-    {{ .Block.icon }}
-    {{ .Block.text | default "Add to calendar" }}
+<div class="{{- $bn -}}">
+  <button class="{{- $classes -}} {{- $bn -}}__button" id="calendar-toggle" aria-label="Add the webinar to your calendar" aria-expanded="false" aria-controls="calendar-menu" onclick="toggleCalendarMenu(this)">
+    {{- .Block.icon -}}
+    {{- .Block.text | default "Add to calendar" -}}
   </button>
-  <div class="{{ $bn }}__menu-arrow"></div>
-  <ul class="{{ $bn }}__links" id="calendar-menu" aria-hidden="true">
-    <li class="{{ $bn }}__item">
-      <a class="{{ $bn }}__link {{ $bn }}__link--google" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text={{ $title }}&amp;dates={{ $start }}/{{ $end }}&amp;details={{ $description }}&amp;sprop=&amp;sprop=name:">
+  <div class="{{- $bn -}}__menu-arrow"></div>
+  <ul class="{{- $bn -}}__links" id="calendar-menu" aria-hidden="true">
+    <li class="{{- $bn -}}__item">
+      <a class="{{- $bn -}}__link {{- $bn -}}__link--google" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text={{- $title -}}&amp;dates={{- $start -}}/{{- $end -}}&amp;details={{- $description -}}&amp;sprop=&amp;sprop=name:">
         Google
       </a>
     </li>
-    <li class="{{ $bn }}__item">
-      <a class="{{ $bn }}__link {{ $bn }}__link--yahoo" target="_blank" href="http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title={{ $title }}&amp;st={{ $start }}&amp;dur={{ $duration }}&amp;desc={{ $description }}&amp;">
+    <li class="{{- $bn -}}__item">
+      <a class="{{- $bn -}}__link {{- $bn -}}__link--yahoo" target="_blank" href="http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title={{- $title -}}&amp;st={{- $start -}}&amp;dur={{- $duration -}}&amp;desc={{- $description -}}&amp;">
         Yahoo!
       </a>
     </li>
     <!-- WARNING: ICS files (iCal and Outlook) must use CRLF newlines or file may be invalid - -->
-    <li class="{{ $bn }}__item">
+    <li class="{{- $bn -}}__item">
       <a
-        class="{{ $bn }}__link {{ $bn }}__link--ical"
+        class="{{- $bn -}}__link {{- $bn -}}__link--ical"
         target="_blank"
         href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//DataONE//events//{{ $start }}
+PRODID:-//DataONE//events//{{- $start -}}
 TZ:+00
 BEGIN:VEVENT
-URL:{{ $URL }}
-DTSTAMP:{{dateFormat `20060102T150405Z` now.UTC}}
-DTSTART:{{ $start }}
-DTEND:{{ $end }}
-SUMMARY:{{ $title }}
-DESCRIPTION:{{ $descriptionICS }}
-UID:{{ $start }}@DataONE//events
+URL:{{- $URL -}}
+DTSTAMP:{{- dateFormat `20060102T150405Z` now.UTC -}}
+DTSTART:{{- $start -}}
+DTEND:{{- $end -}}
+SUMMARY:{{- $title -}}
+DESCRIPTION:{{- $descriptionICS -}}
+UID:{{- $start -}}@DataONE//events
 END:VEVENT
 END:VCALENDAR">iCal
       </a>
     </li>
-    <li class="{{ $bn }}__item">
+    <li class="{{- $bn -}}__item">
       <a
-        class="{{ $bn }}__link {{ $bn }}__link--outlook"
+        class="{{- $bn -}}__link {{- $bn -}}__link--outlook"
         target="_blank"
         href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//DataONE//events//{{ $start }}
+PRODID:-//DataONE//events//{{- $start -}}
 TZ:+00
 BEGIN:VEVENT
-URL:{{ $URL }}
-DTSTAMP:{{dateFormat `20060102T150405Z` now.UTC}}
-DTSTART:{{ $start }}
-DTEND:{{ $end }}
-SUMMARY:{{ $title }}
-DESCRIPTION:{{ $descriptionICS }}
-UID:{{ $start }}@DataONE//events
+URL:{{- $URL -}}
+DTSTAMP:{{- dateFormat `20060102T150405Z` now.UTC -}}
+DTSTART:{{- $start -}}
+DTEND:{{- $end -}}
+SUMMARY:{{- $title -}}
+DESCRIPTION:{{- $descriptionICS -}}
+UID:{{- $start -}}@DataONE//events
 END:VEVENT
 END:VCALENDAR">
         Outlook
