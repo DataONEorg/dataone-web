@@ -7,15 +7,15 @@
 
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
-<!-- bn = block name -->
-{{- $bn := "icon" -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
+<!-- The name of this block -->
+{{- $bn := print $p "icon" -}}
 <!-- classes to add to the outer element -->
 {{- $classes := $bn -}}
-
 <!-- The icon name -->
 <!-- Make sure it's a string otherwise the "in" function doesn't work as expected -->
 {{- $name := string .Block.icon -}}
-
 {{- with .Block.size -}}
   {{- $classes = printf "%s %s--sz-%s" $classes $bn . -}}
 {{- end -}}
@@ -25,16 +25,11 @@
 {{- with .Block.stroke -}}
   {{- $classes = printf "%s %s--str-%s" $classes $bn . -}}
 {{- end -}}
-
 <!-- Add a class for the icons that require fill instead of line, e.g. the DataONE Plus logo -->
 {{- $fillIcons := slice "d1-plus-logo" -}}
 {{- if (in $fillIcons $name) -}}
   {{- $classes = printf "%s %s--%s" $classes $bn "fill-icon" -}}
 {{- end -}}
-
-{{- with $name -}}
-  <svg class="{{- $classes -}}">
-    <title>{{- . | humanize -}}</title>
-    <use xlink:href="#{{- . -}}"/>
-  </svg>
-{{- end -}}
+<svg viewbox="0 0 24 24" class="{{- $classes -}}">
+  {{- partial (printf "blocks/icon/svg-inner/%s.svg" $name) -}}
+</svg>

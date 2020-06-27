@@ -4,7 +4,16 @@
 // a footer. The overall layout for pages is found in the
 // layout/_default/baseof.html file. 
 
+{{ $p := .Params.prefix }}
+
 .page {
+  
+  *,
+  *:after,
+  *:before {
+    box-sizing: inherit;
+  }
+  
   box-sizing     : border-box;
   font-size      : 100%;
   margin         : 0;
@@ -14,21 +23,10 @@
   max-width      : 100vw;
   @include low-motion;
 
-  .article {
-    // Whatever the first element is, it needs a margin to account for the
-    // absolutely position nav bar
-    header:first-child,
-    section:first-child {
-      @include desktop {
-        margin-top: $nav-height;
-      }
-    }
-  }
-
   // Z-index positioning of page elements
   // (global header -> header -> sections -> global footer)
 
-  .global-header {
+  .{{ $p }}nav {
     z-index: $z-max;
   }
 
@@ -64,7 +62,7 @@
 
   }
 
-  .global-footer {
+  .{{ $p }}footer {
     z-index: $z-max - 1;
   }
 

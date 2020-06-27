@@ -1,7 +1,9 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
-<!-- bn - block name -->
-{{- $bn := "join-form" -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
+<!-- The name of this block -->
+{{- $bn := print $p "join-form" -}}
 <!-- classes to add to the outer element -->
 {{- $classes := $bn -}}
 

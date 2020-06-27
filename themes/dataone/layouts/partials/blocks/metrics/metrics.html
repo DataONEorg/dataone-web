@@ -17,7 +17,7 @@
 
     <div class="{{- $bn -}}__name">
       <span class="{{- $bn -}}__icon">
-        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small")) -}}
+        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "download-cloud" "color" "inherit" "size" "small") "Page" $page) -}}
       </span>
       Downloads
     </div>
@@ -31,7 +31,7 @@
 
     <div class="{{- $bn -}}__name">
       <span class="{{- $bn -}}__icon">
-        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "eye" "color" "inherit" "size" "small")) -}}
+        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "eye" "color" "inherit" "size" "small") "Page" $page) -}}
       </span>
       Dataset views
     </div>
@@ -45,7 +45,7 @@
 
     <div class="{{- $bn -}}__name">
       <span class="{{- $bn -}}__icon">
-        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "database" "color" "inherit" "size" "small")) -}}
+        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "database" "color" "inherit" "size" "small") "Page" $page) -}}
       </span>
       Datasets in the network
     </div>

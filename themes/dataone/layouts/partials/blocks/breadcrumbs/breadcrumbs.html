@@ -11,7 +11,7 @@
 
 <!-- Back arrow icon -->
 {{- $iconBlock := dict "icon" "list" "size" "medium" "color" "inherit" -}}
-{{- $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" .) -}}
+{{- $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
 
 <!-- Layout -->
 <section class="{{- $classes -}}">

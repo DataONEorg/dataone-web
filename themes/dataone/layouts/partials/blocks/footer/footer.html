@@ -1,0 +1,91 @@
+<!-- in order to pass on page parameters from within loops -->
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+{{- $currentPage := $page -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $site.Params.prefix -}}
+<!-- bn = block name -->
+{{- $bn := print $p "footer" -}}
+<!-- Classes to add to the outer-most element of this block -->
+{{- $classes := $bn -}}
+
+<footer class="{{- $classes -}}">
+  <div class="{{- $bn -}}__svg-background">
+    {{- partial "svg/footer-brand-gradient.svg" -}}
+  </div>
+  <div class="{{- $bn -}}__content">
+
+    <!-- ==== SITE MAP ==== -->
+    <ul class="{{- $bn -}}__sitemap" id="footer-sitemap">
+      {{- range $site.Menus.footer -}}
+        {{- $hasSubmenu := and .Children (gt (len .Children) 1) -}}
+        {{- $pre := "" -}}
+        {{- with .Pre -}}
+          {{- $iconBlock := dict "icon" . "size" "small" "color" "inherit" -}}
+          {{- $iconHTML := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
+          {{- $pre = printf "<span class='%s__icon'>%s</span>" $bn $iconHTML | safeHTML -}}
+        {{- end -}}
+        {{- $url := .URL -}}
+        {{- range $key, $value := $site.Params.links -}}
+          {{- if eq $key $url -}}
+            {{- $url = $value -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $title := .Name | default .Title -}}
+        <li class="{{- $bn -}}__sitemap-group {{ $bn }}__sitemap-group--{{- $title | urlize -}} ">
+          <!-- Site map section header -->
+          <span class="{{- $bn -}}__sitemap-header">
+            {{- $pre -}}
+            <!-- Name with no link if this is just a header -->
+            {{- if $hasSubmenu -}}
+              {{- $title -}}
+            {{- else -}}
+              <!-- Otherwise add a link -->
+              <a class="{{- $bn -}}__sitemap-link" href="{{- $url -}}" title="{{- .Title -}}">
+                {{-  $title -}}
+              </a>
+            {{- end -}}
+          </span>
+          <!-- Site map sub-section links -->
+          {{- if $hasSubmenu -}}
+            <ul class="{{- $bn -}}__sitemap-list" aria-hidden="true" id="{{- urlize .Name -}}">
+              {{- range .Children -}}
+                {{- $url := .URL -}}
+                {{- range $key, $value := $site.Params.links -}}
+                  {{- if eq $key $url -}}
+                    {{- $url = $value -}}
+                  {{- end -}}
+                {{- end -}}
+                <li class="{{- $bn -}}__sitemap-item">
+                  <a class="{{- $bn -}}__sitemap-link" href="{{- $url -}}" title="{{- .Title -}}">
+                    {{- .Name | default .Title -}}
+                  </a>
+                </li>
+              {{- end -}}
+            </ul>
+          {{- end -}}
+        </li>
+      {{- end -}}
+    </ul>
+    <!-- ==== Organization Information ==== -->
+    <section class="{{- $bn -}}__organization">
+      <!-- logo, org name, mission -->
+      <div class="{{- $bn -}}__logo">
+        {{- partial "blocks/logo/logo.html" (dict "Page" $page "Block" (dict "type" "subtle" "size" "larger")) -}}
+        <span class="{{- $bn -}}__name">Data Oberservation Network for Earth</span>
+        <span class="{{- $bn -}}__mission">Enabling new science and knowledge creation through universal access to data about life on earth and the environment that sustains it</span>
+      </div>
+      <!-- socials -->
+      {{- partial "blocks/contact-info/contact-info" (dict "Block" (dict "layout" "minimal") "Page" $page ) -}}
+    </section>
+  </div>
+  <!-- ==== Mailing list ==== -->
+  <section class="{{- $bn -}}__mailing-list">
+    <div class="{{- $bn -}}__mailing-list-inner">
+      <h5 class="{{- $bn -}}__mailing-list-title">Join our mailing list</h5>
+      {{- partial "blocks/join-form/join-form" (dict "Block" (dict "mailing_list_only" true) "Page" $page) -}}
+      <!-- <small class="{{- $bn -}}__fine-print">{{- $site.Params.footerText -}} </small> -->
+    </div>
+  </section>
+
+</footer>

@@ -1,5 +1,10 @@
-{{- $bn := "svg" -}}
-{{- $classes := printf "%s %s--%s" $bn $bn . -}}
+<!-- in order to pass on page parameters from within loops -->
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+{{- $p := $page.Site.Params.prefix -}}
+<!-- bn - block name -->
+{{- $bn := print $p "svg" -}}
+{{- $classes := .Block.classes | default $bn -}}
 
 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1202 428" class="{{- $classes -}}">
   <defs>

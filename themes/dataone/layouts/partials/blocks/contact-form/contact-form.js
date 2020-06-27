@@ -1,3 +1,4 @@
+{{ $p := .Params.prefix }}
 /**
  * contactForm - Functions used for the contact-form block. Functions for
  * submiting the Netlify contact form via ajax and showing the result
@@ -16,7 +17,7 @@
     const errorMsgSelector = ".contact-form__feedback--error";
     const buttonSelector = "#contact-form-button";
     // Selectors starting at the button
-    const buttonTextSelector =  ".button__text";
+    const buttonTextSelector =  ".{{ $p }}button__text";
     const buttonIconSelector = "svg use";
     
     // Classes to add/remove based on status

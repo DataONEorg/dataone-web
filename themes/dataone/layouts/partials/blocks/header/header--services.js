@@ -3,22 +3,6 @@
  */ 
 (function( headerServices, undefined ) {
   
-  /**
-   * isMobile - Determines whether the mobile or desktop version is being
-   * displayed based on the window width.
-   *  
-   * @return {boolean}  true if mobile, false if desktop
-   */ 
-  const isMobile = function(){
-    var mobileDesktopBreakpoint = {{- .Site.Params.mobileDesktopBreakpoint -}} || 700;
-    var winWidth = window.innerWidth || document.documentElement.clientWidth;
-    if(winWidth < mobileDesktopBreakpoint){
-      return true
-    } else {
-      return false
-    }
-  };
-  
   /**    
    * addListener - Add an event listener that re-calculates the heights of the
    * elements when the window is resized. If the screen is mobile-sized,
@@ -28,7 +12,7 @@
    */     
   const addListener = function(els){
     window.addEventListener("resize", function(){
-      if(isMobile()){
+      if(d1Utilities.isMobile()){
         removeHeightMins(els)
       } else {
         makeHeightsEven(els);
@@ -85,7 +69,7 @@
         
         addListener(els);
         
-        if(isMobile()){
+        if(d1Utilities.isMobile()){
           removeHeightMins(els);
           return
         } else {

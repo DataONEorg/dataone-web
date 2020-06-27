@@ -1,80 +1,40 @@
+// For both SCSS asset files (in the assets/scss directory), and SCSS files for
+// blocks (in the layouts/partials/blocks directory), use Hugo to import the
+// file contents here instead of SCSS's @import function. This way we can
+// execute all SCSS files as template, so that scss files can contain hugo
+// templating code if needed. * SITE IS PASSED AS THE CONTEXT *
 
-// Set theme colors
+{{ $site := .Site}}
 
-{{$services := where $.Site.Pages "Type" "services"}}
-{{$services := where $services "Params.service_color" "!=" nil}}
-{{range $service := $services}}
-  {{$color := $service.Params.service_color}};
-  {{$serviceVarName := $service.Params.title | urlize}}
-  $lightercol: lighten({{ $color }}, 5%);
-  $darkercol: darken({{ $color }}, 2.5%);
-  $darkercol2: darken({{ $color }}, 5%);
-  $lightcol: mix({{ $color }}, white, 13%);
-  $lightcolsat: saturate($lightcol, 37%);
-  $lightcoldesat: desaturate(lighten($lightcol, 1%), 5%);
-
-  .theme--{{$serviceVarName}}{
-    --theme-c              : {{$color}};
-    --theme-c-lighter      : #{$lightercol};
-    --theme-c-darker-2     : #{$darkercol2};
-    --theme-c-darker       : #{$darkercol};
-    --theme-c-light        : #{$lightcolsat};
-    --theme-c-neutral-light: #{$lightcoldesat};
-  }
-{{end}}
-
-
-// ==== GLOBAL SPACING VARIABLES ====
-// screen width at which to switch from mobile view to desktop view
-$breakpoint: {{.Site.Params.mobileDesktopBreakpoint}}px; //
-$rfs-breakpoint: $breakpoint; // overwrite the responsive font size default
-$default-border-radius: .25rem;
-$content-width: 1040px; // max width of desktop content
-$nav-height: 7rem; // navigation bar height on desktop
-$lr-padding: .8rem; // padding on the left and right for full-width elements
-$z-max                 : 100; // The maximum z-index of any element
-$footer-section-overlap: 20rem;
-$header-section-overlap: 3rem;
-
-@import "fonts.scss"; // Import font families
-@import "functions.scss"; // Custom sass functions
-@import "mixins-and-placeholders.scss"; // mixins used in various blocks
-@import "responsive-font-size.scss"; // (rfs) functions to make length properties responsive
-@import "tooltip.scss"; // Styles for tooltips created by js/libraries/tooltip.js
-@import "variables.scss"; // CSS variables set at root, change depending on scope
-@import "utility.scss"; // utility classes
-// page layout components
-@import "body.scss";
-@import "article.scss";
-
-*,
-*:after,
-*:before {
-  box-sizing: inherit;
-}
+// ==== IMPORT ALL ASSET SCSS ====
+// Use a slice of file names instead of ranging through the directory because
+// the order in which we import them here matters. (Otherwise it's alphabetical)
+{{ $scssFiles :=  slice "variables" "fonts" "functions" "mixins-and-placeholders" "responsive-font-size" "tooltip" "utility" "root" "body" }}
+{{ $scssAssetDir := "scss/" }}
+{{ $ext := ".scss" }}
+{{ range $name := $scssFiles }}
+  {{ $assetPath := path.Join $scssAssetDir (print $name $ext) }}
+  {{ $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".scss") $.Site }}
+  {{ $asset.Content | safeCSS }}
+{{ end }}
 
 // ==== IMPORT ALL BLOCK SCSS ====
 // Import all .scss files contained one subdirectory below the "blocks" directory
-{{$blockDir :=  .Site.Params.blockDir}}
-{{range (readDir $blockDir)}}
-
-
-  // check that the name of the item in the blocks directory is another directory
-  {{$dirname := .Name}}
-  {{$blocksubdir := path.Join $blockDir $dirname}}
-  {{$stat := os.Stat $blocksubdir}}
-  {{if $stat.IsDir}}
-
-
-    // read through the subdirectories of the block directory
-    {{range (readDir $blocksubdir)}}
-
-
+{{ $blockDir :=  .Site.Params.blockDir }}
+{{ range (readDir $blockDir) }}
+  // Check that the name of the item in the blocks directory is another directory
+  {{ $dirname := .Name }}
+  {{ $blocksubdir := path.Join $blockDir $dirname }}
+  {{ $stat := os.Stat $blocksubdir }}
+  {{ if $stat.IsDir }}
+    // Read through the subdirectories of the block directory
+    {{ range (readDir $blocksubdir) }}
       // If the file is an .scss file, import it
-      {{if (strings.HasSuffix .Name "scss")}}
-        {{$blockscss := path.Join $blocksubdir .Name}}
-        @import "{{ $blockscss }}";
-      {{end}}
-    {{end}}
-  {{end}}
-{{end}}
+      {{ if (strings.HasSuffix .Name "scss") }}
+        {{ $blockscss := path.Join $blocksubdir .Name }}
+        {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $site }}
+        {{ $cssResource.Content | safeCSS }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

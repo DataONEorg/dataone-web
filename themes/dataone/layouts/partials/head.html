@@ -28,22 +28,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
     <meta name="date" content='{{ now.Format "January 2, 2006 15:04:05 MST" }}'>
-    <title>
-      {{ $pageTitle }}
-      | DataONE
-    </title>
+    <title>{{ $pageTitle }} | DataONE </title>
     {{- partial "favicon.html" . -}}
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <!-- TODO: preload fonts like so: -->
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff` | relURL}}" crossorigin="crossorigin">
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/martel-v4-latin-900.woff2` | relURL}}" crossorigin="crossorigin">
-
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff2` | relURL }}" crossorigin="crossorigin">
-    <link rel="preload" as="font" type="font/woff2" href="{{`fonts/work-sans-v5-latin-regular.woff` | relURL }}" crossorigin="crossorigin">
+    <!-- Font font weights that we use, see themes/dataone/assets/scss/root.scss  -->
+    {{- $fontWeights := slice "300" "regular" "500" "600" "700" "900" -}}
+    {{- $fontTypes := slice "woff" "woff2" -}}
+    {{- $fontFaces := slice "martel-v4-latin" "work-sans-v5-latin" -}}
+    {{- range $weight := $fontWeights -}}
+      {{- range $type := $fontTypes -}}
+        {{- range $face := $fontFaces -}}
+          {{- $path := printf `fonts/%s-%s.%s` $face $weight $type  -}}
+          {{- $pathHugo := printf `themes/dataone/static/%s` $path  -}}
+          {{- if (fileExists $pathHugo) -}}
+            <link rel="preload" as="font" type="font/{{ $type }}" href="{{ $path | absURL}}" crossorigin="anonymous">
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    
 
     {{ $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir))}}
-    {{ $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" . | toCSS $options | minify }}
+    {{ $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $.Site | toCSS $options | minify }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
   {{ end }}

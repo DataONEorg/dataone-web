@@ -1,3 +1,7 @@
+{{- $site := . -}}
+{{- $p := $site.Params.prefix -}}
+{{- $bn := print $p "tabs" -}}
+
 // modified from: https://codepen.io/ffoodd/pen/jONMKrq,
 // originally from: https://github.com/nico3333fr/van11y-accessible-tab-panel-aria
 const defaults = {
@@ -14,7 +18,7 @@ const defaults = {
 		role   : 'presentation',
 	},
 	link : {
-		class  : '.button--tab',
+		class  : '.{{ $p }}button--tab',
 		role   : 'tab',
 	},
 	panel : {

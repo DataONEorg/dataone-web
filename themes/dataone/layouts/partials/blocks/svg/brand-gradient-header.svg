@@ -1,3 +1,11 @@
+<!-- in order to pass on page parameters from within loops -->
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+{{- $p := $page.Site.Params.prefix -}}
+<!-- bn - block name -->
+{{- $bn := print $p "svg" -}}
+{{- $classes := .Block.classes | default $bn -}}
+
 <svg width="4745" height="800" viewBox="0 0 4745 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient x1="25.219%" y1="51.289%" x2="78.111%" y2="51.208%" id="a"><stop stop-color="#60AECA" offset="0%"/><stop stop-color="#C0DBFF" offset="100%"/></linearGradient>

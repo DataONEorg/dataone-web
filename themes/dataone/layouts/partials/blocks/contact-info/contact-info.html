@@ -1,7 +1,9 @@
 <!-- In order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
 <!-- bn = block name -->
-{{- $bn := "contact-info" -}}
+{{- $bn := print $p "contact-info" -}}
 <!-- Classes to add to the outmost element -->
 {{- $classes := $bn -}}
 
@@ -15,9 +17,9 @@
 {{- $slackAddress := $page.Site.Params.contact.slack -}}
 {{- $address := partial "blocks/address/address" (dict "Block" (dict "type" "DataONE") "Page" $page) -}}
 
-{{- $slackIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "slack" "color" "inherit")) -}}
-{{- $emailIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "mail" "color" "inherit")) -}}
-{{- $locationIcon := partial "blocks/icon/icon" (dict "Block" (dict "icon" "map-pin" "color" "inherit")) -}}
+{{- $slackIcon := partial "blocks/icon/icon" (dict "Page" $page "Block" (dict "icon" "slack" "color" "inherit")) -}}
+{{- $emailIcon := partial "blocks/icon/icon" (dict "Page" $page "Block" (dict "icon" "mail" "color" "inherit")) -}}
+{{- $locationIcon := partial "blocks/icon/icon" (dict "Page" $page "Block" (dict "icon" "map-pin" "color" "inherit")) -}}
 {{- $contactLink := $page.Site.Params.links.contact -}}
 
 <div class="{{- $classes -}}">
@@ -56,7 +58,7 @@
   <div class="{{- $bn -}}__socials">
     {{- range $name, $link := $page.Site.Params.social -}}
       <a class="{{- $bn -}}__social-link" href="{{- $link -}}" title="DataONE on {{- $name -}}">
-        {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $name "color" "inherit")) -}}
+        {{- partial "blocks/icon/icon" (dict "Page" $page "Block" (dict "icon" $name "color" "inherit")) -}}
       </a>
     {{- end -}}
     <!-- These are the simplified links that we show in place of full contact info in the minimal layout -->

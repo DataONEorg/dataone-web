@@ -1,8 +1,11 @@
+
 // === MAILER LITE SIGN UP FORM ===
 // Use the built in classes in case we need to change this form in the full-feature
 // the outer div containing the form
 
-.join-form {
+{{ $p := .Params.prefix }}
+
+.{{ $p }}join-form {
 
   // ==========================================================================
   //    Variables
@@ -27,6 +30,7 @@
   // ==========================================================================
 
   @include f-common;
+  margin: 0;
 
   .ml-subscribe-form {
     @include f-common;
@@ -77,8 +81,8 @@
 
   .ml-subscribe-form .primary {
     border: none;
-    @extend .button;
-    @extend .button--col-primary;
+    @extend .{{ $p }}button !optional;
+    @extend .{{ $p }}button--col-primary !optional;
   }
   // the group of checkboxes
 
@@ -184,8 +188,15 @@
       display  : block;
       min-width: unset;
     }
+    
+    .d1_join-form--mailing-list-only .form-control {
+      max-width: 27rem;
+    }
 
-    .ml-form-formContent {}
+    .ml-form-formContent {
+      min-width: 17rem;
+      max-width: 26rem;
+    }
 
     .ml-form-embedSubmit {
       display: block;
@@ -197,7 +208,7 @@
 
     .ml-block-form {
       display              : grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: auto min-content;
       grid-gap             : 1rem 1rem;
       @include desktop {
         align-items: baseline;

@@ -1,0 +1,241 @@
+{{ $p := .Params.prefix }}
+
+.{{ $p }}footer {
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn                           : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix                       : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // #{$prefix}- : var( , );
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+  @include set-section-colors("always-dark", $prefix: "--section");
+  --section-c-accent-emphasis   : var(--c-minor-accent-emphasis-on-always-dark);
+  --section-c-accent            : var(--c-minor-accent-on-always-dark);
+  --section-c-accent-subtle     : var(--c-minor-accent-subtle-on-always-dark);
+  --section-c-accent-very-subtle: var(--c-minor-accent-on-very-subtle-always-dark);
+
+  @include f-common;
+
+  // so that mailing-list is stacked above svg bkg
+  //(positioned elements will display on top of unpositioned elements)
+  position                      : relative;
+  margin                        : 0;
+  padding-top                   : 7.5rem;
+  margin-top                    : -15rem;
+  overflow                      : hidden;
+
+  &__content {
+    @include limit-width;
+    padding              : 2rem $lr-padding;
+    display              : grid;
+    grid-template-columns: 1fr;
+    grid-template-rows   : auto;
+    grid-gap             : 0 1rem;
+    grid-template-areas  : "sitemap" "organization" "mailing-list";
+    position             : relative; // so that mailing-list is stacked above svg bkg
+    //(positioned elements will display on top of unpositioned elements)
+    @include desktop {
+      grid-template-columns: .66fr .34fr;
+      grid-template-rows   : auto auto;
+      grid-gap             : 1rem 2rem;
+      grid-template-areas  : "sitemap organization" "mailing-list mailing-list";
+      grid-template-rows   : max-content max-content max-content;
+    }
+  }
+
+  &__sitemap {
+    grid-area            : sitemap;
+    display              : grid;
+    width                : 100%;
+    // 
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    // grid-template-rows  : min-content;
+    /* sizes the first two columns */
+    grid-gap             : 1.8rem 1.8rem;
+    margin               : 0;
+    padding              : 0;
+    padding-inline-start : 0;
+    margin-top           : 1.5rem;
+    list-style-type      : none;
+  }
+
+  &__sitemap-list {
+    list-style-type     : none;
+    margin              : 0;
+    padding             : 0;
+    padding-inline-start: 0;
+    font-size           : var(--fs-smaller, .9rem);
+    letter-spacing      : .88px;
+    text-shadow         : 0 0 16px 0 rgba(6,40,61,0.23);
+  }
+
+  &__sitemap-group {
+    display: block;
+
+    @include desktop {
+      &--old-website {
+        grid-column: span 2;
+      }
+
+      &--find-data {
+        grid-column: span 2;
+      }
+    }
+
+  }
+
+  &__icon {
+    fill  : var(--section-fc-title, black);
+    stroke: var(--section-fc-title, black);
+  }
+
+  &__sitemap-header {
+    color         : var(--section-fc-title, black);
+    font-size     : var(--fs-medium, 1rem);
+    font-weight   : var(--fw-bold, 500);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom : 1.1rem;
+    display       : block;
+  }
+
+  &__sitemap-item {
+    list-style    : none;
+    margin-bottom : .69rem;
+    font-size     : var(--fs-medium, 1.1rem);
+    letter-spacing: .01em;
+  }
+
+  &__sitemap-link {
+    text-decoration: none;
+    color          : var(--section-fc-body, grey);
+    position       : relative;
+    padding-bottom : 4px;
+    stroke         : var(--section-fc-body, grey);
+
+    &::after {
+      position      : absolute;
+      bottom        : 2px;
+      left          : 0;
+      content       : '';
+      width         : 100%;
+      height        : 1px;
+      transition    : all .13s;
+      border-bottom : 1px solid;
+      border-color  : var(--section-c-accent);
+      padding-bottom: 1px;
+      opacity       : 0;
+    }
+
+    &:hover::after {
+      bottom : 0;
+      opacity: 1;
+    }
+
+    &:hover {
+      color : var(--section-c-accent);
+      stroke: var(--section-c-accent);
+    }
+  }
+
+  &__organization {
+    grid-area         : organization;
+    display           : grid;
+    justify-content   : center;
+    margin-top        : 5rem;
+    margin-bottom     : 0;
+    grid-gap          : 1rem;
+    grid-template-rows: min-content;
+    @include desktop {
+      margin-top: 1rem;
+    }
+
+    .contact-info__socials {
+      margin-top   : .5rem;
+      justify-items: left;
+    }
+  }
+
+  &__name {
+    margin-top    : 1.05rem;
+    color         : var(--section-fc-body, grey);
+    font-size     : 1rem;
+    font-weight   : var(--fw-light, 300);
+    letter-spacing: .42px;
+    line-height   : 21px;
+    text-shadow   : 0 0 16px 0 rgba(6,40,61,0.23);
+    display       : block;
+  }
+
+  &__mission {
+    color         : var(--section-fc-body, grey);
+    display       : block;
+    margin-top    : 1.4rem;
+    font-size     : var(--fs-small, 1rem);
+    font-weight   : var(--fw-bold, 500);
+    letter-spacing: .44px;
+    line-height   : 1.4;
+    text-shadow   : 0 0 16px 0 rgba(6,40,61,0.23);
+    margin-bottom : 1rem;
+  }
+
+  &__mailing-list {
+    grid-area       : mailing-list;
+    background-color: rgba(7,38,51,.4); // Matched to theme gradient background
+    width           : 100%;
+    position        : relative; // so that mailing-list is stacked above svg bkg
+    //(positioned elements will display on top of unpositioned elements)
+  }
+
+  &__mailing-list-inner {
+    @include limit-width;
+    padding              : 1.5rem $lr-padding;
+    display              : grid;
+    grid-template-columns: max-content minmax(250px, 1fr);
+    grid-gap             : 1rem 1rem;
+    align-items          : center;
+    width                : max-content;
+  }
+
+  &__mailing-list-title {
+    font-size   : var(--fs-large, 1.22rem);
+    font-family : Martel;
+    color       : var(--section-fc-title, black);
+    margin      : 6px 0 0;
+    padding     : 0;
+    justify-self: center;
+  }
+
+  &__svg-background {
+    align-items    : center;
+    display        : flex;
+    justify-content: center;
+    left           : 0;
+    top            : 0;
+    overflow       : hidden;
+    position       : absolute;
+    width          : 100%;
+    height         : 100%;
+    margin-top     : 0;
+
+    svg {
+      flex-shrink: 0;
+      width      : auto;
+      height     : 100%;
+    }
+  }
+}

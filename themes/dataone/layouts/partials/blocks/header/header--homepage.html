@@ -24,7 +24,7 @@
   <div class="header__content">
     <div class="header__logo">
 
-      {{- partial "blocks/logo/logo" (dict "Block" (dict "type" "homepage") "Page" $page ) -}}
+      {{- partial "blocks/logo/logo" (dict "Page" $page "Block" (dict "type" "homepage") "Page" $page ) -}}
     </div>
 
     {{- with $tagline -}}

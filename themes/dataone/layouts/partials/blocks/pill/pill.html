@@ -1,7 +1,9 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
-<!-- bn = block name -->
-{{- $bn := "pill" -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
+<!-- The name of this block -->
+{{- $bn := print $p "pill" -}}
 <!-- classes to add to the outer element -->
 {{- $classes := $bn -}}
 {{- $icon := "none" -}}
@@ -22,8 +24,8 @@
   {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
     <span class="{{- $classes -}}">
       {{- if ne $icon "none" -}}
-        <span class="pill__icon">
-          {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit" "stroke" "thicker")) -}}
+        <span class="{{- $bn -}}__icon">
+          {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit" "stroke" "thicker") "Page" $page) -}}
         </span>
       {{- end -}}
       {{- .Block.text -}}

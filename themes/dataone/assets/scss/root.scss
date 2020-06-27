@@ -1,0 +1,90 @@
+// Assume all of these colour variables could change based on page theme
+:root {
+  
+  $theme-default-colors: (
+    neutral     : col($cn-blue-grey, 5),
+    background  : col($cn-blue-grey, 1),
+    foreground  : col($cn-blue-grey, 5),
+    major-accent: (base: col($cn-teal, 5), foreground: col($cn-blue-grey, 1), accent: lighten(col($cn-yellow, 5),6%)),
+    minor-accent: (base: col($cn-yellow, 5), foreground: col($cn-yellow, 8), accent: col($cn-blue, 5)),
+    rare-accent : (base: col($cn-green, 6), foreground: col($cn-blue-grey, 1), accent: col($cn-yellow, 5)),
+    alerts      : (success: $cn-green, info: $cn-blue, warning: col($cn-yellow,6), error: $cn-red)
+  );
+
+  @include set-theme-colors($theme-default-colors);
+  
+  --nav-height: #{$nav-height};
+  --footer-section-overlap: #{$footer-section-overlap};
+  //
+  // Some default font colours
+  // ==========================================================================
+  --fc-link            : var(--c-major-accent-on-default, $cn-teal);
+  --fc-link-hover      : var(--c-major-accent-emphasis-on-default, $cn-teal);
+
+  //
+  // Font families
+  // ==========================================================================
+  --ff-title           : #{$ff-serif}; // highest level titles, e.g. page headline
+  --ff-title2          : #{$ff-serif}; // e.g. section level titles
+  --ff-title3          : #{$ff-sans-serif}; // e.g. h3 titles of sub-section blocks
+  --ff-body            : #{$ff-sans-serif}; // all other fonts
+
+  //
+  // Font sizes (responsive)
+  // ==========================================================================
+  @include rfs(.7rem, --fs-smallest);
+  @include rfs(.75rem, --fs-x-small);
+  @include rfs(.8rem, --fs-smaller);
+  @include rfs(.83rem, --fs-small);
+  @include rfs(.98rem, --fs-medium);
+  @include rfs(1.05rem, --fs-large);
+  @include rfs(1.1rem, --fs-larger);
+  @include rfs(1.4rem, --fs-x-large);
+  @include rfs(1.7rem, --fs-xx-large);
+  @include rfs(2.0rem, --fs-xxx-large);
+  @include rfs(2.5rem, --fs-largest);
+
+  //
+  // Font weights
+  // ==========================================================================
+  // Make sure to update the fonts that are preloaded if this changes, see
+  // themes/dataone/layouts/partials/head.html
+  --fw-light           : 300;
+  --fw-normal          : normal;
+  --fw-bold            : 500;
+  --fw-bolder          : 600;
+  --fw-x-bold          : 700;
+  --fw-xx-bold         : 900;
+
+  //
+  // Border radius
+  // ==========================================================================
+  --br-default         : .2rem;
+  
+  //
+  // Product theme colors
+  // ==========================================================================
+  {{ $services := where $.Site.Pages "Type" "services" }}
+  {{ $services := where $services "Params.service_color" "!=" nil }}
+  {{ range $service := $services }}
+    {{ $color := $service.Params.service_color }};
+    {{ $serviceVarName := $service.Params.title | urlize }}
+    $lightercol: lighten({{  $color  }}, 5%);
+    $darkercol: darken({{  $color  }}, 2.5%);
+    $darkercol2: darken({{  $color  }}, 5%);
+    $lightcol: mix({{  $color  }}, white, 13%);
+    $lightcolsat: saturate($lightcol, 37%);
+    $lightcoldesat: desaturate(lighten($lightcol, 1%), 5%);
+
+    .theme--{{ $serviceVarName }}{
+      --theme-c              : {{ $color }};
+      --theme-c-lighter      : #{$lightercol};
+      --theme-c-darker-2     : #{$darkercol2};
+      --theme-c-darker       : #{$darkercol};
+      --theme-c-light        : #{$lightcolsat};
+      --theme-c-neutral-light: #{$lightcoldesat};
+    }
+  {{ end }}
+
+
+}

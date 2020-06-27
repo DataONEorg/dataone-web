@@ -1,3 +1,0 @@
-{{- $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir)) -}}
-{{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" . | toCSS $options | minify -}}
-{{- $style.Content | safeCSS -}}

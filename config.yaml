@@ -27,31 +27,6 @@ permalinks:
   news: "/:section/:filename"
   people: "/:section/:filename"
   webinars: "/webinars/:slug"
-outputFormats:
-  HTML:
-    noUgly: true
-  metacatuinav:
-    noUgly: true
-    baseName: navbar
-    mediaType: text/html
-    path: /metacatui/
-  metacatuifooter:
-    noUgly: true
-    baseName: footer
-    mediaType: text/html
-    path: /metacatui/
-  metacatuisstyles:
-    noUgly: true
-    baseName: d1styles
-    mediaType: text/css
-    path: /metacatui/
-    notAlternative: false
-outputs:
-  home:
-  - HTML
-  - metacatuinav
-  - metacatuifooter
-  - metacatuisstyles
 params:
   description: DataONE's products and services.
   footerText: 'DataONE is a collaboration among many partner organizations, and is
@@ -66,6 +41,7 @@ params:
     donate: https://giving.ucsb.edu/Funds/Give?id=353
     signin: https://search.dataone.org/signin
     old_website: https://www.dataone.org
+  prefix: d1_
   joinFormId: join-form
   blockDir: themes/dataone/layouts/partials/blocks/
   mobileDesktopBreakpoint: 699

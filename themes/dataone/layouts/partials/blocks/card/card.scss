@@ -1,3 +1,4 @@
+{{ $p := .Params.prefix }}
 .card {
   // ==========================================================================
   //    Variables
@@ -145,7 +146,7 @@
   // TODO: re-think .section styles to avoid important tag below
   // important tag is to overwrite the .section link colours (e.g. .section a:not(.button):visited )
   // these selectors are used because markdown is rendered in sections without class names.
-  &:not(.button) {
+  &:not(.{{ $p }}button) {
     color: var(--section-fc-title, black) !important;
   }
 

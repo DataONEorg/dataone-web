@@ -1,11 +1,10 @@
 {{- define "nav" -}}
-  {{- partial "blocks/global-header/global-header.html" . -}}
+  {{- partial "blocks/nav/nav.html" . -}}
 {{- end -}}
 
 {{- define "main" -}}
 
   {{- $page := $ -}}
-
   {{- $headerModifiers := "" -}}
 
   <!-- Features pages have a breadcrumb back to relevant services -->
@@ -24,7 +23,6 @@
     {{- $template := .template | default "header" -}}
     {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" $headerParams "Page" $) -}}
   {{- end -}}
-
   {{- range .Params.page_sections -}}
     {{- $template := .template | default "section" -}}
     {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) -}}

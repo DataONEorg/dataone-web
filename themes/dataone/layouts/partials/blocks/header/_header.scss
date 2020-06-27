@@ -1,3 +1,4 @@
+{{ $p := .Params.prefix }}
 .header {
 
   // ==========================================================================
@@ -140,7 +141,7 @@
       justify-content: left;
     }
 
-    .button {
+    & > * {
       margin-right: .5em;
       margin-top  : .5em;
     }
@@ -528,17 +529,17 @@
       width   : 100%;
     }
 
-    .logo {
+    #{$bn}__logo > *{
       filter: drop-shadow(0 0 2em white) drop-shadow(0 0 5em white);
     }
-
+    
     .d1search__input:focus ~ .d1search__label,
     .d1search__input:not(:placeholder-shown) ~ .d1search__label {
       color      : var(--c-major-accent-1, white);
       font-weight: var(--fw-bold, 500);
     }
 
-    .button {
+    .{{ $p }}button {
       --section-c-accent: var(--c-major-accent-2, white);
       justify-self      : center;
       width             : max-content;

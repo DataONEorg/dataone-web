@@ -178,8 +178,8 @@ var updateTOC = function(){
 
   
   // Add event listeners 
-	window.addEventListener("scroll", throttle(classChangeEvents, 20), false);
-  window.addEventListener("resize", throttle(classChangeEvents, 20), false);
+	window.addEventListener("scroll", d1Utilities.throttle(classChangeEvents, 20), false);
+  window.addEventListener("resize", d1Utilities.throttle(classChangeEvents, 20), false);
 
   // if on mobile, and menu is affixed, then close menu on item click
   sectionLinks.forEach(item => {

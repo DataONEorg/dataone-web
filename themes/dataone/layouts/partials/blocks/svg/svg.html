@@ -1,7 +1,15 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
+{{ $site := $page.Site }}
+{{ $p := $page.Site.Params.prefix }}
 <!-- bn - block name -->
-{{- $bn := "svg" -}}
+{{- $bn := print $p "svg" -}}
+{{ $block := .Block }}
+
+{{- $classes := $bn -}}
+{{- with .Block.name -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+{{- end -}}
 
 <!-- {{- $classes := $bn -}} -->
 <!-- {{- with .Block.name -}} -->
@@ -10,5 +18,5 @@
 
 {{- with .Block.name -}}
   {{- $path := printf "blocks/svg/%s.svg" . -}}
-  {{- partial $path . -}}
+  {{- partial $path (dict "Page" $page "Block" (dict "classes" $classes)) -}}
 {{- end -}}
