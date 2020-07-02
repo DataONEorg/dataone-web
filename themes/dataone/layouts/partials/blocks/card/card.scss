@@ -84,6 +84,9 @@
 
   &__tags {
     margin-top: .3rem;
+    > * {
+      margin-right: .3rem;
+    }
   }
 
 }

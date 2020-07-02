@@ -1,0 +1,39 @@
+description: DataONE's products and services.
+footerText: 'DataONE is a collaboration among many partner organizations, and is
+  funded by the US National Science Foundation (NSF) under a Cooperative Agreement.
+  Acknowledgement: This material is based upon work supported by the National Science
+  Foundation under Grant Numbers 0830944 and 1430508. Disclaimer: Any opinions,
+  findings, and conclusions or recommendations expressed in this material are those
+  of the author(s) and do not necessarily reflect the views of the National Science
+  Foundation.'
+links:
+  contact: "/contact/"
+  donate: https://giving.ucsb.edu/Funds/Give?id=353
+  old_website: https://www.dataone.org
+  signin: https://search.dataone.org/signin
+  signout: https://search.dataone.org/signout
+  search: https://search.dataone.org
+prefix: d1_
+joinFormId: join-form
+blockDir: themes/dataone/layouts/partials/blocks/
+mobileDesktopBreakpoint: 699
+dateFormat:
+  default: January 2, 2006
+  short: 2 Jan 2006
+  time: January 2, 2006 15:04 MST
+  time_short: 2 Jan 2006 15:04 MST
+contact:
+  email: support@dataone.org
+  slack: "https://slack.dataone.org"
+  address:
+    delivery_points:
+    - '735 State St #300'
+    city: Santa Barbara
+    administrative_area: California
+    postal_code: '93101'
+    country: United States
+    longitude: ''
+    latitude: ''
+social:
+  vimeo: https://vimeo.com/channels/dataone
+  twitter: https://twitter.com/DataONEorg

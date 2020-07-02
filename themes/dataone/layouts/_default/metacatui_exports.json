@@ -1,106 +1,132 @@
 {
-  {{ $page := . }}
-  {{ $site := .Site }}
-  {{ $outputDir := $page.Type | default "metacatUI_exports"  }}
-  {{ $blockDir := $site.Params.blockDir }}
-  {{ $cssOutputName := path.Join $outputDir (printf "%s.css" (.Params.css | default "styles")) }}
-  {{ $jsOutputName := path.Join $outputDir (printf "%s.js" (.Params.js | default "main")) }}
-  {{ $readMeOutputName := path.Join $outputDir "README.md" }}
-  {{ $scratch := newScratch }}
-  {{ $scratch.Set "blocks" slice }}
-  {{ $scratch.Set "SCSS" "" }}
-  {{ $scratch.Set "JS" "" }}
-  {{ $scssFiles :=  slice "variables" "fonts" "functions" "mixins-and-placeholders" "responsive-font-size" "utility" "root" }}
-  {{ $scssAssetDir := "scss/" }}
-  {{ $jsAssetDir := "js/" }}
+  
+  {{- $page := . -}}
+  {{- $site := .Site -}}
+  {{- $params := $page.Params -}}
+  
+  {{- $outputDir := $page.Layout | default "metacatUI_exports"  -}}
+  {{- $blockDir := $site.Params.blockDir -}}
+  {{- $fontsDir := "themes/dataone/static/fonts/" -}}
+  {{- $staticDir := "themes/dataone/static/" -}}
+  {{- $scssAssetDir := "scss/" -}}
+  {{- $jsAssetDir := "js/" -}}
+  
+  {{- $cssOutputName := path.Join $outputDir (printf "%s.css" ($params.css.filename | default "styles")) -}}
+  {{- $jsOutputName := path.Join $outputDir (printf "%s.js" ($params.js.filename | default "main")) -}}
+  {{- $readMeOutputName := path.Join $outputDir "README.md" -}}
+  
+  {{- $dependencies := $params.dependencies -}}
+  {{- $html := $params.html -}}
+  {{- $scssFiles := $params.css.assets | default slice -}}
+  {{- $jsFiles :=  $params.js.assets | default slice -}}  
+  {{- $fontWeights := $params.fonts.weights | default slice -}}
+  {{- $fontTypes := $params.fonts.types | default slice -}}
+  {{- $fontFaces := $params.fonts.faces | default slice -}}
+  {{- $staticFiles := $params.static_files | default slice -}}
+  
+  {{- $scratch := newScratch -}}
+  {{- $scratch.Set "blocks" slice -}}
+  {{- $scratch.Set "SCSS" "" -}}
+  {{- $scratch.Set "JS" "" -}}
 
   {{/* HTML blocks */}}
 
-  {{ range $block, $fileName := .Params.html }}
-    {{ $scratch.Add "blocks" $block }}
-    {{ $outputFile := path.Join $outputDir (print $fileName ".html") }}
-    {{ $path := printf "blocks/%s/%s" $block $block }}
-    {{ $html := partial $path (dict "Page" $page ) }}
-    {{ $res := $html | resources.FromString $outputFile }}
+  {{- range $block, $fileName := $html -}}
+    {{- $scratch.Add "blocks" $block -}}
+    {{- $outputFile := path.Join $outputDir (print $fileName ".html") -}}
+    {{- $path := printf "blocks/%s/%s" $block $block -}}
+    {{- $html := partial $path (dict "Page" $page ) -}}
+    {{- $res := $html | resources.FromString $outputFile -}}
     
     {{/* Show a link to the file (if we don't do something with the resulting */}}
     {{/* resource, Hugo won't generate it.) */}}
-    
     "{{ path.Base $res.Name }}" : "{{ $res.Permalink }}",
     
-  {{ end }}
+  {{- end -}}
 
   {{/* Make a list the combines the names of HTML blocks we are exporting, */}}
   {{/* plus names of blocks that those blocks are dependent on, for which */}}
   {{/* we want to export the associated CSS & JS */}}
-  {{ $allBlocks := append .Params.dependencies ($scratch.Get "blocks") }}
+  {{- $allBlocks := append $dependencies ($scratch.Get "blocks") -}}
 
   {{/* Add required CSS from the assets directory */}}
-  {{ range $name := $scssFiles }}
-    {{ $assetPath := path.Join $scssAssetDir (print $name ".scss") }}
-    {{ $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".scss") $site }}
-    {{ $scratch.Add "SCSS" $asset.Content }}
-  {{ end }}
+  {{- range $name := $scssFiles -}}
+    {{- $assetPath := path.Join $scssAssetDir (print $name ".scss") -}}
+    {{- $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".scss") $site -}}
+    {{- $scratch.Add "SCSS" $asset.Content -}}
+  {{- end -}}
   
   {{/* Add required JS from the assets directory */}}
-  {{ $helpers := (resources.Get "js/helpers.js") | resources.ExecuteAsTemplate "helpers2.js" $site }}
-  {{ $scratch.Add "JS" $helpers.Content }}
+  {{- range $name := $jsFiles -}}
+    {{- $assetPath := path.Join $jsAssetDir (print $name ".js") -}}
+    {{- $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".js") $site -}}
+    {{- $scratch.Add "JS" $asset.Content -}}
+  {{- end -}}
 
-  {{/* Add both the CSS & JS from blocks we're exporting plus blocks they are */}}
-  {{/* dependent on. */}}
+  {{/* Add both the CSS & JS from blocks we're exporting */}}
+  {{/* plus blocks they are dependent on. */}}
   
-  {{ range (readDir $blockDir) }}
-    {{ $dirname := .Name }}
-    {{ if in $allBlocks $dirname }}
-      {{ $blocksubdir := path.Join $blockDir $dirname }}
-      {{ $stat := os.Stat $blocksubdir }}
-      {{ if $stat.IsDir }}
-        {{ range $file := (readDir $blocksubdir) }}
-          {{ if (strings.HasSuffix $file.Name "scss") }}
-            {{ $scssPath := path.Join $blocksubdir $file.Name }}
-            {{ $targetPath := print $file.Name ".scss" }}
-            {{ $cssResource := readFile $scssPath | resources.FromString (print $file.Name ".scss") | resources.ExecuteAsTemplate (print .Name ".scss") $site }}
-            {{ $scratch.Add "SCSS" $cssResource.Content }}
-          {{ else if  (strings.HasSuffix $file.Name "js") }}
-            {{ $scratch.Add "JS" "try {" }}
-            {{ $jsPath := path.Join $blocksubdir $file.Name }}
-            {{ $targetPath := print $file.Name ".js" }}
-            {{ $jsResource := readFile $jsPath | resources.FromString $targetPath | resources.ExecuteAsTemplate $targetPath $site }}
-            {{ $scratch.Add "JS" $jsResource.Content }}
-            {{ $scratch.Add "JS" (printf "} catch (e) { console.log('error in: %s, error message:' + e) }" $jsPath ) }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
+  {{- range (readDir $blockDir) -}}
+    {{- $dirname := .Name -}}
+    {{- if in $allBlocks $dirname -}}
+      {{- $blocksubdir := path.Join $blockDir $dirname -}}
+      {{- $stat := os.Stat $blocksubdir -}}
+      {{- if $stat.IsDir -}}
+        {{- range $file := (readDir $blocksubdir) -}}
+          {{- if (strings.HasSuffix $file.Name "scss") -}}
+            {{- $scssPath := path.Join $blocksubdir $file.Name -}}
+            {{- $targetPath := print $file.Name ".scss" -}}
+            {{- $cssResource := readFile $scssPath | resources.FromString (print $file.Name ".scss") | resources.ExecuteAsTemplate (print .Name ".scss") $site -}}
+            {{- $scratch.Add "SCSS" $cssResource.Content -}}
+          {{- else if  (strings.HasSuffix $file.Name "js") -}}
+            {{- $scratch.Add "JS" "try {" -}}
+            {{- $jsPath := path.Join $blocksubdir $file.Name -}}
+            {{- $targetPath := print $file.Name ".js" -}}
+            {{- $jsResource := readFile $jsPath | resources.FromString $targetPath | resources.ExecuteAsTemplate $targetPath $site -}}
+            {{- $scratch.Add "JS" $jsResource.Content -}}
+            {{- $scratch.Add "JS" (printf "} catch (e) { console.log('error in: %s, error message:' + e) }" $jsPath ) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 
   {{/* Output CSS */}}
-  {{ $cssBundle := $scratch.Get "SCSS" | resources.FromString $cssOutputName | resources.ToCSS | resources.Minify }}
+  {{- $cssBundle := $scratch.Get "SCSS" | resources.FromString $cssOutputName | resources.ToCSS | resources.Minify -}}
   "{{ path.Base $cssBundle.Name }}" : "{{ $cssBundle.Permalink }}",
 
   {{/* Output JS */}}
-  {{ $jsBundle := $scratch.Get "JS" | resources.FromString $jsOutputName | resources.Minify }}
+  {{- $jsBundle := $scratch.Get "JS" | resources.FromString $jsOutputName | resources.Minify -}}
   "{{ path.Base $jsBundle.Name }}" : "{{ $jsBundle.Permalink }}",
   
   {{/* Export fonts */}}
-  {{- $fontWeights := slice "300" "regular" "500" "600" "700" "900" -}}
-  {{- $fontTypes := slice "woff" "woff2" -}}
-  {{- $fontFaces := slice "martel-v4-latin" "work-sans-v5-latin" -}}
   {{- range $weight := $fontWeights -}}
     {{- range $type := $fontTypes -}}
       {{- range $face := $fontFaces -}}
-        {{- $fileName := printf `%s-%s.%s` $face $weight $type -}}
-        {{- $pathHugo := printf `themes/dataone/static/fonts/%s` $fileName -}}
-        {{- if (fileExists $pathHugo) -}}
-          {{ $font := readFile $pathHugo | resources.FromString (path.Join $outputDir "fonts" $fileName) }}
-          "{{ path.Base $font.Name }}" : "{{ $font.Permalink }}",
+        {{- if and $weight $type $face -}}
+          {{- $fileName := printf `%s-%s.%s` $face $weight $type -}}
+          {{- $pathHugo := path.Join $fontsDir $fileName -}}
+          {{- if (fileExists $pathHugo) -}}
+            {{- $font := readFile $pathHugo | resources.FromString (path.Join $outputDir "fonts" $fileName) -}}
+            "{{ path.Base $font.Name }}" : "{{ $font.Permalink }}",
+          {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
   
+  {{/* Export any other static files */}}
+  {{- range $fileName, $outputFileName := $staticFiles -}}
+      {{ warnf "%s" $fileName }}
+    {{- $pathHugo := path.Join $staticDir $fileName -}}
+    {{- if (fileExists $pathHugo) -}}
+      {{- $file := readFile $pathHugo | resources.FromString (path.Join $outputDir $fileName) -}}
+      "{{ path.Base $file.Name }}" : "{{ $file.Permalink }}",
+    {{- end -}}
+  {{- end -}}
+  
   {{/* Make a README from the markdown file */}}
-  {{ $readme := readFile $page.File | resources.FromString $readMeOutputName | resources.ExecuteAsTemplate $readMeOutputName $site }} 
+  {{- $readme := readFile $page.File | resources.FromString $readMeOutputName | resources.ExecuteAsTemplate $readMeOutputName $site -}} 
   "{{ path.Base $readme.Name }}" : "{{ $readme.Permalink }}"
 
 }

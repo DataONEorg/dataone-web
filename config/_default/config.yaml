@@ -1,0 +1,30 @@
+---
+theme: dataone
+title: DataONE
+baseURL: https://preview.dataone.org
+languageCode: en-us
+metaDataFormat: yaml
+pygmentsCodeFences: true
+enableEmoji: true
+paginate: 10
+markup:
+  highlight:
+    codeFences: true
+    style: monokailight
+    lineNos: true
+    lineNumbersInTable: false
+  goldmark:
+    renderer:
+      unsafe: true
+enableEmoji: true
+enableRobotsTXT: true
+publishDir: docs
+permalinks:
+  about: "/:filename"
+  community: "/:filename"
+  network: "/:filename"
+  services: "/:filename"
+  features: "/:filename"
+  news: "/:section/:filename"
+  people: "/:section/:filename"
+  webinars: "/webinars/:slug"

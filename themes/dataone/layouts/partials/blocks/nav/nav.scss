@@ -89,7 +89,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
 
     &:active,
     &:focus {
-      .nav__button-icon {
+      #{$bn}__button-icon {
         svg:not(.{{ $p }}-logo) {
           stroke: var(--c-minor-accent-5, grey);
         }
@@ -99,7 +99,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
         }
       }
 
-      .nav__button-text {
+      #{$bn}__button-text {
         font-weight: var(--fw-x-bold, 800);
         color      : var(--c-minor-accent-5, grey);
       }
@@ -142,25 +142,15 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
       }
     }
 
-
   &__button--menu-toggle {
     grid-area: menu-toggle;
     @include desktop {
       display: none;
     }
   }
-
-  // USER SIGN IN BUTTON REPLACES SEARCH FOR NOW
-  // Hide sign-in link on mobile, since there's a button for that in the main nav bar
-  .{{ $p }}menu-item--sign-in {
-    display: none;
-    @include desktop {
-      display: block;
-    }
-  }
-
-  // Likewise, hide the signin button on desktop
-  &__button--sign-in {
+  
+  &__button--mobile-find-data {
+    grid-area: search;
     @include desktop {
       display: none;
     }
@@ -206,8 +196,8 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   //     display: none;
   //   }
   // 
-  //   & ~ .nav__button--search {
-  //     .nav__button-icon--close {
+  //   & ~ #{$bn}__button--search {
+  //     #{$bn}__button-icon--close {
   //       display: none;
   //     }
   //   }
@@ -222,12 +212,12 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   //       display: block;
   //     }
   //     // The menu search button when the search is expanded on desktop
-  //     & ~ .nav__button--search {
-  //       .nav__button-icon--search {
+  //     & ~ #{$bn}__button--search {
+  //       #{$bn}__button-icon--search {
   //         display: none;
   //       }
   //       // A close button (X)
-  //       .nav__button-icon--close {
+  //       #{$bn}__button-icon--close {
   //         display: block;
   //       }
   //     }
@@ -236,7 +226,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   //       transform: none;
   //       width    : 400px;
   //       // The menu when the search is expanded on desktop
-  //       & ~ .nav__menu {
+  //       & ~ #{$bn}__menu {
   //         width      : 0;
   //         opacity    : 0;
   //         overflow   : hidden;
@@ -284,7 +274,15 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
         font-weight   : var(--fw-normal, 400);
       }
     }
+    
+    .{{ $p }}menu-item--profile {
+      order: -1;
+      @include desktop{
+        order: unset;
+      }
+    }
   }
+  
 
   &__secondary-items {
     margin              : 0;
@@ -292,6 +290,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
     padding-inline-start: 0;
     margin-block-end    : 0;
     text-decoration     : none;
+    display: grid;
     @include desktop {
       display        : flex;
       justify-content: flex-end;
@@ -301,6 +300,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
       @include limit-width;
     }
   }
+
 
   &__menu {
     margin       : 0;

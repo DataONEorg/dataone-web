@@ -41,7 +41,7 @@
               {{- $title -}}
             {{- else -}}
               <!-- Otherwise add a link -->
-              <a class="{{- $bn -}}__sitemap-link" href="{{- $url -}}" title="{{- .Title -}}">
+              <a class="{{- $bn -}}__sitemap-link" href="{{- $url | absURL -}}" title="{{- .Title -}}">
                 {{-  $title -}}
               </a>
             {{- end -}}
@@ -57,7 +57,7 @@
                   {{- end -}}
                 {{- end -}}
                 <li class="{{- $bn -}}__sitemap-item">
-                  <a class="{{- $bn -}}__sitemap-link" href="{{- $url -}}" title="{{- .Title -}}">
+                  <a class="{{- $bn -}}__sitemap-link" href="{{- $url | absURL -}}" title="{{- .Title -}}">
                     {{- .Name | default .Title -}}
                   </a>
                 </li>

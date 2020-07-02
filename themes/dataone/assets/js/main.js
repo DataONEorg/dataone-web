@@ -31,7 +31,7 @@
         try {
           {{ $jsString := readFile $jspath }}
           {{ $targetPath := path.Base $jspath }}
-          {{ $jsResource := $jsString | resources.FromString $targetPath | resources.ExecuteAsTemplate "main.js" $site | resources.Minify }}
+          {{ $jsResource := $jsString | resources.FromString $targetPath | resources.ExecuteAsTemplate "main.js" $site }}
           {{ $jsResource.Content }}
         } catch (e) {
           console.log("error in: {{ $jspath }}, error message:" + e);

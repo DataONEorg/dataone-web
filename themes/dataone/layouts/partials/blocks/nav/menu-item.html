@@ -37,13 +37,21 @@
   {{- end -}}
 {{- end -}}
 
-<!-- Check for special link key words, get link from config -->
-{{- if eq .Block.URL "contact" -}}
-  {{- $url = $site.Params.links.contact -}}
-{{- else if eq .Block.URL "donate" -}}
-  {{- $url = $site.Params.links.donate -}}
-{{- else if eq .Block.URL "signin" -}}
-  {{- $url = $site.Params.links.signin -}}
+<!-- Check for special link key words, replace with link from config.yaml -->
+{{- range $name, $configUrl := $site.Params.links -}}
+  {{- if eq (string $url) (string $name) -}}
+    {{- $url = $configUrl -}}
+  {{- end -}}
+{{- end -}}
+
+<!-- Hide the profile menu by default, only show if user is logged in (see nav.js) -->
+{{ $style := "" | safeHTMLAttr }}
+{{- if eq (.Block.Name | upper) "PROFILE" -}}
+  {{ $style = "style='display:none'" | safeHTMLAttr }}
+{{- end -}}
+
+{{- with .Block.Name -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn (urlize . ) -}}
 {{- end -}}
 
 <!-- Special layout options for the DataONE Plus Ad -->
@@ -82,14 +90,14 @@
 <!-- ======================================================================= -->
 <!-- Start of layout -->
 
-<li class="{{- $classes -}}">
+<li class="{{- $classes -}}" {{ $style }}>
 
   <!-- For menu items with no children, don't include a dropdown -->
   {{- if not $hasSubmenu -}}
 
     <!-- Regular link -->
     <!-- Link to the page -->
-    <a class="{{- $bn -}}__top-item" href="{{- $url -}}" title="{{- .Block.Title -}}">
+    <a class="{{- $bn -}}__top-item" href="{{- $url | absURL -}}" title="{{- .Block.Title -}}">
       {{- $pre -}}
       {{- $topLevelName -}}
       {{- $post -}}
@@ -113,6 +121,7 @@
 
     <!-- For dropdown menu content that comes from another partial, e.g. DataONE Plus Ad -->
     {{- if $submenuContent -}}
+    
       <div class="{{- $bn -}}__sub-menu" aria-hidden="true" id="{{- $subMenuId -}}">
         {{- $submenuContent -}}
       </div>
@@ -131,7 +140,7 @@
           <!-- overwrite with the page name -->
           {{- if not $name -}}
             {{- if .Page -}}
-              {{- $name =.Page.Title -}}
+              {{- $name = .Page.Title -}}
             {{- end -}}
           {{- end -}}
 
@@ -186,9 +195,17 @@
             {{- $iconBlockRight := dict "icon" "arrow-right" "color" "inherit" "size" "small" -}}
             {{- $iconRight = partial "blocks/icon/icon" (dict "Block" $iconBlockRight "Page" $page) -}}
           {{- end -}}
+          {{- $subLinkId := printf "%s__sub-link" (urlize $name) -}}
+          
+          {{ $url := .URL }}
+          {{- range $name, $configUrl := $site.Params.links -}}
+            {{- if eq (string $url) (string $name) -}}
+              {{- $url = $configUrl -}}
+            {{- end -}}
+          {{- end -}}
 
           <li class="{{- $subItemClasses -}}">
-            <a class="{{- $bn -}}__sub-link" href="{{- .URL -}} " title="{{- .Title -}}">
+            <a class="{{- $bn -}}__sub-link" href="{{- $url | absURL -}} " title="{{- .Title | default $name -}}" id="{{- $subLinkId -}}">
               {{- with $icon -}}
                 <span class="{{- $bn -}}__sub-item-icon">
                   {{- . -}}
@@ -206,7 +223,6 @@
 
       </ul>
     {{- end -}}
-
     <!-- submenu arrow at top of submenus on desktop -->
     <div class="{{- $bn -}}__sub-menu-arrow"></div>
   {{- end -}}

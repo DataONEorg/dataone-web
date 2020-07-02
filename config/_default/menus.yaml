@@ -1,0 +1,85 @@
+footer:
+  - name: Services
+    weight: 1
+  - name: Network
+    weight: 2
+  - name: Community
+    weight: 3
+  - name: About
+    weight: 4
+  - url: https://dataoneorg.github.io/Education/
+    name: Skillbuilding
+    title: Skillbuilding Hub
+    parent: Community
+    pre: award
+    weight: 3
+  - name: Find Data
+    pre: search
+    url: https://search.dataone.org/data
+    weight: 5
+  - name: Old Website
+    pre: globe
+    url: old_website
+    weight: 6
+secondary_nav:
+- name: Get DataONE Plus
+  title: Get DataONE Plus
+  pre: "d1-plus-logo"
+  weight: 1
+  url: /plus/
+  post: DataONE Plus Ad
+- name: Donate
+  title: Donate
+  weight: 2
+  url: donate
+- name: Sign-in
+  title: Sign-in
+  weight: 3
+  url: signin
+  pre: user
+- name: Profile
+  weight: 4
+  pre: user
+- name: My profile
+  parent: Profile
+  weight: 1
+  pre: user-check
+  url: "SEARCH/profile/USERNAME"
+- name: My groups
+  parent: Profile
+  weight: 2
+  pre: users
+  url: "SEARCH/profile/USERNAME/s=settings/s=groups"
+- name: My datasets
+  parent: Profile
+  weight: 3
+  pre: file-text
+  url: "SEARCH/data/my-data"
+- name: My portals
+  parent: Profile
+  weight: 4
+  pre: star
+  url: SEARCH/profile/USERNAME/s=settings/s=portals
+- name: Sign out
+  parent: Profile
+  weight: 100
+  url: signout
+primary_nav:
+- name: Find Data
+  pre: search
+  url: search
+  weight: 1
+- name: Services
+  weight: 2
+- name: Network
+  weight: 3
+- name: Community
+  weight: 4
+- name: About
+  weight: 5
+- url: https://dataoneorg.github.io/Education/
+  name: Skillbuilding
+  title: Skillbuilding Hub
+  parent: Community
+  pre: award
+  weight: 3

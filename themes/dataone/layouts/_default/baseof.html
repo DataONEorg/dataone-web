@@ -1,3 +1,4 @@
+{{- $page := . -}}
 <!DOCTYPE html>
 <html>
   {{- block "head" . -}}
@@ -61,7 +62,10 @@
       {{- partialCached "blocks/footer/footer.html" (dict "Page" .) -}}
 
       <!-- Get the bundled javascript resources -->
-      {{- $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | resources.Minify  -}}
+      {{- $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" .  -}}
+      {{- if not $page.Site.IsServer -}}
+        {{- $js = $js | resources.Minify -}}
+      {{- end -}}
       <script src="{{- $js.Permalink -}}"></script>
 
       <!-- For debugging CSS: -->

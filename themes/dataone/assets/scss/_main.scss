@@ -4,7 +4,7 @@
 // execute all SCSS files as template, so that scss files can contain hugo
 // templating code if needed. * SITE IS PASSED AS THE CONTEXT *
 
-{{ $site := .Site}}
+{{ $site := .Site }}
 
 // ==== IMPORT ALL ASSET SCSS ====
 // Use a slice of file names instead of ranging through the directory because

@@ -17,9 +17,9 @@
 {{- end -}}
 <!-- settings for menu icons -->
 {{- $iconSettings := dict "color" "inherit" "stroke" "thicker" -}}
-
 <header class="{{- $classes -}}" id="nav">
   <nav class="{{- $bn -}}__inner">
+    
     <!-- LOGO/HOME LINK -->
     <a class="{{ $bn }}__button {{ $bn }}__button--logo" href="{{- $site.BaseURL -}}">
       {{- $buttonIconClass := printf "%s__button-icon" $bn -}}
@@ -40,6 +40,14 @@
       <span class="{{- $bn -}}__button-icon">{{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "menu")) "Page" $page) -}}</span>
       <span class="{{- $bn -}}__button-text">Menu</span>
     </button>
+    
+    <!-- FIND DATA BUTTON (mobile) -->
+    <a class="{{ $bn }}__button {{ $bn }}__button--mobile-find-data" href="{{- $site.Params.links.search -}}">
+      <span class="{{- $bn -}}__button-icon">
+        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "search")) "Page" $page) -}}
+      </span>
+      <span class="{{- $bn -}}__button-text">Find Data</span>
+    </a>
 
     <!-- MENUS -->
     <div id="global-menu" aria-hidden="true" class="{{- $bn -}}__menu">
@@ -58,22 +66,16 @@
       </div>
     </div>
 
-    <!-- SIGN IN BUTTON -->
-    <a class="{{ $bn }}__button {{ $bn }}__button--sign-in" href="{{- $site.Params.links.signin -}}">
-      <span class="{{- $bn -}}__button-icon">
-        {{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "user")) "Page" $page) -}}
-      </span>
-      <span class="{{- $bn -}}__button-text">Sign-in</span>
-    </a>
-
   </nav>
   <!-- Call the global header script once the navbar exists. -->
   <!-- Makes the block compatible with both the website (where the JS bundle that contains globalHeader is included at the end of the <body>) -->
   <!-- and with MetacatUI (where the JS bundle is included in the <head>) -->
   <script>
   if (document.readyState === 'loading') {
+    document.removeEventListener('DOMContentLoaded', function(){ {{ $p | safeJS }}globalHeader.initialize() });
     document.addEventListener('DOMContentLoaded', function(){ {{ $p | safeJS }}globalHeader.initialize() });
-  } else {  // `DOMContentLoaded` has already fired
+  } else {
+    // `DOMContentLoaded` has already fired
     {{ $p | safeJS }}globalHeader.initialize();
   }
   </script>

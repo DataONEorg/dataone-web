@@ -21,7 +21,6 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
   <!-- Organize the content into layout blocks -->
   {{- $block404 := dict "template" "four-o-four" "title" $title "intro" $intro "body" $body -}}
   {{- $subBlocks := (slice $block404) -}}
@@ -29,8 +28,6 @@
     {{- $subBlocks = $subBlocks | append . -}}
   {{- end -}}
   {{- $sectionBlock := dict "background" "image" "image" $bkgImage "blocks" $subBlocks -}}
-
   <!-- Render the section which contains the 404 block and any other blocks added in 404.md -->
   {{- partial "blocks/section/section" ( dict "Block" $sectionBlock "Page" $page )  -}}
-
 {{- end -}}
