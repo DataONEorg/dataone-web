@@ -179,7 +179,7 @@ page_sections:
         type: external website
         template: button
         color: tertiary
-        external_link: https://test.arcticdata.io/submit
+        external_link: https://demo.arcticdata.io/submit
         text: See a demo
       headline: Easy data upload user interface
       text: The user friendly data submission tool helps your researchers effortlessly
