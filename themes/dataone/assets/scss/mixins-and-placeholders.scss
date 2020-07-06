@@ -354,7 +354,7 @@
     // Create a map of the default colors
     "default"    : (base : map-get($theme, "background"), foreground : map-get($theme, "foreground"), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent")),
     // Create a map for foreground colors that will always be on dark backgrounds
-    "always-dark": (base : col(map-get($main-colors, "neutral"),9), foreground : col(map-get($main-colors, "neutral"),1), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent"))
+    "always-dark": (base : col(map-get($main-colors, "neutral"), 7), foreground : col(map-get($main-colors, "neutral"),1), major-accent: map-get($main-colors, "major-accent"), minor-accent: map-get($main-colors, "minor-accent"), rare-accent : map-get($main-colors, "rare-accent"))
   );
 
   $all-colors     : map-merge($standard-colors, $theme);

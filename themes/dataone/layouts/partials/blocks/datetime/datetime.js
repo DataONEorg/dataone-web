@@ -6,17 +6,16 @@
  */ 
 var toggleTimezoneInput = function (button) {
   if(button){
-
     var open = JSON.parse(button.getAttribute("aria-expanded"));
+    console.log(open);
     // get the input element, a sibling of the button
     inputEl = button.parentNode.getElementsByClassName("datetime__tz-input")[0];
     d1Utilities.toggleElement(button, inputEl, open);
-    
     var inputElinput = inputEl.querySelector("input");
     if(inputElinput){
       inputElinput.focus();
       inputElinput.value = "";
-      inputEl.clear();
+      // inputEl.clear();
     }
   }
   
@@ -179,6 +178,9 @@ var toggleTimezoneInput = function (button) {
        */     
       var handleAutocomplete = function(event, suggestion, datasetName) {
         
+        console.log("handle auto comp this:");
+        console.log(this);
+
         // make sure we have the correct tiime element (TODO)
         var timeEl = this.parentNode.parentNode;
         
@@ -192,9 +194,8 @@ var toggleTimezoneInput = function (button) {
           }
         }
         
-        // clear and hide the input again.
-        var button = timeEl.getElementsByClassName("datetime__button")[0];
-        toggleTimezoneInput(button);
+        // Clear and hide the input again
+        this.blur();
         
       };
       
@@ -213,7 +214,7 @@ var toggleTimezoneInput = function (button) {
       var handleFocusout = function(){
         var inputEl = this;
         var timeEl = this.parentNode.parentNode;
-        var button = timeEl.getElementsByClassName("datetime__button")[0];
+        var button = timeEl.querySelector("button");
         inputEl.value = ""
         toggleTimezoneInput(button);
       }

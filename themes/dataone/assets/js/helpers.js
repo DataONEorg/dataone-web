@@ -2,6 +2,8 @@
  * d1Utilities - Helper functions used in various blocks
  */ 
 (function( d1Utilities, undefined ) {
+  
+  const block = d1Utilities;
 
   /**
    * var toggleElement - Add or remove aria-expanded or aria-hidden on a button
@@ -12,7 +14,7 @@
    * @param {boolean} open - indicates whether the element should be closed (true)
    * or open (false)
    */ 
-  d1Utilities.toggleElement = function(button, element, open){
+  block.toggleElement = function(button, element, open){
     try{
       if(element !== null && button !== null){
         button.setAttribute("aria-expanded", !open);
@@ -32,7 +34,7 @@
    * @param  {number}   wait    Minimum milliseconds to wait before allowing the callback function to be called again 
    * @return {function} Returns the callback function wrapped in the throttle function 
    */   
-  d1Utilities.throttle = function throttle(fn, wait) {
+  block.throttle = function throttle(fn, wait) {
     var time = Date.now();
     return function() {
       if ((time + wait - Date.now()) < 0) {
@@ -48,7 +50,7 @@
    *  
    * @return {boolean}  true if mobile, false if desktop
    */ 
-  d1Utilities.isMobile = function(){
+  block.isMobile = function(){
     var mobileDesktopBreakpoint = {{- .Site.Params.mobileDesktopBreakpoint -}} || 700;
     var winWidth = window.innerWidth || document.documentElement.clientWidth;
     if(winWidth < mobileDesktopBreakpoint){
@@ -57,5 +59,12 @@
       return false
     }
   };
+  
+  block.isSafari = function(){
+    if(navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0){
+      return true
+    }
+    return false
+  }
 
 }( window.d1Utilities = window.d1Utilities || {} ));

@@ -31,21 +31,21 @@
 </svg>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 428" class="{{- $classes -}}">
   <g fill="none" fill-rule="evenodd">
-    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" d="M114.416 296L106 284.417 117.584 276 126 287.583z"/>
-    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-2" d="M1003.574 248L996 237.575l10.426-7.575 7.574 10.425z"/>
-    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" d="M48.072 109.247l-6.62-20.377 20.381-6.623 6.62 20.376zm1121.956-85.559l-1.877 17.897-17.895-1.886 1.876-17.897zm-13.455 354.427l23.528 11.476-11.472 23.524-23.528-11.476z"/>
-    <path class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" d="M1131.575 291l2.155 9.331 9.331-2.154 1.939 8.398-9.332 2.155 2.155 9.331-8.398 1.939-2.156-9.331-9.33 2.154-1.939-8.398 9.331-2.155-2.154-9.331zm-956.524 43.635l-4.039 5.988 5.988 4.039-3.635 5.389-5.989-4.04-4.038 5.989-5.389-3.635 4.038-5.988-5.987-4.039 3.635-5.389 5.988 4.039 4.039-5.988z"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-2" transform="rotate(45 223.5 293.5)" cx="223.5" cy="293.5" r="5.5"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-2" transform="rotate(45 949.5 300.5)" cx="949.5" cy="300.5" r="5.5"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-2" transform="rotate(45 1012.5 41.5)" cx="1012.5" cy="41.5" r="5.5"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-2" transform="rotate(45 152.5 104.5)" cx="152.5" cy="104.5" r="5.5"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" transform="rotate(45 116.5 403.379)" cx="116.5" cy="403.379" r="7"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" transform="rotate(45 86.5 19.5)" cx="86.5" cy="19.5" r="5.5"/>
-    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{- $bn -}}__opacity-4" transform="rotate(45 1041 305)" cx="1041" cy="305" r="9"/>
-    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{- $bn -}}__opacity-5" cx="1085" cy="368" r="16"/>
-    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{- $bn -}}__opacity-5" cx="1087.5" cy="95.5" r="13.5"/>
-    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{- $bn -}}__opacity-5" cx="36.5" cy="34.5" r="15.5"/>
-    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{- $bn -}}__opacity-5" cx="119" cy="50" r="10"/>
-    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{- $bn -}}__opacity-5" cx="36" cy="347" r="16"/>
+    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" d="M114.416 296L106 284.417 117.584 276 126 287.583z"/>
+    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-2" d="M1003.574 248L996 237.575l10.426-7.575 7.574 10.425z"/>
+    <path fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" d="M48.072 109.247l-6.62-20.377 20.381-6.623 6.62 20.376zm1121.956-85.559l-1.877 17.897-17.895-1.886 1.876-17.897zm-13.455 354.427l23.528 11.476-11.472 23.524-23.528-11.476z"/>
+    <path class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" d="M1131.575 291l2.155 9.331 9.331-2.154 1.939 8.398-9.332 2.155 2.155 9.331-8.398 1.939-2.156-9.331-9.33 2.154-1.939-8.398 9.331-2.155-2.154-9.331zm-956.524 43.635l-4.039 5.988 5.988 4.039-3.635 5.389-5.989-4.04-4.038 5.989-5.389-3.635 4.038-5.988-5.987-4.039 3.635-5.389 5.988 4.039 4.039-5.988z"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-2" transform="rotate(45 223.5 293.5)" cx="223.5" cy="293.5" r="5.5"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-2" transform="rotate(45 949.5 300.5)" cx="949.5" cy="300.5" r="5.5"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-2" transform="rotate(45 1012.5 41.5)" cx="1012.5" cy="41.5" r="5.5"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-2" transform="rotate(45 152.5 104.5)" cx="152.5" cy="104.5" r="5.5"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" transform="rotate(45 116.5 403.379)" cx="116.5" cy="403.379" r="7"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" transform="rotate(45 86.5 19.5)" cx="86.5" cy="19.5" r="5.5"/>
+    <circle fill-rule="nonzero" class="{{- $bn -}}__fill-major-accent-5 {{ $bn }}__opacity-4" transform="rotate(45 1041 305)" cx="1041" cy="305" r="9"/>
+    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{ $bn }}__opacity-5" cx="1085" cy="368" r="16"/>
+    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{ $bn }}__opacity-5" cx="1087.5" cy="95.5" r="13.5"/>
+    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{ $bn }}__opacity-5" cx="36.5" cy="34.5" r="15.5"/>
+    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{ $bn }}__opacity-5" cx="119" cy="50" r="10"/>
+    <circle stroke-width="6" class="{{- $bn -}}__stroke-major-accent-5 {{ $bn }}__opacity-5" cx="36" cy="347" r="16"/>
   </g>
 </svg>

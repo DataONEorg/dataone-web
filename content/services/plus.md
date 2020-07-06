@@ -91,11 +91,11 @@ page_sections:
       text: Configure search fields specific to your science topics
       details: []
   button:
-    template: button
-    type: internal page
-    color: primary
-    internal_link: "/services"
-    text: Explore all features
+    type: 'internal page'
+    color: 'primary'
+    text: 'See all features'
+    internal_link: 'services/_index.md'
+    icon: columns
 - template: section
   background: data-wave
   small_title: Analytics

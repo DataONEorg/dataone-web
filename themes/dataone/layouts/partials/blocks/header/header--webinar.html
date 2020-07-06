@@ -5,7 +5,9 @@
 
 {{- $mainTitle := "Webinar" -}}
 
-<header class="{{- $bn -}} {{- $bn -}}--webinar">
+{{ $classes := printf "%s %s--webinar" $bn $bn }}
+
+<header class="{{- $classes -}}">
 
   <div class="{{- $bn -}}__content">
 

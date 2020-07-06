@@ -11,7 +11,7 @@
 
 <!-- Pick a random image from the image gallery to start with -->
 {{- $src := index (shuffle $bkgImgs) 1 | default ""  -}}
-{{- $bkgImg := "" -}}
+{{- $bkgImg := "" | safeHTMLAttr -}}
 {{- with $src -}}
   {{- $imageResource := partial "functions/getImage" (dict "image" . "Page" $page) -}}
   {{- if gt $imageResource.Width 4000 -}}
@@ -28,8 +28,8 @@
     </div>
 
     {{- with $tagline -}}
-      <div class="header__tagline">
-        {{- $tagline -}}
+      <div class="header__tagline markdown">
+        {{- $tagline | markdownify -}}
       </div>
     {{- end -}}
 

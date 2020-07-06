@@ -185,7 +185,7 @@ $TOCwidth: 250px;
   }
 
   &__category-title {
-    font-weight: normal;
+    font-weight: var(--fw-bold);
     font-size : var(--fs-larger, 1.48rem);
     margin     : 0 0 0 -0.1rem;
     padding    : 0; // .5rem 0 0 1rem;

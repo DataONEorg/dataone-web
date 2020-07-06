@@ -10,7 +10,7 @@
   <!-- Features pages have a breadcrumb back to relevant services -->
   {{- if eq $.Type "features" -}}
     {{- $servicesPage := ($page.Site.GetPage "/services").RelPermalink -}}
-    {{- $breadcrumbsBlock := dict "back_text" "See all features" "back_link" $servicesPage -}}
+    {{- $breadcrumbsBlock := dict "back_text" "See all features" "back_link" $servicesPage "icon" "columns" -}}
     {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
   {{- end -}}
 

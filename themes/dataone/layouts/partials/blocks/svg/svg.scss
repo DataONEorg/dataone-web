@@ -91,6 +91,12 @@
       fill: var(--section-c-background-darker-2, lightgray);
     }
   }
+  
+  &--branching-pattern{
+    #{$bn}__branches {
+      fill: var(--section-c-background-darker-2, lightgray);
+    }
+  }
 
   &--hosted-repo-header {
     #{$bn}__stop-color-background-lighter {

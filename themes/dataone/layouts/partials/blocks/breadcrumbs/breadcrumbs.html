@@ -8,16 +8,17 @@
 <!-- Block options -->
 {{- $backText := .Block.back_text | default "Back" -}}
 {{- $backLink := .Block.back_link | default "/" -}}
+{{- $iconName := .Block.icon | default "list" -}}
 
-<!-- Back arrow icon -->
-{{- $iconBlock := dict "icon" "list" "size" "medium" "color" "inherit" -}}
-{{- $backArrow := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
+<!-- Back icon -->
+{{- $iconBlock := dict "icon" $iconName "size" "medium" "color" "inherit" -}}
+{{- $backIcon := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page) -}}
 
 <!-- Layout -->
 <section class="{{- $classes -}}">
   <div class="{{- $bn -}}__inner">
     <a class="{{- $bn -}}__link" href="{{- $backLink -}}">
-      <span class="{{- $bn -}}__icon">{{- $backArrow -}}</span>
+      <span class="{{- $bn -}}__icon">{{- $backIcon -}}</span>
       <span class="{{- $bn -}}__text">
         {{- $backText -}}
       </span>

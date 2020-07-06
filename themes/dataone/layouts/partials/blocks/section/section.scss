@@ -285,6 +285,18 @@
       width : 100%;
     }
   }
+  
+  &--bkg-branching-pattern {
+    #{$bn}__svg-background svg {
+      height: auto;
+      width : 100%;
+    }
+  }
+  
+  &--bkg-dark {
+    @include --dark-bkg;
+    background : linear-gradient(var(--section-c-background-lighter), var(--section-c-background));
+  }
 
   // ==========================================================================
   // Type modifiers

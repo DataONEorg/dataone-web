@@ -1,8 +1,7 @@
-
+{{- $bn := "header" -}}
 
 var homepageHeader = document.getElementById("homepage_header");
 if (homepageHeader) {
-  
   
   {{- $homepage := .Site.GetPage "/_index.md" -}}
   {{- $headerImages := $homepage.Params.header.images  -}}
@@ -31,5 +30,9 @@ if (homepageHeader) {
     
     homepageHeader.style.setProperty("--background-image",   "url(" + getRandom(headerImages) + ")");
     
+  }
+  
+  if(d1Utilities.isSafari()){
+    homepageHeader.classList.add("{{- $bn -}}--safari")
   }
 }

@@ -1,9 +1,12 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
+{{- $site := $page.Site -}}
 <!-- bn = blockname -->
 {{- $bn := "datetime" -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $site.Params.prefix -}}
 
-{{- $classes:= $bn -}}
+{{- $classes := $bn -}}
 
 {{- with .Block.style -}}
   {{- $classes = print $classes " " $bn "--" . -}}
@@ -92,14 +95,16 @@
 
   <!-- display format in moment.js format (eg. YYYY-MM-DD ... ) -->
   {{- $jsFormat := partial "functions/goTimeToJsTime.html" $format -}}
+  
+  <!-- button block -->
+  {{ $buttonBlock := dict "color" "quaternary" "type" "internal_link" "text" "Edit timezone" "html_tag" "button" "typeAttr" "button" "function" `onclick="toggleTimezoneInput(this)"` "otherAttributes" `aria-label="Change the timezone" aria-expanded="false" aria-controls="timezone-finder"` }}
 
   <time class="{{- $classes -}}" datetime="{{- $timeHTML -}}" data-format="{{- $jsFormat -}}">
     <span class="{{- $bn -}}__displaydate">{{- $timeDisplay -}}</span>
-    {{- if $show_timezone -}}
-      <span class="{{- $bn -}}__timezone">{{- $timezoneDisplay -}}</span>{{- end -}}
+    {{ if or $show_timezone $change_timezone }} <span class="{{- $bn -}}__timezone">{{ $timezoneDisplay }}</span> {{ end }}
     {{- if $change_timezone -}}
       <input class="{{- $bn -}}__tz-input" type="search" id="timezone-finder" placeholder="Enter city or timezone" aria-hidden="true"/>
-      <button class="{{- $bn -}}__button button button--col-quaternary" type="button" aria-label="Change the timezone" aria-expanded="false" aria-controls="timezone-finder" onclick="toggleTimezoneInput(this)">Edit timezone</button>
+      {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
     {{- end -}}
   </time>
 

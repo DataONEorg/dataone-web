@@ -70,9 +70,7 @@
   <!-- If the lower service has a summary page (i.e. it's not the free membership), -->
   <!-- advertise that this feature includes everything in lower service as well -->
   {{- if $lowerService -}}
-    <p class="{{- $bn -}}__includes-phrase">Everything in
-      {{- $lowerService.Params.title -}}, and...
-    </p>
+    <p class="{{- $bn -}}__includes-phrase">Everything in {{ $lowerService.Params.title }}, and...</p>
   {{- end -}}
 
   <div class="{{- $bn -}}__feature-list">

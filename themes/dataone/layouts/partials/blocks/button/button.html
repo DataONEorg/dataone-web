@@ -43,23 +43,16 @@
 {{- end -}}
 
 <!-- href link -->
+
 {{- $href := .Block.external_link | default "#" -}}
-{{- if eq $type "internal page" -}}
-	{{- with .Block.internal_link -}}
-		{{- $href = ref $page . -}}
-	{{- end -}}
-{{- else if eq $type "contact" -}}
-	{{- $href = $page.Site.Params.links.contact -}}
-{{- else if eq $type "subscribe form" -}}
-	{{- $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId -}}
-{{- else if eq $type "donate" -}}
-	{{- $href = $page.Site.Params.links.donate -}}
-{{- else if eq $type "sign-in" -}}
-	{{- $href = $page.Site.Params.links.signin -}}
-{{- else if and (eq $type "service cta") (eq $page.Type "services") -}}
+
+{{- if and (eq $type "service cta") (eq $page.Type "services") -}}
 	{{- with $page.Params.cta -}}
 		{{- with .external_link -}}
 			{{- $href = . -}}
+		{{- end -}}
+		{{- with .type -}}
+			{{ $type = . }}
 		{{- end -}}
 		{{- with .text -}}
 			{{- $text = . -}}
@@ -67,8 +60,27 @@
 	{{- end -}}
 {{- end -}}
 
+{{- if eq $type "internal page" -}}
+	{{- with .Block.internal_link -}}
+		{{- $href = ref $page . -}}
+	{{- end -}}
+{{- end -}}
+
+<!-- Check for special link key words, replace with link from config.yaml -->
+{{- range $name, $configUrl := $site.Params.links -}}
+  {{- if eq (string $type) (string $name) -}}
+    {{- $href = $configUrl -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq $type "subscribe form" -}}
+	{{- $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId -}}
+{{- end -}}
+
+<!-- Whether to use <button> or <a> -->
 {{- $htmlTag := .Block.html_tag | default "a" -}}
 
+<!-- For <button>s, a type attribute -->
 {{- $typeAttr := "" -}}
 {{- if eq $htmlTag "button" -}}
 	{{- $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML -}}
@@ -86,8 +98,15 @@
 	{{- $function = . | safeHTMLAttr  -}}
 {{- end -}}
 
-<!-- class for the button text span element -->
+<!-- Other custom attributes to add to button elements (e.g. aria attributes) -->
+{{- $otherAttributes := "" | safeHTMLAttr -}}
+{{- with .Block.otherAttributes -}}
+  {{- $otherAttributes = . | safeHTMLAttr -}}
+{{- end -}}
+
+<!-- Class for the button text span element -->
 {{- $textClasses := print $bn "__text" -}}
+
 <!-- option to hide button text on desktop -->
 {{- if eq .Block.hideTextDesktop "true" -}}
 	{{- $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses -}}
@@ -95,7 +114,7 @@
 
 <!-- start of button layout -->
 
-{{- printf "<%s href='%s' class='%s' %s %s %s>" $htmlTag $href $classes $typeAttr $id $function | safeHTML -}}
+{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
 
 {{- $icon -}}
 {{- if $text -}}

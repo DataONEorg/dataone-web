@@ -34,10 +34,12 @@ fields:
     - major-accent-color
     - minor-accent-color
     - rare-accent-color
+    - dark
     - data-wave
     - wave
     - map
     - topography
+    - branching-pattern
     - image
 - type: file
   label: Background image
@@ -65,10 +67,12 @@ fields:
     - major-accent-color
     - minor-accent-color
     - rare-accent-color
+    - dark
     - data-wave
     - wave
     - map
     - topography
+    - branching-pattern
 - name: icon
   type: include
   label: Icon

@@ -41,6 +41,8 @@
     {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "data-wave") "Page" $page) -}}
   {{- else if eq .Block.background "topography" -}}
     {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "topography") "Page" $page) -}}
+  {{- else if eq .Block.background "branching-pattern" -}}
+    {{- $svg = partial "blocks/svg/svg" (dict "Block" (dict "name" "branching-pattern") "Page" $page) -}}
   {{- end -}}
 
   <!-- Badge for related pages -->

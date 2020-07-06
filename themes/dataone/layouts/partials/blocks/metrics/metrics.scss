@@ -17,7 +17,7 @@
   // independence & modularity (a la BEM).
 
   // The font size of the integer that gives the value of the metric
-  #{$prefix}-fs-integer         : var(--fs-xx-large, 2.8rem);
+  #{$prefix}-fs-integer         : var(--fs-largest, 2.8rem);
   // The font size of the name of the metric
   #{$prefix}-fs-name            : var(--fs-smaller, 0.9rem);
   // The font size of the "as-of" date
@@ -60,16 +60,20 @@
 
   &__integer {
     font-size: var(#{$prefix}-fs-integer);
+    // font-family: var(--ff-title2);
+    font-weight: var(--fw-bolder);
   }
 
   &__name {
+    display: flex;
+    flex-direction: column;
     margin-bottom: .5rem;
     font-size    : var(#{$prefix}-fs-name);
     color        : var(#{$prefix}-c-foreground-subtle);
   }
 
   &__icon {
-    margin-right: 3px;
+    margin-bottom: .5rem;
     stroke      : var(#{$prefix}-c-foreground-subtle);
     filter: brightness(1.03);
   }

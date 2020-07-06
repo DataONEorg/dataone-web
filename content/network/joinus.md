@@ -14,7 +14,7 @@ header:
     src: uploads/hero_images/duotone-network.jpg
     template: image
     alttext: Network background
-    type: default
+    overlay_effect: subtle
   buttons:
   - type: contact
     template: button

@@ -56,7 +56,6 @@
     flex-direction: column;
     margin-left   : 0;
     max-width     : 0;
-    width         : 0;
     overflow      : hidden;
     white-space   : nowrap;
     line-height   : 1.1;
@@ -76,16 +75,25 @@
   // Expandable - If there's text for the badge, make it expand on hover
   // ==========================================================================
   &--expandable {
+    
+    $transition: ease-in-out .3s;
+    overflow: hidden;
+    
+    #{$bn}__name {
+      transition: max-width .3s $transition, margin .2s $transition;
+    }
+    
+    #{$bn}__icon {
+      transition: filter .3s $transition;
+    }
+    
     &:hover {
       #{$bn}__name {
-        width     : auto;
-        max-width : 300px;
+        max-width: 300px;
         margin    : 0 .3rem 0 .6rem;
-        transition: max-width .2s linear, margin .1s linear;
       }
 
       #{$bn}__icon {
-        transition: filter .2s linear;
         filter: brightness(1.03);
       }
     }
