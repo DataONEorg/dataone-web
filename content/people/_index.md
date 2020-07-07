@@ -1,4 +1,8 @@
 ---
+_build:
+  render: false
+  list: always
+  publishResources: true
 d1_teams:
   - ""
   - Leadership team
