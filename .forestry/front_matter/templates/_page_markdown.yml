@@ -1,0 +1,40 @@
+---
+label: "\U0001F4C4Blocks Page"
+hide_body: false
+display_field: title
+fields:
+- type: text
+  name: layout
+  label: Layout
+  hidden: true
+  default: markdown
+- type: datetime
+  name: date
+  label: Date
+  description: The date the page was created
+  default: now
+  hidden: true
+- type: text
+  label: Title
+  name: title
+  description: The title will display at the top of the page, in the navigation (if
+    a name is not set in the menu), in search results, the browser tab, and bookmarked
+    page
+- type: text
+  label: Description
+  name: description
+  description: A description of the page. This description will appear in search results.
+- name: header
+  type: field_group
+  config: {}
+  fields:
+  - name: header
+    type: include
+    config: {}
+    template: header
+    label: header
+  label: Page header
+pages:
+- content/community/community.md
+- content/community/jointhecommunity.md
+- content/community/participate.md

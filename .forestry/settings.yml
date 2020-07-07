@@ -14,29 +14,32 @@ sections:
   path: content/_index.md
   label: Homepage
 - type: directory
-  path: content/network
-  label: Network
-  create: all
-  match: "**/*"
-  templates:
-  - _page_blocks
-  - markdown
-- type: directory
   path: content/community
   label: Community
   create: all
-  match: "*"
+  match: "**/*"
+  exclude: _index.md
   templates:
   - _page_blocks
-  - markdown
+  - _page_markdown
+- type: directory
+  path: content/learning
+  label: Learning
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_blocks
+  - _page_markdown
 - type: directory
   path: content/about
   label: About
   create: all
-  match: "*"
+  exclude: _index.md
+  match: "**/*"
   templates:
   - _page_blocks
-  - markdown
+  - _page_markdown
 - type: document
   path: content/404.md
   label: 404 Page

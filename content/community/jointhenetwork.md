@@ -112,5 +112,4 @@ menu:
   footer:
     weight: 3
     parent: Community
-
 ---

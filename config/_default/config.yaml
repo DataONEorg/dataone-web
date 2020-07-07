@@ -22,7 +22,7 @@ publishDir: docs
 permalinks:
   about: "/:filename"
   community: "/:filename"
-  network: "/:filename"
+  learning: "/:filename"
   services: "/:filename"
   features: "/:filename"
   news: "/:section/:filename"

@@ -67,13 +67,6 @@ page_sections:
           alttext: World map shown with Robinson projection
           type: default
         tags: []
-    - title: Latest news
-      annotation: Read the latest news and information from DataONE
-      icon: file-text
-      content:
-      - template: page-summary
-        type: news
-        auto_select: true
     - title: Training event
       annotation: Find out about the next training event
       icon: globe
