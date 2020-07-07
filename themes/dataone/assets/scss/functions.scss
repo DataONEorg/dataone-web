@@ -100,7 +100,7 @@
     @if $color-brightness < 50% {
       $emphasized-color: saturate(shade($color, 68),6%);
     } @else {
-      $emphasized-color: desaturate(tint($color, 75%),5%);
+      $emphasized-color: saturate(tint($color, 7%),22%);
     }
     @return $emphasized-color;
   }

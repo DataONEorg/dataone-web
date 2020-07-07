@@ -64,6 +64,7 @@ fields:
       - subscribe form
       - contact
       - external website
+      - internal page
   - type: text
     label: Button text
     name: text
@@ -75,6 +76,22 @@ fields:
     showOnly:
       field: type
       value: external website
+  - name: internal_link
+    type: select
+    default: []
+    config:
+      required: false
+      options: []
+      source:
+        type: pages
+        section: ''
+        file: 
+        path: 
+    label: Page to navigate to
+    description: The page that the button should navigate to when clicked
+    showOnly:
+      field: type
+      value: internal page
 - type: boolean
   name: render_page
   label: Make service summary page

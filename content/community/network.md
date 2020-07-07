@@ -8,10 +8,10 @@ header:
   type: hero image
   title: Your data ecosystem
   buttons:
-  - text: Join us!
+  - text: Learn about joining the network
     color: primary
     type: internal page
-    internal_link: "network/joinus"
+    internal_link: jointhenetwork
   - text: See who's in the network
     color: secondary
     type: internal_link
@@ -33,7 +33,10 @@ page_sections:
   blocks:
   - template: metrics
 - template: section
+  icon: zap
+  small_title: Become a member repository
   title: Amplify the products of your research
+  intro: Join our network as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations. [Contact us](/contact/) to get started, or [learn more](/jointhenetwork/).
   type: card
   background: branching-pattern
   blocks:
@@ -42,27 +45,33 @@ page_sections:
     alignment: left
     layout: compact
     columns:
-    - text: Reach a wider audience
+    - name: Reach a wider audience
       icon: volume-2
       template: item-with-icon
-    - text: Leverage our infrastructure
+    - name: Leverage our infrastructure
       icon: hard-drive
       template: item-with-icon
-    - text: Receive recognition
+    - name: Receive recognition
       icon: award
       template: item-with-icon
-    - text: Maintain high availability
+    - name: Maintain high availability
       icon: layers
       template: item-with-icon
-    - text: Enhance collaboration
+    - name: Enhance collaboration
       icon: share-2
       template: item-with-icon
+    - name: Help shape DataONE's future
+      icon: globe
+      template: item-with-icon
+  # - template: markdown
+  #   style: info
+  #   content: ":bulb: By joining the network as a member repository, you automatically become part of the [the DataONE Community](/meetings/), where you can help shape the future of DataONE and join our annual community meetings. The community is open to all individuals and organizations, regardless of membership in the network. Learn about all the ways to [participate](/participate/)."
   button:
     template: button
-    color: quaternary
+    color: primary
     text: Learn about joining the network
     type: internal page
-    internal_link: joinus.md
+    internal_link: jointhenetwork.md
 - template: section
   id: list-of-member-nodes
   background: subtle-emphasis
@@ -75,10 +84,12 @@ page_sections:
 menu:
   primary_nav:
     weight: 1
-    parent: Network
+    parent: Community
     pre: server
+    post: Our federated network of data repos
   footer:
-    weight: 1
-    parent: Network
+    weight: 2
+    name: Member repos
+    parent: Community
 
 ---

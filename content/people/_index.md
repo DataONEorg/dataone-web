@@ -35,7 +35,7 @@ menu:
   primary_nav:
     name: Our Team
     parent: About
-    pre: users
+    pre: smile
     weight: 1.5
   footer:
     name: Our Team

@@ -5,7 +5,6 @@
 {{- define "main" -}}
 
   {{- $page := $ -}}
-  {{- $headerModifiers := "" -}}
 
   <!-- Features pages have a breadcrumb back to relevant services -->
   {{- if eq $.Type "features" -}}
@@ -17,9 +16,6 @@
   {{- with .Params.header -}}
     <!-- modifiers -->
     {{- $headerParams := . -}}
-    {{- with $headerModifiers -}}
-      {{- $headerParams = merge $headerParams (dict "modifiers" (slice .)) -}}
-    {{- end -}}
     {{- $template := .template | default "header" -}}
     {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" $headerParams "Page" $) -}}
   {{- end -}}

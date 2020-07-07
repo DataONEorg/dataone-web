@@ -21,8 +21,7 @@
   </div>
   <p class="{{- $bn -}}__paragraph">
     {{- if .Block.name -}}
-      <em class="{{- $bn -}}__emphasis">{{- .Block.name -}}
-        -
+      <em class="{{- $bn -}}__emphasis">{{- .Block.name -}}{{ if and .Block.name .Block.text }} - {{ end }}
       </em>
     {{- end -}}
     <span class="markdown">

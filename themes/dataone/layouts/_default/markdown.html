@@ -1,7 +1,16 @@
 {{- define "main" -}}
-<section>
-  <div class="markdown">
-    {{- .Content -}}
-  </div>
-</section>
+{{- $page := . -}}
+{{- with .Params.header -}}
+  <!-- modifiers -->
+  {{- $headerParams := . -}}
+  {{- $template := .template | default "header" -}}
+  {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" $headerParams "Page" $) -}}
+{{- end -}}
+{{- range .Params.page_sections -}}
+  {{- $template := .template | default "section" -}}
+  {{- partial (printf "blocks/%s/%s.html" $template $template) (dict "Block" . "Page" $) -}}
+{{- end -}}
+{{- $markdownBlock := dict "template" "markdown" "content" .Content -}}
+{{- $sectionBlock := dict "blocks" (slice $markdownBlock) -}}
+{{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
 {{- end -}}

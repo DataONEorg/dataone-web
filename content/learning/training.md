@@ -16,9 +16,9 @@ page_sections:
 menu:
   primary_nav:
     weight: 5
-    parent: Community
+    parent: Learning
     pre: briefcase
   footer:
-    parent: Community
+    parent: Learning
     weight: 5
 ---

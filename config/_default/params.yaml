@@ -13,6 +13,7 @@ links:
   signin: https://search.dataone.org/signin
   signout: https://search.dataone.org/signout
   search: https://search.dataone.org
+  metrics: https://search.dataone.org/profile
 prefix: d1_
 joinFormId: join-form
 blockDir: themes/dataone/layouts/partials/blocks/

@@ -30,7 +30,7 @@ header:
       type: "internal page"
       color: "quaternary"
       text: "Learn about our network"
-      internal_link: "/network/_index.md"
+      internal_link: "/community/network.md"
 page_sections:
 - template: section
   background: default
@@ -125,26 +125,6 @@ page_sections:
           text: Featured skill
           style: secondary
         description: This is an example training event.
-        datetime:
-          template: ''
-          time: ''
-          change_timezone: false
-          localize: false
-          format: ''
-          style: ''
-        button:
-          template: ''
-          type: ''
-          color: ''
-          text: ''
-          external_link: ''
-          internal_link: ''
-        image:
-          template: ''
-          src: ''
-          alttext: ''
-          type: ''
-          overlay_effect: ''
         tags: []
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
@@ -157,18 +137,6 @@ page_sections:
         mailing_list_only: false
         precheck_hostedrepo: false
         precheck_plus: false
-    position: ''
-  type: ''
-  background2: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-  id: ''
 - template: section
   type: default
   background: default

@@ -48,6 +48,6 @@ fields:
     labelField: title
 pages:
 - content/about/contact.md
-- content/community/documentation.md
-- content/community/tools.md
-- content/community/training.md
+- content/learning/documentation.md
+- content/learning/tools.md
+- content/learning/training.md

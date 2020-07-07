@@ -90,6 +90,7 @@
   &--col-secondary {
     #{$prefix}-background: var(--c-major-accent);
     #{$prefix}-foreground: var(--c-foreground-on-major-accent);
+    filter: contrast(1.03);
   }
 
   &--col-tertiary {
@@ -99,7 +100,7 @@
 
   &--col-quaternary {
     #{$prefix}-background: transparent;
-    #{$prefix}-foreground: var(--theme-c, var(--section-c-accent, var(--c-major-accent, black)));
+    #{$prefix}-foreground: var(--theme-c, var(--section-c-accent-emphasis, var(--c-major-accent-emphasis-on-default, black)));
     text-shadow          : inherit;
     white-space          : normal;
     font-size            : var(--fs-medium, 1.1rem);

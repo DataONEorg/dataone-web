@@ -59,10 +59,10 @@ menu:
     weight: 1
     name: Webinars
     pre: headphones
-    parent: Community
+    parent: Learning
   footer:
     weight: 2
     name: Webinars
-    parent: Community
+    parent: Learning
 
 ---

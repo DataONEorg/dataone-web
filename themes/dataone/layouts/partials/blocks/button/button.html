@@ -44,21 +44,24 @@
 
 <!-- href link -->
 
-{{- $href := .Block.external_link | default "#" -}}
-
 {{- if and (eq $type "service cta") (eq $page.Type "services") -}}
 	{{- with $page.Params.cta -}}
+		{{- with .type -}}
+			{{- $type = . -}}
+		{{- end -}}
 		{{- with .external_link -}}
 			{{- $href = . -}}
 		{{- end -}}
-		{{- with .type -}}
-			{{ $type = . }}
+		{{- with .internal_link -}}
+			{{- $href = ref $page . -}}
 		{{- end -}}
 		{{- with .text -}}
 			{{- $text = . -}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
+
+{{- $href := .Block.external_link | default "#" -}}
 
 {{- if eq $type "internal page" -}}
 	{{- with .Block.internal_link -}}

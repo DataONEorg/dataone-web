@@ -446,7 +446,7 @@
 
   @if(($background-color == "default") or ($background-color == "always-dark")) {
 
-    --fc-link                      : var(#{$root-color-prefix}-major-accent-on-#{$background-color}, $link-fallback);
+    --fc-link                      : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $link-fallback);
     --fc-link-hover                : var(#{$root-color-prefix}-major-accent-emphasis-on-#{$background-color}, $link-fallback);
 
     #{$prefix}-c-icon-background   : var(--theme-c-light, var(#{$root-color-prefix}-major-accent-very-subtle-on-#{$background-color}, $foreground-light-fallback));
@@ -459,7 +459,7 @@
 
   } @else {
 
-    --fc-link                      : var(#{$root-color-prefix}-accent-on-#{$background-color}, $link-fallback);
+    --fc-link                      : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
     --fc-link-hover                : var(#{$root-color-prefix}-accent-emphasis-on-#{$background-color}, $link-fallback);
 
     #{$prefix}-c-icon-background   : var(--theme-c-light, var(#{$root-color-prefix}-#{$background-color}-lighter-2, $foreground-fallback));

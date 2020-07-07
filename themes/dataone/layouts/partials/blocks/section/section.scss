@@ -35,6 +35,9 @@
   // Font colors
   #{$prefix}-fc-small-title      : var(--theme-c, var(--section-c-accent, black));
 
+  // Size of icons
+  $icon-size: 3.5rem;
+
   // Font colours
   @include set-section-colors("default");
 
@@ -65,7 +68,11 @@
   &__icon {
     display         : flex;
     justify-self    : center;
-    padding         : 1.2rem;
+    height: $icon-size;
+    width: $icon-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top      : 1rem;
     border-radius   : 50%;
     background-color: var(#{$prefix}-c-icon-background);
@@ -309,6 +316,12 @@
   &--card {
     padding-top   : 5rem;
     padding-bottom: 5rem;
+    
+    #{$bn}__icon {
+      position: absolute;
+      margin-top: -0.5 * $icon-size;
+      box-shadow: 0.05rem 0.05rem 0.6rem -0.2rem var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0, 0, 0, 0.4)));
+    }
 
     #{$bn}__inner {
       @include card;

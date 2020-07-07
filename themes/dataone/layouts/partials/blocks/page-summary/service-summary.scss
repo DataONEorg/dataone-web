@@ -107,13 +107,15 @@
 
     &__price {
       text-align      : center;
-      background-color: var(#{$prefix}-c-accent-light);
+      // background-color: var(#{$prefix}-c-accent-light);
       color           : var(#{$prefix}-fc-emphasis);
       font-weight     : var(--fw-bold);
       font-size       : var(--fs-x-large);
       padding         : .5rem 1rem;
       width           : fit-content;
-      margin          : 2.5rem auto 0;
+      margin          : 0.5rem auto 0.5rem;
+      border-top: 1px solid var(#{$prefix}-c-accent-light);
+      border-bottom: 1px solid var(#{$prefix}-c-accent-light);
     }
 
     &__buttons {

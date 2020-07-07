@@ -47,7 +47,8 @@
 
   &__emphasis {
     font-style : normal;
-    font-weight: var(--fw-bolder, 500);
+    font-weight: var(--fw-bold, 500);
+    letter-spacing: 0.01em;
   }
 
 }

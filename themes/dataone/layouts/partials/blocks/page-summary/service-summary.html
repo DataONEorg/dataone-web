@@ -78,12 +78,12 @@
   </div>
   
   <!-- make price a string so that with won't result in negative if price is zero -->
-  {{- with $p := (string $price) -}}
-  {{- if eq $p "0" -}}
-  {{- $p = "free" -}}
+  {{- with $price := (string $price) -}}
+  {{- if eq $price "0" -}}
+  {{- $price = "free" -}}
   {{- end -}}
   <div class="{{- $bn -}}__price">
-    {{- $p -}}
+    {{- $price -}}
   </div>
   {{- end -}}
 
@@ -96,8 +96,8 @@
     {{- if $showCTA -}}
       {{- $cta := $service.cta -}}
       {{- with $cta -}}
-        {{- $buttonBlock2 := (dict "text" .text "type" .type "external_link" .external_link "color" "primary")  -}}
-        {{- partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $page) -}}
+        {{- $buttonBlock2 := merge . (dict "color" "primary")  -}}
+        {{- partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $servicePage) -}}
       {{- end -}}
     {{- end -}}
 
