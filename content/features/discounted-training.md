@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: blocks
 title: In-person training
 description: Access to DataONE data science and data management training courses

@@ -33,43 +33,6 @@ header:
       internal_link: "/community/network.md"
 page_sections:
 - template: section
-  background: default
-  title: Introducing services from DataONE
-  button:
-    type: 'internal page'
-    color: 'primary'
-    text: 'See all features'
-    internal_link: 'services/_index.md'
-    icon: columns
-  blocks:
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: feature-detailed
-      type: top
-      headline: DataONE Plus
-      text: Enhanced DataONE products and services in support of your research.
-      image:
-        src: /uploads/portals-summary.png
-      details: []
-      button:
-        type: 'internal page'
-        color: 'quaternary'
-        text: 'Learn more about DataONE Plus'
-        internal_link: 'services/plus.md'
-    - template: feature-detailed
-      type: top
-      headline: Hosted Repositories
-      text: A dedicated repository solution for your group or institution’s data,
-        managed by DataONE.
-      image:
-        src: /uploads/hosted-repo-summary.png
-      button:
-        type: 'internal page'
-        color: 'quaternary'
-        text: 'Discover DataONE Hosted Repositories'
-        internal_link: 'services/plus.md'
-- template: section
   background: wave
   title: The latest updates from DataONE
   blocks:
