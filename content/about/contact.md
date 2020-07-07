@@ -3,25 +3,22 @@ title: Contact
 date: 2020-01-26T16:37:53.000+00:00
 description: Find email and contact information for DataONE
 layout: blocks
-header:
-  template: header
-  type: text only
-  background_color: secondary
-  title: Get in touch
-  intro: We're here to help and answer any question you might have. We look forward
-    to hearing from you!
-  buttons: []
 page_sections:
 - template: section
-  type: split
-  background: map
-  background2: subtle-emphasis
+  type: card
+  background: topography
+  title: Get in touch
+  intro: We're here to help and answer any question you might have.<br>We look forward
+    to hearing from you!
   blocks:
-  - template: contact-info
-    layout: show full info
-    join_slack_text: Join us on Slack
-    socials_title: Find us online
-  - template: contact-form
+    
+  - template: columns
+    num_cols: 1
+    columns:
+    - template: contact-info
+      layout: show full info
+      join_slack_text: Join us on Slack
+      socials_title: Find us online
 menu:
   primary_nav:
     parent: About
