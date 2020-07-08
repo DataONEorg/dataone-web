@@ -60,6 +60,18 @@ page_sections:
       name: Data Modeling
       text: Today data for efficient access and storage
       icon: bar-chart
+    - template: item-with-icon
+      name: Publication
+      text: Data publishing, citation and credit
+      icon: award
+    - template: item-with-icon
+      name: R
+      text: Data munging and writing functions in R
+      icon: code
+    - template: item-with-icon
+      name: GitHub
+      text: Working collaboratively in git and GitHub
+      icon: github
   button:
     template: ''
     type: external website
