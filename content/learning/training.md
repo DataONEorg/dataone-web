@@ -71,11 +71,12 @@ page_sections:
   background2: ''
   icon: ''
   blocks:
-  - template: contact-form
-    preform_text: Sign up for news about training activities
-    button_text: Sign Up
-    success_text: ''
-    error_text: ''
+  - template: join-form
+    style: default
+    mailing_list_only: true
+    precheck_hostedrepo: false
+    precheck_plus: false
+    precheck_mailing_list: false
   button:
     template: ''
     type: external website
