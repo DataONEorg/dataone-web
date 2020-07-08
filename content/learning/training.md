@@ -77,10 +77,10 @@ page_sections:
   blocks: []
   button:
     template: ''
-    type: ''
+    type: external website
     color: ''
     text: ''
-    external_link: ''
+    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
   id: ''
