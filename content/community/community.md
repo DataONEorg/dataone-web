@@ -1,17 +1,17 @@
 ---
 title: DataONE Community
-layout: markdown
+layout: blocks
 description: Information about the DataONE community
 header:
   title: DataONE Community
   intro: ''
   template: ''
-  type: ''
+  type: image on right
   background_color: ''
   image:
     template: ''
-    src: ''
-    alttext: ''
+    src: "/uploads/savethedate.png"
+    alttext: Save the Date
     type: ''
     overlay_effect: ''
   pill:
@@ -19,7 +19,27 @@ header:
     style: ''
     text: ''
   buttons: []
-date: 
+date: 2020-07-08T13:56:29-07:00
+page_sections:
+- template: ''
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  title: ''
+  intro: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 menu:
   footer:
     name: The DataONE Community

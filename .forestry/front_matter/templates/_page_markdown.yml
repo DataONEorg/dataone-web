@@ -35,5 +35,4 @@ fields:
     label: header
   label: Page header
 pages:
-- content/community/community.md
 - content/community/jointhecommunity.md
