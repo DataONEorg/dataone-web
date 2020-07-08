@@ -23,7 +23,7 @@ header:
   show_logos: true
   logos_bar:
     template: logos-bar
-    title: A network of NUMBER data repositories
+    title: Our network of data repositories
     use_member_nodes: true
     button:
       template: button

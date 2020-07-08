@@ -13,13 +13,18 @@
 <!-- Parameters for the search button -->
 {{- $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" "search" "color" "secondary" "html_tag" "button" "type_attr" "submit" -}}
 
+{{- $placeholder := "Enter a search term" -}}
+{{- $nodesToCount := slice "Current member nodes" "Contributing repositories" -}}
+{{- $numNodes:= where $page.Site.Data.membernodes.nodes "category" "in" $nodesToCount | len -}}
+{{- with $numNodes -}}
+  {{- $placeholder = printf "Search %d data repositories at once" . -}}
+{{- end -}}
+
 <form class="{{- $classes -}}" role="search" onsubmit="searchD1()">
-  <input class="{{- $bn -}}__input" type="text" id="search-term" placeholder="Search 44 data repositories at once"/>
+  <input class="{{- $bn -}}__input" type="text" id="search-term" placeholder="{{- $placeholder -}}"/>
   <label class="{{- $bn -}}__label" for="search-term">
     <!-- Hide part of text on mobile where the phrase is too long -->
-    What
-    <span class="utility__visually-hidden-on-mobile">environmental
-    </span>data are you looking for?
+    What data are you looking for?
   </label>
   <div class="{{- $bn -}}__button">
     {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page) -}}
