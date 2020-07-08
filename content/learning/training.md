@@ -74,15 +74,15 @@ page_sections:
       icon: git-branch
     - template: item-with-icon
       name: Workflows
-      text: Building packages for publishing reproducible research
-      icon: database
+      text: Packages for publishing reproducible research
+      icon: file-plus
     - template: item-with-icon
       name: Data visualization
       text: Working with ggplot and leaflet
       icon: map
     - template: item-with-icon
       name: GitHub pages
-      text: Publishing analytical webpages with GitHub pages
+      text: 'Publishing analytical webpages '
       icon: globe
     - template: item-with-icon
       name: RMarkdown
