@@ -26,7 +26,7 @@ header:
     template: ''
     src: "/uploads/ambertraining.JPG"
     alttext: ''
-    type: ''
+    type: default
     overlay_effect: ''
   pill:
     template: ''
@@ -35,7 +35,7 @@ header:
 page_sections:
 - template: section
   type: default
-  background: minor-accent-color
+  background: wave
   background_image: ''
   background2: ''
   icon: ''
