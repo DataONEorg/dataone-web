@@ -14,20 +14,24 @@ header:
     lessons, best practices and training programs in data management to support research
     efficiency, productivity and transparency. "
   buttons:
-    - template: button
-      color: primary
-      text: Learn about our upcoming remote training
-      type: internal page
-      internal_link: "training.md#upcoming-training"
+  - template: button
+    color: primary
+    text: Learn about our upcoming remote training
+    type: internal page
+    internal_link: training.md#upcoming-training
+    external_link: ''
+    icon: ''
   image:
     template: ''
-    src: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
+    src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
     alttext: Training
     overlay_effect: subtle
+    type: ''
   pill:
     template: ''
     style: ''
     text: ''
+  background_color: ''
 page_sections:
 - template: section
   type: card
@@ -41,14 +45,13 @@ page_sections:
   - template: markdown
     style: default
     alignment: center
-    content: |-
-    
-        An innovator in data management and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced trainers, phenomenal resources, and an inclusive and interactive learning environment.
+    content: |2-
 
-        Our courses are short, but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques. As active practitioners  in advancing the field of data science, our instructors are able to incorporate the latest advancements into the curriculum.
-        <br><br>
-        ## <center> Curriculum At A Glance </center>
-    
+      An innovator in data management and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced trainers, phenomenal resources, and an inclusive and interactive learning environment.
+
+      Our courses are short, but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques. As active practitioners  in advancing the field of data science, our instructors are able to incorporate the latest advancements into the curriculum.
+      <br><br>
+      ## <center> Curriculum At A Glance </center>
   - template: columns
     num_cols: 3
     alignment: left
@@ -92,11 +95,14 @@ page_sections:
       icon: book-open
   - template: markdown
     style: default
-    content: |-
-      Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara, California - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
+    content: Open to researchers and students from any discipline or sector, we offer
+      courses at NCEAS in Santa Barbara, California - and welcome locals and travelers
+      alike! We can also arrange a customized training at your home institution by
+      request.
   - template: markdown
     style: warning
-    content: " :warning: Due to COVID-19 *in-person* training is currently postponed. Remote training is coming soon."
+    content: " :warning: Due to COVID-19 *in-person* training is currently postponed.
+      Remote training is coming soon."
   button:
     template: ''
     type: external website
@@ -106,8 +112,9 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
+  intro: ''
 - template: section
-  id: "upcoming-training"
+  id: upcoming-training
   background: data-wave
   small_title: ''
   title: Upcoming Training
@@ -124,7 +131,19 @@ page_sections:
     precheck_hostedrepo: false
     precheck_plus: false
     precheck_mailing_list: false
-- template: 'section'
+  type: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+- template: section
   type: ''
   background: ''
   background_image: ''
@@ -150,12 +169,12 @@ page_sections:
     icon: ''
   id: ''
 menu:
-  footer:
-    parent: Learning
-    weight: 2
   primary_nav:
     weight: 2
     parent: Learning
     pre: briefcase
+  footer:
+    parent: Learning
+    weight: 2
 
 ---
