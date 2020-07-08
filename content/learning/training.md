@@ -76,6 +76,10 @@ page_sections:
       name: Workflows
       text: Building packages for publishing reproducible research
       icon: database
+    - template: item-with-icon
+      name: Data visualization
+      text: Working with ggplot and leaflet
+      icon: map
   button:
     template: ''
     type: external website
