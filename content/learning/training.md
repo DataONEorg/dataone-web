@@ -105,12 +105,12 @@ page_sections:
   background: data-wave
   small_title: ''
   title: Upcoming Training
-  intro: 'We are currently adapting our 5-day, in-person short course for remote delivery.
+  intro: "We are currently adapting our 5-day, in-person short course for remote delivery.
     This is an exciting opportunity for us to reach a broad community, and we are
     looking forward delivering a high quality learning experience, consistent with
-    our in-person events. We know that time is precious and we value your investment
-    in learning with us. Details are still being developed: Add your email below to
-    be one of the first to know when registration opens.'
+    our in-person events. We know that your time is precious and we value your investment
+    in learning with us. \n\nDetails are still being developed: Add your email below
+    to be one of the first to know when registration opens."
   template: ''
   background_image: ''
   background2: ''
