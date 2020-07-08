@@ -7,28 +7,38 @@
 <!-- heading: the part of the accordion that's always shown -->
 {{- $heading := "" -}}
 {{- with .Block.heading -}}
+  {{ $headingInput := . }}
   <!-- if the heading is a block, render the block -->
-  {{- if reflect.IsMap . -}}
-    {{- if .template -}}
-      {{- $heading = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+  <!-- if it's in a slice, then unslice it first -->
+  {{- if reflect.IsSlice $headingInput -}}
+    {{- $headingInput = index $headingInput 0 -}}
+  {{- end -}}
+  {{- if reflect.IsMap $headingInput -}}
+    {{- if $headingInput.template -}}
+      {{- $heading = partial (printf "blocks/%s/%s.html" $headingInput.template $headingInput.template) (dict "Block" $headingInput "Page" $page) -}}
     {{- end -}}
     <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
   {{- else -}}
-    {{- $heading = . -}}
+    {{- $heading = $headingInput -}}
   {{- end -}}
 {{- end -}}
 
 <!-- content: the part of the accordion that can be hidden or shown -->
-{{- $content := "content" -}}
+{{- $content := "" -}}
 {{- with .Block.content -}}
+  {{ $contentInput := . }}
   <!-- if the content is a block, render the block -->
-  {{- if reflect.IsMap . -}}
-    {{- if .template -}}
-      {{- $content = partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+  <!-- if it's in a slice, then unslice it first -->
+  {{- if reflect.IsSlice $contentInput -}}
+    {{- $contentInput = index $contentInput 0 -}}
+  {{- end -}}
+  {{- if reflect.IsMap $contentInput -}}
+    {{- if $contentInput.template -}}
+      {{- $content = partial (printf "blocks/%s/%s.html" $contentInput.template $contentInput.template) (dict "Block" $contentInput "Page" $page) -}}
     {{- end -}}
     <!-- otherwise treat it as a string (e.g. for the people type: accordion block ) -->
   {{- else -}}
-    {{- $content = . -}}
+    {{- $content = $contentInput -}}
   {{- end -}}
 {{- end -}}
 
