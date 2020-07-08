@@ -14,14 +14,7 @@ header:
     with the National Center for Ecological Synthesis and Analysis, DataONE has developed
     lessons, best practices and training programs in data management to support research
     efficiency, productivity and transparency. "
-  buttons:
-  - template: button
-    type: external website
-    color: secondary
-    internal_link: []
-    text: Community Skillbuilding Hub of Lessons and Best Practices
-    external_link: https://dataoneorg.github.io/Education/
-    icon: ''
+  buttons: []
   image:
     template: ''
     src: "/uploads/ambertraining.JPG"
@@ -35,7 +28,7 @@ header:
 page_sections:
 - template: section
   type: default
-  background: wave
+  background: minor-accent-color
   background_image: ''
   background2: ''
   icon: ''
@@ -68,8 +61,8 @@ page_sections:
   background: topography
   small_title: ''
   title: Reproducible Research Techniques for Synthesis
-  intro: Learn more and register for our 5-day, in-person, Reproducible Research Techniques
-    Short Course taught in partnership with NCEAS.
+  intro: Learn more and register for our 5-day, in-person short course taught in partnership
+    with NCEAS.
   template: ''
   background_image: ''
   background2: ''
@@ -79,8 +72,27 @@ page_sections:
     template: ''
     type: external website
     color: ''
-    text: ''
+    text: Reproducible Research Short Course
     external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
+    internal_link: ''
+    icon: ''
+  id: ''
+- template: ''
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  title: ''
+  intro: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
     internal_link: ''
     icon: ''
   id: ''
