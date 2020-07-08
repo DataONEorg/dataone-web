@@ -68,8 +68,8 @@ page_sections:
   background: topography
   small_title: ''
   title: Reproducible Research Techniques for Synthesis
-  intro: Learn more about our 5-day, in-person, Reproducible Research Techniques Short
-    Course taught in partnership with NCEAS.
+  intro: Learn more and register for our 5-day, in-person, Reproducible Research Techniques
+    Short Course taught in partnership with NCEAS.
   template: ''
   background_image: ''
   background2: ''
