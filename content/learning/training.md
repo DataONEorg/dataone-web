@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: text only
-  background_color: half light half transparent
+  background_color: default
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
     \ \n\nOpen reproducible research is becoming ever more critical for answering
@@ -19,8 +19,8 @@ header:
     template: ''
     src: "/uploads/ambertraining.JPG"
     alttext: ''
-    type: cover
-    overlay_effect: ''
+    type: default
+    overlay_effect: subtle
   pill:
     template: ''
     style: ''
