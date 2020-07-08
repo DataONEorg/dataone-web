@@ -88,7 +88,7 @@ page_sections:
     content: |-
       Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
 
-      Due to COVID-19 in-person training is currently postponed.
+      \*Due to COVID-19 in-person training is currently postponed.
   button:
     template: ''
     type: external website
