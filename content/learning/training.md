@@ -83,16 +83,22 @@ page_sections:
   background_image: ''
   background2: ''
   icon: ''
-  small_title: ''
-  title: ''
-  intro: ''
+  small_title: Resources for Teaching and Self Learning
+  title: Support Elevated Data Literacy in Your Community
+  intro: DataONE lessons and best practices are available through the Data Management
+    Skillbuilding Hub; a repository for **_open educational resources_** for use in
+    data management instruction and learning development. The Skillbuilding Hub is
+    a community developed resource with materials applicable across a range of contexts,
+    intended for use by researchers, teachers, librarians, information managers or
+    anyone who wants to learn or teach better data management practices. All the materials
+    are CC0 licensed and designed for you to adopt and adapt to your needs.
   blocks: []
   button:
     template: ''
-    type: ''
+    type: external website
     color: ''
-    text: ''
-    external_link: ''
+    text: Community Skillbuilding Hub of Lessons and Best Practices
+    external_link: https://dataoneorg.github.io/Education/
     internal_link: ''
     icon: ''
   id: ''
