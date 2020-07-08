@@ -21,7 +21,8 @@ fields:
 - name: id
   type: text
   label: Id for tab group (optional)
-  description: Set an ID for tab groups if you would like to link to specific tabs within the group from other pages. Links will be in the form `#tab-name_group-id`.
+  description: Set an ID for tab groups if you would like to link to specific tabs
+    within the group from other pages. Links will be in the form `#tab-name_group-id`.
 - name: tabs
   type: field_group_list
   fields:

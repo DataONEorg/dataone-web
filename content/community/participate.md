@@ -2,7 +2,7 @@
 title: Participate
 description: Some ways to participate in DataONE. Information about joining the DataONE
   Community, and about how organizations can join the network as a member repository.
-layout: markdown
+layout: blocks
 header:
   title: Participate in DataONE
   intro: ''
@@ -20,7 +20,36 @@ header:
     style: ''
     text: ''
   buttons: []
-date: 
+date: 2020-07-08T10:17:37-07:00
+page_sections:
+- blocks:
+  - template: accordion
+    content:
+    - template: markdown
+      style: default
+      content: Test content
+    heading:
+    - template: markdown
+      style: default
+      content: Test heading
+  template: ''
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 menu:
   footer:
     weight: 1
