@@ -5,8 +5,8 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: ''
-  background_color: default
+  type: hero image
+  background_color: ''
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
     \ \n\nOpen reproducible research is becoming ever more critical for answering
