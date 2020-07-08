@@ -32,7 +32,7 @@
   <div class="{{- $bn -}}__q-and-a">
     {{- $question := printf "<h3 class='%s__question'>%s</h3>" $bn .q | safeHTML -}}
     {{- $answer := printf "<span class='%s__answer markdown'>%s</span>" $bn (.a | markdownify) | safeHTML -}}
-    {{- $accordionBlock := dict "heading" $question "content" .a -}}
+    {{- $accordionBlock := dict "heading" $question "content" $answer -}}
     {{- partial "blocks/accordion/accordion" (dict "Block" $accordionBlock "Page" $page) -}}
   </div>
 {{- end -}}

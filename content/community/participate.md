@@ -23,15 +23,81 @@ header:
 date: 2020-07-08T10:17:37-07:00
 page_sections:
 - blocks:
-  - template: accordion
-    content:
-    - template: markdown
-      style: default
-      content: Test content
-    heading:
-    - template: markdown
-      style: default
-      content: Test heading
+  - template: columns
+    num_cols: 2
+    columns:
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: search
+        name: Search for, use, and share data
+      content:
+      - template: markdown
+        style: default
+        content: Discover data from across an extensive network of data repositories through a simple search at [search.dataone.org](search.dataone.org). Download accessible data, explore data usage and citation through the metrics display, and easily cite used data with our quick click citation button. We have over [800K datasets](https://search.dataone.org/profile) from a network of 44 repositories ready to be explored.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: file-plus
+        name: Contribute data
+      content:
+      - template: markdown
+        style: default
+        content: DataONE is not a repository. DataONE is a federated network of data repositories exposing their catalogs through a simple integrated infrastructure. To have your data show in a DataONE search, contribute data to one of our [Member Repositories](/network/) which serve a broad range of domains and data types. Is you preferred data repository not listed? Talk to them about joining our repository network.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: database
+        name: Add your repository to the network
+      content:
+      - template: markdown
+        style: default
+        content: DataONE unites a [network of data repositories](/network/) operated by research centers, universities, non-profit organizations, citizen science initiatives, government and non-government organizations, and the like. Member repositories share data and infrastructure with DataONE and in return, we facilitate user access to data and interoperability between members. [Join the network](/jointhenetwork/) as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: message-circle
+        name: Join the conversation
+      content:
+      - template: markdown
+        style: default
+        content: As a member of our [DataONE Community Group](/community/) you will have access to early information on DataONE activities, be able to contribute your ideas to our annual Community Meeting and provide input on further directions and activities.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: mic
+        name: Contribute as a Board Member
+      content:
+      - template: markdown
+        style: default
+        content: Contribute to the community's leadership in the DataONE program through our [Community Board](/community/)
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: award
+        name: Get and teach data skills
+      content:
+      - template: markdown
+        style: default
+        content: Courses and Skillbuilding hub. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: terminal
+        name: Participate in open source software development
+      content:
+      - template: markdown
+        style: default
+        content: DataONE welcomes contributions and collaborations with all who are interested in helping the goals of meeting the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered research data. Our infrastructure is built on top of many open source tools, and we will continue to support that movement as a means of advancing science. Check out our [GitHub repositories](https://github.com/dataoneorg) for ways to contribute.
+    - template: accordion
+      heading:
+      - template: item-with-icon
+        icon: slack
+        name: Join our mailing list and Slack space
+      content:
+      - template: markdown
+        style: default
+        content: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   template: ''
   type: ''
   background: ''
