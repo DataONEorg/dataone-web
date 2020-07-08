@@ -35,8 +35,8 @@ sections:
   path: content/about
   label: About
   create: all
-  exclude: _index.md
   match: "**/*"
+  exclude: _index.md
   templates:
   - _page_blocks
   - _page_markdown
@@ -48,7 +48,6 @@ sections:
 - type: document
   path: content/services/_index.md
   label: Services Summary
-  match: "**/*"
 - type: directory
   path: content/services
   label: Services
