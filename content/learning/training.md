@@ -6,7 +6,7 @@ layout: blocks
 header:
   template: header
   type: text only
-  background_color: default
+  background_color: half light half transparent
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
     \ \n\nOpen reproducible research is becoming ever more critical for answering
@@ -28,7 +28,7 @@ header:
 page_sections:
 - template: section
   type: default
-  background: minor-accent-color
+  background: subtle-emphasis
   background_image: ''
   background2: ''
   icon: ''
