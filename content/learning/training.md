@@ -19,7 +19,7 @@ header:
     type: external website
     color: secondary
     internal_link: []
-    text: Visit our Skillbuilding Hub for Lessons and Best Practices
+    text: Community Skillbuilding Hub of Lessons and Best Practices
     external_link: https://dataoneorg.github.io/Education/
     icon: ''
   image:
