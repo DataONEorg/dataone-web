@@ -39,13 +39,21 @@ page_sections:
   background_image: ''
   background2: ''
   icon: ''
-  small_title: Data Training in Support of Research Reproducibility
-  title: Build capacity in data stewardship, data science and research reproducibility
-  intro: Open reproducible research is becoming ever more critical for answering today's
-    complex questions at the scale and speed needed for solutions. DataONE has developed
-    resources, best practices and training curricula in collaboration with the National
-    Center for Ecological Synthesis and Analysis to deliver in-person and remote courses
-    in support if research efficiency, productivity and transparency.
+  small_title: In-Person and Remote Training Workshops
+  title: Learn Directly from DataONE Experts
+  intro: "Our courses are short, but intensive introductions that will build your
+    skills in a variety of data science topics, ranging from the basics of programming
+    in a new language to advanced computing techniques. They are open to researchers
+    and students from any discipline or sector.\n\nAs an innovator in data management
+    and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive
+    synthesis research, to offer access to experienced trainers, phenomenal resources,
+    and an inclusive and interactive learning environment. Our instructors are also
+    practitioners active in advancing the field of data science, and are able to incorporate
+    the latest advancements into the curriculum.\n\nWe offer courses at NCEAS in Santa
+    Barbara - and welcome locals and travelers alike! We can also arrange a customized
+    training at your home institution by request. \n\nDue to COVID-19 in-person training
+    is currently postponed. We are currently developing remote course options to be
+    announced shortly."
   blocks: []
   button:
     template: ''
