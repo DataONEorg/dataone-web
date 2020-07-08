@@ -1,30 +1,53 @@
 ---
 title: Participate
-description: Some ways to participate in DataONE. Information about joining the DataONE Community, and about how organizations can join the network as a member repository.
+description: Some ways to participate in DataONE. Information about joining the DataONE
+  Community, and about how organizations can join the network as a member repository.
 layout: markdown
 header:
   title: Participate in DataONE
-  intro: 
+  intro: ''
+  template: ''
+  type: ''
+  background_color: ''
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    type: ''
+    overlay_effect: ''
+  pill:
+    template: ''
+    style: ''
+    text: ''
+  buttons: []
+date: 
 menu:
-  primary_nav:
-    weight: 100
-    name: How to participate
-    parent: Community
   footer:
     weight: 1
-    name: Participate
     parent: Community
----
-- Contribute data?
-  - link to network
-- Search for, use, and share data?
-- [Add your repository to the network](/jointhenetwork/) or [learn more](/network/)
-- [Join the DataONE Community](/jointhecommunity/) or [learn more](/meetings/)
-- Contribute to the community's leadership in the DataONE program through our Community Board
-- Contribute to community software development activities
-  - link to DataONE github account
-- [Join our slack](https://slack.dataone.org/)
-- Join our mailing list - *in-line mailing list*
+  primary_nav:
+    name: How to participate
+    weight: 100
+    parent: Community
 
-[comment]: <> (Establish a Custom Portal for your data through the DataONE Plus service level)
-[comment]: <> (Share your data through a DataONE Hosted Repository)
+---
+
+* Search for, use, and share data
+
+  Discover data from across an extensive network of data repositories through a simple search at [search.dataone.org](search.dataone.org). Download accessible data, explore data usage and citation through the metrics display, and easily cite used data with our quick click citation button. We have over [800K datasets](https://search.dataone.org/profile) from a network of 44 repositories ready to be explored.
+* Contribute data
+
+  DataONE is not a repository. DataONE is a federated network of data repositories exposing their catalogs through a simple integrated infrastructure. To have your data show in a DataONE search, contribute data to one of our [Member Repositories](/network/) which serve a broad range of domains and data types. Is you preferred data repository not listed? Talk to them about joining our repository network.  
+* Add your repository to the network
+
+  DataONE unites a [network of data repositories](/network/) operated by research centers, universities, non-profit organizations, citizen science initiatives, government and non-government organizations, and the like. Member repositories share data and infrastructure with DataONE and in return, we facilitate user access to data and interoperability between members. [Join the network](jointhenetwork/) as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations.
+* Join the conversation
+
+  As a member of our [DataONE Community Group](/community/) you will have access to early information on DataONE activities, be able to contribute your ideas to our annual Community Meeting and provide input on further directions and activities. 
+* Contribute as a Board Member
+
+  Contribute to the community's leadership in the DataONE program through our [Community Board]()
+* Participate in open source software developmengt
+
+  DataONE welcomes contributions and collaborations with all who are interested in helping the goals of meeting the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered research data. Our infrastructure is built on top of many open source tools, and we will continue to support that movement as a means of advancing science. Check out our [https://github.com/DataONEorg]() for ways to contribute.
+* Engage with the network through our **mailing lists**, **slack space** 
