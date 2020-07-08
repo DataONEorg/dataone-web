@@ -45,6 +45,25 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
+- type: card
+  background: branching-pattern
+  icon: users
+  title: DataONE Community Board
+  intro: lorem ipsum
+  template: ''
+  background_image: ''
+  background2: ''
+  small_title: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 menu:
   footer:
     name: The DataONE Community
