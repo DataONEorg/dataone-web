@@ -5,7 +5,7 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: hero image
+  type: ''
   background_color: default
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
@@ -124,10 +124,10 @@ page_sections:
     precheck_mailing_list: false
   button:
     template: ''
-    type: external website
+    type: ''
     color: ''
-    text: Reproducible Research Short Course
-    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
+    text: ''
+    external_link: ''
     internal_link: ''
     icon: ''
   id: ''
