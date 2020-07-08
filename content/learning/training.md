@@ -27,11 +27,11 @@ header:
     text: ''
 page_sections:
 - template: section
-  type: default
-  background: subtle-emphasis
+  type: card
+  background: topography
   background_image: ''
   background2: ''
-  icon: ''
+  icon: star
   small_title: In-Person and Remote Training Workshops
   title: Learn Directly from DataONE Experts
   intro: "Our courses are short, but intensive introductions that will build your
@@ -46,7 +46,16 @@ page_sections:
     Barbara - and welcome locals and travelers alike! We can also arrange a customized
     training at your home institution by request.\n\nDue to COVID-19 in-person training
     is currently postponed. "
-  blocks: []
+  blocks:
+  - template: columns
+    num_cols: 3
+    alignment: left
+    layout: compact
+    columns:
+    - template: item-with-icon
+      name: Metadata
+      text: What is it and how to write a quality data description
+      icon: ''
   button:
     template: ''
     type: external website
