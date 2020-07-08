@@ -31,23 +31,22 @@ menu:
     parent: Community
 
 ---
-
 * Search for, use, and share data
 
   Discover data from across an extensive network of data repositories through a simple search at [search.dataone.org](search.dataone.org). Download accessible data, explore data usage and citation through the metrics display, and easily cite used data with our quick click citation button. We have over [800K datasets](https://search.dataone.org/profile) from a network of 44 repositories ready to be explored.
 * Contribute data
 
-  DataONE is not a repository. DataONE is a federated network of data repositories exposing their catalogs through a simple integrated infrastructure. To have your data show in a DataONE search, contribute data to one of our [Member Repositories](/network/) which serve a broad range of domains and data types. Is you preferred data repository not listed? Talk to them about joining our repository network.  
+  DataONE is not a repository. DataONE is a federated network of data repositories exposing their catalogs through a simple integrated infrastructure. To have your data show in a DataONE search, contribute data to one of our [Member Repositories](/network/) which serve a broad range of domains and data types. Is you preferred data repository not listed? Talk to them about joining our repository network.
 * Add your repository to the network
 
-  DataONE unites a [network of data repositories](/network/) operated by research centers, universities, non-profit organizations, citizen science initiatives, government and non-government organizations, and the like. Member repositories share data and infrastructure with DataONE and in return, we facilitate user access to data and interoperability between members. [Join the network](jointhenetwork/) as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations.
+  DataONE unites a [network of data repositories](/network/) operated by research centers, universities, non-profit organizations, citizen science initiatives, government and non-government organizations, and the like. Member repositories share data and infrastructure with DataONE and in return, we facilitate user access to data and interoperability between members. [Join the network](/jointhenetwork/) as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations.
 * Join the conversation
 
-  As a member of our [DataONE Community Group](/community/) you will have access to early information on DataONE activities, be able to contribute your ideas to our annual Community Meeting and provide input on further directions and activities. 
+  As a member of our [DataONE Community Group](/community/) you will have access to early information on DataONE activities, be able to contribute your ideas to our annual Community Meeting and provide input on further directions and activities.
 * Contribute as a Board Member
 
   Contribute to the community's leadership in the DataONE program through our [Community Board]()
-* Participate in open source software developmengt
+* Participate in open source software development
 
   DataONE welcomes contributions and collaborations with all who are interested in helping the goals of meeting the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered research data. Our infrastructure is built on top of many open source tools, and we will continue to support that movement as a means of advancing science. Check out our [https://github.com/DataONEorg]() for ways to contribute.
-* Engage with the network through our **mailing lists**, **slack space** 
+* Engage with the network through our **mailing lists**, **slack space**
