@@ -55,7 +55,11 @@ page_sections:
     - template: item-with-icon
       name: Metadata
       text: What is it and how to write a quality data description
-      icon: ''
+      icon: codepen
+    - template: item-with-icon
+      name: Data Modeling
+      text: Today data for efficient access and storage
+      icon: bar-chart
   button:
     template: ''
     type: external website
