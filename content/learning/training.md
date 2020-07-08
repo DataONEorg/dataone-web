@@ -34,15 +34,14 @@ page_sections:
   icon: star
   small_title: In-Person and Remote Training Workshops
   title: Learn Directly from DataONE Experts
-  intro: "An innovator in data management and infrastructure, DataONE has partnered
-    with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced
-    trainers, phenomenal resources, and an inclusive and interactive learning environment.
-    \n\nOur courses are short, but intensive introductions that will build your skills
-    in a variety of data science topics, ranging from the basics of programming in
-    a new language to advanced computing techniques. As active practitioners  in advancing
-    the field of data science, our instructors are able to incorporate the latest
-    advancements into the curriculum.\n\nCurriculum at a glance"
+  intro: |-
+    An innovator in data management and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced trainers, phenomenal resources, and an inclusive and interactive learning environment.
+
+    Our courses are short, but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques. As active practitioners  in advancing the field of data science, our instructors are able to incorporate the latest advancements into the curriculum.
   blocks:
+  - template: markdown
+    style: default
+    content: "#### **Curriculum At A Glance**"
   - template: columns
     num_cols: 3
     alignment: left
