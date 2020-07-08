@@ -17,7 +17,7 @@ header:
   buttons: []
   image:
     template: ''
-    src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
+    src: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
     alttext: Training
     type: default
     overlay_effect: subtle
