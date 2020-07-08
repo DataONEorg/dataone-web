@@ -24,7 +24,7 @@ header:
     icon: ''
   image:
     template: ''
-    src: ''
+    src: "/uploads/ambertraining.JPG"
     alttext: ''
     type: ''
     overlay_effect: ''
