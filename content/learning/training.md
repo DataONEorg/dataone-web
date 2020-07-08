@@ -58,7 +58,7 @@ page_sections:
       icon: codepen
     - template: item-with-icon
       name: Data Modeling
-      text: Today data for efficient access and storage
+      text: Tidy data for efficient access and storage
       icon: bar-chart
     - template: item-with-icon
       name: Publication
@@ -71,7 +71,7 @@ page_sections:
     - template: item-with-icon
       name: GitHub
       text: Working collaboratively in git and GitHub
-      icon: github
+      icon: git-branch
     - template: item-with-icon
       name: Workflows
       text: Building packages for publishing reproducible research
