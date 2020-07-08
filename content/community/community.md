@@ -22,9 +22,9 @@ header:
 date: 2020-07-08T13:56:29-07:00
 page_sections:
 - template: ''
-  type: ''
-  background: ''
-  background_image: ''
+  type: default
+  background: image
+  background_image: "/uploads/jordon-conner-tir-pwgsyb4-unsplash.jpg"
   background2: ''
   icon: ''
   small_title: ''
