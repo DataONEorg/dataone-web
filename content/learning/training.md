@@ -44,16 +44,15 @@ page_sections:
     practitioners active in advancing the field of data science, and are able to incorporate
     the latest advancements into the curriculum.\n\nWe offer courses at NCEAS in Santa
     Barbara - and welcome locals and travelers alike! We can also arrange a customized
-    training at your home institution by request. \n\nDue to COVID-19 in-person training
-    is currently postponed. We are currently developing remote course options to be
-    announced shortly."
+    training at your home institution by request.\n\nDue to COVID-19 in-person training
+    is currently postponed. "
   blocks: []
   button:
     template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
+    type: external website
+    color: secondary
+    text: Learn more about our short course
+    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
   id: ''
