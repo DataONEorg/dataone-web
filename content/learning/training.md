@@ -5,7 +5,7 @@ description: ''
 layout: blocks
 header:
   template: header
-  type: text only
+  type: hero image
   background_color: default
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
