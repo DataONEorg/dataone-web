@@ -69,7 +69,9 @@
     {{- $svgBkg = "subtle-wave" -}}
   {{- else if eq $type "hero image" -}}
     {{- with $image.src -}}
-      {{- $bkgImg = print ` style="--background-image:url('/` . `');"` | safeHTMLAttr -}}
+      <!-- Replace the leading slash if there is one, so that we don't add it twice -->
+      {{- $imgNoLeadingSlash := replaceRE "^/" "" . -}}
+      {{- $bkgImg = print ` style="--background-image:url('/` $imgNoLeadingSlash `');"` | safeHTMLAttr -}}
       {{- $classes = printf "%s %s--%s" $classes $bn "text-only" -}}
     {{- end -}}
   {{- end -}}
@@ -113,7 +115,7 @@
             <h1 class="{{- $bn -}}__headline markdown">{{- . | markdownify -}}</h1>
           {{- end -}}
           {{- with $intro -}}
-            <p class="{{- $bn -}}__intro markdown">{{- . | markdownify -}}</p>
+            <div class="{{- $bn -}}__intro markdown">{{- . | markdownify -}}</div>
           {{- end -}}
         </div>
         {{- if $buttons -}}

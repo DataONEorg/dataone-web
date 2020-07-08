@@ -210,10 +210,9 @@
       display              : grid;
       grid-template-columns: auto min-content;
       grid-gap             : 1rem 1rem;
-      @include desktop {
-        align-items: baseline;
-        margin-top : -1rem;
-      }
+      align-items: end;
+      max-width: 33rem;
+      margin: auto;
     }
   }
 

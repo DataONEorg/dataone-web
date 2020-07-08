@@ -33,6 +33,25 @@ header:
       internal_link: "/community/network.md"
 page_sections:
 - template: section
+  icon: star
+  id: "upcoming-training"
+  type: card
+  small_title: ''
+  title: Upcoming Training
+  intro: "We are currently adapting our 5-day, in-person short course for remote delivery.
+    This is an exciting opportunity for us to reach a broad community, and we are
+    looking forward delivering a high quality learning experience, consistent with
+    our in-person events. We know that your time is precious and we value your investment
+    in learning with us. \n\nDetails are still being developed: Add your email below
+    to be one of the first to know when registration opens."
+  blocks:
+  - template: join-form
+    style: card
+    mailing_list_only: true
+    precheck_hostedrepo: false
+    precheck_plus: false
+    precheck_mailing_list: false
+- template: section
   background: wave
   title: The latest updates from DataONE
   blocks:
@@ -67,21 +86,6 @@ page_sections:
           alttext: World map shown with Robinson projection
           type: default
         tags: []
-    - title: Training event
-      annotation: Find out about the next training event
-      icon: globe
-      content:
-      - template: card
-        href: "/training/"
-        title: Example training event
-        subtitle: Learn about data
-        clickable: true
-        pill:
-          template: pill
-          text: Featured skill
-          style: secondary
-        description: This is an example training event.
-        tags: []
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
@@ -90,7 +94,7 @@ page_sections:
       - template: join-form
         precheck_mailing_list: true
         style: card
-        mailing_list_only: false
+        mailing_list_only: true
         precheck_hostedrepo: false
         precheck_plus: false
 - template: section

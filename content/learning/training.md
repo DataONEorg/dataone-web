@@ -6,7 +6,6 @@ layout: blocks
 header:
   template: header
   type: hero image
-  background_color: ''
   title: Data Management Training
   intro: "Build capacity in data stewardship, data science and research reproducibility
     \ \n\nOpen reproducible research is becoming ever more critical for answering
@@ -14,12 +13,16 @@ header:
     with the National Center for Ecological Synthesis and Analysis, DataONE has developed
     lessons, best practices and training programs in data management to support research
     efficiency, productivity and transparency. "
-  buttons: []
+  buttons:
+    - template: button
+      color: primary
+      text: Learn about our upcoming remote training
+      type: internal page
+      internal_link: "training.md#upcoming-training"
   image:
     template: ''
     src: "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
     alttext: Training
-    type: default
     overlay_effect: subtle
   pill:
     template: ''
@@ -34,14 +37,18 @@ page_sections:
   icon: star
   small_title: In-Person and Remote Training Workshops
   title: Learn Directly from DataONE Experts
-  intro: |-
-    An innovator in data management and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced trainers, phenomenal resources, and an inclusive and interactive learning environment.
-
-    Our courses are short, but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques. As active practitioners  in advancing the field of data science, our instructors are able to incorporate the latest advancements into the curriculum.
   blocks:
   - template: markdown
     style: default
-    content: "**Curriculum At A Glance**"
+    alignment: center
+    content: |-
+    
+        An innovator in data management and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced trainers, phenomenal resources, and an inclusive and interactive learning environment.
+
+        Our courses are short, but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques. As active practitioners  in advancing the field of data science, our instructors are able to incorporate the latest advancements into the curriculum.
+        <br><br>
+        ## <center> Curriculum At A Glance </center>
+    
   - template: columns
     num_cols: 3
     alignment: left
@@ -86,9 +93,10 @@ page_sections:
   - template: markdown
     style: default
     content: |-
-      Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
-
-      \*Due to COVID-19 in-person training is currently postponed.
+      Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara, California - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
+  - template: markdown
+    style: warning
+    content: " :warning: Due to COVID-19 *in-person* training is currently postponed. Remote training is coming soon."
   button:
     template: ''
     type: external website
@@ -98,7 +106,8 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
-- type: default
+- template: section
+  id: "upcoming-training"
   background: data-wave
   small_title: ''
   title: Upcoming Training
@@ -108,27 +117,14 @@ page_sections:
     our in-person events. We know that your time is precious and we value your investment
     in learning with us. \n\nDetails are still being developed: Add your email below
     to be one of the first to know when registration opens."
-  template: ''
-  background_image: ''
-  background2: ''
-  icon: ''
   blocks:
   - template: join-form
-    style: default
+    style: card
     mailing_list_only: true
     precheck_hostedrepo: false
     precheck_plus: false
     precheck_mailing_list: false
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
-- template: ''
+- template: 'section'
   type: ''
   background: ''
   background_image: ''
@@ -156,9 +152,9 @@ page_sections:
 menu:
   footer:
     parent: Learning
-    weight: 5
+    weight: 2
   primary_nav:
-    weight: 5
+    weight: 2
     parent: Learning
     pre: briefcase
 
