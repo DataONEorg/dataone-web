@@ -6,7 +6,7 @@ header:
   title: DataONE Community
   intro: ''
   template: ''
-  type: image on right
+  type: center image
   background_color: ''
   image:
     template: ''
