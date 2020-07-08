@@ -41,7 +41,7 @@ page_sections:
   blocks:
   - template: markdown
     style: default
-    content: "#### ->**Curriculum At A Glance**<-"
+    content: ->"####**Curriculum At A Glance**"<-
   - template: columns
     num_cols: 3
     alignment: left
