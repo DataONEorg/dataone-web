@@ -48,12 +48,12 @@ page_sections:
     icon: ''
   id: ''
 - type: card
-  background: branching-pattern
+  background: image
   icon: users
   title: DataONE Community Board
   intro: lorem ipsum
   template: ''
-  background_image: ''
+  background_image: "/uploads/jordon-conner-tir-pwgsyb4-unsplash.jpg"
   background2: ''
   small_title: ''
   blocks: []
