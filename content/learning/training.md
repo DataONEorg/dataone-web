@@ -60,14 +60,23 @@ page_sections:
 - type: card
   background: topography
   small_title: ''
-  title: Reproducible Research Techniques for Synthesis
-  intro: Learn more and register for our 5-day, in-person short course taught in partnership
-    with NCEAS.
+  title: Upcoming Training
+  intro: 'We are currently adapting our 5-day, in-person short course for remote delivery.
+    This is an exciting opportunity for us to reach a broad community, and we are
+    looking forward delivering a high quality learning experience, consistent with
+    our in-person events. We know that time is precious and we value your investment
+    in learning with us. Details are still being developed: Add your email below to
+    be one of the first to know when registration opens.'
   template: ''
   background_image: ''
   background2: ''
   icon: ''
-  blocks: []
+  blocks:
+  - template: contact-form
+    preform_text: Sign up for news about training activities
+    button_text: Sign Up
+    success_text: ''
+    error_text: ''
   button:
     template: ''
     type: external website
