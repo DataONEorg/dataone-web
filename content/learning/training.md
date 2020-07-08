@@ -33,26 +33,6 @@ header:
     style: ''
     text: ''
 page_sections:
-- type: card
-  background: topography
-  small_title: ''
-  title: Reproducible Research Techniques for Synthesis
-  intro: Learn more about our 5-day, in-person, Reproducible Research Techniques Short
-    Course taught in partnership with NCEAS.
-  template: ''
-  background_image: ''
-  background2: ''
-  icon: ''
-  blocks: []
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
 - template: section
   type: default
   background: wave
@@ -74,6 +54,26 @@ page_sections:
     training at your home institution by request. \n\nDue to COVID-19 in-person training
     is currently postponed. We are currently developing remote course options to be
     announced shortly."
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
+- type: card
+  background: topography
+  small_title: ''
+  title: Reproducible Research Techniques for Synthesis
+  intro: Learn more about our 5-day, in-person, Reproducible Research Techniques Short
+    Course taught in partnership with NCEAS.
+  template: ''
+  background_image: ''
+  background2: ''
+  icon: ''
   blocks: []
   button:
     template: ''
