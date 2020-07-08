@@ -1,5 +1,5 @@
 ---
-title: Data Science Training
+title: Training
 date: 2020-06-09T13:00:11-07:00
 description: ''
 layout: blocks
@@ -7,7 +7,7 @@ header:
   template: header
   type: text only
   background_color: default
-  title: In-Person Training
+  title: Data Management Training
   intro: Learn directly from DataONE experts
   buttons: []
 page_sections:
