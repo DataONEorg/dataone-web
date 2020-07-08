@@ -8,7 +8,12 @@ header:
   type: text only
   background_color: default
   title: Data Management Training
-  intro: Learn directly from DataONE experts
+  intro: "Build capacity in data stewardship, data science and research reproducibility
+    \ \n\nOpen reproducible research is becoming ever more critical for answering
+    today’s complex questions at the scale and speed needed for solutions. In collaboration
+    with the National Center for Ecological Synthesis and Analysis, DataONE has developed
+    lessons, best practices and training programs in data management to support research
+    efficiency, productivity and transparency. "
   buttons:
   - template: button
     type: external website
