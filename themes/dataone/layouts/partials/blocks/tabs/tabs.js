@@ -56,10 +56,58 @@ class Events {
 	addEvents() {
 
 		this.list.removeEventListener( 'click', this )
+		this.list.removeEventListener( 'load', this )
 		this.list.addEventListener( 'keydown', this )
 		this.list.addEventListener( 'click', this )
-		this.list.addEventListener( 'keydown', this );
+		this.list.addEventListener( 'keydown', this )
+		window.addEventListener( 'popstate', this )
+		window.addEventListener( 'load', this )
 
+	}
+	
+	
+	/**	
+	 * onpopstate - Handle popstate event
+	 * 	 
+	 * @param {Object} event	 
+	 */	 
+	onpopstate(event){
+		this.changeTab(event);
+	}
+	
+	
+	/**	
+	 * onload - Handle on load event
+	 * 	 
+	 * @param {Object} event	
+	 */	 
+	onload(event){
+		this.changeTab(event)
+	}
+	
+	
+	/**	
+	 * changeTab - Change the tab based on window location
+	 * 	 
+	 * @param {Object} event
+	 */	 
+	changeTab(event){
+		const loc = window.location.href.split("/").pop();
+		for (var i = 0; i < this.links.length; i++) {
+			if (this.links[i].href.split("/").pop() === loc){
+				if ( this.index === i ) {
+					return;
+				} else {
+					event.preventDefault();
+					this.toggle( this.index, false );
+					this.toggle( i, true );
+					this.focus( i );
+
+					this.index = i;
+					return;
+				}
+			}
+		}
 	}
 
 	/**
@@ -312,7 +360,7 @@ class Tabs extends Markup {
 		this.element  = element;
 		this.options  = { ...defaults, ...options };
 		this.urlHash  = window.location.hash.replace( '#', '' );
-
+		
 		// !! HTML initialization !!
 		// Should be changed by one [data-a11ytabs-options] attr with JSON string (e.g.: {hxClass: 'name', hxLevel: 'h2',...} ).
 		// It will be easier to maintain and to override JS default options.
@@ -432,11 +480,13 @@ class Tabs extends Markup {
 	 * @param {Integer} index Zero-based index
 	 */
 	state( index ) {
-
+		
 		const { pathname, search } = window.location;
 		const controls = this.links[ index ].getAttribute( 'aria-controls' );
 
-		controls && history.pushState && history.pushState( null, null, `${pathname+search}#${controls}` )
+		controls && history.pushState && history.pushState( null, null, `${pathname+search}#${controls}` );
+		var popStateEvent = new PopStateEvent('popstate');
+		dispatchEvent(popStateEvent);
 
 	}
 

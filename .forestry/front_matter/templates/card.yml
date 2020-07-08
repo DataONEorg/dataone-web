@@ -71,7 +71,7 @@ fields:
     schema:
       format: markdown
   label: Description
-  description: Any relevant details
+  description: Any relevant details. Note that markdown will only be rendered here if the card is *not* clickable (i.e. `Make clickable` is set to false).
 - name: button
   type: field_group
   config: {}

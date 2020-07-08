@@ -9,12 +9,12 @@
 {{- $position := .Block.position | default "left" -}}
 
 <!-- custom id for this block -->
-{{- $blockID := delimit (shuffle (seq 1 9)) "" -}}
+{{- $blockID := .Block.id | default (delimit (shuffle (seq 1 9)) "") -}}
 
 <!-- an ID for each panel -->
 {{- $tabIDs := slice -}}
 {{- range $index, $tab := .Block.tabs -}}
-  {{- $tabID := print ($tab.title | urlize) "_" $index "_" $blockID -}}
+  {{- $tabID := print ($tab.title | urlize) "_" $blockID -}}
   {{- $tabIDs = $tabIDs | append $tabID -}}
 {{- end -}}
 

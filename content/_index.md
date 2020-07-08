@@ -34,29 +34,38 @@ header:
 page_sections:
 - template: section
   icon: star
-  id: "upcoming-training"
   type: card
-  small_title: ''
-  title: Upcoming Training
-  intro: "We are currently adapting our 5-day, in-person short course for remote delivery.
-    This is an exciting opportunity for us to reach a broad community, and we are
-    looking forward delivering a high quality learning experience, consistent with
-    our in-person events. We know that your time is precious and we value your investment
-    in learning with us. \n\nDetails are still being developed: Add your email below
-    to be one of the first to know when registration opens."
-  blocks:
-  - template: join-form
-    style: card
-    mailing_list_only: true
-    precheck_hostedrepo: false
-    precheck_plus: false
-    precheck_mailing_list: false
+  small_title: 'DataONE Community Meeting'
+  title: Join us to hear an exciting announcement about products & services from DataONE
+  intro: "Lorem ipsum"
 - template: section
   background: wave
   title: The latest updates from DataONE
   blocks:
   - template: tabs
+    id: latest-updates
     tabs:
+    - title: Upcoming training
+      annotation: Find out about our upcoming 5-day course
+      icon: globe
+      content:
+      - template: card
+        href: "/training/"
+        image:
+          src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
+        title: Learn Directly from DataONE Experts
+        subtitle: Our 5-day remote short course is coming soon
+        clickable: false
+        pill:
+          template: pill
+          text: Upcoming training
+          style: secondary
+        description: "We are currently adapting our 5-day, in-person short course for remote delivery.
+          This is an exciting opportunity for us to reach a broad community, and we are
+          looking forward to delivering a high quality learning experience, consistent with
+          our in-person events.
+          <br><br>
+          [Sign up](#hear-it-first_latest-updates) be one of the first to know when registration opens."
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones

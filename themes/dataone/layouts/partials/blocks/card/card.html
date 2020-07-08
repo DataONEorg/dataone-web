@@ -74,7 +74,13 @@
     {{- end -}}
 
     {{- with .Block.description -}}
-      <div class="{{- $bn -}}__description">{{- . -}}</div>
+      {{- $content := . -}}
+      {{- $descClass := printf "%s__description" $bn -}}
+      {{- if not $isClickable -}}
+        {{- $content = $content | markdownify -}}
+        {{- $descClass = print $descClass " markdown" -}}
+      {{- end -}}
+      <div class="{{- $descClass -}}">{{- $content -}}</div>
     {{- end -}}
 
     {{- with .Block.tags -}}
