@@ -3,7 +3,7 @@ title: DataONE Community
 layout: blocks
 description: Information about the DataONE community
 header:
-  title: DataONE Community
+  title: Help Shape the Future of DataONE
   intro: ''
   template: ''
   type: center image
