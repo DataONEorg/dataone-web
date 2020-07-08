@@ -13,6 +13,8 @@ header:
 page_sections:
 - template: section
   type: default
+  title: ''
+  intro: ''
 menu:
   primary_nav:
     weight: 5
