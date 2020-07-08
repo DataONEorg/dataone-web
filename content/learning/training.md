@@ -98,8 +98,8 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
-- type: split
-  background: rare-accent-color
+- type: default
+  background: data-wave
   small_title: ''
   title: Upcoming Training
   intro: 'We are currently adapting our 5-day, in-person short course for remote delivery.
