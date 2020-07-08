@@ -46,7 +46,10 @@ menu:
 * Contribute as a Board Member
 
   Contribute to the community's leadership in the DataONE program through our [Community Board]()
+* Get and Teach Data Skills
+
+  Courses and Skillbuilding hub
 * Participate in open source software development
 
-  DataONE welcomes contributions and collaborations with all who are interested in helping the goals of meeting the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered research data. Our infrastructure is built on top of many open source tools, and we will continue to support that movement as a means of advancing science. Check out our [https://github.com/DataONEorg]() for ways to contribute.
+  DataONE welcomes contributions and collaborations with all who are interested in helping the goals of meeting the needs of science and society for open, persistent, robust, and secure access to well-described and easily discovered research data. Our infrastructure is built on top of many open source tools, and we will continue to support that movement as a means of advancing science. Check out our [GitHub repositories]() for ways to contribute.
 * Engage with the network through our **mailing lists**, **slack space**
