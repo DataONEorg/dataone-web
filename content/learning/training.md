@@ -28,8 +28,8 @@ page_sections:
   background2: ''
   icon: ''
   small_title: test of a content type
-  title: ''
-  intro: ''
+  title: test of a content type
+  intro: why is nothing showing up????
   blocks: []
   button:
     template: ''
