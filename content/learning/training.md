@@ -72,6 +72,10 @@ page_sections:
       name: GitHub
       text: Working collaboratively in git and GitHub
       icon: github
+    - template: item-with-icon
+      name: Workflows
+      text: Building packages for publishing reproducible research
+      icon: database
   button:
     template: ''
     type: external website
