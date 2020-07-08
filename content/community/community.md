@@ -4,7 +4,9 @@ layout: blocks
 description: Information about the DataONE community
 header:
   title: Help Shape the Future of DataONE
-  intro: ''
+  intro: DataONE is a community driven organization. Give feedback and stay appraised
+    of updates and initiatives through our Community Group, or contribute to the future
+    of DataONE as a Community Board member.
   template: ''
   type: center image
   background_color: ''
