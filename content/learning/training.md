@@ -34,18 +34,18 @@ page_sections:
   icon: star
   small_title: In-Person and Remote Training Workshops
   title: Learn Directly from DataONE Experts
-  intro: "Our courses are short, but intensive introductions that will build your
-    skills in a variety of data science topics, ranging from the basics of programming
-    in a new language to advanced computing techniques. They are open to researchers
-    and students from any discipline or sector.\n\nAs an innovator in data management
-    and infrastructure, DataONE has partnered with NCEAS, leaders in data-intensive
-    synthesis research, to offer access to experienced trainers, phenomenal resources,
-    and an inclusive and interactive learning environment. Our instructors are also
-    practitioners active in advancing the field of data science, and are able to incorporate
-    the latest advancements into the curriculum.\n\nWe offer courses at NCEAS in Santa
-    Barbara - and welcome locals and travelers alike! We can also arrange a customized
-    training at your home institution by request.\n\nDue to COVID-19 in-person training
-    is currently postponed. "
+  intro: "An innovator in data management and infrastructure, DataONE has partnered
+    with NCEAS, leaders in data-intensive synthesis research, to offer access to experienced
+    trainers, phenomenal resources, and an inclusive and interactive learning environment.
+    \n\nOur courses are short, but intensive introductions that will build your skills
+    in a variety of data science topics, ranging from the basics of programming in
+    a new language to advanced computing techniques. As active practitioners  in advancing
+    the field of data science, our instructors are able to incorporate the latest
+    advancements into the curriculum.\n\nOpen to researchers and students from any
+    discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome
+    locals and travelers alike! We can also arrange a customized training at your
+    home institution by request.\n\nDue to COVID-19 in-person training is currently
+    postponed."
   blocks:
   - template: columns
     num_cols: 3
@@ -88,6 +88,12 @@ page_sections:
       name: RMarkdown
       text: Literate analysis with RMarkdown
       icon: book-open
+  - template: markdown
+    style: default
+    content: |-
+      Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
+
+      Due to COVID-19 in-person training is currently postponed.
   button:
     template: ''
     type: external website
