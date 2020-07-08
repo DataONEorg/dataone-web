@@ -41,11 +41,7 @@ page_sections:
     in a variety of data science topics, ranging from the basics of programming in
     a new language to advanced computing techniques. As active practitioners  in advancing
     the field of data science, our instructors are able to incorporate the latest
-    advancements into the curriculum.\n\nOpen to researchers and students from any
-    discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome
-    locals and travelers alike! We can also arrange a customized training at your
-    home institution by request.\n\nDue to COVID-19 in-person training is currently
-    postponed."
+    advancements into the curriculum.\n\nCurriculum at a glance"
   blocks:
   - template: columns
     num_cols: 3
@@ -103,8 +99,8 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
-- type: card
-  background: topography
+- type: split
+  background: rare-accent-color
   small_title: ''
   title: Upcoming Training
   intro: 'We are currently adapting our 5-day, in-person short course for remote delivery.
