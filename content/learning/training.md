@@ -17,8 +17,8 @@ header:
   buttons: []
   image:
     template: ''
-    src: "/uploads/ambertraining.JPG"
-    alttext: ''
+    src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
+    alttext: Training
     type: default
     overlay_effect: subtle
   pill:
