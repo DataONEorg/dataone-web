@@ -41,7 +41,7 @@ page_sections:
   blocks:
   - template: markdown
     style: default
-    content: "####**Curriculum At A Glance**"
+    content: "**Curriculum At A Glance**"
   - template: columns
     num_cols: 3
     alignment: left
@@ -89,9 +89,6 @@ page_sections:
       Open to researchers and students from any discipline or sector, we offer courses at NCEAS in Santa Barbara - and welcome locals and travelers alike! We can also arrange a customized training at your home institution by request.
 
       \*Due to COVID-19 in-person training is currently postponed.
-  - template: markdown
-    style: default
-    content: "**Curriculum At A Glance**"
   button:
     template: ''
     type: external website
