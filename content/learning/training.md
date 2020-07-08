@@ -19,7 +19,7 @@ header:
     template: ''
     src: "/uploads/ambertraining.JPG"
     alttext: ''
-    type: default
+    type: cover
     overlay_effect: ''
   pill:
     template: ''
