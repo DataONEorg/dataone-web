@@ -80,6 +80,14 @@ page_sections:
       name: Data visualization
       text: Working with ggplot and leaflet
       icon: map
+    - template: item-with-icon
+      name: GitHub pages
+      text: Publishing analytical webpages with GitHub pages
+      icon: globe
+    - template: item-with-icon
+      name: RMarkdown
+      text: Literate analysis with RMarkdown
+      icon: book-open
   button:
     template: ''
     type: external website
