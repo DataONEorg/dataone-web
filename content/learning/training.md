@@ -9,7 +9,14 @@ header:
   background_color: default
   title: Data Management Training
   intro: Learn directly from DataONE experts
-  buttons: []
+  buttons:
+  - template: button
+    type: external website
+    color: secondary
+    internal_link: []
+    text: Visit our Skillbuilding Hub for Lessons and Best Practices
+    external_link: https://dataoneorg.github.io/Education/
+    icon: ''
   image:
     template: ''
     src: ''
