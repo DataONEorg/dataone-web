@@ -57,7 +57,7 @@ page_sections:
     - template: item-with-icon
       name: Metadata
       text: What is it and how to write a quality data description
-      icon: codepen
+      icon: edit-3
     - template: item-with-icon
       name: Data Modeling
       text: Tidy data for efficient access and storage
