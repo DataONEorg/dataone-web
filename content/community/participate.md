@@ -159,11 +159,11 @@ page_sections:
       button:
         template: button
         type: internal page
-        color: secondary
+        color: quaternary
         internal_link: []
         text: ''
         external_link: ''
-        icon: ''
+        icon: search
       image:
         template: image
         type: default
