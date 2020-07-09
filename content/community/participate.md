@@ -280,6 +280,41 @@ page_sections:
       href: ''
       subtitle: ''
       tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: ''
+        color: ''
+        internal_link: []
+        icon: ''
+        text: ''
+        external_link: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Join our mailing list and Slack space
+      description: 'There are many ways to connect with DataONE. You can follow us
+        on [twitter](https://twitter.com/DataONEorg),  reach out to us at [support@dataone.org](mailto:
+        support@dataone.org), join us on [slack](https://slack.dataone.org) or subscribe
+        to our mailing list below.'
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
     alignment: ''
     layout: ''
   template: ''
