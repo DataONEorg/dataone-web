@@ -64,7 +64,7 @@ page_sections:
     icon: ''
   template: ''
   type: card
-  background: wave
+  background: topography
   background_image: ''
   background2: ''
   icon: calendar
