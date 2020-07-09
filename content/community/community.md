@@ -8,7 +8,7 @@ header:
     of updates and initiatives through our Community Group, or contribute to the future
     of DataONE as a Community Board member.
   template: ''
-  type: image on right
+  type: center image
   background_color: ''
   image:
     template: ''
