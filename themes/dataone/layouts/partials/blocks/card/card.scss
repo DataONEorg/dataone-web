@@ -89,6 +89,23 @@
     }
   }
 
+  // Card color options, that correspond to the `colorClass` field from the card template
+  &.blue{
+    background-color: $ac-blue;
+  }
+  &.beige{
+    background-color: $ac-beige;
+  }
+  &.green{
+    background-color: $ac-green;
+  }
+  &.yellow{
+    background-color: $ac-yellow;
+  }
+  &.purple{
+    background-color: $ac-purple;
+  }
+
 }
 
 .card--image-header {

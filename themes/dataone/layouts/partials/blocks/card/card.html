@@ -20,6 +20,13 @@
   {{- end -}}
 {{- end -}}
 
+<!-- Make a variable that indicates whether there's a class name that corresponds to color CSS -->
+{{- if .Block.colorClass -}}
+  {{- if .Block.colorClass -}}
+    {{- $classes = print $classes " " .Block.colorClass -}}
+  {{- end -}}
+{{- end -}}
+
 <!-- Make a variable that indicates whether there's a button -->
 {{- $hasButton := false -}}
 {{- if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") -}}

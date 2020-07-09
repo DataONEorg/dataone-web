@@ -14,6 +14,10 @@ fields:
   default: false
   description: If set to true, card will link to the URL indicated in the Link field
     and will have a hover effect style
+- name: colorClass
+  type: text
+  label: Card color
+  description: Add a background color to this card. Options - blue, beige, green, purple, yellow
 - type: text
   name: href
   label: Link

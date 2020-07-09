@@ -52,6 +52,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: beige
       title: Search for, use, and share data
       description: Discover data from across an extensive network of data repositories
         through a simple search at [search.dataone.org](https://search.dataone.org/data).
@@ -89,6 +90,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: blue
       title: Contribute data
       description: DataONE is not a repository. DataONE is a federated network of
         data repositories exposing their catalogs through a simple integrated infrastructure.
@@ -126,6 +128,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: yellow
       title: Add your repository to the network
       description: DataONE unites a [network of data repositories](/network/) operated
         by research centers, universities, non-profit organizations, citizen science
@@ -165,6 +168,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: purple
       title: Join the conversation
       description: As a member of our [DataONE Community Group](/community/) you will
         have access to early information on DataONE activities, be able to contribute
@@ -200,6 +204,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: green
       title: Contribute as a Board Member
       description: Contribute to the community's leadership in the DataONE program
         through our [Community Board](/community/)
@@ -233,6 +238,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: blue
       title: Get and teach data skills
       description: |-
         Learning directly from DataONE experts through in-person and remote [training events](/training/). These courses are short but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques, supporting you in working collaboratively and increasing research efficiency.
@@ -268,6 +274,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: beige
       title: Participate in open source software development
       description: DataONE welcomes contributions and collaborations with all who
         are interested in helping the goals of meeting the needs of science and society
@@ -306,6 +313,7 @@ page_sections:
         overlay_effect: none
         src: ''
         alttext: ''
+      colorClass: yellow
       title: Join our mailing list and Slack space
       description: 'There are many ways to connect with DataONE. You can follow us
         on [twitter](https://twitter.com/DataONEorg),  reach out to us at [support@dataone.org](mailto:
