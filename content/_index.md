@@ -208,7 +208,7 @@ page_sections:
       type: internal page
       color: quaternary
       text: Learn more about DataONE
-      internal_link: about/_index.md
+      internal_link: about/about.md
       external_link: ''
       icon: ''
     details: []
