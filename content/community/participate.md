@@ -242,6 +242,44 @@ page_sections:
       href: ''
       subtitle: ''
       tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: internal page
+        color: secondary
+        internal_link: []
+        text: ''
+        external_link: ''
+        icon: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Participate in open source software development
+      description: DataONE welcomes contributions and collaborations with all who
+        are interested in helping the goals of meeting the needs of science and society
+        for open, persistent, robust, and secure access to well-described and easily
+        discovered research data. Our infrastructure is built on top of many open
+        source tools, and we will continue to support that movement as a means of
+        advancing science. Check out our [GitHub repositories](https://github.com/dataoneorg)
+        for ways to contribute.
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
     alignment: ''
     layout: ''
   template: ''
