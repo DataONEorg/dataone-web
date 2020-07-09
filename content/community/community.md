@@ -49,6 +49,8 @@ page_sections:
   id: ''
 - title: DataONE Community Meeting
   intro: |-
+    ![](/uploads/savethedate2020.png)
+
     We are excited to update the DataONE Community on soon-to-be-released products and services as part of our upcoming DataONE Community Meeting. Join us online August 11th - 13th 2020 for one or all of nine 90m sessions focussed on program updates, hackathons, repository network meetings, feature tutorials and more. Full details coming soon.
 
     Registration is free and you can pre-register your interest below.
