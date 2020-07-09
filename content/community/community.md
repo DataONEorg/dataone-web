@@ -53,7 +53,7 @@ page_sections:
   title: DataONE Community Board
   intro: lorem ipsum
   template: ''
-  background_image: "/uploads/jordon-conner-tir-pwgsyb4-unsplash.jpg"
+  background_image: "/uploads/nine-kopfer-iPbwEiWkVMQ-unsplash.jpg"
   background2: ''
   small_title: ''
   blocks: []
