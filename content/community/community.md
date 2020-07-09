@@ -73,7 +73,7 @@ page_sections:
     overlay_effect: none
     src: "/uploads/savethedatesched.png"
     alttext: ''
-  id: ''
+  id: Community Meeting
 - type: default
   background: subtle-emphasis
   icon: users
