@@ -39,12 +39,12 @@ page_sections:
     internal_link: ''
     icon: ''
   template: ''
-  type: ''
-  background: ''
+  type: card
+  background: data-wave
   background_image: ''
   background2: ''
-  icon: ''
-  small_title: ''
+  icon: calendar
+  small_title: '2020'
   blocks: []
   id: ''
 - template: ''
