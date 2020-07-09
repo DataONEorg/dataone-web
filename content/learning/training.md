@@ -36,7 +36,7 @@ page_sections:
   background: topography
   background_image: ''
   background2: ''
-  icon: star
+  icon: shield
   small_title: In-Person and Remote Training Workshops
   title: Learn Directly from DataONE Experts
   blocks:
@@ -77,7 +77,7 @@ page_sections:
     - template: item-with-icon
       name: Workflows
       text: Packages for publishing reproducible research
-      icon: file-plus
+      icon: package
     - template: item-with-icon
       name: Data visualization
       text: Working with ggplot and leaflet
