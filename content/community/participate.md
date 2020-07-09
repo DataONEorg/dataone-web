@@ -34,7 +34,7 @@ page_sections:
       content:
       - template: markdown
         style: default
-        content: Discover data from across an extensive network of data repositories through a simple search at [search.dataone.org](search.dataone.org). Download accessible data, explore data usage and citation through the metrics display, and easily cite used data with our quick click citation button. We have over [800K datasets](https://search.dataone.org/profile) from a network of 44 repositories ready to be explored.
+        content: Discover data from across an extensive network of data repositories through a simple search at [search.dataone.org](https://search.dataone.org/data). Download accessible data, explore data usage and citation through the metrics display, and easily cite used data with our quick click citation button. We have over [800K datasets](https://search.dataone.org/profile) from a network of 44 repositories ready to be explored.
     - template: accordion
       heading:
       - template: item-with-icon
