@@ -85,7 +85,7 @@ page_sections:
     - template: item-with-icon
       name: GitHub pages
       text: 'Publishing analytical webpages '
-      icon: globe
+      icon: github
     - template: item-with-icon
       name: RMarkdown
       text: Literate analysis with RMarkdown
