@@ -71,7 +71,7 @@ page_sections:
   - template: image
     type: default
     overlay_effect: none
-    src: "/uploads/savethedate2020.png"
+    src: "/uploads/savethedatesched.png"
     alttext: ''
   id: ''
 - type: default
