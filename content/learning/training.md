@@ -65,7 +65,7 @@ page_sections:
     - template: item-with-icon
       name: Publication
       text: Data publishing, citation and credit
-      icon: award
+      icon: bookmark
     - template: item-with-icon
       name: R
       text: Data munging and writing functions in R
