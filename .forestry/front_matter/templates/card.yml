@@ -17,7 +17,8 @@ fields:
 - name: colorClass
   type: text
   label: Card color
-  description: Add a background color to this card. Options - blue, beige, green, purple, yellow
+  description: Add a background color to this card. Options - blue, beige, green,
+    purple, yellow
 - type: text
   name: href
   label: Link

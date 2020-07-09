@@ -51,7 +51,7 @@ page_sections:
   - template: image
     type: default
     overlay_effect: none
-    src: "/uploads/something-big-is-coming.png"
+    src: "/uploads/something-big.png"
     alttext: ''
   button:
     template: ''
