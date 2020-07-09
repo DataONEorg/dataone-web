@@ -181,6 +181,43 @@ page_sections:
       href: ''
       subtitle: ''
       tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: internal page
+        color: secondary
+        internal_link: []
+        text: ''
+        external_link: ''
+        icon: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Contribute data
+      description: DataONE is not a repository. DataONE is a federated network of
+        data repositories exposing their catalogs through a simple integrated infrastructure.
+        To have your data show in a DataONE search, contribute data to one of our
+        [Member Repositories](/network/) which serve a broad range of domains and
+        data types. Is you preferred data repository not listed? Talk to them about
+        joining our repository network.
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
     alignment: ''
     layout: ''
   template: ''
