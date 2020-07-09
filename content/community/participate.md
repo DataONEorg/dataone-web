@@ -172,12 +172,11 @@ page_sections:
         alttext: ''
       title: Search for, use, and share data
       description: Discover data from across an extensive network of data repositories
-        through a simple search at \[search.dataone.org\]([https://search.dataone.org/data](https://search.dataone.org/data
-        "https://search.dataone.org/data")). Download accessible data, explore data
-        usage and citation through the metrics display, and easily cite used data
-        with our quick click citation button. We have over \[800K datasets\]([https://search.dataone.org/profile](https://search.dataone.org/profile
-        "https://search.dataone.org/profile")) from a network of 44 repositories ready
-        to be explored.
+        through a simple search at [search.dataone.org](https://search.dataone.org/data).
+        Download accessible data, explore data usage and citation through the metrics
+        display, and easily cite used data with our quick click citation button. We
+        have over [800K datasets](https://search.dataone.org/profile) from a network
+        of 44 repositories ready to be explored.
       clickable: false
       href: ''
       subtitle: ''
