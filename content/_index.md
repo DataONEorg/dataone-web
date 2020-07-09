@@ -117,23 +117,29 @@ page_sections:
       icon: award
       content:
       - template: card
-        href: https://dataoneorg.github.io/Education/bp_step/integrate/
+        href: https://dataoneorg.github.io/Education/bestpractices/provide-budget-information
         title: Best Practice
-        subtitle: Integrate
+        subtitle: " Provide budget information for your data management plan"
         clickable: true
         pill:
           template: pill
           text: Featured skill
           style: primary
-        description: Learn how data from multiple sources can be combined into a form
-          that can be readily analyzed.
+        description: As a best practice, one must first acknowledge that the process
+          of managing data will incur costs. Researchers should plan to address these
+          costs and the allocation of resources in the early planning phases of the
+          project. This best practice focuses on data management costs during the
+          life cycle of the project, and does not aim to address costs of data beyond
+          the end of the project.
         image:
           template: image
           src: "/uploads/integrate.png"
           alttext: World map shown with Robinson projection
           type: default
           overlay_effect: ''
-        tags: []
+        tags:
+        - Plan
+        - Integrate
         datetime:
           template: ''
           time: ''
