@@ -49,7 +49,7 @@ page_sections:
   id: ''
 - title: DataONE Community Meeting
   intro: |-
-    We are excited to update the DataONE Community on soon-to-be-released products and services as part of our upcoming DataONE Community Meeting. Join us online August 11th - 13th 2020 for one or all of nine 90m sessions focussed on program updates, hackathons, repository network meetings, feature tutorials and more. Full details coming soon.
+    We are excited to update the DataONE Community on soon-to-be-released products and services as part of our upcoming DataONE Community Meeting. Join us online August 11th - 13th 2020 for one or all of nine 90 minute sessions focused on program updates, hackathons, repository network meetings, feature tutorials and more. Full details coming soon.
 
     Registration is free and you can pre-register your interest below.
   button:
@@ -78,18 +78,12 @@ page_sections:
   background: subtle-emphasis
   icon: users
   title: DataONE Community Board
-  intro: "As DataONE transitions from funded project to sustained program, we have
-    reenvisioned our governance structure to ensure the program more directly integrates
-    the need of our collaborators, participants and users as part of the decision-making
-    for future activities.\n\nWe seek to establish a community and stakeholder driven
-    governance model, where community input will encompass topics conferencing infrastructure,
-    software, services, collaborative proposals, community development and maintenance
-    and assessment.\n\nDataONE Governance Model comprises participants across four
-    primary groups: the Management Team, Advisory Board, DataONE Community and the
-    DataONE Community Board. This community elected Board works to develop and ratifies
-    community guidance to the DataONE Management Team with input from the broader
-    DataONE Community. We welcome expressions of interest with respect to serving
-    on the Board.\n\n  \n  \n "
+  intro: |-
+    As DataONE transitions from funded project to sustained program, we have reenvisioned our governance structure to ensure the program more directly integrates the need of our collaborators, participants and users as part of the decision-making for future activities.
+
+    We seek to establish a community and stakeholder driven governance model where community input will encompass topics including infrastructure, software, services, collaborative proposals, community development and maintenance and assessment.
+
+    DataONE Governance Model comprises participants across four primary groups: the Management Team, Advisory Board, DataONE Community and the DataONE Community Board. This community elected Board works to develop and ratifies community guidance to the DataONE Management Team with input from the broader DataONE Community. We welcome expressions of interest with respect to serving on the Board.
   template: ''
   background_image: "/uploads/nine-kopfer-iPbwEiWkVMQ-unsplash.jpg"
   background2: ''
