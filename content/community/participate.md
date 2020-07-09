@@ -218,6 +218,80 @@ page_sections:
       href: ''
       subtitle: ''
       tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: internal page
+        color: secondary
+        internal_link: []
+        text: ''
+        external_link: ''
+        icon: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Add your repository to the network
+      description: DataONE unites a [network of data repositories](/network/) operated
+        by research centers, universities, non-profit organizations, citizen science
+        initiatives, government and non-government organizations, and the like. Member
+        repositories share data and infrastructure with DataONE and in return, we
+        facilitate user access to data and interoperability between members. [Join
+        the network](/jointhenetwork/) as a member repository and help lead the open
+        data movement! Becoming a member repository is free an open to all types of
+        organizations.
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: internal page
+        color: secondary
+        internal_link: []
+        text: ''
+        external_link: ''
+        icon: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Join the conversation
+      description: As a member of our [DataONE Community Group](/community/) you will
+        have access to early information on DataONE activities, be able to contribute
+        your ideas to our annual Community Meeting and provide input on further directions
+        and activities.
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
     alignment: ''
     layout: ''
   template: ''
