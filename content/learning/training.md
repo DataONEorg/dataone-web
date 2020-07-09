@@ -143,7 +143,7 @@ page_sections:
   background: ''
   background_image: ''
   background2: ''
-  icon: ''
+  icon: award
   small_title: Resources for Teaching and Self Learning
   title: Support Elevated Data Literacy in Your Community
   intro: DataONE lessons and best practices are available through the Data Management
