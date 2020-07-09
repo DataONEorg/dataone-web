@@ -50,12 +50,12 @@ page_sections:
   blocks: []
   button:
     template: ''
-    type: ''
-    color: ''
-    text: ''
+    type: internal page
+    color: primary
+    text: DataONE Community Meeting
     external_link: ''
-    internal_link: ''
-    icon: ''
+    internal_link: community/community.md
+    icon: calendar
   id: ''
 - template: section
   background: wave
