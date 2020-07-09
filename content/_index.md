@@ -133,7 +133,7 @@ page_sections:
           the end of the project.
         image:
           template: image
-          src: "/uploads/integrate.png"
+          src: "/uploads/sharon-mccutcheon-8lnbxtxfgzw-unsplash.jpg"
           alttext: World map shown with Robinson projection
           type: default
           overlay_effect: ''
