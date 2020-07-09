@@ -23,6 +23,30 @@ header:
   buttons: []
 date: 2020-07-08T13:56:29.000-07:00
 page_sections:
+- title: DataONE Community Meeting
+  intro: "We are excited to update the DataONE Community on soon-to-be-released products
+    and services as part of our upcoming DataONE Community Meeting. Join us online
+    August 11th - 13th 2020 for one or all of nine 90m sessions focussed on program
+    updates, hackathons, repository network meetings, feature tutorials and more.
+    Full details coming soon. \n\nRegistration is free and you can pre-register your
+    interest below.   "
+  button:
+    type: external website
+    color: secondary
+    text: Pre-registration for the DataONE Community Meeting
+    template: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  template: ''
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  blocks: []
+  id: ''
 - template: ''
   type: default
   background: image
