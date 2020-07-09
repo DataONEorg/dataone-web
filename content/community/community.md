@@ -59,7 +59,7 @@ page_sections:
     color: secondary
     text: Pre-registration for the DataONE Community Meeting
     template: ''
-    external_link: ''
+    external_link: https://docs.google.com/forms/d/e/1FAIpQLSd3st6XajdDODtp4jGwxGvwaiEnE_6C8qvJx-gqkHAmPAiQTw/viewform?usp=sf_link
     internal_link: ''
     icon: ''
   template: ''
