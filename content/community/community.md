@@ -48,12 +48,12 @@ page_sections:
     icon: ''
   id: ''
 - title: DataONE Community Meeting
-  intro: "We are excited to update the DataONE Community on soon-to-be-released products
-    and services as part of our upcoming DataONE Community Meeting. Join us online
-    August 11th - 13th 2020 for one or all of nine 90m sessions focussed on program
-    updates, hackathons, repository network meetings, feature tutorials and more.
-    Full details coming soon. \n\nRegistration is free and you can pre-register your
-    interest below.   "
+  intro: |-
+    ![](/uploads/savethedate2020.png)
+
+    We are excited to update the DataONE Community on soon-to-be-released products and services as part of our upcoming DataONE Community Meeting. Join us online August 11th - 13th 2020 for one or all of nine 90m sessions focussed on program updates, hackathons, repository network meetings, feature tutorials and more. Full details coming soon.
+
+    Registration is free and you can pre-register your interest below.
   button:
     type: external website
     color: secondary
@@ -69,7 +69,12 @@ page_sections:
   background2: ''
   icon: calendar
   small_title: '2020'
-  blocks: []
+  blocks:
+  - template: image
+    type: default
+    overlay_effect: none
+    src: "/uploads/savethedate2020.png"
+    alttext: ''
   id: ''
 - type: default
   background: subtle-emphasis
