@@ -12,7 +12,7 @@ header:
   background_color: ''
   image:
     template: ''
-    src: "/uploads/savethedate.png"
+    src: "/uploads/savethedate2020.png"
     alttext: Save the Date
     type: ''
     overlay_effect: ''
