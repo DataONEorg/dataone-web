@@ -81,7 +81,7 @@ page_sections:
     - template: item-with-icon
       name: Data visualization
       text: Working with ggplot and leaflet
-      icon: map
+      icon: layout
     - template: item-with-icon
       name: GitHub pages
       text: 'Publishing analytical webpages '
