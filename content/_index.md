@@ -36,10 +36,10 @@ header:
     logos: []
 page_sections:
 - template: section
-  icon: star
+  icon: gift
   type: card
   small_title: Coming Soon
-  title: New Products & Service from DataONE
+  title: New Products & Services from DataONE
   intro: |-
     The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services that are well aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focussed workshops exploring implementation and use.
 
