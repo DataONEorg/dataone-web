@@ -57,7 +57,7 @@ page_sections:
     template: ''
     type: internal page
     color: primary
-    text: DataONE Community Meeting
+    text: Get Ready
     external_link: ''
     internal_link: community/community.md
     icon: calendar
@@ -109,6 +109,7 @@ page_sections:
           internal_link: ''
           icon: ''
         tags: []
+        colorClass: ''
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -163,6 +164,7 @@ page_sections:
           external_link: ''
           internal_link: ''
           icon: ''
+        colorClass: ''
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
