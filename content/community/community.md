@@ -84,7 +84,7 @@ page_sections:
   - template: image
     type: default
     overlay_effect: none
-    src: "/uploads/panel.png"
+    src: "/uploads/board.png"
     alttext: ''
   button:
     template: ''
