@@ -207,6 +207,41 @@ page_sections:
       href: ''
       subtitle: ''
       tags: []
+    - template: card
+      datetime:
+        template: datetime
+        format: 02 Jan 2006
+        style: default
+        time: ''
+        change_timezone: false
+        localize: false
+      pill:
+        template: pill
+        style: secondary
+        text: ''
+      button:
+        template: button
+        type: internal page
+        color: secondary
+        internal_link: []
+        text: ''
+        external_link: ''
+        icon: ''
+      image:
+        template: image
+        type: default
+        overlay_effect: none
+        src: ''
+        alttext: ''
+      title: Get and teach data skills
+      description: |-
+        Learning directly from DataONE experts through in-person and remote [training events](/training/). These courses are short but intensive introductions that will build your skills in a variety of data science topics, ranging from the basics of programming in a new language to advanced computing techniques, supporting you in working collaboratively and increasing research efficiency.
+
+        You can also explore our community [Skillbuilding Hub](https://dataoneorg.github.io/Education/) for CC0 licensed material to use in teaching and for self learning.
+      clickable: false
+      href: ''
+      subtitle: ''
+      tags: []
     alignment: ''
     layout: ''
   template: ''
