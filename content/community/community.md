@@ -75,7 +75,18 @@ page_sections:
   background: subtle-emphasis
   icon: users
   title: DataONE Community Board
-  intro: lorem ipsum
+  intro: "As DataONE transitions from funded project to sustained program, we have
+    reenvisioned our governance structure to ensure the program more directly integrates
+    the need of our collaborators, participants and users as part of the decision-making
+    for future activities.\n\nWe seek to establish a community and stakeholder driven
+    governance model, where community input will encompass topics conferencing infrastructure,
+    software, services, collaborative proposals, community development and maintenance
+    and assessment.\n\nDataONE Governance Model comprises participants across four
+    primary groups: the Management Team, Advisory Board, DataONE Community and the
+    DataONE Community Board. This community elected Board works to develop and ratifies
+    community guidance to the DataONE Management Team with input from the broader
+    DataONE Community. We welcome expressions of interest with respect to serving
+    on the Board.\n\n  \n  \n "
   template: ''
   background_image: "/uploads/nine-kopfer-iPbwEiWkVMQ-unsplash.jpg"
   background2: ''
