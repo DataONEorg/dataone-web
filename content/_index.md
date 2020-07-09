@@ -27,17 +27,33 @@ header:
     use_member_nodes: true
     button:
       template: button
-      type: "internal page"
-      color: "quaternary"
-      text: "Learn about our network"
+      type: internal page
+      color: quaternary
+      text: Learn about our network
       internal_link: "/community/network.md"
+      external_link: ''
+      icon: ''
+    logos: []
 page_sections:
 - template: section
   icon: star
   type: card
-  small_title: 'DataONE Community Meeting'
+  small_title: DataONE Community Meeting
   title: Join us to hear an exciting announcement about products & services from DataONE
-  intro: "Lorem ipsum"
+  intro: Lorem ipsum
+  background: ''
+  background_image: ''
+  background2: ''
+  blocks: []
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 - template: section
   background: wave
   title: The latest updates from DataONE
@@ -53,6 +69,10 @@ page_sections:
         href: "/training/"
         image:
           src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
+          template: ''
+          alttext: ''
+          type: ''
+          overlay_effect: ''
         title: Learn Directly from DataONE Experts
         subtitle: Our 5-day remote short course is coming soon
         clickable: false
@@ -60,12 +80,27 @@ page_sections:
           template: pill
           text: Upcoming training
           style: secondary
-        description: "We are currently adapting our 5-day, in-person short course for remote delivery.
-          This is an exciting opportunity for us to reach a broad community, and we are
-          looking forward to delivering a high quality learning experience, consistent with
-          our in-person events.
-          <br><br>
-          [Sign up](#hear-it-first_latest-updates) be one of the first to know when registration opens."
+        description: We are currently adapting our 5-day, in-person short course for
+          remote delivery. This is an exciting opportunity for us to reach a broad
+          community, and we are looking forward to delivering a high quality learning
+          experience, consistent with our in-person events. <br><br> [Learn more](/training/)
+          about resources and training opportunities through DataONE.
+        datetime:
+          template: ''
+          time: ''
+          change_timezone: false
+          localize: false
+          format: ''
+          style: ''
+        button:
+          template: ''
+          type: ''
+          color: ''
+          text: ''
+          external_link: ''
+          internal_link: ''
+          icon: ''
+        tags: []
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -73,6 +108,9 @@ page_sections:
       - template: page-summary
         type: webinar
         auto_select: true
+        news: ''
+        webinar: ''
+        job: ''
     - title: Featured skill
       annotation: Learn about data management using open source lessons, best practices,
         and videos
@@ -94,7 +132,23 @@ page_sections:
           src: "/uploads/integrate.png"
           alttext: World map shown with Robinson projection
           type: default
+          overlay_effect: ''
         tags: []
+        datetime:
+          template: ''
+          time: ''
+          change_timezone: false
+          localize: false
+          format: ''
+          style: ''
+        button:
+          template: ''
+          type: ''
+          color: ''
+          text: ''
+          external_link: ''
+          internal_link: ''
+          icon: ''
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
@@ -106,6 +160,22 @@ page_sections:
         mailing_list_only: true
         precheck_hostedrepo: false
         precheck_plus: false
+    position: ''
+  type: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 - template: section
   type: default
   background: default
@@ -131,7 +201,9 @@ page_sections:
       text: Learn more about DataONE
       internal_link: about/_index.md
       external_link: ''
+      icon: ''
     details: []
+    related_page: ''
   - template: feature-detailed
     headline: Donate
     text: Help DataONE provide and maintain a distributed framework and sustainable
@@ -145,5 +217,29 @@ page_sections:
       color: quaternary
       text: Make a donation
       external_link: ''
+      internal_link: ''
+      icon: ''
+    related_page: ''
+    image:
+      template: ''
+      src: ''
+      alttext: ''
+      type: ''
+      overlay_effect: ''
+    details: []
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 
 ---
