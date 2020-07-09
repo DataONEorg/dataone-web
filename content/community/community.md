@@ -80,7 +80,12 @@ page_sections:
   background_image: "/uploads/nine-kopfer-iPbwEiWkVMQ-unsplash.jpg"
   background2: ''
   small_title: ''
-  blocks: []
+  blocks:
+  - template: image
+    type: default
+    overlay_effect: none
+    src: "/uploads/panel.png"
+    alttext: ''
   button:
     template: ''
     type: ''
