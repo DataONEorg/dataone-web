@@ -47,12 +47,7 @@ page_sections:
   background: ''
   background_image: ''
   background2: ''
-  blocks:
-  - template: image
-    type: default
-    overlay_effect: none
-    src: "/uploads/teaser.png"
-    alttext: ''
+  blocks: []
   button:
     template: ''
     type: internal page
