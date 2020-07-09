@@ -28,14 +28,18 @@ page_sections:
   intro: When you join the DataONE network, your organization becomes a leader in
     the open data movement. In addition, your data is more discoverable, your infrastructure
     is more reliable, and your citation and collaboration opportunities are bolstered.
-    DataONE's flexible architecture and software products allow practically any
-    organization wishing to join our network to do so. [Get in touch](/contact/) to start the onboarding
+    DataONE's flexible architecture and software products allow practically any organization
+    wishing to join our network to do so. [Get in touch](/contact/) to start the onboarding
     process, or to find out more.
   blocks:
   - template: markdown
     style: info
-    content: " :bulb: **Joining our network as a member repository is free, and just one of several ways to participate in DataONE** :bulb: <br>
-    By joining the network as a member repository, you automatically become part of the [the DataONE Community](/meetings/), where you can help shape the future of DataONE and join our annual community meetings. The community is open to all individuals and organizations, regardless of membership in the network. Learn about [all the ways to participate](/participate/)."
+    content: " :bulb: **Joining our network as a member repository is free, and just
+      one of several ways to participate in DataONE** :bulb: <br> By joining the network
+      as a member repository, you automatically become part of the [the DataONE Community](/meetings/),
+      where you can help shape the future of DataONE and join our annual community
+      meetings. The community is open to all individuals and organizations, regardless
+      of membership in the network. Learn about [all the ways to participate](/participate/)."
   - template: feature-detailed
     headline: Reach a wider audience
     text: Data collections exposed through the DataONE API are discoverable by a wider
@@ -99,7 +103,7 @@ page_sections:
   background: major-accent-color
   title: The onboarding process
   intro: 'The path to becoming a network member is divided into four phases: **planning**,
-    **development**, **testing**, and **operating**. We will walk you through each
+    **development**, **testing**, and **operation**. We will walk you through each
     of these steps. If you''re eager to read about the process in more detail, see
     [our member deployment documentation](http://jenkins-1.dataone.org/jenkins/job/DataONE-Operations-Manual/ws/operations/_build/html/member_node_deployment/mn_checklist.html).
     Otherwise, just send us a request to get started!'
@@ -112,4 +116,5 @@ menu:
   footer:
     weight: 3
     parent: Community
+
 ---
