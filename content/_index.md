@@ -74,7 +74,7 @@ page_sections:
           type: ''
           overlay_effect: ''
         title: Learn Directly from DataONE Experts
-        subtitle: Our 5-day remote short course is coming soon
+        subtitle: Our newly designed remote short course is coming soon
         clickable: false
         pill:
           template: pill
