@@ -41,9 +41,9 @@ page_sections:
   small_title: Coming Soon
   title: New Products & Services from DataONE
   intro: |-
-    The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services that are well aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focussed workshops exploring implementation and use.
+    The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focussed workshops exploring implementation and use.
 
-    Be sure to join us August 11th -13th for a first look at the new DataONE.
+    Be sure to join us August 11th - 13th for a first look at the new DataONE.
   background: ''
   background_image: ''
   background2: ''
