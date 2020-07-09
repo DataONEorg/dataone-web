@@ -79,7 +79,7 @@ page_sections:
   icon: users
   title: DataONE Community Board
   intro: |-
-    As DataONE transitions from funded project to sustained program, we have reenvisioned our governance structure to ensure the program more directly integrates the need of our collaborators, participants and users as part of the decision-making for future activities.
+    As DataONE transitions from funded project to sustained program, we have reenvisioned our governance structure to ensure the program more directly integrates the voices of our collaborators, participants and users as part of  decision-making for future activities.
 
     We seek to establish a community and stakeholder driven governance model where community input will encompass topics including infrastructure, software, services, collaborative proposals, community development and maintenance and assessment.
 
