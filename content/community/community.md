@@ -32,7 +32,7 @@ page_sections:
   small_title: ''
   title: DataONE Community
   intro: |-
-    The DataONE Community Group is the worldwide community of researchers, information managers, librarians, data authors, users, and diverse stakeholders that makeup the DataONE partnership communities. The primary function of the Community Group is to represent the needs and interests of these communities in the activities of DataONE and provide guidance that informs the development and activities of DataONE, facilitating the organization in achieving its vision and mission.
+    The DataONE Community Group is the worldwide community of researchers, information managers, librarians, data authors, users, and diverse stakeholders that makeup the DataONE partnership communities. The function of the Community Group is twofold: First, to represent the needs and interests of these communities in the activities of DataONE. Second, to provide guidance that informs the development and activities of DataONE, facilitating the organization in achieving its vision and mission.
 
     Members of the Community Group include representatives of the Member Repositories and all other relevant groups (e.g. research networks, professional societies, libraries, academic institutions, data centers, data repositories, environmental observatory networks, educators, scientists, policy makers, administrators, citizen scientists, international organizations, NGOs, private companies, etc.)
 
