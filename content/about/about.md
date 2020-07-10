@@ -28,6 +28,18 @@ page_sections:
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
+    - date: 
+      title: 
+      description:
+    - date: '2015-06-23'
+      title: DataONE Welcomes its First Australian Member Node
+      description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN) as the first Member Node in Australia and the 29th overall to join the federation. TERN is a network-of-networks, somewhat similar to the Long Term Ecological Research Network based in the United States, which also participates with DataONE as a long-term collaborator. 
+    - date: '2014-10-08'
+      title: NSF Awards $15 million to DataONE: Phase II begins
+      description: Founded in 2009, DataONE was designed to provide both the tools and infrastructure for organizing and serving up vast amounts of scientific data, in addition to building an engaged community and developing openly available educational resources. To continue these efforts and build upon  achievements, DataONE was awarded $15 million from the National Science Foundation (NSF) as part of an accomplishment based renewal.
+    - date: '2014-10-06'
+      title: Making Data Count
+      description: The California Digital Library, in partnership with PLOS and DataONE, announce the launch of a new project to develop data-level metrics. Funded by an NSF EAGER grant from the National Science Foundation, the projectwill result in a suite of metrics that track and measure data use. 
     - date: '2014-08-01'
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
@@ -54,10 +66,6 @@ page_sections:
       title: DataONE goes live
       image: uploads/dataone-search.png
       description: DataONE today released technology capable of providing researchers access to globally distributed, networked data from a single point of discovery.
-    - date: '2011-10-07'
-      title: DMPTool goes live
-      image: uploads/dmp-tool-create-plan.png
-      description: The DMP Tool, a collaborative project across seven organizations including DataONE, is launched. The DMPTool helps researchers learn about data management and write guided Data Management Plans (DMPs). 
     - date: '2011-08-22'
       title: DataONE releases learning modules
       description: DataONE learning modules in support of data management training are made available online for widespread use. 
