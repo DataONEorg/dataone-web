@@ -36,7 +36,9 @@ page_sections:
   icon: zap
   small_title: Become a member repository
   title: Amplify the products of your research
-  intro: Join our network as a member repository and help lead the open data movement! Becoming a member repository is free an open to all types of organizations. [Contact us](/contact/) to get started, or [learn more](/jointhenetwork/).
+  intro: Join our network as a member repository and help lead the open data movement!
+    Becoming a member repository is free an open to all types of organizations. [Contact
+    us](/contact/) to get started, or [learn more](/jointhenetwork/).
   type: card
   background: branching-pattern
   blocks:
@@ -63,9 +65,6 @@ page_sections:
     - name: Help shape DataONE's future
       icon: globe
       template: item-with-icon
-  # - template: markdown
-  #   style: info
-  #   content: ":bulb: By joining the network as a member repository, you automatically become part of the [the DataONE Community](/meetings/), where you can help shape the future of DataONE and join our annual community meetings. The community is open to all individuals and organizations, regardless of membership in the network. Learn about all the ways to [participate](/participate/)."
   button:
     template: button
     color: primary
@@ -77,19 +76,19 @@ page_sections:
   background: subtle-emphasis
   title: Repositories currently in our network
   intro: "Member institutions include libraries,\tresearch centers, scientific consortia,\tuniversities,\tmuseums,
-    non-profit\torganizations, citizen science initiatives, corporate divisions and\tgovernmental
+    non-profit\torganizations, citizen science initiatives, corporate divisions, and\tgovernmental
     and non-governmental organizations."
   blocks:
   - template: member-nodes
 menu:
+  footer:
+    name: Member repos
+    weight: 2
+    parent: Community
   primary_nav:
     weight: 1
     parent: Community
     pre: server
     post: Our federated network of data repos
-  footer:
-    weight: 2
-    name: Member repos
-    parent: Community
 
 ---
