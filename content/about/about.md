@@ -25,15 +25,13 @@ page_sections:
     event:
     - date: '2019-01-15'
       title: New leadership transition
-      description: A new management team is formed and administrative oversight of
-        DataONE begins transition to the National Center for Ecological Analysis and
-        Synthesis at UC Santa Barbara.
-   - date: '2018-10-24'
+      description: A new management team is formed and administrative oversight of DataONE begins transition to the National Center for Ecological Analysis and Synthesis at UC Santa Barbara.
+    - date: '2018-10-24'
       title: Implementation of standardized data usage and citation metrics
-      description: DataONE launches metrics visualizations for datasets through the search and discovery platform, https://search.dataone.org. These standardized metrics include live counts of citations, downloads, and views for each dataset in the network.  
+      description: "DataONE launches metrics visualizations for datasets through the search and discovery platform, https://search.dataone.org. These standardized metrics include live counts of citations, downloads, and views for each dataset in the network."
     - date: '2017-05-18'
-      title: Continued investment in data level metrics: Make Data Count
-      description: The Alfred P. Sloan Foundation has made a 2-year, $747K award to DataONE, the California Digital Library and DataCite to support collection of usage and citation metrics for data objects, building on pilot work funded by the National Science Foundation. 
+      title: "Continued investment in data level metrics: Make Data Count"
+      description: "The Alfred P. Sloan Foundation has made a 2-year, $747K award to DataONE, the California Digital Library and DataCite to support collection of usage and citation metrics for data objects, building on pilot work funded by the National Science Foundation. "
     - date: '2016-05-17'
       title: DataONE welcomes its first South American Member Node
       description: DataONE welcomes the Program for Research on Biodiversity (PPBio) Western Amazon as its first Member Node in South America.
@@ -54,8 +52,7 @@ page_sections:
       description: The California Digital Library, PLOS and DataONE are partnering on project to develop data-level metrics. Funded by an NSF EAGER grant, the project will result in a suite of metrics that track and measure data use. 
     - date: '2014-08-01'
       title: NSF Funding renewed
-      description: Funding from the US National Science Foundation renewed through
-        2015.
+      description: Funding from the US National Science Foundation renewed through 2015.
     - date: "2014-06-18"
       title: LTER-Europe joins DataONE
       description: LTER-EU joins DataONE as the first European and 20th repository in the network. 
@@ -83,15 +80,14 @@ page_sections:
       description: DataONE hosts its first Users Group Meeting in Chicago, IL following the International Digital Curation Conference.
     - date: '2009-08-01'
       title: DataONE funded as a part of the NSF DataNet program
-      description: 'DataONE, led by PI William Michener, was funded as one of two
-        DataNet projects '
+      description: 'DataONE, led by PI William Michener, was funded as one of two DataNet projects '
       image: "/uploads/800px-Robinson-projection.jpg"
       button:
         template: button
         type: external website
         color: quaternary
         text: Learn more
-        external_link: https://www.nsf.gov/awardsearch/showAward?AWD_ID=0830944&HistoricalAwards=false
+        external_link: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=0830944&HistoricalAwards=false"
 - template: section
   background: major-accent-color
   title: Contribute

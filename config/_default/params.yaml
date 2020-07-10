@@ -12,7 +12,7 @@ links:
   old_website: https://www.dataone.org
   signin: https://search.dataone.org/signin
   signout: https://search.dataone.org/signout
-  search: https://search.dataone.org
+  search: https://search.dataone.org/data
   metrics: https://search.dataone.org/profile
 prefix: d1_
 joinFormId: join-form
