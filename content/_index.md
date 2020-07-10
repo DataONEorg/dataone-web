@@ -8,7 +8,7 @@ description: Data Observation Network for Earth (DataONE) is the foundation of n
   robust, and secure access to well-described and easily discovered Earth observational
   data.
 header:
-  tagline: Making data more <br> discoverable, accessible & usable
+  tagline: Making data more <br> discoverable, accessible, & usable
   images:
   - "/uploads/hero_images/owen-beard-1PLgow864Zk-unsplash-compressed.jpg"
   - "/uploads/hero_images/jordan-sanchez-GXV2uVv1DrE-unsplash.jpg"
@@ -110,6 +110,7 @@ page_sections:
           icon: ''
         tags: []
         colorClass: ''
+        icon: ''
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -165,6 +166,7 @@ page_sections:
           internal_link: ''
           icon: ''
         colorClass: ''
+        icon: ''
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
