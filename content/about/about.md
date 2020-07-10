@@ -8,7 +8,7 @@ header:
   type: wave with dataone gradient
   title: Enabling new science and knowledge creation through universal access to data
     about life on earth and the environment that sustains it
-  intro: DataONE is a community driven project providing access to data across multiple
+  intro: DataONE is a community driven program providing access to data across multiple
     member repositories, supporting enhanced search and discovery of Earth and environmental
     data. DataONE promotes best practices in data management through responsive educational
     resources and materials. We envision researchers, educators, and the public using
