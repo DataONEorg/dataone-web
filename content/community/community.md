@@ -73,7 +73,7 @@ page_sections:
     overlay_effect: none
     src: "/uploads/savethedatesched.png"
     alttext: ''
-  id: Meeting
+  id: meeting
 - type: default
   background: subtle-emphasis
   icon: users
@@ -116,10 +116,3 @@ menu:
     parent: Community
 
 ---
-![](/uploads/savethedate.png)
-
-* 
-* [Join the DataONE community](/jointhecommunity/)
-* [Join the network as a member repository](/jointhenetwork/)
-* Upcoming community meeting, new products and services will be announced
-* List of meetings

@@ -59,7 +59,7 @@ page_sections:
     color: primary
     text: Get Ready
     external_link: ''
-    internal_link: community/community.md
+    internal_link: community/community.md#meeting
     icon: calendar
   id: ''
 - template: section
