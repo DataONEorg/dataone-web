@@ -28,15 +28,30 @@ page_sections:
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
-    - date: 
-      title: 
-      description:
+   - date: '2018-10-24'
+      title: Implementation of standardized data usage and citation metrics
+      description: DataONE launches metrics visualizations for datasets through the search and discovery platform, https://search.dataone.org. These standardized metrics include live counts of citations, downloads, and views for each dataset in the network.  
+    - date: '2017-05-18'
+      title: Continued investment in data level metrics: Make Data Count
+      description: The Alfred P. Sloan Foundation has made a 2-year, $747K award to DataONE, the California Digital Library and DataCite to support collection of usage and citation metrics for data objects, building on pilot work funded by the National Science Foundation. 
+    - date: '2016-05-17'
+      title: DataONE welcomes its first South American Member Node
+      description: DataONE welcomes the Program for Research on Biodiversity (PPBio) Western Amazon as its first Member Node in South America.
+    - date: '2016-03-23'
+      title: DataONE collaborates with NCEAS and NCEI on new award
+      description: NSF funds NCEAS to develop and curate Arctic research data within the newly established Arctic Data Center. DataONE and NCEI serves as preservation partners in the cooperative award.
+    - date: '2016-01-27'
+      title: ORCiDs, Metrics and Profile Pages
+      description: With integration of ORCiDs, users of DataONE can now access detailed metrics on their uploaded data through our data profiles.
+    - date: '2015-11-17'
+      title: DataONE Search Goes Live
+      description: Launch of the new MetaCat search interface for search and discovery of DataONE available through the federated network.
     - date: '2015-06-23'
       title: DataONE Welcomes its First Australian Member Node
-      description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN) as the first Member Node in Australia and the 29th overall to join the federation. TERN is a network-of-networks, somewhat similar to the Long Term Ecological Research Network based in the United States, which also participates with DataONE as a long-term collaborator. 
+      description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN) as the first Member Node in Australia and the 29th overall to join the federation.  
     - date: '2014-10-06'
       title: Making Data Count
-      description: The California Digital Library, in partnership with PLOS and DataONE, announce the launch of a new project to develop data-level metrics. Funded by an NSF EAGER grant from the National Science Foundation, the projectwill result in a suite of metrics that track and measure data use. 
+      description: The California Digital Library, PLOS and DataONE are partnering on project to develop data-level metrics. Funded by an NSF EAGER grant, the project will result in a suite of metrics that track and measure data use. 
     - date: '2014-08-01'
       title: NSF Funding renewed
       description: Funding from the US National Science Foundation renewed through
@@ -56,9 +71,6 @@ page_sections:
       title: Release of DataONE R client
       image: uploads/dataone_r_code.png
       description: The DataONE R Client, a package for accessing open data in DataONE from within the R environment for statistical computing, is released. 
-    - date: "2012-10-02"
-      title: Launch of DataUP
-      description: California Digital Library (CDL), Microsoft Research Connections and DataONE launch DataUp, a free data management tool and MSExcel add-in.
     - date: '2012-07-23'
       title: DataONE goes live
       image: uploads/dataone-search.png
