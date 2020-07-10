@@ -1,4 +1,5 @@
-{{ $p := .Params.prefix }}
+{{$p := .Params.prefix}}
+
 .card {
   // ==========================================================================
   //    Variables
@@ -16,7 +17,9 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  // #{$prefix}- : var( , );
+  #{$prefix}-c-background : var(--section-c-background-lighter, white);
+  #{$prefix}-c-foreground : var(--section-fc-body, black);
+  
 
   // ==========================================================================
   //    Styles
@@ -27,9 +30,10 @@
   display        : block;
   position       : relative;
   @include card;
-  color          : var(--section-fc-body, black);
+  color          : var(#{$prefix}-c-foreground);
   height         : 100%;
   width          : 100%;
+  background-color: var(#{$prefix}-c-background);
 
   &__pill {
     margin-top: 2rem;
@@ -84,94 +88,133 @@
 
   &__tags {
     margin-top: .3rem;
+
     > * {
       margin-right: .3rem;
     }
   }
 
+  
+  //
   // Card color options, that correspond to the `colorClass` field from the card template
-  &.blue{
-    background-color: $ac-blue;
-  }
-  &.beige{
-    background-color: $ac-beige;
-  }
-  &.green{
-    background-color: $ac-green;
-  }
-  &.yellow{
-    background-color: $ac-yellow;
-  }
-  &.purple{
-    background-color: $ac-purple;
+  // ==========================================================================  
+  &--bkg-blue {
+    #{$prefix}-c-background: $ac-blue;
   }
 
-}
+  &--bkg-beige {
+    #{$prefix}-c-background: $ac-beige;
+  }
 
-.card--image-header {
+  &--bkg-green {
+    #{$prefix}-c-background: $ac-green;
+  }
 
-  $imageHeight: 11rem;
+  &--bkg-yellow {
+    #{$prefix}-c-background: $ac-yellow;
+  }
 
-  .card__image {
-    height       : $imageHeight;
-    position     : absolute;
-    margin-bottom: 20px;
-    top          : 0;
-    left         : 0;
-    z-index      : 0;
-    width        : 100%;
+  &--bkg-purple {
+    #{$prefix}-c-background: $ac-purple;
+  }
+  
+  //
+  // Cards that have icons
+  // ==========================================================================
+  &--has-icon {
+    $icon-size: 3rem;
+    #{$bn}__icon{
+      stroke: var(#{$prefix}-c-foreground);
+      background-color: var(#{$prefix}-c-background);
+      filter: brightness(1.03);
+      position: absolute;
+      height: $icon-size;
+      width: $icon-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius   : 50%;
+      top: 0;
+      margin-top: -0.45 * $icon-size;
+      left: calc(50% - #{$icon-size * 0.5});
+      box-shadow: 0.05rem 0.05rem 0.6rem -0.2rem var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0, 0, 0, 0.4)));
+    }
+  }
+  
 
-    .figure__image {
-      border-radius: var(--br-default, 0.25rem);
+  //
+  // Cards with background images in the header
+  // ==========================================================================
+
+  &--image-header {
+
+    $imageHeight: 11rem;
+
+    #{$bn}__image {
+      height       : $imageHeight;
+      position     : absolute;
+      margin-bottom: 20px;
+      top          : 0;
+      left         : 0;
+      z-index      : 0;
+      width        : 100%;
+
+      .figure__image {
+        border-radius: var(--br-default, 0.25rem);
+      }
+    }
+
+    #{$bn}__image-gradient {
+      background     : linear-gradient(var(--c-shadow-1-on-default) 0%, var(--c-shadow-4-on-default) 50%, rgba(0,0,0,0.6));
+      background-size: cover;
+      position       : absolute;
+      margin-bottom  : 20px;
+      top            : 0;
+      left           : 0;
+      z-index        : 1;
+      height         : $imageHeight;
+      width          : 100%;
+    }
+
+    #{$bn}__pill {
+      margin-left: 20px;
+    }
+
+    #{$bn}__subtitle,
+    #{$bn}__title {
+      color      : white;
+      text-shadow: 0 0 3.7em var(--c-neutral-7), 0 0 .25em var(--c-neutral-6);
+    }
+
+    #{$bn}__titles {
+      position     : absolute;
+      bottom       : 5px;
+      left         : 20px;
+      z-index      : 2;
+      padding-right: 20px;
+    }
+
+    #{$bn}__description {
+      margin-top: $imageHeight + 0.6rem;
     }
   }
 
-  .card__image-gradient {
-    background     : linear-gradient(var(--c-shadow-1-on-default) 0%, var(--c-shadow-4-on-default) 50%, rgba(0,0,0,0.6));
-    background-size: cover;
-    position       : absolute;
-    margin-bottom  : 20px;
-    top            : 0;
-    left           : 0;
-    z-index        : 1;
-    height         : $imageHeight;
-    width          : 100%;
-  }
+  //
+  // Cards that are wraped in an <a> and are clickable
+  // ==========================================================================
+  
+  &--clickable {
+    cursor: pointer;
+    // TODO: re-think .section styles to avoid important tag below
+    // important tag is to overwrite the .section link colours (e.g. .section a:not(.button):visited )
+    // these selectors are used because markdown is rendered in sections without class names.
+    &:not(.{{ $p }}button) {
+      color: var(--section-fc-title, black) !important;
+    }
 
-  .card__pill {
-    margin-left: 20px;
-  }
-
-  .card__subtitle,
-  .card__title {
-    color      : white;
-    text-shadow: 0 0 3.7em var(--c-neutral-7), 0 0 .25em var(--c-neutral-6);
-  }
-
-  .card__titles {
-    position     : absolute;
-    bottom       : 5px;
-    left         : 20px;
-    z-index      : 2;
-    padding-right: 20px;
-  }
-
-  .card__description {
-    margin-top: $imageHeight + 0.6rem;
-  }
-}
-
-.card--clickable {
-  cursor: pointer;
-  // TODO: re-think .section styles to avoid important tag below
-  // important tag is to overwrite the .section link colours (e.g. .section a:not(.button):visited )
-  // these selectors are used because markdown is rendered in sections without class names.
-  &:not(.{{ $p }}button) {
-    color: var(--section-fc-title, black) !important;
-  }
-
-  &:hover {
-    transform : translateY(-0.8px);
-    box-shadow: 5px 6px 27px -14px rgba(0, 0, 0, 0.5);
+    &:hover {
+      transform : translateY(-0.8px);
+      box-shadow: 5px 6px 27px -14px rgba(0, 0, 0, 0.5);
+    }
   }
 }

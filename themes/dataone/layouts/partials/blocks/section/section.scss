@@ -68,11 +68,10 @@
   &__icon {
     display         : flex;
     justify-self    : center;
-    height: $icon-size;
-    width: $icon-size;
-    display: flex;
     align-items: center;
     justify-content: center;
+    height: $icon-size;
+    width: $icon-size;
     margin-top      : 1rem;
     border-radius   : 50%;
     background-color: var(#{$prefix}-c-icon-background);

@@ -14,11 +14,25 @@ fields:
   default: false
   description: If set to true, card will link to the URL indicated in the Link field
     and will have a hover effect style
+- name: icon
+  type: include
+  label: Icon
+  description: An optional icon to display at the top of the section
+  template: icon-names
 - name: colorClass
-  type: text
+  type: select
   label: Card color
-  description: Add a background color to this card. Options - blue, beige, green,
-    purple, yellow
+  description: Add an optional background color to this card.
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - blue
+    - beige
+    - green
+    - purple
+    - yellow
 - type: text
   name: href
   label: Link

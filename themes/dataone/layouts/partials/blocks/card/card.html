@@ -21,10 +21,18 @@
 {{- end -}}
 
 <!-- Make a variable that indicates whether there's a class name that corresponds to color CSS -->
-{{- if .Block.colorClass -}}
-  {{- if .Block.colorClass -}}
-    {{- $classes = print $classes " " .Block.colorClass -}}
+{{- with .Block.colorClass -}}
+  {{- if ne "default" . -}}
+    {{- $classes = printf "%s %s--bkg-%s" $classes $bn . -}}
   {{- end -}}
+{{- end -}}
+
+{{- $icon := "" -}}
+{{- $hasIcon := false -}}
+{{- if eq (printf "%T" .Block.icon) "string" -}}
+  {{- $iconBlock := dict "icon" .Block.icon "size" "medium" "color" "inherit" -}}
+  {{- $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
+  {{- $hasIcon = true -}}
 {{- end -}}
 
 <!-- Make a variable that indicates whether there's a button -->
@@ -38,74 +46,86 @@
   {{- $classes = print $classes " " $bn "--image-header" -}}
 {{- end -}}
 
+<!-- modifer class for cards with icons -->
+{{- if $hasIcon -}}
+  {{- $classes = print $classes " " $bn "--has-icon" -}}
+{{- end -}}
+
 {{- if $isClickable -}}
   <a class="{{- $classes -}} " href="{{- .Block.href -}}">
-  {{- else -}}
-    <div class="{{- $classes -}} ">
-    {{- end -}}
-    <!-- Image (optional) -->
+{{- else -}}
+  <div class="{{- $classes -}} ">
+{{- end -}}
+  <!-- Image (optional) -->
+  {{- if $hasImage -}}
+    <div class="{{- $bn -}}__image">
+      {{- $imageType := (dict "type" "cover") -}}
+      {{- $imageParams :=  merge .Block.image $imageType -}}
+      {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
+    </div>
+    <div class="{{- $bn -}}__image-gradient">
+  {{- end -}}
+  
+  {{- if and $hasIcon $icon -}}
+  <span class = "{{- $bn -}}__icon">
+    {{- $icon -}}
+  </span>
+  {{- end -}}
+
+    <div class="{{- $bn -}}__pill">
+      {{- with .Block.pill -}}
+        {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page ) -}}
+      {{- end -}}
+    </div>
+
+    <div class="{{- $bn -}}__titles">
+      {{- with .Block.title -}}
+        <h3 class="{{- $bn -}}__title">{{- . -}}</h3>
+      {{- end -}}
+      {{- with .Block.subtitle -}}
+        <h4 class="{{- $bn -}}__subtitle">{{- . -}}</h3>
+      {{- end -}}
+    </div>
+    <!-- close the __image-gradient div -->
     {{- if $hasImage -}}
-      <div class="{{- $bn -}}__image">
-        {{- $imageType := (dict "type" "cover") -}}
-        {{- $imageParams :=  merge .Block.image $imageType -}}
-        {{- partial "blocks/image/image" (dict "Block" $imageParams "Page" $page ) -}}
+    </div>
+  {{- end -}}
+
+  {{- with .Block.datetime -}}
+    {{- if and (partial "functions/hasValues" .) (ne .time "") (ne .time " ") -}}
+      <div class="{{- $bn -}}__date">
+        {{- partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) -}}
       </div>
-      <div class="{{- $bn -}}__image-gradient">
+    {{- end -}}
+  {{- end -}}
+
+  {{- with .Block.description -}}
+    {{- $content := . -}}
+    {{- $descClass := printf "%s__description" $bn -}}
+    {{- if not $isClickable -}}
+      {{- $content = $content | markdownify -}}
+      {{- $descClass = print $descClass " markdown" -}}
+    {{- end -}}
+    <div class="{{- $descClass -}}">{{- $content -}}</div>
+  {{- end -}}
+
+  {{- with .Block.tags -}}
+    <div class="{{- $bn -}}__tags">
+      {{- range . -}}
+        {{- partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page ) -}}
       {{- end -}}
+    </div>
+  {{- end -}}
 
-      <div class="{{- $bn -}}__pill">
-        {{- with .Block.pill -}}
-          {{- partial "blocks/pill/pill" (dict "Block" . "Page" $page ) -}}
-        {{- end -}}
-      </div>
-
-      <div class="{{- $bn -}}__titles">
-        {{- with .Block.title -}}
-          <h3 class="{{- $bn -}}__title">{{- . -}}</h3>
-        {{- end -}}
-        {{- with .Block.subtitle -}}
-          <h4 class="{{- $bn -}}__subtitle">{{- . -}}</h3>
-        {{- end -}}
-      </div>
-      <!-- close the __image-gradient div -->
-      {{- if $hasImage -}}
-      </div>
-    {{- end -}}
-
-    {{- with .Block.datetime -}}
-      {{- if and (partial "functions/hasValues" .) (ne .time "") (ne .time " ") -}}
-        <div class="{{- $bn -}}__date">
-          {{- partial "blocks/datetime/datetime" (dict "Block" . "Page" $page ) -}}
-        </div>
-      {{- end -}}
-    {{- end -}}
-
-    {{- with .Block.description -}}
-      {{- $content := . -}}
-      {{- $descClass := printf "%s__description" $bn -}}
-      {{- if not $isClickable -}}
-        {{- $content = $content | markdownify -}}
-        {{- $descClass = print $descClass " markdown" -}}
-      {{- end -}}
-      <div class="{{- $descClass -}}">{{- $content -}}</div>
-    {{- end -}}
-
-    {{- with .Block.tags -}}
-      <div class="{{- $bn -}}__tags">
-        {{- range . -}}
-          {{- partial "blocks/pill/pill" (dict "Block" (dict "text" . "style" "subtle") "Page" $page ) -}}
-        {{- end -}}
-      </div>
-    {{- end -}}
-
-    <!-- Button (optional). Don't show if entire block is clickable -->
-    {{- if and $hasButton (not $isClickable) -}}
-      <div class="{{- $bn -}}__button">
-        {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
-      </div>
-    {{- end -}}
-    {{- if $isClickable -}}
-    </a>
-  {{- else -}}
-  </div>
+  <!-- Button (optional). Don't show if entire block is clickable -->
+  {{- if and $hasButton (not $isClickable) -}}
+    <div class="{{- $bn -}}__button">
+      {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
+    </div>
+  {{- end -}}
+  
+{{- if $isClickable -}}
+</a>
+{{- else -}}
+</div>
 {{- end -}}
