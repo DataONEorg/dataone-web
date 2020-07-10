@@ -30,7 +30,7 @@
 {{- $icon := "" -}}
 {{- $hasIcon := false -}}
 {{- if eq (printf "%T" .Block.icon) "string" -}}
-  {{- $iconBlock := dict "icon" .Block.icon "size" "medium" "color" "inherit" -}}
+  {{- $iconBlock := dict "icon" .Block.icon "size" "large" "color" "inherit" -}}
   {{- $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
   {{- $hasIcon = true -}}
 {{- end -}}

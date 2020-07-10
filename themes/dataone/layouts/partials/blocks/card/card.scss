@@ -97,7 +97,7 @@
   
   //
   // Card color options, that correspond to the `colorClass` field from the card template
-  // ==========================================================================  
+  // ==========================================================================
   &--bkg-blue {
     #{$prefix}-c-background: $ac-blue;
   }
@@ -122,11 +122,13 @@
   // Cards that have icons
   // ==========================================================================
   &--has-icon {
-    $icon-size: 3rem;
+    $icon-size: 4rem;
     #{$bn}__icon{
       stroke: var(#{$prefix}-c-foreground);
-      background-color: var(#{$prefix}-c-background);
-      filter: brightness(1.03);
+      fill: var(#{$prefix}-c-foreground);
+      background-color: var(--section-c-background);
+      border: 3px solid var(#{$prefix}-c-background);
+      filter: brightness(1.02);
       position: absolute;
       height: $icon-size;
       width: $icon-size;
