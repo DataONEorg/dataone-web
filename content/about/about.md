@@ -35,6 +35,7 @@ page_sections:
         search and discovery platform, https://search.dataone.org. These standardized
         metrics include live counts of citations, downloads, and views for each dataset
         in the network.
+      image: "/uploads/metrics_views.png"
     - date: '2017-05-18'
       title: 'Continued investment in data level metrics: Make Data Count'
       description: 'The Alfred P. Sloan Foundation has made a 2-year, $747K award
