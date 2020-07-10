@@ -44,6 +44,7 @@ page_sections:
       title: DataONE welcomes its first South American Member Node
       description: DataONE welcomes the Program for Research on Biodiversity (PPBio)
         Western Amazon as its first Member Node in South America.
+      image: "/uploads/brazilianflag.jpg"
     - date: '2016-03-23'
       title: DataONE collaborates with NCEAS and NCEI on new award
       description: NSF funds NCEAS to develop and curate Arctic research data within
