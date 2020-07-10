@@ -57,6 +57,7 @@ page_sections:
       title: DataONE Search Goes Live
       description: Launch of the new MetaCat search interface for search and discovery
         of DataONE available through the federated network.
+      image: "/uploads/dataonesearch.png"
     - date: '2015-06-23'
       title: DataONE Welcomes its First Australian Member Node
       description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN)
