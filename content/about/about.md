@@ -28,6 +28,7 @@ page_sections:
       description: A new management team is formed and administrative oversight of
         DataONE begins transition to the National Center for Ecological Analysis and
         Synthesis at UC Santa Barbara.
+      image: "/uploads/future.jpg"
     - date: '2018-10-24'
       title: Implementation of standardized data usage and citation metrics
       description: DataONE launches metrics visualizations for datasets through the
