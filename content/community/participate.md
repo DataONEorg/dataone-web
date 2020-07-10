@@ -316,7 +316,7 @@ page_sections:
       colorClass: yellow
       title: Join our mailing list and Slack space
       description: There are many ways to connect with DataONE. You can follow us
-        on [twitter](https://twitter.com/DataONEorg),  reach out to us at [support@dataone.org](),
+        on [twitter](https://twitter.com/DataONEorg),  reach out to us at <support@dataone.org>,
         join us on [slack](https://slack.dataone.org) or subscribe to our mailing
         list at the bottom of this page.
       clickable: false
