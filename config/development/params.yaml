@@ -1,5 +1,5 @@
 links:
-  old_website: https://www.dataone.org
+  old_website: https://old.dataone.org
   signin: http://localhost:3001/signin
   signout: http://localhost:3001/signout
   search: http://localhost:3001/data
