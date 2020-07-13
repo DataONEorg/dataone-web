@@ -50,9 +50,9 @@ fields:
     - auto
     source:
       type: simple
-      section: 
-      file: 
-      path: 
+      section:
+      file:
+      path:
   label: Status
   description: Whether the webinar is upcoming, happening now, or past. Select auto
     to guess the webinar's status based on whether a registration link or vimeoID
@@ -166,4 +166,4 @@ pages:
 - content/webinars/schemaorg-improving-access-data-through-standardized-language.md
 - content/webinars/story-data-won-data-lost-and-data-re-found-realities-ecological-data-preservation.md
 - content/webinars/tidy-ing-your-data-simple-steps-reproducible-research.md
-- content/webinars/what-it-means-be-dataone-member-node—member-nodes-share-their-views.md
+- content/webinars/what-it-means-be-dataone-member-node—member-repositories-share-their-views.md

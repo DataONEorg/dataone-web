@@ -43,9 +43,9 @@ page_sections:
         of usage and citation metrics for data objects, building on pilot work funded
         by the National Science Foundation. '
     - date: '2016-05-17'
-      title: DataONE welcomes its first South American Member Node
+      title: DataONE welcomes its first South American Member Repository
       description: DataONE welcomes the Program for Research on Biodiversity (PPBio)
-        Western Amazon as its first Member Node in South America.
+        Western Amazon as its first Member Repository in South America.
       image: "/uploads/brazilianflag.jpg"
     - date: '2016-03-23'
       title: DataONE collaborates with NCEAS and NCEI on new award
@@ -62,9 +62,9 @@ page_sections:
         of DataONE available through the federated network.
       image: "/uploads/dataonesearch.png"
     - date: '2015-06-23'
-      title: DataONE Welcomes its First Australian Member Node
+      title: DataONE Welcomes its First Australian Member Repository
       description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN)
-        as the first Member Node in Australia and the 29th overall to join the federation.
+        as the first Member Repository in Australia and the 29th overall to join the federation.
       image: "/uploads/joey-csunyo-2eguir00utk-unsplash.jpg"
     - date: '2014-10-06'
       title: Making Data Count
@@ -81,7 +81,7 @@ page_sections:
         in the network.
       image: uploads/lter.jpeg
     - date: '2014-06-18'
-      title: Member Node Dashboard released
+      title: Member Repository Dashboard released
       description: DataONE relases a new dashboard exposing real time information
         on current holdings across the DataONE network of repositories.
     - date: '2013-06-27'

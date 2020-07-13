@@ -11,16 +11,16 @@ disqus_shortname: ''
 vimeoID: 148260577
 slides: ''
 short_abstract: This webinar will introduce the community to DataONE, to the distributed
-  network of DataONE Member Node repositories, the types and volume of data exposed
+  network of DataONE Member Repositories, the types and volume of data exposed
   through the network and provide an overview demonstration of DataONE Search. We
   will then describe the recent changes in our v2 infrastructure and show how these
   advancements allow for new and enhanced features within DataONE Search.
 abstract: DataONE is a community driven project providing access to data across multiple
-  Member Node repositories, supporting enhanced search and discovery of Earth and
+  Member Repositories, supporting enhanced search and discovery of Earth and
   environmental science data. Data and metadata from across this distributed network
   of data centers, science networks and organizations is discoverable through DataONE
   Search, the newly released search and discovery tool. This webinar will introduce
-  the community to DataONE, to the distributed network of DataONE Member Node repositories,
+  the community to DataONE, to the distributed network of DataONE Member Repositories,
   the types and volume of data exposed through the network and provide an overview
   demonstration of DataONE Search. We will then describe the recent changes in our
   v2 infrastructure and show how these advancements allow for new and enhanced features

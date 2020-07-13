@@ -1,6 +1,6 @@
 ---
 title: Join the network
-description: Information about joining the DataONE network as a member node
+description: Information about joining the DataONE network as a member repository
 layout: blocks
 header:
   template: header
@@ -17,7 +17,7 @@ header:
     text: Contact us to join
     color: primary
   - type: internal page
-    internal_link: community/network.md#section__current-member-nodes
+    internal_link: community/network.md#section__current-member-repositories
     template: button
     text: See current members
     color: secondary
@@ -76,7 +76,7 @@ page_sections:
     type: right
   - template: feature-detailed
     headline: Maintain high availability
-    text: DataONE replicates content across Member Nodes. With replicas available
+    text: DataONE replicates content across Member Repositories. With replicas available
       in other locations, the costs associated with serving a world-wide community
       is minimized and availability is optimized.
     details: []
@@ -96,7 +96,7 @@ page_sections:
     image:
       template: image
       src: uploads/enhance-collaboration-opportunities.png
-      alttext: 
+      alttext:
       type: default
     type: right
 - template: section

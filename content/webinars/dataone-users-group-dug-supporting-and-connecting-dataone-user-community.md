@@ -16,11 +16,11 @@ short_abstract: The DataONE Users Group (DUG) is the worldwide community of Eart
   observation data authors, users, and diverse stakeholders that makeup the DataONE
   partnership communities. Karl Benedict and Robert Sandusky, the new DUG co-chairs,
   will introduce their vision for the DUG over the next two years, building on the
-  partnerships developed with DataONE Member Nodes and the broader community.
+  partnerships developed with DataONE Member Repositories and the broader community.
 abstract: |-
   The DataONE Users Group (DUG) is the worldwide community of Earth observation data authors, users, and diverse stakeholders that makeup the DataONE partnership communities. The primary function of the DUG is to represent the needs and interests of these communities in the activities of DataONE. In particular, the DUG provides guidance that facilitates DataONE in achieving its vision and mission.
 
-  Karl Benedict and Robert Sandusky, the new DUG co-chairs, will introduce their vision for the DUG over the next two years, building on the partnerships developed with DataONE Member Nodes and the broader community. Continuing on the success of the annual DUG meetings, the DUG seeks to become a primary venue for repository community discussions, facilitating connections and providing support. There are multiple ways you can help us achieve this vision, the first of which is joining this webinar to learn more.
+  Karl Benedict and Robert Sandusky, the new DUG co-chairs, will introduce their vision for the DUG over the next two years, building on the partnerships developed with DataONE Member Repositories and the broader community. Continuing on the success of the annual DUG meetings, the DUG seeks to become a primary venue for repository community discussions, facilitating connections and providing support. There are multiple ways you can help us achieve this vision, the first of which is joining this webinar to learn more.
 speakers:
 - people/bob-sandusky.md
 - people/karl-benedict.md

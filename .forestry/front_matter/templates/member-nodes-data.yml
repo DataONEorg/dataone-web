@@ -1,5 +1,5 @@
 ---
-label: Member Nodes Data
+label: Member Repositories Data
 hide_body: true
 fields:
 - type: field_group_list
@@ -15,8 +15,8 @@ fields:
   config:
     labelField: category
 - type: field_group_list
-  name: nodes
-  label: Nodes
+  name: repositories
+  label: Repositories
   fields:
   - name: category
     type: select
@@ -24,15 +24,15 @@ fields:
     config:
       required: false
       options:
-      - Upcoming member nodes
-      - Current member nodes
-      - Replication nodes
+      - Upcoming member repositories
+      - Current member repositories
+      - Replication repositories
       - Contributing repositories
       source:
         type: simple
         section: team-members
         file: data/teammembers.yaml
-        path: 
+        path:
     label: Category
     description: The member organization's role
   - type: text
@@ -63,11 +63,11 @@ fields:
       - upcoming
       source:
         type: simple
-        section: member-nodes
+        section: member-repositories
         file: data/membernodes.yaml
-        path: 
+        path:
     label: Status
-    description: The current status of the node
+    description: The current status of the repository
   config:
     labelField: name
 pages:

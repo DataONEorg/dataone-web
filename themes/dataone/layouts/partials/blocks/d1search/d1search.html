@@ -14,7 +14,7 @@
 {{- $buttonParams := dict "type" "search" "text" "search" "hideTextDesktop" "true" "icon" "search" "color" "secondary" "html_tag" "button" "type_attr" "submit" -}}
 
 {{- $placeholder := "Enter a search term" -}}
-{{- $nodesToCount := slice "Current member nodes" "Contributing repositories" -}}
+{{- $nodesToCount := slice "Current member repositories" "Contributing repositories" -}}
 {{- $numNodes:= where $page.Site.Data.membernodes.nodes "category" "in" $nodesToCount | len -}}
 {{- with $numNodes -}}
   {{- $placeholder = printf "Search %d data repositories at once" . -}}

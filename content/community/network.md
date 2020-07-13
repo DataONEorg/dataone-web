@@ -1,7 +1,7 @@
 ---
 title: Member repositories
 date: 2020-01-23
-description: DataONE member nodes
+description: DataONE member repositories
 layout: blocks
 header:
   template: header
@@ -15,7 +15,7 @@ header:
   - text: See who's in the network
     color: secondary
     type: internal_link
-    external_link: "#list-of-member-nodes"
+    external_link: "#list-of-member-repositories"
   image:
     src: uploads/hero_images/usgs-HcX4g7ccucA-unsplash.jpg
     template: image
@@ -72,7 +72,7 @@ page_sections:
     type: internal page
     internal_link: jointhenetwork.md
 - template: section
-  id: list-of-member-nodes
+  id: list-of-member-repositories
   background: subtle-emphasis
   title: Repositories currently in our network
   intro: "Member institutions include libraries,\tresearch centers, scientific consortia,\tuniversities,\tmuseums,

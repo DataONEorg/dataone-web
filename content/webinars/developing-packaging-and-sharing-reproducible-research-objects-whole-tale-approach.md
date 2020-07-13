@@ -40,7 +40,7 @@ abstract: 'It has been recognized for some time now that sharing data is critica
   central element of research tales that interleave scientific explanations, code
   and visualizations. By making it easier to develop, package, share, and execute
   tales, different types of users are supported by the Whole Tale approach: researchers
-  can easily combine data from different sources (e.g., DataONE member nodes), analyze
+  can easily combine data from different sources (e.g., DataONE member repositories), analyze
   and visualize the data, and then bundle up their research products---together with
   the software environment used to generate the products---and share the resulting
   tales. Peers can use the shared tales, e.g., as part of a review process (associated

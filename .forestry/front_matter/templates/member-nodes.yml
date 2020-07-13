@@ -1,9 +1,9 @@
 ---
-label: Member Nodes
+label: Member Repositories
 hide_body: true
 fields:
 - type: text
   name: template
   label: Template
   hidden: true
-  default: member-nodes
+  default: member-repositories
