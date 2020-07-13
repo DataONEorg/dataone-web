@@ -98,7 +98,7 @@ page_sections:
         data repositories exposing their catalogs through a simple integrated infrastructure.
         To have your data show in a DataONE search, contribute data to one of our
         [Member Repositories](/network/) which serve a broad range of domains and
-        data types. Is you preferred data repository not listed? Talk to them about
+        data types. Is your preferred data repository not listed? Talk to them about
         joining our repository network.
       clickable: false
       href: ''
