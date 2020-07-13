@@ -30,9 +30,11 @@
 {{- $icon := "" -}}
 {{- $hasIcon := false -}}
 {{- if eq (printf "%T" .Block.icon) "string" -}}
-  {{- $iconBlock := dict "icon" .Block.icon "size" "large" "color" "inherit" -}}
-  {{- $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
-  {{- $hasIcon = true -}}
+  {{- if .Block.icon }}
+    {{- $iconBlock := dict "icon" .Block.icon "size" "large" "color" "inherit" -}}
+    {{- $icon = partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
+    {{- $hasIcon = true -}}
+  {{- end }}
 {{- end -}}
 
 <!-- Make a variable that indicates whether there's a button -->
