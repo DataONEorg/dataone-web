@@ -26,8 +26,8 @@ fields:
   name: use_member_repositories
   label: Use member repository logos
   default: true
-  description: If set to true, the member repository logos will be used for the logo bar.
-    Otherwise, set logos manually with the Logos field group.
+  description: If set to true, the member repository logos will be used for the logo
+    bar. Otherwise, set logos manually with the Logos field group.
 - name: logos
   type: field_group_list
   label: Logos

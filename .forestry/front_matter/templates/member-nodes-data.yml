@@ -32,7 +32,7 @@ fields:
         type: simple
         section: team-members
         file: data/teammembers.yaml
-        path:
+        path: 
     label: Category
     description: The member organization's role
   - type: text
@@ -65,7 +65,7 @@ fields:
         type: simple
         section: member-repositories
         file: data/membernodes.yaml
-        path:
+        path: 
     label: Status
     description: The current status of the repository
   config:
