@@ -139,7 +139,7 @@ page_sections:
         repositories share data and infrastructure with DataONE and in return, we
         facilitate user access to data and interoperability between members. [Join
         the network](/jointhenetwork/) as a member repository and help lead the open
-        data movement! Becoming a member repository is free an open to all types of
+        data movement! Becoming a member repository is free and open to all types of
         organizations.
       clickable: false
       href: ''
