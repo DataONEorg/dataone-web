@@ -3,6 +3,7 @@
 
 # Ignore the website build directory
 docs/
+build
 
 # History files
 .Rhistory
