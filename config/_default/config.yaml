@@ -1,7 +1,7 @@
 ---
 theme: dataone
 title: DataONE
-baseURL: https://preview.dataone.org
+baseURL: https://dataone.org
 languageCode: en-us
 metaDataFormat: yaml
 pygmentsCodeFences: true
