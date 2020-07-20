@@ -11,9 +11,9 @@
   
     const
         // The full url to the DataONE instance of MetacatUI
-        urlMCUI = "{{- $site.Params.links.search | default `https://search.dataone.org` -}}",
+        urlMCUI = "{{- $site.Params.links.metacatuiBase | default `https://search.dataone.org` -}}",
         // The full url for the Hugo website
-        baseUrl = "{{- $site.BaseURL | default `https://www.dataone.org` -}}",
+        baseUrl = "{{- $site.BaseURL | default `https://dataone.org` -}}",
         // An ID for the iframe that we will create temporarily
         iframeId = "tempIframeId",
         // Check if this script is running from within an iframe, and if the parent is the Hugo website
@@ -33,7 +33,8 @@
   /**  
    * initialize - Function to run once the navbar elements are loaded.
    * Select the elements that we need for other functions and set listeners.
-   * Get user data and update the user profile menu & sub-menu
+   * Get user data and update the user profile menu & sub-menu.
+   * Change some URLs to relative for MetacatUI.
    */   
   block.initialize = function(){
     // When this script is in an iFrame and is within a MetacatUI environment
@@ -41,6 +42,7 @@
       // Send a message to the parent, where the parent is the Hugo website.
       // The message contains the data we need to update the profile menu
       window.parent.postMessage(JSON.stringify(extractUserData(MetacatUI)), baseUrl);
+      // Remove the 
       // Don't do anything else if this is just a MetacatUI iFrame
       return
     }
@@ -63,11 +65,19 @@
       window.addEventListener('message', receiveMessage, false);
       addIframe();
     }
+    
+    // Ensure links are relative in MetacatUI
+    if(isMCUI && !inIframe){
+      block.allMenuLinks.forEach((link, i) => {
+        link.el.href = link.el.href
+          .replace(urlMCUI, "");
+      })
+    }
   }
 
   /**  
    * selectElements - Select all of the elements that will be updated, make them
-   * accessible to other functions
+   * accessible to other functions by saving them to the block object
    */   
   const selectElements = function(){
     // Select elements that we will manipulate
@@ -85,10 +95,16 @@
     block.profileText   = block.profile.querySelector(".{{ $p }}menu-item__top-item-name");
     block.profileTerm   = block.profileText.innerHTML;
     
+    // All the menu link
+    block.allMenuLinks = [];
+    document.querySelectorAll(".{{ $p }}menu-item a").forEach((link, i) => {
+      block.allMenuLinks[i] = { el: link }
+    });
+    
     // Get the dropdown buttons with corresponding submenus
     block.dropdownEls = [];
     document.querySelectorAll(".{{ $p }}menu-item--dropdown").forEach((container, i) => {
-      {{ $bn }}.dropdownEls[i] = {
+      block.dropdownEls[i] = {
         container : container,
         button    : container.querySelector("button"),
         submenu   : container.querySelector(".{{ $p }}menu-item__sub-menu")
@@ -232,16 +248,20 @@
       }
       showMenu(block.profile);
       hideMenu(block.signin);
+      
       // Change the button links to user profile
       block.profileLinkEls.forEach((link, i) => {
         
+        // Make the path relative in MetacatUI
+        const baseProfileUrl = (isMCUI && !inWebsiteIframe) ? "" : urlMCUI;
         link.el.href = link.el.href
-          .replace(/^.*?SEARCH/, urlMCUI)
-          .replace(/USERNAME/, data.username);
-        
-        if(link.el.title.toLowerCase() === "my profile") {
+          .replace(/USERNAME/, data.username)
+          .replace(/^.*?SEARCH/, baseProfileUrl);
+
+        // Hide the portals menu item if set to be hidden in MetacatUI
+        if(link.el.title.toLowerCase() === "my portals") {
           if(!data.showPortals){
-            link.el.display = "none"
+            link.el.style.display = "none"
           }
         }
       });

@@ -95,6 +95,12 @@
       transition: transform $hover-transition;
       stroke    : var(#{$prefix}-fc-top-hover);
     }
+    
+    #{$bn}__icon {
+      fill      : var(#{$prefix}-fc-top-hover);
+      stroke    : var(#{$prefix}-fc-top-hover);
+      transition: fill $hover-transition, stroke $hover-transition;
+    }
 
   }
 
@@ -133,13 +139,6 @@
       align-items: center;
     }
 
-    &:hover {
-      #{$bn}__icon {
-        fill      : var(#{$prefix}-fc-top-hover);
-        stroke    : var(#{$prefix}-fc-top-hover);
-        transition: fill $hover-transition, stroke $hover-transition;
-      }
-    }
   }
 
   &__icon {
@@ -345,6 +344,17 @@
 
     #{$bn}__sub-menu-arrow {
       background-color: #187892;
+    }
+  }
+  
+  /* Emphasize the sign-in/name the navbar */
+  &--profile {
+    
+    #{$bn}__top-item-name {
+      font-weight: var(--fw-x-bold);
+    }
+    #{$bn}__dropdown-icon svg, #{$bn}__icon svg{
+      stroke-width: 2.5px;
     }
   }
 

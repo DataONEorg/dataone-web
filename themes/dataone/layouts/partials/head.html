@@ -43,7 +43,7 @@
           {{- $path := printf `fonts/%s-%s.%s` $face $weight $type  -}}
           {{- $pathHugo := printf `themes/dataone/static/%s` $path  -}}
           {{- if (fileExists $pathHugo) -}}
-            <link rel="preload" as="font" type="font/{{ $type }}" href="{{ $path | absURL}}" crossorigin="anonymous">
+            <link rel="preload" as="font" type="font/{{ $type }}" href="{{ $path }}" crossorigin="anonymous">
           {{- end -}}
         {{- end -}}
       {{- end -}}

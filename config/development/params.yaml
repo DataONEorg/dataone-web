@@ -3,4 +3,5 @@ links:
   signin: http://localhost:3001/signin
   signout: http://localhost:3001/signout
   search: http://localhost:3001/data
+  metacatuiBase: http://localhost:3001
   metrics: http://localhost:3001/profile
