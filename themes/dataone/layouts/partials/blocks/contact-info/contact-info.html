@@ -69,7 +69,7 @@
       <a class="{{- $bn -}}__social-link" href="{{- $slackAddress -}}" title="Email DataONE">
         {{- $slackIcon -}}
       </a>
-      <a class="{{- $bn -}}__social-link" href="{{- $contactLink -}}" title="See DataONE's mailing address">
+      <a class="{{- $bn -}}__social-link" href="{{- $contactLink | absURL -}}" title="See DataONE's mailing address">
         {{- $locationIcon -}}
       </a>
     {{- end -}}
