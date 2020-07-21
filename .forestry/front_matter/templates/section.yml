@@ -36,6 +36,7 @@ fields:
     - rare-accent-color
     - dark
     - data-wave
+    - data-wave-subtle
     - wave
     - map
     - topography
@@ -69,6 +70,7 @@ fields:
     - rare-accent-color
     - dark
     - data-wave
+    - data-wave-subtle
     - wave
     - map
     - topography

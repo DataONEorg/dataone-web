@@ -37,6 +37,7 @@ header:
     use_member_repositories: false
 page_sections:
 - template: section
+  background: data-wave-subtle
   icon: gift
   small_title: Coming soon
   title: New Products & Services from DataONE

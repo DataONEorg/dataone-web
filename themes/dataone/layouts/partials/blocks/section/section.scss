@@ -263,6 +263,26 @@
       }
     }
   }
+  
+  //
+  // Data wave subtle: Same as above, but lighter colors
+  // ==========================================================================
+
+  &--bkg-data-wave-subtle {
+    #{$bn}__svg-background {
+      // the "data-wave" background is actually two layered SVGs,
+      // such that the background gradient can have preserveAspectRatio = none
+      // and the shape elements above can keep their aspect ratio
+      svg:first-of-type {
+        height: 100%;
+      }
+      svg {
+        position: absolute;
+        top     : 0;
+        left    : 0;
+      }
+    }
+  }
 
   //
   // Map: An aerial view of Santa Barbara
