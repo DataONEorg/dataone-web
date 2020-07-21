@@ -7,7 +7,7 @@
 
   <!-- See head.html for decision about whether to render page -->
   {{- if (.Scratch.Get "renderPage") -}}
-  
+
     <body class="page">
 
       <!-- Fade page in once loaded to avoid flash of unstyled content -->
@@ -57,7 +57,8 @@
       {{- if not $page.Site.IsServer -}}
         {{- $js = $js | resources.Minify -}}
       {{- end -}}
-      <script src="{{- $js.Permalink -}}"></script>
+      {{- $version := now.Format "2006-01-02_15.04.05_-0700" -}}
+      <script src="{{- $js.Permalink -}}?v={{ $version }}"></script>
 
       <!-- For debugging CSS: -->
       <!-- find elements that expand past screen width (esp. on mobile) -->

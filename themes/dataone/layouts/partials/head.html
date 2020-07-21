@@ -8,7 +8,7 @@
   {{- if not $pageTitle -}}
     {{ $pageTitle = .Params.fullname -}}
   {{- end -}}
-  
+
   <!-- Save the renderPage decision in a scratch variable so it can be accessed by _default.html as well -->
   {{- .Scratch.Set "renderPage" true -}}
 
@@ -16,7 +16,7 @@
   <!-- Some pages aren't rendered because we only need the content from them, we don't need the pages. -->
   <!-- EG. some feature pages serve as "headless bundles". We use data in -->
   <!-- the page for the feature table, but we don't want to make a page for it. -->
-  <!-- For now, don't show people pages. To show just pages for D1 member, add (not (partial "functions/isD1member" $)) to the last conditional  -->
+  <!-- For now, don't show people pages. To show just pages for D1 member, add (not (partial "functions/isD1member" $)) to the last conditional -->
   {{ if or (eq $.Params.render_page false) (eq $.Params.render_page "false") (eq $.Params._build.render false) (and (eq $.Type "people") (eq $.Kind "page")) }}
     {{- .Scratch.Set "renderPage" false -}}
     <meta name="robots" content="noindex">
@@ -38,11 +38,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
     <meta name="date" content='{{ now.Format "January 2, 2006 15:04:05 MST" }}'>
-    <title>{{ $pageTitle }} | DataONE </title>
+    <title>{{ $pageTitle }}
+      | DataONE
+    </title>
     {{- partial "favicon.html" . -}}
     <link rel="canonical" href="{{ .Permalink }}">
 
-    <!-- Font font weights that we use, see themes/dataone/assets/scss/root.scss  -->
+    <!-- Font font weights that we use, see themes/dataone/assets/scss/root.scss -->
     {{- $fontWeights := slice "300" "regular" "500" "600" "700" "900" -}}
     {{- $fontTypes := slice "woff" "woff2" -}}
     {{- $fontFaces := slice "martel-v4-latin" "work-sans-v5-latin" -}}
@@ -57,13 +59,15 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-    
+
     {{- $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir)) -}}
     {{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $.Site | toCSS $options -}}
     {{- if not $page.Site.IsServer -}}
       {{- $style = $style | minify -}}
     {{- end -}}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    <!-- Make a 'version' string -->
+    {{- $version := now.Format "2006-01-02_15.04.05_-0700" -}}
+    <link rel="stylesheet" href="{{ $style.Permalink }}?v={{ $version }}" integrity="{{ $style.Data.Integrity }}">
 
   {{ end }}
 
