@@ -1,15 +1,24 @@
 <head>
 
-  {{ $page := . }}
-  {{ $pageTitle := .Title }}
-  {{ if not $pageTitle }}
-    {{ $pageTitle = .Params.header.title }}
-  {{ end }}
-  {{ if not $pageTitle }}
-    {{ $pageTitle = .Params.fullname }}
-  {{ end }}
+  {{- $page := . -}}
+  {{- $pageTitle := .Title -}}
+  {{- if not $pageTitle -}}
+    {{ $pageTitle = .Params.header.title -}}
+  {{- end -}}
+  {{- if not $pageTitle -}}
+    {{ $pageTitle = .Params.fullname -}}
+  {{- end -}}
+  
+  <!-- Save the renderPage decision in a scratch variable so it can be accessed by _default.html as well -->
+  {{- .Scratch.Set "renderPage" true -}}
 
-  {{ if or (eq $.Params.render_page false) (eq $.Params.render_page "false") (and (eq $.Type "people") (eq $.Kind "page") (not (partial "functions/isD1member" $))) }}
+  <!-- Decision rule about whether to render the page. -->
+  <!-- Some pages aren't rendered because we only need the content from them, we don't need the pages. -->
+  <!-- EG. some feature pages serve as "headless bundles". We use data in -->
+  <!-- the page for the feature table, but we don't want to make a page for it. -->
+  <!-- For now, don't show people pages. To show just pages for D1 member, add (not (partial "functions/isD1member" $)) to the last conditional  -->
+  {{ if or (eq $.Params.render_page false) (eq $.Params.render_page "false") (eq $.Params._build.render false) (and (eq $.Type "people") (eq $.Kind "page")) }}
+    {{- .Scratch.Set "renderPage" false -}}
     <meta name="robots" content="noindex">
     <meta http-equiv="refresh" content="0; url=/"/>
   {{ else }}

@@ -138,7 +138,9 @@
           <!-- we don't actually render pages for non-team members -->
           {{- $url := "" -}}
           {{- $moreInfoButton := "" -}}
-          {{- if partial "functions/isD1member" $personPage -}}
+          <!-- For now, don't show the button that links to the person page as we are not ready to show those yet. -->
+          <!-- To turn these buttons back on, remove the (false) conditional -->
+          {{- if and (partial "functions/isD1member" $personPage) (false) -}}
             {{- $moreInfoBlock := dict "template" "button" "type" "internal page" "color" "quaternary" "text" "More info" "internal_link" $personPage.File.Path -}}
             {{- $moreInfoButton = partial "blocks/button/button" (dict "Block" $moreInfoBlock "Page" $page ) -}}
             {{- $moreInfoButton = printf `<span class="%s__button">%s</span>` $bn $moreInfoButton | safeHTML -}}
