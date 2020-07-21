@@ -1,5 +1,6 @@
 {{- $page := .Page -}}
-{{- $metrics := .Page.Site.Data.metrics -}}
+{{- $metrics := .Page.Site.Data.metrics.metrics -}}
+{{- $dateUpdated := .Page.Site.Data.metrics.updated -}}
 <!-- bn = block name -->
 {{- $bn := "metrics" -}}
 
@@ -57,7 +58,7 @@
   </div>
 
   <span class="{{- $bn -}}__as-of-date">as of
-    {{- $dateBlock := dict "change_timezone" false "localize" false "format" "January 2, 2006" "time" "2020-04-20" -}}
+    {{- $dateBlock := dict "change_timezone" false "localize" false "format" "January 2, 2006" "time" $dateUpdated -}}
     {{- partial "blocks/datetime/datetime" (dict "Block" $dateBlock "Page" $page) -}}
   </span>
 

@@ -227,8 +227,10 @@
       border-radius   : var(--br-default, .25rem);
       color           : var(--section-c-accent, black);
       background-color: var(--section-c-background-lighter, white);
-      filter: brightness(1.1);
-      stroke: var(--section-c-accent, black);
+      filter: brightness(1.04);
+      #{$bn}__icon {
+        stroke: var(--section-c-accent, black);
+      }
     }
     
   }

@@ -1,5 +1,8 @@
 {
-  "downloads": 13449248,
-  "views": 15039765,
-  "datasets": 820654
+  "metrics": {
+    "downloads": 17035500,
+    "views": 18427604,
+    "datasets": 822236
+  },
+  "updated": "2020-07-21"
 }

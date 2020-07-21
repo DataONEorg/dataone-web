@@ -20,26 +20,28 @@
   {{- $bkgImg = printf ` style="--background-image:url('%s');"` $imageResource.RelPermalink | safeHTMLAttr  -}}
 {{- end -}}
 
-<header id="homepage_header" class="header header--hero-image header--overlay-subtle header--homepage" {{- $bkgImg -}}>
-  <div class="header__content">
-    <div class="header__logo">
+<header id="homepage_header" class="{{ $bn }} {{ $bn }}--hero-image {{ $bn }}--overlay-subtle {{ $bn }}--homepage" {{- $bkgImg -}}>
+  <div class="{{- $bn -}}__content">
+    <div class="{{- $bn -}}__logo">
 
       {{- partial "blocks/logo/logo" (dict "Page" $page "Block" (dict "type" "homepage") "Page" $page ) -}}
     </div>
 
     {{- with $tagline -}}
-      <div class="header__tagline markdown">
+      <div class="{{- $bn -}}__tagline markdown">
         {{- $tagline | markdownify -}}
       </div>
     {{- end -}}
 
-    <div class="header__search">
+    <div class="{{- $bn -}}__search">
       {{- partial "blocks/d1search/d1search" (dict "Block" .Block "Page" $page ) -}}
     </div>
 
     <!-- Parameters for the advanced search button -->
-    {{- $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" -}}
-    {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page ) -}}
+    <div class="{{- $bn -}}__advanced-search-button">
+      {{- $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" -}}
+      {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page ) -}}
+    </div>
 
   </div>
 

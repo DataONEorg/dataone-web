@@ -36,7 +36,7 @@
   #{$prefix}-fc-small-title      : var(--theme-c, var(--section-c-accent, black));
 
   // Size of icons
-  $icon-size: 3.5rem;
+  $icon-size                     : 3.5rem;
 
   // Font colours
   @include set-section-colors("default");
@@ -68,10 +68,10 @@
   &__icon {
     display         : flex;
     justify-self    : center;
-    align-items: center;
-    justify-content: center;
-    height: $icon-size;
-    width: $icon-size;
+    align-items     : center;
+    justify-content : center;
+    height          : $icon-size;
+    width           : $icon-size;
     margin-top      : 1rem;
     border-radius   : 50%;
     background-color: var(#{$prefix}-c-icon-background);
@@ -137,6 +137,15 @@
   // For sections with SVG backgrounds
   &__svg-background {
     @extend %svg-background;
+
+    svg {
+      height: 100%;
+      width : auto;
+      @include desktop {
+        height: auto;
+        width : 100%;
+      }
+    }
   }
 
   // ==========================================================================
@@ -202,30 +211,29 @@
       }
     }
   }
-  
+
   //
   // Background Image: A custom full-width & full-height background image
   // ==========================================================================
 
   &--bkg-image {
     @include --dark-bkg;
-    --fc-link                       : var(--c-minor-accent-5);
+    --fc-link  : var(--c-minor-accent-5);
     text-shadow: 0 0 3.5em var(--c-shadow-5-on-major-accent),0 0 .18em var(--c-shadow-5-on-major-accent);
+
     &::before {
-      content            : '';
-      background         : var(--background-image),
-                            linear-gradient(var(--c-major-accent-4), var(--c-shadow-5-on-major-accent)),
-                            var(--c-shadow-4-on-major-accent);
+      content              : '';
+      background           : var(--background-image), linear-gradient(var(--c-major-accent-4), var(--c-shadow-5-on-major-accent)), var(--c-shadow-4-on-major-accent);
       background-blend-mode: soft-light, darken;
-      background-size    : cover;
-      background-position: 0;
-      position           : absolute;
-      top                : 0;
-      left               : 0;
-      height             : 100%;
-      width              : 100%;
-      z-index            : -1;
-      overflow           : hidden;
+      background-size      : cover;
+      background-position  : 0;
+      position             : absolute;
+      top                  : 0;
+      left                 : 0;
+      height               : 100%;
+      width                : 100%;
+      z-index              : -1;
+      overflow             : hidden;
     }
   }
 
@@ -285,23 +293,13 @@
 
   &--bkg-topography {
     #{$prefix}-c-background: var(--c-default-darker, lightgray);
+  }
 
-    #{$bn}__svg-background svg {
-      height: auto;
-      width : 100%;
-    }
-  }
-  
-  &--bkg-branching-pattern {
-    #{$bn}__svg-background svg {
-      height: auto;
-      width : 100%;
-    }
-  }
-  
+  &--bkg-branching-pattern {}
+
   &--bkg-dark {
     @include --dark-bkg;
-    background : linear-gradient(var(--section-c-background-lighter), var(--section-c-background));
+    background: linear-gradient(var(--section-c-background-lighter), var(--section-c-background));
   }
 
   // ==========================================================================
@@ -315,11 +313,11 @@
   &--card {
     padding-top   : 5rem;
     padding-bottom: 5rem;
-    
+
     #{$bn}__icon {
-      position: absolute;
+      position  : absolute;
       margin-top: -0.5 * $icon-size;
-      box-shadow: 0.05rem 0.05rem 0.6rem -0.2rem var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0, 0, 0, 0.4)));
+      box-shadow: .05rem .05rem .6rem -0.2rem var(--section-c-shadow-3, var(--c-shadow-3-on-default, rgba(0, 0, 0, 0.4)));
     }
 
     #{$bn}__inner {
@@ -328,6 +326,7 @@
       background-color: var(#{$prefix}-c-background-lighter);
       margin          : 0 $lr-padding;
       padding-bottom  : 3rem;
+      padding-top     : 1.5rem;
       @include desktop {
         margin : 0 auto;
         padding: 2rem 3rem 3rem;

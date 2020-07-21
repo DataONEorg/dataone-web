@@ -47,8 +47,9 @@
 
   // The color of the font for second-level items
   #{$prefix}-fc-sub               : var(--c-foreground-emphasis-on-default, white);
-  // The background color of second-level items on hover
+  // The color of second-level items on hover
   #{$prefix}-c-sub-hover          : var(--c-major-accent-5, grey);
+  #{$prefix}-c-sub-hover-bkg      : var(--c-major-accent-2, grey);
   // The font size of the second-level text
   #{$prefix}-fs-sub               : var(--fs-medium, 1rem);
   // The font-weight of the second-level text
@@ -258,9 +259,10 @@
     transition           : background-color .2s ease-in-out;
 
     &:hover {
+      
       #{$bn}__sub-item-name {
         color : var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
-        // incase it has an icon to the right
+        // for icons to the right
         stroke: var(#{$prefix}-c-sub-hover);
         fill  : var(#{$prefix}-c-sub-hover);
       }
@@ -268,6 +270,13 @@
       #{$bn}__sub-item-description {
         color: var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
         filter: brightness(1.03);
+      }
+      
+      #{$bn}__sub-item-icon {
+        background-color: var(--theme-c-light, var(#{$prefix}-c-sub-hover-bkg, white));
+        fill            : var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
+        stroke          : var(--theme-c, var(#{$prefix}-c-sub-hover, grey));
+        
       }
     }
 
@@ -295,9 +304,9 @@
     display         : flex;
     align-items     : center;
     justify-content : center;
-    background-color: var(--theme-c-light, col($cn-blue-grey,2));
-    fill            : var(--theme-c, col($cn-blue-grey,6));
-    stroke          : var(--theme-c, col($cn-blue-grey,6));
+    background-color: var(--theme-c-light, var(--c-neutral-2, silver));
+    fill            : var(--theme-c, var(--c-neutral-6, black));
+    stroke          : var(--theme-c, var(--c-neutral-6, black));
     width           : $sub-menu-icon-width;
     height          : $sub-menu-icon-width;
     border-radius   : 50%;

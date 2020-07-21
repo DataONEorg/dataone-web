@@ -47,8 +47,9 @@
   {{- range $index, $tab := .Block.tabs -}}
     {{- if .annotation -}}
       <div class="{{- $bn -}}__annotation" aria-hidden="true">
-        <span>{{- .annotation -}}
-          <span class="{{- $bn -}}__anno-icon">{{- $annoIcon -}}</span></span>
+        <span>{{ .annotation }}
+          <span class="{{- $bn -}}__anno-icon">{{ $annoIcon }}</span>
+        </span>
       </div>
     {{- end -}}
   {{- end -}}

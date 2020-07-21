@@ -58,8 +58,10 @@
 
   &__annotation {
     font-size  : var(--fs-medium, 1.1rem);
+    font-weight: var(--fw-bold, 500);
+    color: var(--section-c-accent, dimgray);
     line-height: 1.45;
-    font-weight: var(--fw-normal, 400);
+    
     grid-area  : annotation;
     display    : flex;
     align-items: flex-start;
@@ -84,6 +86,7 @@
     stroke   : var(--section-c-accent, dimgray);
     display  : inline-flex;
     transform: rotate(-90deg);
+    vertical-align: middle;
     @include desktop {
       transform: rotate(0);
     }
