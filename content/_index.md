@@ -38,31 +38,32 @@ header:
 page_sections:
 - template: section
   icon: gift
-  type: card
-  small_title: Coming Soon
+  small_title: Coming soon
   title: New Products & Services from DataONE
-  intro: |-
-    The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focused workshops exploring implementation and use.
-
-    Be sure to join us August 11th - 13th for a first look at the new DataONE.
-  background: ''
-  background_image: ''
-  background2: ''
   blocks:
-  - template: image
-    type: default
-    overlay_effect: none
-    src: "/uploads/something-big.png"
-    alttext: ''
+  - template: feature-detailed
+    image:
+      template: image
+      type: tilt-right
+      overlay_effect: none
+      src: "/uploads/something-big.png"
+      alttext: 'A teaser image showing a sneak peak at one of the new services from DataONE'
+    type: left
+    headline: To be announced at the upcoming meeting
+    text: |-
+      The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focused workshops exploring implementation and use.
+    details:
+    - template: item-with-icon
+      name: Upcoming Community Meeting
+      text: Join us August 11th - 13th for a first look at the new DataONE
+      icon: calendar
   button:
-    template: ''
+    template: button
     type: internal page
     color: primary
     text: Get Ready
-    external_link: ''
     internal_link: community/community.md#meeting
     icon: calendar
-  id: ''
 - template: section
   background: wave
   title: The latest updates from DataONE
