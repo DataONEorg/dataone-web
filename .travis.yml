@@ -6,8 +6,9 @@ install:
 - wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_RELEASE}/hugo_extended_${HUGO_RELEASE}_Linux-64bit.deb"
 - sudo dpkg -i hugo*.deb
 script:
-- hugo version
-- hugo --cleanDestinationDir
+  - hugo version
+  - if [ "$TRAVIS_BRANCH" = "preview" ]; then hugo --baseURL 'https://preview.dataone.org'; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then hugo; fi
 env:
   global:
   - PRODUCTION=true
