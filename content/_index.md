@@ -38,33 +38,41 @@ header:
 page_sections:
 - template: section
   background: data-wave-subtle
-  icon: gift
-  small_title: Coming soon
-  title: New Products & Services from DataONE
-  blocks:
-  - template: feature-detailed
-    image:
-      template: image
-      type: tilt-right
-      overlay_effect: none
-      src: "/uploads/something-big.png"
-      alttext: 'A teaser image showing a sneak peak at one of the new services from DataONE'
-    type: left
-    headline: To be announced at the upcoming meeting
-    text: |-
-      The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focused workshops exploring implementation and use.
-    details:
-    - template: item-with-icon
-      name: Upcoming Community Meeting
-      text: Join us August 11th - 13th for a first look at the new DataONE
-      icon: calendar
+  title: Introducing services from DataONE
   button:
-    template: button
-    type: internal page
-    color: primary
-    text: Get Ready
-    internal_link: community/community.md#meeting
-    icon: calendar
+    type: 'internal page'
+    color: 'primary'
+    text: 'See all features'
+    internal_link: 'services/_index.md'
+    icon: columns
+  blocks:
+  - template: columns
+    num_cols: 2
+    columns:
+    - template: feature-detailed
+      type: top
+      headline: DataONE Plus
+      text: Enhanced DataONE products and services in support of your research.
+      image:
+        src: /uploads/portals-summary.png
+      details: []
+      button:
+        type: 'internal page'
+        color: 'quaternary'
+        text: 'Learn more about DataONE Plus'
+        internal_link: 'services/plus.md'
+    - template: feature-detailed
+      type: top
+      headline: Hosted Repositories
+      text: A dedicated repository solution for your group or institution’s data,
+        managed by DataONE.
+      image:
+        src: /uploads/hosted-repo-summary.png
+      button:
+        type: 'internal page'
+        color: 'quaternary'
+        text: 'Discover DataONE Hosted Repositories'
+        internal_link: 'services/plus.md'
 - template: section
   background: wave
   title: The latest updates from DataONE

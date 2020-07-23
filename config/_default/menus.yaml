@@ -1,4 +1,6 @@
 footer:
+  - name: Services
+    weight: 1
   - name: Community
     weight: 2
   - name: Learning
@@ -25,6 +27,12 @@ footer:
     url: old_website
     weight: 6
 secondary_nav:
+- name: Get DataONE Plus
+  title: Get DataONE Plus
+  pre: "d1-plus-logo"
+  weight: 1
+  url: /plus/
+  post: DataONE Plus Ad
 - name: Donate
   title: Donate
   weight: 2
@@ -66,6 +74,8 @@ primary_nav:
   pre: search
   url: search
   weight: 1
+- name: Services
+  weight: 2
 - name: Community
   weight: 3
 - name: Learning

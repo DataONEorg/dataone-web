@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Services
 description: All services and features offered by DataONE, including details about
   DataONE Plus and DataONE Hosted Repositories
