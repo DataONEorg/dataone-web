@@ -253,6 +253,9 @@
     text-shadow                     : .01em .01em .1em var(#{$prefix}-c-shadow-1);
 
     #{$bn}__svg-background {
+      svg:first-of-type {
+        height: 100%;
+      }
       svg {
         // the "data-wave" background is actually two layered SVGs,
         // such that the background gradient can have preserveAspectRatio = none
