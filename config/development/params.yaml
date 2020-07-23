@@ -5,3 +5,4 @@ links:
   search: http://localhost:3001/data
   metacatuiBase: http://localhost:3001
   metrics: http://localhost:3001/profile
+  d1TokenUrl: https://cn-stage-2.test.dataone.org/portal/token

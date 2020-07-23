@@ -280,7 +280,8 @@
     #{$prefix}-fw-title: var(#{$prefix}-fw-bolder);
     @include bkg-img;
     position           : relative;
-
+    overflow: hidden;
+    
     &::before {
       content            : '';
       background         : var(--background-image);

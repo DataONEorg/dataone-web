@@ -117,7 +117,6 @@
   
   {{/* Export any other static files */}}
   {{- range $fileName, $outputFileName := $staticFiles -}}
-      {{ warnf "%s" $fileName }}
     {{- $pathHugo := path.Join $staticDir $fileName -}}
     {{- if (fileExists $pathHugo) -}}
       {{- $file := readFile $pathHugo | resources.FromString (path.Join $outputDir $fileName) -}}

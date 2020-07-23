@@ -10,19 +10,13 @@
     var block = {{ $bn }};
   
     const
+        // The token url
+        tokenUrl = "{{- $site.Params.links.d1TokenUrl | default `https://cn.dataone.org/portal/token` -}}",
         // The full url to the DataONE instance of MetacatUI
         urlMCUI = "{{- $site.Params.links.metacatuiBase | default `https://search.dataone.org` -}}",
         // The full url for the Hugo website
         baseUrl = "{{- $site.BaseURL | default `https://dataone.org` -}}",
-        // An ID for the iframe that we will create temporarily
-        iframeId = "tempIframeId",
-        // Check if this script is running from within an iframe, and if the parent is the Hugo website
-        inIframe = (function(){ try{ return window.self !== window.top; } catch (e) { return true } })(),
-        // Checks if the referrer matches the Hugo website's base URL
-        referrerIsWebsite = document.referrer ? new URL(document.referrer).origin.replace(/\/$/, "") === baseUrl.replace(/\/$/, "") : true,
-        // Check if this script is running from within an iframe, and if the parent is the Hugo website
-        inWebsiteIframe = inIframe && referrerIsWebsite,
-        // If there is a MetacatUI variable, then this JS is running on the MetacatUI website (or iframe)
+        // If there is a MetacatUI variable, then this JS is running on the MetacatUI website
         isMCUI = typeof MetacatUI !== 'undefined',
         // The selector for the element that contains text (link name) in the submenu links
         subLinkTextSelector = ".{{ $p }}menu-item__sub-item-name";
@@ -37,41 +31,23 @@
    * Change some URLs to relative for MetacatUI.
    */   
   block.initialize = function(){
-    // When this script is in an iFrame and is within a MetacatUI environment
-    if(inWebsiteIframe && isMCUI){
-      // Send a message to the parent, where the parent is the Hugo website.
-      // The message contains the data we need to update the profile menu
-      window.parent.postMessage(JSON.stringify(extractUserData(MetacatUI)), baseUrl);
-      // Remove the 
-      // Don't do anything else if this is just a MetacatUI iFrame
-      return
-    }
+
     selectElements();
     setListeners();
-    // Check if user data extracted from MetacatUI is already in local storage. 
+    
+    // Check if user data is already in local storage. 
     // If it is, update the menu right away.
-    if( getUserData()){
+    if( getUserData() ){
       updateProfileMenu()
     }
-    // If this script is in MetacatUI, but not in an iFrame
-    if(isMCUI){
-      saveUserData(extractUserData(MetacatUI));
-      updateProfileMenu();
-    // If this script is in the Hugo website
-    } else {
-      // Listen to messages from the MetacatUI iframe, where we'll get the data
-      // needed to update the profile menu
-      window.removeEventListener('message', receiveMessage, false);
-      window.addEventListener('message', receiveMessage, false);
-      addIframe();
-    }
+    
+    // Even if there is stored user data, get the data again in case
+    // user switched accounts or signed out
+    getToken();
     
     // Ensure links are relative in MetacatUI
-    if(isMCUI && !inIframe){
-      block.allMenuLinks.forEach((link, i) => {
-        link.el.href = link.el.href
-          .replace(urlMCUI, "");
-      })
+    if(isMCUI){
+      updateNavMetacatUI()
     }
   }
 
@@ -126,65 +102,94 @@
   }
   
   /**  
-   * addIframe - Create an iFrame with the MetacatUI website inside.
-   * We use this iFrame to get a message from MetacatUI with user data.
-   */   
-  const addIframe = function(){
-    // Load an iframe to get the data from MetacatUI
-    const iframe = document.createElement('iframe');
-    // Use the about page since it's empty, it should take less time to load
-    iframe.setAttribute('src', urlMCUI + "/about");
-    iframe.setAttribute('id', iframeId);
-    // Make sure it's not visible
-    iframe.style.display = 'none';
-    iframe.style.width = 0 + 'px';
-    iframe.style.height = 0 + 'px';
-    // Insert it at the end of the body
-    document.body.appendChild(iframe);
+   * getToken - Request user data using the token URL set in the site config
+   */
+  const getToken = function(){
+    
+    fetch(tokenUrl, {
+        method: 'GET',
+        dataType: "text",
+        credentials: 'include'
+      })
+      .then(function(response){
+        response.text()
+          .then(function(text){
+            var userData;
+            if(text){
+              const parsedToken = parseToken(text);
+              userData = {
+                loggedin: true,
+                username: parsedToken.fullName,
+                userId: parsedToken.userId || parsedToken.sub
+              };
+            } else {
+              userData = {
+                loggedin: false,
+                username: "",
+                userId: ""
+              }
+            }
+            // Update the menu if the user data has changed
+            if(getUserData() != userData){
+              saveUserData(userData);
+              updateProfileMenu();
+            }
+            
+          }
+        );
+      })
+      .catch(function(error){
+        console.log("error fetching user data, error message:");
+        console.log(error);
+      });
   }
   
-  /**  
-   * receiveMessage - function to run when a message is received from the
-   * metacatUI iFrame. Checks the origin of the message, then saves the data
-   * and updates the profile menu.
-   *    
-   * @param  {event} e 
-   */   
-  const receiveMessage = function(e) {
-    // Ignore messages from any source except the DataONE metacatUI
-    if(e.origin !== urlMCUI){ return }
-    saveUserData(e.data);
-    updateProfileMenu();
-    // // Remove the iframe
-    // const iframe = document.getElementById(iframeId);
-    // if(iframe){  iframe.parentNode.removeChild(iframe) }
-    // // Remove this listener
-    // e.currentTarget.removeEventListener(e.type, receiveMessage);
-  }
   
   /**  
-   * extractUserData - Given the MetacatUI app object, gets the necessary data
-   * to update the user profile menu item.
+   * const parseToken - Takes a token and extracts user data
    *    
-   * @param  {Object} MetacatUI description   
-   * @return {Object}           an object the indicated whether the use is logged in, their user name, formatted name, and whether or not to show a link to the "my portals" page on MetacatUI 
+   * @param  {string} token The user token
+   * @return {Object}       The user data as an object
    */   
-  const extractUserData = function(MetacatUI){
-    return {
-      loggedin: MetacatUI.appUserModel.get("loggedIn"),
-      username: MetacatUI.appUserModel.get('username'),
-      name: MetacatUI.appUserModel.get('fullName') ? MetacatUI.appUserModel.get('fullName').charAt(0).toUpperCase() + MetacatUI.appUserModel.get("fullName").substring(1) : MetacatUI.appUserModel.get("username"),
-      showPortals: MetacatUI.appModel.get("showMyPortals") !== false && MetacatUI.appModel.get("enableUserProfiles") && MetacatUI.appModel.get("enableUserProfileSettings")
+  const parseToken = function(token){
+    
+    try {
+      if(typeof token == "undefined") return "";
+
+      var jws = new KJUR.jws.JWS();
+      var result = 0;
+      try {
+        result = jws.parseJWS(token);
+      } catch (ex) {
+        result = 0;
+      }
+      if(!jws.parsedJWS) return "";
+      
+      return JSON.parse(jws.parsedJWS.payloadS);
+      
+    } catch (e) {
+      console.log("Error parsing token, error message: ");
+      console.log(e);
     }
+  }
+  
+  /**  
+   * const updateNavMetacatUI - Makes navbar links relative if they are MetacatUI links
+   */   
+  const updateNavMetacatUI = function(){
+    block.allMenuLinks.forEach((link, i) => {
+      link.el.href = link.el.href
+        .replace(urlMCUI, "");
+    })
   }
   
   /**  
    * const getUserData - retrieves the data saved by saveUserData function and parses it.
    *    
-   * @return {Object}  the parsed MetacatUI user data. Returns false if no data was found.
-   */   
+   * @return {Object}  the parsed user data. Returns false if no data was found.
+   */
   const getUserData = function(){
-    const storedData = localStorage.getItem("metacatuiData");
+    const storedData = localStorage.getItem("userData");
     if(storedData){
       return JSON.parse(storedData);
     } else {
@@ -202,7 +207,7 @@
       if(!(typeof data === 'string' || data instanceof String)){
         data = JSON.stringify(data)
       }
-      localStorage.setItem("metacatuiData", data);
+      localStorage.setItem("userData", data);
     }
   }
   
@@ -243,8 +248,8 @@
       return
     }
     if(data.loggedin){
-      if(data.name){
-        block.profileText.innerHTML = data.name
+      if(data.username){
+        block.profileText.innerHTML = data.username
       }
       showMenu(block.profile);
       hideMenu(block.signin);
@@ -253,17 +258,11 @@
       block.profileLinkEls.forEach((link, i) => {
         
         // Make the path relative in MetacatUI
-        const baseProfileUrl = (isMCUI && !inWebsiteIframe) ? "" : urlMCUI;
+        const baseProfileUrl = isMCUI ? "" : urlMCUI;
         link.el.href = link.el.href
-          .replace(/USERNAME/, data.username)
+          .replace(/USERNAME/, data.userId)
           .replace(/^.*?SEARCH/, baseProfileUrl);
 
-        // Hide the portals menu item if set to be hidden in MetacatUI
-        if(link.el.title.toLowerCase() === "my portals") {
-          if(!data.showPortals){
-            link.el.style.display = "none"
-          }
-        }
       });
     }
   }
@@ -304,7 +303,7 @@
    */
   const startCloseTimeout = function (){
     closeDropdownTimeout = setTimeout( () => closeAllDropdowns() , 70 );
-  }; 
+  }
 
   /**  
    * stopCloseTimeout - Helps time when the menu should close
@@ -464,7 +463,7 @@
       
       // Mouse leave event (desktop version only)
       els.container.removeEventListener("mouseleave", function(){dropdownMouseleave(els)}, false);
-    	els.container.addEventListener("mouseleave", function(){dropdownMouseleave(els)}, false);
+      els.container.addEventListener("mouseleave", function(){dropdownMouseleave(els)}, false);
       
       // Click event (mobile version only)
       els.container.removeEventListener("click", function(){dropdownClick(els)}, false);
