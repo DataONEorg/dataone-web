@@ -23,7 +23,9 @@ fields:
     - subscribe form
     - contact
     - donate
-    - sign-in
+    - signin
+    - signout
+    - portal_start
     - service cta
 - type: select
   label: Style

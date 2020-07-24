@@ -53,6 +53,8 @@
   justify-content        : center;
   transition             : all .2s;
   text-shadow            : none;
+  transition: filter 0.1s cubic-bezier(0.16, 0.08, 0.355, 1), transform 0.1s cubic-bezier(0.16, 0.08, 0.355, 1);
+  will-change: transform, filter, box-shadow;
 
   &:focus,
   &:hover {
@@ -83,13 +85,13 @@
   }
 
   &--col-primary {
-    #{$prefix}-background: var(--theme-c, var(--c-minor-accent));
-    #{$prefix}-foreground: var(--theme-c-light, var(--c-foreground-on-minor-accent));
+    #{$prefix}-background: var(--c-minor-accent);
+    #{$prefix}-foreground: var(--c-foreground-on-minor-accent);
   }
 
   &--col-secondary {
-    #{$prefix}-background: var(--c-major-accent);
-    #{$prefix}-foreground: var(--c-foreground-on-major-accent);
+    #{$prefix}-background: var(--theme-c, var(--c-major-accent));
+    #{$prefix}-foreground: var(--theme-c-light, var(--c-foreground-on-major-accent));
     filter: contrast(1.03);
   }
 
@@ -100,7 +102,7 @@
 
   &--col-quaternary {
     #{$prefix}-background: transparent;
-    #{$prefix}-foreground: var(--theme-c, var(--section-c-accent-emphasis, var(--c-major-accent-emphasis-on-default, black)));
+    #{$prefix}-foreground: var(--section-c-accent-emphasis, var(--c-major-accent-emphasis-on-default, black));
     text-shadow          : inherit;
     white-space          : normal;
     font-size            : var(--fs-medium, 1.1rem);
@@ -234,9 +236,49 @@
     }
     
   }
-  // SEARCH BUTTON
-
-  &--search {
+  
+  // Buttons with an arrow on the right to indicate an internal link
+  &--arrow-right {
+    
+    // The amount to move the text to show the arrow
+    $deltaX: 0.5rem;
+    
+    #{$bn}__text{
+      transition: transform 0.22s cubic-bezier(0.16, 0.08, 0.355, 1);
+      transform: translate3d($deltaX, 0, 0);
+      will-change: transform;
+    }
+    
+    #{$bn}__icon--right {
+      transition: opacity 0.15s cubic-bezier(0.16, 0.08, 0.355, 1), transform 0.22s cubic-bezier(0.16, 0.08, 0.355, 1);
+      transform: translate3d(-$deltaX, 0, 0);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    
+    &:hover{
+      transform : translateY(0px);
+      
+      #{$bn}__text{
+        transform: translate3d(0, 0, 0);
+      }
+      #{$bn}__icon--right{
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+      
+    }
+    
+  }
+  
+  &--portal_start{
+    font-size              : var(--fs-medium, 1.1rem);
+    width: 70%;
+    max-width: 17rem;
+  }
+  
+  // Button for the d1 search bar
+  &--searchbar {
 
     @include desktop {
       // fill the parent container
@@ -254,6 +296,10 @@
       @include desktop {
         margin: 0;
       }
+    }
+    
+    #{$bn}__icon--right{
+      display: none;
     }
 
     &:focus,

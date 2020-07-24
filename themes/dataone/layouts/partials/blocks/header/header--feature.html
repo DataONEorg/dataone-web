@@ -77,10 +77,10 @@
 
       <div class="{{- $bn -}}__headline-and-intro">
         {{- with $headline -}}
-          <h1 class="{{- $bn -}}__headline markdown">{{- . | markdownify -}}</h1>
+          <h1 class="{{- $bn -}}__headline markdown">{{- . | markdownify | emojify  -}}</h1>
         {{- end -}}
         {{- with $intro -}}
-          <p class="{{- $bn -}}__intro markdown">{{- . | markdownify -}}</p>
+          <div class="{{- $bn -}}__intro markdown">{{- . | markdownify | emojify  -}}</div>
         {{- end -}}
       </div>
       {{- if $buttons -}}

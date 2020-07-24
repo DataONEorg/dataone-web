@@ -42,10 +42,13 @@
       }
     }
     // The last section in a page needs extra padding at the bottom for the footer
-    &:last-of-type {
+    &:last-of-type:not(.section--card) {
       .section__inner {
         padding-bottom: $footer-section-overlap;
       }
+    }
+    &:last-of-type.section--card {
+      padding-bottom: #{$footer-section-overlap - 2rem};
     }
 
     // So that box shadows and SVG effects from preceding sections can

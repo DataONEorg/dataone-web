@@ -10,7 +10,7 @@ linked_services:
   - service_file: services/plus.md
   - service_file: services/hosted-repo.md
 show_in_table: true
-render_page: true
+render_page: false
 sub_features:
 - title: Dataset usage metrics
   description: Review your per-dataset views and downloads over time

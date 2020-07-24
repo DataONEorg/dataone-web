@@ -1,0 +1,28 @@
+<!-- Check if a string is a special keyword, then return a standardized link that's set in the site config -->
+<!-- Returns false if no match was found -->
+
+<!-- Variables required: -->
+<!-- .Site = to access the site config -->
+{{- $site := .Site -}}
+<!-- The string to check for a keyword -->
+{{- $string := .string -}}
+
+<!-- The collection of service pages to return -->
+{{- $link := false -}}
+
+{{- if and $site $string -}}
+  <!-- Check the site configuration for a matching key word -->
+  {{- range $name, $configUrl := $site.Params.links -}}
+    {{- if eq (string $string) (string $name) -}}
+      {{- $link = $configUrl -}}
+    {{- end -}}
+  {{- end -}}
+  <!-- If no match was found, check if this is a link to the subscribe form -->
+  {{- if not $link -}}
+    {{- if eq $string "subscribe form" -}}
+    	{{- $link = print "#" $site.Params.joinFormId -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $link -}}

@@ -14,7 +14,7 @@ header:
     internal_link: jointhenetwork
   - text: See who's in the network
     color: secondary
-    type: internal_link
+    type: internal page
     external_link: "#list-of-member-repositories"
   image:
     src: uploads/hero_images/usgs-HcX4g7ccucA-unsplash.jpg

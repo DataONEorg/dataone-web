@@ -11,8 +11,8 @@ weight: 2
 date: 2020-01-14T19:04:29.000+00:00
 render_page: true
 cta:
-  type: subscribe form
-  text: Join the waitlist
+  type: portal_start
+  text: Get started
 header:
   template: header
   type: image on right
@@ -20,10 +20,13 @@ header:
   pill:
     template: pill
     style: quaternary
-    text: Coming soon
+    text: Free Preview
   title: A home for your research online
-  intro: Custom search portals for your science, your data, and related data in the
-    DataONE network.
+  intro: |-
+      Custom search portals for your science, your data, and related data in the
+      DataONE network.
+      
+      **:key: Build your own custom portal for free during the preview period! No credit card required. Register with one click.**
   image:
     template: image
     src: "/uploads/portals-header.png"
@@ -33,20 +36,21 @@ header:
   buttons:
   - template: button
     type: service cta
-    color: primary
+    color: secondary
   - template: button
     type: contact
-    color: tertiary
-    text: Contact us
+    color: quaternary
+    text: Questions? Get in touch
 page_sections:
 - template: section
-  type: default
+  background: data-wave-subtle
   small_title: Introducing Portals
   title: "Showcase your team's goals & results with  \n **branded portals**"
-  intro: Create a custom, branded portal for your research topic or lab group that
-    spans repositories in the DataONE network. Branded portals provide a convenient,
-    readily customized way to communicate your science, your team, your data, and
-    related data from within the DataONE network.
+  intro: |-
+      Create a custom, branded portal for your research topic or lab group that
+      spans repositories in the DataONE network. Branded portals provide a convenient,
+      readily customized way to communicate your science, your team, your data, and
+      related data from within the DataONE network.
   blocks:
   - template: columns
     num_cols: 3
@@ -91,12 +95,15 @@ page_sections:
       headline: Customized search filters
       text: Configure search fields specific to your science topics
       details: []
-  button:
+  - template: button
+    type: portal_start
+    text: Get started
+    color: primary
+  - template: button
     type: 'internal page'
-    color: 'primary'
+    color: 'quaternary'
     text: 'See all features'
     internal_link: 'services/_index.md'
-    icon: columns
 - template: section
   background: data-wave
   small_title: Analytics
@@ -138,26 +145,10 @@ page_sections:
       type: top
       text: Access aggregated view and download metrics for datasets
       headline: Usage metrics
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: View & Download Metrics
-        internal_link: "/features/usage-metrics"
-      details: []
     - template: feature-detailed
       type: top
       headline: Citation reports
       text: Find out who is citing your data
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Data citations
-        internal_link: "/features/citations"
-        external_link: ''
-      details: []
-  id: ''
 - template: section
   small_title: Content & Branding
   title: Customized to match your project
@@ -183,6 +174,10 @@ page_sections:
       text: Your portal pages can include visualizations of your research, a list
         of your team members, and any other custom content
       icon: file-text
+  - template: button
+    type: portal_start
+    text: Get started
+    color: primary
 - template: section
   background: wave
   small_title: Showcase
@@ -199,7 +194,7 @@ page_sections:
       button:
         template: button
         type: external website
-        color: primary
+        color: secondary
         text: See portal
         external_link: https://knb.ecoinformatics.org/portals/sasap
       logo: "/uploads/portals/logo_SASAP.svg"
@@ -244,7 +239,7 @@ page_sections:
       button:
         template: button
         type: external website
-        color: primary
+        color: secondary
         text: See portal
         external_link: https://arcticdata.io/catalog/portals/DBO
       logo: "/uploads/portals/logo_DBO.svg"
@@ -280,7 +275,7 @@ page_sections:
             type: float
             src: "/uploads/portals/dbo_metrics.png"
 - template: section
-  type: default
+  type: subtle-emphasis
   icon: book-open
   small_title: Support
   title: Access to DataONE expertise
@@ -288,18 +283,33 @@ page_sections:
   - template: columns
     num_cols: 2
     columns:
-    - template: feature-detailed
-      type: top
-      headline: Consulting services
+    - template: item-with-icon
+      icon: code
+      name: Consulting services
       text: Custom design, data curation, and management consulting are available
         at hourly rates
-    - template: feature-detailed
-      type: top
-      headline: Discounted training
+    - template: item-with-icon
+      icon: percent
+      name: Discounted training
       text: Take advantage of discounted pricing for data science and data management
         training courses
 - template: section
-  background: subtle-emphasis
+  background: major-accent-color
+  type: card
+  icon: "zap"
+  title: Ready to build your own custom portal?
+  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
+  blocks:
+    - template: button
+      type: portal_start
+      text: Get started
+      color: primary
+    - template: markdown
+      style: center
+      content: "Have questions? [Get in touch](/contact/)."
+- template: section
+  background: data-wave-subtle
+  small_title: Coming soon
   title: Need more? **Add a dedicated hosted repository**
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository
@@ -309,19 +319,6 @@ page_sections:
   blocks:
       - template: page-summary
         service: services/hosted-repo.md
-- template: section
-  background: major-accent-color
-  title: Interested in a becoming a DataONE Plus member?
-  intro: Enhanced DataONE services are currently available on a limited basis as part
-    of a beta program. Please provide the information below and we’ll get in touch
-    when these services are ready for your organization.
-  blocks:
-  - template: join-form
-    precheck_hostedrepo: false
-    precheck_plus: true
-    precheck_mailing_list: false
-    style: ''
-    mailing_list_only: false
 menu:
   primary_nav:
     weight: 2

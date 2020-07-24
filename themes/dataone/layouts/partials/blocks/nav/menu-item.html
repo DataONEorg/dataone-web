@@ -37,11 +37,10 @@
   {{- end -}}
 {{- end -}}
 
+
 <!-- Check for special link key words, replace with link from config.yaml -->
-{{- range $name, $configUrl := $site.Params.links -}}
-  {{- if eq (string $url) (string $name) -}}
-    {{- $url = $configUrl -}}
-  {{- end -}}
+{{- with (partial "functions/getStandardLink" (dict "string" $url "Site" $site)) -}}
+  {{- $url = . -}}
 {{- end -}}
 
 <!-- Hide the profile menu by default, only show if user is logged in (see nav.js) -->
@@ -198,10 +197,9 @@
           {{- $subLinkId := printf "%s__sub-link" (urlize $name) -}}
           
           {{ $url := .URL }}
-          {{- range $name, $configUrl := $site.Params.links -}}
-            {{- if eq (string $url) (string $name) -}}
-              {{- $url = $configUrl -}}
-            {{- end -}}
+          <!-- Check for special link key words, replace with link from config.yaml -->
+          {{- with (partial "functions/getStandardLink" (dict "string" $url "Site" $site)) -}}
+            {{- $url = . -}}
           {{- end -}}
 
           <li class="{{- $subItemClasses -}}">

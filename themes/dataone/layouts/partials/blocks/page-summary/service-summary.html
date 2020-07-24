@@ -96,7 +96,7 @@
     {{- if $showCTA -}}
       {{- $cta := $service.cta -}}
       {{- with $cta -}}
-        {{- $buttonBlock2 := merge . (dict "color" "primary")  -}}
+        {{- $buttonBlock2 := merge . (dict "color" "secondary")  -}}
         {{- partial "blocks/button/button" (dict "Block" $buttonBlock2 "Page" $servicePage) -}}
       {{- end -}}
     {{- end -}}

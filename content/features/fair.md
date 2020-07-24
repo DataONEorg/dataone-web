@@ -101,7 +101,6 @@ page_sections:
   small_title: Aggregated FAIR reports
   id: aggregated-reports
   background: subtle-emphasis
-  icon: trending-up
   intro: Get aggretated FAIR scores for all data within your Hosted Repository or DataONE Plus portal
   blocks:
   - template: feature-detailed
@@ -116,6 +115,25 @@ page_sections:
     - icon: list
       name: Broken down into FAIR categories
       text: Aggregated scores are divided into the four FAIR categories, so you can pinpoint areas that need improvement and see what your metadata strengths are.
+- template: section
+  background: major-accent-color
+  type: card
+  icon: "zap"
+  title: Preview aggregated FAIR reports with a DataONE Plus portal
+  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
+  blocks:
+    - template: button
+      type: portal_start
+      text: Get started
+      color: primary
+    - template: button
+      type: internal page
+      internal_link: plus.md
+      text: Learn more about DataONE Plus portals
+      color: quaternary
+    - template: markdown
+      style: center
+      content: "Have questions? [Get in touch](/contact/)."
 - type: default
   background: default
   id: individual-reports
@@ -192,7 +210,9 @@ page_sections:
     template: button
     text: Watch the DataONE FAIR webinar
     color: quaternary
-    external_link: https://www.dataone.org/webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network
+    type: internal page
+    icon: video
+    internal_link: webinars/quantifying-fair-metadata-improvement-and-guidance-dataone-repository-network.md
 - type: card
   background: subtle-emphasis
   title: Need a custom metadata assessment?
