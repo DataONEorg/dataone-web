@@ -1,7 +1,7 @@
 ---
 layout: blocks
 date: 2020-03-16T09:49:58.000+00:00
-title: Online portal editor
+title: Online portal builder
 description: Pick datasets, add and reorder pages, and upload images in minutes
 linked_services:
 - service_file: services/plus.md
@@ -17,7 +17,7 @@ header:
     template: pill
     style: secondary
     text: Coming soon
-  title: Online portal editor
+  title: Online portal builder
   intro: Pick datasets, add and reorder pages, and upload images in minutes
   buttons:
   - template: button

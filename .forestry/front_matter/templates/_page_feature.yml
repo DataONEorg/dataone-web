@@ -128,7 +128,7 @@ pages:
 - content/features/metadata-harvest.md
 - content/features/open-source-tools.md
 - content/features/portal-content.md
-- content/features/portal-editor.md
+- content/features/portal-builder.md
 - content/features/provenance.md
 - content/features/replicas.md
 - content/features/repo-search.md

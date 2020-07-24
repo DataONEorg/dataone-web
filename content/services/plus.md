@@ -65,12 +65,12 @@ page_sections:
       image:
         template: image
         type: float
-        src: uploads/portal-editor.png
-        alttext: Search filters
+        src: uploads/portal-builder.png
+        alttext: Screenshot of the portal builder where you can add a portal title, logo, page title, description, and image
         overlay_effect: ''
       type: top
       text: Pick datasets, add and reorder pages, and upload images in minutes with
-        the easy-to-use online portal editor
+        the easy-to-use online portal builder
       headline: Set up in minutes
       details: []
     - template: feature-detailed
