@@ -66,8 +66,8 @@
   }
 
   &--secondary {
-    #{$prefix}-c-background: var(--c-major-accent);
-    #{$prefix}-c-foreground: var(--c-foreground-on-major-accent);
+    #{$prefix}-c-background: var(--theme-c, var(--c-major-accent));
+    #{$prefix}-c-foreground: var(--theme-c-light, var(--c-foreground-on-major-accent));
   }
 
   &--tertiary {
@@ -78,7 +78,7 @@
 
   &--quaternary {
     #{$prefix}-c-background: var(--c-major-accent-2);
-    #{$prefix}-c-foreground: var(--c-major-accent-6);
+    #{$prefix}-c-foreground: var(--c-major-accent-5);
   }
 
   &--subtle {

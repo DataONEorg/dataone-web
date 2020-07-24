@@ -20,7 +20,7 @@
   #{$prefix}-c-accent      : var(--theme-c, var(--section-c-accent, black));
   #{$prefix}-c-accent-light: var(--theme-c-light, var(--section-c-accent-very-subtle, grey));
 
-  #{$prefix}-fc-emphasis   : var(--c-foreground-emphasis-on-default, black);
+  #{$prefix}-fc-emphasis   : var(--section-fc-title, var(--c-foreground-emphasis-on-default, black));
   #{$prefix}-fw-title      : var(--fw-x-bold, 800);
   #{$prefix}-ff-title      : var(--ff-title2, serif);
   #{$prefix}-fs-title      : var(--fs-x-large, 1.5rem);
@@ -37,7 +37,6 @@
   @include f-common;
   @include card;
 
-  background-color         : var(--c-default);
   padding                  : 1.5rem;
   display                  : flex;
   flex-direction           : column;

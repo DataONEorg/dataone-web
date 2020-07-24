@@ -8,15 +8,15 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1202 428" class="{{- $classes -}}">
   <defs>
-    <radialGradient id="data-wave-bkg-b" cx="125.32%" cy="23.89%" r="125.519%" fx="125.32%" fy="23.89%" gradientTransform="scale(-1 -.75787) rotate(-19.741 -1.592 7.164)">
+    <radialGradient id="data-wave-subtle-bkg-b" cx="125.32%" cy="23.89%" r="125.519%" fx="125.32%" fy="23.89%" gradientTransform="scale(-1 -.75787) rotate(-19.741 -1.592 7.164)">
       <stop offset="0%" class="{{- $bn -}}__stop-color-major-accent-2"/>
       <stop offset="100%" class="{{- $bn -}}__stop-color-neutral-1"/>
     </radialGradient>
-    <radialGradient id="data-wave-bkg-c" cx="-35.21%" cy="7.544%" r="122.81%" fx="-35.21%" fy="7.544%" gradientTransform="matrix(.69384 .56699 -.69016 .52355 -.056 .236)">
+    <radialGradient id="data-wave-subtle-bkg-c" cx="-35.21%" cy="7.544%" r="122.81%" fx="-35.21%" fy="7.544%" gradientTransform="matrix(.69384 .56699 -.69016 .52355 -.056 .236)">
       <stop offset="0%" class="{{- $bn -}}__stop-color-major-accent-2"/>
       <stop offset="100%" class="{{- $bn -}}__stop-color-major-accent-1"/>
     </radialGradient>
-    <linearGradient id="data-wave-bkg-a" x1="-6.194%" x2="104.972%" y1="51.217%" y2="51.217%">
+    <linearGradient id="data-wave-subtle-bkg-a" x1="-6.194%" x2="104.972%" y1="51.217%" y2="51.217%">
       <stop offset="0%" class="{{- $bn -}}__stop-color-major-accent-1"/>
       <stop offset="20%" class="{{- $bn -}}__stop-color-neutral-1"/>
       <stop offset="80%" class="{{- $bn -}}__stop-color-neutral-1"/>
@@ -24,9 +24,9 @@
     </linearGradient>
   </defs>
   <g fill="none" fill-rule="nonzero">
-    <path fill="url(#data-wave-bkg-a)" d="M1201.725 0l.275 428H0L.499 0z"/>
-    <path fill="url(#data-wave-bkg-b)" d="M1202 413c-51.927-60.955-134.224-23.06-212.597-55.243-78.373-32.182-113.03-110.81-96.273-201.662 5.84-31.67 29.02-76.696 56.757-94.241C968.38 50.157 995.931 29.539 1032.541 0H1202v413z"/>
-    <path fill="url(#data-wave-bkg-c)" d="M269.612 0c-161.334 164.448 85.073 143.924 34.379 307.363C282.887 375.4 177.946 390.406 0 395V0h269.612z"/>
+    <path fill="url(#data-wave-subtle-bkg-a)" d="M1201.725 0l.275 428H0L.499 0z"/>
+    <path fill="url(#data-wave-subtle-bkg-b)" d="M1202 413c-51.927-60.955-134.224-23.06-212.597-55.243-78.373-32.182-113.03-110.81-96.273-201.662 5.84-31.67 29.02-76.696 56.757-94.241C968.38 50.157 995.931 29.539 1032.541 0H1202v413z"/>
+    <path fill="url(#data-wave-subtle-bkg-c)" d="M269.612 0c-161.334 164.448 85.073 143.924 34.379 307.363C282.887 375.4 177.946 390.406 0 395V0h269.612z"/>
   </g>
 </svg>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 428" class="{{- $classes -}}">

@@ -1,3 +1,5 @@
+{{ $p := .Params.prefix }}
+
 .section {
 
   // ==========================================================================
@@ -27,11 +29,11 @@
   // Font sizes
   #{$prefix}-fs-intro            : var(--fs-larger, 1.5rem);
   #{$prefix}-fs-title            : var(--fs-xx-large, 2.8rem);
-  #{$prefix}-fs-small-title      : var(--fs-large, 1.25rem);
+  #{$prefix}-fs-small-title      : var(--fs-larger, 1.25rem);
   // Font weights
   #{$prefix}-fw-title            : var(--fw-bolder, 700);
   #{$prefix}-fw-intro            : var(--fw-normal, 400);
-  #{$prefix}-fw-small-title      : var(--fw-bold, 500);
+  #{$prefix}-fw-small-title      : var(--fw-bolder, 500);
   // Font colors
   #{$prefix}-fc-small-title      : var(--theme-c, var(--section-c-accent, black));
 
@@ -86,9 +88,9 @@
     font-size     : var(#{$prefix}-fs-small-title);
     font-weight   : var(#{$prefix}-fw-small-title);
     text-transform: uppercase;
-    letter-spacing: .05em;
+    letter-spacing: .025em;
     margin-top    : .5rem;
-    margin-bottom : 1.5rem;
+    margin-bottom : 0.3rem;
   }
 
   &__badges {
@@ -113,7 +115,7 @@
 
   // Text that introduces the section.
   &__intro {
-    margin     : 0 auto 2rem;
+    margin     : 0 auto 1rem;
     max-width  : 55rem;
     line-height: 1.5;
     font-size  : var(#{$prefix}-fs-intro);
@@ -127,11 +129,23 @@
     grid-auto-rows: min-content;
     padding-top   : .8rem;
   }
+  
+  // Some types of blocks should be centered
+  &__blocks .{{ $p }}button{
+    justify-self: center;
+  }
 
   // Button at the end of section, positioning only.
   // The rest is styled by button component.
   &__button {
-    margin: 2.5rem auto 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  // buttons that follow blocks need more space
+  &__blocks ~ #{$bn}__button{
+    margin-top: 1.3rem;
   }
 
   // For sections with SVG backgrounds

@@ -210,6 +210,14 @@
     border-radius         : var(--br-default, 0.25rem);
     text-align            : center;
   }
+  
+  //
+  // Center: simply center the text
+  // ==========================================================================
+  
+  &--center {
+    text-align            : center;
+  }
 
   //
   // Success: Makes the markdown block an info block indicating success

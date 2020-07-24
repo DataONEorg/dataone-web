@@ -5,6 +5,8 @@
 {{- $p := $site.Params.prefix -}}
 <!-- bn = block name -->
 {{- $bn := print $p "button" -}}
+<!-- Classes to add to the button based on user choices -->
+{{- $classes := $bn -}}
 
 <!-- The type of button -->
 <!-- Options: internal page, external page, contact, subscribe form, donate-->
@@ -13,16 +15,59 @@
 <!-- Text to display within the button -->
 {{- $text := (.Block.text | markdownify) | default "" -}}
 
-<!-- classes to add to the button based on user choices -->
-{{- $classes := $bn -}}
-{{- with .Block.color -}}
-	{{- $classes = print $classes " " $bn "--col-" . -}}
-{{- end -}}
-{{- with $type -}}
-	{{- $classes = print $classes " " $bn "--" ( . | urlize ) -}}
+<!-- A reference to a markdown page for buttons with type "internal page" -->
+{{- $internalLink := .Block.internal_link | default "" -}}
+
+<!-- A full URL to an external website for buttons with type "external website" -->
+{{- $externalLink := .Block.external_link | default "" -}}
+
+<!-- The link where the button will lead. This will be set later in this template 
+     depending on the type of button -->
+{{- $href := $externalLink | default "#" -}}
+
+<!-- "Color", primary, secondary, etc. -->
+{{- $color := .Block.color -}}
+
+<!-- If this is a service page Call To Action button, replace the type, link, and text parameters in the block -->
+<!-- with those that are set in the associated service page. -->
+{{- if and (eq $type "service cta") (eq $page.Type "services") -}}
+	{{- with $page.Params.cta -}}
+		{{- with .type -}}
+			{{- $type = . -}}
+		{{- end -}}
+		{{- with .external_link -}}
+			{{- $externalLink = . -}}
+		{{- end -}}
+		{{- with .internal_link -}}
+			{{- $internalLink = . -}}
+		{{- end -}}
+		{{- with .text -}}
+			{{- $text = . | markdownify -}}
+		{{- end -}}
+	{{- end -}}
 {{- end -}}
 
-<!-- icon -->
+<!-- Add a class for primary, secondary, etc. -->
+{{- with $color -}}
+	{{- $classes = printf "%s %s--col-%s" $classes $bn . -}}
+{{- end -}}
+
+{{- with $type -}}
+	{{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
+{{- end -}}
+
+<!-- Get the correct link -->
+{{- if eq $type "internal page" -}}
+	{{- with $internalLink -}}
+		{{- $href = ref $page . -}}
+	{{- end -}}
+{{- end -}}
+<!-- Check for special link key words, replace with link from config.yaml -->
+{{- with (partial "functions/getStandardLink" (dict "string" $type "Site" $site)) -}}
+	{{- $href = . -}}
+{{- end -}}
+
+<!-- Icon on the left -->
 {{- $icon := "" -}}
 {{- if .Block.icon -}}
 	{{- $iconBlock := dict "icon" .Block.icon "color" "inherit" -}}
@@ -32,52 +77,19 @@
 
 <!-- Icon on the right -->
 {{- $iconRight := "" -}}
-{{- if and (eq .Block.color "quaternary") (eq $type "internal page") -}}
+{{- $typesWithRightArrow := slice "internal page" "contact" "signin" "signout" "portal_start" "subscribe form" -}}
+{{- $typesWithExternalSymb := slice "external website" "donate" -}}
+{{ $metacatUILink := hasPrefix $href (string $site.Params.links.metacatuiBase) }}
+{{- if or (in $typesWithRightArrow $type) ($metacatUILink) -}} 
 	{{- $iconRight = "arrow-right" -}}
-{{- else if and (or (eq $type "external website") (eq $type "donate")) (not .Block.type_attr) -}}
+	{{- $classes = printf "%s %s--arrow-right" $classes $bn -}}
+{{- else if and (in $typesWithExternalSymb $type) (not .Block.type_attr) -}}
 	{{- $iconRight = "external-link" -}}
+	{{- $classes = printf "%s %s--ext-link-symbol" $classes $bn -}}
 {{- end -}}
 {{- with $iconRight -}}
 	{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" . "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
 	{{- $iconRight = printf `<span class="%s__icon %s__icon--right">%s</span>` $bn $bn $svg | safeHTML -}}
-{{- end -}}
-
-<!-- href link -->
-
-{{- if and (eq $type "service cta") (eq $page.Type "services") -}}
-	{{- with $page.Params.cta -}}
-		{{- with .type -}}
-			{{- $type = . -}}
-		{{- end -}}
-		{{- with .external_link -}}
-			{{- $href = . -}}
-		{{- end -}}
-		{{- with .internal_link -}}
-			{{- $href = ref $page . -}}
-		{{- end -}}
-		{{- with .text -}}
-			{{- $text = . -}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-{{- $href := .Block.external_link | default "#" -}}
-
-{{- if eq $type "internal page" -}}
-	{{- with .Block.internal_link -}}
-		{{- $href = ref $page . -}}
-	{{- end -}}
-{{- end -}}
-
-<!-- Check for special link key words, replace with link from config.yaml -->
-{{- range $name, $configUrl := $site.Params.links -}}
-  {{- if eq (string $type) (string $name) -}}
-    {{- $href = $configUrl -}}
-  {{- end -}}
-{{- end -}}
-
-{{- if eq $type "subscribe form" -}}
-	{{- $href = print $page.RelPermalink "#" $page.Site.Params.joinFormId -}}
 {{- end -}}
 
 <!-- Whether to use <button> or <a> -->
@@ -107,10 +119,15 @@
   {{- $otherAttributes = . | safeHTMLAttr -}}
 {{- end -}}
 
+<!-- Extra modifers to add to the outer class -->
+{{- with .Block.extra_classes -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+{{- end -}}
+
 <!-- Class for the button text span element -->
 {{- $textClasses := print $bn "__text" -}}
 
-<!-- option to hide button text on desktop -->
+<!-- Option to hide button text on desktop -->
 {{- if eq .Block.hideTextDesktop "true" -}}
 	{{- $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses -}}
 {{- end -}}

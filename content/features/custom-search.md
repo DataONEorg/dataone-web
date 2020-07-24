@@ -21,23 +21,21 @@ header:
     style: secondary
     text: Coming soon
   title: Search tools designed for your data
-  intro: Make finding the right data easy for your community of researchers with search
-    fields focused on your science topics.
+  intro: |-
+      Make finding the right data easy for your community of researchers with search
+      fields focused on your science topics.
+      
+      **:key: Build your own custom portal for free during the preview period! No credit card required. Register with one click.**
   buttons:
+  - template: button
+    type: portal_start
+    text: Get started
+    color: primary
   - template: button
     type: internal page
     internal_link: "/services"
-    color: secondary
+    color: quaternary
     text: See all features
-    external_link: ''
-    icon: ''
-  - template: button
-    type: subscribe form
-    color: primary
-    text: Join the waitlist
-    external_link: ''
-    internal_link: ''
-    icon: ''
   image:
     src: "/uploads/videos/custom-search-demo.mp4"
     alttext: ''
@@ -117,15 +115,21 @@ page_sections:
       icon: eye-off
 - template: section
   background: major-accent-color
-  title: Interested in a DataONE Plus portal?
-  intro: Enhanced DataONE services are currently available on a limited basis as part
-    of a beta program. Please provide the information below and we’ll get in touch
-    when these services are ready for your organization.
+  type: card
+  icon: "zap"
+  title: Ready to build your own custom portal?
+  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
   blocks:
-  - template: join-form
-    precheck_hostedrepo: false
-    precheck_plus: true
-    precheck_mailing_list: false
-    mailing_list_only: false
-    style: ''
+    - template: button
+      type: portal_start
+      text: Get started
+      color: primary
+    - template: button
+      type: internal page
+      internal_link: plus.md
+      text: Learn more about DataONE Plus portals
+      color: quaternary
+    - template: markdown
+      style: center
+      content: Have questions? [Get in touch](/contact/)
 ---

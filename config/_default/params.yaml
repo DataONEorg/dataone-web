@@ -16,6 +16,7 @@ links:
   metacatuiBase: https://search.dataone.org
   metrics: https://search.dataone.org/profile
   d1TokenUrl: https://cn.dataone.org/portal/token
+  portal_start: https://search.dataone.org/get-started/portals
 prefix: d1_
 joinFormId: join-form
 blockDir: themes/dataone/layouts/partials/blocks/

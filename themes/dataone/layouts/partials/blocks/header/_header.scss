@@ -130,6 +130,15 @@
     font-size  : var(#{$prefix}-fs-intro);
     font-weight: var(#{$prefix}-fw-intro);
     line-height: 1.6;
+    
+    // for markdown created within the intro div:
+    p {
+      margin: 0.7rem 0 0 0;
+    }
+    
+    strong {
+      font-weight: var(--fw-bolder);
+    }
   }
 
   &__buttons {
@@ -145,6 +154,7 @@
     & > * {
       margin-right: .5em;
       margin-top  : .5em;
+      margin-bottom: 1rem;
     }
   }
 
@@ -479,7 +489,7 @@
   }
 
   &--col-light {
-    background-image: linear-gradient(180deg, var(--c-major-accent-1) -10%, var(--c-major-accent-2) 20%, var(--c-major-accent-2) 50%, var(--c-major-accent-2) 100%);
+    background-image: linear-gradient(180deg, var(--c-major-accent-1) -10%, var(--c-major-accent-2) 60%, var(--c-major-accent-2) 70%, var(--c-major-accent-2) 100%);
   }
 
   // ==========================================================================

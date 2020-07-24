@@ -39,7 +39,7 @@
 
     <!-- Parameters for the advanced search button -->
     <div class="{{- $bn -}}__advanced-search-button">
-      {{- $buttonParams := dict "type" "external website" "external_link" "https://search.dataone.org/data" "text" "Advanced search" "color" "quaternary" -}}
+      {{- $buttonParams := dict "type" "search" "text" "Advanced search" "color" "quaternary" -}}
       {{- partial "blocks/button/button" (dict "Block" $buttonParams "Page" $page ) -}}
     </div>
 

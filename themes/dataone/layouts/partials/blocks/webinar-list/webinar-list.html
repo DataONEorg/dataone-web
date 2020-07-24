@@ -65,8 +65,7 @@
         {{- $id := printf "filter-%s" $filter.name -}}
         <fieldset class="{{- $bn -}}__filter" id="{{- $id -}}">
           <legend class="{{- $bn -}}__filter-legend">
-            Filter by
-            {{- $filter.label -}}
+            Filter by {{ $filter.label }}
           </legend>
 
           {{- range $filter.options -}}
