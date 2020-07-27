@@ -68,7 +68,7 @@ secondary_nav:
 - name: Sign out
   parent: Profile
   weight: 100
-  url: signout
+  url: SEARCH/signout
 primary_nav:
 - name: Find Data
   pre: search

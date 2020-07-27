@@ -2,7 +2,6 @@ links:
   old_website: https://old.dataone.org
   signin: http://localhost:3001/signin
   signout: http://localhost:3001/signout
-  search: http://localhost:3001/data
   metacatuiBase: http://localhost:3001
   metrics: http://localhost:3001/profile
   d1TokenUrl: https://cn-stage-2.test.dataone.org/portal/token

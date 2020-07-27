@@ -12,12 +12,12 @@
     const
         // The token url
         tokenUrl = "{{- $site.Params.links.d1TokenUrl | default `https://cn.dataone.org/portal/token` -}}",
-        // The full url to the DataONE instance of MetacatUI
+        // If there is a MetacatUI variable, then this JS is running on the MetacatUI website
+        isMCUI = typeof MetacatUI !== 'undefined',
+        // The full url to the DataONE instance of MetacatUI. First check for a url set in MetacatUI, then default to the Hugo parameter
         urlMCUI = "{{- $site.Params.links.metacatuiBase | default `https://search.dataone.org` -}}",
         // The full url for the Hugo website
         baseUrl = "{{- $site.BaseURL | default `https://dataone.org` -}}",
-        // If there is a MetacatUI variable, then this JS is running on the MetacatUI website
-        isMCUI = typeof MetacatUI !== 'undefined',
         // The selector for the element that contains text (link name) in the submenu links
         subLinkTextSelector = ".{{ $p }}menu-item__sub-item-name";
         
@@ -43,11 +43,13 @@
     
     // Even if there is stored user data, get the data again in case
     // user switched accounts or signed out
-    getToken();
-    
-    // Ensure links are relative in MetacatUI
+    // Use different functions in MetacatUI vs the Hugo website
     if(isMCUI){
+      // Ensure links are relative in MetacatUI
       updateNavMetacatUI()
+    } else {
+      // Get the token and update the navbar with user profile info
+      getToken()
     }
   }
 
@@ -174,13 +176,28 @@
   }
   
   /**  
-   * const updateNavMetacatUI - Makes navbar links relative if they are MetacatUI links
-   */   
+   * const updateNavMetacatUI - Makes navbar links relative if they are MetacatUI links.
+   * Use the MetacatUI User Model to update the profile menu.
+   */
   const updateNavMetacatUI = function(){
+    
     block.allMenuLinks.forEach((link, i) => {
       link.el.href = link.el.href
         .replace(urlMCUI, "");
     })
+    
+    // Get the user data from the MetacatUI userModel
+    userData = {
+      loggedin: MetacatUI.appUserModel.get("loggedIn"),
+      username: MetacatUI.appUserModel.get('fullName') ? MetacatUI.appUserModel.get('fullName').charAt(0).toUpperCase() + MetacatUI.appUserModel.get("fullName").substring(1) : MetacatUI.appUserModel.get("username"),
+      userId: MetacatUI.appUserModel.get('username')
+    }
+    
+    // Update the menu if the user data has changed
+    if(getUserData() != userData){
+      saveUserData(userData);
+      updateProfileMenu();
+    }
   }
   
   /**  
