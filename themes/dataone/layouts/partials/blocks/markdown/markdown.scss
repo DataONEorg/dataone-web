@@ -1,3 +1,4 @@
+{{ $p := .Params.prefix }}
 // Markdown block styles do not follow BEM principles since the HTML elements
 // are automatically generated from markdown by hugo, and those generated
 // elements don't have classes.
@@ -29,7 +30,7 @@
   //    Styles
   // ==========================================================================
 
-  @include style-links(a);
+  @include style-links('a:not(.{{ $p }}button)');
 
   h1 {
     font-size: var(--fs-xx-large, 2.5rem);
@@ -178,6 +179,7 @@
   // ==========================================================================
 
   &--standalone {
+    
     @include f-common;
     max-width  : 100%;
     min-width  : 0;
@@ -194,8 +196,9 @@
       color      : var(--section-fc-title, black);
       font-weight: var(--fw-bold, 500);
       line-height: 1.2;
-      margin-top : 0;
+      margin: 1.3rem 0 0.7rem;
     }
+    
   }
 
   //

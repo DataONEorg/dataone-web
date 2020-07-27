@@ -9,6 +9,16 @@
 <!-- The ID of a vimeo video -->
 {{- $id := .Block.ID | default "" -}}
 
+<!-- Check if the src is for a vimeo link -->
+{{- if hasPrefix $src "https://vimeo.com" -}}
+  <!-- Get the vimeo ID -->
+  {{- $matchedID := index (findRE "\\d*$" $src 1) 0 -}}
+  {{- if $matchedID -}}
+    {{- $id = $matchedID -}}
+    {{- $type = "vimeo" -}}
+  {{- end -}}
+{{- end -}}
+
 <!-- Add type as a modifier class -->
 {{- with $type -}}
   {{- $classes = printf "%s %s--%s" $classes $bn . -}}

@@ -80,9 +80,9 @@ page_sections:
       button:
         template: button
         type: internal page
-        color: secondary
-        internal_link: []
-        text: ''
+        color: quaternary
+        internal_link: "contribute-data.md"
+        text: 'Learn more'
         external_link: ''
         icon: ''
       image:

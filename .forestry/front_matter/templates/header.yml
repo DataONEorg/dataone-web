@@ -18,6 +18,7 @@ fields:
     options:
     - hero image
     - image on right
+    - image on right with overflow
     - text only
     - dataone plus
     - hosted repository

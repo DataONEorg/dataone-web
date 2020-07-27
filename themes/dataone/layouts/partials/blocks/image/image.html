@@ -28,25 +28,23 @@
 <!-- resize or crop when needed -->
 {{- $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) -}}
 
-<!-- Make sure no image is larger than the specified maximum -->
-
 <figure class="{{- $classes -}}">
-  {{- if $imageResource -}}
-    {{- if and (eq $imageResource.MediaType.MainType "image")  -}}
-      <!-- Hugo's resizing functionality throws error if WEBP format, -->
-      <!-- Even if we're just trying to look at width -->
-      {{- if (not (in $imageResource.MediaType "webp")) -}}
-        {{- if gt $imageResource.Width $maxWidth -}}
-          {{- $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) -}}
-        {{- end -}}
+  <!-- Check if the resource is actually a video type -->
+  {{- if or (hasPrefix $src "https://vimeo.com") (in ($imageResource.MediaType.MainType) "video") -}}
+    <div class="{{- $bn -}}__image">
+      {{- $videoBlock := merge .Block (dict "type" "uploaded") -}}
+      {{- partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) -}}
+    </div>
+  {{- else if and $imageResource (eq $imageResource.MediaType.MainType "image") -}}
+    <!-- Make sure no image is larger than the specified maximum -->
+    <!-- Hugo's resizing functionality throws error if WEBP format, -->
+    <!-- Even if we're just trying to look at width -->
+    {{- if (not (in $imageResource.MediaType "webp")) -}}
+      {{- if gt $imageResource.Width $maxWidth -}}
+        {{- $imageResource = $imageResource.Resize (printf "%dx" $maxWidth) -}}
       {{- end -}}
-      <img class="{{- $bn -}}__image" src="{{- $imageResource.RelPermalink -}}" alt="{{- $alt -}}"></img>
-    {{- else if in ($imageResource.MediaType.MainType) "video" -}}
-      <div class="{{- $bn -}}__image">
-        {{- $videoBlock := merge .Block (dict "type" "uploaded") -}}
-        {{- partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) -}}
-      </div>
     {{- end -}}
+    <img class="{{- $bn -}}__image" src="{{- $imageResource.RelPermalink -}}" alt="{{- $alt -}}"></img>
   {{- end -}}
 
   {{- with $caption -}}

@@ -14,7 +14,7 @@ cta:
   text: Get started
 header:
   template: header
-  type: image on right
+  type: image on right with overflow
   background_color: light
   pill:
     template: pill

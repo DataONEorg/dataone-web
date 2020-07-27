@@ -33,7 +33,7 @@
   {{- end -}}
 
   <!-- Header types that should have a background color set -->
-  {{- $typesWithBackgrounds := slice "image on right" "hero image" "text only" "center image" -}}
+  {{- $typesWithBackgrounds := slice "image on right" "image on right with overflow" "hero image" "text only" "center image" -}}
 
   <!-- Add a class for background colours for relevant block types -->
   {{- if (in $typesWithBackgrounds $type) -}}
@@ -126,7 +126,7 @@
           </div>
         {{- end -}}
       </div>
-      {{- if in (slice "image on right" "center image") $type -}}
+      {{- if in (slice "image on right" "center image" "image on right with overflow") $type -}}
         {{- with $image -}}
           <div class="{{- $bn -}}__figure">
             {{- partial "blocks/image/image" (dict "Block" . "Page" $page ) -}}

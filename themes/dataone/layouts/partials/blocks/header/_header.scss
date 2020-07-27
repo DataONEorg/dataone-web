@@ -177,6 +177,13 @@
   // ==========================================================================
   &--image-on-right {
     overflow: hidden;
+  }
+  
+  //
+  // Image on right - image is larger and allowed to spill off the screen on smaller screens (useful for images that don't contain important information or text)
+  // ==========================================================================
+  &--image-on-right-with-overflow {
+    overflow: hidden;
     // Let the image expand out to the right
     @include desktop {
       #{$bn}__figure {

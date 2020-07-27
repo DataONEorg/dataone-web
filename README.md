@@ -114,7 +114,7 @@ If the block is a simple one that requires few variables, and if content editors
 - The shortcode template only needs a few line of a code: It should render the partial template created in step 1, and pass on the shortcode parameters (if there are any), as well as the page parameters using "Block" and "Page", respectively:
   
   ```go
-  {{ $params :=  (dict "Page" $.Page.Params) }}
+  {{ $params :=  (dict "Page" $.Page) }}
   {{ if .Params }}
     {{ $params = merge $params (dict "Block" .Params) }}
   {{ end }}
