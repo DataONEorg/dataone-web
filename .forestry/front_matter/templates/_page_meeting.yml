@@ -153,7 +153,7 @@ fields:
         For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
         as 1500.
       config:
-        min: 0000
+        min: 0
         max: 2400
         step: 1
     - type: text
@@ -163,7 +163,7 @@ fields:
         For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
         as 1500.
       config:
-        min: 0000
+        min: 0
         max: 2400
         step: 1
     - type: text
@@ -199,7 +199,8 @@ fields:
     - type: text
       name: notes
       label: Notes link
-      description: Link to collaborative notes. Must start with  Must start with <code>https://</code> or <code>http://</code>
+      description: Link to collaborative notes. Must start with  Must start with <code>https://</code>
+        or <code>http://</code>
     - type: textarea
       name: details
       label: Details
