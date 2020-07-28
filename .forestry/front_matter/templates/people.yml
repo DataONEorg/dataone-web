@@ -56,5 +56,5 @@ fields:
       section: people
   label: People
   description: The people to display in this block. To add to the list of people,
-    first add the person to the [People](#/pages/content-people-)
+    first add the person to the [People](#/sections/people/content/people) category
   name: people
