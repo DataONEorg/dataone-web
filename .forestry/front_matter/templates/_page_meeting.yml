@@ -1,5 +1,5 @@
 ---
-label: _page_meeting
+label: "\U0001F4C4 Meeting Details"
 hide_body: true
 fields:
 - type: number
@@ -72,11 +72,15 @@ fields:
     label: Country
     description: The name of the country
     default: United States
-  - type: text
+  - type: textarea
     name: details
     label: Details
     description: Any other <strong>brief</strong> details about the location. For
       example, room numbers, or for online meetings, indicate the video platform
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
   - name: timezone
     type: text
     config:
@@ -84,11 +88,15 @@ fields:
     label: Timezone
     description: Enter a timezone for the event. Required if the meeting is remote.
   description: Location details for where the meeting is held
-- type: text
+- type: textarea
   name: overview
   label: Overview
   description: A short introduction for the event. Should be one sentence or maximum
     a few paragraphs.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: file
   name: image
   label: Image
@@ -98,18 +106,26 @@ fields:
   name: registration_link
   label: Registration Link
   description: The external link that leads to a form for users to register for the
-    event. Must start with <code>https://</code> or `http://
+    event. Must start with <code>https://</code> or <code>http://</code>
 - type: textarea
   name: registration_closed_message
   label: Message when registration is closed
   description: A message to display to users when registration has closed.
   default: Registration is closed
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: textarea
   name: logistics
   label: Logistics
   description: Information about location, hotel reservation information, travel support
     etc. In the case of a remote meeting, this will provide information on zoom rooms
     etc.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: field_group_list
   name: agenda
   label: Agenda
@@ -130,27 +146,42 @@ fields:
     name: events
     label: Events
     fields:
-    - type: text
+    - type: number
       name: time_start
       label: Start time
       description: The time the event begins. Enter in 24 hour format as numbers only.
         For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
         as 1500.
+      config:
+        min: 0000
+        max: 2400
+        step: 1
     - type: text
       name: time_end
       label: End time
       description: The time the event ends. Enter in 24 hour format as numbers only.
         For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
         as 1500.
+      config:
+        min: 0000
+        max: 2400
+        step: 1
     - type: text
       name: event
       label: Event name
       description: The name of the session or break
-    - type: text
+    - type: select
       name: type
       label: Type of event
       description: Indicate whether this is a break or session event (relevant for
         formatting)
+      config:
+        required: false
+        options:
+        - break
+        - session
+        source:
+          type: simple
     - type: list
       name: speakers
       config:
@@ -159,17 +190,25 @@ fields:
           type: pages
           section: people
       label: Speakers
-      description: The people giving the presentation. To add people, see the People
-        section in the sidebar.
+      description: The people giving the presentation. To add to the list of people,
+        first add the person to the [People](#/sections/people/content/people) category
     - type: text
       name: location
       label: Location
       description: Room number, zoom channel, etc.
     - type: text
+      name: notes
+      label: Notes link
+      description: Link to collaborative notes. Must start with  Must start with <code>https://</code> or <code>http://</code>
+    - type: textarea
       name: details
       label: Details
       description: Any other details that you'd like participants to know about the
         event. Keep as brief as possible.
+      config:
+        wysiwyg: true
+        schema:
+          format: markdown
     - type: text
       name: recording
       label: Recording
@@ -179,5 +218,7 @@ fields:
     config:
       labelField: event
   description: Add an "Agenda" item for each day of the meeting
+  config:
+    labelField: date
 pages:
 - content/meetings/2020.md
