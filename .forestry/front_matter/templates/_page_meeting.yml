@@ -1,0 +1,94 @@
+---
+label: _page_meeting
+hide_body: true
+fields:
+- type: number
+  name: year
+  label: year
+- type: text
+  name: theme
+  label: theme
+- type: field_group
+  name: location
+  label: location
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: list
+    name: delivery_points
+    label: delivery_points
+  - type: text
+    name: city
+    label: city
+  - type: text
+    name: administrative_area
+    label: administrative_area
+  - type: text
+    name: country
+    label: country
+  - type: text
+    name: details
+    label: details
+- type: datetime
+  name: date_start
+  label: date_start
+- type: datetime
+  name: date_end
+  label: date_end
+- type: text
+  name: overview
+  label: overview
+- type: file
+  name: image
+  label: image
+- type: text
+  name: registration_link
+  label: registration_link
+- type: textarea
+  name: registration_closed_message
+  label: registration_closed_message
+- type: textarea
+  name: logistics
+  label: logistics
+- type: list
+  name: participants
+  label: participants
+- type: field_group_list
+  name: agenda
+  label: agenda
+  fields:
+  - type: datetime
+    name: date
+    label: date
+  - type: text
+    name: overview
+    label: overview
+  - type: field_group_list
+    name: events
+    label: events
+    fields:
+    - type: text
+      name: time_start
+      label: time_start
+    - type: text
+      name: time_end
+      label: time_end
+    - type: text
+      name: event
+      label: event
+    - type: list
+      name: speakers
+      label: speakers
+    - type: text
+      name: type
+      label: type
+    - type: text
+      name: location
+      label: location
+    - type: text
+      name: details
+      label: details
+    - type: text
+      name: recording
+      label: recording
