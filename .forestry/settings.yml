@@ -57,6 +57,14 @@ sections:
   templates:
   - _page_service
 - type: heading
+  label: Community Meetings
+- type: directory
+  path: content/meetings
+  label: Community Meetings
+  create: all
+  match: "**/*"
+  exclude: _index.md
+- type: heading
   label: Features
 - type: document
   path: content/features/_index.md
