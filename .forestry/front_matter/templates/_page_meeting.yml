@@ -179,3 +179,5 @@ fields:
     config:
       labelField: event
   description: Add an "Agenda" item for each day of the meeting
+pages:
+- content/meetings/2020.md
