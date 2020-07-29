@@ -10,7 +10,8 @@ fields:
     min: 6
     max: 6
   label: Timezone
-  description: Enter a UTC time offsets for the agenda in 6 characters, eg −07:00. Required for correct times in the calendar output and for the HTML time tags.
+  description: Enter a UTC time offsets for the agenda in 6 characters, eg −07:00.
+    Required for correct times in the calendar output and for the HTML time tags.
 - type: field_group_list
   name: agenda
   label: Agenda
@@ -34,18 +35,18 @@ fields:
     - type: text
       name: time_start
       label: Start time
-      description: The time the event begins. Enter in 24 hour format as numbers only, **with a leading zero**.
-        For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
-        as 1500.
+      description: The time the event begins. Enter in 24 hour format as numbers only,
+        **with a leading zero**. For example, 8:00 AM should be entered as 0800. 3:00
+        PM should be entered as 1500.
       config:
         min: 4
         max: 4
     - type: text
       name: time_end
       label: End time
-      description: The time the event ends. Enter in 24 hour format as numbers only, **with a leading zero**.
-        For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
-        as 1500.
+      description: The time the event ends. Enter in 24 hour format as numbers only,
+        **with a leading zero**. For example, 8:00 AM should be entered as 0800. 3:00
+        PM should be entered as 1500.
     - type: text
       name: name
       label: Event name
