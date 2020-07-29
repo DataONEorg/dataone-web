@@ -49,11 +49,13 @@
   {{- $meetingPageSections := slice -}}
 
   {{- with $meeting.logistics -}}
-    {{- $meetingPageSections = $meetingPageSections | append (dict "template" "markdown" "content" .) -}}
+    {{- $logBlock := (dict "template" "markdown" "content" .) -}}
+    {{- $sectionBlock := dict "template" "section" "title" "Logistics" "blocks" (slice $logBlock) -}}
+    {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
   {{- end -}}
   {{- with $meeting.agenda -}}
     {{- $agendaBlock := merge (dict "template" "agenda" "timezone" $meeting.timezone) (dict "agenda" . ) -}}
-    {{- $sectionBlock := dict "template" "section" "id" "agenda" "title" "Agenda" "blocks" (slice $agendaBlock) -}}
+    {{- $sectionBlock := dict "template" "section" "id" "agenda" "type" "card" "small_title" "Agenda" "icon" "calendar" "blocks" (slice $agendaBlock) -}}
     {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
   {{- end -}}
 

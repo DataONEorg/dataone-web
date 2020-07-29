@@ -38,6 +38,13 @@
   //    Styles
   // ==========================================================================
 
+    display: flex;
+    flex-direction: column;
+    
+    &__print-button{
+      align-self: flex-end;
+    }
+
     &__date {
       color: var(#{$prefix}-fc-title);
       font-size: var(#{$prefix}-fs-largest);
@@ -51,7 +58,7 @@
 
     &__events {
       display: grid;
-      grid-auto-rows: auto;
+      grid-auto-rows: min-content;
       grid-template-columns: 100%;
       grid-gap: 2rem;
       margin: 2rem 0 0.1rem;
@@ -86,7 +93,7 @@
     // comprises all event details except for times
     &__event-main-content{
       display: grid;
-      grid-auto-rows: auto;
+      grid-auto-rows: min-content;
       grid-template-columns: 100%;
       grid-gap: 0.5rem 0.5rem;
     }
