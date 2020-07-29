@@ -10,69 +10,111 @@
 
 <!-- timezone is required -->
 {{- $timezone := .Block.timezone | default "−07:00" -}}
+
+<!-- The agenda comprises the list of events with event details -->
 {{- $agenda := .Block.agenda -}}
 
-<div class = "{{- $classes -}}">
-{{- range $day := $agenda -}}
+<div class="{{- $classes -}}">
+  {{- range $day := $agenda -}}
 
-  <!-- Format the date -->
-  
-  <h2 class="{{- $bn -}}__date">
-    {{- $dayBlock := dict "time" $day.date "includes_time" false "format" "Monday, 2 January" "localize" false "change_timezone" false "style" "inherit" -}}
-    {{- partial "blocks/datetime/datetime" (dict "Block" $dayBlock "Page" $page) -}}
-  </h2>
-  
-  <span class="markdown {{- $bn -}}__day-overview"> {{- $day.overview | markdownify -}} </span>
-  {{- range $event := $day.events -}}
-    
-    <!-- Start of individual event layout -->
-    <div class="{{- $bn -}}__event {{ $bn }}__event--{{ $event.type | default `session` }}">
-      
-      <h3 class="{{- $bn -}}__event-name">{{- $event.name -}}</h3>
-      
-      <!-- Format start and end times -->
-      {{- $startHtml := "" -}}
-      {{- range $type, $time := dict "0start" $event.time_start "1end" $event.time_end -}}
-        {{- if $time  -}}
-          {{- if (eq (len $time) 4) -}}
-            {{- $startTime := printf "%sT%s:%s:00.00%s" $day.date (substr (string $time) 0 2) (substr (string $time) 2 2) (string $timezone) -}}
-            {{- $datetimeBlock := dict "time" $startTime "format" "15:04" "localize" false "change_timezone" false -}}
-            <span class="{{- $bn -}}__{{- slicestr $type 1 -}}">
-              {{- partial "blocks/datetime/datetime" (dict "Block" $datetimeBlock "Page" $page) -}}
-            </span>
-          {{- end -}}
+    <!-- Format the date -->
+
+    <h2 class="{{- $bn -}}__date">
+      {{- $dayBlock := dict "time" $day.date "includes_time" false "format" "Monday, 2 January" "localize" false "change_timezone" false "style" "inherit" -}}
+      {{- partial "blocks/datetime/datetime" (dict "Block" $dayBlock "Page" $page) -}}
+    </h2>
+
+    {{- with $day.overview -}}
+      <span class="markdown {{- $bn -}}__day-overview">
+        {{- . | markdownify -}}
+      </span>
+    {{- end -}}
+
+    <!-- The sessions & breaks for each day -->
+    <div class="{{- $bn -}}__events">
+
+      {{- range $event := $day.events -}}
+
+        <!-- Don't render events without information -->
+        {{- if or $event.name $event.time_start $event.details $event.speakers $event.location -}}
+          <!-- Start of individual event layout -->
+          <div class="{{- $bn -}}__event {{ $bn }}__event--{{ $event.type | default `session` }}">
+
+            <!-- Format start and end times -->
+            <div class="{{- $bn -}}__event-times">
+              {{- $startHtml := "" -}}
+              {{- range $type, $time := dict "0start" $event.time_start "1end" $event.time_end -}}
+                {{- if $time -}}
+                  {{- if (eq (len $time) 4) -}}
+                    {{- $startTime := printf "%sT%s:%s:00.00%s" $day.date (substr (string $time) 0 2) (substr (string $time) 2 2) (string $timezone) -}}
+                    {{- $datetimeBlock := dict "time" $startTime "format" "15:04" "localize" false "change_timezone" false "style" "inherit" -}}
+                    <span class="{{- $bn -}}__{{- slicestr $type 1 -}}">
+                      {{- partial "blocks/datetime/datetime" (dict "Block" $datetimeBlock "Page" $page) -}}
+                    </span>
+                  {{- end -}}
+                {{- end -}}
+              {{- end -}}
+            </div>
+
+            <div class="{{- $bn -}}__event-main-content">
+
+              <!-- Event name -->
+              <h3 class="{{- $bn -}}__name">{{- $event.name -}}</h3>
+
+              <!-- Speakers -->
+              {{- with $event.speakers -}}
+                <span class="{{- $bn -}}__speakers">
+                  <!-- speakers icon -->
+                  {{- $speakerIconBlock := dict "icon" "users" "size" "tiny" "stroke" "thicker" "color" "inherit" -}}
+                  {{- partial "blocks/icon/icon" (dict "Block" $speakerIconBlock "Page" $page) -}}
+                  <!-- speaker names -->
+                  {{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" . "Page" $page) -}}
+                  {{- $speakerInfo.names_string -}}
+                </span>
+              {{- end -}}
+
+              {{- with $event.location -}}
+                <span class="{{- $bn -}}__location">
+                  <!-- location icon -->
+                  {{- $locationIconBlock := dict "icon" "map-pin" "size" "tiny" "stroke" "thicker" "color" "inherit" -}}
+                  {{- partial "blocks/icon/icon" (dict "Block" $locationIconBlock "Page" $page) -}}
+                  <!-- location text -->
+                  {{- . -}}
+                </span>
+              {{- end -}}
+
+              <!-- other event parameters -->
+              {{- with $event.details -}}
+                <span class="{{- $bn -}}__details">{{- . -}}</span>
+              {{- end -}}
+
+              {{- with $event.notes -}}
+                <span class="{{- $bn -}}__notes">
+                  {{- $notesBlock := dict "text" "Notes" "icon" "file-text" "external_link" . "color" "quaternary" -}}
+                  {{- partial "blocks/button/button" (dict "Page" $page "Block" $notesBlock) -}}
+                </span>
+              {{- end -}}
+
+              {{- with $event.recording -}}
+                <span class="{{- $bn -}}__recording">
+                  <!-- {{- $vidBlock := dict "src" . -}} -->
+                  <!-- {{- partial "blocks/video/video" (dict "Page" $page "Block" $vidBlock) -}} -->
+                  {{- $notesBlock := dict "text" "Recording" "icon" "video" "external_link" . "color" "quaternary" -}}
+                  {{- partial "blocks/button/button" (dict "Page" $page "Block" $notesBlock) -}}
+                </span>
+              {{- end -}}
+
+            </div>
+
+          </div>
+
+          <!-- End of event layout -->
         {{- end -}}
       {{- end -}}
-      
-      <!-- speakers -->
-      <span class="{{- $bn -}}__speakers">
-        {{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $event.speakers "Page" $page) -}}
-        {{- $speakerInfo.names_string -}}
-      </span>
-      <!-- other event parameters -->
-      <span class="{{- $bn -}}__location">
-      {{- $event.location -}}<br>
-      </span>
-      <span class="{{- $bn -}}__details">
-      {{- $event.details -}}<br>
-      </span>
-      {{- with $event.notes -}}
-        <span class="{{- $bn -}}__notes">
-          {{- $notesBlock := dict "text" "Notes" "icon" "file-text" "external_link" . "color" "quaternary" -}}
-          {{- partial "blocks/button/button" (dict "Page" $page "Block" $notesBlock) -}}
-        </span>
-      {{- end -}}
-      {{- with $event.recording -}}
-        <span class="{{- $bn -}}__recording">
-          {{- $vidBlock := dict "src" . -}}
-          {{- partial "blocks/video/video" (dict "Page" $page "Block" $vidBlock) -}}
-        </span>
-      {{- end -}}
     </div>
-    <!-- End of event layout -->
-    
+    <!-- End of eventS layout -->
   {{- end -}}
-{{- end -}}
+
 </div>
 
 <!-- Add to calendar -->
