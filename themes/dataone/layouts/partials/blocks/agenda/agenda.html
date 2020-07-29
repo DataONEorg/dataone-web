@@ -14,7 +14,16 @@
 <!-- The agenda comprises the list of events with event details -->
 {{- $agenda := .Block.agenda -}}
 
-<div class="{{- $classes -}}">
+{{- $uid := delimit (shuffle (seq 1 9)) "" -}}
+
+<div class="{{- $classes -}}" id="{{- $uid -}}">
+
+  <!-- Print button -->
+  <span class="{{- $bn -}}__print-button" id="print-button-{{- $uid -}}">
+    {{- $printButtonBlock := dict "type" "internal page" "color" "quaternary" "text" "Print agenda" "icon" "printer" "html_tag" "button" "function" (printf `onclick="%s.print('%s', '%s')"` $bn $uid $page.Title) -}}
+    {{- partial "blocks/button/button" (dict "Page" $page "Block" $printButtonBlock) -}}
+  </span>
+
   {{- range $day := $agenda -}}
 
     <!-- Format the date -->
