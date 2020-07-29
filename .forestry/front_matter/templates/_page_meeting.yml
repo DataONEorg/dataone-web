@@ -114,7 +114,8 @@ fields:
   name: meeting_over_message
   label: Message when meeting is over
   description: A message to display to users when the meeting has already happened
-  default: This meeting has already happened. Browse notes and videos from the meeting below.
+  default: This meeting has already happened. Browse notes and videos from the meeting
+    below.
   config:
     wysiwyg: true
     schema:
