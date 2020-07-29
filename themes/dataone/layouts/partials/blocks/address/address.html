@@ -34,12 +34,16 @@
 {{- end -}}
 
 <!-- line 1 : name -->
-{{- $nameEnd  := $defaultSep -}}
+{{- $nameEnd := "" -}}
+
+{{- if (gt (len $delivery_points) 0) -}}
+  {{- $nameEnd = $defaultSep -}}
+{{- end -}}
 
 <!-- line 2 : delivery points -->
 {{- $deliveryPointEnd := "" -}}
 
-{{- if or $city $administrative_area $country $postal_code (gt (len $deliveryPointEnd) 1) -}}
+{{- if or $city $administrative_area $country $postal_code (gt (len $delivery_points) 1) -}}
   {{- $deliveryPointEnd = $defaultSep -}}
 {{- end -}}
 

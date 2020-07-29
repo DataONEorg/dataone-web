@@ -37,25 +37,30 @@
   {{- $headerType := "text-only" -}}
   {{- with $meeting.image -}}
     {{- $image = dict "template" "image" "src" . -}}
-    {{- $headerType = "image on right" -}}
+    {{- $headerType = "center image" -}}
   {{- end -}}
 
   <!-- Header -->
-  {{- $headerBlock := dict "template" "header" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock) "image" $image -}}
+  {{- $pillBlock := "" -}}
+  {{- if and (eq $meeting.status "upcoming") ($meeting.registration_link) -}}
+    {{- $pillBlock = dict "template" "pill" "text" "Registration open" "style" "secondary" -}}
+  {{- end -}}
+  {{- $headerBlock := dict "template" "header" "background_color" "half-light-half-transparent" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock) "image" $image "pill" $pillBlock -}}
   {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) -}}
 
+  <!-- Event details -->
+  {{- $eventSummaryBlock := dict "template" "event-details" "date_start" $meeting.date_start "date_end" $meeting.date_end "location" $meeting.location -}}
+  {{- $eventDetailsBlock := dict "template" "markdown" "content" $meeting.location.details -}}
+  {{- $colsBlock := dict "template" "columns" "num_cols" "2" "columns" (slice $eventSummaryBlock $eventDetailsBlock) -}}
   <!-- Logistics & agenda sections -->
 
-  {{- $meetingPageSections := slice -}}
+  {{- $logBlock := (dict "template" "markdown" "content" $meeting.logistics) -}}
+  {{- $sectionBlock := dict "template" "section" "type" "card" "title" "Logistics" "background" "subtle-emphasis" "blocks" (slice $colsBlock $logBlock) -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
 
-  {{- with $meeting.logistics -}}
-    {{- $logBlock := (dict "template" "markdown" "content" .) -}}
-    {{- $sectionBlock := dict "template" "section" "title" "Logistics" "blocks" (slice $logBlock) -}}
-    {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
-  {{- end -}}
   {{- with $meeting.agenda -}}
     {{- $agendaBlock := merge (dict "template" "agenda" "timezone" $meeting.timezone) (dict "agenda" . ) -}}
-    {{- $sectionBlock := dict "template" "section" "id" "agenda" "type" "card" "small_title" "Agenda" "icon" "calendar" "blocks" (slice $agendaBlock) -}}
+    {{- $sectionBlock := dict "template" "section" "background" "data-wave-subtle" "id" "agenda" "type" "card" "small_title" "Agenda" "icon" "calendar" "blocks" (slice $agendaBlock) -}}
     {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
   {{- end -}}
 
