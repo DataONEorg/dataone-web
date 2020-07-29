@@ -205,8 +205,8 @@
   // General styles for infoboxes
   // ==========================================================================
   &--infobox {
-    --infobox-c-background: var(--section-c-background-darker, white);
-    --infobox-c-foreground: var(--section-fc-body, black);
+    --infobox-c-background: var(--section-c-background-darker, var(--c-default-darker, white));
+    --infobox-c-foreground: var(--section-fc-body, var(--c-foreground-on-default, black));
     background-color      : var(--infobox-c-background);
     color                 : var(--infobox-c-foreground);
     padding               : .7rem;
@@ -227,8 +227,8 @@
   // ==========================================================================
 
   &--success {
-    --infobox-c-background: var(--section-c-success-subtle);
-    --infobox-c-foreground: var(--section-c-success);
+    --infobox-c-background: var(--section-c-success-subtle, var(--c-success-subtle-on-default, lightgreen));
+    --infobox-c-foreground: var(--section-c-success, var(--c-success-on-default, green));
   }
 
   //
@@ -236,8 +236,8 @@
   // ==========================================================================
 
   &--info {
-    --infobox-c-background: var(--section-c-info-subtle);
-    --infobox-c-foreground: var(--section-c-info);
+    --infobox-c-background: var(--section-c-info-subtle, var(--c-info-subtle-on-default, skyblue));
+    --infobox-c-foreground: var(--section-c-info, var(--c-info-on-default, navy));
   }
 
   //
@@ -245,8 +245,8 @@
   // ==========================================================================
 
   &--warning {
-    --infobox-c-background: var(--section-c-warning-subtle);
-    --infobox-c-foreground: var(--section-c-warning);
+    --infobox-c-background: var(--section-c-warning-subtle, var(--c-warning-subtle-on-default, olive));
+    --infobox-c-foreground: var(--section-c-warning, var(--c-warning-on-default, yellow));
   }
 
   //
@@ -254,8 +254,8 @@
   // ==========================================================================
 
   &--error {
-    --infobox-c-background: var(--section-c-error-subtle);
-    --infobox-c-foreground: var(--section-c-error);
+    --infobox-c-background: var(--section-c-error-subtle, var(--c-error-subtle-on-default, white));
+    --infobox-c-foreground: var(--section-c-error, var(--c-error-on-default, red));
   }
 
 }

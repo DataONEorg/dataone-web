@@ -23,7 +23,7 @@
 
 <!-- The link where the button will lead. This will be set later in this template 
      depending on the type of button -->
-{{- $href := $externalLink | default "#" -}}
+{{- $href := $externalLink | default "" -}}
 
 <!-- "Color", primary, secondary, etc. -->
 {{- $color := .Block.color -}}
@@ -134,12 +134,15 @@
 
 <!-- start of button layout -->
 
-{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
+<!-- Don't render a button with out a link or function -->
+{{- if or $href $function -}}
+	{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
 
-{{- $icon -}}
-{{- if $text -}}
-	<span class="{{- $textClasses -}}">{{- $text -}}</span>
+	{{- $icon -}}
+	{{- if $text -}}
+		<span class="{{- $textClasses -}}">{{- $text -}}</span>
+	{{- end -}}
+	{{- $iconRight -}}
+
+	{{- printf "</%s>" $htmlTag  | safeHTML -}}
 {{- end -}}
-{{- $iconRight -}}
-
-{{- printf "</%s>" $htmlTag  | safeHTML -}}

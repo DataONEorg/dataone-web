@@ -81,12 +81,6 @@ fields:
       wysiwyg: true
       schema:
         format: markdown
-  - name: timezone
-    type: text
-    config:
-      required: false
-    label: Timezone
-    description: Enter a timezone for the event. Required if the meeting is remote.
   description: Location details for where the meeting is held
 - type: textarea
   name: overview
@@ -117,6 +111,15 @@ fields:
     schema:
       format: markdown
 - type: textarea
+  name: meeting_over_message
+  label: Message when meeting is over
+  description: A message to display to users when the meeting has already happened
+  default: This meeting has already happened. Browse notes and videos from the meeting below.
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
+- type: textarea
   name: logistics
   label: Logistics
   description: Information about location, hotel reservation information, travel support
@@ -126,100 +129,9 @@ fields:
     wysiwyg: true
     schema:
       format: markdown
-- type: field_group_list
+- type: include
   name: agenda
   label: Agenda
-  fields:
-  - type: datetime
-    name: date
-    label: Date
-    description: All events listed below will be relative to this date
-    config:
-      date_format: YYYY-MM-DD
-      export_format: YYYY-MM-DD
-  - type: text
-    name: overview
-    label: Overview
-    description: Optional blurb to explain details about the agenda for this day of
-      the event
-  - type: field_group_list
-    name: events
-    label: Events
-    fields:
-    - type: number
-      name: time_start
-      label: Start time
-      description: The time the event begins. Enter in 24 hour format as numbers only.
-        For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
-        as 1500.
-      config:
-        min: 0
-        max: 2400
-        step: 1
-    - type: text
-      name: time_end
-      label: End time
-      description: The time the event ends. Enter in 24 hour format as numbers only.
-        For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
-        as 1500.
-      config:
-        min: 0
-        max: 2400
-        step: 1
-    - type: text
-      name: event
-      label: Event name
-      description: The name of the session or break
-    - type: select
-      name: type
-      label: Type of event
-      description: Indicate whether this is a break or session event (relevant for
-        formatting)
-      config:
-        required: false
-        options:
-        - break
-        - session
-        source:
-          type: simple
-    - type: list
-      name: speakers
-      config:
-        use_select: true
-        source:
-          type: pages
-          section: people
-      label: Speakers
-      description: The people giving the presentation. To add to the list of people,
-        first add the person to the [People](#/sections/people/content/people) category
-    - type: text
-      name: location
-      label: Location
-      description: Room number, zoom channel, etc.
-    - type: text
-      name: notes
-      label: Notes link
-      description: Link to collaborative notes. Must start with  Must start with <code>https://</code>
-        or <code>http://</code>
-    - type: textarea
-      name: details
-      label: Details
-      description: Any other details that you'd like participants to know about the
-        event. Keep as brief as possible.
-      config:
-        wysiwyg: true
-        schema:
-          format: markdown
-    - type: text
-      name: recording
-      label: Recording
-      description: A link to the recording for the session, if available. Enter a
-        <strong>vimeo ID number</strong>, or a link starting with `https://`
-    description: Each session, break, etc. that occurs during this day
-    config:
-      labelField: event
-  description: Add an "Agenda" item for each day of the meeting
-  config:
-    labelField: date
+  template: agenda
 pages:
 - content/meetings/2020.md

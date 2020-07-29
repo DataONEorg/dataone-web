@@ -138,5 +138,21 @@
       font-size : var(--fs-medium, 1.1rem);
     }
   }
+  
+  &--inherit {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    
+    #{$bn}__displaydate {
+      font-weight : inherit;
+    }
+
+    &__timezone {
+      font-size : inherit;
+      // font-weight : inherit;
+    }
+  }
 
 }

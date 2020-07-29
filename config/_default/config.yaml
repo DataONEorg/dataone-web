@@ -28,3 +28,4 @@ permalinks:
   news: "/:section/:filename"
   people: "/:section/:filename"
   webinars: "/webinars/:slug"
+  meetings: "/meetings/:filename"
