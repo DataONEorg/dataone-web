@@ -46,9 +46,6 @@ fields:
       description: The time the event ends. Enter in 24 hour format as numbers only, **with a leading zero**.
         For example, 8:00 AM should be entered as 0800. 3:00 PM should be entered
         as 1500.
-      config:
-        min: 4
-        max: 4
     - type: text
       name: name
       label: Event name
