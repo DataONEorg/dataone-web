@@ -1,0 +1,53 @@
+{{- define "main" -}}
+
+  <!-- The page -->
+  {{- $page := $.Page -}}
+  
+  <!-- Meeting parameters -->
+  {{- $meeting := $page.Params -}}
+  
+  {{- $title := print "DataONE Community Meeting " $meeting.year -}}
+  
+  <!-- ========================================== BLOCKS ========================================== -->
+  
+  <!-- Breadcrumb navigation -->
+  {{- $breadcrumbsBlock := dict "back_text" "See all community meetings" "back_link" $page.Parent.RelPermalink -}}
+  {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
+  
+  <!-- Registration button & messages for when meeting is over or registration is closed -->
+  {{- $buttonBlock := dict -}}
+  {{- $intro := $meeting.overview -}}
+  {{- if eq $meeting.status "upcoming" -}}
+    {{- with $meeting.registration_link -}}
+      {{- $buttonBlock = dict "template" "button" "text" "Register now" "type" "external website" "external_link" . "color" "primary" -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $message := "" -}}
+    {{- if eq $meeting.status "registration closed" -}}
+      {{- $message = $meeting.registration_closed_message | default "Registration is now closed" -}}
+    {{- else if eq $meeting.status "meeting over" -}}
+      {{- $message = $meeting.meeting_over_message | default "This meeting has already happened. Browse notes and videos from the meeting below." -}}
+    {{- end -}}
+    {{- $messageFormatted := partial "blocks/markdown/markdown" (dict "Block" ( dict "content" (printf "**%s**" $message) "style" "info" ) "Page" $page ) -}}
+    {{- $intro = print $intro "<br><br>" $messageFormatted -}}
+  {{- end -}}
+  
+  <!-- Image -->
+  {{- $image := dict -}}
+  {{- $headerType := "text-only" -}}
+  {{- with $meeting.image -}}
+    {{- $image = dict "template" "image" "src" . -}}
+    {{- $headerType = "image on right" -}}
+  {{- end -}}
+  
+  <!-- Header -->
+  {{- $headerBlock := dict "template" "header" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock) "image" $image -}}
+  {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) -}}
+  <!-- Meeting sections -->
+  {{- $agendaBlock := merge (dict "template" "agenda" "timezone" $meeting.timezone) (dict "agenda" $meeting.agenda) -}}
+  {{- $logisticsBlock := dict "template" "markdown" "content" $meeting.logistics -}}
+  
+  {{- $sectionBlock := dict "template" "section" "blocks" (slice $logisticsBlock $agendaBlock) -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
+  
+{{- end -}}

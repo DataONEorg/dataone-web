@@ -30,17 +30,8 @@
 	{{- $icon = printf `<span class="%s__icon">%s</span>` $bn $svg | safeHTML -}}
 {{- end -}}
 
-<!-- Icon on the right -->
-{{- $iconRight := "" -}}
-{{- if and (eq .Block.color "quaternary") (eq $type "internal page") -}}
-	{{- $iconRight = "arrow-right" -}}
-{{- else if and (or (eq $type "external website") (eq $type "donate")) (not .Block.type_attr) -}}
-	{{- $iconRight = "external-link" -}}
-{{- end -}}
-{{- with $iconRight -}}
-	{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" . "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
-	{{- $iconRight = printf `<span class="%s__icon %s__icon--right">%s</span>` $bn $bn $svg | safeHTML -}}
-{{- end -}}
+<!-- The link where the button will lead. This will be set later in this template depending on the type of button -->
+{{- $href := $externalLink | default "" -}}
 
 <!-- href link -->
 
@@ -71,9 +62,9 @@
 
 <!-- Check for special link key words, replace with link from config.yaml -->
 {{- range $name, $configUrl := $site.Params.links -}}
-  {{- if eq (string $type) (string $name) -}}
-    {{- $href = $configUrl -}}
-  {{- end -}}
+	{{- if eq (string $type) (string $name) -}}
+		{{- $href = $configUrl -}}
+	{{- end -}}
 {{- end -}}
 
 {{- if eq $type "subscribe form" -}}
@@ -104,7 +95,7 @@
 <!-- Other custom attributes to add to button elements (e.g. aria attributes) -->
 {{- $otherAttributes := "" | safeHTMLAttr -}}
 {{- with .Block.otherAttributes -}}
-  {{- $otherAttributes = . | safeHTMLAttr -}}
+	{{- $otherAttributes = . | safeHTMLAttr -}}
 {{- end -}}
 
 <!-- Class for the button text span element -->
@@ -117,12 +108,15 @@
 
 <!-- start of button layout -->
 
-{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
+<!-- Don't render a button with out a link or function -->
+{{- if or $href $function -}}
+	{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
 
-{{- $icon -}}
-{{- if $text -}}
-	<span class="{{- $textClasses -}}">{{- $text -}}</span>
+	{{- $icon -}}
+	{{- if $text -}}
+		<span class="{{- $textClasses -}}">{{- $text -}}</span>
+	{{- end -}}
+	{{- $iconRight -}}
+
+	{{- printf "</%s>" $htmlTag  | safeHTML -}}
 {{- end -}}
-{{- $iconRight -}}
-
-{{- printf "</%s>" $htmlTag  | safeHTML -}}

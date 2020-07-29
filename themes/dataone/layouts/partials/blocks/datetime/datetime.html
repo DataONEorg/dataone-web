@@ -6,6 +6,9 @@
 <!-- The prefix we will add to the CSS classes -->
 {{- $p := $site.Params.prefix -}}
 
+<!-- whether or not the given date includes a time, otherwise it's just the date (TODO: automate this) -->
+{{- $includesTime := .Block.includes_time | default true -}}
+
 {{- $classes := $bn -}}
 
 {{- with .Block.style -}}
@@ -84,8 +87,11 @@
     {{- $show_timezone = true -}}
   {{- end -}}
 
-  <!-- format as required for <time> - RFC3339 -->
+  <!-- format as required for HTML <time> - RFC3339 -->
   {{- $timeHTML := dateFormat "2006-01-02T15:04:03-0700" $time -}}
+  {{- if not $includesTime -}}
+    {{- $timeHTML = dateFormat "2006-01-02" $time -}}
+  {{- end -}}
 
   <!-- display format -->
   {{- $timeDisplay := dateFormat $format $time -}}

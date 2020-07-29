@@ -6,7 +6,7 @@
   {{- $page := $.Page -}}
 
   <!-- webinar parameters -->
-  {{- $webinar := $.Page.Params -}}
+  {{- $webinar := $page.Params -}}
 
   <!-- status defines whether this webinar is upcoming, happening now, or past -->
   {{- $status := partial "functions/getWebinarStatus" $webinar -}}
@@ -33,6 +33,6 @@
   <!-- Webinar sections -->
   {{- $webinarBlock := merge (dict "template" "webinar-details") $webinar -}}
   {{- $sectionBlock:= dict "template" "section" "type" "split" "background" "subtle-emphasis" "background2" "default" "blocks" (slice $headerBlock $webinarBlock) -}}
-  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $.Page) -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
 
 {{- end -}}
