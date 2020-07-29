@@ -194,12 +194,13 @@
     }
 
     .ml-form-formContent {
-      min-width: 17rem;
       max-width: 26rem;
+      min-width: 17rem;
     }
 
     .ml-form-embedSubmit {
-      display: block;
+      display: flex;
+      justify-self: center;
     }
 
     .ml-form-interestGroupsRow.ml-block-groups {
@@ -208,12 +209,18 @@
 
     .ml-block-form {
       display              : grid;
-      grid-template-columns: auto min-content;
+      grid-template-columns: 1fr;
       grid-gap             : 1rem 1rem;
       align-items: end;
       max-width: 33rem;
       margin: auto;
+      
+      @include desktop{
+        grid-template-columns: auto min-content;
+        grid-gap             : 1rem 1rem;
+      }
     }
+    
   }
 
   &--card {

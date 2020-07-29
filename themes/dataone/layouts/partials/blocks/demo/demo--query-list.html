@@ -42,9 +42,7 @@
 <div class="{{- $bn -}}__search-area">
   <input class="{{- $bn -}}__input" type="text" id="queryFieldsSearch" placeholder="Enter the name of a metadata field" onkeyup="filterQueryFields(this)">
   <label class="{{- $bn -}}__label" for="queryFieldsSearch">
-    Search
-    {{- len $fields -}}
-    metadata fields
+    Search {{- len $fields -}} metadata fields
   </label>
   <span class="{{- $bn -}}__search-icon">
     {{- $searchIcon -}}

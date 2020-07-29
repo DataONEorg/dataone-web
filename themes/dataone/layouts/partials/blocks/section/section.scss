@@ -61,7 +61,10 @@
     justify-self: center;
     width       : 100%;
     @include limit-width;
-    padding     : 3.5rem $lr-padding 2.5rem;
+    padding     : 1.5rem $lr-padding 2rem;
+    @include desktop{
+      padding     : 1.5rem $lr-padding 2.5rem;
+    }
   }
 
   // An icon that represents the section contents
@@ -388,16 +391,23 @@
     }
 
     #{$bn}__half1 {
-      padding-bottom: $split-section-paddingTopBottom;
+      padding-bottom: 0;
+      @include desktop {
+        padding-bottom: $split-section-paddingTopBottom;
+      }
+      
     }
 
     #{$bn}__half1-inner,
     #{$bn}__half2-inner {
       display    : flex;
-      padding    : $split-section-paddingTopBottom $lr-padding 0;
+      padding    : 3rem $lr-padding 0;
       width      : 100%;
       height     : 100%;
       align-items: center;
+      @include desktop{
+        padding-top: $split-section-paddingTopBottom
+      }
     }
     @include desktop {
       grid-template-columns: 1fr 1fr;
