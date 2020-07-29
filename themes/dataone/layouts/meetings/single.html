@@ -2,18 +2,18 @@
 
   <!-- The page -->
   {{- $page := $.Page -}}
-  
+
   <!-- Meeting parameters -->
   {{- $meeting := $page.Params -}}
-  
+
   {{- $title := print "DataONE Community Meeting " $meeting.year -}}
-  
+
   <!-- ========================================== BLOCKS ========================================== -->
-  
+
   <!-- Breadcrumb navigation -->
-  {{- $breadcrumbsBlock := dict "back_text" "See all community meetings" "back_link" $page.Parent.RelPermalink -}}
+  {{- $breadcrumbsBlock := dict "back_text" "Back to community page" "back_link" "/community/" -}}
   {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
-  
+
   <!-- Registration button & messages for when meeting is over or registration is closed -->
   {{- $buttonBlock := dict -}}
   {{- $intro := $meeting.overview -}}
@@ -31,7 +31,7 @@
     {{- $messageFormatted := partial "blocks/markdown/markdown" (dict "Block" ( dict "content" (printf "**%s**" $message) "style" "info" ) "Page" $page ) -}}
     {{- $intro = print $intro "<br><br>" $messageFormatted -}}
   {{- end -}}
-  
+
   <!-- Image -->
   {{- $image := dict -}}
   {{- $headerType := "text-only" -}}
@@ -39,15 +39,22 @@
     {{- $image = dict "template" "image" "src" . -}}
     {{- $headerType = "image on right" -}}
   {{- end -}}
-  
+
   <!-- Header -->
   {{- $headerBlock := dict "template" "header" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock) "image" $image -}}
   {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) -}}
-  <!-- Meeting sections -->
-  {{- $agendaBlock := merge (dict "template" "agenda" "timezone" $meeting.timezone) (dict "agenda" $meeting.agenda) -}}
-  {{- $logisticsBlock := dict "template" "markdown" "content" $meeting.logistics -}}
-  
-  {{- $sectionBlock := dict "template" "section" "blocks" (slice $logisticsBlock $agendaBlock) -}}
-  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
-  
+
+  <!-- Logistics & agenda sections -->
+
+  {{- $meetingPageSections := slice -}}
+
+  {{- with $meeting.logistics -}}
+    {{- $meetingPageSections = $meetingPageSections | append (dict "template" "markdown" "content" .) -}}
+  {{- end -}}
+  {{- with $meeting.agenda -}}
+    {{- $agendaBlock := merge (dict "template" "agenda" "timezone" $meeting.timezone) (dict "agenda" . ) -}}
+    {{- $sectionBlock := dict "template" "section" "id" "agenda" "title" "Agenda" "blocks" (slice $agendaBlock) -}}
+    {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
+  {{- end -}}
+
 {{- end -}}

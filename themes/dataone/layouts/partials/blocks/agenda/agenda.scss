@@ -18,11 +18,111 @@
   // Always use css variables along with a default value to maintain the block's
   // independence & modularity (a la BEM).
 
-  #{$prefix}-background  : var(--section-fc-body, black);
-  #{$prefix}-foreground  : var(--section-c-background, white);
+  #{$prefix}-c-foreground-subtle : var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray));
+  #{$prefix}-c-accent  : var(--section-c-accent, grey);
+  
+  #{$prefix}-fc-title: var(--section-fc-title, var(--c-foreground-emphasis-on-default, black));
+  
+  #{$prefix}-fs-largest  : var(--fs-x-large);
+  #{$prefix}-fs-x-large  : var(--fs-larger);
+  #{$prefix}-fs-larger  : var(--fs-large);
+  #{$prefix}-fs-smallest: var(--fs-small);
+  
+  #{$prefix}-fw-bold  : var(--fw-bold);
+  #{$prefix}-fw-bolder  : var(--fw-bolder);
+  #{$prefix}-fw-boldest  : var(--fw-x-bold);
+  
+  #{$prefix}-ff-title: var(--section-ff-title, var(--ff-title2, "serif"));
 
   // ==========================================================================
   //    Styles
   // ==========================================================================
+
+    &__date {
+      color: var(#{$prefix}-fc-title);
+      font-size: var(#{$prefix}-fs-largest);
+      font-weight: var(#{$prefix}-fw-boldest);
+      font-family: var(#{$prefix}-ff-title);
+      margin: 3rem 0 0;
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+
+    &__events {
+      display: grid;
+      grid-auto-rows: auto;
+      grid-template-columns: 100%;
+      grid-gap: 2rem;
+      margin: 2rem 0 0.1rem;
+    }
+
+    &__event {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      grid-template-rows: 100%;
+      grid-gap: 1rem;
+    }
+    
+    &__event-times{
+      border-right: 2px solid var(#{$prefix}-c-accent);
+    }
+    
+    // start time
+    &__start {
+      display: block;
+      font-size: var(#{$prefix}-fs-largest);
+      color: var(#{$prefix}-c-accent);
+      font-weight: var(#{$prefix}-fw-bolder);
+    }
+    
+    &__end {
+      margin: 0.3rem 0 0 0.1rem;
+      display: block;
+      color: var(#{$prefix}-c-foreground-subtle);
+      font-size: var(#{$prefix}-fs-larger);
+    }
+    
+    // comprises all event details except for times
+    &__event-main-content{
+      display: grid;
+      grid-auto-rows: auto;
+      grid-template-columns: 100%;
+      grid-gap: 0.5rem 0.5rem;
+    }
+    
+    // event name
+    &__name {
+      margin: 0 0 0.2rem;
+      font-weight: var(#{$prefix}-fw-bolder);
+      font-size: var(#{$prefix}-fs-x-large);
+      // color: var(#{$prefix}-fc-title);
+    }
+    
+    // List of speakers
+    &__speakers{
+      color: var(#{$prefix}-c-foreground-subtle);
+      font-weight: var(#{$prefix}-fw-bold);
+      // for the icon
+      fill: var(#{$prefix}-c-foreground-subtle);
+      stroke: var(#{$prefix}-c-foreground-subtle);
+    }
+    
+    // Location of event
+    &__location{
+      color: var(#{$prefix}-c-foreground-subtle);
+      font-weight: var(#{$prefix}-fw-bold);
+      // for the icon
+      fill: var(#{$prefix}-c-foreground-subtle);
+      stroke: var(#{$prefix}-c-foreground-subtle);
+    }
+    
+    // Details, free markdown text
+    &__details {
+      font-size: var(#{$prefix}-fs-smallest);
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      line-height: 1.3;
+    }
+
 
 }
