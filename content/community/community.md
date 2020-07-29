@@ -54,9 +54,9 @@ page_sections:
     Registration is free and you can pre-register your interest below.
   button:
     type: external website
-    color: secondary
-    text: Pre-registration for the DataONE Community Meeting
-    template: ''
+    color: primary
+    text: Pre-register for the meeting
+    template: 'button'
     external_link: https://docs.google.com/forms/d/e/1FAIpQLSd3st6XajdDODtp4jGwxGvwaiEnE_6C8qvJx-gqkHAmPAiQTw/viewform?usp=sf_link
     internal_link: ''
     icon: ''

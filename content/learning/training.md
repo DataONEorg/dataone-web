@@ -14,7 +14,7 @@ header:
   buttons:
   - template: button
     color: primary
-    text: Learn about our upcoming remote training
+    text: Upcoming remote training details
     type: internal page
     internal_link: training.md#upcoming-training
     external_link: ''
@@ -26,9 +26,9 @@ header:
     overlay_effect: subtle
     type: ''
   pill:
-    template: ''
-    style: ''
-    text: ''
+    template: 'pill'
+    style: 'quaternary'
+    text: 'Upcoming remote training'
   background_color: ''
 page_sections:
 - template: section
@@ -101,10 +101,10 @@ page_sections:
     content: " :warning: Due to COVID-19 *in-person* training is currently postponed.
       Remote training is coming soon."
   button:
-    template: ''
+    template: 'button'
     type: external website
     color: secondary
-    text: Learn more about our short course
+    text: Short course details
     external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
@@ -155,10 +155,10 @@ page_sections:
     are CC0 licensed and designed for you to adopt and adapt to your needs.
   blocks: []
   button:
-    template: ''
+    template: 'button'
     type: external website
-    color: ''
-    text: Community Skillbuilding Hub of Lessons and Best Practices
+    color: 'quaternary'
+    text: Explore the Community Skillbuilding Hub of Lessons and Best Practices
     external_link: https://dataoneorg.github.io/Education/
     internal_link: ''
     icon: ''
