@@ -55,15 +55,19 @@ page_sections:
       The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focused workshops exploring implementation and use.
     details:
     - template: item-with-icon
-      name: Upcoming Community Meeting
-      text: Join us August 11th - 13th for a first look at the new DataONE
+      name: August 11th - 13th
+      text: Join us for a first look at the new DataONE
       icon: calendar
+    - template: item-with-icon
+      name: Remote
+      text: Meeting will be held over zoom
+      icon: map-pin
   button:
     template: button
     type: internal page
     color: primary
     text: Get Ready
-    internal_link: community/community.md#meeting
+    internal_link: /meetings/2020.md
     icon: calendar
 - template: section
   background: wave
