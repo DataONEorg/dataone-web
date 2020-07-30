@@ -14,9 +14,31 @@
 <!-- The agenda comprises the list of events with event details -->
 {{- $agenda := .Block.agenda -}}
 
+<!-- Unique ID for this agenda (for JS) -->
 {{- $uid := delimit (shuffle (seq 1 9)) "" -}}
 
+<!-- Define icons -->
+{{- $iconSettings := dict "size" "tiny" "stroke" "thicker" "color" "inherit" -}}
+<!-- speakers icon -->
+{{- $speakerIconBlock := merge $iconSettings (dict "icon" "users") -}}
+{{- $speakersIcon := partial "blocks/icon/icon" (dict "Block" $speakerIconBlock "Page" $page) -}}
+<!-- location icon -->
+{{- $locationIconBlock := merge $iconSettings (dict "icon" "map-pin") -}}
+{{- $locationIcon := partial "blocks/icon/icon" (dict "Block" $locationIconBlock "Page" $page) -}}
+<!-- timezone icon -->
+{{- $timezoneIconBlock := merge $iconSettings (dict "icon" "globe" "size" "small" "stroke" "medium") -}}
+{{- $timezoneIcon := partial "blocks/icon/icon" (dict "Block" $timezoneIconBlock "Page" $page) -}}
+
 <div class="{{- $classes -}}" id="{{- $uid -}}">
+
+  <!-- Timezone information -->
+  <span class="{{- $bn -}}__timezone-info">
+    <!-- Get the date from whatever the first event is in the agenda -->
+    {{- $firstDate := (index $agenda 0).date -}}
+    {{- $timezoneFormatted := dateFormat "UTC-07:00" (printf "%sT00:00:00.00%s" $firstDate (string $timezone)) -}}
+    {{- $timezoneMdBlock := dict "content" (printf "%s Times are displayed in %s" $timezoneIcon $timezoneFormatted) "style" "infobox" -}}
+    {{- partial "blocks/markdown/markdown" (dict "Block" $timezoneMdBlock "Page" $page) -}}
+  </span>
 
   <!-- Print button -->
   <span class="{{- $bn -}}__print-button" id="print-button-{{- $uid -}}">
@@ -57,7 +79,11 @@
                   {{- if (eq (len $time) 4) -}}
                     {{- $startTime := printf "%sT%s:%s:00.00%s" $day.date (substr (string $time) 0 2) (substr (string $time) 2 2) (string $timezone) -}}
                     {{- $datetimeBlock := dict "time" $startTime "format" "15:04" "localize" false "change_timezone" false "style" "inherit" -}}
-                    <span class="{{- $bn -}}__{{- slicestr $type 1 -}}">
+                    {{- $type = slicestr $type 1 -}}
+                    <span class="{{- $bn -}}__{{- $type -}}">
+                      {{- if eq $type "end" -}}
+                        to
+                      {{- end -}}
                       {{- partial "blocks/datetime/datetime" (dict "Block" $datetimeBlock "Page" $page) -}}
                     </span>
                   {{- end -}}
@@ -73,9 +99,7 @@
               <!-- Speakers -->
               {{- with $event.speakers -}}
                 <span class="{{- $bn -}}__speakers">
-                  <!-- speakers icon -->
-                  {{- $speakerIconBlock := dict "icon" "users" "size" "tiny" "stroke" "thicker" "color" "inherit" -}}
-                  {{- partial "blocks/icon/icon" (dict "Block" $speakerIconBlock "Page" $page) -}}
+                  {{- $speakersIcon -}}
                   <!-- speaker names -->
                   {{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" . "Page" $page) -}}
                   {{- $speakerInfo.names_string -}}
@@ -84,9 +108,7 @@
 
               {{- with $event.location -}}
                 <span class="{{- $bn -}}__location">
-                  <!-- location icon -->
-                  {{- $locationIconBlock := dict "icon" "map-pin" "size" "tiny" "stroke" "thicker" "color" "inherit" -}}
-                  {{- partial "blocks/icon/icon" (dict "Block" $locationIconBlock "Page" $page) -}}
+                  {{- $locationIcon -}}
                   <!-- location text -->
                   {{- . -}}
                 </span>
@@ -94,7 +116,7 @@
 
               <!-- other event parameters -->
               {{- with $event.details -}}
-                <span class="{{- $bn -}}__details">{{- . -}}</span>
+                <span class="markdown {{ $bn }}__details">{{- . | markdownify -}}</span>
               {{- end -}}
 
               {{- with $event.notes -}}

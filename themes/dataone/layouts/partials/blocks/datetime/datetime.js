@@ -7,7 +7,6 @@
 var toggleTimezoneInput = function (button) {
   if(button){
     var open = JSON.parse(button.getAttribute("aria-expanded"));
-    console.log(open);
     // get the input element, a sibling of the button
     inputEl = button.parentNode.getElementsByClassName("datetime__tz-input")[0];
     d1Utilities.toggleElement(button, inputEl, open);

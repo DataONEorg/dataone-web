@@ -16,10 +16,14 @@
 
   <!-- Registration button & messages for when meeting is over or registration is closed -->
   {{- $buttonBlock := dict -}}
+  {{- $buttonBlock2 := dict -}}
   {{- $intro := $meeting.overview -}}
   {{- if eq $meeting.status "upcoming" -}}
     {{- with $meeting.registration_link -}}
       {{- $buttonBlock = dict "template" "button" "text" "Register now" "type" "external website" "external_link" . "color" "primary" -}}
+    {{- end -}}
+    {{- with $meeting.agenda -}}
+      {{- $buttonBlock2 = dict "template" "button" "text" "View the schedule" "type" "internal page" "external_link" "#agenda" "color" "secondary" -}}
     {{- end -}}
   {{- else -}}
     {{- $message := "" -}}
@@ -43,9 +47,9 @@
   <!-- Header -->
   {{- $pillBlock := "" -}}
   {{- if and (eq $meeting.status "upcoming") ($meeting.registration_link) -}}
-    {{- $pillBlock = dict "template" "pill" "text" "Registration open" "style" "secondary" -}}
+    {{- $pillBlock = dict "template" "pill" "text" "Registration open" "style" "quaternary" -}}
   {{- end -}}
-  {{- $headerBlock := dict "template" "header" "background_color" "half-light-half-transparent" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock) "image" $image "pill" $pillBlock -}}
+  {{- $headerBlock := dict "template" "header" "background_color" "half-light-half-transparent" "type" $headerType "title" $title "intro" $intro "buttons" (slice $buttonBlock $buttonBlock2) "image" $image "pill" $pillBlock -}}
   {{- partial "blocks/header/header" (dict "Block" $headerBlock "Page" $page) -}}
 
   <!-- Event details -->
