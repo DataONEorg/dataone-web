@@ -8,8 +8,9 @@
 <!-- Classes to add to the button based on user choices -->
 {{- $classes := $bn -}}
 
-<!-- timezone is required -->
-{{- $timezone := .Block.timezone | default "−07:00" -}}
+<!-- timezone info is required -->
+{{- $utcOffset := .Block.utc_offset | default "-07:00" -}}
+{{- $timezone := .Block.timezone | default "PST" -}}
 
 <!-- The agenda comprises the list of events with event details -->
 {{- $agenda := .Block.agenda -}}
@@ -35,8 +36,7 @@
   <span class="{{- $bn -}}__timezone-info">
     <!-- Get the date from whatever the first event is in the agenda -->
     {{- $firstDate := (index $agenda 0).date -}}
-    {{- $timezoneFormatted := dateFormat "UTC-07:00" (printf "%sT00:00:00.00%s" $firstDate (string $timezone)) -}}
-    {{- $timezoneMdBlock := dict "content" (printf "%s Times are displayed in %s" $timezoneIcon $timezoneFormatted) "style" "infobox" -}}
+    {{- $timezoneMdBlock := dict "content" (printf "%s Times are displayed in UTC%s (%s)" $timezoneIcon $utcOffset $timezone ) "style" "infobox" -}}
     {{- partial "blocks/markdown/markdown" (dict "Block" $timezoneMdBlock "Page" $page) -}}
   </span>
 
@@ -77,7 +77,7 @@
               {{- range $type, $time := dict "0start" $event.time_start "1end" $event.time_end -}}
                 {{- if $time -}}
                   {{- if (eq (len $time) 4) -}}
-                    {{- $startTime := printf "%sT%s:%s:00.00%s" $day.date (substr (string $time) 0 2) (substr (string $time) 2 2) (string $timezone) -}}
+                    {{- $startTime := printf "%sT%s:%s:00.00%s" $day.date (substr (string $time) 0 2) (substr (string $time) 2 2) $utcOffset -}}
                     {{- $datetimeBlock := dict "time" $startTime "format" "15:04" "localize" false "change_timezone" false "style" "inherit" -}}
                     {{- $type = slicestr $type 1 -}}
                     <span class="{{- $bn -}}__{{- $type -}}">

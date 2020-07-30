@@ -3,15 +3,23 @@ label: Agenda
 hide_body: true
 display_field: title
 fields:
-- name: timezone
+- name: utc_offset
   type: text
   config:
     required: true
     min: 6
     max: 6
-  label: Timezone
+  label: UTC Offset
   description: Enter a UTC time offsets for the agenda in 6 characters, eg −07:00.
     Required for correct times in the calendar output and for the HTML time tags.
+- name: timezone
+  type: text
+  config:
+    required: true
+    min: 3
+    max: 3
+  label: Timezone abbreviation
+  description: Enter a three letter timezone abbreviation to display
 - type: field_group_list
   name: agenda
   label: Agenda
