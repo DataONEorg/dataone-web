@@ -41,8 +41,23 @@
     display: flex;
     flex-direction: column;
     
-    &__print-button{
+    &__print-button {
       align-self: flex-end;
+      margin-top: 1.5rem;
+    }
+    
+    &__timezone-info {
+      color: var(#{$prefix}-c-foreground-subtle);
+      font-weight: var(#{$prefix}-fw-bold);
+      // for the icon
+      fill: var(#{$prefix}-c-foreground-subtle);
+      stroke: var(#{$prefix}-c-foreground-subtle);
+      
+      // because this contains a markdown block with an svg, the markdown parser
+      // converts it to a paragraph. Remove the margins in this case.
+      & p {
+        margin: 0;
+      }
     }
 
     &__date {
@@ -51,8 +66,8 @@
       font-weight: var(#{$prefix}-fw-boldest);
       font-family: var(#{$prefix}-ff-title);
       margin: 3rem 0 0;
-      &:first-child{
-        margin-top: 0;
+      &:first-of-type{
+        margin-top: 1rem;
       }
     }
 
@@ -73,6 +88,8 @@
     
     &__event-times{
       border-right: 2px solid var(#{$prefix}-c-accent);
+      display: flex;
+      flex-direction: column;
     }
     
     // start time
@@ -84,10 +101,9 @@
     }
     
     &__end {
-      margin: 0.3rem 0 0 0.1rem;
+      margin: 0.3rem 0 0 -0.1rem;
       display: block;
       color: var(#{$prefix}-c-foreground-subtle);
-      font-size: var(#{$prefix}-fs-larger);
     }
     
     // comprises all event details except for times
