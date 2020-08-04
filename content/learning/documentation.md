@@ -1,8 +1,8 @@
 ---
 title: Portals Lesson
-date: 2020-01-26T16:39:42.000+00:00
+date: 2020-08-04T11:26:58-07:00
 description: ''
-layout: blocks
+layout: markdown
 header:
   template: header
   type: text only
@@ -63,10 +63,10 @@ page_sections:
     icon: ''
   id: ''
 menu:
-  footer:
+  primary_nav:
     parent: Learning
     weight: 4
-  primary_nav:
+  footer:
     parent: Learning
     weight: 4
 draft: true
