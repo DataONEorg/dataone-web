@@ -60,11 +60,11 @@ secondary_nav:
   weight: 3
   pre: file-text
   url: "SEARCH/data/my-data"
-# - name: My portals
-#   parent: Profile
-#   weight: 4
-#   pre: star
-#   url: SEARCH/profile/USERNAME/s=settings/s=portals
+- name: My portals
+  parent: Profile
+  weight: 4
+  pre: star
+  url: SEARCH/profile/USERNAME/s=settings/s=portals
 - name: Sign out
   parent: Profile
   weight: 100
