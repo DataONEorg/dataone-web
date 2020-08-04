@@ -12,7 +12,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   // ==========================================================================
 
   // Allow the block's base class to be used at all scopes within the block.
-  // (bn = block name), use as: #{$bn}. 
+  // (bn = block name), use as: #{$bn}.
   $bn             : &;
   // Use the block's base class as a variable prefix (remove class selector . )
   $prefix         : "--" + str-replace(#{$bn}, ".");
@@ -24,7 +24,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   // independence & modularity (a la BEM).
 
   // #{$prefix}- : var( , );
-  // 
+  //
 
   // ==========================================================================
   //    Styles
@@ -148,7 +148,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
       display: none;
     }
   }
-  
+
   &__button--mobile-find-data {
     grid-area: search;
     @include desktop {
@@ -191,23 +191,23 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   //     margin-left  : -400px;
   //     transition   : margin .18s 0s ease-in-out, opacity .1s .17s ease-in-out, width .18s 0s ease-in-out;
   //   }
-  // 
+  //
   //   label {
   //     display: none;
   //   }
-  // 
+  //
   //   & ~ #{$bn}__button--search {
   //     #{$bn}__button-icon--close {
   //       display: none;
   //     }
   //   }
-  // 
+  //
   //   &[aria-hidden="false"] {
   //     opacity      : 1;
   //     visibility   : visible;
   //     margin-bottom: 0;
   //     margin-top   : .7rem;
-  // 
+  //
   //     label {
   //       display: block;
   //     }
@@ -238,7 +238,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
   // }
 
   // ===MENU===
-  // 
+  //
   &__primary-items {
     margin          : 0;
     padding         : 0;
@@ -274,7 +274,7 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
         font-weight   : var(--fw-normal, 400);
       }
     }
-    
+
     .{{ $p }}menu-item--profile {
       order: -1;
       @include desktop{
@@ -282,7 +282,6 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
       }
     }
   }
-  
 
   &__secondary-items {
     margin              : 0;
@@ -339,6 +338,10 @@ $nav-box-shadow: -1px 1px 20px 1px var(--c-shadow-2-on-major-accent);
     &[aria-hidden="true"] {
       @include desktop {}
     }
+  }
+
+  &__minimal-nav{
+    display: none;
   }
 
   // Keep the right-most drop down menu from expanding beyond page limits

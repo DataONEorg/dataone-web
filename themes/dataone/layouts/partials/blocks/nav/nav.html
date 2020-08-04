@@ -19,7 +19,7 @@
 {{- $iconSettings := dict "color" "inherit" "stroke" "thicker" -}}
 <header class="{{- $classes -}}" id="nav">
   <nav class="{{- $bn -}}__inner">
-    
+
     <!-- LOGO/HOME LINK -->
     <a class="{{ $bn }}__button {{ $bn }}__button--logo" href="{{- $site.BaseURL -}}">
       {{- $buttonIconClass := printf "%s__button-icon" $bn -}}
@@ -40,7 +40,7 @@
       <span class="{{- $bn -}}__button-icon">{{- partial "blocks/icon/icon" (dict "Block" (merge $iconSettings (dict "icon" "menu")) "Page" $page) -}}</span>
       <span class="{{- $bn -}}__button-text">Menu</span>
     </button>
-    
+
     <!-- FIND DATA BUTTON (mobile) -->
     <a class="{{ $bn }}__button {{ $bn }}__button--mobile-find-data" href="{{- $site.Params.links.search -}}">
       <span class="{{- $bn -}}__button-icon">
@@ -66,6 +66,29 @@
       </div>
     </div>
 
+    <!-- Minimal navigation section - This is hidden unless on a page/MetacatUI view that uses it -->
+    <div class="{{- $bn -}}__minimal-nav minimal-nav">
+      <!-- LOGO/HOME LINK -->
+      <a class="{{ $bn }}__button {{ $bn }}__button--logo" href="{{- $site.BaseURL -}}">
+        {{- $buttonIconClass := printf "%s__button-icon" $bn -}}
+        {{- $buttonTextClass := printf "%s__button-text" $bn -}}
+        {{- if eq .Kind `home` -}}
+          {{- $activeMod := "--active" -}}
+          {{- $buttonIconClass = printf "%s %s%s" $buttonIconClass $buttonIconClass $activeMod -}}
+          {{- $buttonTextClass = printf "%s %s%s" $buttonTextClass $buttonTextClass $activeMod -}}
+        {{- end -}}
+        <span class="{{ $buttonIconClass }}">
+          {{- partial "blocks/logo/logo" (dict "Page" $page "Block" (dict "type" "global-nav")) -}}
+        </span>
+        <span class="{{- $buttonTextClass -}}">Home</span>
+      </a>
+      <ul class="{{- $bn -}}__minmal-items" id="minimal-menu" aria-hidden="true">
+        {{- range $site.Menus.secondary_nav -}}
+          {{- partial "blocks/nav/menu-item" (dict "Block" . "Page" $page) -}}
+        {{- end -}}
+      </ul>
+    </div>
+  </div>
   </nav>
   <!-- Call the global header script once the navbar exists. -->
   <!-- Makes the block compatible with both the website (where the JS bundle that contains globalHeader is included at the end of the <body>) -->

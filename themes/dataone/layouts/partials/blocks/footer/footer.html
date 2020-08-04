@@ -88,4 +88,16 @@
     </div>
   </section>
 
+  <!-- ===== Minimal footer that is used in MetacatUI portals only ===== -->
+  <section class="{{- $bn -}}__plus-portals-footer">
+    <div class="{{- $bn -}}__logo">
+      <a class="{{ $bn }}__button {{ $bn }}__button--logo" href="{{- $site.BaseURL -}}">
+        {{- partial "blocks/logo/logo.html" (dict "Page" $page "Block" (dict "type" "subtle" "size" "larger")) -}}
+      </a>
+    </div>
+    <div class="{{- $bn -}}__plus-message">
+      Powered by <a href="{{- $site.BaseURL -}}/plus">DataONE Plus</a>
+    </div>
+  </section>
+
 </footer>

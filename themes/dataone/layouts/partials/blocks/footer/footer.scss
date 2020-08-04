@@ -6,7 +6,7 @@
   // ==========================================================================
 
   // Allow the block's base class to be used at all scopes within the block.
-  // (bn = block name), use as: #{$bn}. 
+  // (bn = block name), use as: #{$bn}.
   $bn                           : &;
   // Use the block's base class as a variable prefix (remove class selector . )
   $prefix                       : "--" + str-replace(#{$bn}, ".");
@@ -61,7 +61,7 @@
     grid-area            : sitemap;
     display              : grid;
     width                : 100%;
-    // 
+    //
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     // grid-template-rows  : min-content;
     /* sizes the first two columns */
@@ -245,5 +245,9 @@
       width      : auto;
       height     : 100%;
     }
+  }
+
+  &__plus-portals-footer{
+    display: none;
   }
 }
