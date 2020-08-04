@@ -1,9 +1,8 @@
 ---
-title: Documentation
-date: 2020-01-26T16:39:42.000+00:00
+title: Portals Lesson
+date: 2020-08-04T11:26:58-07:00
 description: ''
-layout: blocks
-draft: true
+layout: markdown
 header:
   template: header
   type: text only
@@ -11,12 +10,58 @@ header:
   title: Documentation
   intro: Detailed how-tos for all DataONE products
   buttons: []
+  image:
+    template: ''
+    src: ''
+    alttext: ''
+    type: ''
+    overlay_effect: ''
+  pill:
+    template: ''
+    style: ''
+    text: ''
 page_sections:
+- blocks:
+  - template: markdown
+    style: default
+    content: ''
+  template: ''
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 - template: section
   type: default
   title: ''
   intro: ''
   blocks: []
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 menu:
   primary_nav:
     parent: Learning
@@ -24,5 +69,6 @@ menu:
   footer:
     parent: Learning
     weight: 4
+draft: true
 
 ---
