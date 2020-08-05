@@ -1,5 +1,5 @@
 ---
-title: ''
+title: Portals How-To
 date: 2020-08-04T11:26:58.000-07:00
 description: ''
 layout: markdown
@@ -12,8 +12,8 @@ header:
   buttons: []
   image:
     template: ''
-    src: ''
-    alttext: ''
+    src: "/uploads/d1-portal.png"
+    alttext: Window with light streaming through
     type: ''
     overlay_effect: ''
   pill:
