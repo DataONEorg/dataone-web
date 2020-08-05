@@ -12,10 +12,10 @@ header:
   buttons: []
   image:
     template: ''
-    src: "/uploads/d1-portal.png"
+    src: "/uploads/zoltan-tasi-o_mbxldz0hc-unsplash.jpg"
     alttext: Window with light streaming through
-    type: ''
-    overlay_effect: ''
+    type: cover
+    overlay_effect: major accent color
   pill:
     template: ''
     style: ''
