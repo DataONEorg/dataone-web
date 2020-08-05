@@ -24,6 +24,7 @@ menu:
   primary_nav:
     parent: Learning
     weight: 4
+    pre: star
   footer:
     parent: Learning
     weight: 4
