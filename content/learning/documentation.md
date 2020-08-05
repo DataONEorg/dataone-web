@@ -1,14 +1,14 @@
 ---
-title: Portals Lesson
+title: ''
 date: 2020-08-04T11:26:58.000-07:00
-description: A lesson on how to create portals using the DataONE portal editor.
+description: ''
 layout: markdown
 header:
   template: header
   type: text only
   background_color: default
-  title: Documentation
-  intro: Detailed how-tos for all DataONE products
+  title: Portals Tutorial
+  intro: Detailed how-to for creation of portals.
   buttons: []
   image:
     template: ''
@@ -91,7 +91,7 @@ Portals allow users to bundle supplementary information about their group, data,
 
 Researchers can also use portals to compare their public data packages and highlight and share them with other teams, as well as the broader Arctic research audience.
 
-To see an example of what portals could look like, please view the [Toolik Field Station's portal](search.dataone.org/portals/toolik "Toolik Field Station's portal").
+To see an example of what portals could look like, please view the [Toolik Field Station's portal](https://search.dataone.org/portals/toolik "Toolik Field Station's portal").
 
 ## **Portal Main Components**
 
@@ -101,7 +101,7 @@ Portals have four components: a settings page, a data page, a metrics page, and 
 
 The first component of portals is the settings tab. This tab is the first page users will see after initially creating a new portal and sets up important infrastructure for the portal.
 
-On this page users can give the portal a title and assign it a unique url; also referred to as a **portal identifier**. Users can add a general description of the portal, upload an icon photo for their data, and upload icon photos from any partner organizations that have contributed to the data.These partner icons will appear in the footer banner on every page in a portal, likewise your portal icon will appear in the header banner.
+On this page users can give the portal a title and assign it a unique url; also referred to as a **portal identifier**. Users can add a general description of the portal, upload an icon photo for their data, and upload icon photos from any partner organizations that have contributed to the data. These partner icons will appear in the footer banner on every page in a portal, likewise, your portal icon will appear in the header banner.
 
 \[settings-tab\](\~/Documents/Portals-Training/settings-tab.png)
 
@@ -127,7 +127,7 @@ Unlike the first two pages, the metrics page cannot be edited or customized. It 
 
 \[materics-page\](\~/Documents/Portals-Training/metrics-page.png)
 
-Please contact DataONE's support team at support@arcticdata.io about any questions or concerns about the metrics page.
+Please contact DataONE's support team at support@dataone.org about any questions or concerns about the metrics page.
 
 ### **Freeform Pages**
 
@@ -141,7 +141,7 @@ Below are two examples of ways users can take advantage of portal freeform pages
 
 \[example-page2\](\~/Documents/Portals-Training/example-page2.png)
 
-The examples shown on this page are from the Toolik Field Station's portal; visit \[this portal\]([https://arcticdata.io/catalog/portals/toolik/](https://arcticdata.io/catalog/portals/toolik/ "https://arcticdata.io/catalog/portals/toolik/")) to explore its contents further.
+The examples shown on this page are from the [Toolik Field Station's portal](https://search.dataone.org/portals/toolik "Toolik Field Station's portal"); visit to explore its contents further.
 
 ## Creating Portals
 
@@ -175,7 +175,7 @@ In a new edit session, the first thing you'll see is the settings page where you
 
 ## **Adding Data to Portals**
 
-_Please see this tutorial video from member node, the Arctic Data Center, for a walkthrough on using portal search filters:_ [_Adding Datasets by Search Query _](https://vimeo.com/414999470 "Adding Datasets by Search Query")
+_Please see this tutorial video from member node, the Arctic Data Center, for a walkthrough on using portal search filters:_ [Adding Datasets by Search Query](https://vimeo.com/414999470 "Adding Datasets by Search Query").
 
 Navigate to the "Data" tab. Here you will see a list of all the datasets across DataONE member nodes. In order to populate a portal with the data packages applicable to your needs, narrow the search results using the filters on the left side of the page. When you've selected the data you want, hit the yellow save button in the bottom right.
 
@@ -219,11 +219,9 @@ Below the banner, there is a markdown text box with some examples on how to use 
 
 Please see these additional resources for help with markdown:
 
-[Markdown reference](https://commonmark.org/help/ "Markdown reference")
-
-[Ten minute tutorial](https://commonmark.org/help/tutorial/ "Ten minute tutorial")
-
-[For a longer example where you can also preview the results, checkout the Showdown Live Editor.](http://demo.showdownjs.com/ "Showdown Live Editor")
+* [Markdown reference](https://commonmark.org/help/ "Markdown reference")
+* [Ten minute tutorial](https://commonmark.org/help/tutorial/ "Ten minute tutorial")
+* For a longer example where you can also preview the results, checkout the [Showdown Live Editor](http://demo.showdownjs.com/ "Showdown Live Editor").
 
 ## **Saving and Editing Portals**
 
@@ -267,4 +265,4 @@ To view or edit your portal identifier, go into edit mode in your portal. In the
 
 ## **Tutorial Videos**
 
-For video tutorials on how to create your first portal, please visit member node, the Arctic Data Center's, [video tutorial page](https://arcticdata.io/data-portals/#instructional-videos-identifier "Video Tutorials").
+For video tutorials on how to create your first portal, please visit member node, the Arctic Data Center, and their [video tutorial page](https://arcticdata.io/data-portals/#instructional-videos-identifier "Video Tutorials").
