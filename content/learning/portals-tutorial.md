@@ -62,7 +62,7 @@ The first component of portals is the settings tab. This tab is the first page u
 
 On this page users can give the portal a title and assign it a unique url; also referred to as a **portal identifier**. Users can add a general description of the portal, upload an icon photo for their data, and upload icon photos from any partner organizations that have contributed to the data. These partner icons will appear in the footer banner on every page in a portal, likewise, your portal icon will appear in the header banner.
 
-\[settings-tab\](\~/Documents/Portals-Training/settings-tab.png)
+![](/uploads/d1-settingspage.png)
 
 Every DataONE portal URL will follow this format:
 
@@ -72,7 +72,7 @@ https://search.dataone.org/portals/**portal_identifier**
 
 The data page is the most important component of DataONE portal system. This is where users will display the data packages of their choice. It looks and performs just like the main [DataONE user interface](https://search.dataone.org/data "DataONE user interface").
 
-\[data-page\](\~/Documents/Portals-Training/data-page.png)
+![](/uploads/d1-datapage.png)
 
 ### **Metrics Page**
 
@@ -84,7 +84,7 @@ Unlike the first two pages, the metrics page cannot be edited or customized. It 
 * The file types of all publicly-available data
 * The years in which data was collected, regardless of upload date
 
-\[materics-page\](\~/Documents/Portals-Training/metrics-page.png)
+![](/uploads/d1-metricspage.png)
 
 Please contact DataONE's support team at support@dataone.org about any questions or concerns about the metrics page.
 
@@ -114,7 +114,7 @@ If you are on [DataONE's primary website](https://search.dataone.org/data "DataO
 
 \[create-portal\](\~/Documents/Portals-Training/create-portal.png)
 
-\[create-portal2\](\~/Documents/Portals-Training/create-portal2.png)
+![](/uploads/d1-createportal2.png)
 
 On your profile settings page, select "My Portals". After the page loads select the grey button "+ New Portal" to add a new portal, you'll automatically be directed to a fresh edit session.
 
