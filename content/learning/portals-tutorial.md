@@ -5,7 +5,7 @@ description: ''
 layout: markdown
 header:
   template: header
-  type: text only
+  type: hero image
   background_color: default
   title: Portals Tutorial
   intro: Detailed how-to for creation of portals.
@@ -20,48 +20,6 @@ header:
     template: ''
     style: ''
     text: ''
-page_sections:
-- blocks:
-  - template: markdown
-    style: default
-    content: ''
-  template: ''
-  type: ''
-  background: ''
-  background_image: ''
-  background2: ''
-  icon: ''
-  small_title: ''
-  title: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
-- template: section
-  type: default
-  title: ''
-  intro: ''
-  blocks: []
-  background: ''
-  background_image: ''
-  background2: ''
-  icon: ''
-  small_title: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
 menu:
   primary_nav:
     parent: Learning
