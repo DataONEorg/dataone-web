@@ -18,8 +18,23 @@
         urlMCUI = "{{- $site.Params.links.metacatuiBase | default `https://search.dataone.org` -}}",
         // The full url for the Hugo website
         baseUrl = "{{- $site.BaseURL | default `https://dataone.org` -}}",
-        // The selector for the element that contains text (link name) in the submenu links
-        subLinkTextSelector = ".{{ $p }}menu-item__sub-item-name";
+        
+        // ---- Selectors to be used with querySelector / querySelectorAll ------ //
+        
+        // Selector for the element that contains text (link name) in the submenu links
+        subLinkTextSelector = ".{{ $p }}menu-item__sub-item-name",
+        // Selector for the profile menus (there should be two, one minimal, one complete)
+        profileMenuSelector = ".{{ $p }}menu-item--profile",
+        // Selector for the signin menus (there should be two, one minimal, one complete)
+        signinMenuSelector = ".{{ $p }}menu-item--sign-in",
+        // Selector for the text that contains the "sign in" term or the username with logged inspect
+        profileTextSelector = profileMenuSelector + " .{{ $p }}menu-item__top-item-name",
+        // Selector for ALL menu item links
+        menuLinksSelector = ".{{ $p }}menu-item a",
+        // Selector for all dropdown menus
+        dropdownSelector  = ".{{ $p }}menu-item--dropdown",
+        // Selector for submenu elements (relative to the dropdown element)
+        submenuSelector = ".{{ $p }}menu-item__sub-menu";
         
     var lastScroll = 0,
         closeDropdownTimeout = 0;
@@ -65,33 +80,35 @@
     block.header        = document.getElementById("nav");
     
     // The signin and profile menu items
-    block.signin     = document.querySelector(".{{ $p }}menu-item--sign-in");
-    block.profile    = document.querySelector(".{{ $p }}menu-item--profile");
+    // Select ALL because there are two - one for the minimal nav, and one for
+    // the full navigation.
+    block.signin     = document.querySelectorAll(signinMenuSelector);
+    block.profile    = document.querySelectorAll(profileMenuSelector);
     
     // Save the default term used in the parent of the profile menu, so we can
     // replace it in case there is no username / fullname
-    block.profileText   = block.profile.querySelector(".{{ $p }}menu-item__top-item-name");
-    block.profileTerm   = block.profileText.innerHTML;
+    block.profileText   = document.querySelectorAll(profileTextSelector);
+    block.profileTerm   = block.profileText[0].innerHTML;
     
     // All the menu link
     block.allMenuLinks = [];
-    document.querySelectorAll(".{{ $p }}menu-item a").forEach((link, i) => {
+    document.querySelectorAll(menuLinksSelector).forEach((link, i) => {
       block.allMenuLinks[i] = { el: link }
     });
     
     // Get the dropdown buttons with corresponding submenus
     block.dropdownEls = [];
-    document.querySelectorAll(".{{ $p }}menu-item--dropdown").forEach((container, i) => {
+    document.querySelectorAll(dropdownSelector).forEach((container, i) => {
       block.dropdownEls[i] = {
         container : container,
         button    : container.querySelector("button"),
-        submenu   : container.querySelector(".{{ $p }}menu-item__sub-menu")
+        submenu   : container.querySelector(submenuSelector)
       }
     });
     
     // Save the text and hrefs in the profile menu so that we can reset it later, if needed    
     block.profileLinkEls = [];
-    block.profile.querySelectorAll("a").forEach((link, i) => {
+    document.querySelectorAll(profileMenuSelector + " a").forEach((link, i) => {
       const textEl = link.querySelector(subLinkTextSelector);
       block.profileLinkEls[i] = {
         el: link,
@@ -145,7 +162,6 @@
         console.log(error);
       });
   }
-  
   
   /**  
    * const parseToken - Takes a token and extracts user data
@@ -233,11 +249,23 @@
    * menu, hide it, and show the sign in button instead.
    */   
   const resetProfileMenu = function(){
+    
+    // Recall there are two profile menus,
+    // one for the minimal menu and one for the full menu
+    
     // Remove the user name and set it back to whatever it was initially set to
-    block.profileText.innerHTML = block.profileTerm;
+    block.profileText.forEach((el, i) => {
+      el.innerHTML = block.profileTerm;
+    });
+    
     // Show the signin menu, hide the profile menu
-    showMenu(block.signin);
-    hideMenu(block.profile);
+    block.signin.forEach((el, i) => {
+      showMenu(el);
+    });
+    block.profile.forEach((el, i) => {
+      hideMenu(el);
+    });
+    
     // Set all the links to their original hrefs and displays
     if(!block.profileLinkEls){ return }
     // Set the profile sublinks to their original values
@@ -254,22 +282,34 @@
    */   
   const updateProfileMenu = function(){
     
+    // Recall there are two profile menus,
+    // one for the minimal menu and one for the full menu
+    
     if(!block.profile){
       console.warn("Couldn't update profile menu in the navigation bar because the menu element was missing.");
       return
     }
     resetProfileMenu();
     const data = getUserData();
+    
     if(!data){
       console.warn("Couldn't update profile menu in the navigation bar because the user data was missing.");
       return
     }
     if(data.loggedin){
       if(data.username){
-        block.profileText.innerHTML = data.username
+        block.profileText.forEach((el, i) => {
+          el.innerHTML = data.username
+        });
       }
-      showMenu(block.profile);
-      hideMenu(block.signin);
+      
+      // Hide the signin menu, show the profile menu
+      block.signin.forEach((el, i) => {
+        hideMenu(el);
+      });
+      block.profile.forEach((el, i) => {
+        showMenu(el);
+      });
       
       // Change the button links to user profile
       block.profileLinkEls.forEach((link, i) => {
