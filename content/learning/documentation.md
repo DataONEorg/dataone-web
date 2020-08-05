@@ -71,33 +71,33 @@ menu:
     weight: 4
 
 ---
-Content appropriated from ESS-DIVE's portal documentation found \[here\]([https://docs.ess-dive.lbl.gov/portals/](https://docs.ess-dive.lbl.gov/portals/ "https://docs.ess-dive.lbl.gov/portals/")).
+Content appropriated from ESS-DIVE's portal documentation found [here](https://docs.ess-dive.lbl.gov/portals/ "here").
 
-\# Portals
+# Portals
 
 A new feature on DataONE. Researchers can now easily view project information and datasets all in one place across member node repositories.
 
-\## **What is a Portal?**
+## **What is a Portal?**
 
 A portal is a collection of DataONE member node data packages on a unique webpage.
 
-Typically, a research project&#39;s website won&#39;t be maintained beyond the life of the project and all the information on the website that provides context for the data collection is lost. DataONE portals can provide a means to preserve information regarding the projects&#39; objectives, scopes, and organization and couple this with the data files so it&#39;s clear how to use and interpret the data for years to come. Plus, when datasets are scattered across the member nodes of DataONE, portals can help see them all in one convenient webpage.
+Typically, a research project's website won't be maintained beyond the life of the project and all the information on the website that provides context for the data collection is lost. DataONE portals can provide a means to preserve information regarding the projects' objectives, scopes, and organization and couple this with the data files so it's clear how to use and interpret the data for years to come. Plus, when datasets are scattered across the member nodes of DataONE, portals can help see them all in one convenient webpage.
 
-Portals also leverage DataONE&#39;s metric features, which create statistics describing the project&#39;s data packages. Information such as total size of data, proportion of data file types, and data collection periods are immediately available from the portal webpage.
+Portals also leverage DataONE's metric features, which create statistics describing the project's data packages. Information such as total size of data, proportion of data file types, and data collection periods are immediately available from the portal webpage.
 
-\## **Portal Uses**
+## **Portal Uses**
 
-Portals allow users to bundle supplementary information about their group, data, or project along with the data packages. Data contributors can organize their project specific data packages into a unique portal and customize the portal&#39;s theme and structure according to the needs of that project.
+Portals allow users to bundle supplementary information about their group, data, or project along with the data packages. Data contributors can organize their project specific data packages into a unique portal and customize the portal's theme and structure according to the needs of that project.
 
 Researchers can also use portals to compare their public data packages and highlight and share them with other teams, as well as the broader Arctic research audience.
 
-To see an example of what portals could look like, please view the \[Toolik Field Station's portal\]([https://arcticdata.io/catalog/portals/toolik](https://arcticdata.io/catalog/portals/toolik "https://arcticdata.io/catalog/portals/toolik")).
+To see an example of what portals could look like, please view the [Toolik Field Station's portal](search.dataone.org/portals/toolik "Toolik Field Station's portal").
 
-\## **Portal Main Components**
+## **Portal Main Components**
 
 Portals have four components: a settings page, a data page, a metrics page, and customizable free-form pages.
 
-\### **Settings Tab**
+### **Settings Tab**
 
 The first component of portals is the settings tab. This tab is the first page users will see after initially creating a new portal and sets up important infrastructure for the portal.
 
@@ -107,37 +107,33 @@ On this page users can give the portal a title and assign it a unique url; also 
 
 Every DataONE portal URL will follow this format:
 
-[https://arcticdata.io/catalog/portals/](https://arcticdata.io/catalog/portals/ "https://arcticdata.io/catalog/portals/")**portal_identifier**
+https://search.dataone.org/portals/**portal_identifier**
 
-\### **Data Page**
+### **Data Page**
 
-The data page is the most important component of DataONE portal system. This is where users will display the data packages of their choice. It looks and performs just like the main \[DataONE user interface\]([https://search.dataone.org/data](https://search.dataone.org/data "https://search.dataone.org/data")).
+The data page is the most important component of DataONE portal system. This is where users will display the data packages of their choice. It looks and performs just like the main [DataONE user interface](https://search.dataone.org/data "DataONE user interface").
 
 \[data-page\](\~/Documents/Portals-Training/data-page.png)
 
-\### **Metrics Page**
+### **Metrics Page**
 
 Unlike the first two pages, the metrics page cannot be edited or customized. It is a default feature that provides the following information about the data packages within a portal:
 
-\- The total number of publicly-available metadata records
-
-\- The volume (in bytes) of all publicly-available metadata records and data files
-
-\- The most recent date the datasets were last updated (metadata and data are treated separately)
-
-\- The file types of all publicly-available data
-
-\- The years in which data was collected, regardless of upload date
+* The total number of publicly-available metadata records
+* The volume (in bytes) of all publicly-available metadata records and data files
+* The most recent date the datasets were last updated (metadata and data are treated separately)
+* The file types of all publicly-available data
+* The years in which data was collected, regardless of upload date
 
 \[materics-page\](\~/Documents/Portals-Training/metrics-page.png)
 
 Please contact DataONE's support team at support@arcticdata.io about any questions or concerns about the metrics page.
 
-\### **Freeform Pages**
+### **Freeform Pages**
 
 Freeform pages are an optional function provided by DataONE portals. Here, users can add as much supplementary information as needed using markdown. It is highly recommended that users use this feature to create a descriptive **About page** for their portal.
 
-\#### **Example Freeform Pages**
+#### **Example Freeform Pages**
 
 Below are two examples of ways users can take advantage of portal freeform pages to tie unique content together with their data packages. Users can add as many tabs as needed.
 
@@ -147,89 +143,75 @@ Below are two examples of ways users can take advantage of portal freeform pages
 
 The examples shown on this page are from the Toolik Field Station's portal; visit \[this portal\]([https://arcticdata.io/catalog/portals/toolik/](https://arcticdata.io/catalog/portals/toolik/ "https://arcticdata.io/catalog/portals/toolik/")) to explore its contents further.
 
-\## Creating Portals
+## Creating Portals
 
 A step-by-step guide on how to navigate DataONE and create a new portal.
 
-\**For video tutorials on how to create your first portal, please visit \[the Arctic Data Center's\]([https://arcticdata.io/data-portals/#instructional-videos-identifier](https://arcticdata.io/data-portals/#instructional-videos-identifier "https://arcticdata.io/data-portals/#instructional-videos-identifier")) website.**
+[_For video tutorials on how to create your first portal, please visit DataONE member node, the Arctic Data Center._](https://arcticdata.io/data-portals/#instructional-videos-identifier "Arctic Data Center Portal Videos")
 
-\### **Getting Started with Portals**
+### **Getting Started with Portals**
 
-If you are on \[DataONE's primary website\]([https://search.dataone.org/data](https://search.dataone.org/data "https://search.dataone.org/data")), click on your name in the upper right hand corner when you are signed in to DataONE with your ORCID. A dropdown will appear, and you would select &quot;My Portals&quot;.
+If you are on [DataONE's primary website](https://search.dataone.org/data "DataONE's primary website"), click on your name in the upper right hand corner when you are signed in to DataONE with your ORCID. A dropdown will appear, and you would select "My Portals".
 
 \[create-portal\](\~/Documents/Portals-Training/create-portal.png)
 
 \[create-portal2\](\~/Documents/Portals-Training/create-portal2.png)
 
-On your profile settings page, select &quot;My Portals&quot;. After the page loads select the grey button &quot;+ New Portal&quot; to add a new portal, you'll automatically be directed to a fresh edit session.
+On your profile settings page, select "My Portals". After the page loads select the grey button "+ New Portal" to add a new portal, you'll automatically be directed to a fresh edit session.
 
 \[edit-session\](\~/Documents/Portals-Training/edit-session.png)
 
-\### **Portal Settings Page**
+### **Portal Settings Page**
 
 In a new edit session, the first thing you'll see is the settings page where you'll be able to set the basic elements of your portal:
 
-\- Portal title
-
-\- Unique portal identifier
-
-  - _This identifier will be used to create the portal URL. If the name is available, a label will indicate it's available and if the name is taken already, it will note that the name is already taken. This feature ensures the portals are unique._
-
-\- Portal description
-
-\- Partner organization logos
+* Portal title
+* Unique portal identifier
+  * _This identifier will be used to create the portal URL. If the name is available, a label will indicate it's available and if the name is taken already, it will note that the name is already taken. This feature ensures the portals are unique._
+* Portal description
+* Partner organization logos
 
 \[portal-settings\](\~/Documents/Portals-Training/portal-settings.png)
 
-\## **Adding Data to Portals**
+## **Adding Data to Portals**
 
-\**Please see this tutorial video for a walkthrough on using portal search filters: \[Adding Datasets by Search Query\]([https://arcticdata.io/data-portals/#instructional-videos-identifier](https://arcticdata.io/data-portals/#instructional-videos-identifier "https://arcticdata.io/data-portals/#instructional-videos-identifier"))
+_Please see this tutorial video from member node, the Arctic Data Center, for a walkthrough on using portal search filters:_ [_Adding Datasets by Search Query _](https://vimeo.com/414999470 "Adding Datasets by Search Query")
 
-\**
-
-Navigate to the &quot;Data&quot; tab. Here you will see a list of all the datasets across DataONE member nodes. In order to populate a portal with the data packages applicable to your needs, narrow the search results using the filters on the left side of the page. When you've selected the data you want, hit the yellow save button in the bottom right.
+Navigate to the "Data" tab. Here you will see a list of all the datasets across DataONE member nodes. In order to populate a portal with the data packages applicable to your needs, narrow the search results using the filters on the left side of the page. When you've selected the data you want, hit the yellow save button in the bottom right.
 
 \[adding-data\](\~/Documents/Portals-Training/adding-data.png)
 
 The portal search feature has the following filters available:
 
-\- **Search** : A general search feature that will return data packages with the entered term in the package metadata
+* **Search** : A general search feature that will return data packages with the entered term in the package metadata
+* **Creator** : We recommend searching by last names for more accurate results.
+* **Project** : Returns data packages with the entered project listed in their metadata
+* **Publish Year:** Use either the sliding scale or enter start and end years manually
+* **Year of Data Coverage** : Searches for data packages with temporal coverages within the selected date range. As with the Publish Year search, use either the sliding scale or enter manually
+* **Location** : This filter will search within the data packages' geographic description field, meaning that you can search by both name or type of location (eg. United States or forest)
+* I**nteractive Map:** Use the interactive map on the right side of the page to zoom in or out to a specific region, the search list will filter as you move across the map.
 
-\- **Creator** : We recommend searching by last names for more accurate results.
+If you need assistance assembling portal data using a complex query, please contact the DataONE Support Team at support@dataone.org.
 
-\- **Project** : Returns data packages with the entered project listed in their metadata
+## **Data Package Metrics**
 
-\- **Publish Year:** Use either the sliding scale or enter start and end years manually
-
-\- **Year of Data Coverage** : Searches for data packages with temporal coverages within the selected date range. As with the Publish Year search, use either the sliding scale or enter manually
-
-\- **Location** : This filter will search within the data packages' geographic description field, meaning that you can search by both name or type of location (eg. United States or forest)
-
-\- **Interactive Map:** Use the interactive map on the right side of the page to zoom in or out to a specific region, the search list will filter as you move across the map.
-
-If you need assistance assembling portal data using a complex query, please contact the \[DataONE Support Team\](mailto:support@arcticdata.io).
-
-\## **Data Package Metrics**
-
-As stated in Portal Main Components, the metrics page is a default function provided by DataONE. This page cannot be edited and cannot be viewed while editing. Users do have the option to delete the page if they'd like. To delete the page, select the arrow next to the word &quot;Metrics&quot; in the tab and choose &quot;Delete&quot; from the dropdown list.
+As stated in Portal Main Components, the metrics page is a default function provided by DataONE. This page cannot be edited and cannot be viewed while editing. Users do have the option to delete the page if they'd like. To delete the page, select the arrow next to the word "Metrics" in the tab and choose "Delete" from the dropdown list.
 
 To see metric summaries, navigate to your portal in view mode. See Saving and Editing Portals for more information on how to view portals.
 
 \[metrics\](\~/Documents/Portals-Training/metrics.png)
 
-Please contact \[DataONE Support Team\](mailto:support@arcticdata.io) about any questions or concerns about the metrics page.
+Please contact the DataONE Support Team at support@dataone.org about any questions or concerns about the metrics page.
 
-\## **Creating Unique Freeform Pages**
+## **Creating Unique Freeform Pages**
 
-\**To watch a tutorial on creating a new freeform page see this video: \[Creating a Freeform Text Page\]([https://arcticdata.io/data-portals/#instructional-videos-identifier](https://arcticdata.io/data-portals/#instructional-videos-identifier "https://arcticdata.io/data-portals/#instructional-videos-identifier"))
+Please see this tutorial video from member node, the Arctic Data Center, for a walkthrough on using portal search filters: [Creating a Freeform Text Page](https://vimeo.com/414999333 "Creating a Freeform Text Page").
 
-\**
-
-To add a freeform page to a portal, select the &quot;+&quot; tab next to the data and metric tabs and then choose the freeform option that appears on screen. A freeform page will then populate.
+To add a freeform page to a portal, select the "+" tab next to the data and metric tabs and then choose the freeform option that appears on screen. A freeform page will then populate.
 
 \[freeform-pages\](\~/Documents/Portals-Training/freeform-pages.png)
 
-Easily customize your banner with a unique image, title, and page description. To change the name of the tab, click on the arrow in the &quot;Untitled&quot; tab and select &quot;Rename&quot; from the dropdown list.
+Easily customize your banner with a unique image, title, and page description. To change the name of the tab, click on the arrow in the "Untitled" tab and select "Rename" from the dropdown list.
 
 \[rename\](\~/Documents/Portals-Training/rename.png)
 
@@ -237,13 +219,13 @@ Below the banner, there is a markdown text box with some examples on how to use 
 
 Please see these additional resources for help with markdown:
 
-\- \[Markdown reference\]([https://commonmark.org/help/](https://commonmark.org/help/ "https://commonmark.org/help/"))
+[Markdown reference](https://commonmark.org/help/ "Markdown reference")
 
-\- \[Ten minute tutorial\]([https://commonmark.org/help/tutorial/](https://commonmark.org/help/tutorial/ "https://commonmark.org/help/tutorial/"))
+[Ten minute tutorial](https://commonmark.org/help/tutorial/ "Ten minute tutorial")
 
-\- For a longer example where you can also preview the results, checkout the \[Showdown Live Editor\]([http://demo.showdownjs.com/](http://demo.showdownjs.com/ "http://demo.showdownjs.com/"))
+[For a longer example where you can also preview the results, checkout the Showdown Live Editor.](http://demo.showdownjs.com/ "Showdown Live Editor")
 
-\## **Saving and Editing Portals**
+## **Saving and Editing Portals**
 
 Be sure to save your portal when you complete a page to ensure your progress is retained.
 
@@ -253,13 +235,13 @@ Whenever a portal is saved, a dialogue box will pop up at the top of the page pr
 
 \[view-portal\](\~/Documents/Portals-Training/view-portal.png)
 
-To delete a page from your portal, select the arrow in the tab and choose &quot;Delete&quot; from the dropdown.
+To delete a page from your portal, select the arrow in the tab and choose "Delete" from the dropdown.
 
 \[delete\](\~/Documents/Portals-Training/delete.png)
 
-Users can view and edit their portal from their &quot;My Portals&quot; tab.
+Users can view and edit their portal from their "My Portals" tab.
 
-First, click the arrow your name in the top-right corner to drop down your menu options. Then, select &quot;My Portals&quot; from the dropdown underneath your name. See the section on Getting Started with Portals for more details.
+First, click the arrow your name in the top-right corner to drop down your menu options. Then, select "My Portals" from the dropdown underneath your name. See the section on Getting Started with Portals for more details.
 
 \[viewing1\](\~/Documents/Portals-Training/viewing1.png)
 
@@ -267,15 +249,15 @@ First, click the arrow your name in the top-right corner to drop down your menu 
 
 Click on the portal title to view it or select the edit button to make changes.
 
-\## **How to Publish Portals**
+## **How to Publish Portals**
 
 New portals are automatically set to private and only visible to the portal creator. The portal will remain private until the owner decides to make it public.
 
-To make your portal public, go into the settings of your portal. Under the description, you'll see a new section called &quot;Sharing Options&quot;. You can toggle between your portal being private and your portal being public there.
+To make your portal public, go into the settings of your portal. Under the description, you'll see a new section called "Sharing Options". You can toggle between your portal being private and your portal being public there.
 
 \[public\](\~/Documents/Portals-Training/public.png)
 
-\## **Sharing Portals**
+## **Sharing Portals**
 
 In order to share a published portal, users can simply direct recipients to their unique identifier. Portal identifiers are embedded into DataONE's portal URL: _https://search.dataone.org/portals/**portal-identifier**_
 
@@ -283,6 +265,6 @@ To view or edit your portal identifier, go into edit mode in your portal. In the
 
 \[url\](\~/Documents/Portals-Training/url.png)
 
-\## **Tutorial Videos**
+## **Tutorial Videos**
 
-For video tutorials on how to create your first portal, please visit the \[Arctic Data Center's\]([https://arcticdata.io/data-portals/#instructional-videos-identifier](https://arcticdata.io/data-portals/#instructional-videos-identifier "https://arcticdata.io/data-portals/#instructional-videos-identifier")) video tutorial page.
+For video tutorials on how to create your first portal, please visit member node, the Arctic Data Center's, [video tutorial page](https://arcticdata.io/data-portals/#instructional-videos-identifier "Video Tutorials").
