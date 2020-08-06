@@ -25,7 +25,7 @@ header:
       Make finding the right data easy for your community of researchers with search
       fields focused on your science topics.
       
-      **:key: Build your own custom portal for free during the preview period! No credit card required. Register with one click.**
+      **:key: Build your own custom portal for free during the preview period! No credit card required.**
   buttons:
   - template: button
     type: portal_start
@@ -118,7 +118,7 @@ page_sections:
   type: card
   icon: "zap"
   title: Ready to build your own custom portal?
-  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
+  intro: Create a portal for free during the preview period. No credit card required.
   blocks:
     - template: button
       type: portal_start

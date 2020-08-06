@@ -19,21 +19,22 @@ page_sections:
   blocks:
   - template: feature-table
 - template: section
-  title: Frequently asked questions
-  background: subtle-emphasis
-  blocks:
-  - template: faq
-    faqs:
-    - q: question
-      a: answer
-  button:
-    text: Get in touch
-    type: contact
-    color: primary
-    icon: mail
-- template: section
   background: major-accent-color
-  title: Interested in DataONE Plus or a Hosted Repository?
+  type: card
+  icon: "zap"
+  title: Ready to build your own custom portal?
+  intro: Create a portal for free during the preview period. No credit card required.
+  blocks:
+    - template: button
+      type: portal_start
+      text: Get started
+      color: primary
+    - template: markdown
+      style: center
+      content: "Have questions? [Get in touch](/contact/)."
+- template: section
+  background: data-wave-subtle
+  title: "**Get on the waitlist for a Hosted Repository**"
   intro: Enhanced DataONE services are currently available on a limited basis as part
     of a beta program. Please provide the information below and we’ll get in touch
     when these services are ready for your organization.

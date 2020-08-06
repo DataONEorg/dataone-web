@@ -119,7 +119,7 @@ page_sections:
   type: card
   icon: "zap"
   title: Preview aggregated FAIR reports with a DataONE Plus portal
-  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
+  intro: Create a portal for free during the preview period. No credit card required.
   blocks:
     - template: button
       type: portal_start

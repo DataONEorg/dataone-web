@@ -25,7 +25,7 @@ header:
       Custom search portals for your science, your data, and related data in the
       DataONE network.
       
-      **:key: Build your own custom portal for free during the preview period! No credit card required. Register with one click.**
+      **:key: Build your own custom portal for free during the preview period! No credit card required.**
   image:
     template: image
     src: "/uploads/portals-header.png"
@@ -297,7 +297,7 @@ page_sections:
   type: card
   icon: "zap"
   title: Ready to build your own custom portal?
-  intro: Create a portal for free during the preview period. No credit card required. Register with one click.
+  intro: Create a portal for free during the preview period. No credit card required.
   blocks:
     - template: button
       type: portal_start

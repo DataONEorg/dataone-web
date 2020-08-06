@@ -34,6 +34,7 @@ fields:
     - tilt-left
     - tilt-right
     - cover
+    - card
 - type: select
   label: Overlay effect for background/cover images
   name: overlay_effect
