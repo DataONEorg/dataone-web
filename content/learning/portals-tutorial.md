@@ -96,9 +96,9 @@ Freeform pages are an optional function provided by DataONE portals. Here, users
 
 Below are two examples of ways users can take advantage of portal freeform pages to tie unique content together with their data packages. Users can add as many tabs as needed.
 
-\[example-page1\](\~/Documents/Portals-Training/example-page1.png)
+![](/uploads/d1-expage1.png)
 
-\[example-page2\](\~/Documents/Portals-Training/example-page2.png)
+![](/uploads/d1-expage2.png)
 
 The examples shown on this page are from the [Toolik Field Station's portal](https://search.dataone.org/portals/toolik "Toolik Field Station's portal"); visit to explore its contents further.
 
@@ -112,13 +112,13 @@ A step-by-step guide on how to navigate DataONE and create a new portal.
 
 If you are on [DataONE's primary website](https://search.dataone.org/data "DataONE's primary website"), click on your name in the upper right hand corner when you are signed in to DataONE with your ORCID. A dropdown will appear, and you would select "My Portals".
 
-\[create-portal\](\~/Documents/Portals-Training/create-portal.png)
+\[create-portal\](\~/Documents/Portals-Training/create-portal.png) MISSING FOR D1
 
 ![](/uploads/d1-createportal2.png)
 
 On your profile settings page, select "My Portals". After the page loads select the grey button "+ New Portal" to add a new portal, you'll automatically be directed to a fresh edit session.
 
-\[edit-session\](\~/Documents/Portals-Training/edit-session.png)
+![](/uploads/d1-newportal.png)
 
 ### **Portal Settings Page**
 
@@ -130,7 +130,7 @@ In a new edit session, the first thing you'll see is the settings page where you
 * Portal description
 * Partner organization logos
 
-\[portal-settings\](\~/Documents/Portals-Training/portal-settings.png)
+![](/uploads/d1-portalsettings.png)
 
 ## **Adding Data to Portals**
 
@@ -138,7 +138,7 @@ _Please see this tutorial video from member node, the Arctic Data Center, for a 
 
 Navigate to the "Data" tab. Here you will see a list of all the datasets across DataONE member nodes. In order to populate a portal with the data packages applicable to your needs, narrow the search results using the filters on the left side of the page. When you've selected the data you want, hit the yellow save button in the bottom right.
 
-\[adding-data\](\~/Documents/Portals-Training/adding-data.png)
+![](/uploads/d1-addingdata.png)
 
 The portal search feature has the following filters available:
 
@@ -158,7 +158,7 @@ As stated in Portal Main Components, the metrics page is a default function prov
 
 To see metric summaries, navigate to your portal in view mode. See Saving and Editing Portals for more information on how to view portals.
 
-\[metrics\](\~/Documents/Portals-Training/metrics.png)
+![](/uploads/d1-editmetrics.png)
 
 Please contact the DataONE Support Team at support@dataone.org about any questions or concerns about the metrics page.
 
@@ -168,11 +168,11 @@ Please see this tutorial video from member node, the Arctic Data Center, for a w
 
 To add a freeform page to a portal, select the "+" tab next to the data and metric tabs and then choose the freeform option that appears on screen. A freeform page will then populate.
 
-\[freeform-pages\](\~/Documents/Portals-Training/freeform-pages.png)
+![](/uploads/d1-addffpage.png)
 
 Easily customize your banner with a unique image, title, and page description. To change the name of the tab, click on the arrow in the "Untitled" tab and select "Rename" from the dropdown list.
 
-\[rename\](\~/Documents/Portals-Training/rename.png)
+![](/uploads/d1-designff.png)
 
 Below the banner, there is a markdown text box with some examples on how to use the markdown language to customize the text display. As you write, toggle through the Edit and Preview modes in the markdown text box to make sure your information is displaying as intended. Portals are flexible and can accommodate as many additional freeform pages as needed.
 
@@ -186,23 +186,23 @@ Please see these additional resources for help with markdown:
 
 Be sure to save your portal when you complete a page to ensure your progress is retained.
 
-\[save\](\~/Documents/Portals-Training/save.png)
+![](/uploads/d1-saveff.png)
 
 Whenever a portal is saved, a dialogue box will pop up at the top of the page prompting users to view their private portal in view mode. You can choose to ignore this and continue editing.
 
-\[view-portal\](\~/Documents/Portals-Training/view-portal.png)
+![](/uploads/d1-saveportal.png)
 
 To delete a page from your portal, select the arrow in the tab and choose "Delete" from the dropdown.
 
-\[delete\](\~/Documents/Portals-Training/delete.png)
+![](/uploads/d1-delete.png)
 
 Users can view and edit their portal from their "My Portals" tab.
 
 First, click the arrow your name in the top-right corner to drop down your menu options. Then, select "My Portals" from the dropdown underneath your name. See the section on Getting Started with Portals for more details.
 
-\[viewing1\](\~/Documents/Portals-Training/viewing1.png)
+![](/uploads/d1-myportals.png)
 
-\[viewing2\](\~/Documents/Portals-Training/viewing2.png)
+![](/uploads/d1-viewportal.png)
 
 Click on the portal title to view it or select the edit button to make changes.
 
@@ -212,7 +212,7 @@ New portals are automatically set to private and only visible to the portal crea
 
 To make your portal public, go into the settings of your portal. Under the description, you'll see a new section called "Sharing Options". You can toggle between your portal being private and your portal being public there.
 
-\[public\](\~/Documents/Portals-Training/public.png)
+![](/uploads/d1-private.png)
 
 ## **Sharing Portals**
 
@@ -220,7 +220,7 @@ In order to share a published portal, users can simply direct recipients to thei
 
 To view or edit your portal identifier, go into edit mode in your portal. In the settings page, your portal URL will be the first item on the page.
 
-\[url\](\~/Documents/Portals-Training/url.png)
+![](/uploads/d1-url.png)
 
 ## **Tutorial Videos**
 
