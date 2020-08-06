@@ -1,0 +1,5 @@
+{{- $page := .Page -}}
+{{- $imageBlock := dict "src" .Destination "alttext" .PlainText "type" "card" "max_width" 2000 -}}
+{{- $fileName := print "tempImgCode" (delimit (shuffle (seq 1 9)) "") ".html" -}}
+{{- $imgRes := partial "blocks/image/image" (dict "Block" $imageBlock "Page" $page) | resources.FromString $fileName | resources.Minify -}}
+{{- $imgRes.Content | safeHTML -}}

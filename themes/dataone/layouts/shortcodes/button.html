@@ -1,7 +1,8 @@
 {{- $params :=  (dict "Page" $.Page) -}}
 {{- if .Params -}}
-{{- $params = merge $params (dict "Block" .Params) -}}
+  {{- $params = merge $params (dict "Block" .Params) -}}
 {{- end -}}
 <!-- Buttons need to be minified because the white space breaks the layout during markdownification -->
-{{- $buttonRes := partial "blocks/button/button" $params | resources.FromString "tempbutton.html" | resources.Minify -}}
+{{- $fileName := print "tempButtonCode" (delimit (shuffle (seq 1 9)) "") ".html" -}}
+{{- $buttonRes := partial "blocks/button/button" $params | resources.FromString $fileName | resources.Minify -}}
 {{- $buttonRes.Content | safeHTML -}}

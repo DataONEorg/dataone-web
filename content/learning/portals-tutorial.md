@@ -225,3 +225,5 @@ To view or edit your portal identifier, go into edit mode in your portal. In the
 ## **Tutorial Videos**
 
 For video tutorials on how to create your first portal, please visit member node, the Arctic Data Center, and their [video tutorial page](https://arcticdata.io/data-portals/#instructional-videos-identifier "Video Tutorials").
+
+{{< button text="Video portal tutorials" color="quaternary" type="external website" external_link="https://arcticdata.io/data-portals/#instructional-videos-identifier" icon="video" >}}
