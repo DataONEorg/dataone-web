@@ -253,7 +253,7 @@
   color         : var(--section-fc-title, --c-foreground-emphasis-on-default);
   text-transform: uppercase;
   letter-spacing: .025em;
-  font-weight   : 500;
+  font-weight   : var(--fw-bolder, 500);
   margin        : 0 0 1.5rem;
   line-height   : 1.32;
 }
