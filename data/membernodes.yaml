@@ -335,3 +335,9 @@ nodes:
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/USGS_SDC
+- name: California Ocean Protection Council Data Repository
+  logo: "/uploads/member_node_logos/ca_opc.png"
+  homepage: 'https://opc.dataone.org/'
+  status: normal
+  category: Upcoming member repositories
+  profile: https://search.dataone.org/portals/CA_OPC
