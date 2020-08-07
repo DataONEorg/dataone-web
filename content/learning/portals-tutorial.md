@@ -176,9 +176,9 @@ To add a freeform page to a portal, select the "+" tab next to the data and metr
 
 Easily customize your banner with a unique image, title, and page description. To change the name of the tab, click on the arrow in the "Untitled" tab and select "Rename" from the dropdown list.
 
-![](/uploads/d1-designff.png)
+![](/uploads/d1-editff.png)
 
-Below the banner, there is a markdown text box with some examples on how to use the markdown formatting directives to customize the text display. As you write, toggle through the Edit and Preview modes in the markdown text box to make sure your information is displaying as intended. Portals are flexible and can accommodate as many additional freeform pages as needed.
+Below the banner, there is a markdown text box with some examples on how to use the markdown formatting directives to customize the text display. There is also a formatting header at the top to assist if you're unfamiliar with markdown. As you write, toggle through the Edit and Preview modes in the markdown text box to make sure your information is displaying as intended. Portals are flexible and can accommodate as many additional freeform pages as needed.
 
 The markdown header structure helps to generate the table of contents for the page.
 
@@ -192,21 +192,21 @@ Please see these additional resources for help with markdown:
 
 Be sure to save your portal when you complete a page to ensure your progress is retained.
 
-![](/uploads/d1-saveff.png)
+![](/uploads/d1-portalsave.png)
 
 Whenever a portal is saved, a dialogue box will pop up at the top of the page prompting users to view their private portal in view mode. You can choose to ignore this and continue editing.
 
-![](/uploads/d1-saveportal.png)
+![](/uploads/d1-popupsave.png)
 
 To delete a page from your portal, select the arrow in the tab and choose "Delete" from the dropdown.
 
-![](/uploads/d1-delete.png)
+![](/uploads/d1-deletepage.png)
 
 Users can view and edit their portal from their "My Portals" tab.
 
 First, click the arrow your name in the top-right corner to drop down your menu options. Then, select "My Portals" from the dropdown underneath your name. See the section on Getting Started with Portals for more details.
 
-![](/uploads/d1-myportals.png)
+![](/uploads/d1-myportal.png)
 
 ![](/uploads/d1-viewportal.png)
 
