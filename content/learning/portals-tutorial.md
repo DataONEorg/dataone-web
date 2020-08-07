@@ -30,8 +30,7 @@ menu:
     weight: 4
 
 ---
-
-_Content appropriated from ESS-DIVE's portal documentation found [here](https://docs.ess-dive.lbl.gov/portals/ "here")._
+_Content appropriated from ESS-DIVE's portal documentation found_ [_here_](https://docs.ess-dive.lbl.gov/portals/ "here")_._
 
 # Portals
 
@@ -113,13 +112,11 @@ A step-by-step guide on how to navigate DataONE and create a new portal.
 
 If you are on [DataONE's primary website](https://search.dataone.org/data "DataONE's primary website"), click on your name in the upper right hand corner when you are signed in to DataONE with your ORCID. A dropdown will appear, and you would select "My Portals".
 
-\[create-portal\](\~/Documents/Portals-Training/create-portal.png) MISSING FOR D1
-
 ![](/uploads/d1-createportal2.png)
 
-On your profile settings page, select "My Portals". After the page loads select the grey button "+ New Portal" to add a new portal, you'll automatically be directed to a fresh edit session.
+On your profile settings page, select "My Portals". After the page loads select the yellow button "+ New Portal" to add a new portal, you'll automatically be directed to a fresh edit session.
 
-![](/uploads/d1-newportal.png)
+![](/uploads/d1-createportal3.png)
 
 ### Portal Settings Page
 
@@ -129,9 +126,15 @@ In a new edit session, the first thing you'll see is the settings page where you
 * Unique portal identifier
   * _This identifier will be used to create the portal URL. If the name is available, a label will indicate it's available and if the name is taken already, it will note that the name is already taken. This feature ensures the portals are unique._
 * Portal description
+* Whether the portal is public or private
+* Collaborators, which can be added by name, ORCID, or group name
 * Partner organization logos
 
 ![](/uploads/d1-portalsettings.png)
+
+Adding collaborators to help you create your portal is as straightforward as copying and pasting in their ORCID into the box below the permissions section. You can choose whether the collaborator can view, edit, or is an owner of the portal. You can have multiples of each role.
+
+![](/uploads/d1-orcid.png)
 
 ## Adding Data to Portals
 
@@ -143,13 +146,13 @@ Navigate to the "Data" tab. Here you will see a list of all the datasets across 
 
 The portal search feature has the following filters available:
 
-* **Search** : A general search feature that will return data packages with the entered term in the package metadata
-* **Creator** : We recommend searching by last names for more accurate results.
-* **Project** : Returns data packages with the entered project listed in their metadata
+* **Search**: A general search feature that will return data packages with the entered term in the package metadata
+* **Creator**: We recommend searching by last names for more accurate results.
 * **Publish Year:** Use either the sliding scale or enter start and end years manually
-* **Year of Data Coverage** : Searches for data packages with temporal coverages within the selected date range. As with the Publish Year search, use either the sliding scale or enter manually
-* **Location** : This filter will search within the data packages' geographic description field, meaning that you can search by both name or type of location (eg. United States or forest)
-* **Interactive Map:** Use the interactive map on the right side of the page to zoom in or out to a specific region, the search list will filter as you move across the map.
+* **Year of Data Coverage**: Searches for data packages with temporal coverages within the selected date range. As with the Publish Year search, use either the sliding scale or enter manually
+* **Identifier**: Searches for all or part of the DOI (digital object identifier) associated with the dataset
+* **Taxon**: Searches for any taxonomic rank specified by the submitter
+* **Location**: This filter will search within the data packages' geographic description field, meaning that you can search by both name or type of location (eg. United States or forest)
 
 If you need assistance assembling portal data using a complex query, please contact the DataONE Support Team at support@dataone.org.
 
@@ -175,7 +178,9 @@ Easily customize your banner with a unique image, title, and page description. T
 
 ![](/uploads/d1-designff.png)
 
-Below the banner, there is a markdown text box with some examples on how to use the markdown language to customize the text display. As you write, toggle through the Edit and Preview modes in the markdown text box to make sure your information is displaying as intended. Portals are flexible and can accommodate as many additional freeform pages as needed.
+Below the banner, there is a markdown text box with some examples on how to use the markdown formatting directives to customize the text display. As you write, toggle through the Edit and Preview modes in the markdown text box to make sure your information is displaying as intended. Portals are flexible and can accommodate as many additional freeform pages as needed.
+
+The markdown header structure helps to generate the table of contents for the page.
 
 Please see these additional resources for help with markdown:
 
