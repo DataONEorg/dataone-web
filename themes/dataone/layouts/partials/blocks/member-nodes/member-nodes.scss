@@ -4,7 +4,9 @@ $TOCwidth: 250px;
   margin : 0 0 .6rem;
 }
 
-.member-nodes {
+{{ $p := .Params.prefix }}
+
+.{{ $p }}member-nodes {
 
   // ==========================================================================
   //    Variables
@@ -34,6 +36,8 @@ $TOCwidth: 250px;
     grid-template-columns: minmax($TOCwidth, .4fr) auto;
   }
 
+  // ---- TOC START --- //
+    
   &__toc-button {
     @include button-reset;
     display   : none;
@@ -103,7 +107,7 @@ $TOCwidth: 250px;
     margin    : 0 .5rem 2rem 0;
     min-height: 220px; // keeps affixed menu from glitching on mobile
   }
-
+  
   &__toc {
     margin              : 0;
     padding-inline-start: 0;
@@ -173,6 +177,8 @@ $TOCwidth: 250px;
       }
     }
   }
+  
+  // TOC END
 
   &__categories {
     @include desktop {

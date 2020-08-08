@@ -3,6 +3,7 @@ title: Participate
 description: |-
   Find out how to add your data to the DataONE network.
 layout: markdown
+toc: true
 header:
   title: Contribute Data
   intro: |-
@@ -22,8 +23,6 @@ header:
     color: secondary
 ---
 
-
-
 ## Finding a Member Repository
 
 The [Current Member Repositories page]( {{< ref "network.md#list-of-member-repositories" >}} )
@@ -31,11 +30,11 @@ lists all of the current Member Repositories which are part of the DataONE netwo
 We are working as quickly as we can to integrate the many other data organizations who would like to become a Member Repository.
 If you work with a data repository which is not listed as a current Member Repository, you can contact the repository management to inquire if they are working on [becoming a Member Repository with DataONE]( {{< ref "jointhenetwork.md" >}} ).
 
-#### Dryad
+### Dryad
 
 If your data is associated with any published article in the biosciences, you may be able to deposit it with the Dryad data project, which is one of our Member Repositories. See [Dryad's submission page](https://datadryad.org/stash/submission_process) for more information.
 
-#### Knowledge Network for Biocomplexity
+### Knowledge Network for Biocomplexity
 
 If you work with one of the many projects that use [Metacat](https://knb.ecoinformatics.org/knb/docs/) as part of the [Knowledge Network for Biocomplexity (KNB)](https://knb.ecoinformatics.org/), you may be able to deposit data through that project.
 

@@ -13,6 +13,10 @@ markup:
     style: monokailight
     lineNos: true
     lineNumbersInTable: false
+  tableOfContents:
+    endLevel: 3
+    ordered: true
+    startLevel: 2
   goldmark:
     renderer:
       unsafe: true

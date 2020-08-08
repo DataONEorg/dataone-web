@@ -1,8 +1,9 @@
 ---
 title: Portals How-To
 date: 2020-08-04T11:26:58.000-07:00
-description: ''
+description: 'Read a detailed how-to for creation of DataONE Portals. Portals are a new feature on DataONE that allow researchers to easily view project information and datasets all in one place across member node repositories.'
 layout: markdown
+toc: true
 header:
   template: header
   type: hero image
@@ -16,10 +17,6 @@ header:
     alttext: Window with light streaming through
     type: cover
     overlay_effect: major accent color
-  pill:
-    template: ''
-    style: ''
-    text: ''
 menu:
   primary_nav:
     parent: Learning
@@ -28,7 +25,6 @@ menu:
   footer:
     parent: Learning
     weight: 4
-
 ---
 _Content appropriated from ESS-DIVE's portal documentation found_ [_here_](https://docs.ess-dive.lbl.gov/portals/ "here")_._
 

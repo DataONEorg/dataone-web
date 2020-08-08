@@ -1,0 +1,66 @@
+<!-- In order to pass on page parameters from within loops -->
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
+<!-- bn = block name -->
+{{- $bn := print $p "toc" -}}
+<!-- classes to add to outer element -->
+{{- $classes := $bn -}}
+
+<!-- The TOC HTML, which should comprise a <nav> containing a <ul> or <ol> -->
+<!-- Each <li> within the list should link to the ID using an anchor tag. -->
+<!-- EG <li><a href="#here">Item name</a></li> -->
+<!-- This structure is the same as the one created by Hugo -->
+{{- $tocHTML := .Block.toc_html | default "" -}}
+
+<!-- The content block dict, must include a .template variable -->
+{{- $content := .Block.content | default dict -}}
+
+<!-- The title provided to the block -->
+<!-- {{- $title := .Block.title | default "" -}} -->
+
+<div class="{{- $classes -}}">
+  
+  <aside class="{{- $bn -}}__toc-container">
+    
+    <div class="{{- $bn -}}__toc">
+      
+      <!-- {{- with $title -}}
+        <header class="{{- $bn -}}__toc-header">
+          <h2>{{ . }}</h2>
+        </header>
+      {{- end -}} -->
+      
+      {{- if $tocHTML -}}
+      
+        {{- $tocHTML | safeHTML -}}
+        
+        <button class="{{ $bn }}__button" id="toc-toggle" aria-label="Show table of contents" aria-expanded="true" aria-controls="member-nodes-toc">
+          <span class="{{ $bn }}__button-icon">
+            {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "list" "color" "inherit") "Page" $page) -}}
+          </span>
+        </button>
+      
+      {{- end -}}
+      
+    </div>
+  </aside>
+  
+  {{- with $content -}}
+  <div class="{{- $bn -}}__content">
+    
+    <!-- If it's a dict, asssume it's block to render -->
+    {{- if reflect.IsMap . -}}
+      {{- if .template -}}
+        {{- partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+      {{- end -}}
+      <!-- otherwise treat it as an HTML string (e.g. for the people type: accordion block ) -->
+    {{- else -}}
+      {{- . | safeHTML -}}
+    {{- end -}}
+  
+    </div>
+  {{- end -}}
+  
+</div>

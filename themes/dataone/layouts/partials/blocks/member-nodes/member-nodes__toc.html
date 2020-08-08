@@ -1,0 +1,21 @@
+{{- $page := .Page -}}
+{{- $site := .Page.Site -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $page.Site.Params.prefix -}}
+<!-- bn = block name -->
+{{- $bn := print $p "member-nodes" -}}
+
+<ol id="member-nodes-toc">
+  {{- range $site.Data.membernodes.categories -}}
+    {{- $category := .category -}}
+    {{- $nodeCount := len (where $site.Data.membernodes.nodes "category" "==" $category) -}}
+    <li aria-controls="section__{{- urlize $category -}}">
+      {{- if .category -}}
+        <a href="#section__{{- urlize $category -}}">
+          {{- .category -}}
+          <span class="member-nodes__count">{{- $nodeCount -}}</span>
+        </a>
+      {{- end -}}
+    </li>
+  {{- end -}}
+</ol>
