@@ -75,6 +75,11 @@
     display        : flex;
     flex-direction : column;
     justify-content: center;
+    
+    code{
+      font-size: 1.3rem;
+    }
+    
   }
 
   &__button {

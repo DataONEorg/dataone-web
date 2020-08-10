@@ -11,6 +11,13 @@
 {{- $useMemberNodes := .Block.use_member_nodes -}}
 {{- $titleText := .Block.title | default "" -}}
 
+{{- $hasButton := false -}}
+{{- with $button -}}
+  {{- if or .text .internal_link .external_link -}}
+    {{- $hasButton = true -}}
+  {{- end -}}
+{{- end -}}
+
 <!-- Optional style class to add to the outer most element -->
 {{- $style := .Block.style | default "" -}}
 

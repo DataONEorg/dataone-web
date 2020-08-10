@@ -94,4 +94,4 @@ fields:
     max: 
     labelField: 
   label: Slides
-  description: The content and information for each slide in the caroussel
+  description: The content and information for each slide in the carousel

@@ -105,6 +105,7 @@ page_sections:
     internal_link: 'services/_index.md'
 - template: section
   background: data-wave
+  icon: "bar-chart-2"
   small_title: Analytics
   title: Maximize the value of your data
   intro: With access to information about the datasets in your portal, you can monitor
@@ -113,7 +114,7 @@ page_sections:
   blocks:
   - template: feature-detailed
     headline: Make your data FAIR
-    text: Access aggregated FAIR metadata assessment scores. Improve data discovery,
+    text: Access aggregate & individual FAIR metadata assessment scores. Improve data discovery,
       accessibility, interoperability, and reusability with a quantitative metadata
       assessment using the FAIR principles.
     type: right
@@ -182,6 +183,7 @@ page_sections:
   small_title: Showcase
   title: Built with DataONE Plus
   intro: See what others are creating with DataONE Plus portals
+  id: showcase
   blocks:
   - template: carousel
     slides:

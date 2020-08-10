@@ -3,7 +3,7 @@ layout: blocks
 date: 2020-01-09T17:19:25.000+00:00
 title: Hosted Repository
 service_icon: database
-service_color: "#52ace0"
+service_color: "#4fa1e0"
 weight: 3
 render_page: true
 description: A dedicated repository solution for your group or institution's data,
@@ -73,23 +73,23 @@ page_sections:
       template: item-with-icon
       text: All data and metadata are replicated to two geographically independent
         data centers in California and Tennessee
-      icon: check
+      icon: map-pin
     - name: Customization
       template: item-with-icon
       text: Brand your data repository with customized features allowing you to connect
         directly with your community.
-      icon: check
+      icon: users
   - details:
     - template: item-with-icon
       name: Custom DOI prefix
       text: A DOI prefix is configured exclusively for your datasets, products, and
         code
-      icon: check
+      icon: star
     - template: item-with-icon
       name: Custom domain name
       text: Your repository is available at a domain of your choice, but hosted by
         DataONE
-      icon: check
+      icon: home
     image:
       template: image
       src: uploads/custom-domain-and-doi.png
@@ -100,7 +100,16 @@ page_sections:
     text: Brand your data repository with customized features allowing you to connect
       directly with your community.
     type: right
+  - template: button
+    type: service cta
+    color: primary
+  - template: button
+    type: 'internal page'
+    color: 'quaternary'
+    text: 'See all features'
+    internal_link: 'services/_index.md'
 - template: section
+  icon: "bar-chart-2"
   background: data-wave
   small_title: Analytics
   title: Get a complete assessment of your data & metadata
@@ -110,7 +119,7 @@ page_sections:
   blocks:
   - template: feature-detailed
     headline: Make your data FAIR
-    text: Access aggregated FAIR metadata assessment scores. Improve data discovery,
+    text: Access aggregate & individual FAIR metadata assessment scores. Improve data discovery,
       accessibility, interoperability, and reusability with a quantitative metadata
       assessment using the FAIR principles.
     type: right
@@ -127,11 +136,11 @@ page_sections:
     - template: item-with-icon
       name: Time series charts
       text: Discover how FAIR scores change over time through time series charts
-      icon: check
+      icon: trending-up
     - template: item-with-icon
       name: Detailed analysis
       text: Drill down into detailed FAIR reports for individual datasets
-      icon: check
+      icon: file-plus
     button:
       template: button
       type: internal page
@@ -146,30 +155,54 @@ page_sections:
       type: top
       text: Access aggregated view and download metrics for datasets
       headline: Usage metrics
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: View & Download Metrics
-        internal_link: "/features/usage-metrics"
     - template: feature-detailed
       type: top
       headline: Citation reports
       text: Find out who is citing your data
-      button:
-        template: button
-        type: internal page
-        color: quaternary
-        text: Data citations
-        internal_link: "/features/citations"
 - template: section
-  type: default
+  icon: "tool"
   small_title: Repository tools
-  title: For users & developers
+  title: For users & `developers`
   intro: Open source, user friendly tools for working with DataONE across multiple
     levels of expertise. DataONE tools and services undergo extensive usability testing
     to ensure they meet community needs.
   blocks:
+  - template: feature-detailed
+    type: left
+    image:
+      template: image
+      src: uploads/metacat-on-github.png
+      alttext: Metacat on Github
+      type: tilt-right
+    headline: Open source repository platform
+    text: "DataONE hosted repositories represent stand-alone deployments of open
+      source DataONE tools:"
+    details:
+      - template: item-with-icon
+        icon: metacat
+        name: Metacat
+        text: Metadata & data management server [Learn more](https://knb.ecoinformatics.org/knb/docs/)
+      - template: item-with-icon
+        icon: metacatui
+        name: MetacatUI
+        text: Search and metadata management web client  [Learn more](https://nceas.github.io/metacatui/)
+    button:
+      icon: github
+      external_link: https://github.com/DataONEorg
+      template: button
+      text: DataONE on Github
+      color: secondary
+      type: external website
+  - template: logos-bar
+    title: Trusted by
+    style: no scroll
+    logos:
+      - name: Knowledge Network for Biocomplexity
+        logo: "/uploads/member_node_logos/knb.png"
+      - name: Arctic Data Center
+        logo: "/uploads/member_node_logos/arctic.png"
+      - name: 'ESS-DIVE: Deep Insight for Earth Science Data'
+        logo: "/uploads/member_node_logos/ess_dive1.png"
   - template: columns
     num_cols: 2
     columns:
@@ -178,7 +211,7 @@ page_sections:
       button:
         type: external website
         template: button
-        color: tertiary
+        color: quaternary
         external_link: https://demo.arcticdata.io/submit
         text: See a demo
       headline: Easy data upload user interface
@@ -195,13 +228,13 @@ page_sections:
       type: top
       button:
         template: button
-        color: tertiary
+        color: quaternary
         external_link: https://releases.dataone.org/online/api-documentation-v2.0.1/apis/index.html
         text: Read the docs
         type: external website
       headline: Advanced API access
       text: Programmatically work with your repository through the DataONE tools in
-        R, Python, Matlab, and Java.
+        `R`, `Python`, `Matlab`, and `Java`.
       image:
         template: image
         src: uploads/dataone-r-api.png
@@ -211,46 +244,28 @@ page_sections:
   - template: columns
     num_cols: 3
     columns:
-    - template: feature-detailed
-      type: top
-      headline: Comprehensive search
-      text: Quickly find data with detailed search filters, or by navigating the interactive
+    - template: card
+      icon: search
+      title:  Comprehensive search
+      description: Quickly find data with detailed search filters, or by navigating the interactive
         map
-    - template: feature-detailed
-      type: top
-      headline: Any file format
-      text: 'Use the scientific file formats for your community: image, tabular, text,
+    - template: card
+      icon: file
+      title: Any file format
+      description: 'Use the scientific file formats for your community: image, tabular, text,
         audio, video, and others'
-    - template: feature-detailed
-      type: top
-      headline: Link data and software
-      text: Quickly find data with detailed search filters, or by navigating the interactive
-        map
-  - details: []
-    image:
-      template: image
-      src: uploads/metacat-on-github.png
-      alttext: Metacat on Github
-      type: tilt-left
-    headline: Open source repository platform
-    template: feature-detailed
-    text: DataONE hosted repositories represent stand-alone deployments of the open
-      source [Metacat](https://knb.ecoinformatics.org/knb/docs/) repository server
-      and [MetacatUI](https://github.com/NCEAS/metacatui) search and metadata management
-      web client. These repository platforms are trusted by many repositories, including
-      the NSF [Arctic Data Center](https://arcticdata.io), the Department of Energy
-      [ESS-DIVE repository](https://ess-dive.lbl.gov/), and the [KNB Data Repository](https://knb.ecoinformatics.org),
-      among many others.
-    type: right
-    button:
-      external_link: https://github.com/DataONEorg
-      template: button
-      text: DataONE on Github
-      color: tertiary
-      type: external website
+    - template: card
+      icon: link
+      title: Link data and software
+      description: Easily show how your files relate to each other by providing well-described provenance workflows.
+  - template: button
+    type: service cta
+    color: primary
 - template: section
   background: subtle-emphasis
-  title: Includes all the DataONE Plus features
+  icon: plus
+  title: Includes DataONE Plus
+  intro: Along with your Hosted Repository, get all of the features that are included with DataONE Plus
   blocks:
     - template: page-summary
       service: services/plus.md

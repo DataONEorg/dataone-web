@@ -171,6 +171,7 @@
           &.active{
             background-color: transparent;
             border-left: none;
+            box-shadow: none;
             a, a:visited, a:hover, a:active {
               color: var(--section-c-accent);
             }
@@ -187,6 +188,9 @@
       }
 
       &.active {
+        box-shadow      : 0 3px 8px var(--section-c-shadow-2, rgba(0,0,0,0.2)), 0 0 2px var(--section-c-shadow-3, rgba(0,0,0,0.3));
+        border-radius   : var(--br-default, .25rem);
+        filter: brightness(1.04);
         background-color: var(--section-c-background-lighter, white);
         border-left     : 4px solid var(--section-c-accent, grey);
         margin-left     : -4px;

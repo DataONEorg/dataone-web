@@ -141,5 +141,21 @@
       opacity: .9;
     }
   }
+  
+  //
+  //  Logos are center and there are no scroll buttons
+  // ==========================================================================
+  &--no-scroll{
+    --logos-bar-c-background: transparent;
+    width: 100%;
+    
+    #{$bn}__logos {
+      width: 100%;
+      justify-content: center;
+    }
+    #{$bn}__scroll-button {
+      display: none;
+    }
+  }
 
 }

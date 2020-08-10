@@ -65,7 +65,7 @@
     @include limit-width;
     padding     : 1.5rem $lr-padding 2rem;
     @include desktop{
-      padding     : 1.5rem $lr-padding 2.5rem;
+      padding     : 3rem $lr-padding 3.5rem;
     }
   }
 
@@ -114,6 +114,10 @@
     color      : var(#{$prefix}-fc-title);
     font-family: var(#{$prefix}-ff-title);
     font-weight: var(#{$prefix}-fw-title);
+    
+    code {
+      font-size: 2.2rem
+    }
   }
 
   // Text that introduces the section.
@@ -128,9 +132,9 @@
   // The container for all sub-blocks.
   &__blocks {
     display       : grid;
-    grid-gap      : 1.8rem;
+    grid-gap      : 2rem;
     grid-auto-rows: min-content;
-    padding-top   : .8rem;
+    padding-top   : 1rem;
   }
   
   // Some types of blocks should be centered
@@ -186,6 +190,7 @@
   // ==========================================================================
 
   &--bkg-subtle-emphasis {
+    #{$prefix}-c-icon-background: var(--c-default-lighter, lightgray);
     #{$prefix}-c-background: var(--c-default-darker, lightgray);
   }
 
@@ -260,8 +265,8 @@
 
   &--bkg-data-wave {
     @include --dark-bkg;
-    #{$prefix}-c-icon-background    : var(--c-neutral-5, lightgray);
-    #{$prefix}-c-icon-foreground    : var(--c-major-accent-5, lightgray);
+    #{$prefix}-c-icon-background    : var(--theme-c, --c-neutral-5, lightgray);
+    #{$prefix}-c-icon-foreground    : var(--theme-c-light, --c-major-accent-5, lightgray);
     #{$prefix}-c-background-lighter : var(--c-neutral-6, slategray);
     #{$prefix}-c-background         : var(--c-neutral-7, darkslategray);
     #{$prefix}-c-background-darker  : var(--c-neutral-8, black);

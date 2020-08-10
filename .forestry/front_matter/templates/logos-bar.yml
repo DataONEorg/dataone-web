@@ -12,6 +12,18 @@ fields:
   label: Title
   description: The text to show above the logos. If the title contains the key word
     NUMBER (all in caps), this number will be replaced with the number of logos.
+- type: select
+  label: Style
+  name: style
+  description: How the logos should be styled
+  default: default
+  config:
+    source:
+      type: simple
+    options:
+    - default
+    - dark-background
+    - no scroll
 - type: field_group
   name: button
   label: Button
