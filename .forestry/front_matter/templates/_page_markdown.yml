@@ -27,7 +27,8 @@ fields:
 - type: boolean
   label: Table of Contents
   name: toc
-  description: Set to false to hide the table of contents. Otherwise one will automatically be generated for pages with 400 characters or more.
+  description: Set to false to hide the table of contents. Otherwise one will automatically
+    be generated for pages with 400 characters or more.
   default: true
 - name: header
   type: field_group

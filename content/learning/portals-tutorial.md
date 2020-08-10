@@ -1,7 +1,9 @@
 ---
 title: Portals How-To
 date: 2020-08-04T11:26:58.000-07:00
-description: 'Read a detailed how-to for creation of DataONE Portals. Portals are a new feature on DataONE that allow researchers to easily view project information and datasets all in one place across member node repositories.'
+description: Read a detailed how-to for creation of DataONE Portals. Portals are a
+  new feature on DataONE that allow researchers to easily view project information
+  and datasets all in one place across member node repositories.
 layout: markdown
 toc: true
 header:
@@ -17,6 +19,10 @@ header:
     alttext: Window with light streaming through
     type: cover
     overlay_effect: major accent color
+  pill:
+    template: ''
+    style: ''
+    text: ''
 menu:
   primary_nav:
     parent: Learning
@@ -25,8 +31,8 @@ menu:
   footer:
     parent: Learning
     weight: 4
+
 ---
-_Content appropriated from ESS-DIVE's portal documentation found_ [_here_](https://docs.ess-dive.lbl.gov/portals/ "here")_._
 
 # Portals
 
@@ -229,3 +235,7 @@ To view or edit your portal identifier, go into edit mode in your portal. In the
 For video tutorials on how to create your first portal, please visit member node, the Arctic Data Center.
 
 {{< button text="Video portal tutorials" color="quaternary" type="external website" external_link="https://arcticdata.io/data-portals/#instructional-videos-identifier" icon="video" >}}
+
+Acknowledgements
+
+_Much of this documentation was composed by ESS-DIVE, which can be found_ [_here_](https://docs.ess-dive.lbl.gov/portals/ "here")_._
