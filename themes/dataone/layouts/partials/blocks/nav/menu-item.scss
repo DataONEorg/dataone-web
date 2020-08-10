@@ -343,6 +343,18 @@
   }
 
   &--dataone-plus-ad {
+    
+    $delay: 0.5s;
+    
+    #{$bn}__sub-menu {
+      &[aria-hidden="false"] {
+        transition-delay: $delay;
+        & ~ #{$bn}__sub-menu-arrow {
+          transition-delay: $delay;
+        }
+      }
+    }
+    
     #{$bn}__pill {
       margin-left: 3px;
     }

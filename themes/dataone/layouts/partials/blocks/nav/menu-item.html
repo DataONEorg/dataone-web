@@ -49,10 +49,6 @@
   {{ $style = "style='display:none'" | safeHTMLAttr }}
 {{- end -}}
 
-{{- with .Block.Name -}}
-  {{- $classes = printf "%s %s--%s" $classes $bn (urlize . ) -}}
-{{- end -}}
-
 <!-- Special layout options for the DataONE Plus Ad -->
 {{- if eq .Block.Post "DataONE Plus Ad" -}}
   {{- $hasSubmenu = true -}}
