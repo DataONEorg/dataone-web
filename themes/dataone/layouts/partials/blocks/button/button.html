@@ -116,7 +116,12 @@
 <!-- Other custom attributes to add to button elements (e.g. aria attributes) -->
 {{- $otherAttributes := "" | safeHTMLAttr -}}
 {{- with .Block.otherAttributes -}}
-  {{- $otherAttributes = . | safeHTMLAttr -}}
+	{{- $otherAttributes = . | safeHTMLAttr -}}
+{{- end -}}
+
+<!-- Extra modifers to add to the outer class -->
+{{- with .Block.extra_classes -}}
+	{{- $classes = printf "%s %s--%s" $classes $bn . -}}
 {{- end -}}
 
 <!-- Extra modifers to add to the outer class -->

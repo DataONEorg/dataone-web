@@ -141,6 +141,11 @@
   &__blocks .{{ $p }}button{
     justify-self: center;
   }
+  
+  // Some types of blocks should be centered
+  &__blocks .{{ $p }}button{
+    justify-self: center;
+  }
 
   // Button at the end of section, positioning only.
   // The rest is styled by button component.
