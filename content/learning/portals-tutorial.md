@@ -56,13 +56,17 @@ To see an example of what portals could look like, please view the [Toolik Field
 
 ## Portal Main Components
 
-Portals have four components: a settings page, a data page, a metrics page, and customizable free-form pages.
+Portals have five components: an about page, a settings page, a data page, a metrics page, and customizable free-form pages.
+
+### About page
+
+This page is the first page users will see after initially creating a new portal, and it is highly recommended that users use this feature to create a description for their portal. Add a picture of your logo, a title and description of your portal, and freeform text using the markdown editor.
+
+![](/uploads/d1-about.png)
 
 ### Settings Tab
 
-The first component of portals is the settings tab. This tab is the first page users will see after initially creating a new portal and sets up important infrastructure for the portal.
-
-On this page users can give the portal a title and assign it a unique url; also referred to as a **portal identifier**. Users can add a general description of the portal, upload an icon photo for their data, and upload icon photos from any partner organizations that have contributed to the data. These partner icons will appear in the footer banner on every page in a portal, likewise, your portal icon will appear in the header banner.
+On the settings tab, users can give the portal a title and assign it a unique url; also referred to as a **portal identifier**. Users can add a general description of the portal, upload an icon photo for their data, and upload icon photos from any partner organizations that have contributed to the data. These partner icons will appear in the footer banner on every page in a portal, likewise, your portal icon will appear in the header banner.
 
 ![](/uploads/d1-settingspage.png)
 
@@ -92,7 +96,7 @@ Please contact DataONE's support team at support@dataone.org about any questions
 
 ### Freeform Pages
 
-Freeform pages are an optional function provided by DataONE portals. Here, users can add as much supplementary information as needed using markdown. It is highly recommended that users use this feature to create a descriptive **About page** for their portal.
+Freeform pages are an optional function provided by DataONE portals. Here, users can add as much supplementary information as needed using markdown. 
 
 #### Example Freeform Pages
 
