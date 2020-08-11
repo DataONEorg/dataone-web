@@ -145,17 +145,25 @@
   //
   //  Logos are center and there are no scroll buttons
   // ==========================================================================
-  &--no-scroll{
+  &--compact{
     --logos-bar-c-background: transparent;
     width: 100%;
     
     #{$bn}__logos {
       width: 100%;
       justify-content: center;
+      margin: 0;
     }
     #{$bn}__scroll-button {
       display: none;
     }
+
+    #{$bn}__logo-image {
+      height        : 40px;
+      margin-right  : 0.9rem;
+    }
+    
+    
   }
 
 }

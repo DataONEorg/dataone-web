@@ -195,7 +195,7 @@ page_sections:
       type: external website
   - template: logos-bar
     title: Trusted by
-    style: no scroll
+    style: compact
     logos:
       - name: Knowledge Network for Biocomplexity
         logo: "/uploads/member_node_logos/knb.png"
@@ -203,6 +203,22 @@ page_sections:
         logo: "/uploads/member_node_logos/arctic.png"
       - name: 'ESS-DIVE: Deep Insight for Earth Science Data'
         logo: "/uploads/member_node_logos/ess_dive1.png"
+      - name: California Ocean Protection Council Data Repository
+        logo: "/uploads/member_node_logos/ca_opc.png"
+      - name: SANParks Data Repository
+        logo: "/uploads/member_node_logos/sanparks.png"
+      - name: Organization for Tropical Studies
+        logo: "/uploads/member_node_logos/ots_ndc.png"
+      - name: PISCO MN
+        logo: "/uploads/member_node_logos/pisco.png"
+      - name: Taiwan Forestry Research Institute
+        logo: "/uploads/member_node_logos/tfri.png"
+      - name: Montana IoE Data Repository
+        logo: "/uploads/member_node_logos/ioe.png"
+      - name: "Dangermond Preserve"
+        logo: "/uploads/dangermond_logo.png"
+      - name: "DataONE Search"
+        logo: "uploads/Logo-DataONESearch_compact.png"
   - template: columns
     num_cols: 2
     columns:

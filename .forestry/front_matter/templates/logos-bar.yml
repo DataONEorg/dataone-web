@@ -23,7 +23,7 @@ fields:
     options:
     - default
     - dark-background
-    - no scroll
+    - compact
 - type: field_group
   name: button
   label: Button

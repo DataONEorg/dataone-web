@@ -223,7 +223,7 @@ page_sections:
             overlay_effect: ''
         - title: Custom content
           icon: users
-          annotation: Members of the Toolik Community are recognized using a
+          annotation: Members of the Toolik community are recognized using a
             custom staff & contributor directory
           content:
           - template: image
