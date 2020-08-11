@@ -116,3 +116,9 @@
 .figure--card {
   @include card;
 }
+
+.figure--video{
+  .figure__image{
+    width: 100%;
+  }
+}

@@ -28,9 +28,15 @@
 <!-- resize or crop when needed -->
 {{- $imageResource := partial "functions/getImage" (dict "image" $src "Page" $page) -}}
 
+{{- $isVideo := or (hasPrefix $src "https://vimeo.com") (in ($imageResource.MediaType.MainType) "video") -}}
+
+{{- if $type -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "video" -}}
+{{- end -}}
+
 <figure class="{{- $classes -}}">
   <!-- Check if the resource is actually a video type -->
-  {{- if or (hasPrefix $src "https://vimeo.com") (in ($imageResource.MediaType.MainType) "video") -}}
+  {{- if $isVideo -}}
     <div class="{{- $bn -}}__image">
       {{- $videoBlock := merge .Block (dict "type" "uploaded") -}}
       {{- partial "blocks/video/video" (dict "Block" $videoBlock "Page" $page) -}}
