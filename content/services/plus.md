@@ -187,6 +187,50 @@ page_sections:
   blocks:
   - template: carousel
     slides:
+    - title: Toolik Field Station
+      subtitle: A major site for long-term, process-based ecological research in
+        the North American Arctic since 1975.
+      color: "#51b0df"
+      button:
+        template: button
+        type: external website
+        color: tertiary
+        text: See portal
+        external_link: https://search.dataone.org/portals/toolik
+      logo: "/uploads/portals/logo_toolik.svg"
+      content:
+      - template: tabs
+        tabs:
+        - title: Metrics
+          icon: "bar-chart-2"
+          annotation: The Metrics tab summarizes Toolik's long-term data collection,
+            and shows how their FAIR scores have changed over time.
+          content:
+          - template: image
+            type: float
+            src: "/uploads/portals/toolik_metrics.png"
+            alttext: ''
+            overlay_effect: ''
+        - title: Map view
+          icon: map
+          annotation: Toolik's focus on the Arctic is clearly communicated in the
+            map of their data's geographic coverage
+          content:
+          - template: image
+            type: float
+            src: "/uploads/portals/toolik_map.png"
+            alttext: ''
+            overlay_effect: ''
+        - title: Custom content
+          icon: users
+          annotation: Members of the Toolik Community are recognized using a
+            custom staff & contributor directory
+          content:
+          - template: image
+            type: float
+            src: "/uploads/portals/toolik_people.png"
+            alttext: ''
+            overlay_effect: ''
     - title: State of Alaska's Salmon and People
       subtitle: A collaboration of researchers, cultural leaders, and others working
         to bring together important, accurate, and up-to-date information that will
@@ -197,7 +241,7 @@ page_sections:
         type: external website
         color: secondary
         text: See portal
-        external_link: https://knb.ecoinformatics.org/portals/sasap
+        external_link: https://search.dataone.org/portals/sasap
       logo: "/uploads/portals/logo_SASAP.svg"
       content:
       - template: tabs
@@ -242,7 +286,7 @@ page_sections:
         type: external website
         color: secondary
         text: See portal
-        external_link: https://arcticdata.io/catalog/portals/DBO
+        external_link: https://search.dataone.org/portals/DBO
       logo: "/uploads/portals/logo_DBO.svg"
       content:
       - template: tabs
