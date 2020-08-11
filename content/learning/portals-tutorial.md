@@ -8,21 +8,30 @@ layout: markdown
 toc: true
 header:
   template: header
-  type: hero image
-  background_color: default
+  type: image on right with overflow
+  background_color: light
   title: Portals Tutorial
   intro: Detailed how-to for creation of portals.
   buttons: []
   image:
     template: ''
-    src: "/uploads/zoltan-tasi-o_mbxldz0hc-unsplash.jpg"
-    alttext: Window with light streaming through
-    type: cover
-    overlay_effect: major accent color
+    src: "/uploads/d1-about.png"
+    type: tilt-left
   pill:
-    template: ''
-    style: ''
-    text: ''
+    template: pill
+    style: quaternary
+    text: Free Preview
+  buttons:
+    - template: button
+      text: "Get started"
+      type: portal_start
+      color: primary
+    - template: button
+      text: "What's a portal?"
+      icon: info
+      type: internal page
+      internal_link: plus.md
+      color: quaternary
 menu:
   primary_nav:
     parent: Learning
@@ -240,6 +249,12 @@ For video tutorials on how to create your first portal, please visit member node
 
 {{< button text="Video portal tutorials" color="quaternary" type="external website" external_link="https://arcticdata.io/data-portals/#instructional-videos-identifier" icon="video" >}}
 
-Acknowledgements
+## Acknowledgements
 
 _Much of this documentation was composed by ESS-DIVE, which can be found_ [_here_](https://docs.ess-dive.lbl.gov/portals/ "here")_._
+
+## Start building!
+
+**Ready to get started building your own portal?**
+
+{{< button text="Get started" color="primary" type="portal_start" icon="star" >}}
