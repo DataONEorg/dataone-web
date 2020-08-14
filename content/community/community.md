@@ -10,12 +10,6 @@ header:
   template: ''
   type: center image
   background_color: ''
-  image:
-    template: ''
-    src: "/uploads/savethedate2020.png"
-    alttext: Save the Date
-    type: ''
-    overlay_effect: ''
   pill:
     template: ''
     style: ''
@@ -49,7 +43,8 @@ page_sections:
   id: ''
 - title: DataONE Community Meeting
   intro: |-
-    We are excited to update the DataONE Community on soon-to-be-released products and services as part of our upcoming DataONE Community Meeting. Join us online **August 11th - 13th 2020** for one or all of nine 90 minute sessions focused on program updates, repository network meetings, feature tutorials and more. Registration is free.
+    This year's online community meeting happened **August 11th - 13th 2020** and included new service announcements, program updates, repository network meetings, feature tutorials and more.
+    Content from the meeting will be available soon.
   template: section
   type: card
   background: topography
@@ -64,16 +59,9 @@ page_sections:
     text: Learn more
     internal_link: 'meetings/2020.md'
     icon: ''
-  - template: button
-    type: external website
-    color: quaternary
-    text: Register now
-    external_link: https://docs.google.com/forms/d/e/1FAIpQLSd3st6XajdDODtp4jGwxGvwaiEnE_6C8qvJx-gqkHAmPAiQTw/viewform?usp=sf_link
-    internal_link: ''
-    icon: ''
   id: meeting
 - type: default
-  background: subtle-emphasis
+  background: default
   icon: users
   title: DataONE Community Board
   intro: |-

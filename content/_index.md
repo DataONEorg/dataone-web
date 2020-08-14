@@ -37,41 +37,11 @@ header:
     use_member_repositories: false
 page_sections:
 - template: section
-  icon: gift
-  small_title: Coming soon
-  background: subtle-emphasis
-  title: New Products & Services from DataONE
-  blocks:
-  - template: feature-detailed
-    image:
-      template: image
-      type: tilt-left
-      overlay_effect: none
-      src: "/uploads/something-big.png"
-      alttext: 'A teaser image showing a sneak peak at one of the new services from DataONE'
-    type: right
-    headline: To be announced at the upcoming meeting
-    text: |-
-      The last year has been period of growth and change for DataONE and we are excited to announce new Products and Services aligned with community needs. These opportunities will be introduced during the plenary sessions at our upcoming DataONE Community Meeting, which will also feature focused workshops exploring implementation and use.
-    details:
-    - template: item-with-icon
-      name: August 11th - 13th
-      text: Join us for a first look at the new DataONE
-      icon: calendar
-    - template: item-with-icon
-      name: Remote
-      text: Meeting will be held over zoom
-      icon: map-pin
-    button:
-      template: button
-      type: internal page
-      color: primary
-      text: Get Ready
-      internal_link: /meetings/2020.md
-      icon: calendar
-- template: section
   type: card
   background: data-wave-subtle
+  icon: star
+  small_title: New!
+  title: "**Introducing Products & Services from DataONE**"
   blocks:
   - template: columns
     num_cols: 2
@@ -85,9 +55,10 @@ page_sections:
       details: []
       button:
         type: 'internal page'
-        color: 'quaternary'
+        color: 'primary'
         text: 'Learn more about DataONE Plus'
         internal_link: 'services/plus.md'
+        icon: d1-plus-logo
     - template: feature-detailed
       type: top
       headline: Hosted Repositories
@@ -97,15 +68,15 @@ page_sections:
         src: /uploads/hosted-repo-summary.png
       button:
         type: 'internal page'
-        color: 'quaternary'
+        color: 'primary'
         text: 'Discover DataONE Hosted Repositories'
         internal_link: 'services/plus.md'
+        icon: database
   - template: 'button'
     type: 'internal page'
-    color: 'secondary'
+    color: 'quaternary'
     text: 'See all features'
     internal_link: 'services/_index.md'
-    icon: columns
 - template: section
   background: wave
   title: The latest updates from DataONE

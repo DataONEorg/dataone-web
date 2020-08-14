@@ -76,6 +76,7 @@
     margin-right : 9px;
     transition   : all .2s;
     stroke       : var(#{$prefix}-foreground);
+    fill       : var(#{$prefix}-foreground);
     margin-bottom: 1px;
   }
 

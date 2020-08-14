@@ -30,7 +30,7 @@
 
 {{- $isVideo := or (hasPrefix $src "https://vimeo.com") (in ($imageResource.MediaType.MainType) "video") -}}
 
-{{- if $type -}}
+{{- if $isVideo -}}
   {{- $classes = printf "%s %s--%s" $classes $bn "video" -}}
 {{- end -}}
 
