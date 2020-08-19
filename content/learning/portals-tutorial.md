@@ -137,9 +137,11 @@ On your profile settings page, select "My Portals". After the page loads select 
 
 ![](/uploads/d1-createportal3.png)
 
-### Portal Settings Page
+### Portal About and Settings Pages
 
-In a new edit session, the first thing you'll see is the settings page where you'll be able to set the basic elements of your portal:
+In a new edit session, the first thing you'll see is the about page where you'll be able to add details about your project page.
+
+On the settings tab, you'll set the basic elements of your portal:
 
 * Portal title
 * Unique portal identifier
