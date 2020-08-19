@@ -12,26 +12,31 @@ header:
   background_color: light
   title: Portals Tutorial
   intro: Detailed how-to for creation of portals.
-  buttons: []
+  buttons:
+  - template: button
+    text: Get started
+    type: portal_start
+    color: primary
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  - template: button
+    text: What's a portal?
+    icon: info
+    type: internal page
+    internal_link: plus.md
+    color: quaternary
+    external_link: ''
   image:
     template: ''
     src: "/uploads/d1-about.png"
     type: tilt-left
+    alttext: ''
+    overlay_effect: ''
   pill:
     template: pill
     style: quaternary
     text: Free Preview
-  buttons:
-    - template: button
-      text: "Get started"
-      type: portal_start
-      color: primary
-    - template: button
-      text: "What's a portal?"
-      icon: info
-      type: internal page
-      internal_link: plus.md
-      color: quaternary
 menu:
   primary_nav:
     parent: Learning
@@ -42,7 +47,6 @@ menu:
     weight: 4
 
 ---
-
 # Portals
 
 A new feature on DataONE. Researchers can now easily view project information and datasets all in one place across member node repositories.
@@ -59,7 +63,7 @@ Portals also leverage DataONE's metric features, which create statistics describ
 
 Portals allow users to bundle supplementary information about their group, data, or project along with the data packages. Data contributors can organize their project specific data packages into a unique portal and customize the portal's theme and structure according to the needs of that project.
 
-Researchers can also use portals to compare their public data packages and highlight and share them with other teams, as well as the broader Arctic research audience.
+Researchers can also use portals to compare their public data packages and highlight and share them with other teams, as well as the broader research audience.
 
 To see an example of what portals could look like, please view the [Toolik Field Station's portal](https://search.dataone.org/portals/toolik "Toolik Field Station's portal").
 
@@ -67,7 +71,7 @@ To see an example of what portals could look like, please view the [Toolik Field
 
 Portals have five components: an about page, a settings page, a data page, a metrics page, and customizable free-form pages.
 
-### About page
+### About Page
 
 This page is the first page users will see after initially creating a new portal, and it is highly recommended that users use this feature to create a description for their portal. Add a picture of your logo, a title and description of your portal, and freeform text using the markdown editor.
 
@@ -105,7 +109,7 @@ Please contact DataONE's support team at support@dataone.org about any questions
 
 ### Freeform Pages
 
-Freeform pages are an optional function provided by DataONE portals. Here, users can add as much supplementary information as needed using markdown. 
+Freeform pages are an optional function provided by DataONE portals. Here, users can add as much supplementary information as needed using markdown.
 
 #### Example Freeform Pages
 
