@@ -89,7 +89,7 @@ https://search.dataone.org/portals/**portal_identifier**
 
 ### Data Page
 
-The data page is the most important component of DataONE portal system. This is where users will display the data packages of their choice. It looks and performs just like the main [DataONE user interface](https://search.dataone.org/data "DataONE user interface").
+The data page is the most important component of the DataONE portal system. This is where users will display the data packages of their choice. It looks and performs just like the main [DataONE user interface](https://search.dataone.org/data "DataONE user interface").
 
 ![](/uploads/d1-datapage.png)
 
