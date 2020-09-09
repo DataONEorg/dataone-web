@@ -9,10 +9,10 @@ registration_link = ""
 short_abstract = "Iterative forecasts pose particular challenges for archival data storage and retrieval. Content-based identifiers provide a convenient way to consistently identify input and outputs and associated scripts and in this webinar I will illustrate an example iterative forecasting workflow, including some newly developed R packages."
 slides = ""
 slug = "iterative-forecasts"
-speakers = []
+speakers = ["people/boettiger.md"]
 status = "upcoming"
 tags = []
-title = "Content-based Identifiers for Iterative Forecasts: a proposal"
+title = "Content-based Identifiers for Iterative Forecasts: A Proposal"
 vimeoID = nil
 webinar_datetime = 2020-10-13T16:00:00Z
 

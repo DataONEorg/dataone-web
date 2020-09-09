@@ -1,7 +1,6 @@
 +++
 avatar = "/uploads/boettiger.jpg"
 d1_team = ""
-draft = true
 email = "cboettig@berkeley.edu"
 firstname = "Carl"
 fullname = "Carl Boettiger"
