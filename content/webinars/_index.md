@@ -17,7 +17,7 @@ header:
     template: ''
     alttext: ''
     type: ''
-  title: Cutting-edge topics in Earth & environmental sciences
+  title: Cutting-edge discussions in research data management
   intro: Please join us once a month for discussions on open science, the role of
     the data lifecycle, and achieving innovative science through shared data and ground-breaking
     tools.
