@@ -1,5 +1,6 @@
 ---
-date: '2020-02-12'
+date: '2020-10-01'
+type: webinars
 webinar_tags:
 - Plan
 - Collect
@@ -9,7 +10,7 @@ webinar_tags:
 - Discover
 - Integrate
 - Analyze
-title:DataONE Community Calls
+title: DataONE Community Calls
 header:
   image:
     src: uploads/hero_images/rob-curran-sUXX03xPBYo-unsplash.jpg
@@ -96,13 +97,14 @@ page_sections:
 description: ''
 menu:
   footer:
-    name: Webinars
-    weight: 2
-    parent: Learning
+    name: Community Calls
+    weight: 4
+    parent: Community
   primary_nav:
-    name: Webinars
-    weight: 1
-    pre: headphones
-    parent: Learning
+    name: Community Calls
+    weight: 4
+    pre: users
+    parent: Community
+    post: Join us for a series of monthly meetings
 
 ---
