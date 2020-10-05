@@ -1,0 +1,125 @@
+---
+date: '2020-10-01'
+type: webinars
+webinar_tags:
+- Plan
+- Collect
+- Assure
+- Describe
+- Preserve
+- Discover
+- Integrate
+- Analyze
+title: DataONE Community Calls
+header:
+  image:
+    src: uploads/hero_images/rick-l-tOZAiC3hZgM-unsplash.jpg
+    overlay_effect: major accent color
+    template: ''
+    alttext: ''
+    type: ''
+  title: Discussion of advances relevant to the DataONE network
+  intro: Join our monthly community discussions and help promote shared approaches to research data management leveraging DataONE infrastructure. Topics focus on issues that are central to data preservation and resuse for repositories, researchers, and others engaged in research data management. 
+  pill:
+    template: ''
+    style: ''
+    text: ''
+page_sections:
+- template: section
+  icon: github
+  small_title: Contribute
+  title: Inform the Content of Community Calls
+  alignment: center
+  intro: Suggest topics for discussion, comment on current suggestions and help prioritize the order of community calls through  issues in our GitHub repository.
+  type: card
+  background: data-wave-subtle
+  blocks:
+  button:
+    template: button
+    color: primary
+    text: Community Calls Repository
+    type: external page
+    external_link: https://github.com/DataONEorg/community-calls
+- template: section
+  title: Quick community call facts
+  background: major-accent-color
+  blocks:
+  - template: columns
+    num_cols: 2
+    alignment: left
+    layout: compact
+    columns:
+    - template: item-with-icon
+      name: Day
+      text: Held monthly, on the XXX of each month
+      icon: calendar
+    - template: item-with-icon
+      name: Duration
+      text: Calls last one hour with a \~15 minute presentation and 45 minutes
+        for discussion
+      icon: watch
+    - template: item-with-icon
+      name: Time
+      text: Alternates between XXX and XXX to support global engagement
+      icon: clock
+    - template: item-with-icon
+      name: How to join
+      text: Remote access using Zoom
+      icon: headphones
+    - template: item-with-icon
+      name: Video
+      text: Calls are recorded and posted here afterwards
+      icon: video
+    - template: item-with-icon
+      name: Post-webinar open forum
+      text: Related discussion managed through our GitHub Repository
+      icon: message-circle
+  type: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
+- template: section
+  title: Past community calls
+  blocks:
+  - template: webinar-list
+  type: ''
+  background: ''
+  background_image: ''
+  background2: ''
+  icon: ''
+  small_title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
+description: ''
+menu:
+  footer:
+    name: Community Calls
+    weight: 4
+    parent: Community
+  primary_nav:
+    name: Community Calls
+    weight: 4
+    pre: users
+    parent: Community
+    post: Join us for a series of monthly meetings
+
+---
