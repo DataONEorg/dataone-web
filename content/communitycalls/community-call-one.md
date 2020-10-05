@@ -11,12 +11,12 @@ tags:
 - Discover
 - Analyze
 vimeoID: 
-image: "/uploads/integration-2031395_1280.png"
+image: "/uploads/hero_images/rob-curran-sUXXO3xPBYo-unsplash.jpg"
 registration_link: ''
 slides: "/"
 disqus_shortname: 
 short_abstract: Yada yada
 abstract: Yada yada yada yada.
 speakers:
-- people/micaela-parker.md
+- people/dataone-community.md
 ---

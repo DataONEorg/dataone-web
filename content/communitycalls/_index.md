@@ -13,18 +13,33 @@ webinar_tags:
 title: DataONE Community Calls
 header:
   image:
-    src: uploads/hero_images/rob-curran-sUXX03xPBYo-unsplash.jpg
+    src: uploads/hero_images/rick-l-tOZAiC3hZgM-unsplash.jpg
     overlay_effect: major accent color
     template: ''
     alttext: ''
     type: ''
-  title: Community wide discussion of advances relevant to the DataONE network
-  intro: Join us and help promote shared approaches to research data management centered on DataONE as a global data sharing network. Topics focus on issues that are central to data preservation and resuse for repositories, researchers, and others engaged in research data management. 
+  title: Discussion of advances relevant to the DataONE network
+  intro: Join our monthly community discussions and help promote shared approaches to research data management leveraging DataONE infrastructure. Topics focus on issues that are central to data preservation and resuse for repositories, researchers, and others engaged in research data management. 
   pill:
     template: ''
     style: ''
     text: ''
 page_sections:
+- template: section
+  icon: github
+  small_title: Contribute
+  title: Inform the Content of Community Calls
+  alignment: center
+  intro: Suggest topics for discussion, comment on current suggestions and help prioritize the order of community calls through  issues in our GitHub repository.
+  type: card
+  background: data-wave-subtle
+  blocks:
+  button:
+    template: button
+    color: primary
+    text: Community Calls Repository
+    type: external page
+    external_link: https://github.com/DataONEorg/community-calls
 - template: section
   title: Quick community call facts
   background: major-accent-color
