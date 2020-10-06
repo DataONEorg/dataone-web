@@ -60,7 +60,7 @@ page_sections:
       icon: watch
     - template: item-with-icon
       name: Time
-      text: Alternates monthly between 1600 and 2300 UTC to support global engagement. Checkyour time zone [here](https://www.thetimezoneconverter.com)
+      text: Alternates monthly between 1600 and 2300 UTC to support global engagement. Check your time zone [here](https://www.thetimezoneconverter.com)
       icon: clock
     - template: item-with-icon
       name: How to join
@@ -72,7 +72,7 @@ page_sections:
       icon: video
     - template: item-with-icon
       name: Post-webinar open forum
-      text: Related discussion managed through our GitHub Repository
+      text: Related discussion managed through our [GitHub Repository](https://github.com/DataONEorg/community-calls)
       icon: message-circle
   type: ''
   background_image: ''
