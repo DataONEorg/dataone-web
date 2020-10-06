@@ -41,7 +41,7 @@ page_sections:
     type: external page
     external_link: https://github.com/DataONEorg/community-calls
 - template: section
-  title: Quick community call facts
+  title: Community call quick facts
   background: major-accent-color
   blocks:
   - template: columns
@@ -51,16 +51,16 @@ page_sections:
     columns:
     - template: item-with-icon
       name: Day
-      text: Held monthly, on the XXX of each month
+      text: Held monthly, on the first Thursday of each month
       icon: calendar
     - template: item-with-icon
       name: Duration
-      text: Calls last one hour with a \~15 minute presentation and 45 minutes
+      text: Calls last one hour with approximatel 15 minutes for presentation and 45 minutes
         for discussion
       icon: watch
     - template: item-with-icon
       name: Time
-      text: Alternates between XXX and XXX to support global engagement
+      text: Alternates monthly between 1600 and 2300 UTC to support global engagement. Checkyour time zone [here](https://www.thetimezoneconverter.com)
       icon: clock
     - template: item-with-icon
       name: How to join
