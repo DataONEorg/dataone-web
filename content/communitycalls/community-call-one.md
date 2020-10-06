@@ -2,7 +2,7 @@
 type: webinars
 date: 2020-09-30
 title: First Community Call Title
-webinar_datetime: 2020-10-20T16:00:00.000+00:00
+webinar_datetime: 2020-11-05T17:00:00.000+00:00
 duration: 60
 status: upcoming
 tags:

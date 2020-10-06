@@ -60,7 +60,7 @@ page_sections:
       icon: watch
     - template: item-with-icon
       name: Time
-      text: Alternates monthly between 1600 and 2300 UTC to support global engagement. Check your time zone [here](https://www.thetimezoneconverter.com)
+      text: Alternates monthly between 1700 and 2400 UTC to support global engagement. Check your time zone [here](https://www.thetimezoneconverter.com)
       icon: clock
     - template: item-with-icon
       name: How to join
