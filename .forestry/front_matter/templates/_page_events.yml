@@ -22,10 +22,6 @@ fields:
   label: Event type plural
   name: event_type_plural
   description: The pluralized form of the term you selected in "Event type singular"
-- type: list
-  name: event_tags
-  label: Event Tags
-  description: Tags used to categorize similar events. For example, a list of data lifecycle stages for events.
 - type: text
   label: Title
   name: title

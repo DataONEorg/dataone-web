@@ -4,15 +4,6 @@ cascade:
   type: event
 event_type_singular: "community call"
 event_type_plural: "community calls"
-event_tags:
-- Plan
-- Collect
-- Assure
-- Describe
-- Preserve
-- Discover
-- Integrate
-- Analyze
 title: DataONE Community Calls
 header:
   image:

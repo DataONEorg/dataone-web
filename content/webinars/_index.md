@@ -4,15 +4,6 @@ cascade:
   type: event
 event_type_singular: "webinar"
 event_type_plural: "webinars"
-event_tags:
-- Plan
-- Collect
-- Assure
-- Describe
-- Preserve
-- Discover
-- Integrate
-- Analyze
 title: The DataONE Webinar Series
 header:
   image:
