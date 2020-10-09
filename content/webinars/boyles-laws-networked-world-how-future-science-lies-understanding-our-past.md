@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'Boyle’s Laws in a Networked World: How the future of science lies in understanding
   our past'
-webinar_datetime: 2015-03-10T09:00:00-07:00
+event_datetime: 2015-03-10T09:00:00-07:00
 tags:
 - Preserve
 - Discover

@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'rOpenSci: high quality research software for reproducible data science'
-webinar_datetime: 2019-02-12T09:00:00-08:00
+event_datetime: 2019-02-12T09:00:00-08:00
 tags:
 - Preserve
 - Plan

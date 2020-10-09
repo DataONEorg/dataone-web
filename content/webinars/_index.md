@@ -1,6 +1,10 @@
 ---
 date: '2020-02-12'
-webinar_tags:
+cascade:
+  type: event
+event_type_singular: "webinar"
+event_type_plural: "webinars"
+event_tags:
 - Plan
 - Collect
 - Assure
@@ -76,9 +80,9 @@ page_sections:
     icon: ''
   id: ''
 - template: section
-  title: Past webinars
+  title: All webinars
   blocks:
-  - template: webinar-list
+  - template: event-list
   type: ''
   background: ''
   background_image: ''

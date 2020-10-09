@@ -7,16 +7,19 @@
 
 {{- $path := "" -}}
 {{- $basePath := "blocks/page-summary/" -}}
+{{- $block := .Block -}}
 
 {{- if or (.Block.job) (eq .Block.type "job") -}}
   {{- $path = printf "%sjob-summary" $basePath -}}
 {{- else if or (.Block.webinar) (eq .Block.type "webinar") -}}
-  {{- $path = printf "%swebinar-summary" $basePath -}}
+  {{- $path = printf "%sevent-summary" $basePath -}}
+{{- else if or (.Block.community_call) (eq .Block.type "community-call") -}}
+  {{- $path = printf "%sevent-summary" $basePath -}}
 {{- else if or (.Block.news) (eq .Block.type "news") -}}
   {{- $path = printf "%snews-summary" $basePath -}}
 {{- else if or (.Block.service) (eq .Block.type "services") -}}
   {{- $path = printf "%sservice-summary" $basePath -}}
 {{- end -}}
 {{- if $path -}}
-  {{- partial $path (dict "Block" .Block "Page" $page) -}}
+  {{- partial $path (dict "Block" $block "Page" $page) -}}
 {{- end -}}

@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: An introduction to community engagement within science – supporting the human
   infrastructure for collaboration
-webinar_datetime: 2019-11-12T09:00:00-08:00
+event_datetime: 2019-11-12T09:00:00-08:00
 tags:
 - Integrate
 disqus_shortname: an-introduction-to-community-engagement

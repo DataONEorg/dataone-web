@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: FAIR’er data through Semantics in NSF’s DataONE and Arctic Data Center
-webinar_datetime: 2020-01-14T17:00:00.000+00:00
+event_datetime: 2020-01-14T17:00:00.000+00:00
 duration: 60
 status: past
 tags:

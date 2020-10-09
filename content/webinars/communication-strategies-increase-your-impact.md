@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: Communication Strategies to Increase Your Impact
-webinar_datetime: 2019-03-12T09:00:00-07:00
+event_datetime: 2019-03-12T09:00:00-07:00
 tags:
 - Collect
 - Describe

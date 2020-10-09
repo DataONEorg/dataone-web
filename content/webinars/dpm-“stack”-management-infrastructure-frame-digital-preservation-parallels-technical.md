@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'DPM “Stack”: A Management Infrastructure Frame for Digital Preservation that
   Parallels Technical Infrastructure'
-webinar_datetime: 2016-12-13T09:00:00-08:00
+event_datetime: 2016-12-13T09:00:00-08:00
 duration: 60
 status: past
 tags:

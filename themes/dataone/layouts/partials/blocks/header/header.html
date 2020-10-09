@@ -17,9 +17,9 @@
 <!-- "Secret" block options not shown in forestry -->
 {{- $extraModifiers := .Block.modifiers | default "" -}}
 
-<!-- Webinar header uses a different layout -->
-{{- if eq $type "webinar" -}}
-  {{- partial "blocks/header/header--webinar.html" (dict "Block" .Block "Page" $page) -}}
+<!-- Events header uses a different layout -->
+{{- if eq $type "event" -}}
+  {{- partial "blocks/header/header--event.html" (dict "Block" .Block "Page" $page) -}}
 {{- else if eq $page.Type "features" -}}
   {{- partial "blocks/header/header--feature.html" (dict "Block" .Block "Page" $page) -}}
 {{- else -}}

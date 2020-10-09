@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'A story of data won, data lost and data re-found: the realities of ecological
   data preservation'
-webinar_datetime: 2019-01-08T09:00:00-08:00
+event_datetime: 2019-01-08T09:00:00-08:00
 tags:
 - Collect
 - Preserve

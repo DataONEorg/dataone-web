@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Reproducible science with Jupyter: Changing our publication models'
-webinar_datetime: 2017-02-14T09:00:00-08:00
+event_datetime: 2017-02-14T09:00:00-08:00
 tags:
 - Analyze
 disqus_shortname: reproducible-science-with-jupyter

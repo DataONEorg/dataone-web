@@ -1,4 +1,4 @@
-.webinar-details {
+.event-content {
 
   // ==========================================================================
   //    Variables
@@ -51,6 +51,12 @@
   }
 
   &__slides {
+    margin-top: 1.6rem;
+    text-align: center;
+    text-align: -webkit-center;
+  }
+  
+  &__misc-button {
     margin-top: 1.6rem;
     text-align: center;
     text-align: -webkit-center;

@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Open Science as a Movement: Mozilla’s efforts to build community and open
   leadership in science'
-webinar_datetime: 2018-09-11T16:00:00.000+00:00
+event_datetime: 2018-09-11T16:00:00.000+00:00
 duration: 60
 status: past
 tags:

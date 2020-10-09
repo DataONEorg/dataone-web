@@ -3,13 +3,24 @@
 
 {{- $bn := "header" -}}
 
-{{- $mainTitle := "Webinar" -}}
+<!-- Get the events index page -->
+{{- $section := $page.Section -}}
+{{- $eventsIndex := where (where ($page.Site.Pages) "Section" $section) "Kind" "section" -}}
+{{- range first 1 $eventsIndex -}}
+  {{- $eventsIndex = . -}}
+{{- end -}}
 
-{{ $classes := printf "%s %s--webinar" $bn $bn }}
+<!-- Get the user-facing name to use for these events -->
+{{- $termPlural := $eventsIndex.Params.event_type_plural -}}
+{{- $termSingular := $eventsIndex.Params.event_type_singular -}}
+
+{{- $mainTitle := (humanize $termSingular) -}}
+
+{{ $classes := printf "%s %s--event" $bn $bn }}
 
 <header class="{{- $classes -}}">
 
-  <div class="{{- $bn -}}__content">
+  <div class="{{- $bn -}}h__content">
 
     <div class="{{- $bn -}}__text">
 
@@ -26,7 +37,7 @@
 
       <!-- date, time, duration -->
       <div class="{{- $bn -}}__datetime-items">
-        {{- $tstamp := $page.Params.webinar_datetime -}}
+        {{- $tstamp := $page.Params.event_datetime -}}
         {{- $eventDetailsBlock := dict "datetime" $tstamp "duration" .Block.duration -}}
         {{- partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) -}}
       </div>

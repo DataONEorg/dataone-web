@@ -1,4 +1,4 @@
-.page-summary--webinar {
+.page-summary--event {
   // ==========================================================================
   //    Variables
   // ==========================================================================
@@ -28,7 +28,7 @@
 
   @include f-common;
 
-  &#{$bn}--detailed-webinar {
+  &#{$bn}--detailed-event {
     @include card;
     display        : flex;
     flex-direction : column;
@@ -75,7 +75,7 @@
     }
 
     //
-    // Detailed webinars with just one speaker
+    // Detailed events with just one speaker
     // ==========================================================================
 
     &#{$bn}--one-speaker {
@@ -104,10 +104,10 @@
   }
 
   //
-  // What to show when there's no webinar
+  // What to show when there's no event
   // ==========================================================================
-  &#{$bn}--tbd-webinar {
-    @extend #{$bn}--detailed-webinar;
+  &#{$bn}--tbd-event {
+    @extend #{$bn}--detailed-event;
 
     #{$bn}__intro {
       margin-bottom: 2rem;

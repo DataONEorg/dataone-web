@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Announcing DataONE Search: A New Way to Discover Data'
-webinar_datetime: 2015-12-08T09:00:00-08:00
+event_datetime: 2015-12-08T09:00:00-08:00
 tags:
 - Discover
 disqus_shortname: ''

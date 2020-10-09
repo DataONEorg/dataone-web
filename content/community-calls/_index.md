@@ -1,7 +1,10 @@
 ---
 date: '2020-10-01'
-type: webinars
-webinar_tags:
+cascade:
+  type: event
+event_type_singular: "community call"
+event_type_plural: "community calls"
+event_tags:
 - Plan
 - Collect
 - Assure
@@ -90,9 +93,9 @@ page_sections:
     icon: ''
   id: ''
 - template: section
-  title: Past community calls
+  title: All community calls
   blocks:
-  - template: webinar-list
+  - template: event-list
   type: ''
   background: ''
   background_image: ''

@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: 'DataONE: Current services, new tools and future developments'
-webinar_datetime: 2016-04-12T09:00:00-07:00
+event_datetime: 2016-04-12T09:00:00-07:00
 duration: 60
 status: past
 tags:

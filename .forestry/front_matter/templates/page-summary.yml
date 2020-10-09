@@ -17,13 +17,14 @@ fields:
     options:
     - news
     - webinar
+    - community-call
     - job
 - type: boolean
   name: auto_select
   label: Select the most recent page
   default: false
-  description: If true, the most recent news, webinar, or job item will be shown.
-    This overrides whichever page is selected below.
+  description: If true, the most recent news, webinar, call, or job item will be shown.
+    **This overrides whichever page is selected below.**
 - name: news
   type: select
   default: []
@@ -55,6 +56,22 @@ fields:
   showOnly:
     field: type
     value: webinar
+  description: For which webinar should a summary be displayed?
+- name: community_call
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: community-calls
+      file: 
+      path: 
+  label: Community call
+  showOnly:
+    field: type
+    value: community-call
   description: For which webinar should a summary be displayed?
 - name: job
   type: select

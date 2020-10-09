@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: Enabling FAIR Data
-webinar_datetime: 2017-09-12T09:00:00-07:00
+event_datetime: 2017-09-12T09:00:00-07:00
 tags:
 - Preserve
 - Describe

@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Tidy-ing Your Data: Simple Steps for Reproducible Research'
-webinar_datetime: 2019-12-10T17:00:00.000+00:00
+event_datetime: 2019-12-10T17:00:00.000+00:00
 tags:
 - Integrate
 - Assure

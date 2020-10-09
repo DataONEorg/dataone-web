@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'The data flood: Implications for data stewardship and the culture of discovery'
-webinar_datetime: 2015-09-08T09:00:00-07:00
+event_datetime: 2015-09-08T09:00:00-07:00
 tags:
 - Preserve
 - Discover

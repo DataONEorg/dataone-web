@@ -1,24 +1,24 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
 <!-- bn = block name -->
-{{- $bn := "webinar-details" -}}
+{{- $bn := "event-content" -}}
 <!-- classes to add to the outer element -->
 {{- $classes := $bn -}}
 
-<!-- status defines whether this webinar is upcoming, happening now, or past -->
-{{- $status := partial "functions/getWebinarStatus" .Block -}}
+<!-- status defines whether this event is upcoming, happening now, or past -->
+{{- $status := partial "functions/getEventStatus" .Block -}}
 
 {{- with $status -}}
   {{- $classes = printf "%s %s--st-%s" $classes $bn . -}}
 {{- end -}}
 
-<!-- the date and time of the webinar -->
-{{- $datetime := (time .Block.webinar_datetime).UTC -}}
+<!-- the date and time of the event -->
+{{- $datetime := (time .Block.event_datetime).UTC -}}
 
-<!-- the duration of the webinar -->
+<!-- the duration of the event -->
 {{- $duration := .Block.duration -}}
 
-<!-- the date and time the webinar ends -->
+<!-- the date and time the event ends -->
 {{- $datetimeEnd := partial "functions/addMinutes.html" (dict "date" $datetime "minutes" $duration) -}}
 
 {{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" .Block.speakers "Page" $page ) -}}
@@ -38,17 +38,25 @@
 <!-- URL for this page (used in calendar) -->
 {{- $URL := $page.Permalink -}}
 
-<!-- A link to the slides -->
+<!-- Create a link to the slides -->
 {{- $slidesLink := "" -}}
 {{- with .Block.slides -}}
   {{- $slidesLink = . -}}
 {{- end -}}
 {{- $slidesHTML := "" -}}
 {{- if $slidesLink -}}
-  {{- $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Webinar Slides" "color" "tertiary" -}}
+  {{- $slidesButtonBlock := dict "type" "external website" "external_link" $slidesLink "text" "View Slides" "color" "tertiary" -}}
   {{- $slidesButton := partial "blocks/button/button.html" (dict "Block" $slidesButtonBlock "Page" $page) -}}
   {{- $slidesHTML = printf `<div class="%s__slides">%s</div>` $bn $slidesButton | safeHTML -}}
 {{- end -}}
+
+<!-- Create a link for the extra button, if there is on -->
+{{- $extraButtonHTML := "" -}}
+{{- with .Block.button -}}
+  {{- $button := partial "blocks/button/button.html" (dict "Block" . "Page" $page) -}}
+  {{- $extraButtonHTML = printf `<div class="%s__misc-button">%s</div>` $bn $button | safeHTML -}}
+{{- end -}}
+
 
 <!-- Video ID -->
 {{- $video := .Block.vimeoID | default "" -}}
@@ -85,6 +93,9 @@
 
     <!-- SLIDES =============== -->
     {{- $slidesHTML -}}
+    
+    <!-- MISC BUTTON  =============== -->
+    {{- $extraButtonHTML -}}
 
     <!-- DISQUS =============== -->
     {{- $disqusBlock := dict "shortname" $disqusShortname -}}
@@ -101,11 +112,14 @@
       {{- partial "svg/add2cal.svg" -}}
     </figure>
   {{- end -}}
+  
+  <!-- MISC BUTTON  =============== -->
+  {{- $extraButtonHTML -}}
 
   <!-- If happening now -->
 {{- else if eq $status "happening-now" -}}
 
-  <figure class="{{- $bn -}}__figure" title="Join the webinar">
+  <figure class="{{- $bn -}}__figure" title="Join the event">
     {{- partial "svg/join-webinar.svg" -}}
   </figure>
 
@@ -113,6 +127,9 @@
   {{- if eq "status" "happening-now" -}}
     {{- $slidesHTML -}}
   {{- end -}}
+  
+  <!-- MISC BUTTON  =============== -->
+  {{- $extraButtonHTML -}}
 
 {{- end -}}
 </div>

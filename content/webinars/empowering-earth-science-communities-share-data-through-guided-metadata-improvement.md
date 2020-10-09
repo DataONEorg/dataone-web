@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: Empowering Earth Science Communities to Share Data Through Guided Metadata
   Improvement
-webinar_datetime: 2016-02-09T09:00:00-08:00
+event_datetime: 2016-02-09T09:00:00-08:00
 duration: 60
 status: past
 tags:

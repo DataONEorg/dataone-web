@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Research Computing Skills for Scientists: Lessons, Challenges, and Opportunities
   from Software Carpentry'
-webinar_datetime: 2016-03-08T09:00:00-08:00
+event_datetime: 2016-03-08T09:00:00-08:00
 duration: 60
 status: past
 tags:

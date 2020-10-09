@@ -1,0 +1,151 @@
+{{- $page := .Page -}}
+<!-- bn = block name -->
+{{- $bn := "page-summary" -}}
+<!-- Classes to add to the outer element -->
+{{- $classes := printf "%s %s--event" $bn $bn -}}
+
+<!-- Boolean - if true, will find the upcoming event to summarize -->
+{{- $autoSelect := .Block.auto_select | default false -}}
+
+<!-- If auto select is false, the path to the event page file (e.g. webinars/webinar-title.md) -->
+{{- $eventFile := .Block.webinar  -}}
+{{- if not $eventFile -}}
+  {{- $eventFile = .Block.community_call -}}
+{{- end -}}
+
+<!-- Optional layout/style. Options: "default" or "detailed". -->
+<!-- Detailed = show more details for the event, e.g. in the event index header -->
+{{- $layout := .Block.layout | default "default" -}}
+
+{{- $eventPage := dict -}}
+
+{{- $section := printf "%ss" .Block.type -}}
+
+<!-- get the most recent event if auto select -->
+{{- if $autoSelect -}}
+  <!-- get all events in order of event_datetime, with most recent listed first -->
+  {{- $allEvents := where ($page.Site.RegularPages.ByParam "event_datetime") "Section" $section -}}
+  {{- $eventPage = partial "functions/getUpcomingEvent" (dict "events" $allEvents) -}}
+  <!-- If no upcoming event was found, use the event most in the future -->
+  {{- if not $eventPage -}}
+    {{- range $event := first 1 ($allEvents.ByParam "event_datetime").Reverse -}}
+      {{- $eventPage = $event -}}
+    {{- end -}}
+  {{- end -}}
+  <!-- Otherwise, use the given event -->
+{{- else if $eventFile -}}
+  {{- $eventPage = $page.Site.GetPage $eventFile -}}
+{{- end -}}
+
+<!-- If no event page -->
+{{- if not $eventPage -}}
+  {{- $layout = "tbd" -}}
+{{- end -}}
+
+<!-- Add layout as a class -->
+{{- with $layout -}}
+  {{- if not (eq . "default") -}}
+    {{- $classes = printf "%s %s--%s-event" $classes $bn . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $eventPage -}}
+
+  {{- $event := $eventPage.Params -}}
+  {{- $href := $eventPage.RelPermalink -}}
+  {{- $tags := $event.tags -}}
+
+  {{- $status := partial "functions/getEventStatus" $event -}}
+  {{- $pillBlock := partial "functions/getEventPill" $status -}}
+  {{- $datetime := (time $event.event_datetime).UTC -}}
+
+  <!-- add status as a modifier class -->
+  {{- with $status -}}
+    {{- $classes = printf "%s event--st-%s" $classes $status -}}
+  {{- end -}}
+
+  <!-- Get the speaker names -->
+  {{- $speakerInfo := partial "functions/getPeopleInfo" (dict "People" $event.speakers "Page" $page ) -}}
+
+  <!-- The detailed event layout has too much white space with just one speaker. -->
+  <!-- Add a class so we can tweak the layout in this case -->
+  {{- if eq (len $event.speakers) 1 -}}
+    {{- $classes = printf "%s %s--one-speaker" $classes $bn -}}
+  {{- end -}}
+
+  <!-- ==================================================================== -->
+  <!-- START OF LAYOUTS -->
+  <div class="{{- $classes -}}">
+
+    <!---------------------------------------------------------------------->
+    <!-- DEFAULT CARD LAYOUT -->
+    {{- if eq $layout "default" -}}
+      <!-- Add max width to event summary images -->
+      <!-- Get the image, if there is one -->
+      {{- $image := dict -}}
+      {{- if $event.image -}}
+        {{- $image = dict "src" $event.image "max_width" 1000 -}}
+      {{- end -}}
+      {{- $cardBlock := dict "clickable" true "href" $href "image" $image "title" $event.title "subtitle" $speakerInfo.names_string "pill" $pillBlock "description" $event.short_abstract "tags" $tags "datetime" (dict "time" $datetime "format" "Mon 02 Jan 2006" ) -}}
+
+      {{- partial "blocks/card/card" (dict "Block" $cardBlock "Page" $page ) -}}
+
+      <!---------------------------------------------------------------------->
+      <!-- DETAILED EVENT LAYOUT-->
+    {{- else if eq $layout "detailed" -}}
+
+      <!-- title -->
+      <h3 class="{{- $bn -}}__title">
+        {{- $event.title -}}
+      </h3>
+
+      <!-- speakers -->
+      <div class="{{- $bn -}}__speakers">
+        <!-- {{- $speakers := $event.speakers -}} {{- $speakersTitle := "Speaker" -}} {{- if gt (len $speakers) 1 -}} {{- $speakersTitle = $speakersTitle | pluralize -}} {{- end -}} -->
+        <!-- <h4 class="{{- $bn -}}__speakers-title">{{- $speakersTitle -}}</h4> -->
+        {{- partial "blocks/people/people" (dict "Block" (dict "people" $speakers "type" "simple") "Page" $page ) -}}
+      </div>
+
+      <!-- abstract -->
+      <!-- <p class="{{- $bn -}}__intro">{{- $event.short_abstract -}}</p> -->
+
+      <!-- details -->
+      <div class="{{- $bn -}}__datetime-items">
+        {{- $eventDetailsBlock := dict "datetime" $event.event_datetime "duration" $event.duration -}}
+        {{- partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) -}}
+
+        <div class="{{- $bn -}}__buttons">
+          {{- $buttonBlockDetails := dict "text" "Read More" "type" "internal page" "external_link" $href "color" "tertiary" -}}
+          {{- partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) -}}
+
+          {{- with $event.registration_link -}}
+            {{- $buttonBlock := dict "text" "Register" "external_link" . "color" "primary" -}}
+            {{- partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) -}}
+          {{- end -}}
+        </div>
+
+      </div>
+
+    {{- end -}}
+  </div>
+{{- else -}}
+  <div class="{{- $classes -}}">
+    <h3 class="{{- $bn -}}__title">To be determined</h3>
+    <p class="{{- $bn -}}__intro">
+      Sign up for our mailing list to be the first to hear about upcoming DataONE events</p>
+    {{- $newsletterBlock := dict "precheck_mailing_list" true "mailing_list_only" true "precheck_hostedrepo" false "precheck_plus" false -}}
+    {{- partial "blocks/join-form/join-form" (dict "Block" $newsletterBlock "Page" $page) -}}
+    <div class="{{- $bn -}}__buttons">
+      <!-- Get the events index page -->
+      {{- $href := "" -}}
+      {{- range (where (where ($page.Site.Pages) "Section" $section) "Kind" "section") -}}
+        {{- $id := printf "#%s" "all-events" -}}
+        {{- $href = path.Join .RelPermalink $id -}}
+      {{- end -}}
+
+      {{- $buttonBlockDetails := dict "text" (printf "See all %s" $section) "type" "internal page" "external_link" $href "color" "quaternary" -}}
+      {{- partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) -}}
+    </div>
+  </div>
+
+{{- end -}}

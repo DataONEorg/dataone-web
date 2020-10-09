@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Analyzing, interpreting, and implementing data management plans
-webinar_datetime: 2016-11-08T09:00:00-08:00
+event_datetime: 2016-11-08T09:00:00-08:00
 duration: 60
 status: past
 tags:

@@ -4,27 +4,30 @@
 {{- $bn := "header" -}}
 <!-- classes to add to the outer element -->
 {{- $classes := $bn -}}
-{{- $classes = printf "%s %s--%s" $classes $bn "webinars" -}}
+{{- $classes = printf "%s %s--%s" $classes $bn "events" -}}
 
 <!-- All block options -->
 {{- $pill := .Block.pill | default dict  -}}
 {{- $headline := .Block.title | default "" -}}
 {{- $intro := .Block.intro | default "" -}}
-{{- $nextWebinarPage := .Block.next_webinar | default "" -}}
+{{- $nextEventPage := .Block.next_event | default "" -}}
+
+{{- $termPlural := $page.Params.event_type_plural -}}
+{{- $termSingular := $page.Params.event_type_singular -}}
 
 <!-- The small title that goes at the top of the header (not the larger headline) -->
 {{- $mainTitle := $page.Params.title -}}
 
-<!-- Background image when there is an upcoming webinar -->
+<!-- Background image when there is an upcoming event -->
 {{- $imageSrc := "" -}}
 {{- $bkgImg := "" | safeHTMLAttr -}}
 
-{{- with $nextWebinarPage -}}
-  {{- $classes = printf "%s %s--%s" $classes $bn "has-upcoming-webinar" -}}
-  {{- $webinar := .Params -}}
-  {{- $imageSrc = $webinar.image -}}
+{{- with $nextEventPage -}}
+  {{- $classes = printf "%s %s--%s" $classes $bn "has-upcoming-event" -}}
+  {{- $event := .Params -}}
+  {{- $imageSrc = $event.image -}}
 {{- else -}}
-  <!-- Set a default background if no webinar -->
+  <!-- Set a default background if no event -->
   {{- with .Block.image.src -}}
     {{- $imageSrc = . -}}
   {{- end -}}
@@ -70,15 +73,17 @@
     </div>
 
     <div class="{{- $bn -}}__figure">
-      <h2 class="{{- $bn -}}__next-webinar-title">Next webinar</h2>
-      {{- if $nextWebinarPage -}}
-        {{- with $nextWebinarPage -}}
-          {{- $summaryBlock := dict "webinar" $nextWebinarPage.File.Path "layout" "detailed" -}}
-          {{- partial "blocks/page-summary/webinar-summary" (dict "Block" $summaryBlock "Page" $page) -}}
+      <h2 class="{{- $bn -}}__next-event-title">Next {{ $termSingular }}</h2>
+      {{- if $nextEventPage -}}
+        {{- with $nextEventPage -}}
+          {{- $summaryType := replace $termSingular " " "-" -}}
+          {{- $pageTerm := replace $termSingular " " "_" -}}
+          {{- $summaryBlock := dict $pageTerm $nextEventPage.File.Path "layout" "detailed" "type" $summaryType -}}
+          {{- partial "blocks/page-summary/page-summary" (dict "Block" $summaryBlock "Page" $page) -}}
         {{- end -}}
       {{- else -}}
-        {{- $summaryBlockNoWebinar := dict "layout" "detailed" -}}
-        {{- partial "blocks/page-summary/webinar-summary" (dict "Block" $summaryBlockNoWebinar "Page" $page) -}}
+        {{- $summaryBlockNoEvent := dict "layout" "detailed" -}}
+        {{- partial "blocks/page-summary/event-summary" (dict "Block" $summaryBlockNoEvent "Page" $page) -}}
 
       {{- end -}}
     </div>

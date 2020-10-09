@@ -56,7 +56,6 @@ fields:
     template_types:
     - image
     - card
-    - job-summary
     - accordion
     - item-with-icon
     - checklist
@@ -64,10 +63,9 @@ fields:
     - markdown
     - people
     - timeline
-    - news-summary
     - feature-detailed
     - columns
-    - webinar-summary
+    - page-summary
     - contact-info
     - contact-form
     - demo

@@ -13,6 +13,6 @@ status = "upcoming"
 tags = ["Analyze"]
 title = "Content-based Identifiers for Iterative Forecasts: A Proposal"
 vimeoID = ""
-webinar_datetime = 2020-10-13T16:00:00Z
+event_datetime = 2020-10-13T16:00:00Z
 
 +++

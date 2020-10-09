@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Incentives, Challenges, Barriers: Exploring social, institutional and economic
   reasons for sharing data'
-webinar_datetime: 2016-09-13T09:00:00-07:00
+event_datetime: 2016-09-13T09:00:00-07:00
 duration: 60
 status: past
 tags:

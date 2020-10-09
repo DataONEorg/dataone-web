@@ -1,8 +1,8 @@
 // ========================================================
-// === WEBINARS INDEX PAGE ===
+// === EVENTS INDEX PAGE ===
 // 
 
-.header--webinars {
+.header--events {
 
   // ==========================================================================
   //    Variables
@@ -32,7 +32,7 @@
     align-items   : flex-start;
   }
 
-  #{$bn}__next-webinar-title {
+  #{$bn}__next-event-title {
     @include card;
     background-color: var(--c-major-accent-3);
     z-index         : 9999;

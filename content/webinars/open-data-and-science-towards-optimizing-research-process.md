@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Open Data and Science: Towards Optimizing the Research Process'
-webinar_datetime: 2015-02-10T09:00:00-08:00
+event_datetime: 2015-02-10T09:00:00-08:00
 tags:
 - Preserve
 - Discover

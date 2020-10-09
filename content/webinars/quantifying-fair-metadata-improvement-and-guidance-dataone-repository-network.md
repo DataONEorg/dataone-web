@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'Quantifying FAIR: metadata improvement and guidance in the DataONE repository
   network'
-webinar_datetime: 2019-05-14T09:00:00-07:00
+event_datetime: 2019-05-14T09:00:00-07:00
 tags:
 - Integrate
 - Preserve

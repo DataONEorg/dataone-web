@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: How and Why Researchers Share Data
-webinar_datetime: 2015-11-10T09:00:00-08:00
+event_datetime: 2015-11-10T09:00:00-08:00
 tags:
 - Preserve
 - Discover

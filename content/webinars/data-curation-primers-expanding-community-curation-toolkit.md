@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Data Curation Primers: Expanding the community curation toolkit'
-webinar_datetime: 2019-09-10T09:00:00-07:00
+event_datetime: 2019-09-10T09:00:00-07:00
 tags:
 - Plan
 disqus_shortname: data-curation-network-1

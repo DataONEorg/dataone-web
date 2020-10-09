@@ -1,14 +1,14 @@
-<!-- status defines whether this webinar is upcoming, happening now, or past -->
+<!-- status defines whether this event (e.g. webinar, community call) is upcoming, happening now, or past -->
 <!-- TODO : add datetime vs now checks, eg `if datetime.After now` -->
 
-{{- $webinar := . -}}
+{{- $event := . -}}
 <!-- allow users to select own status or "auto" -->
-{{- $status := $webinar.status -}}
+{{- $status := $event.status -}}
 <!-- guess the status if not set -->
 {{- if or (not $status) (eq $status "auto") -}}
-  {{- if $webinar.vimeoid -}}
+  {{- if $event.vimeoid -}}
     {{- $status = "past" -}}
-  {{- else if $webinar.registration_link -}}
+  {{- else if $event.registration_link -}}
     {{- $status = "upcoming" -}}
   {{- end -}}
 {{- end -}}

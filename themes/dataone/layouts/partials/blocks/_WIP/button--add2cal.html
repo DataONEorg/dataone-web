@@ -38,7 +38,7 @@
 {{- $classes := .Block.classes | default "" -}}
 
 <div class="{{- $bn -}}">
-  <button class="{{- $classes -}} {{- $bn -}}__button" id="calendar-toggle" aria-label="Add the webinar to your calendar" aria-expanded="false" aria-controls="calendar-menu" onclick="toggleCalendarMenu(this)">
+  <button class="{{- $classes -}} {{- $bn -}}__button" id="calendar-toggle" aria-label="Add the event to your calendar" aria-expanded="false" aria-controls="calendar-menu" onclick="toggleCalendarMenu(this)">
     {{- .Block.icon -}}
     {{- .Block.text | default "Add to calendar" -}}
   </button>

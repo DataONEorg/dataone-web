@@ -1,8 +1,13 @@
 ---
-label: "\U0001F4C4Webinar Page"
+label: "\U0001F4C4Event Page"
 hide_body: true
 display_field: title
 fields:
+- type: text
+  name: type
+  label: Layout
+  hidden: true
+  default: event
 - type: datetime
   name: date
   label: Date
@@ -12,7 +17,7 @@ fields:
 - type: text
   name: title
   label: Title
-  description: The name or topic of the webinar
+  description: The name or topic of the event
 - name: slug
   type: text
   config:
@@ -21,13 +26,13 @@ fields:
   description: The end part of the URL, i.e. dataone.org/webinars/<strong>slug</strong>.
     If no slug is set, a urlized version of the title will be used.
 - type: datetime
-  name: webinar_datetime
-  label: Webinar date and time
-  description: When does the webinar take place? Choose the time that it happens in
+  name: event_datetime
+  label: Event date and time
+  description: When does the event take place? Choose the time that it happens in
     *your current timezone.* Times will automatically be converted.
 - name: image
   label: Image
-  description: An optional image that will be used as a background image in the webinary
+  description: An optional image that will be used as a background image in the event
     summary
   type: file
 - type: number
@@ -37,7 +42,7 @@ fields:
     min: '0'
     max: '720'
   default: '60'
-  description: The expected duration of the webinar in minutes
+  description: The expected duration of the event in minutes
 - name: status
   type: select
   default: auto
@@ -54,35 +59,27 @@ fields:
       file: 
       path: 
   label: Status
-  description: Whether the webinar is upcoming, happening now, or past. Select auto
-    to guess the webinar's status based on whether a registration link or vimeoID
+  description: Whether the event is upcoming, happening now, or past. Select auto
+    to guess the event's status based on whether a registration link or vimeoID
     is available.
 - type: list
   name: tags
   label: Tags
-  description: Which stages of the data life cycle does this webinar cover? To add
-    tags this list, edit the [Webinars index page](#/pages/webinars-_index-md/).
-  config:
-    use_select: true
-    source:
-      type: documents
-      section: features
-      file: content/webinars/_index.md
-      path: webinar_tags
+  description: Add tags that help categorize this event.
 - type: text
   name: registration_link
   label: Zoom Registration Link
-  description: The zoom link guests can click to register for the webinar
+  description: The zoom link guests can click to register for the event
   default: ''
 - type: text
   name: disqus_shortname
   label: Disqus Shortname
-  description: The Disqus Shortname associated with this webinar. The shortname can
+  description: The Disqus Shortname associated with this event. The shortname can
     be found in the "Configure Disqus for Your Site" tab of the Disqus admin section.
 - type: number
   name: vimeoID
   label: Vimeo ID
-  description: The ID of the vimeo video, once the webinar has been posted online
+  description: The ID of the vimeo video, once the event has been posted online
 - type: file
   name: slides
   label: Slides
@@ -90,8 +87,8 @@ fields:
 - type: textarea
   name: short_abstract
   label: Short Abstract
-  description: Very brief (max 3 sentence) summary of the webinar. The short abstract
-    should motivate the user to watch the webinar.
+  description: Very brief (max 3 sentence) summary of the event. The short abstract
+    should motivate the user to watch the event.
   config:
     wysiwyg: true
     schema:
@@ -99,8 +96,8 @@ fields:
 - type: textarea
   name: abstract
   label: Abstract
-  description: A long description of the topic the webinar covers, what the user will
-    gain from watching the webinar, and any other relevant details
+  description: A long description of the topic the event covers, what the user will
+    gain from watching the event, and any other relevant details
   config:
     wysiwyg: true
     schema:
@@ -117,6 +114,15 @@ fields:
   label: Speakers
   description: To add to the list of speaker options, first add the speaker to the
     "People" section (see sidebar)
+- type: field_group
+  name: button
+  label: Miscellaneous button
+  fields:
+  - type: include
+    template: button
+    name: button
+    label: Button
+  description: Add a miscellaneous button to the event page
 pages:
 - content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/advancing-research-data-publishing-dryad’s-next-steps.md
@@ -168,3 +174,4 @@ pages:
 - content/webinars/story-data-won-data-lost-and-data-re-found-realities-ecological-data-preservation.md
 - content/webinars/tidy-ing-your-data-simple-steps-reproducible-research.md
 - content/webinars/what-it-means-be-dataone-member-node—member-nodes-share-their-views.md
+- content/community-calls/community-call-one.md

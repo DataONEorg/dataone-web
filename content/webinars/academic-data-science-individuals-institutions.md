@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Academic Data Science, From Individuals to Institutions
-webinar_datetime: 2020-04-14T16:00:00.000+00:00
+event_datetime: 2020-04-14T16:00:00.000+00:00
 duration: 60
 status: past
 tags:

@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Assuring the quality of your data: A natural history collection community
   perspective'
-webinar_datetime: 2016-01-12T09:00:00-08:00
+event_datetime: 2016-01-12T09:00:00-08:00
 duration: 60
 status: past
 tags:
