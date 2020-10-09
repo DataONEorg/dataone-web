@@ -12,17 +12,21 @@ tags:
 vimeoID: 
 image: "/uploads/hero_images/rob-curran-sUXXO3xPBYo-unsplash.jpg"
 registration_link: ''
-slides: "https://www.whatever.com"
-disqus_shortname: 
+slides: https://www.whatever.com
+disqus_shortname: ''
 short_abstract: Yada yada
 abstract: Yada yada yada yada.
 speakers:
-- people/dataone-community.md
+- people/DataONE-Community.md
 button:
   template: button
   type: external website
   color: secondary
   text: Contribute to the conversation
   external_link: https://www.github.com
-  icon: 'github'
+  icon: github
+  internal_link: ''
+type: ''
+slug: ''
+
 ---

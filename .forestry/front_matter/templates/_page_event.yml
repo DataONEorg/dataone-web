@@ -60,8 +60,8 @@ fields:
       path: 
   label: Status
   description: Whether the event is upcoming, happening now, or past. Select auto
-    to guess the event's status based on whether a registration link or vimeoID
-    is available.
+    to guess the event's status based on whether a registration link or vimeoID is
+    available.
 - type: list
   name: tags
   label: Tags
@@ -124,6 +124,7 @@ fields:
     label: Button
   description: Add a miscellaneous button to the event page
 pages:
+- content/community-calls/community-call-one.md
 - content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/advancing-research-data-publishing-dryad’s-next-steps.md
 - content/webinars/analyzing-interpreting-and-implementing-data-management-plans.md
@@ -174,4 +175,3 @@ pages:
 - content/webinars/story-data-won-data-lost-and-data-re-found-realities-ecological-data-preservation.md
 - content/webinars/tidy-ing-your-data-simple-steps-reproducible-research.md
 - content/webinars/what-it-means-be-dataone-member-node—member-nodes-share-their-views.md
-- content/community-calls/community-call-one.md

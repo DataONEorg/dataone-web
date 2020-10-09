@@ -17,7 +17,9 @@ fields:
 - type: text
   label: Event type singular
   name: event_type_singular
-  description: Give a name to the types of events included in this directory in singular form. (e.g. "Webinar"). This term will be used throughout the index page and in individual event pages.
+  description: Give a name to the types of events included in this directory in singular
+    form. (e.g. "Webinar"). This term will be used throughout the index page and in
+    individual event pages.
 - type: text
   label: Event type plural
   name: event_type_plural
@@ -92,5 +94,5 @@ fields:
   config:
     labelField: title
 pages:
-- content/webinars/_index.md
 - content/community-calls/_index.md
+- content/webinars/_index.md
