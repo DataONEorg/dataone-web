@@ -3,11 +3,6 @@ label: "\U0001F4C4Event Page"
 hide_body: true
 display_field: title
 fields:
-- type: text
-  name: type
-  label: Layout
-  hidden: true
-  default: event
 - type: datetime
   name: date
   label: Date

@@ -12,7 +12,6 @@ tags:
 vimeoID: 
 image: "/uploads/hero_images/rob-curran-sUXXO3xPBYo-unsplash.jpg"
 registration_link: ''
-slides: https://www.whatever.com
 disqus_shortname: ''
 short_abstract: Yada yada
 abstract: Yada yada yada yada.
@@ -26,7 +25,6 @@ button:
   external_link: https://www.github.com
   icon: github
   internal_link: ''
-type: ''
 slug: ''
 
 ---
