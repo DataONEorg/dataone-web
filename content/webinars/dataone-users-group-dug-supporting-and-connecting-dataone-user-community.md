@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'The DataONE Users Group (DUG): Supporting and Connecting the DataONE User
   Community'
-webinar_datetime: 2018-02-13T17:00:00.000+00:00
+event_datetime: 2018-02-13T17:00:00.000+00:00
 duration: 60
 status: past
 tags:

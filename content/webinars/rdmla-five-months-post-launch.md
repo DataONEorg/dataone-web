@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: RDMLA - Five Months Post Launch
-webinar_datetime: 2020-02-11T17:00:00.000+00:00
+event_datetime: 2020-02-11T17:00:00.000+00:00
 duration: 60
 status: past
 tags:

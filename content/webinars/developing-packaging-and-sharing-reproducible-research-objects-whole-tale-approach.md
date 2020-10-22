@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'Developing, Packaging and Sharing Reproducible Research Objects: The Whole
   Tale Approach'
-webinar_datetime: 2019-10-08T09:00:00-07:00
+event_datetime: 2019-10-08T09:00:00-07:00
 tags:
 - Discover
 - Describe

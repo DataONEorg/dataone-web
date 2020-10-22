@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Provenance-enabled Reproducibility: Developments in DataONE'
-webinar_datetime: 2017-11-14T09:00:00-08:00
+event_datetime: 2017-11-14T09:00:00-08:00
 tags:
 - Describe
 - Discover

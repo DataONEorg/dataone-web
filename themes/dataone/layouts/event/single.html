@@ -1,0 +1,40 @@
+{{- define "main" -}}
+
+  <!-- ========================================== VARIABLES ========================================== -->
+
+  <!-- in order to pass on page parameters from within loops -->
+  {{- $page := $.Page -}}
+
+  <!-- event parameters -->
+  {{- $event := $page.Params -}}
+
+  <!-- status defines whether this event is upcoming, happening now, or past -->
+  {{- $status := partial "functions/getEventStatus" $event -}}
+  <!-- Set the pill text based on status -->
+  {{- $pillBlock := partial "functions/getEventPill" $status -}}
+  <!-- Get the events index page -->
+  {{- $section := $page.Section -}}
+  {{- $eventsIndex := where (where ($page.Site.Pages) "Section" $section) "Kind" "section" -}}
+  {{- range first 1 $eventsIndex -}}
+    {{- $eventsIndex = . -}}
+  {{- end -}}
+
+  <!-- ========================================== BLOCKS ========================================== -->
+
+  <!-- Registration link -->
+  {{- $buttonBlock := dict -}}
+  {{- if or (eq $status "upcoming") (eq $status "happening-now") -}}
+    {{- $buttonBlock = dict "text" "Register now" "external_link" ($event.registration_link | default "") "color" "primary" -}}
+  {{- end -}}
+  <!-- Header -->
+  {{- $headerBlock := dict "template" "header" "type" "event" "title" $event.title "abstract" $event.abstract "speakers" $event.speakers "duration" $event.duration "pill" $pillBlock "button" $buttonBlock -}}
+  <!-- Breadcrumb navigation -->
+  {{- if $eventsIndex -}}
+    {{- $breadcrumbsBlock := dict "back_text" (printf "See all %s" $eventsIndex.Params.event_type_plural) "back_link" $page.Parent.RelPermalink -}}
+    {{- partial "blocks/breadcrumbs/breadcrumbs" (dict "Block" $breadcrumbsBlock "Page" $page ) -}}
+  {{- end -}}
+  <!-- Event sections -->
+  {{- $eventBlock := merge (dict "template" "event-content") $event -}}
+  {{- $sectionBlock:= dict "template" "section" "type" "split" "background" "subtle-emphasis" "background2" "default" "blocks" (slice $headerBlock $eventBlock) -}}
+  {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $page) -}}
+{{- end -}}

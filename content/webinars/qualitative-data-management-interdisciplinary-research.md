@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Qualitative data management for interdisciplinary research
-webinar_datetime: 2018-04-10T16:00:00.000+00:00
+event_datetime: 2018-04-10T16:00:00.000+00:00
 duration: 60
 status: past
 tags:

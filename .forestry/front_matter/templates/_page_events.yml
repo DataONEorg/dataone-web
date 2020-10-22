@@ -1,12 +1,29 @@
 ---
-label: "\U0001F4C4Webinars Overview Page"
+label: "\U0001F4C4Events Overview Page"
 hide_body: true
 display_field: title
 fields:
-- type: list
-  name: webinar_tags
-  label: Webinar Tags
-  description: Data lifecycle stages used to categorize webinars
+- type: field_group
+  name: cascade
+  label: Common page properties
+  description: Properties that are inherited by all sub-pages in the same directory
+  hidden: true
+  fields:
+  - type: text
+    name: type
+    label: Layout
+    hidden: true
+    default: event
+- type: text
+  label: Event type singular
+  name: event_type_singular
+  description: Give a name to the types of events included in this directory in singular
+    form. (e.g. "Webinar"). This term will be used throughout the index page and in
+    individual event pages.
+- type: text
+  label: Event type plural
+  name: event_type_plural
+  description: The pluralized form of the term you selected in "Event type singular"
 - type: text
   label: Title
   name: title
@@ -31,10 +48,10 @@ fields:
       template: image
       label: Image
       description: The image that will be displayed as a background image if there
-        isn't one for the upcoming webinar
+        isn't one for the upcoming event
     label: Default background image
     description: The image that will be displayed as a background image if there isn't
-      one for the upcoming webinar
+      one for the upcoming event
   - type: textarea
     label: Page headline
     name: title
@@ -63,7 +80,7 @@ fields:
       label: Pill
     label: Header Pill
     description: An optional pill that will appear above the page title
-  label: Webinar Header
+  label: Event Header
 - type: field_group_list
   name: page_sections
   label: Page sections
@@ -77,4 +94,5 @@ fields:
   config:
     labelField: title
 pages:
+- content/community-calls/_index.md
 - content/webinars/_index.md

@@ -26,10 +26,7 @@ fields:
   - feature-detailed
   - image
   - card
-  - job-summary
-  - news-summary
-  - webinar-summary
-  - join-form
+  - page-summary
   - columns
   - checklist
   - timeline

@@ -1,30 +1,30 @@
-// Webinar search is only for the webinars/_index.md page.
-// Only use these functions on the page with the past-webinars div (contains the
-// list of past webinars)
-var webinarContainer = document.getElementById("past-webinars");
+// Event search is only for the index page of event directories (e.g. events, communitycalls)
+// Only use these functions on the page with the all-events div (contains the
+// list of past events)
+var eventContainer = document.getElementById("all-events");
 
-if (webinarContainer) {
+if (eventContainer) {
 
-  // The list of elements that contain all the webinar content and data
-  var webinars = webinarContainer.getElementsByClassName("webinar-list__webinar");
+  // The list of elements that contain all the event content and data
+  var events = eventContainer.getElementsByClassName("event-list__event");
 
-  // The button used to display more webinars
-  var showMoreButton = document.getElementById("showMoreWebinars");
+  // The button used to display more events
+  var showMoreButton = eventContainer.querySelector(".d1_button--show-more-button");
 
-  // Class for filter buttons to indicate that webinars are filtered by option
-  var webinarsActiveClass = "webinar-list__filter--active";
+  // Class for filter buttons to indicate that events are filtered by option
+  var eventsActiveClass = "event-list__filter--active";
 
-  // Class to add when a webinar is hidden by a filter.
+  // Class to add when a event is hidden by a filter.
   // This is used soley to help the paginate function determine whether each
-  // webinar should be displayed or not.
-  var webinarsHiddenClass = "webinar--hidden";
+  // event should be displayed or not.
+  var eventsHiddenClass = "event--hidden";
 
-  // How many webinars should be displayed at a time
+  // How many events should be displayed at a time
   var paginate = 10;
 
   // Keeps track of the current "page".
-  // E.g. if on page 2, then show a maximum of paginate * 2 webinars.
-  // Start on zero, as we call showMoreWebinars immediately, & this adds 1 to page
+  // E.g. if on page 2, then show a maximum of paginate * 2 events.
+  // Start on zero, as we call showMoreEvents immediately, & this adds 1 to page
   var currentPage = 1;
 
   // The object that will hold the filter values selected by the user
@@ -35,7 +35,7 @@ if (webinarContainer) {
   }
 
   // The text items to be updated when the list is filtered or paginated
-  var webinarsTextEls = {
+  var eventsTextEls = {
     numDisplayed: document.getElementById("list-end_num-displayed"),
     numResults: document.getElementById("list-end_num-results"),
     filteredText: document.getElementById("list-end_filtered-text"),
@@ -44,24 +44,24 @@ if (webinarContainer) {
   };
 
   /**
-   * updateText - Update the webinar text elements that show a count of the
-   * number of webinars that are displayed and the number of webinars that
+   * updateText - Update the event text elements that show a count of the
+   * number of events that are displayed and the number of events that
    * have been found if a filter is applied
    *    
-   * @param  {number} n_displayed The number of webinars currently displayed
+   * @param  {number} n_displayed The number of events currently displayed
    * @param  {number} n_results   The number of results found by the search filter (even if not displayed)
    * @param  {boolean} filtered   True if a filter is applied, false otherwise
    */
   function updateText(n_displayed, n_results, filtered) {
-    webinarsTextEls.numDisplayed.innerText = n_displayed;
-    webinarsTextEls.filterFeedback_numResults.innerText = n_results;
-    webinarsTextEls.numResults.innerText = n_results;
+    eventsTextEls.numDisplayed.innerText = n_displayed;
+    eventsTextEls.filterFeedback_numResults.innerText = n_results;
+    eventsTextEls.numResults.innerText = n_results;
     if (filtered) {
-      webinarsTextEls.filteredText.innerText = "filtered";
-      webinarsTextEls.filterFeedback.style.display = "block"
+      eventsTextEls.filteredText.innerText = "filtered";
+      eventsTextEls.filterFeedback.style.display = "block"
     } else {
-      webinarsTextEls.filteredText.innerText = "";
-      webinarsTextEls.filterFeedback.style.display = "none"
+      eventsTextEls.filteredText.innerText = "";
+      eventsTextEls.filterFeedback.style.display = "none"
     }
   }
 
@@ -116,7 +116,7 @@ if (webinarContainer) {
    * toggleFilter - Called by the filter UI element, this function checks
    * whether the filter that was clicked is active or not, then visually
    * activates or de-activates the UI element, and adds or removes the
-   * filter from the list of currentFilters. The webinar lists is then filtered.
+   * filter from the list of currentFilters. The event lists is then filtered.
    *    
    * @param  {string} filter The name of the filter
    * @param  {string} option The option selected for that filter  
@@ -125,7 +125,7 @@ if (webinarContainer) {
   function toggleFilter(filter, option, element) {
 
     // Whether this option is already active
-    isActive = element.classList.contains(webinarsActiveClass);
+    isActive = element.classList.contains(eventsActiveClass);
     // Tags and year filter
     isListFilter = (typeof currentFilters[filter]) == "object";
 
@@ -141,29 +141,29 @@ if (webinarContainer) {
       addFilters(filter, option);
       activateFilter(element);
     }
-    // update the list of webinars based on current filters
-    filterWebinars();
+    // update the list of events based on current filters
+    filterEvents();
   }
 
 
 
   /**  
-   * filterWebinars - Uses the currentFilters object and each webinar element's
-   * properties to determine whether each webinar should be displayed or hidden.
-   * Then calls showWebinar() or hideWebinar(). It resets the number of webinars
+   * filterEvents - Uses the currentFilters object and each event element's
+   * properties to determine whether each event should be displayed or hidden.
+   * Then calls showEvent() or hideEvent(). It resets the number of events
    * displayed to the paginate value.
    */
-  function filterWebinars() {
+  function filterEvents() {
     var i = 0;
 
     // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < webinars.length; i++) {
+    for (i = 0; i < events.length; i++) {
 
-      var webinar = webinars[i];
-      // The webinar text to search (for text search filters, i.e. searchTerm)
-      var text = webinar.textContent || webinar.innerText;
+      var event = events[i];
+      // The event text to search (for text search filters, i.e. searchTerm)
+      var text = event.textContent || event.innerText;
       // The data to search (for list search filters, i.e. tags, year)
-      var data = webinar.dataset;
+      var data = event.dataset;
       // Indicates where matches were found
       var matches = {};
 
@@ -172,7 +172,7 @@ if (webinarContainer) {
         if (options.length) {
           // For text search filters (searchTerm)
           if ((typeof options) == "string") {
-            // search for the term in the webinar text
+            // search for the term in the event text
             if (text.toUpperCase().indexOf(options.toUpperCase()) > -1) {
               matches[filter] = true;
             } else {
@@ -195,7 +195,7 @@ if (webinarContainer) {
               matches[filter] = false;
             }
           }
-          // If options are blank, then don't filter the webinars by this option
+          // If options are blank, then don't filter the events by this option
         } else {
           matches[filter] = true;
         }
@@ -207,42 +207,42 @@ if (webinarContainer) {
       });
 
       if (allMatch) {
-        showWebinar(webinar);
+        showEvent(event);
       } else {
-        hideWebinar(webinar);
+        hideEvent(event);
       }
 
     }
 
     // Reset the "page" number
     currentPage = 1;
-    // Only show the specified number of webinars in the results
-    paginateWebinars();
+    // Only show the specified number of events in the results
+    paginateEvents();
 
   }
 
 
   /**
-   * hideWebinar - Adds the webinarsHiddenClass and uses display=none to hide
-   * a webinar.  
+   * hideEvent - Adds the eventsHiddenClass and uses display=none to hide
+   * a event.  
    *    
-   * @param  {HTMLElement} webinar The webinar element to hide
+   * @param  {HTMLElement} event The event element to hide
    */
-  function hideWebinar(webinar) {
-    webinar.style.display = "none";
-    webinar.classList.add(webinarsHiddenClass);
+  function hideEvent(event) {
+    event.style.display = "none";
+    event.classList.add(eventsHiddenClass);
   }
 
 
   /**
-   * showWebinar - Removes the webinarsHiddenClass from a webinar and resets its
+   * showEvent - Removes the eventsHiddenClass from a event and resets its
    * display to block
    *    
-   * @param  {HTMLElement} webinar The webinar element to show
+   * @param  {HTMLElement} event The event element to show
    */
-  function showWebinar(webinar) {
-    webinar.style.display = "block";
-    webinar.classList.remove(webinarsHiddenClass);
+  function showEvent(event) {
+    event.style.display = "block";
+    event.classList.remove(eventsHiddenClass);
 
   }
 
@@ -253,7 +253,7 @@ if (webinarContainer) {
    * @param  {HTMLElement} filter description 
    */
   function activateFilter(filter) {
-    filter.classList.add(webinarsActiveClass);
+    filter.classList.add(eventsActiveClass);
   }
 
 
@@ -263,52 +263,52 @@ if (webinarContainer) {
    * @param  {HTMLElement} filter description
    */
   function deactivateFilter(filter) {
-    filter.classList.remove(webinarsActiveClass)
+    filter.classList.remove(eventsActiveClass)
   }
 
 
 
   /**
-   * paginateWebinars - Given the values set in the currentPage and paginate
-   * vars, and taking into account any filtering of the webinars, displays
-   * a limited number of webinars to the user. Shows or hides the "Show More"
-   * button as neccessary (e.g. removes it if all webinars are shown),
-   * and updates the webinar text
+   * paginateEvents - Given the values set in the currentPage and paginate
+   * vars, and taking into account any filtering of the events, displays
+   * a limited number of events to the user. Shows or hides the "Show More"
+   * button as neccessary (e.g. removes it if all events are shown),
+   * and updates the event text
    *    
    * @return {type}  description   
    */
-  function paginateWebinars() {
+  function paginateEvents() {
 
-    // The maximum number of webinars to display
+    // The maximum number of events to display
     var numToShow = currentPage * paginate;
 
-    // Get all the webinars that are not hidden by filter
-    var matchedWebinars = [].slice.call(webinars).filter(function(webinar) {
-      if (!webinar.classList.contains(webinarsHiddenClass)) {
-        return webinar
+    // Get all the events that are not hidden by filter
+    var matchedEvents = [].slice.call(events).filter(function(event) {
+      if (!event.classList.contains(eventsHiddenClass)) {
+        return event
       }
     });
 
-    // Hide the show more button if there are no other webinars to show.
-    if (numToShow >= matchedWebinars.length) {
+    // Hide the show more button if there are no other events to show.
+    if (numToShow >= matchedEvents.length) {
       showMoreButton.style.display = "none";
     } else {
       showMoreButton.style.display = "block";
     }
 
     // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < matchedWebinars.length; i++) {
+    for (i = 0; i < matchedEvents.length; i++) {
       if (i < numToShow) {
-        matchedWebinars[i].style.display = "list-item";
+        matchedEvents[i].style.display = "list-item";
       } else {
-        matchedWebinars[i].style.display = "none";
+        matchedEvents[i].style.display = "none";
       }
     }
 
-    var n_webinars = webinars.length,
-      n_results = matchedWebinars.length,
-      filtered = matchedWebinars.length != n_webinars,
-      n_max = filtered ? n_results : n_webinars,
+    var n_events = events.length,
+      n_results = matchedEvents.length,
+      filtered = matchedEvents.length != n_events,
+      n_max = filtered ? n_results : n_events,
       n_displayed = numToShow > n_results ? n_results : numToShow;
 
     updateText(n_displayed, n_results, filtered);
@@ -316,19 +316,19 @@ if (webinarContainer) {
   }
 
   /**  
-   * showMoreWebinars - Called by the showMore button. Adds a page to the 
-   * currentPage variable, and then shows the next chunk of webinars.
+   * showMoreEvents - Called by the showMore button. Adds a page to the 
+   * currentPage variable, and then shows the next chunk of events.
    *    
    * @return {type}  description   
    */
-  function showMoreWebinars() {
+  function showMoreEvents() {
 
     // Add another page
     ++currentPage;
-    paginateWebinars();
+    paginateEvents();
 
   }
 
   // Limit the list of displayed webianrs to START
-  paginateWebinars();
+  paginateEvents();
 }

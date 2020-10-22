@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: The Challenges of Reproducibility In Data Scarce Fields
-webinar_datetime: 2017-05-09T09:00:00-07:00
+event_datetime: 2017-05-09T09:00:00-07:00
 tags:
 - Discover
 - Describe

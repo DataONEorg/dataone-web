@@ -1,0 +1,25 @@
+{{- define "main" -}}
+
+  <!-- The current page, to pass along to children templates -->
+  {{- $page := $ -}}
+
+  <!-- Get all events -->
+  {{- $eventPages := where $page.Pages "Kind" "page" -}}
+
+  <!-- Get upcoming event -->
+  {{- $upcomingEventPage := partial "functions/getUpcomingEvent" (dict "events" $eventPages) -}}
+
+  <!-- Make the header Block -->
+  {{- with $headerBlock := .Params.header -}}
+    {{- $headerBlock = merge $headerBlock (dict "next_event" $upcomingEventPage) -}}
+    {{- partial "blocks/header/header--events.html" (dict "Block" $headerBlock "Page" $page) -}}
+  {{- end -}}
+
+  <!-- If there are sections in the event index page content, generate them -->
+  {{- range .Params.page_sections -}}
+    {{- if .template -}}
+      {{- partial (printf "blocks/%s/%s.html" .template .template) (dict "Block" . "Page" $page) -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- end -}}

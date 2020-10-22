@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'Building Collaborative Bridges: Opportunities and Challenges for Data Sharing
   and Citation'
-webinar_datetime: 2016-05-10T09:00:00-07:00
+event_datetime: 2016-05-10T09:00:00-07:00
 duration: 60
 status: past
 tags:

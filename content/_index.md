@@ -84,6 +84,13 @@ page_sections:
   - template: tabs
     id: latest-updates
     tabs:
+    - title: Community call
+      annotation: Everyone is welcome to join the upcoming community call
+      icon: users
+      content:
+      - template: page-summary
+        type: community-call
+        auto_select: true
     - title: Upcoming training
       annotation: Find out about our upcoming 5-day course
       icon: globe
@@ -92,10 +99,6 @@ page_sections:
         href: "/training/"
         image:
           src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
-          template: ''
-          alttext: ''
-          type: ''
-          overlay_effect: ''
         title: Learn Directly from DataONE Experts
         subtitle: Our newly designed remote short course is coming soon
         clickable: false
@@ -108,24 +111,6 @@ page_sections:
           community, and we are looking forward to delivering a high quality learning
           experience, consistent with our in-person events. <br><br> [Learn more](/training/)
           about resources and training opportunities through DataONE.
-        datetime:
-          template: ''
-          time: ''
-          change_timezone: false
-          localize: false
-          format: ''
-          style: ''
-        button:
-          template: ''
-          type: ''
-          color: ''
-          text: ''
-          external_link: ''
-          internal_link: ''
-          icon: ''
-        tags: []
-        colorClass: ''
-        icon: ''
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -133,9 +118,6 @@ page_sections:
       - template: page-summary
         type: webinar
         auto_select: true
-        news: ''
-        webinar: ''
-        job: ''
     - title: Featured skill
       annotation: Learn about data management using open source lessons, best practices,
         and videos
@@ -161,27 +143,9 @@ page_sections:
           src: "/uploads/sharon-mccutcheon-8lnbxtxfgzw-unsplash.jpg"
           alttext: World map shown with Robinson projection
           type: default
-          overlay_effect: ''
         tags:
         - Plan
         - Integrate
-        datetime:
-          template: ''
-          time: ''
-          change_timezone: false
-          localize: false
-          format: ''
-          style: ''
-        button:
-          template: ''
-          type: ''
-          color: ''
-          text: ''
-          external_link: ''
-          internal_link: ''
-          icon: ''
-        colorClass: ''
-        icon: ''
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox

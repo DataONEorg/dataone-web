@@ -2,7 +2,7 @@
 date: 2020-02-01
 title: 'The Environmental Data Initiative (EDI): Supporting Curation and Archiving
   of Environmental Data'
-webinar_datetime: 2018-01-09T17:00:00.000+00:00
+event_datetime: 2018-01-09T17:00:00.000+00:00
 duration: 60
 status: past
 tags:

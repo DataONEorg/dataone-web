@@ -1,5 +1,5 @@
 ---
-label: Webinar list
+label: Event list
 hide_body: true
 display_field: title
 fields:
@@ -7,4 +7,4 @@ fields:
   name: template
   label: Template
   hidden: true
-  default: webinar-list
+  default: event-list

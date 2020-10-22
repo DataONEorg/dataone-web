@@ -14,7 +14,7 @@
   {{- range .Paginator.Pages -}}
     <!-- remove trailing slash in link -->
     {{- $pageLink := replaceRE "/$" "" .RelPermalink -}}
-    <!-- use the webinar summary block -->
+    <!-- use the page summary block -->
     {{- $jobBlock := (dict "template" "page-summary" "job" $pageLink) -}}
     {{- $subblocks = $subblocks | append $jobBlock -}}
   {{- else -}}

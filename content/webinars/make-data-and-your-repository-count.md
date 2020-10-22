@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: Make Data (and your repository) Count
-webinar_datetime: 2017-12-12T09:00:00-08:00
+event_datetime: 2017-12-12T09:00:00-08:00
 tags:
 - Preserve
 - Integrate

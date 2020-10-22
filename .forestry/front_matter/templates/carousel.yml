@@ -67,7 +67,6 @@ fields:
     label: Content
     template_types:
     - card
-    - job-summary
     - accordion
     - item-with-icon
     - checklist
@@ -75,10 +74,9 @@ fields:
     - markdown
     - people
     - timeline
-    - news-summary
     - feature-detailed
     - columns
-    - webinar-summary
+    - page-summary
     - tabs
     - contact-info
     - contact-form

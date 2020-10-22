@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: Collaboration Across Time and Space in the LTER Network
-webinar_datetime: 2020-03-10T16:00:00.000+00:00
+event_datetime: 2020-03-10T16:00:00.000+00:00
 duration: 60
 status: past
 tags:

@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Advancing Research Data Publishing: Dryad’s Next Steps'
-webinar_datetime: 2019-04-09T09:00:00-07:00
+event_datetime: 2019-04-09T09:00:00-07:00
 tags:
 - Preserve
 - Discover

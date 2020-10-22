@@ -1,8 +1,8 @@
 // ========================================================
-// === WEBINAR ===
+// === EVENT ===
 // 
 
-.header--webinar {
+.header--event {
 
   // ==========================================================================
   //    Variables
@@ -21,7 +21,7 @@
   // independence & modularity (a la BEM).
 
   // Important tags are so that these variables take precedence over the regular
-  // .webinar variables
+  // .event variables
   #{$prefix}-c-accent            : var(--section-c-accent, var(--c-major-accent-on-default, grey)) !important;
   #{$prefix}-c-forground-subtle  : var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray)) !important;
   #{$prefix}-c-foreground-default: var(--section-c-foreground-subtle, var(--c-foreground-subtle-on-default, lightgray)) !important;

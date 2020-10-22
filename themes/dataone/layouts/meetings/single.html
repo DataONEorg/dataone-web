@@ -56,6 +56,7 @@
   {{- $eventSummaryBlock := dict "template" "event-details" "date_start" $meeting.date_start "date_end" $meeting.date_end "location" $meeting.location -}}
   {{- $eventDetailsBlock := dict "template" "markdown" "content" $meeting.location.details -}}
   {{- $colsBlock := dict "template" "columns" "num_cols" "2" "columns" (slice $eventSummaryBlock $eventDetailsBlock) -}}
+
   <!-- Logistics & agenda sections -->
 
   {{- $logBlock := (dict "template" "markdown" "content" $meeting.logistics) -}}

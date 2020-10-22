@@ -1,14 +1,9 @@
 ---
 date: '2020-02-12'
-webinar_tags:
-- Plan
-- Collect
-- Assure
-- Describe
-- Preserve
-- Discover
-- Integrate
-- Analyze
+cascade:
+  type: event
+event_type_singular: "webinar"
+event_type_plural: "webinars"
 title: The DataONE Webinar Series
 header:
   image:
@@ -76,9 +71,9 @@ page_sections:
     icon: ''
   id: ''
 - template: section
-  title: Past webinars
+  title: All webinars
   blocks:
-  - template: webinar-list
+  - template: event-list
   type: ''
   background: ''
   background_image: ''

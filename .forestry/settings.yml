@@ -91,7 +91,20 @@ sections:
   match: "**/*"
   exclude: _index.md
   templates:
-  - _page_webinar
+  - _page_event
+- type: heading
+  label: Community Calls
+- type: document
+  path: content/community-calls/_index.md
+  label: Community Calls Overview
+- type: directory
+  path: content/community-calls
+  label: Community Calls
+  create: all
+  match: "**/*"
+  exclude: _index.md
+  templates:
+  - _page_event
 - type: heading
   label: People
 - type: document

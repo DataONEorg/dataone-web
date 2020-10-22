@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Reproducible Research: Better science in less time'
-webinar_datetime: 2017-10-10T09:00:00-07:00
+event_datetime: 2017-10-10T09:00:00-07:00
 tags:
 - Integrate
 - Describe

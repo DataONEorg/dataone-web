@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: International Metadata Standards and Enterprise Data Quality Metadata Systems
-webinar_datetime: 2017-01-10T09:00:00-08:00
+event_datetime: 2017-01-10T09:00:00-08:00
 tags:
 - Describe
 disqus_shortname: internationalmetadatastandardsenterprisedataqualit

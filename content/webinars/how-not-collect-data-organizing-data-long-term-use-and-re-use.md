@@ -1,7 +1,7 @@
 ---
 date: 2020-02-01
 title: 'How not to collect data: organizing data for long-term use and re-use'
-webinar_datetime: 2016-10-11T09:00:00-07:00
+event_datetime: 2016-10-11T09:00:00-07:00
 duration: 60
 status: past
 tags:

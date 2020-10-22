@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'The Open Science Framework: Increasing Reproducibility Across the Entire Research
   Lifecycle'
-webinar_datetime: 2015-10-13T09:00:00-07:00
+event_datetime: 2015-10-13T09:00:00-07:00
 tags:
 - Integrate
 - Analyze

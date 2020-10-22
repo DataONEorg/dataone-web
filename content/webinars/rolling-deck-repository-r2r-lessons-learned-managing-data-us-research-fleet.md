@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: 'From Rolling Deck to Repository (R2R): Lessons Learned in Managing Data for
   the US Research Fleet'
-webinar_datetime: 2017-03-14T09:00:00-07:00
+event_datetime: 2017-03-14T09:00:00-07:00
 tags:
 - Preserve
 disqus_shortname: rolling-deck-to-repository-r2r

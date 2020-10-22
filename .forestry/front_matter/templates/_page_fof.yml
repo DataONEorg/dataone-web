@@ -40,9 +40,7 @@ fields:
   - feature-detailed
   - image
   - card
-  - job-summary
-  - news-summary
-  - webinar-summary
+  - page-summary
   - join-form
   - columns
   - checklist

@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: 'Provenance and DataONE: Facilitating Reproducible Science'
-webinar_datetime: 2015-05-12T09:00:00-07:00
+event_datetime: 2015-05-12T09:00:00-07:00
 tags:
 - Assure
 - Analyze

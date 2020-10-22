@@ -5,7 +5,7 @@ status: past
 registration_link: ''
 title: Engaging with Data Creators and Users to Foster a Culture of Data Sharing and
   Reuse
-webinar_datetime: 2017-04-11T09:00:00-07:00
+event_datetime: 2017-04-11T09:00:00-07:00
 tags:
 - Collect
 - Discover

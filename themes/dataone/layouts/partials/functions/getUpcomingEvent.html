@@ -1,0 +1,54 @@
+<!-- Given a list of event pages, will return the upcoming event -->
+
+<!-- A list of event pages (type: Pages) -->
+{{- $events := .events -}}
+
+<!-- The event that we'll return at the end of the function -->
+{{- $upcomingEvent := dict -}}
+
+{{- if $events -}}
+
+  <!-- Select events that are upcoming or happening now (according to status) -->
+  {{- $filter_a := where $events ".Params.status" "upcoming" -}}
+  {{- $filter_b := where $events ".Params.status" "happening-now" -}}
+  {{- $filter1 := union $filter_a $filter_b -}}
+
+  <!-- Select events that have a date & time in the future -->
+  {{- $filter2 := slice -}}
+  {{- range $event := $events -}}
+    {{- if (time .Params.event_datetime).After now -}}
+      {{- $filter2 = $filter2 | append $event -}}
+    {{- end -}}
+  {{- end -}}
+
+  <!-- Combined: events have a status of upcoming or happening-now OR are set in the future -->
+  {{- $upcomingEvents := union $filter1 $filter2 -}}
+
+  <!-- Just return the empty map if no events were found -->
+  {{- if gt (len $upcomingEvents) 0 -}}
+
+    <!-- Otherwise, handle the case where >1 event found -->
+    <!-- If for some reason, the above filters yield multiple events, -->
+    <!-- then take the event that has both a upcoming/happening-now status AND is set to the future -->
+    {{- $filtersIntersected := intersect $filter1 $filter2 -}}
+    {{- if and (gt (len $upcomingEvents) 1) ($filtersIntersected) -}}
+      {{- $upcomingEvents = $filtersIntersected -}}
+    {{- end -}}
+
+    <!-- If this still yeilds multiple results, then select the event that has the date most in the future -->
+    {{- if gt (len $upcomingEvents) 1 -}}
+      {{- range $event := first 1 ($upcomingEvents.ByParam "event_datetime").Reverse -}}
+        {{- $upcomingEvents = (slice $event ) -}}
+      {{- end -}}
+    {{- end -}}
+
+    <!-- "unlist" the upcoming events slice -->
+    {{- range $event := $upcomingEvents -}}
+      {{- $upcomingEvent = $event -}}
+    {{- end -}}
+
+  {{- end -}}
+
+{{- end -}}
+
+{{- return $upcomingEvent -}}

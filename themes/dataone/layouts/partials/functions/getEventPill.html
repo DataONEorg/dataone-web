@@ -1,10 +1,10 @@
 {{- $status := . -}}
 <!-- default -->
-{{- $pillText := "webinar" -}}
+{{- $pillText := "event" -}}
 {{- $pillType := "secondary" -}}
 <!-- based on status -->
 {{- if eq $status "upcoming" -}}
-  {{- $pillText = "Upcoming webinar" -}}
+  {{- $pillText = "Upcoming" -}}
 {{- end -}}
 {{- if eq $status "happening-now" -}}
   {{- $pillText = "Happening now!" -}}
