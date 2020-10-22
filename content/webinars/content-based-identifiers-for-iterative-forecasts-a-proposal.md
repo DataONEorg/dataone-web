@@ -3,6 +3,7 @@ abstract = "Iterative forecasts pose particular challenges for archival data sto
 date = 2020-09-09T04:43:40Z
 disqus_shortname = ""
 duration = 60
+event_datetime = 2020-10-13T16:00:00Z
 image = "/uploads/nasa-i9w4uy1pu-s-unsplash.jpg"
 registration_link = "https://ucsb.zoom.us/webinar/register/WN_aKY9KzgDT26N3rpJRclJBQ"
 short_abstract = "Iterative forecasts pose particular challenges for archival data storage and retrieval. Content-based identifiers provide a convenient way to consistently identify input and outputs and associated scripts and in this webinar I will illustrate an example iterative forecasting workflow, including some newly developed R packages."
@@ -12,7 +13,14 @@ speakers = ["people/boettiger.md"]
 status = "upcoming"
 tags = ["Analyze"]
 title = "Content-based Identifiers for Iterative Forecasts: A Proposal"
-vimeoID = ""
-event_datetime = 2020-10-13T16:00:00Z
+vimeoID = 470813247
+[button]
+color = ""
+external_link = ""
+icon = ""
+internal_link = ""
+template = ""
+text = ""
+type = ""
 
 +++
