@@ -11,7 +11,7 @@ tags:
 - Analyze
 vimeoID: 
 image: "/uploads/hero_images/scrabble.jpg"
-registration_link: 'https://ucsb.zoom.us/meeting/register/tZ0sfuGvrTMvGdWsxIZ3AWkxo7CK9yAWpEia '
+registration_link: 'https://ucsb.zoom.us/j/89198738531?pwd=Y2ZMbVo4S0MremlFMWdPK3NJQm9LZz09'
 disqus_shortname: ''
 short_abstract: Review and dicussion of proposed extensions to the DataONE object
   format vocabulary.
