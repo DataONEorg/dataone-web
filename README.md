@@ -1,6 +1,6 @@
+| **Main**:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
 |---|---|
-| Main:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
-| Preview:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
+| **Preview**:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
 
 # DataONE Static Website
 
@@ -25,7 +25,7 @@ Hugo uses [a specific directory stucture](https://gohugo.io/getting-started/dire
 - Each block has its own separate [Hugo partial template](https://gohugo.io/templates/partials/) and `.scss` style file. Simple blocks (e.g. buttons) may also have an associated [Hugo shortcode template](https://gohugo.io/templates/shortcode-templates/) (more on that in the "How to create a new block" section).
 
 - Within `themes/dataone/partials/blocks/`, file structure organization follows the [BEM flat approach](https://en.bem.info/methodology/filestructure/#flat).
-  
+
   - The file `theme/dataone/assets/styles.scss` imports all `scss` files that are contained within the subdirectories of `themes/dataone/layouts/partials/blocks` (or whichever path `blockDir` is set to in `config.yaml`). This allows us to store all files required for each block in the same directory (e.g. `blockname/blockname.html` and `blockname/blockname.scss`).
 
 #### Forestry.io
@@ -80,14 +80,14 @@ Blocks require three components: 1) a template, 2) style information, 3) documen
 - Block parameters are accessed using `.Block.parameterName` and Page parameters are accessed using `Page.parameterName`. (To understand why see `themes/dataone/layouts/_default/blocks.html`)
 
 - Blocks, elements, and modifiers should have classes that follow BEM naming conventions:
-  
+
   - Block: `.block`
-  
+
   - Element: `.block__element`
-  
+
   - Block with modifier: `.block--primary`
-  
-  - 
+
+  -
 
 #### 2. Style information
 
@@ -106,7 +106,7 @@ Blocks require three components: 1) a template, 2) style information, 3) documen
 - This documentation can be created by editing the yaml files by hand following [the guidelines here](https://forestry.io/docs/settings/config-files/#front-matter-templates), or by [using forestry.io](https://forestry.io/docs/settings/front-matter-templates/) with developer permissions.
 
 - *Optional:* The file `.forestry/front_matter/templates/blocks.yml` is the overall template that allows content editors to create a page out of blocks. To allow an editor to use the new block in this context, add it to the `template_types:` variable in this `blocks.yml` file.
-  
+
   - This step is required if the block functions as a page section. Simpler blocks, like buttons, probably shouldn't be added here. They may, however, be nested in other blocks (i.e. using the [`include` field type](https://forestry.io/docs/settings/fields/include-template/) in the documentation of the parent block)
 
 #### 4. Shortcode (optional)
@@ -116,7 +116,7 @@ If the block is a simple one that requires few variables, and if content editors
 - The associated `.html` shortcode file is stored in `themes/dataone/partials/shortcodes/newBlockName.html`.
 
 - The shortcode template only needs a few line of a code: It should render the partial template created in step 1, and pass on the shortcode parameters (if there are any), as well as the page parameters using "Block" and "Page", respectively:
-  
+
   ```go
   {{ $params :=  (dict "Page" $.Page) }}
   {{ if .Params }}
@@ -143,8 +143,8 @@ We use inline SVG for some imagery on the website, like the header image on the 
 
 The site is built using Travis, and deployed via rsync using an encrypted ssh key that is only decryptable by the travis build system.
 
-To configure Travis, I generated an ssh key and encrypted it for travis.  The private key is dedicated for just this application, 
-and is not shared or commited to git.  To update the key in the future, you'll need to use the [Travis CLI](https://github.com/travis-ci/travis.rb) 
+To configure Travis, I generated an ssh key and encrypted it for travis.  The private key is dedicated for just this application,
+and is not shared or commited to git.  To update the key in the future, you'll need to use the [Travis CLI](https://github.com/travis-ci/travis.rb)
 tool to encrypt the key, so install it first with `gem install travis`.
 
 ```sh
@@ -154,7 +154,7 @@ $ travis encrypt-file deploy_rsa --add
 $ ssh-copy-id -i deploy_rsa.pub user@deployhost
 ```
 
-Set up environment variables pointing at the deploy location. 
+Set up environment variables pointing at the deploy location.
 Create secure env variables in the Travis config settings so that these values are not leaked in the script in the .travis.yml:
 
 ```
@@ -164,7 +164,7 @@ $ travis encrypt DEPLOY_DIRECTORY=<deploy-directory> --add
 ```
 
 These can be created specifically for one branch, or be shared across branches. The `deploy` script in the .travis.yml is
-configured to rync the files from the Travis build to the `$DEPLOY_HOST` into the `$DEPLOY_DIRECTORY` and can be used to 
+configured to rync the files from the Travis build to the `$DEPLOY_HOST` into the `$DEPLOY_DIRECTORY` and can be used to
 atomically move these files into their web location once the rsync is successful.
 
 # Credits
