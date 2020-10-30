@@ -18,6 +18,7 @@ short_abstract: Review and dicussion of proposed extensions to the DataONE objec
 abstract: To increase interoperability across the network, DataONE provides an object format service that provides a consistent vocabulary for the types of data and metadata objects that are available from repositories. Each data file or metadata file is associated with one of these object format identifiers, which provides our web interface and other client tools the information needed to properly process and parse the format. The object format vocabulary is extensible, and so we could review upcoming proposed extensions to the vocabulary, discuss the process for proposing extensions, and identify additional formats that would be useful. In addition, we could discuss whether the object format vocabulary should be modified to include URIs for each vocabulary term, and whether it should be published in RDF or OWL in a system like the ESIP Community Ontology Repository.
 speakers:
 - people/DataONE-Community.md
+- people/matthew-jones.md
 button:
   template: button
   type: external website
