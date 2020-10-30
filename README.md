@@ -1,3 +1,6 @@
+[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)
+[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)
+
 # DataONE Static Website
 
 All files used to generate the DataONE static website.
