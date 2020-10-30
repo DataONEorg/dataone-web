@@ -19,8 +19,9 @@
   {{- $buttonBlock2 := dict -}}
   {{- $intro := $meeting.overview -}}
   {{- if eq $meeting.status "upcoming" -}}
+    {{- $buttonText := $meeting.registration_text | default "Register now" -}}
     {{- with $meeting.registration_link -}}
-      {{- $buttonBlock = dict "template" "button" "text" "Register now" "type" "external website" "external_link" . "color" "primary" -}}
+      {{- $buttonBlock = dict "template" "button" "text" $buttonText "type" "external website" "external_link" . "color" "primary" -}}
     {{- end -}}
     {{- with $meeting.agenda -}}
       {{- $buttonBlock2 = dict "template" "button" "text" "View the schedule" "type" "internal page" "external_link" "#agenda" "color" "secondary" -}}

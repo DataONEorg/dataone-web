@@ -63,9 +63,14 @@ fields:
   description: Add tags that help categorize this event.
 - type: text
   name: registration_link
-  label: Zoom Registration Link
-  description: The zoom link guests can click to register for the event
+  label: Registration Link
+  description: The link guests can click to register for or join the event
   default: ''
+- type: text
+  name: registration_text
+  label: Registration button text
+  description: The text to show for the button that guests use to join the event
+  default: 'Register now'
 - type: text
   name: disqus_shortname
   label: Disqus Shortname
