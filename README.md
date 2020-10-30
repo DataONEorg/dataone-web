@@ -1,5 +1,6 @@
-- Main: [![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)
-- Preview: [![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)
+|---|---|
+| Main:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
+| Preview:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
 
 # DataONE Static Website
 
