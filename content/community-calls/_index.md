@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: '2020-10-01'
 cascade:
   type: event
@@ -22,17 +22,17 @@ header:
 page_sections:
 - template: section
   icon: github
-  small_title: Contribute
-  title: Inform the Content of Community Calls
+  small_title: Get Involved
+  title: Submit Your Ideas for Community Calls
   alignment: center
-  intro: Suggest topics for discussion, comment on current suggestions and help prioritize the order of community calls through  issues in our GitHub repository.
+  intro: Community Calls are an opportunity for discussion of aligned activities  and development of shared approaches to research infrastructure. Follow the link below to suggest topics, comment on current suggestions and help prioritize the order of community calls  via our GitHub repository.
   type: card
   background: data-wave-subtle
   blocks:
   button:
     template: button
     color: primary
-    text: Community Calls Repository
+    text: Community Call Topics
     type: external page
     external_link: https://github.com/DataONEorg/community-calls
 - template: section
@@ -50,8 +50,7 @@ page_sections:
       icon: calendar
     - template: item-with-icon
       name: Duration
-      text: Calls last one hour with approximatel 15 minutes for presentation and 45 minutes
-        for discussion
+      text: Calls last one hour with approximately 15 minutes for presentation and 45 minutes for discussion
       icon: watch
     - template: item-with-icon
       name: Time
