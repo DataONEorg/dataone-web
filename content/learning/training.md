@@ -14,7 +14,7 @@ header:
   buttons:
   - template: button
     color: primary
-    text: Upcoming remote training details
+    text: Upcoming training details
     type: internal page
     internal_link: training.md#upcoming-training
     external_link: ''
