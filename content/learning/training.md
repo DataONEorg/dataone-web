@@ -98,8 +98,7 @@ page_sections:
       by request.
   - template: markdown
     style: warning
-    content: " :warning: Due to COVID-19 *in-person* training is currently postponed.
-      Remote training is coming soon."
+    content: "Due to COVID-19 our training has moved from in-person to an immersive remote environment"
   button:
     template: 'button'
     type: external website
@@ -114,11 +113,8 @@ page_sections:
   id: upcoming-training
   background: data-wave
   small_title: ''
-  title: Upcoming Training
-  intro: |-
-    We are currently adapting our 5-day, in-person short course for remote delivery. This is an exciting opportunity for us to reach a broader community and we are looking forward to delivering a high quality learning experience, consistent with our in-person events. We know that your time is precious and we value your investment in learning with us.
-
-    Details are still being developed; add your email below to be one of the first to know when registration opens.
+  title: Upcoming Training - Reproducible Research Techniques for Synthesis
+  intro: This five-day workshop is designed to help researchers stay abreast of current best practices and initiatives and get started on acquiring good data science skills to maximize their productivity, share their data with the scientific community effectively and efficiently, and benefit from the re-use of their data by others. The course will be held remotely and run on November 12 and 13, break for the weekend, and resume for November 16, 17 and 18. Full details and registraiton information available at the link below.
   blocks:
   - template: join-form
     style: card
