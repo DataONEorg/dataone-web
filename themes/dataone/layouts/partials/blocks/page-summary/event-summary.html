@@ -118,8 +118,9 @@
           {{- $buttonBlockDetails := dict "text" "Read More" "type" "internal page" "external_link" $href "color" "tertiary" -}}
           {{- partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) -}}
 
+          {{- $buttonText := $event.registration_text | default "Register" -}}
           {{- with $event.registration_link -}}
-            {{- $buttonBlock := dict "text" "Register" "external_link" . "color" "primary" -}}
+            {{- $buttonBlock := dict "text" $buttonText "external_link" . "color" "primary" -}}
             {{- partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) -}}
           {{- end -}}
         </div>

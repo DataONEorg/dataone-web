@@ -24,7 +24,8 @@
   <!-- Registration link -->
   {{- $buttonBlock := dict -}}
   {{- if or (eq $status "upcoming") (eq $status "happening-now") -}}
-    {{- $buttonBlock = dict "text" "Register now" "external_link" ($event.registration_link | default "") "color" "primary" -}}
+    {{- $buttonText := $event.registration_text | default "Register now" -}}
+    {{- $buttonBlock = dict "text" $buttonText "external_link" ($event.registration_link | default "") "color" "primary" -}}
   {{- end -}}
   <!-- Header -->
   {{- $headerBlock := dict "template" "header" "type" "event" "title" $event.title "abstract" $event.abstract "speakers" $event.speakers "duration" $event.duration "pill" $pillBlock "button" $buttonBlock -}}

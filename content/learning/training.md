@@ -14,7 +14,7 @@ header:
   buttons:
   - template: button
     color: primary
-    text: Upcoming remote training details
+    text: Upcoming training details
     type: internal page
     internal_link: training.md#upcoming-training
     external_link: ''
@@ -26,9 +26,9 @@ header:
     overlay_effect: subtle
     type: ''
   pill:
-    template: 'pill'
-    style: 'quaternary'
-    text: 'Upcoming remote training'
+    template: pill
+    style: quaternary
+    text: Upcoming remote training
   background_color: ''
 page_sections:
 - template: section
@@ -98,10 +98,10 @@ page_sections:
       by request.
   - template: markdown
     style: warning
-    content: " :warning: Due to COVID-19 *in-person* training is currently postponed.
-      Remote training is coming soon."
+    content: Due to COVID-19 our training has moved from in-person to an immersive
+      remote environment
   button:
-    template: 'button'
+    template: button
     type: external website
     color: secondary
     text: Short course details
@@ -113,29 +113,30 @@ page_sections:
 - template: section
   id: upcoming-training
   background: data-wave
-  small_title: ''
-  title: Upcoming Training
-  intro: |-
-    We are currently adapting our 5-day, in-person short course for remote delivery. This is an exciting opportunity for us to reach a broader community and we are looking forward to delivering a high quality learning experience, consistent with our in-person events. We know that your time is precious and we value your investment in learning with us.
-
-    Details are still being developed; add your email below to be one of the first to know when registration opens.
+  small_title: Upcoming Training
+  title: Reproducible Research Techniques for Synthesis
+  intro: ''
   blocks:
-  - template: join-form
-    style: card
-    mailing_list_only: true
-    precheck_hostedrepo: false
-    precheck_plus: false
-    precheck_mailing_list: false
+  - template: markdown
+    style: default
+    content: "**Dates: November 12-13 and 17-18  \nLocation: Remote (via Zoom)**\n\nThis
+      five-day workshop is designed to help researchers stay abreast of current best
+      practices and initiatives and get started on acquiring good data science skills
+      to maximize their productivity, share their data with the scientific community
+      effectively and efficiently, and benefit from the re-use of their data by others.
+      \n\nThe course will be held remotely and run on November 12 and 13, break for
+      the weekend, and resume for November 16, 17 and 18. Full details and registraiton
+      information available at the link below."
   type: ''
   background_image: ''
   background2: ''
   icon: ''
   button:
     template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
+    type: external website
+    color: primary
+    text: Learn More and Register
+    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
 - template: section
@@ -143,7 +144,7 @@ page_sections:
   background: ''
   background_image: ''
   background2: ''
-  icon: award
+  icon: book
   small_title: Resources for Teaching and Self Learning
   title: Support Elevated Data Literacy in Your Community
   intro: DataONE lessons and best practices are available through the Data Management
@@ -155,9 +156,9 @@ page_sections:
     are CC0 licensed and designed for you to adopt and adapt to your needs.
   blocks: []
   button:
-    template: 'button'
+    template: button
     type: external website
-    color: 'quaternary'
+    color: quaternary
     text: Explore the Community Skillbuilding Hub of Lessons and Best Practices
     external_link: https://dataoneorg.github.io/Education/
     internal_link: ''

@@ -35,6 +35,7 @@ header:
       icon: ''
     logos: []
     use_member_repositories: false
+    style: ''
 page_sections:
 - template: section
   type: card
@@ -51,32 +52,63 @@ page_sections:
       headline: DataONE Plus
       text: Enhanced DataONE products and services in support of your research.
       image:
-        src: /uploads/portals-summary.png
+        src: "/uploads/portals-summary.png"
+        template: ''
+        alttext: ''
+        type: ''
+        overlay_effect: ''
       details: []
       button:
-        type: 'internal page'
-        color: 'primary'
-        text: 'Learn more about DataONE Plus'
-        internal_link: 'services/plus.md'
+        type: internal page
+        color: primary
+        text: Learn more about DataONE Plus
+        internal_link: services/plus.md
         icon: d1-plus-logo
+        template: ''
+        external_link: ''
+      related_page: ''
     - template: feature-detailed
       type: top
       headline: Hosted Repositories
       text: A dedicated repository solution for your group or institution’s data,
         managed by DataONE.
       image:
-        src: /uploads/hosted-repo-summary.png
+        src: "/uploads/hosted-repo-summary.png"
+        template: ''
+        alttext: ''
+        type: ''
+        overlay_effect: ''
       button:
-        type: 'internal page'
-        color: 'primary'
-        text: 'Discover DataONE Hosted Repositories'
-        internal_link: 'services/plus.md'
+        type: internal page
+        color: primary
+        text: Discover DataONE Hosted Repositories
+        internal_link: services/plus.md
         icon: database
-  - template: 'button'
-    type: 'internal page'
-    color: 'quaternary'
-    text: 'See all features'
-    internal_link: 'services/_index.md'
+        template: ''
+        external_link: ''
+      related_page: ''
+      details: []
+    alignment: ''
+    layout: ''
+  - template: button
+    type: internal page
+    color: quaternary
+    text: See all features
+    internal_link: services/_index.md
+    external_link: ''
+    icon: ''
+  background_image: ''
+  background2: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: ''
 - template: section
   background: wave
   title: The latest updates from DataONE
@@ -91,6 +123,10 @@ page_sections:
       - template: page-summary
         type: community-call
         auto_select: true
+        news: ''
+        webinar: ''
+        community_call: ''
+        job: ''
     - title: Upcoming training
       annotation: Find out about our upcoming 5-day course
       icon: globe
@@ -99,18 +135,41 @@ page_sections:
         href: "/training/"
         image:
           src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
+          template: ''
+          alttext: ''
+          type: ''
+          overlay_effect: ''
         title: Learn Directly from DataONE Experts
-        subtitle: Our newly designed remote short course is coming soon
+        subtitle: Our newly designed remote short course is now available
         clickable: false
         pill:
           template: pill
           text: Upcoming training
           style: secondary
-        description: We are currently adapting our 5-day, in-person short course for
-          remote delivery. This is an exciting opportunity for us to reach a broad
-          community, and we are looking forward to delivering a high quality learning
-          experience, consistent with our in-person events. <br><br> [Learn more](/training/)
-          about resources and training opportunities through DataONE.
+        description: Due to COVID-19 we have adapted our 5-day, in-person short course
+          to an immersive remote delivery format. This is an exciting opportunity
+          for us to reach a broad community, and we are look forward to delivering
+          high quality, hands-on learning experiences, consistent with our in-person
+          events. <br><br> [Learn more](/training/) about resources and training opportunities
+          through DataONE.
+        icon: ''
+        colorClass: ''
+        datetime:
+          template: ''
+          time: ''
+          change_timezone: false
+          localize: false
+          format: ''
+          style: ''
+        button:
+          template: ''
+          type: ''
+          color: ''
+          text: ''
+          external_link: ''
+          internal_link: ''
+          icon: ''
+        tags: []
     - title: Webinar series
       annotation: Join us for the monthly DataONE webinar series
       icon: headphones
@@ -118,6 +177,10 @@ page_sections:
       - template: page-summary
         type: webinar
         auto_select: true
+        news: ''
+        webinar: ''
+        community_call: ''
+        job: ''
     - title: Featured skill
       annotation: Learn about data management using open source lessons, best practices,
         and videos
@@ -143,9 +206,27 @@ page_sections:
           src: "/uploads/sharon-mccutcheon-8lnbxtxfgzw-unsplash.jpg"
           alttext: World map shown with Robinson projection
           type: default
+          overlay_effect: ''
         tags:
         - Plan
         - Integrate
+        icon: ''
+        colorClass: ''
+        datetime:
+          template: ''
+          time: ''
+          change_timezone: false
+          localize: false
+          format: ''
+          style: ''
+        button:
+          template: ''
+          type: ''
+          color: ''
+          text: ''
+          external_link: ''
+          internal_link: ''
+          icon: ''
     - title: Hear it first
       annotation: Subscribe to our mailing list to get the updates directly in your
         inbox
