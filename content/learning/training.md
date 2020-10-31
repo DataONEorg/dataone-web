@@ -130,12 +130,12 @@ page_sections:
   type: ''
   background_image: ''
   background2: ''
-  icon: award
+  icon: ''
   button:
     template: ''
     type: external website
     color: primary
-    text: Learn More
+    text: Learn More and Register
     external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
