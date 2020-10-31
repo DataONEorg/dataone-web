@@ -115,14 +115,18 @@ page_sections:
   background: data-wave
   small_title: Upcoming Training
   title: Reproducible Research Techniques for Synthesis
-  intro: This five-day workshop is designed to help researchers stay abreast of current
-    best practices and initiatives and get started on acquiring good data science
-    skills to maximize their productivity, share their data with the scientific community
-    effectively and efficiently, and benefit from the re-use of their data by others.
-    The course will be held remotely and run on November 12 and 13, break for the
-    weekend, and resume for November 16, 17 and 18. Full details and registraiton
-    information available at the link below.
-  blocks: []
+  intro: ''
+  blocks:
+  - template: markdown
+    style: default
+    content: "**Dates: November 12-13 and 17-18  \nLocation: Remote (via Zoom)**\n\nThis
+      five-day workshop is designed to help researchers stay abreast of current best
+      practices and initiatives and get started on acquiring good data science skills
+      to maximize their productivity, share their data with the scientific community
+      effectively and efficiently, and benefit from the re-use of their data by others.
+      \n\nThe course will be held remotely and run on November 12 and 13, break for
+      the weekend, and resume for November 16, 17 and 18. Full details and registraiton
+      information available at the link below."
   type: ''
   background_image: ''
   background2: ''
