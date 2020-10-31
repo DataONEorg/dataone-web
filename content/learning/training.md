@@ -133,10 +133,10 @@ page_sections:
   icon: award
   button:
     template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
+    type: external website
+    color: primary
+    text: Learn More
+    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
     internal_link: ''
     icon: ''
 - template: section
@@ -144,7 +144,7 @@ page_sections:
   background: ''
   background_image: ''
   background2: ''
-  icon: award
+  icon: book
   small_title: Resources for Teaching and Self Learning
   title: Support Elevated Data Literacy in Your Community
   intro: DataONE lessons and best practices are available through the Data Management
