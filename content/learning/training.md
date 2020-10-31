@@ -26,9 +26,9 @@ header:
     overlay_effect: subtle
     type: ''
   pill:
-    template: 'pill'
-    style: 'quaternary'
-    text: 'Upcoming remote training'
+    template: pill
+    style: quaternary
+    text: Upcoming remote training
   background_color: ''
 page_sections:
 - template: section
@@ -98,9 +98,10 @@ page_sections:
       by request.
   - template: markdown
     style: warning
-    content: "Due to COVID-19 our training has moved from in-person to an immersive remote environment"
+    content: Due to COVID-19 our training has moved from in-person to an immersive
+      remote environment
   button:
-    template: 'button'
+    template: button
     type: external website
     color: secondary
     text: Short course details
@@ -112,20 +113,20 @@ page_sections:
 - template: section
   id: upcoming-training
   background: data-wave
-  small_title: ''
-  title: Upcoming Training - Reproducible Research Techniques for Synthesis
-  intro: This five-day workshop is designed to help researchers stay abreast of current best practices and initiatives and get started on acquiring good data science skills to maximize their productivity, share their data with the scientific community effectively and efficiently, and benefit from the re-use of their data by others. The course will be held remotely and run on November 12 and 13, break for the weekend, and resume for November 16, 17 and 18. Full details and registraiton information available at the link below.
-  blocks:
-  - template: join-form
-    style: card
-    mailing_list_only: true
-    precheck_hostedrepo: false
-    precheck_plus: false
-    precheck_mailing_list: false
+  small_title: Upcoming Training
+  title: Reproducible Research Techniques for Synthesis
+  intro: This five-day workshop is designed to help researchers stay abreast of current
+    best practices and initiatives and get started on acquiring good data science
+    skills to maximize their productivity, share their data with the scientific community
+    effectively and efficiently, and benefit from the re-use of their data by others.
+    The course will be held remotely and run on November 12 and 13, break for the
+    weekend, and resume for November 16, 17 and 18. Full details and registraiton
+    information available at the link below.
+  blocks: []
   type: ''
   background_image: ''
   background2: ''
-  icon: ''
+  icon: award
   button:
     template: ''
     type: ''
@@ -151,9 +152,9 @@ page_sections:
     are CC0 licensed and designed for you to adopt and adapt to your needs.
   blocks: []
   button:
-    template: 'button'
+    template: button
     type: external website
-    color: 'quaternary'
+    color: quaternary
     text: Explore the Community Skillbuilding Hub of Lessons and Best Practices
     external_link: https://dataoneorg.github.io/Education/
     internal_link: ''
