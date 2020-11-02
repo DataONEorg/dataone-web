@@ -14,7 +14,7 @@ header:
     alttext: ''
     type: ''
   title: Discussion of advances relevant to the DataONE network
-  intro: Join our monthly community discussions and help promote shared approaches to research data management leveraging DataONE infrastructure. Topics focus on issues that are central to data preservation and resuse for repositories, researchers, and others engaged in research data management. 
+  intro: Join our monthly community discussions and help promote shared approaches to research data management leveraging DataONE infrastructure. Topics focus on issues that are central to data preservation and reuse for repositories, researchers, and others engaged in research data management. 
   pill:
     template: ''
     style: ''
