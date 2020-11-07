@@ -20,7 +20,7 @@
 
 <header class="{{- $classes -}}">
 
-  <div class="{{- $bn -}}h__content">
+  <div class="{{- $bn -}}__content">
 
     <div class="{{- $bn -}}__text">
 
@@ -43,12 +43,12 @@
       </div>
 
       <!-- registration link -->
-      {{- with .Block.button -}}
-        {{- if .external_link -}}
-          <div class="{{- $bn -}}__registration-button">
-            {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
-          </div>
+      {{- with .Block.buttons -}}
+      <div class="{{- $bn -}}__event-buttons">
+        {{- range . -}}
+            {{- partial "blocks/button/button.html" (dict "Block" . "Page" $page) -}}
         {{- end -}}
+        </div>
       {{- end -}}
 
       <!-- expandable speakers -->
@@ -60,7 +60,7 @@
         {{- end -}}
         <h4 class="{{- $bn -}}__speakers-title">{{- $speakersTitle -}}</h4>
         {{- $peopleBlock := dict "people" $speakers "show_avatars" "true" "type" "accordion" "show_longbio" true -}}
-        {{- partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $.Page) -}}
+        {{- partial "blocks/people/people.html" (dict "Block" $peopleBlock "Page" $page) -}}
       </div>
 
     </div>

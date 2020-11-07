@@ -21,14 +21,27 @@
 
   <!-- ========================================== BLOCKS ========================================== -->
 
-  <!-- Registration link -->
-  {{- $buttonBlock := dict -}}
-  {{- if or (eq $status "upcoming") (eq $status "happening-now") -}}
-    {{- $buttonText := $event.registration_text | default "Register now" -}}
-    {{- $buttonBlock = dict "text" $buttonText "external_link" ($event.registration_link | default "") "color" "primary" -}}
+  {{- $buttonBlock1 := dict -}}
+  {{- $buttonBlock2 := dict -}}
+  <!-- Add to calendar link -->
+  <!-- Show if the event is upcoming -->
+  {{- if or (eq $status "upcoming") -}}
+    {{- $buttonBlock1 = dict "event" $event "type" "add2cal" -}}
   {{- end -}}
+  <!-- Registration link -->
+  <!-- Show if the event is upcoming, or if it's happening now and there's no link to immediately join the meeting -->
+  {{- if or (eq $status "upcoming") (and (eq $status "happening-now") (not $event.meeting_link)) -}}
+    {{- $buttonText := $event.registration_text | default "Register now" -}}
+    {{- $buttonBlock2 = dict "text" $buttonText "external_link" ($event.registration_link | default "") "color" "primary" -}}
+  {{- end -}}
+  <!-- Join now link - only show if status is happening now -->
+  {{- if and (eq $status "happening-now") $event.meeting_link -}}
+    {{- $buttonText := $event.meeting_text | default "Join now" -}}
+    {{- $buttonBlock2 = dict "text" $buttonText "external_link" ($event.meeting_link | default "") "color" "primary" -}}
+  {{- end -}}
+  
   <!-- Header -->
-  {{- $headerBlock := dict "template" "header" "type" "event" "title" $event.title "abstract" $event.abstract "speakers" $event.speakers "duration" $event.duration "pill" $pillBlock "button" $buttonBlock -}}
+  {{- $headerBlock := dict "template" "header" "type" "event" "title" $event.title "abstract" $event.abstract "speakers" $event.speakers "duration" $event.duration "pill" $pillBlock "buttons" (slice $buttonBlock1 $buttonBlock2)  -}}
   <!-- Breadcrumb navigation -->
   {{- if $eventsIndex -}}
     {{- $breadcrumbsBlock := dict "back_text" (printf "See all %s" $eventsIndex.Params.event_type_plural) "back_link" $page.Parent.RelPermalink -}}

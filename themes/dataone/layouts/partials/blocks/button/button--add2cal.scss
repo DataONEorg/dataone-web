@@ -1,0 +1,99 @@
+// ==== ADD TO CALENDAR BUTTON ====
+{{$p := .Params.prefix}}
+.{{$p}}button--add2cal {
+
+  // ==========================================================================
+  //    Variables
+  // ==========================================================================
+
+  // Allow the block's base class to be used at all scopes within the block.
+  // (bn = block name), use as: #{$bn}. 
+  $bn     : &;
+  // Use the block's base class as a variable prefix (remove class selector . )
+  $prefix : "--" + str-replace(#{$bn}, ".");
+
+  // Variables specific to this block, based on varibles set at higher scope
+  // (e.g. .section), such that blocks can be themed from a higher level.
+  // The value may change in modified blocks or elements (i.e. block--modifier).
+  // Always use css variables along with a default value to maintain the block's
+  // independence & modularity (a la BEM).
+
+  // ==========================================================================
+  //    Styles
+  // ==========================================================================
+
+  @include f-common;
+  position: relative;
+
+  &__item {
+    text-align: center;
+    height    : auto;
+    display   : block;
+    position  : relative;
+    margin    : 2px;
+    width     : calc(100% - 2px);
+  }
+
+  &__link {
+    @include f-common;
+    display        : block;
+    margin         : 0;
+    line-height    : 1.5;
+    text-transform : uppercase;
+    font-size      : var(--fs-smaller, 0.9rem);
+    font-weight    : var(--fw-normal, 400);
+    letter-spacing : .03em;
+    text-decoration: none;
+    color          : var(--section-fc-body, black);
+    white-space    : nowrap;
+    padding        : .5rem 0;
+
+    &:hover {
+      background: var(--section-c-accent-very-subtle, lightgrey);
+    }
+  }
+
+  &__menu-arrow {
+    z-index      : 1;
+    left         : 50%;
+    top          : 3.09rem;
+    position     : absolute;
+    width        : 12px;
+    height       : 12px;
+    transform    : rotate(45deg);
+    border-radius: var(--br-default, 0.25rem) 0 0 0;
+    background   : var(--section-c-background-lighter, white);
+    box-shadow   : -3px -3px 5px rgba(82,95,127,.05);
+    opacity      : 0;
+    transition   : opacity .2s 0s ease-in-out;
+  }
+  
+  // show menu arrow when menu is expanded
+  button[aria-expanded=true] + #{$bn}__menu-arrow {
+    opacity: 1;
+  }
+
+  &__links {
+    z-index      : 0;
+    background   : var(--section-c-background-lighter, white);
+    transition   : transform .5s, opacity .1s;
+    transform    : translateY(-5%);
+    width        : 100%;
+    opacity      : 0;
+    max-height   : 0;
+    border-radius: var(--br-default, 0.25rem);
+    box-shadow   : -1px 1px 7px -1px rgba(82,95,127,.11);
+    margin       : 8px 0 .5rem;
+
+    // links when the menu is expanded
+    // Padding when it's hidden makes the entire element taller
+    &[aria-hidden="false"] {
+      padding   : 1rem 0;
+      max-height: 1000px;
+      transform : translateY(0);
+      opacity   : 1;
+      transition: max-height 1s, opacity .2s .05s;
+    }
+  }
+  
+}

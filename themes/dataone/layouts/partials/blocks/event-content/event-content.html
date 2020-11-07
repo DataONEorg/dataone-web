@@ -106,7 +106,7 @@
 {{- else if eq $status "upcoming" -}}
 
   {{- with .Block.image -}}
-    {{- partial "blocks/image/image" (dict "Block" (dict "src" .) "Page" $page) -}}
+    {{- partial "blocks/image/image" (dict "Block" (dict "src" . "type" "float") "Page" $page) -}}
   {{- else -}}
     <figure class="{{- $bn -}}__figure" title="Add to calendar">
       {{- partial "svg/add2cal.svg" -}}

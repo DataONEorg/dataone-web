@@ -12,142 +12,148 @@
 <!-- Options: internal page, external page, contact, subscribe form, donate-->
 {{- $type := .Block.type | default "external website" -}}
 
-<!-- Text to display within the button -->
-{{- $text := (.Block.text | markdownify) | default "" -}}
+{{- if eq $type "add2cal" -}}
+	{{- partial "blocks/button/button--add2cal" (dict "Block" .Block "Page" $page) -}}
+{{- else -}}
 
-<!-- A reference to a markdown page for buttons with type "internal page" -->
-{{- $internalLink := .Block.internal_link | default "" -}}
+	<!-- Text to display within the button -->
+	{{- $text := (.Block.text | markdownify) | default "" -}}
 
-<!-- A full URL to an external website for buttons with type "external website" -->
-{{- $externalLink := .Block.external_link | default "" -}}
+	<!-- A reference to a markdown page for buttons with type "internal page" -->
+	{{- $internalLink := .Block.internal_link | default "" -}}
 
-<!-- The link where the button will lead. This will be set later in this template 
-     depending on the type of button -->
-{{- $href := $externalLink | default "" -}}
+	<!-- A full URL to an external website for buttons with type "external website" -->
+	{{- $externalLink := .Block.external_link | default "" -}}
 
-<!-- "Color", primary, secondary, etc. -->
-{{- $color := .Block.color -}}
+	<!-- The link where the button will lead. This will be set later in this template 
+	     depending on the type of button -->
+	{{- $href := $externalLink | default "" -}}
 
-<!-- If this is a service page Call To Action button, replace the type, link, and text parameters in the block -->
-<!-- with those that are set in the associated service page. -->
-{{- if and (eq $type "service cta") (eq $page.Type "services") -}}
-	{{- with $page.Params.cta -}}
-		{{- with .type -}}
-			{{- $type = . -}}
-		{{- end -}}
-		{{- with .external_link -}}
-			{{- $externalLink = . -}}
-		{{- end -}}
-		{{- with .internal_link -}}
-			{{- $internalLink = . -}}
-		{{- end -}}
-		{{- with .text -}}
-			{{- $text = . | markdownify -}}
+	<!-- "Color", primary, secondary, etc. -->
+	{{- $color := .Block.color -}}
+
+	<!-- If this is a service page Call To Action button, replace the type, link, and text parameters in the block -->
+	<!-- with those that are set in the associated service page. -->
+	{{- if and (eq $type "service cta") (eq $page.Type "services") -}}
+		{{- with $page.Params.cta -}}
+			{{- with .type -}}
+				{{- $type = . -}}
+			{{- end -}}
+			{{- with .external_link -}}
+				{{- $externalLink = . -}}
+			{{- end -}}
+			{{- with .internal_link -}}
+				{{- $internalLink = . -}}
+			{{- end -}}
+			{{- with .text -}}
+				{{- $text = . | markdownify -}}
+			{{- end -}}
 		{{- end -}}
 	{{- end -}}
-{{- end -}}
 
-<!-- Add a class for primary, secondary, etc. -->
-{{- with $color -}}
-	{{- $classes = printf "%s %s--col-%s" $classes $bn . -}}
-{{- end -}}
-
-{{- with $type -}}
-	{{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
-{{- end -}}
-
-<!-- Get the correct link -->
-{{- if eq $type "internal page" -}}
-	{{- with $internalLink -}}
-		{{- $href = ref $page . -}}
+	<!-- Add a class for primary, secondary, etc. -->
+	{{- with $color -}}
+		{{- $classes = printf "%s %s--col-%s" $classes $bn . -}}
 	{{- end -}}
-{{- end -}}
-<!-- Check for special link key words, replace with link from config.yaml -->
-{{- with (partial "functions/getStandardLink" (dict "string" $type "Site" $site)) -}}
-	{{- $href = . -}}
-{{- end -}}
 
-<!-- Icon on the left -->
-{{- $icon := "" -}}
-{{- if .Block.icon -}}
-	{{- $iconBlock := dict "icon" .Block.icon "color" "inherit" -}}
-	{{- $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
-	{{- $icon = printf `<span class="%s__icon">%s</span>` $bn $svg | safeHTML -}}
-{{- end -}}
-
-<!-- Icon on the right -->
-{{- $iconRight := "" -}}
-{{- $typesWithRightArrow := slice "internal page" "contact" "signin" "signout" "portal_start" "subscribe form" -}}
-{{- $typesWithExternalSymb := slice "external website" "donate" -}}
-{{ $metacatUILink := hasPrefix $href (string $site.Params.links.metacatuiBase) }}
-{{- if or (in $typesWithRightArrow $type) ($metacatUILink) -}} 
-	{{- $iconRight = "arrow-right" -}}
-	{{- $classes = printf "%s %s--arrow-right" $classes $bn -}}
-{{- else if and (in $typesWithExternalSymb $type) (not .Block.type_attr) -}}
-	{{- $iconRight = "external-link" -}}
-	{{- $classes = printf "%s %s--ext-link-symbol" $classes $bn -}}
-{{- end -}}
-{{- with $iconRight -}}
-	{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" . "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
-	{{- $iconRight = printf `<span class="%s__icon %s__icon--right">%s</span>` $bn $bn $svg | safeHTML -}}
-{{- end -}}
-
-<!-- Whether to use <button> or <a> -->
-{{- $htmlTag := .Block.html_tag | default "a" -}}
-
-<!-- For <button>s, a type attribute -->
-{{- $typeAttr := "" -}}
-{{- if eq $htmlTag "button" -}}
-	{{- $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML -}}
-{{- end -}}
-
-<!-- ID for button -->
-{{- $id := "" | safeHTMLAttr -}}
-{{- with .Block.id -}}
-	{{- $id = print "id=" . | safeHTMLAttr  -}}
-{{- end -}}
-
-<!-- Function for button -->
-{{- $function := "" | safeHTMLAttr -}}
-{{- with .Block.function -}}
-	{{- $function = . | safeHTMLAttr  -}}
-{{- end -}}
-
-<!-- Other custom attributes to add to button elements (e.g. aria attributes) -->
-{{- $otherAttributes := "" | safeHTMLAttr -}}
-{{- with .Block.otherAttributes -}}
-	{{- $otherAttributes = . | safeHTMLAttr -}}
-{{- end -}}
-
-<!-- Extra modifers to add to the outer class -->
-{{- with .Block.extra_classes -}}
-	{{- $classes = printf "%s %s--%s" $classes $bn . -}}
-{{- end -}}
-
-<!-- Extra modifers to add to the outer class -->
-{{- with .Block.extra_classes -}}
-  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
-{{- end -}}
-
-<!-- Class for the button text span element -->
-{{- $textClasses := print $bn "__text" -}}
-
-<!-- Option to hide button text on desktop -->
-{{- if eq .Block.hideTextDesktop "true" -}}
-	{{- $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses -}}
-{{- end -}}
-
-<!-- start of button layout -->
-
-<!-- Don't render a button with out a link or function -->
-{{- if or $href $function -}}
-	{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
-
-	{{- $icon -}}
-	{{- if $text -}}
-		<span class="{{- $textClasses -}}">{{- $text -}}</span>
+	{{- with $type -}}
+		{{- $classes = printf "%s %s--%s" $classes $bn ( . | urlize ) -}}
 	{{- end -}}
-	{{- $iconRight -}}
 
-	{{- printf "</%s>" $htmlTag  | safeHTML -}}
+	<!-- Get the correct link -->
+	{{- if eq $type "internal page" -}}
+		{{- with $internalLink -}}
+			{{- $href = ref $page . -}}
+		{{- end -}}
+	{{- end -}}
+	<!-- Check for special link key words, replace with link from config.yaml -->
+	{{- with (partial "functions/getStandardLink" (dict "string" $type "Site" $site)) -}}
+		{{- $href = . -}}
+	{{- end -}}
+
+	<!-- Icon on the left -->
+	{{- $icon := "" -}}
+	{{- if .Block.icon -}}
+		{{- $iconBlock := dict "icon" .Block.icon "color" "inherit" -}}
+		{{- $svg := partial "blocks/icon/icon" (dict "Block" $iconBlock "Page" $page ) -}}
+		{{- $icon = printf `<span class="%s__icon">%s</span>` $bn $svg | safeHTML -}}
+	{{- end -}}
+
+	<!-- Icon on the right -->
+	{{- $iconRight := "" -}}
+	{{- $typesWithRightArrow := slice "internal page" "contact" "signin" "signout" "portal_start" "subscribe form" -}}
+	{{- $typesWithExternalSymb := slice "external website" "donate" -}}
+	{{ $metacatUILink := hasPrefix $href (string $site.Params.links.metacatuiBase) }}
+	{{- if or (in $typesWithRightArrow $type) ($metacatUILink) -}} 
+		{{- $iconRight = "arrow-right" -}}
+		{{- $classes = printf "%s %s--arrow-right" $classes $bn -}}
+	{{- else if and (in $typesWithExternalSymb $type) (not .Block.type_attr) -}}
+		{{- $iconRight = "external-link" -}}
+		{{- $classes = printf "%s %s--ext-link-symbol" $classes $bn -}}
+	{{- end -}}
+	{{- with $iconRight -}}
+		{{- $svg := partial "blocks/icon/icon" (dict "Block" (dict "icon" . "size" "small" "color" "inherit" "stroke" "thicker") "Page" $page ) -}}
+		{{- $iconRight = printf `<span class="%s__icon %s__icon--right">%s</span>` $bn $bn $svg | safeHTML -}}
+	{{- end -}}
+
+	<!-- Whether to use <button> or <a> -->
+	{{- $htmlTag := .Block.html_tag | default "a" -}}
+
+	<!-- For <button>s, a type attribute -->
+	{{- $typeAttr := "" -}}
+	{{- if eq $htmlTag "button" -}}
+		{{- $typeAttr = print "type=" (.Block.type_attr | default "button") | safeHTML -}}
+	{{- end -}}
+
+	<!-- ID for button -->
+	{{- $id := "" | safeHTMLAttr -}}
+	{{- with .Block.id -}}
+		{{- $id = print "id=" . | safeHTMLAttr  -}}
+	{{- end -}}
+
+	<!-- Function for button -->
+	{{- $function := "" | safeHTMLAttr -}}
+	{{- with .Block.function -}}
+		{{- $function = . | safeHTMLAttr  -}}
+	{{- end -}}
+
+	<!-- Other custom attributes to add to button elements (e.g. aria attributes) -->
+	{{- $otherAttributes := "" | safeHTMLAttr -}}
+	{{- with .Block.otherAttributes -}}
+		{{- $otherAttributes = . | safeHTMLAttr -}}
+	{{- end -}}
+
+	<!-- Extra modifers to add to the outer class -->
+	{{- with .Block.extra_classes -}}
+		{{- $classes = printf "%s %s--%s" $classes $bn . -}}
+	{{- end -}}
+
+	<!-- Extra modifers to add to the outer class -->
+	{{- with .Block.extra_classes -}}
+	  {{- $classes = printf "%s %s--%s" $classes $bn . -}}
+	{{- end -}}
+
+	<!-- Class for the button text span element -->
+	{{- $textClasses := print $bn "__text" -}}
+
+	<!-- Option to hide button text on desktop -->
+	{{- if eq .Block.hideTextDesktop "true" -}}
+		{{- $textClasses = printf "%s utility__visually-hidden-on-desktop" $textClasses -}}
+	{{- end -}}
+
+	<!-- start of button layout -->
+
+	<!-- Don't render a button with out a link or function -->
+	{{- if or $href $function -}}
+		{{- printf "<%s href='%s' class='%s' %s %s %s %s>" $htmlTag $href $classes $typeAttr $id $function $otherAttributes | safeHTML -}}
+
+		{{- $icon -}}
+		{{- if $text -}}
+			<span class="{{- $textClasses -}}">{{- $text -}}</span>
+		{{- end -}}
+		{{- $iconRight -}}
+
+		{{- printf "</%s>" $htmlTag  | safeHTML -}}
+	{{- end -}}
+
 {{- end -}}
