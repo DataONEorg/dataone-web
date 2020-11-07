@@ -41,11 +41,13 @@
     grid-template-columns: 1fr;
   }
 
-  #{$bn}__registration-button {
+  #{$bn}__event-buttons {
     display        : flex;
     justify-content: center;
     margin-top     : 1rem;
     margin-bottom  : 3.5rem;
+    flex-direction: column;
+    align-items: center;
   }
 
   #{$bn}__speakers-title {

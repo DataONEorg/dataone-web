@@ -115,12 +115,35 @@
         {{- partial "blocks/event-details/event-details" (dict "Block" $eventDetailsBlock "Page" $page) -}}
 
         <div class="{{- $bn -}}__buttons">
+          
+          <!-- Read more button -->
           {{- $buttonBlockDetails := dict "text" "Read More" "type" "internal page" "external_link" $href "color" "tertiary" -}}
           {{- partial "blocks/button/button" (dict "Block" $buttonBlockDetails "Page" $page) -}}
 
-          {{- $buttonText := $event.registration_text | default "Register" -}}
-          {{- with $event.registration_link -}}
-            {{- $buttonBlock := dict "text" $buttonText "external_link" . "color" "primary" -}}
+          <!-- Registration, add to calendar, or join now button -->
+          
+          {{- $buttonBlock := dict -}}
+          <!-- Show the join now link if the event is happening now -->
+          {{- if and (eq $status "happening-now") $event.meeting_link -}}
+            {{- $buttonText := $event.meeting_text | default "Join now" -}}
+            {{- with $event.meeting_link -}}
+              {{- $buttonBlock = dict "text" $buttonText "external_link" . "color" "primary" -}}
+            {{- end -}}
+          <!-- Show the Register button when the event is upcoming, or when
+          the event is happening now and there is no join now link -->
+          {{- else if and $event.registration_link  (or (eq $status "upcoming") (eq $status "happening-now")) -}}
+            {{- $buttonText := $event.registration_text | default "Register" -}}
+            {{- with $event.registration_link -}}
+              {{- $buttonBlock = dict "text" $buttonText "external_link" . "color" "primary" -}}
+            {{- end -}}
+          <!-- Show the Add to Calendar button when the event is upcoming and
+          there is no registration link, or when the event is happening now and
+          there's no join meeting or registration link
+          -->
+          {{- else if (or (eq $status "upcoming") (eq $status "happening-now"))  -}}
+            {{- $buttonBlock = dict "type" "add2cal" "event" $event -}}
+          {{- end -}}
+          {{- if $buttonBlock -}}
             {{- partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) -}}
           {{- end -}}
         </div>

@@ -1,0 +1,126 @@
+<!-- in order to pass on page parameters from within loops -->
+{{- $page := .Page -}}
+{{- $site := $page.Site -}}
+<!-- The prefix we will add to the CSS classes -->
+{{- $p := $site.Params.prefix -}}
+<!-- bn = block name -->
+{{- $bn := print $p "button--add2cal" -}}
+{{- $classes := $bn -}}
+<!-- BLOCK VARIABLES -->
+{{- $event := .Block.event -}}
+<!-- The event title (STRING) -->
+{{- $title := $event.title | default "DataONE Event" -}}
+<!-- A description of the event (STRING) -->
+{{- $description := $event.abstract | default "" -}}
+<!-- The start time of the event (TIME.time) -->
+{{- $start := $event.event_datetime -}}
+<!-- A URL to add to the calendar (STRING) -->
+{{- $URL := $page.Permalink | default "" -}}
+
+<!-- Add the URL to the description -->
+{{- with $URL -}}
+  {{- $description = printf "More information: %s\n\n %s" . $description -}}
+{{- end -}}
+
+<!-- Add learn more to the description -->
+{{- if $event.registration_link -}}
+  {{- $text := $event.registration_text | default "Registration link" -}}
+  {{- $description = printf "%s: %s\n\n %s" $text $event.registration_link $description -}}
+{{- end -}}
+
+<!-- Add speaker names to event description -->
+{{- $speakers := $event.speakers -}}
+{{- if $speakers -}}
+  {{- $speakerInfo := partial "functions/getPeopleInfo.html" (dict "People" $speakers "Page" $page) -}}
+  {{- with $speakerInfo.names_string -}}
+    {{- $description = printf "Speakers: %s\n\n %s" . $description -}}
+  {{- end -}}
+{{- end -}}
+
+<!-- Duration in minutes -->
+{{- $duration := $event.duration -}}
+
+<!-- If no duration, assume it's an hour -->
+{{- if not $duration -}}
+  {{- $duration = 60 -}}
+{{- end -}}
+
+<!-- Duration in hours, rounded, for Yahoo calendar -->
+{{- $durationHours := math.Round $duration -}}
+{{- $durationHours = printf "%02d00" (int $duration) -}}
+
+<!-- dates for all other calendar formats -->
+{{- $calDateFormat := "20060102T150405Z" -}}
+
+<!-- Get the end date & time using duration -->
+{{- $durationSeconds := mul $duration 60 -}}
+{{- $end := (add (time $start).Unix $durationSeconds) -}}
+{{- $end = (time $end).UTC -}}
+{{- $end = dateFormat $calDateFormat $end -}}
+{{- $start = dateFormat $calDateFormat ((time $start).UTC) -}}
+
+<!-- add literal \n for newlines for ICS links -->
+{{- $descriptionICS := replaceRE "\\n" "\\n" $description -}}
+
+<!-- Parameters for the button -->
+{{- $buttonBlock := dict "type" "none" "color" "secondary" "text" "Add to calendar" "icon" "calendar" "html_tag" "button" "id" "calendar-toggle" "otherAttributes" `aria-expanded="false" aria-controls="calendar-menu"` "function" `onclick="toggleCalendarMenu(this)"` -}}
+
+<div class="{{- $classes -}}">
+  {{- partial "blocks/button/button" (dict "Page" $page "Block" $buttonBlock) -}}
+  <div class="{{- $bn -}}__menu-arrow"></div>
+  <ul class="{{- $bn -}}__links" id="calendar-menu" aria-hidden="true">
+    <li class="{{- $bn -}}__item">
+      <a
+        class="{{- $bn -}}__link {{ $bn }}__link--google"
+        target="_blank"
+        href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text={{- $title -}}&amp;dates={{- $start -}}/{{- $end -}}&amp;details={{- $description -}}&amp;sprop=&amp;sprop=name:">
+        Google
+      </a>
+    </li>
+    <li class="{{- $bn -}}__item">
+      <a class="{{- $bn -}}__link {{ $bn }}__link--yahoo" target="_blank" href="http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title={{- $title -}}&amp;st={{- $start -}}&amp;dur={{- $durationHours -}}&amp;desc={{- $description -}}&amp;">
+        Yahoo!
+      </a>
+    </li>
+    <!-- WARNING: ICS files (iCal and Outlook) must use CRLF newlines or file may be invalid - -->
+    <li class="{{- $bn -}}__item">
+      <a
+        class="{{- $bn -}}__link {{ $bn }}__link--ical"
+        target="_blank"
+        href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DataONE//events//{{ $start }}
+TZ:+00
+BEGIN:VEVENT
+DTSTAMP:{{ dateFormat `20060102T150405Z` now.UTC }}
+DTSTART:{{ $start }}
+DTEND:{{ $end }}
+SUMMARY:{{ $title }}
+DESCRIPTION:{{ $descriptionICS }}
+UID:{{ $start }}@DataONE//events
+END:VEVENT
+END:VCALENDAR">iCal
+      </a>
+    </li>
+    <li class="{{- $bn -}}__item">
+      <a
+        class="{{- $bn -}}__link {{ $bn }}__link--outlook"
+        target="_blank"
+        href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DataONE//events//{{ $start }}
+TZ:+00
+BEGIN:VEVENT
+DTSTAMP:{{ dateFormat `20060102T150405Z` now.UTC }}
+DTSTART:{{ $start }}
+DTEND:{{ $end }}
+SUMMARY:{{ $title }}
+DESCRIPTION:{{ $descriptionICS }}
+UID:{{ $start }}@DataONE//events
+END:VEVENT
+END:VCALENDAR">
+        Outlook
+      </a>
+    </li>
+  </ul>
+</div>

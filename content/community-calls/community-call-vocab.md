@@ -3,7 +3,7 @@ date: 2020-09-30
 title: Community Call - Extending the DataONE formats vocabulary
 event_datetime: 2020-11-05T17:00:00.000+00:00
 duration: 60
-status: upcoming
+status: past
 tags:
 - Plan
 - Integrate
@@ -11,8 +11,8 @@ tags:
 - Analyze
 vimeoID: 
 image: "/uploads/hero_images/scrabble.jpg"
-registration_link: 'https://ucsb.zoom.us/j/89198738531?pwd=Y2ZMbVo4S0MremlFMWdPK3NJQm9LZz09'
-registration_text: 'Join Now'
+meeting_link: 'https://ucsb.zoom.us/j/89198738531?pwd=Y2ZMbVo4S0MremlFMWdPK3NJQm9LZz09'
+meeting_text: 'Join Now'
 disqus_shortname: ''
 short_abstract: Review and dicussion of proposed extensions to the DataONE object
   format vocabulary.
