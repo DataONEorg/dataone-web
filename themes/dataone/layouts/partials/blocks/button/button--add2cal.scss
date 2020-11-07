@@ -1,7 +1,6 @@
 // ==== ADD TO CALENDAR BUTTON ====
 {{$p := .Params.prefix}}
-.{{$p}}
-button--add2cal {
+.{{$p}}button--add2cal {
 
   // ==========================================================================
   //    Variables
@@ -68,6 +67,7 @@ button--add2cal {
     opacity      : 0;
     transition   : opacity .2s 0s ease-in-out;
   }
+  
   // show menu arrow when menu is expanded
   button[aria-expanded=true] + #{$bn}__menu-arrow {
     opacity: 1;
@@ -95,4 +95,5 @@ button--add2cal {
       transition: max-height 1s, opacity .2s .05s;
     }
   }
+  
 }
