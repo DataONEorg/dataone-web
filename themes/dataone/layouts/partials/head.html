@@ -8,6 +8,20 @@
   {{- if not $pageTitle -}}
     {{ $pageTitle = .Params.fullname -}}
   {{- end -}}
+  
+  <!-- For IE <= 9 -->
+  <!--[if IE]>
+  <script type="text/javascript">
+    window.location = "/unsupportedbrowser";
+  </script>
+  <![endif]-->
+
+  <!-- For IE > 9 -->
+  <script type="text/javascript">
+    if (window.navigator.msPointerEnabled) {
+        window.location = "/unsupportedbrowser";
+    }
+  </script>
 
   <!-- Save the renderPage decision in a scratch variable so it can be accessed by _default.html as well -->
   {{- .Scratch.Set "renderPage" true -}}
@@ -38,9 +52,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"/>
     <meta name="date" content='{{ now.Format "January 2, 2006 15:04:05 MST" }}'>
-    <title>{{ $pageTitle }}
-      | DataONE
-    </title>
+    <title>{{ $pageTitle }} | DataONE </title>
     {{- partial "favicon.html" . -}}
     <link rel="canonical" href="{{ .Permalink }}">
 
