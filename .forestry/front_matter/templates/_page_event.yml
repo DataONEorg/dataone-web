@@ -69,12 +69,15 @@ fields:
 - type: text
   name: registration_text
   label: Registration button text
-  description: The text to show for the button that guests use to register for the event
+  description: The text to show for the button that guests use to register for the
+    event
   default: Register now
 - type: text
   name: meeting_link
   label: Virtual meeting link
-  description: Optional. The link guests can click to immediately join the meeting for the event. **This link will only be available when the event status is "happening now."**
+  description: Optional. The link guests can click to immediately join the meeting
+    for the event. **This link will only be available when the event status is "happening
+    now."**
   default: ''
 - type: text
   name: meeting_text
