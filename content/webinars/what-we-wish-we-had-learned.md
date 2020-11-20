@@ -14,7 +14,7 @@ vimeoID: 481534921
 image: "/uploads/graduate.jpg"
 registration_link: https://ucsb.zoom.us/webinar/register/WN_V74-pwwqQCCyMNMUwrOwrA
 slides: ''
-disqus_shortname: Grad school
+disqus_shortname: what-we-wish-we-learned-in-grad-school
 short_abstract: Data management training for graduate students is a very important
   but often undervalued area of graduate school education. Many graduate students
   will go on and become professionals who are using, producing, and/or managing data
