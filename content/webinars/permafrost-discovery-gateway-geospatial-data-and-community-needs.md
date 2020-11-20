@@ -8,10 +8,10 @@ tags:
 - Integrate
 - Discover
 - Analyze
-vimeoID: 
+vimeoID: 481557236
 registration_link: https://ucsb.zoom.us/webinar/register/WN_xWNMRdWST-aLj1Dkr6nX3w
 slides: ''
-disqus_shortname: ''
+disqus_shortname: pdgateway
 short_abstract: 'The Permafrost Discovery Gateway is a new NSF Navigating the New
   Arctic (NNA) award that will create an online platform for archiving, processing,
   analyzing, and visualizing permafrost big imagery products for discovery and knowledge-generation.
@@ -34,5 +34,16 @@ speakers:
 - people/anna-liljedahl.md
 slug: permafrost-discovery-gateway-geospatial-data-and-community-needs
 image: "/uploads/francesca-hotchin-FN-cedy6NHA-unsplash.jpg"
+registration_text: ''
+meeting_link: ''
+meeting_text: ''
+button:
+  template: ''
+  type: ''
+  color: ''
+  text: ''
+  external_link: ''
+  internal_link: ''
+  icon: ''
 
 ---
