@@ -4,7 +4,7 @@ date = 2020-11-20T22:15:45Z
 disqus_shortname = ""
 duration = 60
 event_datetime = 2020-12-04T00:00:00Z
-image = ""
+image = "/uploads/training.jpg"
 meeting_link = " https://ucsb.zoom.us/j/89546416167"
 meeting_text = "Join now"
 registration_link = ""
@@ -15,7 +15,7 @@ slug = "rdm-training"
 speakers = ["people/karl-benedict.md", "people/amber-budden.md", "people/community-participants.md"]
 status = "upcoming"
 tags = []
-title = "Research data management training materials and opportunities"
+title = "Community Call - Research data management training materials and opportunities"
 vimeoID = nil
 [button]
 color = "secondary"
