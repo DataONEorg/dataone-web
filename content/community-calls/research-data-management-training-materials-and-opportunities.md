@@ -16,7 +16,7 @@ speakers = ["people/karl-benedict.md", "people/amber-budden.md", "people/communi
 status = "upcoming"
 tags = []
 title = "Community Call - Research data management training materials and opportunities"
-vimeoID = nil
+vimeoID = ""
 [button]
 color = "secondary"
 external_link = ""
