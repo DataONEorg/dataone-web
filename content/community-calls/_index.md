@@ -58,7 +58,7 @@ page_sections:
       icon: clock
     - template: item-with-icon
       name: How to join
-      text: Remote access using Zoom
+      text: Remote access using Zoom. Zoom link available here 10 minutes before the call starts
       icon: headphones
     - template: item-with-icon
       name: Video
