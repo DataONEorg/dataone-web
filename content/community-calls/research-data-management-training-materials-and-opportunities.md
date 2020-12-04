@@ -22,7 +22,7 @@ speakers:
 - people/amber-budden.md
 - people/karl-benedict.md
 - people/DataONE-Community.md
-status: happening-now
+status: past
 tags: []
 title: Community Call - Research data management training materials and opportunities
 vimeoID: 
