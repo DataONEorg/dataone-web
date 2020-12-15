@@ -36,6 +36,7 @@ abstract: How much do you think about your users’ experiences? Are you buildin
   user satisfaction and trust in repositories, and help data organizations make development
   decisions that save time and money.
 speakers:
+- people/volentine.md
 - people/amy-forrester.md
 - people/suzie-allard.md
 
