@@ -15,13 +15,13 @@ button:
 title: Usability testing of DataONE services
 slug: usability-services
 event_datetime: 2021-01-07T09:00:00-08:00
-image: ''
+image: "/uploads/david-travis-wc6mj0krzgw-unsplash.jpg"
 tags: []
 registration_link: ''
 meeting_link: ''
 disqus_shortname: ''
 vimeoID: 
-slides: "/uploads/david-travis-wc6mj0krzgw-unsplash.jpg"
+slides: ''
 short_abstract: 'How much do you think about your users’ experiences? Are you building
   data products that address your users’ needs? Learn about user experience testing
   and the work of the User-eXperience Lab (UXL) at the University of Tennessee performs
