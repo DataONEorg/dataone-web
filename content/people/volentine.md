@@ -1,5 +1,5 @@
 ---
-avatar: ''
+avatar: "/uploads/rachel-volentine.jpg"
 fullname: Rachel Volentine
 firstname: Rachel
 role: User-eXperience Lab Manager
