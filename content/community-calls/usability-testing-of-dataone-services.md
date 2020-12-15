@@ -21,7 +21,7 @@ registration_link: ''
 meeting_link: ''
 disqus_shortname: ''
 vimeoID: 
-slides: ''
+slides: "/uploads/david-travis-wc6mj0krzgw-unsplash.jpg"
 short_abstract: 'How much do you think about your users’ experiences? Are you building
   data products that address your users’ needs? Learn about user experience testing
   and the work of the User-eXperience Lab (UXL) at the University of Tennessee performs
@@ -38,6 +38,5 @@ abstract: How much do you think about your users’ experiences? Are you buildin
 speakers:
 - people/amy-forrester.md
 - people/suzie-allard.md
-draft: true
 
 ---
