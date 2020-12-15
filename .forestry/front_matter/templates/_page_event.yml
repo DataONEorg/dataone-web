@@ -138,6 +138,7 @@ fields:
   description: Add a miscellaneous button to the event page
 pages:
 - content/community-calls/research-data-management-training-materials-and-opportunities.md
+- content/community-calls/usability-testing-of-dataone-services.md
 - content/webinars/academic-data-science-individuals-institutions.md
 - content/webinars/advancing-research-data-publishing-dryad’s-next-steps.md
 - content/webinars/analyzing-interpreting-and-implementing-data-management-plans.md
