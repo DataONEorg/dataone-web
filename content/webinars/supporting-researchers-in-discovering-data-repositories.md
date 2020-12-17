@@ -17,7 +17,7 @@ slug: repo-discovery
 event_datetime: 2021-01-12T21:00:00-08:00
 image: "/uploads/john-lockwood-fclq69v7rsc-unsplash.jpg"
 tags: []
-registration_link: ''
+registration_link: https://ucsb.zoom.us/webinar/register/WN_jMfzS0YbSgibcQT3btj4-A
 meeting_link: ''
 disqus_shortname: ''
 vimeoID: 
