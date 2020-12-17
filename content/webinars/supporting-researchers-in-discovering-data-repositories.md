@@ -22,7 +22,9 @@ meeting_link: ''
 disqus_shortname: ''
 vimeoID: 
 slides: ''
-short_abstract: ''
+short_abstract: How do researchers go about identifying a repository to preserve their
+  data? Do they have all the information they need to make an informed decision? Are
+  there resources available to help?
 abstract: "How do researchers go about identifying a repository to preserve their
   data? Do they have all the information they need to make an informed decision? Are
   there resources available to help?\n\nThere are a myriad of repositories available
