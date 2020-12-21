@@ -12,7 +12,7 @@ button:
   text: ''
   external_link: ''
   icon: ''
-title: Usability testing of DataONE services
+title: User experience to enhance DataONE community
 slug: usability-services
 event_datetime: 2021-01-07T09:00:00-08:00
 image: "/uploads/david-travis-wc6mj0krzgw-unsplash.jpg"
