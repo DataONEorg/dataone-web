@@ -1,7 +1,7 @@
 ---
 date: 2020-12-15T11:58:33-08:00
 duration: 60
-status: upcoming
+status: happening-now
 registration_text: Register now
 meeting_text: Join now
 button:
@@ -18,7 +18,7 @@ event_datetime: 2021-01-07T09:00:00-08:00
 image: "/uploads/david-travis-wc6mj0krzgw-unsplash.jpg"
 tags: []
 registration_link: ''
-meeting_link: ''
+meeting_link: https://ucsb.zoom.us/j/94309556242
 disqus_shortname: ''
 vimeoID: 
 slides: ''
