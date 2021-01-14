@@ -1,7 +1,7 @@
 ---
 date: 2020-12-17T09:12:39-08:00
 duration: 60
-status: upcoming
+status: past
 registration_text: Register now
 meeting_text: Join now
 button:
@@ -19,8 +19,8 @@ image: "/uploads/john-lockwood-fclq69v7rsc-unsplash.jpg"
 tags: []
 registration_link: https://ucsb.zoom.us/webinar/register/WN_jMfzS0YbSgibcQT3btj4-A
 meeting_link: ''
-disqus_shortname: ''
-vimeoID: 
+disqus_shortname: repositorydiscovery
+vimeoID: 470813247
 slides: ''
 short_abstract: How do researchers go about identifying a repository to preserve their
   data? Do they have all the information they need to make an informed decision? Are
