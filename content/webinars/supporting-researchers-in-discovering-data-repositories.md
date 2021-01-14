@@ -21,7 +21,7 @@ registration_link: https://ucsb.zoom.us/webinar/register/WN_jMfzS0YbSgibcQT3btj4
 meeting_link: ''
 disqus_shortname: repositorydiscovery
 vimeoID: 470813247
-slides: ''
+slides: "/uploads/repositorydiscovery.pdf"
 short_abstract: How do researchers go about identifying a repository to preserve their
   data? Do they have all the information they need to make an informed decision? Are
   there resources available to help?
