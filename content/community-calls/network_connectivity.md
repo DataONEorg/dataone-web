@@ -1,7 +1,7 @@
 ---
 date: 2021-02-02T08:51:24-07:00
 duration: 60
-status: past
+status: upcoming
 registration_text: Register now
 meeting_text: Join now
 button:
@@ -18,7 +18,7 @@ event_datetime: 2021-02-04T17:00:00-07:00
 image: "/uploads/alina-grubnyak-ZiQkhI7417A-unsplash.jpg"
 tags: []
 registration_link: ''
-meeting_link: 
+meeting_link: https://ucsb.zoom.us/j/94309556242
 disqus_shortname: ''
 vimeoID: 
 slides: ''
