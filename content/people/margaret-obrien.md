@@ -1,23 +1,22 @@
 ---
-avatar: "/uploads/MargaretOBrien.png"
+avatar: "/uploads/margaret-obrien.jpg"
 fullname: Margaret O'Brien
 firstname: Margaret
 role: Specialist
 organization: Santa Barbara Coastal Long Term Ecological Research
-
-shortbio: Margaret O'Brien is currently the information manager for the Santa Barbara
-  Coastal Long Term Ecological Research project (SBC LTER). She coordinates and implements
-  most aspects of data exchange and publication within and outside the group.
-longbio: Margaret O'Brien is currently the information manager for the Santa Barbara
-  Coastal Long Term Ecological Research project (SBC LTER). She coordinates and implements
-  most aspects of data exchange and publication within and outside the group. This
-  includes managing user accounts and services, designing databases, websites and
-  applications; and working with scientists and their staff to plan and publish data
-  products. Margaret collaborates with the Ecoinformatcs Program at UCSB, and with
-  the Moorea Coral Reef LTER on projects related to data integration and use. Prior
-  to working with LTER, Margaret worked with the Bermuda Bio-Optics project at the
-  Earth Research Institute, UCSB.
+shortbio: Margaret O'Brien is the information manager for the Santa Barbara Coastal
+  Long Term Ecological Research project (SBC LTER). She is also part of the EDI team
+  where she assists in the design and development of efficient means to assure data
+  submission by community members based on needs assessments and community science
+  priorities. Margaret is based at the University of California at Santa Barbara and
+  may be reached at margaret.obrien@ucsb.edu.
+longbio: Margaret O'Brien is the information manager for the Santa Barbara Coastal
+  Long Term Ecological Research project (SBC LTER). She is also part of the EDI team
+  where she assists in the design and development of efficient means to assure data
+  submission by community members based on needs assessments and community science
+  priorities. Margaret is based at the University of California at Santa Barbara and
+  may be reached at margaret.obrien@ucsb.edu.
 email: mob@msi.ucsb.edu
-
+d1_team: ''
 
 ---
