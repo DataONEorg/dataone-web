@@ -2,6 +2,7 @@
 layout: blocks
 date: 2020-01-09T17:19:25.000+00:00
 title: Hosted Repository
+price: $1083 per month, billed annually
 service_icon: database
 service_color: "#4fa1e0"
 weight: 3

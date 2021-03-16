@@ -4,6 +4,7 @@ title: DataONE Plus
 description: Enhanced DataONE products and services in support of your research, including
   branded portals, quality assessment metrics (including the FAIR suite), and much
   more.
+price: $48 per month, billed annually, or $45 per user per month for Teams
 service_icon: d1-plus-logo
 service_color: "#34bb96"
 weight: 2
