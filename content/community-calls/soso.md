@@ -14,7 +14,7 @@ button:
   icon: ''
 title: Science on Schema.org Guidelines and Experiences
 slug: soso
-event_datetime: 2021-04-01T24:00:00-00:00
+event_datetime: 2021-04-01T24:00:00Z
 image: "/uploads/json-ld.png"
 tags: []
 registration_link: ''
