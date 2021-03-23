@@ -1,4 +1,6 @@
-.datetime {
+{{ $p := .Params.prefix }}
+
+.{{ $p }}datetime {
 
   // ==========================================================================
   //    Variables
@@ -24,6 +26,7 @@
 
   @include f-common;
   color  : inherit;
+  position: relative;
 
   &__displaydate {
     font-weight : var(--fw-normal, 400);
@@ -32,6 +35,10 @@
   &__timezone {
     font-size : var(--fs-smaller, 0.9rem);
     font-weight : var(--fw-light, 300);
+  }
+
+  &__tz-input-container{
+    display: inline;
   }
 
   button[aria-expanded="true"],
@@ -53,79 +60,6 @@
     width     : auto;
     opacity   : 1;
     visibility: visible;
-  }
-
-  .tz-input-dropdown-menu {
-    min-width: 375px;
-  }
-
-  .ap-suggestion-icon g,
-  .ap-suggestion-icon svg {
-    stroke: none;
-    fill  : var(--section-c-foreground-subtle, grey);
-  }
-
-  .tz-input-dropdown-menu {
-    width           : 100%;
-    color           : var(--section-fc-body, grey);
-    background-color: var(--section-c-background-lighter, white);
-    border          : 1px solid var(--section-c-background-lighter, white);
-    border-top      : none;
-    border-radius   : var(--br-default, 0.25rem);
-    padding         : .5rem;
-    box-shadow      : 1px 1px 32px -10px rgba(0,0,0,0.62);
-  }
-
-  .tz-input-dropdown-menu .tz-input-suggestion {
-    cursor       : pointer;
-    padding      : 5px 4px 5px 10px;
-    border-radius: 2px;
-    line-height  : 1.9;
-  }
-
-  .tz-input-suggestion:hover {
-    background-color: var(--section-c-accent-very-subtle, lightgray);
-
-    g,
-    svg {
-      fill  : var(--section-c-accent, black);
-      stroke: none;
-    }
-
-    .ap-address,
-    .tz-abbreviation {
-      color: var(--section-c-accent, black);
-    }
-  }
-
-  .ap-address,
-  .tz-abbreviation {
-    font-size  : smaller;
-    margin-left: 12px;
-    color      : var(--section-c-foreground-subtle, grey);
-  }
-
-  .tz-input-dropdown-menu .tz-input-suggestion em {
-    font-weight: bold;
-    font-style : normal;
-    color      : var(--section-fc-title, black);
-  }
-
-  .tz-input-header {
-    font-weight : var(--fw-bold, 500);
-    font-size : var(--fs-small, 1rem);
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    color         : var(--section-c-background-darker-2, black);
-    margin        : .7rem 0;
-  }
-
-  .ap-footer,
-  .ap-footer-algolia svg g path:nth-of-type(2n+1),
-  .ap-footer-osm svg path {
-    stroke: none;
-    color : var(--section-c-foreground-very-subtle, grey);
-    fill  : var(--section-c-foreground-very-subtle, grey);
   }
   
   &--bold {
@@ -156,3 +90,4 @@
   }
 
 }
+

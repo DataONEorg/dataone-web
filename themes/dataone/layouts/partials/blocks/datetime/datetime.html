@@ -1,10 +1,10 @@
 <!-- in order to pass on page parameters from within loops -->
 {{- $page := .Page -}}
 {{- $site := $page.Site -}}
-<!-- bn = blockname -->
-{{- $bn := "datetime" -}}
-<!-- The prefix we will add to the CSS classes -->
+<!-- The prefix we will add to the block name -->
 {{- $p := $site.Params.prefix -}}
+<!-- bn = blockname -->
+{{- $bn := print $p "datetime" -}}
 
 <!-- whether or not the given date includes a time, otherwise it's just the date (TODO: automate this) -->
 {{- $includesTime := .Block.includes_time | default true -}}
@@ -103,14 +103,18 @@
   {{- $jsFormat := partial "functions/goTimeToJsTime.html" $format -}}
   
   <!-- button block -->
-  {{ $buttonBlock := dict "color" "quaternary" "type" "internal_link" "text" "Edit timezone" "html_tag" "button" "typeAttr" "button" "function" `onclick="toggleTimezoneInput(this)"` "otherAttributes" `aria-label="Change the timezone" aria-expanded="false" aria-controls="timezone-finder"` }}
+  {{- $buttonFunction := printf `onclick="%s.toggleTimezoneInput(this)"` $bn -}}
+  
+  {{ $buttonBlock := dict "color" "quaternary" "type" "internal_link" "text" "Edit timezone" "html_tag" "button" "typeAttr" "button" "function" $buttonFunction "otherAttributes" `aria-label="Change the timezone" aria-expanded="false" aria-controls="timezone-finder"` }}
 
   <time class="{{- $classes -}}" datetime="{{- $timeHTML -}}" data-format="{{- $jsFormat -}}">
     <span class="{{- $bn -}}__displaydate">{{- $timeDisplay -}}</span>
     {{ if or $show_timezone $change_timezone }} <span class="{{- $bn -}}__timezone">{{ $timezoneDisplay }}</span> {{ end }}
     {{- if $change_timezone -}}
-      <input class="{{- $bn -}}__tz-input" type="search" id="timezone-finder" placeholder="Enter city or timezone" aria-hidden="true"/>
-      {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+      <div class="{{- $bn -}}__tz-input-container autoComplete_wrapper">
+        <input id="autoComplete" class="{{- $bn -}}__tz-input" type="search" id="timezone-finder" placeholder="Enter city or timezone" aria-hidden="true"/>
+        {{ partial "blocks/button/button" (dict "Block" $buttonBlock "Page" $page) }}
+      </div>
     {{- end -}}
   </time>
 

@@ -1,0 +1,75 @@
+.autoComplete_wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 370px;
+}
+
+#autoComplete {
+  text-overflow: ellipsis;
+  outline: none;
+  border-radius: var(--br-default);
+  border: 0;
+  transition: all 0.4s ease;
+}
+
+#autoComplete::selection {
+  background-color: var(--c-shadow-2-on-major-accent);
+}
+
+#autoComplete_list {
+  min-width: 300px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin-top: 0.5rem;
+  border-radius: var(--br-default);
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+  border: 1px solid rgba(33, 33, 33, 0.07);
+  z-index: 1000;
+  outline: none;
+  list-style: none;
+}
+
+.autoComplete_result {
+  margin: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  list-style: none;
+  text-align: left;
+  font-size: 1rem;
+  color: #212121;
+  transition: all 0.1s ease-in-out;
+  border-radius: var(--br-default);
+  background-color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+}
+
+.autoComplete_result::selection {
+  color: rgba(#ffffff, 0);
+  background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_result:hover {
+  cursor: pointer;
+  background-color: var(--c-shadow-1-on-major-accent);
+}
+
+.autoComplete_highlighted {
+  color: var(--c-major-accent-5);
+  font-weight: bold;
+}
+
+.autoComplete_highlighted::selection {
+  color: rgba(#ffffff, 0);
+  background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_selected {
+  cursor: pointer;
+  background-color: var(--c-shadow-2-on-major-accent);
+}

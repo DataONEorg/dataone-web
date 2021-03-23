@@ -18,6 +18,18 @@
   {{ $asset.Content | safeCSS }}
 {{ end }}
 
+// ==== IMPORT ALL LIBRARIES SCSS / CSS ====
+// Combine all javascript from libraries directory
+{{ $librariesdir :=  "themes/dataone/assets/scss/libraries/" }}
+{{ range (readDir $librariesdir) }}
+  // If the file is an .scss file, import it
+  {{ if or (strings.HasSuffix .Name "scss") (strings.HasSuffix .Name "css") }}
+    {{ $blockscss := path.Join $librariesdir .Name }}
+    {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $site }}
+    {{ $cssResource.Content | safeCSS }}
+  {{ end }}
+{{ end }}
+
 // ==== IMPORT ALL BLOCK SCSS ====
 // Import all .scss files contained one subdirectory below the "blocks" directory
 {{ $blockDir :=  .Site.Params.blockDir }}
