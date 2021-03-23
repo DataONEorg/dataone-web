@@ -14,8 +14,8 @@
 
 <!-- Make a variable that indicates whether there's an image -->
 {{- $hasImage := false -}}
-{{- if .Block.image -}}
-  {{- if and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") -}}
+{{- with .Block.image -}}
+  {{- if and (partial "functions/hasValues" .) (ne .src "") (ne .src " ") -}}
     {{- $hasImage = true -}}
   {{- end -}}
 {{- end -}}
@@ -39,8 +39,10 @@
 
 <!-- Make a variable that indicates whether there's a button -->
 {{- $hasButton := false -}}
-{{- if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") -}}
-  {{- $hasButton = true -}}
+{{- with .Block.button -}}
+  {{- if and (partial "functions/hasValues" .) (ne .text "") (ne .text " ") -}}
+    {{- $hasButton = true -}}
+  {{- end -}}
 {{- end -}}
 
 <!-- modifier class for cards with images -->

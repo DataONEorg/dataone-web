@@ -20,15 +20,15 @@
 {{- with .Block.size -}}
   {{- $classes = print $classes " " $bn "--sz-" . -}}
 {{- end -}}
-{{- if .Block.text -}}
-  {{- if and (partial "functions/hasValues" .Block) (ne .Block.text "") (ne .Block.text " ") -}}
+{{- with .Block.text -}}
+  {{- if ne . " " -}}
     <span class="{{- $classes -}}">
       {{- if ne $icon "none" -}}
         <span class="{{- $bn -}}__icon">
           {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" $icon "size" "tiny" "color" "inherit" "stroke" "thicker") "Page" $page) -}}
         </span>
       {{- end -}}
-      {{- .Block.text -}}
+      {{- . -}}
     </span>
   {{- end -}}
 {{- end -}}

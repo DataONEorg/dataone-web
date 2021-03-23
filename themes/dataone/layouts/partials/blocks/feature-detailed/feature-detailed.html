@@ -17,7 +17,10 @@
 {{- end -}}
 
 <!-- Check if there's an image. Add a class if not -->
-{{- $hasImage := and (partial "functions/hasValues" .Block.image) (ne .Block.image.src "") (ne .Block.image.src " ") -}}
+{{- $hasImage := false -}}
+{{- with .Block.image -}}
+  {{- $hasImage = and (partial "functions/hasValues" .) (ne .src "") (ne .src " ") -}}
+{{- end -}}
 {{- if not $hasImage -}}
   {{- $classes = print $classes " " $bn "--no-image" -}}
 {{- end -}}
@@ -60,10 +63,12 @@
         {{- end -}}
       </div>
     {{- end -}}
-    {{- if and (partial "functions/hasValues" .Block.button) (.Block.button.text) -}}
-      <div class="{{- $bn -}}__button">
-        {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
-      </div>
+    {{- with .Block.button -}}
+      {{- if and (partial "functions/hasValues" .) (.text) -}}
+        <div class="{{- $bn -}}__button">
+          {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
+        </div>
+      {{- end -}}
     {{- end -}}
   </div>
   {{- if $hasImage -}}

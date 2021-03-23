@@ -111,27 +111,31 @@
         </div>
       {{- end -}}
       <!-- SUB-SECTION BLOCKS -->
-      {{- if  partial "functions/hasValues" .Block.blocks -}}
-        <div class="{{- $bn -}}__blocks">
-          {{- range .Block.blocks -}}
-            {{- if .template -}}
+      {{- with .Block.blocks -}}
+        {{- if  partial "functions/hasValues" . -}}
+          <div class="{{- $bn -}}__blocks">
+            {{- range . -}}
+              {{- if .template -}}
 
-              <!-- The regular path to the partial template -->
-              {{- $partialPath := printf "blocks/%s/%s.html" .template .template -}}
+                <!-- The regular path to the partial template -->
+                {{- $partialPath := printf "blocks/%s/%s.html" .template .template -}}
 
-              <!-- Check and only build if the template exists -->
-              {{- if templates.Exists ( printf "partials/%s" $partialPath ) -}}
-                {{- partial $partialPath (dict "Block" . "Page" $page) -}}
+                <!-- Check and only build if the template exists -->
+                {{- if templates.Exists ( printf "partials/%s" $partialPath ) -}}
+                  {{- partial $partialPath (dict "Block" . "Page" $page) -}}
+                {{- end -}}
+
               {{- end -}}
-
             {{- end -}}
-          {{- end -}}
-        </div>
+          </div>
+        {{- end -}}
       {{- end -}}
-      {{- if and (partial "functions/hasValues" .Block.button) (ne .Block.button.text "") (ne .Block.button.text " ") -}}
-        <div class="{{- $bn -}}__button">
-          {{- partial "blocks/button/button" (dict "Block" .Block.button "Page" $page) -}}
-        </div>
+      {{- with .Block.button -}}
+        {{- if and (partial "functions/hasValues" .) (ne .text "") (ne .text " ") -}}
+          <div class="{{- $bn -}}__button">
+            {{- partial "blocks/button/button" (dict "Block" . "Page" $page) -}}
+          </div>
+        {{- end -}}
       {{- end -}}
     </div>
   </section>
