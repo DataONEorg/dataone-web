@@ -54,9 +54,10 @@
 
       <!-- Get the bundled javascript resources -->
       {{- $js := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" .  -}}
-      {{- if not $page.Site.IsServer -}}
-        {{- $js = $js | resources.Minify -}}
-      {{- end -}}
+      {{/*  TODO: minifying the JS results in empty JS since update from 0.74.3 to 0.82.0. Do not minify for now. */}}
+      {{/*  {{- if not $page.Site.IsServer -}}  */}}
+        {{/*  {{- $js = $js | resources.Minify -}}  */}}
+      {{/*  {{- end -}}  */}}
       {{- $version := now.Format "2006-01-02_15.04.05_-0700" -}}
       <script src="{{- $js.Permalink -}}?v={{ $version }}"></script>
 
