@@ -70,8 +70,8 @@ page_sections:
       icon: clock
     - template: item-with-icon
       name: How to join
-      text: 'Remote access using [Zoom]( "https://ucsb.zoom.us/j/94309556242"). Meeting
-        info, dial in numbers and notes link are posted in the [GitHub issue](https://github.com/DataONEorg/community-calls/issues). '
+      text: 'Remote access using [Zoom]( "https://ucsb.zoom.us/j/94309556242"). Full
+        call info and notes link are posted to the associated [GitHub issue](https://github.com/DataONEorg/community-calls/issues). '
       icon: headphones
     - template: item-with-icon
       name: Video
