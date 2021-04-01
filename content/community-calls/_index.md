@@ -1,10 +1,9 @@
 ---
-draft: false
 date: '2020-10-01'
 cascade:
   type: event
-event_type_singular: "community call"
-event_type_plural: "community calls"
+event_type_singular: community call
+event_type_plural: community calls
 title: DataONE Community Calls
 header:
   image:
@@ -14,7 +13,10 @@ header:
     alttext: ''
     type: ''
   title: Discussion of advances relevant to the DataONE network
-  intro: Join our monthly community discussions and help promote shared approaches to research data management leveraging DataONE infrastructure. Topics focus on issues that are central to data preservation and reuse for repositories, researchers, and others engaged in research data management. 
+  intro: Join our monthly community discussions and help promote shared approaches
+    to research data management leveraging DataONE infrastructure. Topics focus on
+    issues that are central to data preservation and reuse for repositories, researchers,
+    and others engaged in research data management.
   pill:
     template: ''
     style: ''
@@ -25,16 +27,24 @@ page_sections:
   small_title: Get Involved
   title: Submit Your Ideas for Community Calls
   alignment: center
-  intro: Community Calls are an opportunity for discussion of aligned activities  and development of shared approaches to research infrastructure. Follow the link below to suggest topics, comment on current suggestions and help prioritize the order of community calls  via our GitHub repository.
+  intro: Community Calls are an opportunity for discussion of aligned activities  and
+    development of shared approaches to research infrastructure. Follow the link below
+    to suggest topics, comment on current suggestions and help prioritize the order
+    of community calls  via our GitHub repository.
   type: card
   background: data-wave-subtle
-  blocks:
+  blocks: []
   button:
     template: button
     color: primary
     text: Community Call Topics
     type: external page
     external_link: https://github.com/DataONEorg/community-calls
+    internal_link: ''
+    icon: ''
+  background_image: ''
+  background2: ''
+  id: ''
 - template: section
   title: Community call quick facts
   background: major-accent-color
@@ -50,15 +60,18 @@ page_sections:
       icon: calendar
     - template: item-with-icon
       name: Duration
-      text: Calls last one hour with approximately 15 minutes for presentation and 45 minutes for discussion
+      text: Calls last one hour with approximately 15 minutes for presentation and
+        45 minutes for discussion
       icon: watch
     - template: item-with-icon
       name: Time
-      text: Alternates monthly between 1700 and 2400 UTC to support global engagement. Check your time zone [here](https://www.thetimezoneconverter.com)
+      text: Alternates monthly between 1700 and 2400 UTC to support global engagement.
+        Check your time zone [here](https://www.thetimezoneconverter.com)
       icon: clock
     - template: item-with-icon
       name: How to join
-      text: Remote access using Zoom. Zoom link available here 10 minutes before the call starts
+      text: 'Remote access using [Zoom]( "https://ucsb.zoom.us/j/94309556242"). Zoom
+        link and dial in numbers will also be posted to the associated [GitHub issue](https://github.com/DataONEorg/community-calls/issues). '
       icon: headphones
     - template: item-with-icon
       name: Video
@@ -105,15 +118,15 @@ page_sections:
   id: ''
 description: ''
 menu:
-  footer:
-    name: Community Calls
-    weight: 4
-    parent: Community
   primary_nav:
     name: Community Calls
     weight: 4
     pre: users
     parent: Community
     post: Join us for a series of monthly meetings
+  footer:
+    name: Community Calls
+    weight: 4
+    parent: Community
 
 ---
