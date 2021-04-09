@@ -1,7 +1,7 @@
 ---
 date: 2021-03-22T093019-0600
 duration: 60
-status: happening-now
+status: past
 registration_text: Register now
 meeting_text: Join now
 button:
