@@ -20,6 +20,16 @@ Hugo uses [a specific directory stucture](https://gohugo.io/getting-started/dire
 - use the Hugo directories `archetypes`, `assets`, and `layouts` in the `themes/dataone` directory.
 - When static assets are theme-specific (e.g. fonts), include them in the `themes/dataone/static` directory. When they are content-specific (e.g. an image used in a specific blog post), store them in the root `./static` directory.
 
+##### Deploying this Hugo site locally
+
+Run
+
+```bash
+  hugo server -D
+```
+
+and then visit `localhost:1313`, or whatever `baseURL` is configured in `/config/development/config.yaml`
+
 #### BEM with Hugo
 
 - Each block has its own separate [Hugo partial template](https://gohugo.io/templates/partials/) and `.scss` style file. Simple blocks (e.g. buttons) may also have an associated [Hugo shortcode template](https://gohugo.io/templates/shortcode-templates/) (more on that in the "How to create a new block" section).
