@@ -70,9 +70,7 @@ secondary_nav:
   weight: 100
   url: SEARCH/signout
 primary_nav:
-- name: Find Data
-  pre: search
-  url: search
+- name: Data
   weight: 1
 - name: Services
   weight: 2
@@ -94,3 +92,15 @@ primary_nav:
   title: Summary of Holdings
   pre: bar-chart-2
   weight: 1.5
+- name: Find data
+  weight: 1
+  url: /data
+  title: Find data
+  parent: Data
+  pre: search
+- name: Portals
+  weight: 2
+  url: /portals
+  title: Portals
+  parent: Data
+  pre: star

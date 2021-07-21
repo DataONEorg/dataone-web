@@ -22,6 +22,28 @@ If you are not using forestry, and instead entering the date and time manually i
 
 ### Problem: I created a new page and it's not showing up on the website
 
-**Solution:** 
+**Solution:**
 - Check that that page is not a draft
 - Check that the date of the page is not set to the future
+
+## Updating the navigation links
+
+The link menus are configured in yaml at `/config/_default/menus.yaml`.
+
+A top-level link with a dropdown menu looks like:
+
+```
+- name: The link text
+  weight: 1
+```
+
+A link that appears in a dropdown menu looks like:
+
+```
+- name: The link text
+  weight: 1
+  url: /page
+  title: The `title` HTML attribute on the link element
+  parent: The exact `name` of the top-level link to display this under
+  pre: The name of the icon for this link. This is the name of the icon `partial` in this Hugo theme.
+```
