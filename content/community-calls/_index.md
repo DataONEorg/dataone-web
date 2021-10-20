@@ -13,10 +13,10 @@ header:
     alttext: ''
     type: ''
   title: Discussion of advances relevant to the DataONE network
-  intro: Join our community discussions and help promote shared approaches to research
+  intro: 'Join our community discussions and help promote shared approaches to research
     data management leveraging DataONE infrastructure. Topics focus on issues that
     are central to data preservation and reuse for repositories, researchers, and
-    others engaged in research data management.
+    others engaged in research data management. '
   pill:
     template: ''
     style: ''
@@ -56,7 +56,7 @@ page_sections:
     columns:
     - template: item-with-icon
       name: Day
-      text: Held periodically, on a Wednesday
+      text: 'Held periodically, on a Wednesday '
       icon: calendar
     - template: item-with-icon
       name: Duration
