@@ -18,13 +18,12 @@ event_datetime: 2021-11-10T17:00:00-08:00
 image: "/uploads/adobestock_276080913.jpeg"
 tags: []
 registration_link: ''
-meeting_link: ''
+meeting_link: https://ucsb.zoom.us/j/94309556242
 disqus_shortname: ''
 vimeoID: 
 slides: ''
 short_abstract: ''
 abstract: ''
 speakers: []
-draft: true
 
 ---
