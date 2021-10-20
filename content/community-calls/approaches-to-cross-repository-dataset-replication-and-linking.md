@@ -12,7 +12,7 @@ button:
   text: ''
   external_link: ''
   icon: ''
-title: Approaches to cross-repository dataset replication and linking
+title: 'Approaches to cross-repository dataset replication and linking '
 slug: cross-repository-linking
 event_datetime: 2021-11-10T09:00:00-08:00
 image: "/uploads/adobestock_276080913.jpeg"
