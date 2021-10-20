@@ -1,0 +1,30 @@
+---
+date: 2021-10-20T11:50:55-07:00
+duration: 60
+status: auto
+registration_text: Register now
+meeting_text: Join now
+button:
+  template: button
+  type: internal page
+  color: secondary
+  internal_link: []
+  text: ''
+  external_link: ''
+  icon: ''
+title: Approaches to cross-repository dataset replication and linking
+slug: cross-repository-linking
+event_datetime: 
+image: ''
+tags: []
+registration_link: ''
+meeting_link: ''
+disqus_shortname: ''
+vimeoID: 
+slides: ''
+short_abstract: ''
+abstract: ''
+speakers: []
+draft: true
+
+---

@@ -137,6 +137,7 @@ fields:
     label: Button
   description: Add a miscellaneous button to the event page
 pages:
+- content/community-calls/approaches-to-cross-repository-dataset-replication-and-linking.md
 - content/community-calls/research-data-management-training-materials-and-opportunities.md
 - content/community-calls/usability-testing-of-dataone-services.md
 - content/webinars/academic-data-science-individuals-institutions.md
