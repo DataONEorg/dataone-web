@@ -56,7 +56,7 @@ page_sections:
     columns:
     - template: item-with-icon
       name: Day
-      text: Held monthly, on the first Thursday of each month
+      text: Held periodically, on a Wednesday
       icon: calendar
     - template: item-with-icon
       name: Duration
