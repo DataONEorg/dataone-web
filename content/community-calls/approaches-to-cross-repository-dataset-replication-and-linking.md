@@ -14,7 +14,7 @@ button:
   icon: ''
 title: Approaches to cross-repository dataset replication and linking
 slug: cross-repository-linking
-event_datetime: 
+event_datetime: 2021-11-10T17:00:00-08:00
 image: ''
 tags: []
 registration_link: ''
