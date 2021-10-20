@@ -13,10 +13,10 @@ header:
     alttext: ''
     type: ''
   title: Discussion of advances relevant to the DataONE network
-  intro: Join our monthly community discussions and help promote shared approaches
-    to research data management leveraging DataONE infrastructure. Topics focus on
-    issues that are central to data preservation and reuse for repositories, researchers,
-    and others engaged in research data management.
+  intro: Join our community discussions and help promote shared approaches to research
+    data management leveraging DataONE infrastructure. Topics focus on issues that
+    are central to data preservation and reuse for repositories, researchers, and
+    others engaged in research data management.
   pill:
     template: ''
     style: ''
@@ -70,8 +70,8 @@ page_sections:
       icon: clock
     - template: item-with-icon
       name: How to join
-      text: 'Remote access using [Zoom](https://ucsb.zoom.us/j/94309556242). Full
-        call info and notes link are posted to the associated [GitHub issue](https://github.com/DataONEorg/community-calls/issues). '
+      text: Remote access using [Zoom]( "https://ucsb.zoom.us/j/94309556242"). Full
+        call info and notes link are posted to the associated [GitHub issue](https://github.com/DataONEorg/community-calls/issues).
       icon: headphones
     - template: item-with-icon
       name: Video
