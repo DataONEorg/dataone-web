@@ -79,7 +79,7 @@ nodes:
   profile: https://search.dataone.org/portals/ARCTIC
 - name: ARM - Atmospheric Radiation Measurement Research Facility
   logo: "/uploads/member_node_logos/arm.png"
-  homepage: 'https://www.archive.arm.gov/ '
+  homepage: 'https://arm.gov/data/'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/ARM
