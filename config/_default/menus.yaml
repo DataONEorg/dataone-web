@@ -94,13 +94,13 @@ primary_nav:
   weight: 1.5
 - name: Find data
   weight: 1
-  url: /data
+  url: https://search.dataone.org/data
   title: Find data
   parent: Data
   pre: search
 - name: Portals
   weight: 2
-  url: /portals
+  url: https://search.dataone.org/portals
   title: Portals
   parent: Data
   pre: star
