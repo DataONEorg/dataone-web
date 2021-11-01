@@ -1,5 +1,5 @@
 ---
-date: 2021-10-20T11:50:55-07:00
+date: 2021-10-20T11:50:55.000-07:00
 duration: 60
 status: auto
 registration_text: Register now
@@ -14,7 +14,7 @@ button:
   icon: ''
 title: 'Approaches to cross-repository dataset replication and linking '
 slug: cross-repository-linking
-event_datetime: 2021-11-10T09:00:00-08:00
+event_datetime: 2021-11-10T09:00:00.000-08:00
 image: "/uploads/adobestock_276080913.jpeg"
 tags: []
 registration_link: ''
@@ -22,7 +22,10 @@ meeting_link: https://ucsb.zoom.us/j/94309556242
 disqus_shortname: ''
 vimeoID: 
 slides: ''
-short_abstract: ''
+short_abstract: Repositories frequently need to both replicate datasets that are held
+  in other repositories (for policy, availability, and other reasons) and to link
+  to external datasets that represent sometimes the same and sometimes related datasets.  This
+  community call will discuss current challenges, approaches and potential solutions.
 abstract: Repositories frequently need to both replicate datasets that are held in
   other repositories (for policy, availability, and other reasons) and to link to
   external datasets that represent sometimes the same and sometimes related datasets.
@@ -32,7 +35,8 @@ abstract: Repositories frequently need to both replicate datasets that are held 
   Being able to generalize these capabilities across the network could increase efficiency
   and reduce duplication.
 speakers:
-- people/Jeanette-Clark.md
+- people/natasha-haycock-chavez.md
+- people/joan-damerow.md
 - people/mark-servilla.md
 
 ---
