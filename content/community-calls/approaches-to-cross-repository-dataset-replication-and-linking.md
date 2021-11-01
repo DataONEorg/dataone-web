@@ -22,7 +22,10 @@ meeting_link: https://ucsb.zoom.us/j/94309556242
 disqus_shortname: ''
 vimeoID: 
 slides: ''
-short_abstract: ''
+short_abstract: Repositories frequently need to both replicate datasets that are held
+  in other repositories (for policy, availability, and other reasons) and to link
+  to external datasets that represent sometimes the same and sometimes related datasets.  This
+  community call will discuss current challenges, approaches and potential solutions.
 abstract: Repositories frequently need to both replicate datasets that are held in
   other repositories (for policy, availability, and other reasons) and to link to
   external datasets that represent sometimes the same and sometimes related datasets.
