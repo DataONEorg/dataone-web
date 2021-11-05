@@ -1,0 +1,38 @@
+name: Deploy Preview
+
+on:
+  push:
+    branches:
+      - preview
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build
+        run: |
+          npm install
+          hugo --baseURL="http://preview.dataone.org/"
+      # Copy the source to the nceas server
+      - name: Copy
+        uses: dataoneorg/scp-deployer@latest
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          source: "docs/"
+          target: ${{ secrets.TARGET }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          rm: true
