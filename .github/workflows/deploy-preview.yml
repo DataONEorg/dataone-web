@@ -21,17 +21,17 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
-      - name: Build
+      - name: Build Site
         run: |
           npm install
           hugo --baseURL="http://preview.dataone.org/"
       # Copy the source to the nceas server
-      - name: Copy
+      - name: Deploy
         uses: dataoneorg/scp-deployer@latest
         with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           source: "docs/"
-          target: ${{ secrets.TARGET }}
-          username: ${{ secrets.USER }}
+          target: "/home/travis/testdeploy"
+          user: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
