@@ -1,0 +1,51 @@
+name: Test for Branch
+
+on:
+  push:
+    branches:
+      - preview
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Set env vars (preview)
+        if: endsWith(github.ref, '/preview')
+        run: |
+          echo "SITE=preview.dataone.org" >> $GITHUB_ENV
+      - name: Set env vars (production)
+        if: endsWith(github.ref, '/main')
+        run: |
+          echo "SITE=www.dataone.org" >> $GITHUB_ENV
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.82.0"
+          extended: true
+      - name: Build Site
+        run: |
+            echo "Building site: https://${{ env.SITE }}"
+            #npm install
+            #hugo --baseURL=${{ env.BASEURL }}
+      # Copy the source to the nceas server
+      - name: Print
+        #uses: dataoneorg/rsync-deploy@latest
+        run: |
+            echo "Host: ${{ host }}"
+            echo "Target: ${{ target }}"
+        with:
+          host: ${{ env.SITE }}
+          port: ${{ secrets.PORT }}
+          source: "docs/"
+          target: "/var/www/${{ env.SITE }}"
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+
