@@ -43,5 +43,6 @@ jobs:
           source: "docs/"
           target: "/var/www/${{ env.SITE }}"
           username: ${{ secrets.USER }}
+          group: ${{ secrets.GROUP }}
           key: ${{ secrets.KEY }}
 
