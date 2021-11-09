@@ -41,7 +41,7 @@ jobs:
         run: |
             echo "Host: ${host}"
             echo "Target: ${target}"
-        with:
+        env:
           host: ${{ env.SITE }}
           port: ${{ secrets.PORT }}
           source: "docs/"
