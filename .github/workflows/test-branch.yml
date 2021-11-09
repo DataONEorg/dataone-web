@@ -39,8 +39,8 @@ jobs:
       - name: Deploy
         #uses: dataoneorg/rsync-deploy@latest
         run: |
-            echo "Host: ${{ host }}"
-            echo "Target: ${{ target }}"
+            echo "Host: ${host}"
+            echo "Target: ${target}"
         with:
           host: ${{ env.SITE }}
           port: ${{ secrets.PORT }}
