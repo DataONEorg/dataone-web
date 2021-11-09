@@ -1,4 +1,4 @@
-name: Test for Branch
+name: Deploy Hugo Site
 
 on:
   push:
