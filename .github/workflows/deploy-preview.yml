@@ -33,5 +33,5 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "docs/"
           target: "/home/travis/testdeploy"
-          user: ${{ secrets.USER }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
