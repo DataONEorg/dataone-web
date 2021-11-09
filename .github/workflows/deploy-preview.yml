@@ -29,7 +29,7 @@ jobs:
       - name: Deploy
         uses: dataoneorg/scp-deployer@latest
         with:
-          host: ${{ secrets.HOST }}
+          host: preview.dataone.org
           port: ${{ secrets.PORT }}
           source: "docs/"
           target: "/home/travis/testdeploy"
