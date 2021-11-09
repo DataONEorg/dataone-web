@@ -31,7 +31,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
-          source: "docs/*"
+          source: "docs/"
           target: ${{ secrets.TARGET }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
