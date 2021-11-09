@@ -24,7 +24,7 @@ jobs:
       - name: Build Site
         run: |
           npm install
-          hugo --baseURL="http://preview.dataone.org/"
+          hugo --baseURL="https://preview.dataone.org/"
       # Copy the source to the nceas server
       - name: Deploy
         uses: dataoneorg/scp-deployer@latest
