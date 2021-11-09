@@ -32,16 +32,12 @@ jobs:
           extended: true
       - name: Build Site
         run: |
-            echo "Building site: https://${{ env.SITE }}"
-            #npm install
-            #hugo --baseURL=${{ env.BASEURL }}
-      # Copy the source to the nceas server
-      - name: Deploy
-        #uses: dataoneorg/rsync-deploy@latest
-        run: |
-            echo "Host: ${host}"
-            echo "Target: ${target}"
-        env:
+            echo "Building site: ${{ env.SITE }}"
+            npm install
+            if [ "$env.SITE" = "www.dataone.org" ]; then hugo; else hugo --baseURL=https://${{ env.SITE }}; fi
+      - name: Deploy Site
+        uses: dataoneorg/rsync-deploy@latest
+        with:
           host: ${{ env.SITE }}
           port: ${{ secrets.PORT }}
           source: "docs/"
