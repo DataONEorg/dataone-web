@@ -27,7 +27,7 @@ jobs:
           hugo --baseURL="https://preview.dataone.org/"
       # Copy the source to the nceas server
       - name: Deploy
-        uses: dataoneorg/scp-deployer@latest
+        uses: dataoneorg/rsync-deploy@latest
         with:
           host: preview.dataone.org
           port: ${{ secrets.PORT }}
