@@ -36,7 +36,7 @@ jobs:
             #npm install
             #hugo --baseURL=${{ env.BASEURL }}
       # Copy the source to the nceas server
-      - name: Print
+      - name: Deploy
         #uses: dataoneorg/rsync-deploy@latest
         run: |
             echo "Host: ${{ host }}"
