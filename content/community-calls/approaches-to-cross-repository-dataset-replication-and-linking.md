@@ -3,7 +3,7 @@ date: 2021-10-20T11:50:55.000-07:00
 duration: 60
 status: past
 registration_text: Register now
-meeting_text: Join now
+meeting_text: 'Join now '
 button:
   template: button
   type: internal page
