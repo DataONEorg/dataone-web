@@ -82,7 +82,7 @@ page_sections:
         type: internal page
         color: primary
         text: Discover DataONE Hosted Repositories
-        internal_link: services/plus.md
+        internal_link: services/hosted-repo.md
         icon: database
         template: ''
         external_link: ''
