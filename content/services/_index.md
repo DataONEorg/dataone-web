@@ -66,9 +66,8 @@ page_sections:
 - template: section
   background: data-wave-subtle
   title: "**Set up a Hosted Repository**"
-  intro: Enhanced DataONE services are currently available on a limited basis as part
-    of a beta program. Please provide the information below and we’ll get in touch
-    when these services are ready for your organization.
+  intro: If you're ready to set up a hosted repository or want to learn more, please
+    provide your information below and we’ll get in touch to get started.
   blocks:
   - template: join-form
     precheck_hostedrepo: true
