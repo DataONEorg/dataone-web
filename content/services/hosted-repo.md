@@ -22,7 +22,7 @@ header:
   type: hosted repository
   pill:
     template: pill
-    text: Coming soon
+    text: Now Live
     style: quaternary
   buttons:
   - template: button
