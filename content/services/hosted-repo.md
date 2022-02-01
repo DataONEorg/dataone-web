@@ -617,7 +617,7 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
-price: 1300
+price: 
 icon: ''
 menu:
   primary_nav:
