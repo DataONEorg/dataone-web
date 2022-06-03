@@ -96,7 +96,7 @@ menu:
     weight: 1
     parent: Services
   primary_nav:
-    name: All services & features
+    name: Pricing & features
     weight: 100
     parent: Services
 

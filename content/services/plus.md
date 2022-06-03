@@ -364,6 +364,7 @@ page_sections:
   blocks:
       - template: page-summary
         service: services/hosted-repo.md
+price: "$47.92 /mo, billed annually"
 menu:
   primary_nav:
     weight: 2

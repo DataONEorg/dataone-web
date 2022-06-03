@@ -617,7 +617,7 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''
-price: 
+price: "$1083.34 /mo, billed annually"
 icon: ''
 menu:
   primary_nav:

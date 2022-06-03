@@ -80,7 +80,7 @@
   <!-- make price a string so that with won't result in negative if price is zero -->
   {{- with $price := (string $price) -}}
   {{- if eq $price "0" -}}
-  {{- $price = "free" -}}
+  {{- $price = "Free" -}}
   {{- end -}}
   <div class="{{- $bn -}}__price">
     {{- $price -}}

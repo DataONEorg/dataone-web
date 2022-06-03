@@ -6,7 +6,6 @@ description: Directly contact our staff
 category: support
 linked_services:
 - service_file: services/plus.md
-  table_annotation: Institutional subscribers only
 - service_file: services/hosted-repo.md
 show_in_table: true
 render_page: false
