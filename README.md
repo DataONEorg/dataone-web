@@ -151,31 +151,19 @@ We use inline SVG for some imagery on the website, like the header image on the 
 
 ## Continuous Integration
 
-The site is built using Travis, and deployed via rsync using an encrypted ssh key that is only decryptable by the travis build system.
-
-To configure Travis, I generated an ssh key and encrypted it for travis.  The private key is dedicated for just this application,
-and is not shared or commited to git.  To update the key in the future, you'll need to use the [Travis CLI](https://github.com/travis-ci/travis.rb)
-tool to encrypt the key, so install it first with `gem install travis`.
+The site is built using Github Actions, and deployed via rsync using an ssh key that is only accessible by the github build system.
+The action workflow uses [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo) to build the hugo site, and then the 
+DataONE [rsync-deploy](https://github.com/DataONEorg/rsync-deploy) action to deploy it over rsync to our host infrastructure. This
+requires that the target host is set up to accept the ssh key as an authorized key.
+To configure it, I generated an ssh key which is dedicated for just this application,
+and is not shared or commited to git.  
 
 ```sh
-$ ssh-keygen -t rsa -b 4096 -C 'build@travis-ci.org' -f ./deploy_rsa
-$ travis login --org
-$ travis encrypt-file deploy_rsa --add
+$ ssh-keygen -t rsa -b 4096 -C 'GHA deploy key' -f ./deploy_rsa
 $ ssh-copy-id -i deploy_rsa.pub user@deployhost
 ```
 
-Set up environment variables pointing at the deploy location.
-Create secure env variables in the Travis config settings so that these values are not leaked in the script in the .travis.yml:
-
-```
-$ travis encrypt DEPLOY_HOST=<web-server-host> --add
-$ travis encrypt DEPLOY_USER=<deploy-user> --add
-$ travis encrypt DEPLOY_DIRECTORY=<deploy-directory> --add
-```
-
-These can be created specifically for one branch, or be shared across branches. The `deploy` script in the .travis.yml is
-configured to rync the files from the Travis build to the `$DEPLOY_HOST` into the `$DEPLOY_DIRECTORY` and can be used to
-atomically move these files into their web location once the rsync is successful.
+Set up Secrets variables pointing at the deploy location, in the GitHub repository settings for $HOST, $PORT, $USER, $GROUP, and $KEY. See https://github.com/DataONEorg/rsync-deploy for more details on these secret variables, and how to configure the GHA workflow to deploy files to various target directories. In this case, the workflow is configured to deploy the `preview` branch to a directory served by https://preview.dataone.org, and the `main` branch to https://dataone.org.
 
 # Credits
 - Photo of the Santa Barbara, California, metropolitan area (santa_barbara__NASA.jpg): NASA
