@@ -44,3 +44,17 @@ jobs:
         with:
           repository: NCEAS/metacatui
           ref: develop
+          
+      - name: Update MetacatUI Exports directory
+        run: |
+            cp -rf ./build/metacatUI_exports/* metacatui/src/js/themes/dataone/components/d1website
+          
+      - name: Commit new MetacatUI Exports
+        uses: EndBug/add-and-commit@v9
+        with:
+          cwd: metacatui
+          add: src/js/themes/dataone/components/d1website
+          message: "Update DataONE theme from dataone-web"
+          push: origin develop --set-upstream --force
+          
+          
