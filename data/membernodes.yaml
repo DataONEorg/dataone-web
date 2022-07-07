@@ -121,7 +121,7 @@ nodes:
   profile: https://search.dataone.org/portals/EDACGSTORE
 - name: Environmental Data Initiative
   logo: "/uploads/member_node_logos/edi.png"
-  homepage: 'http://environmentaldatainitiative.org/ '
+  homepage: 'http://edirepository.org/ '
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/EDI
