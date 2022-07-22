@@ -105,7 +105,7 @@ page_sections:
   intro: 'The path to becoming a network member is divided into four phases: **planning**,
     **development**, **testing**, and **operation**. We will walk you through each
     of these steps. If you''re eager to read about the process in more detail, see
-    [our member deployment documentation](http://jenkins-1.dataone.org/jenkins/job/DataONE-Operations-Manual/ws/operations/_build/html/member_node_deployment/mn_checklist.html).
+    [our member deployment documentation](https://dataone-operations.readthedocs.io/en/latest/MN/deployment/mn_checklist.html).
     Otherwise, just send us a request to get started!'
   button:
     type: contact
