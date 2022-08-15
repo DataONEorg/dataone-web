@@ -4,7 +4,7 @@ duration: 60
 status: past
 registration_link: ''
 title: The Challenges of Reproducibility In Data Scarce Fields
-event_datetime: 2017-05-09T09:00:00-07:00
+event_datetime: 2017-05-09T09:00:00.000-07:00
 tags:
 - Discover
 - Describe
@@ -27,6 +27,17 @@ speakers:
 - people/Peter-Darch.md
 - people/Christine-Borgman.md
 slug: challenges-reproducibility-data-scarce-fields
-image: "/uploads/challenge.jpg"
+image: "/uploads/patrick-perkins-etrpjvb0km0-unsplash.jpg"
+registration_text: ''
+meeting_link: ''
+meeting_text: ''
+button:
+  template: ''
+  type: ''
+  color: ''
+  text: ''
+  external_link: ''
+  internal_link: ''
+  icon: ''
 
 ---
