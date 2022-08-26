@@ -22,10 +22,6 @@ footer:
     pre: search
     url: https://search.dataone.org/data
     weight: 5
-  - name: Old Website
-    pre: globe
-    url: old_website
-    weight: 6
 secondary_nav:
 - name: Get DataONE Plus
   title: Get DataONE Plus

@@ -32,7 +32,6 @@
     {{- $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) -}}
   {{- end -}}
 
-  {{- $pastNewsLink := printf "%s/news" $page.Site.Params.links.old_website -}}
   {{- $buttonBlock := dict "template" "button" "text" "See all news" "type" "external website" "color" "secondary" "external_link" $pastNewsLink -}}
 
   {{- $sectionBlock := dict "blocks" $subblocks "button" $buttonBlock -}}
