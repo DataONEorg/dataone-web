@@ -96,7 +96,7 @@ page_sections:
     image:
       template: image
       src: uploads/enhance-collaboration-opportunities.png
-      alttext:
+      alttext: 
       type: default
     type: right
 - template: section
@@ -114,7 +114,7 @@ page_sections:
     color: primary
 menu:
   footer:
-    weight: 3
+    weight: 11
     parent: Community
 
 ---

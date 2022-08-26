@@ -166,11 +166,11 @@ page_sections:
   id: ''
 menu:
   primary_nav:
-    weight: 2
+    weight: 5
     parent: Learning
     pre: briefcase
   footer:
     parent: Learning
-    weight: 2
+    weight: 5
 
 ---

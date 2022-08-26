@@ -11,7 +11,6 @@ page_sections:
   intro: We're here to help and answer any question you might have.<br>We look forward
     to hearing from you!
   blocks:
-    
   - template: columns
     num_cols: 1
     columns:
@@ -20,12 +19,12 @@ page_sections:
       join_slack_text: Join us on Slack
       socials_title: Find us online
 menu:
+  footer:
+    parent: About
+    weight: 18
   primary_nav:
     parent: About
     pre: mail
-    weight: 4
-  footer:
-    parent: About
-    weight: 4
+    weight: 14
 
 ---

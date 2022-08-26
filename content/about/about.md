@@ -64,7 +64,8 @@ page_sections:
     - date: '2015-06-23'
       title: DataONE Welcomes its First Australian Member Repository
       description: DataONE welcomes the Terrestrial Ecosystem Research Network (TERN)
-        as the first Member Repository in Australia and the 29th overall to join the federation.
+        as the first Member Repository in Australia and the 29th overall to join the
+        federation.
       image: "/uploads/joey-csunyo-2eguir00utk-unsplash.jpg"
     - date: '2014-10-06'
       title: Making Data Count

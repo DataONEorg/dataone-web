@@ -621,11 +621,11 @@ price: "$1083.34 /mo, billed annually"
 icon: ''
 menu:
   primary_nav:
-    weight: 3
+    weight: 10
     parent: Services
     post: A dedicated repository for your data
   footer:
-    weight: 3
+    weight: 13
     parent: Services
 
 ---

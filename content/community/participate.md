@@ -81,8 +81,8 @@ page_sections:
         template: button
         type: internal page
         color: quaternary
-        internal_link: "contribute-data.md"
-        text: 'Learn more'
+        internal_link: contribute-data.md
+        text: Learn more
         external_link: ''
         icon: ''
       image:
@@ -139,8 +139,8 @@ page_sections:
         repositories share data and infrastructure with DataONE and in return, we
         facilitate user access to data and interoperability between members. [Join
         the network](/jointhenetwork/) as a member repository and help lead the open
-        data movement! Becoming a member repository is free and open to all types of
-        organizations.
+        data movement! Becoming a member repository is free and open to all types
+        of organizations.
       clickable: false
       href: ''
       subtitle: ''
@@ -353,11 +353,11 @@ page_sections:
   id: ''
 menu:
   footer:
-    weight: 1
+    weight: 3
     parent: Community
   primary_nav:
     name: How to participate
-    weight: 100
+    weight: 16
     parent: Community
 
 ---
