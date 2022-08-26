@@ -1,5 +1,4 @@
 links:
-  old_website: https://old.dataone.org
   signin: http://localhost:3001/signin
   signout: http://localhost:3001/signout
   metacatuiBase: http://localhost:3001

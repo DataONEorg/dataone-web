@@ -9,7 +9,6 @@ footerText: 'DataONE is a collaboration among many partner organizations, and is
 links:
   contact: "/contact/"
   donate: https://giving.ucsb.edu/Funds/Give?id=353
-  old_website: https://old.dataone.org
   signin: https://search.dataone.org/signin
   search: https://search.dataone.org/data
   metacatuiBase: https://search.dataone.org
