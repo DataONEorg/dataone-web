@@ -57,7 +57,7 @@ page_sections:
     type: internal page
     color: primary
     text: Learn more
-    internal_link: 'meetings/2020.md'
+    internal_link: meetings/2020.md
     icon: ''
   id: meeting
 - type: default
@@ -92,11 +92,11 @@ page_sections:
 menu:
   footer:
     name: The DataONE Community
-    weight: 3
+    weight: 12
     parent: Community
   primary_nav:
     name: The DataONE Community
-    weight: 2
+    weight: 7
     pre: users
     post: Help shape the future of DataONE
     parent: Community

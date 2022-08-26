@@ -120,13 +120,13 @@ description: ''
 menu:
   primary_nav:
     name: Community Calls
-    weight: 4
+    weight: 12
     pre: users
     parent: Community
     post: Join us for a series of monthly meetings
   footer:
     name: Community Calls
-    weight: 4
+    weight: 15
     parent: Community
 
 ---

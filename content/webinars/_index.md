@@ -2,8 +2,8 @@
 date: '2020-02-12'
 cascade:
   type: event
-event_type_singular: "webinar"
-event_type_plural: "webinars"
+event_type_singular: webinar
+event_type_plural: webinars
 title: The DataONE Webinar Series
 header:
   image:
@@ -94,11 +94,11 @@ description: ''
 menu:
   footer:
     name: Webinars
-    weight: 2
+    weight: 9
     parent: Learning
   primary_nav:
     name: Webinars
-    weight: 1
+    weight: 3
     pre: headphones
     parent: Learning
 

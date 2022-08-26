@@ -40,11 +40,11 @@ header:
 menu:
   primary_nav:
     parent: Learning
-    weight: 4
+    weight: 13
     pre: star
   footer:
     parent: Learning
-    weight: 4
+    weight: 16
 
 ---
 # Portals

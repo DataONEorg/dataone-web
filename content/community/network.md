@@ -83,10 +83,10 @@ page_sections:
 menu:
   footer:
     name: Member repos
-    weight: 2
+    weight: 7
     parent: Community
   primary_nav:
-    weight: 1
+    weight: 2
     parent: Community
     pre: server
     post: Our federated network of data repos

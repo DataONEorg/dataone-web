@@ -22,10 +22,10 @@ header:
     text: Free Preview
   title: A home for your research online
   intro: |-
-      Custom search portals for your science, your data, and related data in the
-      DataONE network.
-      
-      **:key: Build your own custom portal for free during the preview period! No credit card required.**
+    Custom search portals for your science, your data, and related data in the
+    DataONE network.
+
+    **:key: Build your own custom portal for free during the preview period! No credit card required.**
   image:
     template: image
     src: "/uploads/portals-header.png"
@@ -46,10 +46,10 @@ page_sections:
   small_title: Introducing Portals
   title: "Showcase your team's goals & results with  \n **branded portals**"
   intro: |-
-      Create a custom, branded portal for your research topic or lab group that
-      spans repositories in the DataONE network. Branded portals provide a convenient,
-      readily customized way to communicate your science, your team, your data, and
-      related data from within the DataONE network.
+    Create a custom, branded portal for your research topic or lab group that
+    spans repositories in the DataONE network. Branded portals provide a convenient,
+    readily customized way to communicate your science, your team, your data, and
+    related data from within the DataONE network.
   blocks:
   - template: columns
     num_cols: 3
@@ -70,7 +70,8 @@ page_sections:
         template: image
         type: float
         src: uploads/portal-builder.png
-        alttext: Screenshot of the portal builder where you can add a portal title, logo, page title, description, and image
+        alttext: Screenshot of the portal builder where you can add a portal title,
+          logo, page title, description, and image
         overlay_effect: ''
       type: top
       text: Pick datasets, add and reorder pages, and upload images in minutes with
@@ -99,13 +100,13 @@ page_sections:
     text: Get started
     color: primary
   - template: button
-    type: 'internal page'
-    color: 'quaternary'
-    text: 'See all features'
-    internal_link: 'services/_index.md'
+    type: internal page
+    color: quaternary
+    text: See all features
+    internal_link: services/_index.md
 - template: section
   background: data-wave
-  icon: "bar-chart-2"
+  icon: bar-chart-2
   small_title: Analytics
   title: Maximize the value of your data
   intro: With access to information about the datasets in your portal, you can monitor
@@ -114,9 +115,9 @@ page_sections:
   blocks:
   - template: feature-detailed
     headline: Make your data FAIR
-    text: Access aggregate & individual FAIR metadata assessment scores. Improve data discovery,
-      accessibility, interoperability, and reusability with a quantitative metadata
-      assessment using the FAIR principles.
+    text: Access aggregate & individual FAIR metadata assessment scores. Improve data
+      discovery, accessibility, interoperability, and reusability with a quantitative
+      metadata assessment using the FAIR principles.
     type: right
     image:
       src: "/uploads/fair_reports/fair-for-portals_compact.png"
@@ -188,8 +189,8 @@ page_sections:
   - template: carousel
     slides:
     - title: Toolik Field Station
-      subtitle: A major site for long-term, process-based ecological research in
-        the North American Arctic since 1975.
+      subtitle: A major site for long-term, process-based ecological research in the
+        North American Arctic since 1975.
       color: "#51b0df"
       button:
         template: button
@@ -202,7 +203,7 @@ page_sections:
       - template: tabs
         tabs:
         - title: Metrics
-          icon: "bar-chart-2"
+          icon: bar-chart-2
           annotation: The Metrics tab summarizes Toolik's long-term data collection,
             and shows how their FAIR scores have changed over time.
           content:
@@ -223,8 +224,8 @@ page_sections:
             overlay_effect: ''
         - title: Custom content
           icon: users
-          annotation: Members of the Toolik community are recognized using a
-            custom staff & contributor directory
+          annotation: Members of the Toolik community are recognized using a custom
+            staff & contributor directory
           content:
           - template: image
             type: float
@@ -341,17 +342,17 @@ page_sections:
 - template: section
   background: major-accent-color
   type: card
-  icon: "zap"
+  icon: zap
   title: Ready to build your own custom portal?
   intro: Create a portal for free during the preview period. No credit card required.
   blocks:
-    - template: button
-      type: portal_start
-      text: Get started
-      color: primary
-    - template: markdown
-      style: center
-      content: "Have questions? [Get in touch](/contact/)."
+  - template: button
+    type: portal_start
+    text: Get started
+    color: primary
+  - template: markdown
+    style: center
+    content: Have questions? [Get in touch](/contact/).
 - template: section
   background: data-wave-subtle
   small_title: Coming soon
@@ -362,16 +363,16 @@ page_sections:
     repositories within the DataONE network, we can deploy this respository infrastructure
     to meet your communities’ needs.
   blocks:
-      - template: page-summary
-        service: services/hosted-repo.md
+  - template: page-summary
+    service: services/hosted-repo.md
 price: "$47.92 /mo, billed annually"
 menu:
   primary_nav:
-    weight: 2
+    weight: 8
     parent: Services
     post: Portals, custom search, metrics & more
   footer:
-    weight: 2
+    weight: 8
     parent: Services
 
 ---

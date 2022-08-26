@@ -91,13 +91,13 @@ page_sections:
   id: ''
 date: 2020-05-08T00:32:17.000+00:00
 menu:
-  footer:
-    name: Overview of services
-    weight: 1
-    parent: Services
   primary_nav:
     name: Pricing & features
-    weight: 100
+    weight: 15
+    parent: Services
+  footer:
+    name: Overview of services
+    weight: 2
     parent: Services
 
 ---
