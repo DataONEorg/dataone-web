@@ -151,7 +151,7 @@ nodes:
   profile: https://search.dataone.org/portals/FEMC
 - name: 'GRIL: metaGRIL'
   logo: "/uploads/member_node_logos/metagril.png"
-  homepage: 'https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw030'
+  homepage: 'https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw031?owa_no_site=843'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/METAGRIL
@@ -229,7 +229,7 @@ nodes:
   profile: https://search.dataone.org/portals/IOE
 - name: National Ecological Observatory Network
   logo: "/uploads/member_node_logos/neon.png"
-  homepage: 'http://www.neoninc.org/'
+  homepage: 'http://www.neonscience.org/'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/NEON
@@ -295,19 +295,19 @@ nodes:
   profile: https://search.dataone.org/portals/R2R
 - name: SANParks Data Repository
   logo: "/uploads/member_node_logos/sanparks.png"
-  homepage: 'http://sanparks.org.za/'
+  homepage: 'https://www.sanparks.org'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/SANPARKS
 - name: SEAD Virtual Archive
   logo: "/uploads/member_node_logos/sead.png"
-  homepage: 'http://sead-data.net/'
+  homepage: 'https://sead2.ncsa.illinois.edu'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/SEAD
 - name: Taiwan Forestry Research Institute
   logo: "/uploads/member_node_logos/tfri.png"
-  homepage: 'http://www.tfri.gov.tw/'
+  homepage: 'https://www.tfri.gov.tw/'
   status: normal
   category: Current member repositories
   profile: https://search.dataone.org/portals/TFRI
