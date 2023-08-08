@@ -32,10 +32,10 @@
     {{- $subblocks = $subblocks | append (dict "template" "columns" "num_cols" 2 "columns" $otherNewsBlocks) -}}
   {{- end -}}
 
-  {{- $buttonBlock := dict "template" "button" "text" "See all news" "type" "external website" "color" "secondary" "external_link" $pastNewsLink -}}
 
-  {{- $sectionBlock := dict "blocks" $subblocks "button" $buttonBlock -}}
+  {{- $sectionBlock := dict "blocks" $subblocks -}}
   {{- partial "blocks/section/section" (dict "Block" $sectionBlock "Page" $ )  -}}
+
 
   <!-- {{- partial "blocks/paginator/paginator" . -}} -->
 
