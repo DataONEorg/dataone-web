@@ -45,3 +45,6 @@ rsconnect/
 
 # generated files
 resources/_gen/
+
+# Hugo generated files
+.hugo_build.lock
