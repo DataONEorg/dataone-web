@@ -30,9 +30,14 @@
 
   // Make a card for each node
   function makeMemberNodeCard(node) {
-    const { name, identifier, logoURL, infoURL, state } = node
+    const { name, identifier, logoURL, infoURL, state, operationalStatus } = node
     const figure = makeFigure(logoURL)
-    const pill = makePill(state)
+    // Don't show pill for contributing nodes
+    const hidePillsFor = ['upcoming', 'contributing']
+    let pill = '';
+    if(!hidePillsFor.includes(operationalStatus)) {
+      pill = makePill(state)
+    }
     let infoLink = ''
     if(infoURL) {
       infoLink = `<a
@@ -86,11 +91,11 @@
       'up': successIcon,
       'down': warningIcon,
     }
-
-    let displayStatus = 'Unknown';
-    if(state) {
-      displayStatus = state.charAt(0).toUpperCase() + state.slice(1);
+    const displayStatuses = {
+      'up': 'Active',
+      'down': 'Down',
     }
+    const displayStatus = displayStatuses[state] || 'Unknown'
     const pillIcon = pillIcons[state] || ''
     const pillType = pillTypes[state] || 'info'
     return `<span class="d1_pill d1_pill--${pillType}">
@@ -119,16 +124,16 @@
       const currentContainer = selectContainer('current-member');
       const replicationContainer = selectContainer('replication');
       const contributingContainer = selectContainer('contributing');
-      const isOnePlusContainer = currentContainer || replicationContainer || contributingContainer;
+      const upcomingContainer = selectContainer('upcoming-member');
+      const isOnePlusContainer = currentContainer || replicationContainer || contributingContainer || upcomingContainer;
 
       // Select the containers to insert the node counts
       const currentCountEl = selectCountEl('current-member');
       const replicationCountEl = selectCountEl('replication');
       const contributingCountEl = selectCountEl('contributing');
       const upcomingCountEl = selectCountEl('upcoming-member');
-      const isOnePlusCount = currentCountEl || replicationCountEl || contributingCountEl || upcomingCountEl;
 
-      if(!nodes || !isOnePlusContainer || !isOnePlusCount) return;
+      if(!nodes || !isOnePlusContainer) return;
 
       // list only member nodes (not coordinating nodes)
       nodes = nodes.filter(node => node.type !== 'cn');
@@ -164,6 +169,10 @@
             replicationContainer.innerHTML += nodeCard
             replicatorCount++;
             break;
+          case 'upcoming':
+            upcomingContainer.innerHTML += nodeCard
+            upcomingCount++;
+            break;
           default:
             console.log('unknown node type', node)
         }
@@ -188,6 +197,10 @@
   };
 
   // Initialize the block
-  initialize();
+  try{
+    initialize();
+  } catch(e) {
+    console.log('Error initializing {{ $bn }}', e);
+  }
 
 }( window.{{ $bnjs }} = window.{{ $bnjs }} || {} ));
