@@ -20,7 +20,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-enableEmoji: true
 enableRobotsTXT: true
 publishDir: docs
 permalinks:

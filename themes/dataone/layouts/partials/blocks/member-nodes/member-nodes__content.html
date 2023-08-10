@@ -19,55 +19,6 @@
       {{- end -}}
       <div class="{{ $bn }}__category-members">
 
-        {{- range $categoryMembers -}}
-          <div class="{{ $bn }}__member">
-            <!-- Status -->
-            {{- with .status -}}
-              {{- $pillType := "primary" -}}
-              {{- if eq . "normal" -}}
-                {{- $pillType = "success" -}}
-              {{- else if eq . "down" -}}
-                {{- $pillType = "warning" -}}
-              {{- else if eq . "upcoming" -}}
-                {{- $pillType = "info" -}}
-              {{- end -}}
-
-              {{- partial "blocks/pill/pill" (dict "Block" (dict "text" (print "Status: " .) "style" $pillType) "Page" $page) -}}
-            {{- end -}}
-
-            <!-- Logo -->
-            {{- if .logo -}}
-              {{- $imageResource := partial "functions/getImage" (dict "image" .logo "Page" $page) -}}
-              {{- if gt $imageResource.Width 300 -}}
-                {{- $imageResource = $imageResource.Resize "300x" -}}
-              {{- end -}}
-              {{- if gt $imageResource.Height 400 -}}
-                {{- $imageResource = $imageResource.Resize "400x" -}}
-              {{- end -}}
-              <figure class="{{ $bn }}__logo">
-                <img class="{{ $bn }}__logo-image" src="{{- $imageResource.RelPermalink -}}" {{- with .name -}} alt="{{- . -}} logo" title="{{- . -}}" {{- end -}}/>
-              </figure>
-            {{- end -}}
-
-            <!-- Node name -->
-            <h4 class="{{ $bn }}__name">{{- .name -}}</h4>
-
-            <!-- Links -->
-            <div class="{{ $bn }}__links">
-              {{- with .profile -}}
-                <a class="{{ $bn }}__link" href="{{- . -}}" title="Member node statistics">
-                  {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "bar-chart-2") "Page" $page) -}}
-                </a>
-              {{- end -}}
-              {{- with .homepage -}}
-                <a class="{{ $bn }}__link" href="{{- . -}}" title="Member node homepage">
-                  {{- partial "blocks/icon/icon" (dict "Block" (dict "icon" "home") "Page" $page) -}}
-                </a>
-              {{- end -}}
-            </div>
-
-          </div>
-        {{- end -}}
       </div>
     </div>
   {{- end -}}
