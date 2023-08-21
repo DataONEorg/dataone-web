@@ -138,6 +138,19 @@ If the block is a simple one that requires few variables, and if content editors
 
 You may also create a [snippet](https://forestry.io/docs/settings/snippets/) for the shortcode, which is basically an example of how the shortcode should be formatted. Forestry makes these snippets available to content editors to insert into the markdown editor. Snippets are stored in the `.forestry/snippets/` directory.
 
+## The Network Page
+
+**Node Organization Based on `operationalStatus`**
+
+Member nodes on the [Network page](https://www.dataone.org/network/#list-of-member-repositories) are categorized based on their `operationalStatus` property in the DataONE registry. The `operationalStatus` property is a string that can take on one of the following values:
+
+- **operational**: Corresponds to "Current" on the website.
+- **contributing**: Nodes that actively contribute or have contributed to the system.
+- **replicator**: Known as "Replication" on the website.
+- **upcoming**: Nodes that will be activated soon.
+
+We also recognize a status called **deprecated**. However, there are multiple reasons a node might be marked as deprecated. For the moment, these nodes are not included on the /network/ page, though we have discussed introducing more specific `operationalStatus` values to depict different circumstances under which a node might be deprecated. See discussion in [issue #176](https://github.com/DataONEorg/dataone-web/issues/176). To make changes to how nodes are categorized, edit the [`dataone-web`](https://github.com/DataONEorg/dataone-web/blob/main/themes/dataone/layouts/partials/blocks/member-nodes/member-nodes.js) file.
+
 ## Misc. Resources
 
 - Some static images use modified components from [Vectorpocket / Freepik](https://www.freepik.com)
