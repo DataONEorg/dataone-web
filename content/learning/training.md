@@ -98,8 +98,7 @@ page_sections:
       by request.
   - template: markdown
     style: warning
-    content: Due to COVID-19 our training has moved from in-person to an immersive
-      remote environment
+    content: Due to COVID-19 our trainings vary in-person or an immersive remote environment. 
   button:
     template: button
     type: external website
@@ -114,18 +113,16 @@ page_sections:
   id: upcoming-training
   background: data-wave
   small_title: Upcoming Training
-  title: Reproducible Research Techniques for Synthesis
+  title: CoreR
   intro: ''
   blocks:
   - template: markdown
     style: default
-    content: "**Dates: November 12-13 and 17-18  \nLocation: Remote (via Zoom)**\n\nThis
-      five-day workshop is designed to help researchers stay abreast of current best
-      practices and initiatives and get started on acquiring good data science skills
-      to maximize their productivity, share their data with the scientific community
-      effectively and efficiently, and benefit from the re-use of their data by others.
-      \n\nThe course will be held remotely and run on November 12 and 13, break for
-      the weekend, and resume for November 16, 17 and 18. Full details and registraiton
+    content: "**Dates: April 1-5, 2024  \nLocation: National Center for Ecological Analysis and Synthesis in Santa Barbara, CA**\n\nThis
+      five-day course is designed to help researchers apply essential data science tools to environmental research. 
+      It will teach particiapnts about open data, collaborative softward, and reproducible analystical workflows all while highlighting technical skills need to do open science in the ever-evolving data
+      science field.  
+      \n\nThe course will be held in-person and run on April 1-5, 2024. Full details and
       information available at the link below."
   type: ''
   background_image: ''
@@ -135,8 +132,8 @@ page_sections:
     template: ''
     type: external website
     color: primary
-    text: Learn More and Register
-    external_link: https://www.nceas.ucsb.edu/learning-hub/short-course
+    text: Learn More
+    external_link: https://www.nceas.ucsb.edu/learning-hub/core-r
     internal_link: ''
     icon: ''
 - template: section
