@@ -3,7 +3,7 @@
 var homepageHeader = document.getElementById("homepage_header");
 if (homepageHeader) {
   
-  {{- $homepage := .Site.GetPage "/_index.md" -}}
+  {{- $homepage := .GetPage "/_index.md" -}}
   {{- $headerImages := $homepage.Params.header.images  -}}
   {{- $headerImagePaths := slice -}}
   {{- range $headerImages -}}

@@ -4,7 +4,7 @@
 // execute all SCSS files as template, so that scss files can contain hugo
 // templating code if needed. * SITE IS PASSED AS THE CONTEXT *
 
-{{ $site := .Site }}
+{{ $page := . }}
 
 // ==== IMPORT ALL ASSET SCSS ====
 // Use a slice of file names instead of ranging through the directory because
@@ -14,7 +14,7 @@
 {{ $ext := ".scss" }}
 {{ range $name := $scssFiles }}
   {{ $assetPath := path.Join $scssAssetDir (print $name $ext) }}
-  {{ $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".scss") $.Site }}
+  {{ $asset := resources.Get $assetPath | resources.ExecuteAsTemplate (print $name ".scss") $page.Site }}
   {{ $asset.Content | safeCSS }}
 {{ end }}
 
@@ -25,7 +25,7 @@
   // If the file is an .scss file, import it
   {{ if or (strings.HasSuffix .Name "scss") (strings.HasSuffix .Name "css") }}
     {{ $blockscss := path.Join $librariesdir .Name }}
-    {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $site }}
+    {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $page.Site }}
     {{ $cssResource.Content | safeCSS }}
   {{ end }}
 {{ end }}
@@ -44,7 +44,7 @@
       // If the file is an .scss file, import it
       {{ if (strings.HasSuffix .Name "scss") }}
         {{ $blockscss := path.Join $blocksubdir .Name }}
-        {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $site }}
+        {{ $cssResource := readFile $blockscss | resources.FromString (print .Name ".scss") | resources.ExecuteAsTemplate (print .Name "2.scss") $page.Site }}
         {{ $cssResource.Content | safeCSS }}
       {{ end }}
     {{ end }}

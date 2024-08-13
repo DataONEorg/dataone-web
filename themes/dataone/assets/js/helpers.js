@@ -51,7 +51,7 @@
    * @return {boolean}  true if mobile, false if desktop
    */ 
   block.isMobile = function(){
-    var mobileDesktopBreakpoint = {{- .Site.Params.mobileDesktopBreakpoint -}} || 700;
+    var mobileDesktopBreakpoint = {{- .Params.mobileDesktopBreakpoint -}} || 700;
     var winWidth = window.innerWidth || document.documentElement.clientWidth;
     if(winWidth < mobileDesktopBreakpoint){
       return true

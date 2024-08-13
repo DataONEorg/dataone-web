@@ -1,5 +1,6 @@
 <head>
 
+
   {{- $page := . -}}
   {{- $pageTitle := .Title -}}
   {{- if not $pageTitle -}}
@@ -8,7 +9,7 @@
   {{- if not $pageTitle -}}
     {{ $pageTitle = .Params.fullname -}}
   {{- end -}}
-  
+
   <!-- For IE <= 9 -->
   <!--[if IE]>
   <script type="text/javascript">
@@ -71,8 +72,9 @@
     {{- end -}}
 
     {{- $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir)) -}}
-    {{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $.Site | toCSS $options -}}
-    {{- if not $page.Site.IsServer -}}
+
+    {{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $page | toCSS $options -}}
+    {{- if not hugo.IsServer -}}
       {{- $style = $style | minify -}}
     {{- end -}}
     <!-- Make a 'version' string -->

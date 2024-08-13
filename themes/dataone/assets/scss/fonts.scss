@@ -1,5 +1,5 @@
 // The font directory relative to the location of the compiled CSS file
-{{- $site := .Site -}}
+{{- $site := . -}}
 
 {{- $fontsDir := $site.Params.fontsDirRelCss | default "../fonts/" -}}
 

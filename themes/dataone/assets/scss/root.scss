@@ -64,7 +64,7 @@
   //
   // Product theme colors
   // ==========================================================================
-  {{ $services := where $.Site.Pages "Type" "services" }}
+  {{ $services := where .Pages "Type" "services" }}
   {{ $services := where $services "Params.service_color" "!=" nil }}
   {{ range $service := $services }}
     {{ $color := $service.Params.service_color }};

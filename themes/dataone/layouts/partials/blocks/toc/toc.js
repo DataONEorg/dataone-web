@@ -39,7 +39,7 @@
           classActive = "active",
           
     // The screen size at which to define "desktop" vs "mobile"
-          mobileDesktopBreakpoint = {{- .Site.Params.mobileDesktopBreakpoint -}} || 700;
+          mobileDesktopBreakpoint = {{- $site.Params.mobileDesktopBreakpoint -}} || 700;
 
     /**    
      * initialize - Functions to run once the HTML elements are loaded.

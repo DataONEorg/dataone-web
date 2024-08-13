@@ -1,8 +1,8 @@
 <!-- Rounds a number and displays as thousands (e.g. 999.9 K) or millions (e.g. 999.9 M) -->
 {{- $return := 0 -}}
 {{- with . -}}
-  {{- $millions := div . 1000000.0 | lang.NumFmt 1 -}}
-  {{- $thousands := div . 1000.0 | lang.NumFmt 1 -}}
+  {{- $millions := div . 1000000.0 | lang.FormatNumberCustom 1 -}}
+  {{- $thousands := div . 1000.0 | lang.FormatNumberCustom 1 -}}
   
   {{- if ge $millions 1 -}}
     {{- $return = print $millions " M" -}}

@@ -1,6 +1,6 @@
 // ==== GLOBAL SPACING VARIABLES ====
 // Screen width at which to switch from mobile view to desktop view
-$breakpoint             : {{ .Site.Params.mobileDesktopBreakpoint }}px;
+$breakpoint             : {{ .Params.mobileDesktopBreakpoint }}px;
 // Overwrite the responsive font size default (used by responsive-font-size.scss)
 $rfs-breakpoint: $breakpoint;
 $default-border-radius  : .25rem;
