@@ -1,16 +1,21 @@
-| **Main**:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
-|---|---|
-| **Preview**:|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)|
-
-# DataONE Static Website
+# 🌍 DataONE Static Website
 
 All files used to generate the DataONE static website.
+
+|site|status|url|
+|---|---|---|
+| **Main**|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=master)](https://travis-ci.com/github/DataONEorg/dataone-web/)|https://www.dataone.org|
+| **Preview**|[![](https://travis-ci.com/DataONEorg/dataone-web.svg?branch=preview)](https://travis-ci.com/github/DataONEorg/dataone-web/)|https://preview.dataone.org|
+
+## Contributing
+
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for information on how to contribute to the DataONE website.
 
 ## Developer guidelines
 
 ### I. Orientation
 
-The website is generated using the static site generator, [Hugo](https://gohugo.io/documentation/), and the [Block, Element, Modifier (BEM) approach](https://en.bem.info/methodology/quick-start/) to development. We use the git-backed CMS [Forestry.io](https://forestry.io/docs/welcome/).
+The website is generated using the static site generator, [Hugo](https://gohugo.io/documentation/), and the [Block, Element, Modifier (BEM) approach](https://en.bem.info/methodology/quick-start/) to development.
 
 #### Hugo
 
@@ -38,9 +43,9 @@ and then visit `localhost:1313`, or whatever `baseURL` is configured in `/config
 
   - The file `theme/dataone/assets/styles.scss` imports all `scss` files that are contained within the subdirectories of `themes/dataone/layouts/partials/blocks` (or whichever path `blockDir` is set to in `config.yaml`). This allows us to store all files required for each block in the same directory (e.g. `blockname/blockname.html` and `blockname/blockname.scss`).
 
-#### Forestry.io
+#### Forestry.io (⚠️ deprecated)
 
-Each block has associated `.yaml` documentation stored in the `.forestry/front_matter/templates` directory. The forestry front matter documentation is basically a schema for each block. It describes each variable used in a block.
+Historically, we uses the git-backed CMS [Forestry.io](https://forestry.io/docs/welcome/), a service which is no longer available. The content in the `.forestry/` directory is no longer used, however, the forestry front matter is basically a schema for each block. It describes each variable used in a block.
 
 ### II. Block pages
 
