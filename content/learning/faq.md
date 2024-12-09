@@ -51,8 +51,8 @@ You are in full control of the data curation for the data you upload to your rep
   blocks:
   - template: faq
     faqs:
-    - q: Question 1
-      a: Answer 1
+    - q: Why should I consider DataONE Plus instead of a Hosted Repository?
+      a: 'DataONE Plus service is ideal for shorter-term projects as it minimizes the costs and allows you to have a landing page for your project. Moreover, this system provides a customizable data portal where you control the content and the pages, and can present a custom catalog with content from any of the member repositories in the DataONE network.'
     - q: Question 2
       a: Answer 2
     - q: Question 3
