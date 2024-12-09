@@ -204,7 +204,7 @@ nodes:
   category: Current member repositories
   profile: https://search.dataone.org/portals/KNB
 - name: LTER Network Member Repository
-  logo: "content/uploads/member_node_logos/LTER-network-square-lg.png"
+  logo: "/uploads/member_node_logos/LTER-network-square-lg.png"
   homepage: 'http://www.lternet.edu/'
   status: normal
   category: Current member repositories
