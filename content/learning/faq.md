@@ -36,7 +36,7 @@ page_sections:
 You are in full control of the data curation for the data you upload to your repository, and we make sure the service is stable and secure. This service is intended for institutions or projects that want to maintain a long-term repository presence.'
     - q: What if I don’t want a Hosted Repository, but still want to use DataONE to store my data?
       a: 'You can deposit data in one of the open DataONE repositories and then you can use the DataONE Plus service to build your own customizable data portal describing your project.  DataONE Plus provides a customizable data portal where you control the pages and content via a UI dialog, and can present a custom catalog populated with datasets from any of the member repositories in the DataONE network.'
-    - q:Question 3
+    - q: Question 3
       a: |
         **Answer 3** includes `markdown` content. Just start the answer with a _pipe_ character and use markdown syntax! You can also include emojis like :smile:.
     - q: Can we limit permissions to specific members and/or groups for certain portals?
