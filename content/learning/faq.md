@@ -53,9 +53,6 @@ You are in full control of the data curation for the data you upload to your rep
     faqs:
     - q: Why should I consider DataONE Plus instead of a Hosted Repository?
       a: 'DataONE Plus service is ideal for shorter-term projects as it minimizes the costs and allows you to have a landing page for your project. Moreover, this system provides a customizable data portal where you control the content and the pages, and can present a custom catalog with content from any of the member repositories in the DataONE network.'
-    - q: Question 2
-      a: Answer 2
-    - q: Question 3
-      a: |
-        **Answer 3** includes `markdown` content. Just start the answer with a _pipe_ character and use markdown syntax! You can also include emojis like :smile:.
+    - q: How can I make changes to my portal?
+      a: 'If you have controlled permissions to edit the portal, you can do it via our system. For a better tutorial, visit out [Portals How-To Page](https://www.dataone.org/portals-tutorial/#saving-and-editing-portals).'
 ---
