@@ -36,6 +36,8 @@ page_sections:
 You are in full control of the data curation for the data you upload to your repository, and we make sure the service is stable and secure. This service is intended for institutions or projects that want to maintain a long-term repository presence.'
     - q: What if I don’t want a Hosted Repository, but still want to use DataONE to store my data?
       a: 'You can deposit data in one of the open DataONE repositories and then you can use the DataONE Plus service to build your own customizable data portal describing your project.  DataONE Plus provides a customizable data portal where you control the pages and content via a UI dialog, and can present a custom catalog populated with datasets from any of the member repositories in the DataONE network.'
+    - q: Can we set up a dataset curation/review process for submitted datasets?
+      a: 'Yes. Dataset curation can be as intensive as desired. Some Hosted Repositories have extensive review processes, whereas others allow dataset creators to publish datasets immediately without review. Curation can involve either editing and annotating metadata records via the API, or simply checking for errors. Generally, repositories that have a curation process tend to only allow members of their curation teams to assign DOIs and make datasets public.' 
     - q: Can we limit permissions to specific members and/or groups for certain portals?
       a: 'Yes, each portal can be configured with customized permissions. This includes control over which users and groups can view the portal, edit its content, and manage its permissions. For more details, visit our [Portals Tutorial](https://www.dataone.org/portals-tutorial/).'
 - template: section
