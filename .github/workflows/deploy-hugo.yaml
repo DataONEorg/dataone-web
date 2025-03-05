@@ -36,7 +36,7 @@ jobs:
             npm install
             if [ "$env.SITE" = "www.dataone.org" ]; then hugo; else hugo --baseURL=https://${{ env.SITE }}; fi
       - name: Deploy Site
-        uses: dataoneorg/rsync-deploy@v1.0.0
+        uses: dataoneorg/rsync-deploy@v1.0.1
         with:
           host: ${{ env.SITE }}
           port: ${{ secrets.PORT }}
