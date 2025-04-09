@@ -95,10 +95,7 @@ page_sections:
     content: Open to researchers and students from any discipline or sector, courses
       are offered at NCEAS in Santa Barbara, California - and we welcome locals and
       travelers alike! We can also arrange a customized training at your home institution
-      by request.
-  - template: markdown
-    style: warning
-    content: Due to COVID-19 our trainings vary in-person or an immersive remote environment. 
+      by request. 
   button:
     template: button
     type: external website
