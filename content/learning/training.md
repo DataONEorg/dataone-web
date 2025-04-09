@@ -107,33 +107,6 @@ page_sections:
   id: ''
   intro: ''
 - template: section
-  id: upcoming-training
-  background: data-wave
-  small_title: Upcoming Training
-  title: CoreR
-  intro: ''
-  blocks:
-  - template: markdown
-    style: default
-    content: "**Dates: October 7-11, 2024  \nLocation: National Center for Ecological Analysis and Synthesis in Santa Barbara, CA**\n\nThis
-      five-day course is designed to help researchers apply essential data science tools to environmental research. 
-      It will teach particiapnts about open data, collaborative softward, and reproducible analystical workflows all while highlighting technical skills need to do open science in the ever-evolving data
-      science field.  
-      \n\nThe course will be held in-person and run on October 7-11, 2024. Full details and
-      information available at the link below."
-  type: ''
-  background_image: ''
-  background2: ''
-  icon: ''
-  button:
-    template: ''
-    type: external website
-    color: primary
-    text: Learn More
-    external_link: https://www.nceas.ucsb.edu/learning-hub/core-r
-    internal_link: ''
-    icon: ''
-- template: section
   type: ''
   background: ''
   background_image: ''
