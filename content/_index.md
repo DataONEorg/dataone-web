@@ -146,12 +146,7 @@ page_sections:
           template: pill
           text: Upcoming training
           style: secondary
-        description: Due to COVID-19 we have adapted our 5-day, in-person short course
-          to an immersive remote delivery format. This is an exciting opportunity
-          for us to reach a broad community, and we are look forward to delivering
-          high quality, hands-on learning experiences, consistent with our in-person
-          events. <br><br> [Learn more](/training/) about resources and training opportunities
-          through DataONE.
+        description: We are not currently hosting in-person short courses, however, [check out our more resources](/training/). 
         icon: ''
         colorClass: ''
         datetime:
