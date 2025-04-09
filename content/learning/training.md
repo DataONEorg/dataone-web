@@ -28,7 +28,7 @@ header:
   pill:
     template: pill
     style: quaternary
-    text: Upcoming remote training
+    text: More information to come
   background_color: ''
 page_sections:
 - template: section
