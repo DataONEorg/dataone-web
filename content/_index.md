@@ -56,7 +56,7 @@ page_sections:
         community_call: ''
         job: ''
     - title: Training Materials
-      annotation: Find out about our all of our learnign materials
+      annotation: Find out about our all of our learning materials
       icon: globe
       content:
       - template: card
@@ -74,7 +74,7 @@ page_sections:
           template: pill
           text: Training
           style: secondary
-        description: While, we are not offering in-person short courses at the moment, [explore our additional resourcess](/training/) to continue learning. 
+        description: While, we are not offering in-person short courses at the moment, [explore our additional resourcess](/training/) to continue learning. If you are interested in receiving training for you or your team, please reach out to our support@dataone.org.
         icon: ''
         colorClass: ''
         datetime:
