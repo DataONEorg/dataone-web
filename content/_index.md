@@ -44,6 +44,46 @@ page_sections:
   - template: tabs
     id: latest-updates
     tabs:
+    - title: New Network Member!
+      annotation: Learn who just joined the DataONE Federation 
+      icon: award
+      content:
+      - template: card
+        href: https://dataoneorg.github.io/Education/bestpractices/provide-budget-information
+        title: Best Practice
+        subtitle: "Provide budget information for your data management plan"
+        clickable: true
+        pill:
+          template: pill
+          text: Featured skill
+          style: primary
+        description: We're excited to announce the Global Ecosystem Research Institute, otherwise known as the GERI Project, has joined the DataONE network! They are a collaboration of various international projects aiming to harmonize datasets and create data products connecting these partnerships. For more information, explore the [GERI DataONE repository](https://geri.dataone.org/).    
+        image:
+          template: image
+          src: "/uploads/sharon-mccutcheon-8lnbxtxfgzw-unsplash.jpg"
+          alttext: World map shown with Robinson projection
+          type: default
+          overlay_effect: ''
+        tags:
+        - Plan
+        - Integrate
+        icon: ''
+        colorClass: ''
+        datetime:
+          template: ''
+          time: ''
+          change_timezone: false
+          localize: false
+          format: ''
+          style: ''
+        button:
+          template: ''
+          type: ''
+          color: ''
+          text: ''
+          external_link: ''
+          internal_link: ''
+          icon: ''
     - title: Community call
       annotation: Everyone is welcome to join the upcoming community call
       icon: users
