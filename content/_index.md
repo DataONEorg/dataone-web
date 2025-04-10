@@ -177,7 +177,6 @@ page_sections:
     internal_link: ''
     icon: ''
   id: '' 
-  
   - template: section
   type: card
   background: data-wave-subtle
