@@ -49,9 +49,9 @@ page_sections:
       icon: award
       content:
       - template: card
-        href: https://dataoneorg.github.io/Education/bestpractices/provide-budget-information
-        title: Best Practice
-        subtitle: "Provide budget information for your data management plan"
+        href: https://geri.dataone.org/
+        title: New Network Member 
+        subtitle: "See what's new!"
         clickable: true
         pill:
           template: pill
@@ -61,7 +61,7 @@ page_sections:
         image:
           template: image
           src: "content/uploads/GERI.png"
-          alttext: World map shown with Robinson projection
+          alttext: GERI logo
           type: default
           overlay_effect: ''
         tags:
