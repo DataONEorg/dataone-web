@@ -37,7 +37,6 @@ header:
     use_member_repositories: false
     style: ''
 page_sections:
-
 - template: section
   background: wave
   title: The latest updates from DataONE
