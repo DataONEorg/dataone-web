@@ -38,78 +38,6 @@ header:
     style: ''
 page_sections:
 - template: section
-  type: card
-  background: data-wave-subtle
-  icon: star
-  small_title: New!
-  title: "**Introducing Products & Services from DataONE**"
-  blocks:
-  - template: columns
-    num_cols: 2
-    columns:
-    - template: feature-detailed
-      type: top
-      headline: DataONE Plus
-      text: Enhanced DataONE products and services in support of your research.
-      image:
-        src: "/uploads/portals-summary.png"
-        template: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
-      details: []
-      button:
-        type: internal page
-        color: primary
-        text: Learn more about DataONE Plus
-        internal_link: services/plus.md
-        icon: d1-plus-logo
-        template: ''
-        external_link: ''
-      related_page: ''
-    - template: feature-detailed
-      type: top
-      headline: Hosted Repositories
-      text: A dedicated repository solution for your group or institution’s data,
-        managed by DataONE.
-      image:
-        src: "/uploads/hosted-repo-summary.png"
-        template: ''
-        alttext: ''
-        type: ''
-        overlay_effect: ''
-      button:
-        type: internal page
-        color: primary
-        text: Discover DataONE Hosted Repositories
-        internal_link: services/hosted-repo.md
-        icon: database
-        template: ''
-        external_link: ''
-      related_page: ''
-      details: []
-    alignment: ''
-    layout: ''
-  - template: button
-    type: internal page
-    color: quaternary
-    text: See all features
-    internal_link: services/_index.md
-    external_link: ''
-    icon: ''
-  background_image: ''
-  background2: ''
-  intro: ''
-  button:
-    template: ''
-    type: ''
-    color: ''
-    text: ''
-    external_link: ''
-    internal_link: ''
-    icon: ''
-  id: ''
-- template: section
   background: wave
   title: The latest updates from DataONE
   blocks:
@@ -239,6 +167,78 @@ page_sections:
   background2: ''
   icon: ''
   small_title: ''
+  intro: ''
+  button:
+    template: ''
+    type: ''
+    color: ''
+    text: ''
+    external_link: ''
+    internal_link: ''
+    icon: ''
+  id: '' 
+  - template: section
+  type: card
+  background: data-wave-subtle
+  icon: star
+  small_title: 
+  title: "**Understanding Products & Services from DataONE**"
+  blocks:
+  - template: columns
+    num_cols: 2
+    columns:
+    - template: feature-detailed
+      type: top
+      headline: DataONE Plus
+      text: Enhanced DataONE products and services in support of your research.
+      image:
+        src: "/uploads/portals-summary.png"
+        template: ''
+        alttext: ''
+        type: ''
+        overlay_effect: ''
+      details: []
+      button:
+        type: internal page
+        color: primary
+        text: Learn more about DataONE Plus
+        internal_link: services/plus.md
+        icon: d1-plus-logo
+        template: ''
+        external_link: ''
+      related_page: ''
+    - template: feature-detailed
+      type: top
+      headline: Hosted Repositories
+      text: A dedicated repository solution for your group or institution’s data,
+        managed by DataONE.
+      image:
+        src: "/uploads/hosted-repo-summary.png"
+        template: ''
+        alttext: ''
+        type: ''
+        overlay_effect: ''
+      button:
+        type: internal page
+        color: primary
+        text: Discover DataONE Hosted Repositories
+        internal_link: services/hosted-repo.md
+        icon: database
+        template: ''
+        external_link: ''
+      related_page: ''
+      details: []
+    alignment: ''
+    layout: ''
+  - template: button
+    type: internal page
+    color: quaternary
+    text: See all features
+    internal_link: services/_index.md
+    external_link: ''
+    icon: ''
+  background_image: ''
+  background2: ''
   intro: ''
   button:
     template: ''
