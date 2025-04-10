@@ -55,8 +55,8 @@ page_sections:
         webinar: ''
         community_call: ''
         job: ''
-    - title: Upcoming training
-      annotation: Find out about our upcoming 5-day course
+    - title: Training Materials
+      annotation: Find out about our all of our learnign materials
       icon: globe
       content:
       - template: card
@@ -68,13 +68,13 @@ page_sections:
           type: ''
           overlay_effect: ''
         title: Learn Directly from DataONE Experts
-        subtitle: Our newly designed remote short course is now available
+        subtitle: Various data science training materials are available
         clickable: false
         pill:
           template: pill
-          text: Upcoming training
+          text: Training
           style: secondary
-        description: We are not currently hosting in-person short courses, however, [check out our more resources](/training/). 
+        description: While, we are not offering in-person short courses at the moment, [explore our additional resourcess](/training/) to continue learning. 
         icon: ''
         colorClass: ''
         datetime:
@@ -94,7 +94,7 @@ page_sections:
           icon: ''
         tags: []
     - title: Webinar series
-      annotation: Join us for the monthly DataONE webinar series
+      annotation: Join us for the DataONE webinar series
       icon: headphones
       content:
       - template: page-summary
