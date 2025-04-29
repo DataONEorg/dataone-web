@@ -83,6 +83,7 @@ page_sections:
           text: ''
           external_link: ''
           internal_link: ''
+          icon: ''
     - title: Community call
       annotation: Everyone is welcome to join the upcoming community call
       icon: users
