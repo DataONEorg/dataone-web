@@ -44,7 +44,7 @@ page_sections:
   - template: tabs
     id: latest-updates
     tabs:
-    - title: New Network Member!
+    - title: New Network Member
       annotation: Learn who just joined the DataONE Federation 
       icon: award
       content:
@@ -83,7 +83,6 @@ page_sections:
           text: ''
           external_link: ''
           internal_link: ''
-          icon: ''
     - title: Community call
       annotation: Everyone is welcome to join the upcoming community call
       icon: users
