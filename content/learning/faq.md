@@ -40,6 +40,8 @@ You are in full control of the data curation for the data you upload to your rep
       a: 'Yes. Dataset curation can be as intensive as desired. Some Hosted Repositories have extensive review processes, whereas others allow dataset creators to publish datasets immediately without review. Curation can involve either editing and annotating metadata records via the API, or simply checking for errors. Generally, repositories that have a curation process tend to only allow members of their curation teams to assign DOIs and make datasets public.' 
     - q: Can we limit permissions to specific members and/or groups for certain portals?
       a: 'Yes, each portal can be configured with customized permissions. This includes control over which users and groups can view the portal, edit its content, and manage its permissions. For more details, visit our [Portals Tutorial](https://www.dataone.org/portals-tutorial/).'
+    - q: Where are DataONE's services hosted? 
+      a: 'Our main services are hosted in the University of California, Santa Barbara (UCSB) [North Hall Data Center](https://it.ucsb.edu/information-technology-services/north-hall-data-center/)'
 - template: section
   title: DataONE Plus
   id: portals
