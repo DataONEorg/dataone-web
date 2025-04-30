@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       - uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '22'
       - name: Set env vars (preview)
         if: endsWith(github.ref, '/preview')
         run: |
@@ -28,7 +28,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.132.1"
+          hugo-version: "0.147.0"
           extended: true
       - name: Build Site
         run: |
