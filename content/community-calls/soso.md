@@ -1,5 +1,5 @@
 ---
-date: 2021-03-22T093019-0600
+date: 2021-03-22T09:30:19.000-0600
 duration: 60
 status: past
 registration_text: Register now

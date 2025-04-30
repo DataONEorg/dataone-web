@@ -6,7 +6,8 @@ languageCode: en-us
 metaDataFormat: yaml
 pygmentsCodeFences: true
 enableEmoji: true
-paginate: 10
+pagination:
+  pagerSize: 10
 markup:
   highlight:
     codeFences: true

@@ -73,7 +73,7 @@
 
     {{- $options := (dict "enableSourceMap" true "includePaths" (slice .Site.Params.blockDir)) -}}
 
-    {{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $page | toCSS $options -}}
+    {{- $style := resources.Get "scss/_main.scss" | resources.ExecuteAsTemplate "styles.css" $page | css.Sass $options -}}
     {{- if not hugo.IsServer -}}
       {{- $style = $style | minify -}}
     {{- end -}}

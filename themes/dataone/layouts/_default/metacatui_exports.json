@@ -92,7 +92,7 @@
   {{- end -}}
 
   {{/* Output CSS */}}
-  {{- $cssBundle := $scratch.Get "SCSS" | resources.FromString $cssOutputName | resources.ToCSS | resources.Minify -}}
+  {{- $cssBundle := $scratch.Get "SCSS" | resources.FromString $cssOutputName | css.Sass | resources.Minify -}}
   "{{ path.Base $cssBundle.Name }}" : "{{ $cssBundle.Permalink }}",
 
   {{/* Output JS */}}
