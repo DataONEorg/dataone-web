@@ -13,12 +13,6 @@ header:
     Open reproducible research is becoming ever more critical for answering today’s complex questions at the scale and speed needed for solutions. In collaboration with the National Center for Ecological Synthesis and Analysis, DataONE has developed lessons, best practices, and training programs in data management to support research efficiency, productivity, and transparency.
   buttons:
   - template: button
-    color: primary
-    text: Upcoming training details
-    type: internal page
-    internal_link: training.md#upcoming-training
-    external_link: ''
-    icon: ''
   image:
     template: ''
     src: "/uploads/nesa-by-makers-igur1ix0mqm-unsplash.jpg"
