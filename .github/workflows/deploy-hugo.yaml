@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '14'
       - name: Set env vars (preview)
         if: endsWith(github.ref, '/preview')
         run: |
