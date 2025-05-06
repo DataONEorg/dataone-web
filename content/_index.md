@@ -176,7 +176,7 @@ page_sections:
   type: card
   background: data-wave-subtle
   icon: star
-  small_title: New!
+  small_title: 
   title: "**Understanding Products & Services from DataONE**"
   blocks:
   - template: columns
