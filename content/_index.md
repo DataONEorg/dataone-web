@@ -57,11 +57,11 @@ page_sections:
           template: pill
           text: GERI
           style: primary
-        description: We're excited to announce the Global Ecosystem Research Institute, otherwise known as the GERI Project, has joined the DataONE network! They are a collaboration of various international projects aiming to harmonize datasets and create data products connecting these partnerships. For more information, explore the "[GERI DataONE repository.](https://geri.dataone.org/)"
+        description: We're excited to announce the Global Ecosystem Research Institute, otherwise known as the GERI Project, has joined the DataONE network! They are a collaboration of various international projects aiming to harmonize datasets and create data products connecting these partnerships. For more information, explore the GERI DataONE repository.
     
         image:
           template: image
-          src: "content/uploads/GERI.png"
+          src: "content/uploads/member_node_logos/GERI.pngGERI.png"
           alttext: GERI logo
           type: default
           overlay_effect: ''
