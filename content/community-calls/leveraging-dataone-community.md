@@ -13,7 +13,7 @@ button:
   external_link: ''
   icon: ''
 title: "Leveraging the Power of the DataONE Network: Community, Collaboration, and What’s Next"
-slug: usability-services
+slug: leveraging-dataone-community
 event_datetime: 2025-06-04T09:00:00-08:00
 image: "/uploads/rick-l-tOZAiC3hZgM-unsplash.jpg"
 tags: []
@@ -27,5 +27,6 @@ abstract: Join us for a community call focused on how you can make the most out 
 speakers:
 - people/DataONE-Community.md
 - people/matthew-jones.md
+- people/amber-budden.md
 
 ---
