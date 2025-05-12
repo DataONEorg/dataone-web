@@ -22,7 +22,7 @@ meeting_link: 'https://ucsb.zoom.us/j/89357613088'
 disqus_shortname: ''
 vimeoID: ''
 slides: ''
-short_abstract: 'Learn what DataONE has been up to and how we can better support your work. '
+short_abstract: 'Join us for a community call focused on how you can make the most out of the DataONE networks and learn how we have grown. We will highlight recent activites, showcase the ways the community is advancing open science, expllore our replication services for data preservation, and share opportunities for getting involved. Whether you are new to DataONE or a longtime contributor, this session is a chance to connect with different member nodes, ask questions, and explore how DataONE can support your work.'
 abstract: Join us for a community call focused on how you can make the most out of the DataONE network and learn how we have grown. We'll highlight recent activities, showcase ways the community is advancing open science, explore our replication services for data preservation, and share opportunitites for getting involved. Whether you're new to DataONE or a longtime contributor, this session is a chance to connect with different member nodes, ask questions, and explore how DataONE can support your work.
 speakers:
 - people/DataONE-Community.md
