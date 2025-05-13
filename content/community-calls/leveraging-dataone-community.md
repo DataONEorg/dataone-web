@@ -28,5 +28,6 @@ speakers:
 - people/DataONE-Community.md
 - people/matthew-jones.md
 - people/amber-budden.md
+- people/ian-nesbitt.md
 
 ---
