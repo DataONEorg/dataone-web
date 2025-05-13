@@ -1,5 +1,5 @@
 ---
-avatar: "/uploads/placeholder_tim-mossholder-8R-mXppeakM-unsplash.jpg"
+avatar: "/uploads/nesbitt-headshot.jpg"
 fullname: "Ian Nesbitt"
 firstname: "Ian"
 role: "Software Developer"
