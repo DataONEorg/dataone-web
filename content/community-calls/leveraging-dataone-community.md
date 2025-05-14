@@ -29,5 +29,6 @@ speakers:
 - people/matthew-jones.md
 - people/amber-budden.md
 - people/ian-nesbitt.md
+- people/angie-garcia.md
 
 ---
