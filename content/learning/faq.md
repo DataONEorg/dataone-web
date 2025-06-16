@@ -39,7 +39,7 @@ You are in full control of the data curation for the data you upload to your rep
     - q: Can we set up a dataset curation/review process for submitted datasets?
       a: 'Yes. Dataset curation can be as intensive as desired. Some Hosted Repositories have extensive review processes, whereas others allow dataset creators to publish datasets immediately without review. Curation can involve either editing and annotating metadata records via the API, or simply checking for errors. Generally, repositories that have a curation process tend to only allow members of their curation teams to assign DOIs and make datasets public.' 
     - q: Where are DataONE's services hosted? 
-      a: 'Our main services are hosted in the University of California, Santa Barbara (UCSB) [North Hall Data Center](https://it.ucsb.edu/information-technology-services/north-hall-data-center/)'
+      a: 'Our main services are hosted in the University of California, Santa Barbara (UCSB) [North Hall Data Center](https://it.ucsb.edu/information-technology-services/north-hall-data-center/). A second copy of the data is stored at an off-campus facility in downtown Santa Barbara, and a third copy is stored in a dark archive in the Amazon Glacier cloud storage system, primarily intended for disaster recovery. Other copies are stored as replica objects at participating network member repositories across the US.'
 - template: section
   title: DataONE Plus
   id: portals
