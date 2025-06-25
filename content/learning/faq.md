@@ -77,11 +77,7 @@ You are in full control of the data curation for the data you upload to your hos
   - template: faq
     faqs:
     - q: Can I grant edit and/or publish permissions to another person for my dataset?
-      a: 'Yes. Most repositories allow you to change view, edit, and publish permissions to your co-authors and reviewers for each dataset you submit using their [ORCiD ID](https://orcid.org/). Those repositories that do not allow authors to change dataset permissions themselves generally have a data curation team that can. To add someone as an editor to your dataset, look for the "Share" button at the top of the file list in the metadata editor (labeled 1) and for individual files (labeled 2): ![image](uploads/d1-sharingtable.png)'
-      image:
-        template: image
-        src: "uploads/d1-sharingtable.png"
-        alttext: "Image with an arrow from the label 1 to the top Share button (for the entire dataset) and the label 2 with an arrow to the share button for one of the dataset files."
-        type: default
+      a: 'Yes. Most repositories allow you to change view, edit, and publish permissions to your co-authors and reviewers for each dataset you submit using their [ORCiD ID](https://orcid.org/). Those repositories that do not allow authors to change dataset permissions themselves generally have a data curation team that can. To add someone as an editor to your dataset, look for the "Share" button at the top of the file list in the metadata editor (labeled 1) and for individual files (labeled 2): ![Image with an arrow from the label 1 to the top Share button (for the entire dataset) and the label 2 with an arrow to the share button for one of the dataset files](uploads/d1-sharingtable.png)
+      The resulting dialog box will then allow you to add viewers, editors, and owners using a search function (by ORCiD ID, name, email, or the name of a group of users). ![Image showing a search by ORCiD number in the access control dialog box](uploads/d1-sharingpermissions.png)'
 
 ---
