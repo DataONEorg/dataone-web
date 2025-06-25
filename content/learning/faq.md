@@ -50,6 +50,10 @@ You are in full control of the data curation for the data you upload to your hos
       a: 'DataONE maintains an open source software stack built with modern security defect scanning and a defense in-depth security strategy supported by our University of California, Santa Barbara (UCSB) campus security. Our cyberinfrastructure has been reviewed by [Trusted CI](https://www.trustedci.org/), the NSF Cybersecurity Center of Excellence, to strengthen our coding standards and ensure a strong baseline of our repository software. To learn more about related security policies and documentation, please visit the [UCSB security policies](https://it.ucsb.edu/it-security-it-professionals/security-policy) page.'
     - q: Has DataONE undergone a SOC 2 audit?
       a: 'DataONE has not undergone a SOC 2 audit at this time and does not currently plan to pursue one.'
+    - q: Can the curation team or dataset owner reserve a DOI in order to publish later?
+      a: 'Yes. Repositories can be configured to be able to reserve DOI identifiers for datasets even while those datasets remain private (e.g. for embargo or other purposes). Contact your repository administrator to inquire about this setting.'
+    - q: What is a node name and how does it differ from a URL?
+      a: 'A node name is a unique identifier used in DataONE that refers to a specific repository. Users may not interact with this name much unless they are using the API, but it is used widely around our systems and power users may encounter it when they need to refer to a repository ("node") within DataONE. We usually suggest that repositories use their primary name or acronym for this value; for example, the Arctic Data Center is `urn:node:ARCTIC` and the KNB is `urn:node:KNB`. "URN" stands for Uniform Resource Name, which is another way of saying that it is a unique value that refers specifically to the repository, in a similar way to that of a URL ("Uniform Resource Locator"). URNs are machine-readable links within DataONE systems, whereas URLs are links within broader internet systems.'
 - template: section
   title: DataONE Plus
   id: portals
