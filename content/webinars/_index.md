@@ -13,7 +13,7 @@ header:
     alttext: ''
     type: ''
   title: Cutting-edge discussions in research data management
-  intro: Please join us for discussions on open science, the role of
+  intro: Please join us once a month for discussions on open science, the role of
     the data lifecycle, and achieving innovative science through shared data and ground-breaking
     tools.
   pill:
