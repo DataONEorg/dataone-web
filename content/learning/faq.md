@@ -68,5 +68,20 @@ You are in full control of the data curation for the data you upload to your hos
     - q: How can I make changes to my portal?
       a: 'If you have permissions to edit the portal, you can do it via our system. For a better tutorial, visit out [Portals How-To Page](https://www.dataone.org/portals-tutorial/#saving-and-editing-portals).'
     - q: Can we limit permissions to specific members and/or groups for certain portals?
-      a: 'Yes, each portal can be configured with customized permissions. This includes control over which users and groups can view the portal, edit its content, and manage its permissions. For more details, visit our [Portals Tutorial](https://www.dataone.org/portals-tutorial/).'
+      a: 'Yes, each portal can be configured with customized permissions. This includes control over which users and groups can view the portal, edit its content, and manage its permissions. For more details, visit our [Portals Tutorial](https://www.dataone.org/portals-tutorial/) or see our [FAQ answers](#sharing) below.'
+- template: section
+  title: Dataset Sharing and Access Control
+  id: sharing
+  background: default
+  blocks:
+  - template: faq
+    faqs:
+    - q: Can I grant edit and/or publish permissions to another person for my dataset?
+      a: 'Yes. Most repositories allow you to change view, edit, and publish permissions to your co-authors and reviewers for each dataset you submit using their [ORCiD ID](https://orcid.org/). Those repositories that do not allow authors to change dataset permissions themselves generally have a data curation team that can. To add someone as an editor to your dataset, look for the "Share" button at the top of the file list in the metadata editor (labeled 1) and for individual files (labeled 2): ![image](uploads/d1-sharingtable.png)'
+      image:
+        template: image
+        src: "uploads/d1-sharingtable.png"
+        alttext: "Image with an arrow from the label 1 to the top Share button (for the entire dataset) and the label 2 with an arrow to the share button for one of the dataset files."
+        type: default
+
 ---
