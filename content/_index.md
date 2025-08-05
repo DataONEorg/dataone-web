@@ -49,7 +49,7 @@ page_sections:
       icon: award
       content:
       - template: card
-        href: https://geri.dataone.org/
+        href: https://search.dataone.org/portals/GEUS
         title: New Network Member 
         subtitle: "See what's new!"
         clickable: true
