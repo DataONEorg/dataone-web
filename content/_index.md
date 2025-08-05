@@ -60,7 +60,7 @@ page_sections:
         description: We're excited to announce the Geological Survey of Denmark and Greenland, otherwise known as the GEUS Dataverse, joined the DataONE network! They are now an open data repository for scientists from GEUS aiming to share and preserve their data. For more information, explore the GEUS Dataverse portal.
         image:
           template: image
-          src: "content/uploads/member_node_logos/GERI.png"
+          src: "content/uploads/member_node_logos/GEUS.png"
           alttext: GERI logo
           type: default
           overlay_effect: ''
