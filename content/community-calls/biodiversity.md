@@ -15,7 +15,7 @@ button:
 title: "Discovering Biodiversity Data in DataONE Network"
 slug: biodiversity-dataone-community
 event_datetime: 2025-12-03T09:00:00-08:00
-image: "content/uploads/hero_images/francesco-ungaro-hqAGgNsMpEY-unsplash.jpg"
+image: "/uploads/hero_images/francesco-ungaro-hqAGgNsMpEY-unsplash.jpg"
 tags: []
 registration_link: ''
 meeting_link: 'https://ucsb.zoom.us/j/82395191903'
