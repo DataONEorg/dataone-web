@@ -1,7 +1,7 @@
 ---
 date: 2020-12-15T11:58:33-08:00
 duration: 60
-status: upcoming
+status: past
 registration_text: Register now
 meeting_text: Join now
 button:
