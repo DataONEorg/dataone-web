@@ -49,19 +49,19 @@ page_sections:
       icon: award
       content:
       - template: card
-        href: https://search.dataone.org/portals/GEUS
+        href: https://seafloor.dataone.org/
         title: New Network Member 
         subtitle: "See what's new!"
         clickable: true
         pill:
           template: pill
-          text: GEUS Dataverse
+          text: Seafloor Data Repository 
           style: primary
-        description: We're excited to announce the Geological Survey of Denmark and Greenland, otherwise known as the GEUS Dataverse, joined the DataONE network! They are now an open data repository for scientists from GEUS aiming to share and preserve their data. For more information, explore the GEUS Dataverse portal.
+        description: Through close collaboration with our team, the Regional Wildlife Science Collaborative (RWSC), Northeast Regional Council (NROC), and the Mid-Atlantic Regional Council on the Ocean (MARCO), our team onboarded the Seafloor Data Repository into the DataONE network earlier in 2025. This addition increases the availability of seafloor datasets from U.S. Atlantic waters within DataONE, supporting the development of more regional scale seafloor habitat data products. This scale of collaboration highlights the value in shared infrastructure and reinforces our excitement for future partnerships to leverage DataONE's services to support repositories with diverse data types and broad scientific scope. This onboarding also serves as a strong example of how regional partnerships can leverage shared infrastructure to support complex and multidisciplinary data needs. For more information, explore the Seafloor Data Repository.
         image:
           template: image
-          src: "content/uploads/aningaaq-rosing-carlsen-YIX0BHzcmuE-unsplash.jpg"
-          alttext: GERI logo
+          src: "content/uploads/member_node_logos/sdr_logo.png"
+          alttext: SDR logo
           type: default
           overlay_effect: ''
         tags:
