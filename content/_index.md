@@ -65,8 +65,9 @@ page_sections:
           type: default
           overlay_effect: ''
         tags:
-        - Plan
-        - Integrate
+        - Biodiversity 
+        - Seafloor Data
+        - Collaboration 
         icon: ''
         colorClass: ''
         datetime:
