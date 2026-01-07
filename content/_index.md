@@ -57,7 +57,7 @@ page_sections:
           template: pill
           text: Seafloor Data Repository 
           style: primary
-        description: Through close collaboration with our team, the Regional Wildlife Science Collaborative (RWSC), Northeast Regional Council (NROC), and the Mid-Atlantic Regional Council on the Ocean (MARCO), our team onboarded the Seafloor Data Repository into the DataONE network earlier in 2025. This addition increases the availability of seafloor datasets from U.S. Atlantic waters within DataONE, supporting the development of more regional scale seafloor habitat data products. This scale of collaboration highlights the value in shared infrastructure and reinforces our excitement for future partnerships to leverage DataONE's services to support repositories with diverse data types and broad scientific scope. For more information, explore the [Seafloor Data Repository](https://seafloor.dataone.org/).
+        description: Through close collaboration with our team, the Regional Wildlife Science Collaborative (RWSC), Northeast Regional Council (NROC), and the Mid-Atlantic Regional Council on the Ocean (MARCO), our team onboarded the Seafloor Data Repository into the DataONE network earlier in 2025. This addition increases the availability of seafloor datasets from U.S. Atlantic waters within DataONE, supporting the development of more regional scale seafloor habitat data products. This scale of collaboration highlights the value in shared infrastructure and reinforces our excitement for future partnerships to leverage DataONE's services to support repositories with diverse data types and broad scientific scope. For more information, explore the <a href="https://seafloor.dataone.org/">Seafloor Data Repository</a>.
         image:
           template: image
           src: "content/uploads/seafloor-background.png"
@@ -115,7 +115,7 @@ page_sections:
           template: pill
           text: Training
           style: secondary
-        description: While, we are not offering in-person short courses at the moment, [explore our additional resourcess](/training/) to continue learning. If you are interested in receiving training for you or your team, please reach out to our support@dataone.org.
+        description: While, we are not offering in-person short courses at the moment, [explore our additional resources](/training/) to continue learning. If you are interested in receiving training for you or your team, please reach out to our support@dataone.org.
         icon: ''
         colorClass: ''
         datetime:
