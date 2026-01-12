@@ -23,6 +23,30 @@ page_sections:
   blocks:
   - template: timeline
     event:
+    - date: '2025-12-01'
+      title: DataONE’s network growth 
+      description: 2025 marked a milestone year for DataONE, with the largest period of growth in the network’s history. Ten new projects and organizations joined the network which  strengthened the community and expanded the range of available data.
+      image: "/uploads/future.jpg"
+    - date: '2024-09-01'
+      title: DataONE welcomes the Smithsonian 
+      description: The Smithsonian partners with DataONE for the launch of the Smithsonian Data Research Repository, intended to facilitate open and discoverable reuse of Smithsonian research data products.
+      image: "/uploads/future.jpg"
+    - date: '2024-02-01'
+      title: Building open geospatial infrastructure for Greenland research 
+      description: QGreenland-Net brings together the QGreenland team at the University of Colorado, Boulder, the Arctic Data Center, and DataONE to develop shared tools, connected infrastructure, and scalable workflows for geospatial data. Together, this collaboration supports building a Greenland-focused geoscience data catalog that improves data discovery, processing, and reuse. 
+      image: "/uploads/future.jpg"
+    - date: '2022-10-05'
+      title: ESIP Endorses Guidance For Science On Schema.org Metadata 
+      description: Following ESIP’s endorsement of science-on-schema.org guidance, DataONE adopted schema.org metadata as a method to streamline onboarding new data repositories. 
+      image: "/uploads/future.jpg"
+    - date: '2020-08-11'
+      title: DataONE Community Meeting 
+      description: DataONE plans and prepares for transition from NSF funding to new sustainable model.   
+      image: "/uploads/future.jpg"
+    - date: '2020-07-01'
+      title: DataONE launches new website
+      description: DataONE upgrades the website with a new look to improve usability and help users navigate through the network more efficiently and discover data more easily. 
+      image: "/uploads/future.jpg"
     - date: '2019-01-15'
       title: New leadership transition
       description: A new management team is formed and administrative oversight of
