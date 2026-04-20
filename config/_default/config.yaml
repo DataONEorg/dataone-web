@@ -25,7 +25,6 @@ enableRobotsTXT: true
 publishDir: docs
 permalinks:
   about: "/:contentbasename"
-  about: "/:contentbasename"
   community: "/:contentbasename"
   learning: "/:contentbasename"
   services: "/:contentbasename"
