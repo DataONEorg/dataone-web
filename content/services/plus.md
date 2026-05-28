@@ -365,7 +365,7 @@ page_sections:
   blocks:
   - template: page-summary
     service: services/hosted-repo.md
-price: "Included for members"
+price: "Free"
 menu:
   primary_nav:
     weight: 8
