@@ -37,6 +37,28 @@ header:
     use_member_repositories: false
     style: ''
 page_sections:
+- block: What Brings You to DataONE?
+  template: section-highlighted-links
+  title: What Brings You to DataONE?
+  items:
+  - title: Find Data
+    icon: search
+    description: Search across our network to discover data
+    button:
+      label: Search the network
+      url: https://search.dataone.org/data
+  - title: Share your data
+    icon: database
+    description: Publish, preserve, and share your data with the network
+    button:
+      label: DataONE products
+      url: https://www.dataone.org/services/
+  - title: Join the Network
+    icon: network
+    description: Connect your data to the DataONE federation
+    button:
+      label: Learn about joining
+      url: 
 - template: section
   background: wave
   title: The latest updates from DataONE
