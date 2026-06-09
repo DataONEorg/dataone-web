@@ -6,9 +6,6 @@
   <div class="section-highlighted-links__items">
     {{ range $section.items }}
     <div class="section-highlighted-links__item">
-      <div class="section-highlighted-links__icon">
-        {{ partial "blocks/icon/icon.html" (dict "icon" .icon) }}
-      </div>
       <h3 class="section-highlighted-links__item-title">{{ .title }}</h3>
       <p class="section-highlighted-links__item-description">{{ .description }}</p>
       {{ with .button }}
