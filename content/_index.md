@@ -37,8 +37,7 @@ header:
     use_member_repositories: false
     style: ''
 page_sections:
-- block: What Brings You to DataONE?
-  template: section-highlighted-links
+- template: section-highlighted-links
   title: What Brings You to DataONE?
   items:
   - title: Find Data
