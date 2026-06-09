@@ -1,17 +1,1 @@
-{{ $section := .Section }}
-<section class="section section-highlighted-links">
-  {{ with $section.title }}
-  <h2 class="section-highlighted-links__title">{{ . }}</h2>
-  {{ end }}
-  <div class="section-highlighted-links__items">
-    {{ range $section.items }}
-    <div class="section-highlighted-links__item">
-      <h3 class="section-highlighted-links__item-title">{{ .title }}</h3>
-      <p class="section-highlighted-links__item-description">{{ .description }}</p>
-      {{ with .button }}
-      <a class="section-highlighted-links__btn" href="{{ .url }}">{{ .label }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
-  </div>
-</section>
+<h2>HELLO WORLD</h2>
