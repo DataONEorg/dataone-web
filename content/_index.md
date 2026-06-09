@@ -192,7 +192,30 @@ page_sections:
     external_link: ''
     internal_link: ''
     icon: ''
-  id: ''
+  id: ''  
+- template: section-products-services
+  title: "**Understanding Products & Services from DataONE**"
+  free_items:
+  - title: Data Portals
+    description: A subcollection of datasets with your customization
+  - title: FAIR Metadata Assessments
+    description: Reports analyzing datasets from singular to repository scale
+  - title: Open Source Tools
+    description: Use R, Python, MatLab, Javascript, and Java to interact with DataONE
+  pro_items:
+  - title: Hosted Repositories
+    description: A dedicated repository solution for your group or institution's data, managed by DataONE.
+    button:
+      label: Discover DataONE Hosted Repositories
+      url: /services/hosted-repo/
+  - title: Consulting
+    description: Receive expert advice on your data curation, processing, and more.
+    button:
+      label: Learn more about consulting
+      url: ''
+  button:
+    label: See all features
+    url: /services/
 - template: section
   type: card
   background: data-wave-subtle
