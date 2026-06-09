@@ -115,34 +115,31 @@
     }
   }
 
-  &--figtop {
+&--figtop {
     height: 100%;
-    @include desktop {
-      display       : flex;
-      flex-direction: column;
-    }
-
+    display: flex;
+    flex-direction: column;
     .feature-detailed__title-and-intro {
       justify-content: flex-start;
     }
-
     .feature-detailed__button {
       align-self: flex-start;
+      margin-top: auto;
     }
-
     .feature-detailed__figure {
       order: 1;
     }
-
     .feature-detailed__description {
-      order          : 2;
+      order: 2;
       justify-content: flex-start;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-
     .feature-detailed__figure {
-      margin-top   : 0;
+      margin-top: 0;
       margin-bottom: 2.5rem;
-      display      : block;
+      display: block;
     }
   }
 
