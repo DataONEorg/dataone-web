@@ -63,3 +63,18 @@
     grid-template-columns: repeat(3,1fr);
   }
 }
+
+.columns--2cols {
+  .columns__column {
+    align-items: stretch;
+  }
+  .feature-detailed {
+    height: 100%;
+    &--figtop {
+      height: 100%;
+      .feature-detailed__description {
+        flex: 1;
+      }
+    }
+  }
+}
