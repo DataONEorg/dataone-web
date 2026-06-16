@@ -23,6 +23,9 @@ page_sections:
   blocks:
   - template: timeline
     event:
+    - date: '2026-04-23'
+      title: 1 Million datasets
+      description: The DataONE network surpassed 1 million available datasets!
     - date: '2025-12-01'
       title: DataONE’s network growth 
       description: 2025 marked a milestone year for DataONE, with the largest period of growth in the network’s history. Ten new projects and organizations joined the network which  strengthened the community and expanded the range of available data.
