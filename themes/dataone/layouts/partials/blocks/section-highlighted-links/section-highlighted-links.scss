@@ -57,7 +57,7 @@
   &__btn {
     display: inline-block;
     background: $cn-yellow; // matches "SEAFLOOR DATA REPOSITORY" yellow badge
-    color: $cn-blue-grey;
+    color: #b59932; // matches the text color on the "SEAFLOOR DATA REPOSITORY" badge
     border: none;
     border-radius: 20px;
     padding: 0.4rem 1.2rem;
@@ -71,7 +71,7 @@
 
     &:hover {
       background: darken($cn-yellow, 8%);
-      color: $cn-blue-grey;
+      color: #b59932;
     }
   }
 }
