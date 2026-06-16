@@ -8,10 +8,11 @@
 
   &__title {
     text-align: center;
-    font-size: 1.5rem;
+    font-family: $ff-serif; // Martel - matches other section titles on the site
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #1b3a5e;
+    color: $cn-blue-grey;
   }
 
   &__items {
@@ -25,8 +26,8 @@
     flex: 1;
     min-width: 200px;
     max-width: 280px;
-    background: #eef3f8;
-    border: 1px solid #c9d8e8;
+    background: $ac-blue; // #E1E9ED - matches the site's accent blue
+    border: 1px solid $cn-blue-grey;
     border-radius: 8px;
     padding: 1.5rem;
     display: flex;
@@ -35,32 +36,36 @@
   }
 
   &__item-title {
+    font-family: $ff-sans-serif; // Work Sans - matches card headings elsewhere
     font-size: 1.1rem;
-    font-weight: 700;
-    color: #1b3a5e;
+    font-weight: 600;
+    color: $cn-blue-grey;
     margin: 0;
   }
 
   &__item-description {
+    font-family: $ff-sans-serif; // Work Sans
     font-size: 0.9rem;
-    color: #444;
+    color: $cn-blue-grey;
     flex-grow: 1;
     margin: 0;
+    line-height: 1.5;
   }
 
   &__btn {
     display: inline-block;
-    background: #f5c842;
-    color: #1b3a5e;
+    background: $cn-yellow; // #EED268 - the site's yellow
+    color: $cn-blue-grey;
     border-radius: 20px;
     padding: 0.4rem 1.2rem;
+    font-family: $ff-sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     text-align: center;
 
     &:hover {
-      background: #e0b430;
+      background: darken($cn-yellow, 8%);
     }
   }
 }
