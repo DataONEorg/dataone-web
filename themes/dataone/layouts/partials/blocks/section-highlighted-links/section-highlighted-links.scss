@@ -56,22 +56,22 @@
 
   &__btn {
     display: inline-block;
-    background: transparent; // matches the tag pill style (BIODIVERSITY etc.)
-    color: $cn-teal;
-    border: 1px solid $cn-teal;
+    background: $cn-yellow; // matches "SEAFLOOR DATA REPOSITORY" yellow badge
+    color: $cn-blue-grey;
+    border: none;
     border-radius: 20px;
     padding: 0.4rem 1.2rem;
     font-family: $ff-sans-serif;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 
     &:hover {
-      background: $cn-teal;
-      color: #fff;
+      background: darken($cn-yellow, 8%);
+      color: $cn-blue-grey;
     }
   }
 }
