@@ -8,11 +8,11 @@
 
   &__title {
     text-align: center;
-    font-family: $ff-serif; // Martel - matches other section titles on the site
+    font-family: $ff-serif;
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: $cn-blue-grey;
+    color: $cn-blue-grey; // matches "The latest updates from DataONE"
   }
 
   &__items {
@@ -26,7 +26,7 @@
     flex: 1;
     min-width: 200px;
     max-width: 280px;
-    background: $ac-blue; // #E1E9ED - matches the site's accent blue
+    background: $ac-blue;
     border: 1px solid $cn-blue-grey;
     border-radius: 8px;
     padding: 1.5rem;
@@ -36,15 +36,17 @@
   }
 
   &__item-title {
-    font-family: $ff-sans-serif; // Work Sans - matches card headings elsewhere
+    font-family: $ff-sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: $cn-blue-grey;
+    color: $cn-teal; // matches teal tab style "NEW NETWORK MEMBER"
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin: 0;
   }
 
   &__item-description {
-    font-family: $ff-sans-serif; // Work Sans
+    font-family: $ff-sans-serif;
     font-size: 0.9rem;
     color: $cn-blue-grey;
     flex-grow: 1;
@@ -54,18 +56,22 @@
 
   &__btn {
     display: inline-block;
-    background: $cn-yellow; // #EED268 - the site's yellow
-    color: $cn-blue-grey;
+    background: transparent; // matches the tag pill style (BIODIVERSITY etc.)
+    color: $cn-teal;
+    border: 1px solid $cn-teal;
     border-radius: 20px;
     padding: 0.4rem 1.2rem;
     font-family: $ff-sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 500;
     text-decoration: none;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 
     &:hover {
-      background: darken($cn-yellow, 8%);
+      background: $cn-teal;
+      color: #fff;
     }
   }
 }
