@@ -43,8 +43,7 @@ page_sections:
   id: ''
 - title: DataONE Community Meeting
   intro: |-
-    This year's online community meeting happened **August 11th - 13th 2020** and included new service announcements, program updates, repository network meetings, feature tutorials and more.
-    Content from the meeting will be available soon.
+    Our latest online community meeting happened on **August 11th - 13th 2020** and included new service announcements, program updates, repository network meetings, feature tutorials and more.
   template: section
   type: card
   background: topography
