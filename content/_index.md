@@ -157,7 +157,7 @@ page_sections:
   id: ''   
 - template: section
   background: data-wave-subtle
-  title: "Understanding Our Products and Services"
+  title: "**Understanding Our Products and Services**"
   blocks:
   - template: section-products-services
     free_items:
@@ -199,8 +199,10 @@ page_sections:
         label: Learn more
         url: /services/
     button:
-      label: See pricing and features
-      url: /services/
+      type: internal page
+      color: quaternary
+      text: See pricing and features
+      internal_link: services/_index.md
 - template: section
   type: card
   background: data-wave-subtle
