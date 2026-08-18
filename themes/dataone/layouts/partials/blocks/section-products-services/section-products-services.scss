@@ -20,21 +20,21 @@
   &__pill {
     display: table;
     margin: 0 auto 1.25rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    padding: 0.2rem 0.75rem;
+    padding: 0.4rem 1.1rem;
     border-radius: 999px;
     text-transform: uppercase;
   }
 
   &__pill--free {
-    background: var(--c-minor-accent, #e6f1fb);
-    color: var(--c-foreground-on-minor-accent, #0c447c);
+    background: #ddeef9;
+    color: #1c6ba0;
   }
 
   &__pill--paid {
-    background: var(--d1_button-background);
-    color: var(--d1_button-foreground);
+    background: #e8c968;
+    color: #6b5a1c;
   }
 
   &__item {
@@ -70,13 +70,13 @@
   }
 
   &__column--free &__item-icon {
-    background: var(--c-minor-accent, #e6f1fb);
-    stroke: var(--c-foreground-on-minor-accent, #0c447c);
+    background: #ddeef9;
+    stroke: #1c6ba0;
   }
 
   &__column--paid &__item-icon {
-    background: var(--d1_button-background);
-    stroke: var(--d1_button-foreground);
+    background: #e8c968;
+    stroke: #6b5a1c;
   }
 
   &__item-title {
