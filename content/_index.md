@@ -166,13 +166,13 @@ page_sections:
       description: A subcollection of datasets your community can customize.
       button:
         label: Learn more
-        url: /services/
+        url: /plus/
     - title: FAIR Metadata Assessments
       icon: clipboard
       description: Reports analyzing your repository to a science-based scale.
       button:
         label: Learn more
-        url: /services/
+        url: /features/fair/
     - title: Metadata Harvesting
       icon: database
       description: We can help harvest, index, and audit your data.
@@ -191,7 +191,7 @@ page_sections:
       description: Receive expert advice on your data curation, management, and more.
       button:
         label: Learn more
-        url: /services/
+        url: /plus/
     - title: Open Source Tools
       icon: tool
       description: Use R, Python, MetaCat, JavaScript, and Java to interact with DataONE.
