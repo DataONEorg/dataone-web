@@ -1,40 +1,47 @@
 {{ $block := .Block }}
-<section class="section section-products-services background--data-wave-subtle">
-  {{ with $block.title }}
-  <h2 class="section-products-services__title">{{ . }}</h2>
-  {{ end }}
-  <div class="section-products-services__columns">
-    <div class="section-products-services__column">
-      <span class="section-products-services__label section-products-services__label--free">Community free</span>
-      {{ range $block.free_items }}
-      <div class="section-products-services__item">
-        <div class="section-products-services__item-text">
-          <h3 class="section-products-services__item-title">{{ .title }}</h3>
-          <p class="section-products-services__item-description">{{ .description }}</p>
-        </div>
+{{ $page := .Page }}
+<div class="section-products-services__columns">
+  <div class="section-products-services__column section-products-services__column--free">
+    <span class="section-products-services__pill section-products-services__pill--free">Free</span>
+    {{ range $block.free_items }}
+    <div class="section-products-services__item">
+      <div class="section-products-services__item-header">
+        {{ with .icon }}
+        <span class="section-products-services__item-icon">
+          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" . "color" "inherit" "size" "medium") "Page" $page) }}
+        </span>
+        {{ end }}
+        <h3 class="section-products-services__item-title">{{ .title }}</h3>
       </div>
-      {{ end }}
+      <p class="section-products-services__item-description">{{ .description }}</p>
+      {{ with .button }}{{ if .url }}
+      <a class="section-products-services__btn" href="{{ .url }}">{{ .label }}</a>
+      {{ end }}{{ end }}
     </div>
-    <div class="section-products-services__column">
-      <span class="section-products-services__label section-products-services__label--pro">Pro services</span>
-      {{ range $block.pro_items }}
-      <div class="section-products-services__item">
-        <div class="section-products-services__item-text">
-          <h3 class="section-products-services__item-title">{{ .title }}</h3>
-          <p class="section-products-services__item-description">{{ .description }}</p>
-          {{ with .button }}
-          {{ if .url }}
-          <a class="section-products-services__btn" href="{{ .url }}">{{ .label }}</a>
-          {{ end }}
-          {{ end }}
-        </div>
+    {{ end }}
+  </div>
+  <div class="section-products-services__column section-products-services__column--paid">
+    <span class="section-products-services__pill section-products-services__pill--paid">Paid</span>
+    {{ range $block.pro_items }}
+    <div class="section-products-services__item">
+      <div class="section-products-services__item-header">
+        {{ with .icon }}
+        <span class="section-products-services__item-icon">
+          {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" . "color" "inherit" "size" "medium") "Page" $page) }}
+        </span>
+        {{ end }}
+        <h3 class="section-products-services__item-title">{{ .title }}</h3>
       </div>
-      {{ end }}
+      <p class="section-products-services__item-description">{{ .description }}</p>
+      {{ with .button }}{{ if .url }}
+      <a class="section-products-services__btn" href="{{ .url }}">{{ .label }}</a>
+      {{ end }}{{ end }}
     </div>
+    {{ end }}
   </div>
-  {{ with $block.button }}
-  <div class="section-products-services__footer">
-    <a class="section-products-services__footer-btn" href="{{ .url }}">{{ .label }}</a>
-  </div>
-  {{ end }}
-</section>
+</div>
+{{ with $block.button }}
+<div class="section-products-services__footer">
+  <a class="section-products-services__footer-btn" href="{{ .url }}">{{ .label }}</a>
+</div>
+{{ end }}
