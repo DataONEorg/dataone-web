@@ -200,7 +200,7 @@ page_sections:
         url: /services/
     button:
       type: internal page
-      color: quaternary
+      color: primary
       text: See pricing and features
       internal_link: services/_index.md
 - template: section
