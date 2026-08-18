@@ -187,7 +187,7 @@ page_sections:
         label: Learn more
         url: /hosted-repo/
     - title: Consulting
-      icon: life-bouy
+      icon: help-circle
       description: Receive expert advice on your data curation, management, and more.
       button:
         label: Learn more
