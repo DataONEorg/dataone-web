@@ -42,6 +42,6 @@
 </div>
 {{ with $block.button }}
 <div class="section-products-services__footer">
-  <a class="section-products-services__footer-btn" href="{{ .url }}">{{ .label }}</a>
+  {{ partial "blocks/button/button" (dict "Block" . "Page" $page) }}
 </div>
 {{ end }}
