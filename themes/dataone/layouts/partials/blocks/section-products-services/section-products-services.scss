@@ -15,6 +15,10 @@
     border: 1px solid #e0e6ec;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
     padding: 1.5rem;
+    transition: box-shadow 0.2s ease;
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09), 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
   }
 
   &__pill {
@@ -69,6 +73,11 @@
     }
   }
 
+  &__item:hover &__item-icon {
+    transform: scale(1.08);
+    transition: transform 0.15s ease;
+  }
+
   &__column--free &__item-icon {
     background: #ddeef9;
     stroke: #1c6ba0;
@@ -80,31 +89,47 @@
   }
 
   &__item-title {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     margin: 0;
   }
 
   &__item-description {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.5;
+    color: #5f5e5a;
     margin: 0 0 0.5rem;
   }
 
   &__btn {
     display: inline-block;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    padding: 0.35rem 0.85rem;
+    padding: 0.4rem 0.95rem;
     border-radius: 6px;
     border: 1px solid #c9d8e8;
     text-decoration: none;
     color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+    &:hover {
+      border-color: #8fa8bd;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__column--free &__btn:hover {
+    background: #f0f8fd;
+  }
+
+  &__column--paid &__btn:hover {
+    background: #fbf3e0;
   }
 
   &__footer {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    border-top: 1px solid #eef1f4;
+    padding-top: 1.5rem;
   }
 }
