@@ -157,26 +157,47 @@ page_sections:
   id: ''   
 - template: section
   background: data-wave-subtle
+  title: "Understanding Our Products and Services"
   blocks:
   - template: section-products-services
-    title: "Understanding Our Products and Services"
     free_items:
     - title: Data Portals
+      icon: layout
       description: A subcollection of datasets your community can customize.
+      button:
+        label: Learn more
+        url: /services/
     - title: FAIR Metadata Assessments
+      icon: clipboard
       description: Reports analyzing your repository to a science-based scale.
+      button:
+        label: Learn more
+        url: /services/
     - title: Metadata Harvesting
+      icon: database
       description: We can help harvest, index, and audit your data.
+      button:
+        label: Learn more
+        url: /services/
     pro_items:
     - title: Hosted Repository
+      icon: hard-drive
       description: A dedicated repository solution for your group or institution's data, managed by DataONE infrastructure.
       button:
-        label: Learn more about a hosted repository
+        label: Learn more
         url: /hosted-repo/
     - title: Consulting
+      icon: life-bouy
       description: Receive expert advice on your data curation, management, and more.
+      button:
+        label: Learn more
+        url: /services/
     - title: Open Source Tools
+      icon: tool
       description: Use R, Python, MetaCat, JavaScript, and Java to interact with DataONE.
+      button:
+        label: Learn more
+        url: /services/
     button:
       label: See pricing and features
       url: /services/
