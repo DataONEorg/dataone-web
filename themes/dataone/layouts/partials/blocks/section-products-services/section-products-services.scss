@@ -20,14 +20,15 @@
     border: 2px solid #185fa5;
   }
 
-  &__pill {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.2rem 0.75rem;
-    border-radius: 999px;
-    margin-bottom: 1rem;
-  }
+ &__pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
 
   &__pill--free {
     background: #eaf3de;
@@ -92,9 +93,3 @@
     justify-content: center;
     margin-top: 1rem;
   }
-
-  &__footer-btn {
-    font-weight: 600;
-    text-decoration: underline;
-  }
-}
