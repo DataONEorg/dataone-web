@@ -8,6 +8,11 @@ tags:
 - Milestone
 - Network Growth
 - Metacat
+image:
+  template: image
+  src: "uploads/dataone-search-2026.png"
+  alttext: "Screenshot of a DataONE catalog search showing over 1 million datasets, with an interactive map of dataset counts by region"
+  type: default
 ---
 
 On April 23, 2026, the DataONE network surpassed 1 million available datasets! Our data catalog spans many disciplines, from environmental science to social science, supported by over 65 member repositories. This accomplishment was possible thanks to our network members who have consistently contributed to our community.
@@ -15,6 +20,8 @@ On April 23, 2026, the DataONE network surpassed 1 million available datasets! O
 Now, what does an accomplishment like this mean for the broader scientific community? DataONE's growing catalog increases the visibility and citability of contributed datasets. This growth also demonstrates that our metadata standards and cross-repository interoperability are excelling. Discoverability within a catalog of one million datasets, all on a single platform, makes it easier to be found in a single search rather than hunting for datasets across several separate data repositories. This a win not just for our community, but for the broader open environmental data movement that is working towards making data more [FAIR](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, and Reusable) and open.
 
 Search the [catalog](https://search.dataone.org/data) by keyword to explore what datasets are available in your research area.
+
+![Screenshot of a DataONE catalog search showing over 1 million datasets, with an interactive map of dataset counts by region](uploads/dataone-search-2026.png)
 
 2025 marked the strongest growth period in DataONE's 14-year history. Ten new projects and organizations joined the network, strengthening the community and expanding the range of available data. A significant share of our data catalog comes from the [Pangaea](https://www.pangaea.de/) data repository, which accounts for more than a half a million available datasets. This partnership has been instrumental in developing the network and enabling cross-repository discovery. While our focus remains on Earth and environmental data, a wide range of interdisciplinary data is also available for discovery.
 
