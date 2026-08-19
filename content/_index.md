@@ -53,7 +53,7 @@ page_sections:
       label: DataONE products
       url: https://www.dataone.org/services/
   - title: Join the Network
-    icon: network
+    icon: globe
     description: Connect your data to the DataONE federation
     button:
       label: Learn about joining
