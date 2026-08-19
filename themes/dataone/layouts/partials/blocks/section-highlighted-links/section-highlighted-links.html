@@ -1,4 +1,5 @@
 {{ $block := .Block }}
+{{ $page := .Page }}
 <section class="section section-highlighted-links">
   {{ with $block.title }}
   <h2 class="section-highlighted-links__title">{{ . }}</h2>
@@ -6,6 +7,11 @@
   <div class="section-highlighted-links__items">
     {{ range $block.items }}
     <div class="section-highlighted-links__item">
+      {{ with .icon }}
+      <span class="section-highlighted-links__item-icon">
+        {{ partial "blocks/icon/icon" (dict "Block" (dict "icon" . "color" "inherit" "size" "medium") "Page" $page) }}
+      </span>
+      {{ end }}
       <h3 class="section-highlighted-links__item-title">{{ .title }}</h3>
       <p class="section-highlighted-links__item-description">{{ .description }}</p>
       {{ with .button }}
