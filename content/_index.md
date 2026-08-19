@@ -106,6 +106,17 @@ page_sections:
           external_link: ''
           internal_link: ''
           icon: ''
+    - title: News
+      annotation: Catch up on the latest news and announcements from DataONE
+      icon: rss
+      content:
+      - template: page-summary
+        type: news
+        auto_select: true
+        news: ''
+        windar: ''
+        community_call: ''
+        job: '' 
     - title: Community call
       annotation: Everyone is welcome to join the upcoming community call
       icon: users
