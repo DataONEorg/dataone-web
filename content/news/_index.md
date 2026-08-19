@@ -12,6 +12,6 @@ menu:
     parent: About
     pre: book-open
     weight: 9
-draft: true
+draft: false
 
 ---
