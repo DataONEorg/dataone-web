@@ -25,7 +25,7 @@ header:
     Custom search portals for your science, your data, and related data in the
     DataONE network.
 
-    **:key: Build your own custom portal for free during the preview period! No credit card required.**
+    **:key: Build your own custom portal for free!**
   image:
     template: image
     src: "/uploads/portals-header.png"
