@@ -40,18 +40,18 @@ page_sections:
 - template: section-highlighted-links
   title: What Brings You to DataONE?
   items:
-  - title: Find Data
-    icon: search
-    description: Search across our network to discover data
-    button:
-      label: Search the network
-      url: https://search.dataone.org/data
   - title: Share your data
     icon: database
     description: Publish, preserve, and share your data with the network
     button:
       label: DataONE products
       url: https://www.dataone.org/services/
+  - title: Build Data Skills
+    icon: book-open
+    description: Learn about data management best practices
+    button:
+      label: Explore skillbuilding
+      url: https://dataoneorg.github.io/Education/
   - title: Join the Network
     icon: globe
     description: Connect your data to the DataONE federation
