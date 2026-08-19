@@ -2,7 +2,7 @@
 draft: false
 title: 1 Million Datasets and Counting
 headline: "1 Million Datasets and Counting: DataONE is Growing"
-date: 2026-04-23T12:00:00.000+00:00
+date: 2026-06-01T12:00:00.000+00:00
 summary: On April 23, 2026, the DataONE network surpassed 1 million available datasets, marking the strongest growth period in the network's 14-year history.
 tags:
 - Milestone
