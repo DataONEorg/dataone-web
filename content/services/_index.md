@@ -9,10 +9,6 @@ aliases:
 header:
   template: header
   title: Everything you need to support your research
-  pill:
-    style: primary
-    text: New!
-    template: ''
 page_sections:
 - template: section
   id: feature-table
