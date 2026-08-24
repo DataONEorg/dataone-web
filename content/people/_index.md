@@ -38,16 +38,7 @@ page_sections:
     team_members: true
     type: simple
     grouping: filters
-menu:
-  footer:
-    name: Our Team
-    parent: About
-    weight: 4
-  primary_nav:
-    name: Our Team
-    parent: About
-    pre: smile
-    weight: 4
+
 
 ---
 {{/* This directory stores information about team peoples, webinar speakers, and any other people that we feature on the website somewhere. */}}
