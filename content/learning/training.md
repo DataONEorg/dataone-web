@@ -19,10 +19,6 @@ header:
     alttext: Training
     overlay_effect: subtle
     type: ''
-  pill:
-    template: pill
-    style: quaternary
-    text: More information to come
   background_color: ''
 page_sections:
 - template: section

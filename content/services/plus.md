@@ -16,16 +16,12 @@ header:
   template: header
   type: image on right with overflow
   background_color: light
-  pill:
-    template: pill
-    style: quaternary
-    text: Free Preview
   title: A home for your research online
   intro: |-
     Custom search portals for your science, your data, and related data in the
     DataONE network.
 
-    **:key: Build your own custom portal for free during the preview period! No credit card required.**
+    **:key: Build your own custom portal for free!**
   image:
     template: image
     src: "/uploads/portals-header.png"
@@ -355,7 +351,6 @@ page_sections:
     content: Have questions? [Get in touch](/contact/).
 - template: section
   background: data-wave-subtle
-  small_title: Coming soon
   title: Need more? **Add a dedicated hosted repository**
   intro: Do you need data preservation services in addition to a data portal? DataONE
     hosted repositories represent stand-alone deployments of open source Metacat repository

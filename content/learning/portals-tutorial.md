@@ -33,10 +33,6 @@ header:
     type: tilt-left
     alttext: ''
     overlay_effect: ''
-  pill:
-    template: pill
-    style: quaternary
-    text: Free Preview
 menu:
   primary_nav:
     parent: Learning
