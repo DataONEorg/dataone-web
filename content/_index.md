@@ -37,27 +37,6 @@ header:
     use_member_repositories: false
     style: ''
 page_sections:
-- template: section-highlighted-links
-  title: What Brings You to DataONE?
-  items:
-  - title: Share your data
-    icon: database
-    description: Publish, preserve, and share your data with the network
-    button:
-      label: DataONE products
-      url: https://www.dataone.org/services/
-  - title: Build Data Skills
-    icon: book-open
-    description: Learn about data management best practices
-    button:
-      label: Explore skillbuilding
-      url: https://dataoneorg.github.io/Education/
-  - title: Join the Network
-    icon: globe
-    description: Connect your data to the DataONE federation
-    button:
-      label: Learn about joining
-      url: 
 - template: section
   background: wave
   title: The latest updates from DataONE
@@ -166,54 +145,6 @@ page_sections:
     internal_link: ''
     icon: ''
   id: ''   
-- template: section
-  background: data-wave-subtle
-  title: "**Understanding Our Products and Services**"
-  blocks:
-  - template: section-products-services
-    free_items:
-    - title: Data Portals
-      icon: layout
-      description: A subcollection of datasets your community can customize.
-      button:
-        label: Learn more
-        url: /plus/
-    - title: FAIR Metadata Assessments
-      icon: clipboard
-      description: Reports analyzing your repository to a science-based scale.
-      button:
-        label: Learn more
-        url: /features/fair/
-    - title: Metadata Harvesting
-      icon: database
-      description: We can help harvest, index, and audit your data.
-      button:
-        label: Learn more
-        url: /services/
-    pro_items:
-    - title: Hosted Repository
-      icon: hard-drive
-      description: A dedicated repository solution for your group or institution's data, managed by DataONE infrastructure.
-      button:
-        label: Learn more
-        url: /hosted-repo/
-    - title: Consulting
-      icon: help-circle
-      description: Receive expert advice on your data curation, management, and more.
-      button:
-        label: Learn more
-        url: /plus/
-    - title: Open Source Tools
-      icon: tool
-      description: Use R, Python, MetaCat, JavaScript, and Java to interact with DataONE.
-      button:
-        label: Learn more
-        url: /services/
-    button:
-      type: internal page
-      color: primary
-      text: See pricing and features
-      internal_link: services/_index.md
 - template: section
   type: card
   background: data-wave-subtle
